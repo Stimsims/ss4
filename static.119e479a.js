@@ -282,7 +282,7 @@ exports.default = (0, _reactStatic.withRouteData)(function (_ref) {
     _react2.default.createElement(
       'h2',
       null,
-      'site 2'
+      'site 3'
     ),
     'All Posts:',
     _react2.default.createElement(
@@ -333,7 +333,7 @@ exports.default = (0, _reactStatic.withRouteData)(function (_ref) {
       _reactStatic.Link,
       { to: '/' },
       '<',
-      ' Back'
+      ' Back1'
     ),
     _react2.default.createElement('br', null),
     _react2.default.createElement(
@@ -450,7 +450,7 @@ var About = function About() {
     _react2.default.createElement(
       'h1',
       null,
-      'This is what we\'re all about.'
+      'This is what we\'re all about.1'
     ),
     _react2.default.createElement(
       'p',
@@ -686,7 +686,7 @@ var universalOptions = {
 
 var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Home',
-  file: 'D:/websites/react-static/static-site-2/3/dist/react-static-routes.js',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
     return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 6)), (0, _importCss3.default)('src/containers/Home', {
       disableWarnings: true
@@ -706,7 +706,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
 }), universalOptions);
 var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Post',
-  file: 'D:/websites/react-static/static-site-2/3/dist/react-static-routes.js',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
     return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 7)), (0, _importCss3.default)('src/containers/Post', {
       disableWarnings: true
@@ -726,7 +726,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
 }), universalOptions);
 var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/About',
-  file: 'D:/websites/react-static/static-site-2/3/dist/react-static-routes.js',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
     return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 8)), (0, _importCss3.default)('src/containers/About', {
       disableWarnings: true
@@ -746,7 +746,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
 }), universalOptions);
 var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/404',
-  file: 'D:/websites/react-static/static-site-2/3/dist/react-static-routes.js',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
     return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('src/containers/404', {
       disableWarnings: true
@@ -1739,4 +1739,4 @@ exports.default = Menu;
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.88d6baeb.js.map
+//# sourceMappingURL=static.119e479a.js.map
