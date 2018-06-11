@@ -11,9 +11,13 @@ import React from 'react';
 
      siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite2',
+
+  fix build problem by deleting node modules and package-lock
 */
 
 export default {
+  siteRoot: 'https://illulli.github.io/',
+  basePath:'ss4',
   getSiteData: () => ({
     title: 'React Static',
   }),
