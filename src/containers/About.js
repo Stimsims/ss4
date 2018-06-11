@@ -51,7 +51,7 @@ const CounterConnected = connect(mapStateToProps, mapDispatchToProps)(Counter);
 // Actual container
 const About = () => (
   <div>
-    <h1>This is what we're all about.</h1>
+    <h1>This is what we're all about.1</h1>
     <p>
       React, static sites, performance, speed. It's the stuff that makes us
       tick.
