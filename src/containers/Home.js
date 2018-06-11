@@ -10,7 +10,7 @@ export default withRouteData(({ posts }) => {
     <div>
       <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
       <img src={logoImg} alt="" />
-      <h2>site 1</h2>
+      <h2>site 2</h2>
       All Posts:
       <ul>
         {posts.map(post => (
