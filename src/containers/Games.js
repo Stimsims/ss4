@@ -8,21 +8,25 @@ import FadeIn from './../components/UI/animations/FadeIn.jsx';
 class Games extends React.Component{
     constructor(props){
         super(props);
-        // console.log("games");
-        // console.log(this.props);
+        this.addKatex = this.addKatex.bind(this);
         this.state = {
-            showKatex: false
+            katex: []
         }
+    }
+    addKatex(){
+        this.setState({
+            katex: [
+                ...this.state.katex,
+                <Dynamic payload="./UI/math/Katex.jsx" />
+            ]
+        })
     }
     renderKatex(){
-        if(this.state.showKatex){
-            return <Dynamic payload="./FatComponent.jsx" />
-        }else{
-            return <button onClick={()=>{this.setState({showKatex:true})}}>Katex</button>
-        }
+        return this.state.katex.map(e => {
+            return e;
+        })
     }
     sendEvent(){
-   //     console.log("send event");
         ReactGA.event({
             category: 'Editing',
             action: 'Deleted Component',
@@ -35,6 +39,7 @@ class Games extends React.Component{
               <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
               <h2>site 3</h2>
               <button onClick={()=>{this.sendEvent()}}>event</button>
+              <button onClick={this.addKatex}>Katex</button>
               {this.renderKatex()}
               All Posts:
               <FadeIn>

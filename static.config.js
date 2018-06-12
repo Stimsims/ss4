@@ -16,6 +16,8 @@ import React from 'react';
   basePath:'staticSite2',
 
   fix build problem by deleting node modules and package-lock
+
+    bundleAnalyzer: true,
 */
 
 export default {

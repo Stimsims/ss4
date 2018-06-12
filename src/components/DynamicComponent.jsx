@@ -13,21 +13,10 @@ const Loading = () => (
   </div>
 )
 
-// const MyComponent = universal(import('./FatComponent.jsx'), {
-//   loading: Loading,
-//   error: Failed,
-// })
-
-// export const preloadMyComponent = () => MyComponent.preload()
-// export default props => <MyComponent {...props} />
-//<this.state.component {...this.props} />
-
-
 class Dynamic extends React.Component{
     constructor(props){
         super(props);
         console.log("dynamic component constructor " + this.props.payload);
-
         let component = universal(import(`${this.props.payload}`), {
             loading: Loading,
             error: Failed,
