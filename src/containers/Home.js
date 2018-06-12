@@ -1,24 +1,29 @@
 
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-import logoImg from '../logo.png'
 
-export default withRouteData(({ posts }) => {
-  console.log("home posts");
-  console.log(posts);
-  return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
-      <img src={logoImg} alt="" />
-      <h2>site 3</h2>
-      All Posts:
-      <ul>
-        {posts.map(post => (
-          <li key={post.id}>
-            <Link key={post.id} to={`/post/${post.id}/`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-})
+class Games extends React.Component{
+    constructor(props){
+        super(props);
+        console.log("home");
+        console.log(this.props);
+    }
+    render(){
+        return (
+          <div>
+          <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
+          <h2>site 3</h2>
+          All Posts:
+          <ul>
+            {this.props.posts.map(post => (
+              <li key={post.id}>
+                <Link key={post.id} to={`/posts/${post.id}`}>{post.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+          )
+    }
+}
+
+export default withRouteData(Games);

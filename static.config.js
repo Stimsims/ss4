@@ -2,6 +2,7 @@
 import posts from './data/posts/index.js';
 import games from './data/games/index.js';
 import React from 'react';
+
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
@@ -25,38 +26,38 @@ export default {
   getRoutes: async () => {
    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
    return [
-      {
-        path: '/',
-        component: 'src/containers/Home',
-        getData: () => ({
-          posts,
-        }),
-        children: posts.map(post => {
-          console.log("home post ");
-          console.log(post);
-          return({
-            path: `/post/${post.id}`,
-            component: 'src/containers/Post',
-            getData: () => ({
-              post,
-            }),
-          })
+    {
+      path: '/',
+      component: 'src/containers/Home',
+      getData: () => ({
+        posts,
+      }),
+      children: posts.map(p => {
+        console.log("game post!! " + `/${p.id}`);
+        console.log(p.id);
+        return({
+          path: `/posts/${p.id}`,
+          component: 'src/containers/Post',
+          getData: () => ({
+            p,
+          }),
         })
-      },
+      })
+    },
       {
         path: '/games',
         component: 'src/containers/Games',
         getData: () => ({
-          posts,
+          games,
         }),
-        children: games.map(post => {
-          console.log("game post");
-          console.log(post);
+        children: games.map(g => {
+          console.log("game post!! " + `/${g.id}`);
+          console.log(g.id);
           return({
-            path: `/post/${post.id}`,
-            component: 'src/containers/Post',
+            path: `/${g.id}`,
+            component: 'src/containers/Game',
             getData: () => ({
-              post,
+              g,
             }),
           })
         })
@@ -72,8 +73,14 @@ export default {
     ]
   },
   Document: class CustomHtml extends React.Component {
+    constructor(props){
+      super(props);
+      //console.log("document constructor")
+    }
     render() {
       const { Html, Head, Body, children, renderMeta } = this.props
+      // console.log("document render, head:");
+      // console.log(Head);
       const script1 = "document.createElement('picture')"
       const workboxScript = `// Check that service workers are registered
       if ('serviceWorker' in navigator) {
@@ -94,7 +101,9 @@ export default {
             {renderMeta.styleTags}
             
           </Head>
-          <Body>{children}
+          <Body>
+         
+          {children}
           <script type="text/javascript" dangerouslySetInnerHTML={{ __html: workboxScript }} />
           </Body>
         </Html>
