@@ -66,9 +66,7 @@ class Gapi extends React.Component{
         }
     }
     render(){
-        return <div>
-            {this.renderSignedIn()}
-        </div>
+        return null
     }
 }
 

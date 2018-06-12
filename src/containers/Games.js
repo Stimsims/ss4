@@ -1,14 +1,15 @@
 
 import React from 'react'
-import { withRouteData, Link } from 'react-static'
+import { withRouteData, Link, withSiteData } from 'react-static'
 import Dynamic from './../components/DynamicComponent.jsx';
 import ReactGA from 'react-ga';
+import FadeIn from './../components/UI/animations/FadeIn.jsx';
 
 class Games extends React.Component{
     constructor(props){
         super(props);
-        console.log("games");
-        console.log(this.props);
+        // console.log("games");
+        // console.log(this.props);
         this.state = {
             showKatex: false
         }
@@ -21,7 +22,7 @@ class Games extends React.Component{
         }
     }
     sendEvent(){
-        console.log("send event");
+   //     console.log("send event");
         ReactGA.event({
             category: 'Editing',
             action: 'Deleted Component',
@@ -36,6 +37,8 @@ class Games extends React.Component{
               <button onClick={()=>{this.sendEvent()}}>event</button>
               {this.renderKatex()}
               All Posts:
+              <FadeIn>
+             
               <ul>
                 {this.props.games.map(post => (
                   <li key={post.id}>
@@ -43,9 +46,10 @@ class Games extends React.Component{
                   </li>
                 ))}
               </ul>
+              </FadeIn>
             </div>
           )
     }
 }
 
-export default withRouteData(Games);
+export default withSiteData(withRouteData(Games));
