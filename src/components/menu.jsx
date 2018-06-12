@@ -9,6 +9,7 @@ class Menu extends React.Component{
         return(
             <nav>
                 <Link exact to="/">Home</Link>
+                <Link to="/games">Games</Link>
                 <Link to="/about">About</Link>
             </nav>
         )

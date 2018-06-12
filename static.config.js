@@ -1,10 +1,12 @@
 //import axios from 'axios'
-import posts from './posts/index.js';
+import posts from './data/posts/index.js';
+import games from './data/games/index.js';
 import React from 'react';
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
-
+  siteRoot: 'https://illulli.github.io/',
+  basePath:'ss4',
   siteRoot: 'https://illulli-1e5a.com/',
 
    siteRoot: 'http://localhost:3000',
@@ -16,8 +18,7 @@ import React from 'react';
 */
 
 export default {
-  siteRoot: 'https://illulli.github.io/',
-  basePath:'ss4',
+  siteRoot: 'https://illulli-1e5a.com/',
   getSiteData: () => ({
     title: 'React Static',
   }),
@@ -32,6 +33,24 @@ export default {
         }),
         children: posts.map(post => {
           console.log("home post ");
+          console.log(post);
+          return({
+            path: `/post/${post.id}`,
+            component: 'src/containers/Post',
+            getData: () => ({
+              post,
+            }),
+          })
+        })
+      },
+      {
+        path: '/games',
+        component: 'src/containers/Games',
+        getData: () => ({
+          posts,
+        }),
+        children: games.map(post => {
+          console.log("game post");
           console.log(post);
           return({
             path: `/post/${post.id}`,
