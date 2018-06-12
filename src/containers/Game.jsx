@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
+import Menu from './../components/layout/GameMenu.jsx';
 
 class Games extends React.Component{
     constructor(props){
@@ -11,6 +12,7 @@ class Games extends React.Component{
     render(){
         return (
             <div>
+                <Menu />
               <h2>indi game</h2>
             </div>
           )

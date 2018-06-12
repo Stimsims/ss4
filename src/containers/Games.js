@@ -4,6 +4,8 @@ import { withRouteData, Link, withSiteData } from 'react-static'
 import Dynamic from './../components/DynamicComponent.jsx';
 import ReactGA from 'react-ga';
 import FadeIn from './../components/UI/animations/FadeIn.jsx';
+import Menu from './../components/layout/MainMenu.jsx';
+import Icon from './../components/UI/elements/IconButton.jsx';
 
 class Games extends React.Component{
     constructor(props){
@@ -36,8 +38,13 @@ class Games extends React.Component{
     render(){
         return (
             <div>
+                <Menu />
               <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
               <h2>site 3</h2>
+              <Icon icon={"google"} />
+              <Icon icon={"facebook"} />
+              <Icon icon={"twitter"} />
+              <Icon icon={"paragraph-left"} />
               <button onClick={()=>{this.sendEvent()}}>event</button>
               <button onClick={this.addKatex}>Katex</button>
               {this.renderKatex()}

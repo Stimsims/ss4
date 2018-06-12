@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-//
+import Menu from './../components/layout/MainMenu.jsx';
 
 // /////////////////////////////////////////////////////////
 // Redux components
@@ -51,6 +51,7 @@ const CounterConnected = connect(mapStateToProps, mapDispatchToProps)(Counter);
 // Actual container
 const About = () => (
   <div>
+    <Menu />
     <h1>This is what we're all about.1</h1>
     <p>
       React, static sites, performance, speed. It's the stuff that makes us
