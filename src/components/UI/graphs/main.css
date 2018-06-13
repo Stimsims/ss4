@@ -1,0 +1,52 @@
+@import url('//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css');
+
+.ct-series .ct-line{
+    opacity:0;
+    animation: scaleUp 1s;
+    transform-origin : 10% 75%;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dance {
+    0%{
+        transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(3deg);
+    }
+  }
+
+@keyframes verticalChange {
+    0%{
+        transform: translate(-100%);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+@keyframes fadeIn {
+    0%{
+        opacity:0
+    }
+    100% {
+        opacity:1
+    }
+}
+@keyframes colors {
+    0%{
+        stroke:orange
+    }
+    100% {
+        stroke:blue
+    }
+}
+@keyframes scaleUp {
+    0%{
+        opacity:0;
+        transform: scaleY(0) scaleX(0);
+    }
+    100% {
+        opacity:1;
+        transform: scaleY(1) scaleX(1);
+    }
+}

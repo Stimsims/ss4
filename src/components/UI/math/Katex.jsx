@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import ReactDOM from 'react-dom'
 import {guid} from './../../../utilities/ids.js';
+import styled from 'styled-components';
 
 class Katex extends React.Component{
     constructor(props){
@@ -18,14 +19,18 @@ class Katex extends React.Component{
         //         document.getElementById('math'));
         const top = "m";
         const bottom = "s";
-        ReactDOM.render(<BlockMath>{String.raw`\frac{\text{${top}}}{\text{${bottom}}^2}`}</BlockMath>,
+        ReactDOM.render(<InlineMath>{String.raw`\frac{\text{${top}}}{\text{${bottom}}^2}`}</InlineMath>,
                         document.getElementById(this.state.id));
     }
     render(){
         return(
-            <div id={this.state.id} />
+            <Container id={this.state.id} />
         )
     }
 }
 
 export default Katex;
+
+const Container = styled.span`
+    display: inline
+`

@@ -1,0 +1,1 @@
+webpackJsonp([12],{188:function(c,e,f){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.timing={mini:.3},e.colors={accent:"#cc00cc",accentHighlight:"#ffccff",accentShadow:"#660066",shadow:"#f2f2f2",text:"grey",menu:"white",series0:"#cc66ff",series1:"#99ccff",series2:"#99ffcc",series3:"#ffffcc",series4:"#ffcce6"}}});

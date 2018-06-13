@@ -2,6 +2,8 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import Menu from './../components/layout/MainMenu.jsx';
+import Trends from './../components/Trends.jsx';
+import Bg from './../components/UI/elements/Bg.jsx';
 
 class Games extends React.Component{
     constructor(props){
@@ -12,9 +14,13 @@ class Games extends React.Component{
     render(){
         return (
           <div>
+            <Bg>
+            <Trends />
+            </Bg>
             <Menu />
           <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
           <h2>site 3</h2>
+          
           All Posts:
           <ul>
             {this.props.posts.map(post => (

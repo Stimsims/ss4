@@ -27,9 +27,7 @@ class Dynamic extends React.Component{
     }
     render(){
         return(
-            <div>
-                <this.state.component {...this.props} />
-            </div>
+            <this.state.component {...this.props} />
         )
     }
 }
