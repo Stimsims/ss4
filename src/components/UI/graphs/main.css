@@ -7,6 +7,10 @@
     animation-fill-mode: forwards;
 }
 
+.ct-axis-title{
+    color: white;
+}
+
 @keyframes dance {
     0%{
         transform: rotate(-10deg);
