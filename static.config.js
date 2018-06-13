@@ -16,7 +16,7 @@ import React from 'react';
   basePath:'staticSite2',
 
   fix build problem by deleting node modules and package-lock
-
+ siteRoot: 'https://illulli-1e5a.com/',
     bundleAnalyzer: true,
 */
 
