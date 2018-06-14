@@ -37,7 +37,6 @@ export default Trans;
 const Btn = styled.button`
     width:48px;
     height:48px;
-    margin: auto;
     padding-top:10px;
     background-color: DodgerBlue; /* Blue background */
     border: none; /* Remove borders */

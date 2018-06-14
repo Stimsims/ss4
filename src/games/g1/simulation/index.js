@@ -1,15 +1,20 @@
 
 //each tick it updates store state
+import Sim from './../components/Simulation.jsx';
 console.log("g1 sim index");
-class Simulation{
-    constructor(){
-
+class Simulation extends Sim{
+    constructor(props){
+        super(props);
     }
     getInterval(){
-        return 1000;
+        return 5000;
     }
-    update(state, step){
-        console.log('updating sim');
+    update(){
+        console.log("simulation update!!");
+        // this.props.actions.dispatch.step({
+        //     time: 10,
+        //     temp:30
+        // })
     }
 }
 

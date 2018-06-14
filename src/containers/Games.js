@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 import FadeIn from './../components/UI/animations/FadeIn.jsx';
 import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
+import Wrapper from './../components/game/Wrapper.jsx';
 
 const fnc = () => {
     return <p>hello</p>
@@ -69,6 +70,7 @@ class Games extends React.Component{
               <button onClick={()=>{this.sendEvent()}}>event</button>
               <button onClick={this.addKatex}>Katex</button>
               {this.renderKatex()}
+              <Wrapper index={0} input={{index:0}} />
               All Posts:
               <FadeIn>
              

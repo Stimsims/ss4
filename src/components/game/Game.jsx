@@ -1,30 +1,41 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Simulation from './Simulation.jsx';
+//import Sim from './../../games/g1/simulation/index.js';
+import { bindActionCreators } from 'redux'
 
 class Game extends React.Component{
     constructor(props){
         super(props);
-        console.log("game constructor");
-        console.log(props);
-        //expects to recieve the game
-        //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
-        //simulation and iterates through story nodes
-        //the game displays the content, the simulation runs, stops and persists state
+      //  console.log("game constructor");
+        this.state = {
+            story: this.props.game.getStory(),
+            sim: this.props.game.getSim()
+        }
     }
+
     render(){
         return(
             <div>
                 Game
+                <this.state.story />
+                <this.state.sim />
+                {/* <Sim /> */}
+                {/* <Sim store={this.props.store} actions={this.props.actions} sim={this.props.game.getSim()}/> */}
             </div>
         )
     }
 }
+export default Game;
+// const mapStateToProps = (state, props) => {
+//     return props.game.mapStateToProps(state);
+// }
 
-const mapStateToProps = (state, props) => {
-    console.log("game, map state to props");
-    console.log(props);
-    return props.game.mapStateToProps(state);
-}
+// const mapDispatchToProps = (dispatch, props) => {
+//     return {
+//         actions: bindActionCreators({
+//             ...props.game.mapDispatchToProps()
+//         }, dispatch)  
+//     };
+// }
 
-export default connect(mapStateToProps)(Game);
+// export default connect(mapStateToProps, mapDispatchToProps)(Game);
