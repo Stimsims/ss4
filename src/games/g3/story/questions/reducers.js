@@ -24,7 +24,8 @@ export const reducer = (
                         scores: s
                     }
                 }
-            case 'SET_FSM_STATE':
+            case 'SET_FSM_STATE_QUESTION':
+                console.log("question fsm setting " + action.payload.id + " state to " + action.payload.state);
                 return {
                     ...state,
                     [action.payload.id]: {
@@ -70,7 +71,7 @@ export function setScore(id, scores){
 
 export function setFSMState(id, state){
     return{
-        type: 'SET_FSM_STATE',
+        type: 'SET_FSM_STATE_QUESTION',
         payload: {
             id, state
         }

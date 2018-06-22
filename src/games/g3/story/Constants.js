@@ -21,8 +21,18 @@ export const constants = {
     questions:{
         read: 'read'
     },
+    actions:{
+        mine: 'mine',
+        inventory: 'inventory'
+    },
     read:{
         q1:'q1'
+    },
+    mine:{
+        samples: 'samples'
+    },
+    inventory:{
+        items: 'items'
     },
     logTypes:{
         action: 'action',

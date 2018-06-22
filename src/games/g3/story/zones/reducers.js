@@ -45,8 +45,8 @@ export const reducer = (
                         id: action.payload.id
                     }
                 }
-            case 'SET_FSM_STATE':
-                console.log("setting " + action.payload.id + " state to " + action.payload.state);
+            case 'SET_FSM_STATE_ZONE':
+                console.log("zone fsm setting " + action.payload.id + " state to " + action.payload.state);
                 return {
                     ...state,
                     [action.payload.id]: {
@@ -77,7 +77,7 @@ export const changeZone = (payload) => {
 
 export function setFSMState(id, state){
     return{
-        type: 'SET_FSM_STATE',
+        type: 'SET_FSM_STATE_ZONE',
         payload: {
             id, state
         }

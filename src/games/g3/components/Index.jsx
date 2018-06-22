@@ -42,7 +42,7 @@ class Index extends React.Component{
           if(this.state.isMobile){
                 return(
                     <div style={mContainer}>
-                            <SimuView sim={simulation} />
+                            {/* <SimuView sim={simulation} /> */}
                             <div  >
                                 <Log />     
                             </div>
@@ -55,7 +55,7 @@ class Index extends React.Component{
           }else{
             return(
                 <div style={dContainer}>
-                    <SimuView sim={simulation} />
+                    {/* <SimuView sim={simulation} /> */}
                     <div style={dPanel}>
                         <div >
                             <Log />     

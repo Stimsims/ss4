@@ -5,20 +5,21 @@ import {constants, messages} from './../../Constants.js';
 import {setFSMState} from './../reducers.js';
 import {addLog} from './../../../store/log.js';
 
-console.log("lounge importing constants " + constants);
+//console.log("lounge importing constants " + constants);
 const id = 'lounge';
 const type = constants.types.zones;
 const S_ENTRY = 'enter',
     S_INSIDE = 'in',
     S_SIT = 'sit',
-    S_READ = 'read';
+    S_READ = 'read',
+    S_INVENTORY = 'inventory';
 
 //0 - entry
 //1 - 
 const fsm = {
         type, id,
         onInput: (input, props) => {
-                console.log("fsm lounge recieved input!");
+                console.log("fsm lounge recieved input! " + props.mystate.state);
                 console.log(input);
                 switch(props.mystate.state){
                     case S_INSIDE:
@@ -28,6 +29,8 @@ const fsm = {
                             props.setFSMState(props.id, S_SIT);
                         }else if(input[constants.input.vId] === constants.zones.control){
                             props.onInput(input.changeFrom(messages.toFSMState(props.id, S_ENTRY)));
+                        }else if(input[constants.input.vId] === constants.actions.inventory){
+                            props.setFSMState(props.id, S_INVENTORY);
                         }
                         break;
                     case S_SIT:
@@ -43,6 +46,11 @@ const fsm = {
                         if(input[constants.input.vId] === S_READ){
                             console.log("recieved input from user reading");
                             props.setFSMState(props.id, S_SIT);
+                        }
+                        break;
+                    case S_INVENTORY:
+                        if(input[constants.input.vId] === S_INVENTORY){
+                            props.setFSMState(props.id, S_INSIDE);
                         }
                         break;
                     case S_ENTRY:
@@ -62,6 +70,7 @@ const fsm = {
                     return [
                         builder.getText(0, 'you are standing in the lounge'),
                         builder.getChildView(constants.zones.control, factory(constants.zones.control)),
+                        builder.getChildView(S_INVENTORY, factory(constants.actions.inventory)),
                         builder.getButtonSet(1, [
                             builder.describeBtn(S_SIT, 'sit down')
                         ])
@@ -77,6 +86,10 @@ const fsm = {
                 case S_READ:
                     return [
                         builder.getChildView(S_READ, factory(constants.questions.read))
+                    ]
+                case S_INVENTORY:
+                    return [
+                        builder.getChildView(S_INVENTORY, factory(constants.actions.inventory))
                     ]
                 case S_ENTRY:
                 default:
