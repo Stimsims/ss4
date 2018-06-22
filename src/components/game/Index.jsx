@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { createStore,  applyMiddleware } from 'redux'
 import logger from 'redux-logger';
+import reducers from './../../games/g3/store/reducers.js';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -14,13 +15,13 @@ import Game from './Game.jsx';
 class Index extends React.Component{
     constructor(props){
         super(props);
-        // console.log("index constructor ");
-        // console.log(props);
+        console.log("index constructor ");
+        console.log(reducers);
         //expects to recieve the game
         //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
         //simulation and iterates through story nodes
         //the game displays the content, the simulation runs, stops and persists state
-       let reducers = props.game.getReducers();
+     //  let reducers = props.game.getReducers();
        // this.store = createStore(reducers);
        this.store = createStore(
             reducers,

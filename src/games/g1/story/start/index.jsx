@@ -6,105 +6,115 @@ import Rooms from './../rooms/index.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {changeHealth} from './store.js';
+import {setComponentState, setComponentNodeId} from './../store.js';
 
-
-const start = 'start_0';
+//const start = 'start_0';
 const intro = 'intro_0';
 const play = 'play';
 const again = 'again'
 const restart = 'restart_0';
 const end = 'end_0';
 
+const b1 = 'b122';
+
 class Start extends Story{
     constructor(props){
         super(props);
-        // console.log("start constructor, has store state?");
-        // console.log(props);
+        console.log("start constructor, has store state?");
+        console.log(props);
         //start, end
         this.state = {
             ...this.state,
-            nodeId: start
+            // nodeId: this.props.store.component[this.props.iId]? 
+            // this.props.store.component[this.props.iId]:start,
+            [b1]: this.subTreeNode(b1, Rooms)
         }
-        //this.nodeId = start;
+        
     }
+
     onInput(input){
-         console.log("on start branch input");
+         console.log("on start branch input " + this.getNodeId());
          console.log(input);
         // console.log(this.props);
         //some input will change state, some input will move the story forward
-        switch(this.state.nodeId){
+        switch(this.getNodeId()){
             case again:
-            case start:
-                if(input[this.state.keys.iId] === play){
-                  //  this.props.actions.changeHealth(5);
+            case this.state.keys.start:
+                if(input[this.state.keys.iId] === b1){
+                    // this.setState({
+                    //     nodeId: b1
+                    // })
+                    this.props.actions.setComponentNodeId({
+                        id: this.props.iId,
+                        nodeId: b1
+                    });
+                }
+                break;
+            case b1:
+                if(input[this.state.keys.iId] === b1){
+                    //back from b1, create a new room and start over
                     this.setState({
-                        nodeId: play
-                    })
-                }else if(input[this.state.keys.iId] === end){
-                    this.setState({
-                        nodeId: end
+                        nodeId: again,
+                        [b1]: this.subTreeNode(b1, Rooms)
                     })
                 }
                 break;
-            case play:
-                this.setState({
-                    nodeId: again
-                })
-                break;
         }
     }
-    
+
     renderNode(){
-      //  console.log("index render node " + this.state.nodeId);
-        switch(this.state.nodeId){
-            case start:
+       console.log("start render node " + this.getNodeId());
+        switch(this.getNodeId()){
+            case this.state.keys.start:
                 return [
-                    this.textNode(start + '1', [
-                        this.textItem('text', 'Welcome')
+                    this.textNode(this.state.keys.start + '1', [
+                        this.textItem('text', 'Welcome, start game')
                     ]),
-                    this.choiceNode(start + '2', 'Play?', [
-                        this.btnItem(start, play, 'open room'),
-                        this.btnItem(start, end, 'end game')
-                    ])
-                ]
-            case play:
-                return [
-                    this.subTreeNode(start + '1', Rooms)
+                    this.state[b1]
                 ]
             case again: 
                 return [
-                    this.textNode(start + '1', [
-                        this.textItem('text', 'play again?')
-                    ]),
-                    this.choiceNode(start + '2', 'again? yes?', [
-                        this.btnItem(start, play, 'open room'),
-                        this.btnItem(start, end, 'end game')
-                    ])
-                ]
+                        this.textNode(this.state.keys.start+ '1', [
+                            this.textItem('text', 'play again?')
+                        ]),
+                        this.state[b1]
+                    ]
             case end:
                 return [
-                    this.textNode(start + '1', [
+                    this.textNode(this.state.keys.start + '1', [
                         this.textItem('text', 'game over')
                     ])
                 ]
+            case b1:
+                return [
+                    this.state[b1]
+                ]
         }
     }
+
+
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
-            changeHealth
+            changeHealth,
+            setComponentState,
+            setComponentNodeId
         }, dispatch)
     }
 }
 
-const mapStateToProps = (state, a2, a3, a4) => {
+const mapStateToProps = (state) => {
+    // console.log("map start state to props");
+    // console.log(state);
     return {
         store: {
-            start: state.start
+            start: state.start,
+            component: state.component
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Start);
+const ConnectedStart =connect(mapStateToProps, mapDispatchToProps)(Start)
+export default ConnectedStart;

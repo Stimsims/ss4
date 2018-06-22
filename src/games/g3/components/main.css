@@ -1,0 +1,10 @@
+
+.flexMin{
+    height: 10vh;
+}
+.flexMax{
+    height:80vh;
+}
+#root .content{
+    height:100vh;
+}

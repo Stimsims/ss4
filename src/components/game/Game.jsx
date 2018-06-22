@@ -2,25 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 //import Sim from './../../games/g1/simulation/index.js';
 import { bindActionCreators } from 'redux'
+import Index from './../../games/g3/components/Index.jsx';
 
 class Game extends React.Component{
     constructor(props){
         super(props);
-      //  console.log("game constructor");
-        this.state = {
-            story: this.props.game.getStory(),
-            sim: this.props.game.getSim()
-        }
+
     }
 
     render(){
         return(
             <div>
-                Game
-                <this.state.story />
-                <this.state.sim />
-                {/* <Sim /> */}
-                {/* <Sim store={this.props.store} actions={this.props.actions} sim={this.props.game.getSim()}/> */}
+                <Index />
             </div>
         )
     }
@@ -39,3 +32,16 @@ export default Game;
 // }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Game);
+
+/*
+        this.state = {
+            story: this.props.game.getStory(),
+            sim: this.props.game.getSim()
+        }
+            <div>
+                Game
+                <this.state.story iId={'root'}/>
+                <this.state.sim />
+            
+                </div>
+*/

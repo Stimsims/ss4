@@ -1,0 +1,15 @@
+import lounge from './zones/lounge/index.js';
+import control from './zones/control/index.js';
+import read from './questions/read/index.js';
+
+export default (name) => {
+    console.log('factory name' + name);
+    switch(name){
+        case control.id:
+            return control;
+        case lounge.id:
+            return lounge;
+        case read.id:
+            return read;
+    }
+}

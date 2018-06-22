@@ -7,6 +7,7 @@ export default class Adapter{
         this.label = label;
         this.x = xPath;
         this.y = yPaths;
+        
         this.series = [];
         yPaths.map(e=>{
             this.series.push([]);
@@ -15,26 +16,20 @@ export default class Adapter{
         this.updateData(data);
     }
     updateData(data){
-        //assumed that data is in sorted order
-        //if less dp, slice of last dp until equal
-        //if more dp, create new node for each additional dp
         if(data.length > this.labels.length){
             for(let i = this.labels.length; i<data.length; i++){
                 let x = get(data[i], this.x);
                 this.labels.push(x);
                 this.y.map((e, yIndex) => {
-                    let y = get(data[i], e);
+                    let yv = get(data[i], e);
                     let ray = this.series[yIndex];
-                    ray.push(y);
+                    ray.push(yv);
                 })
             }
-          //  console.log("adapter labels " + this.labels);
-        }else{
-          //  console.log("there is too little data " + data.length);
+            
         }
     }
     createPoint(x, y){
-       // console.log("creating point " + x + ", " + y);
         return {x, y}
     }
     getSeries(){

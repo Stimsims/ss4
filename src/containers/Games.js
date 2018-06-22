@@ -7,6 +7,7 @@ import FadeIn from './../components/UI/animations/FadeIn.jsx';
 import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import Wrapper from './../components/game/Wrapper.jsx';
+import IFrame from './../components/UI/IFrame.jsx';
 
 const fnc = () => {
     return <p>hello</p>
@@ -71,9 +72,10 @@ class Games extends React.Component{
               <button onClick={this.addKatex}>Katex</button>
               {this.renderKatex()}
               <Wrapper index={0} input={{index:0}} />
+              <IFrame src={"https://datastudio.google.com/embed/reporting/1AD-Xywiz627t-znwAMj1oe_7WL8fv-XM/page/MCWT"} />
               All Posts:
               <FadeIn>
-             
+              {/* <iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/1AD-Xywiz627t-znwAMj1oe_7WL8fv-XM/page/MCWT" frameborder="0" allowfullscreen></iframe> */}
               <ul>
                 {this.props.games.map(post => (
                   <li key={post.id}>
