@@ -7,7 +7,7 @@ import {setFSMState} from './../reducer.js';
 import {createSample} from './../../items/asteroidSample.js';
 import {addSample} from './../../items/reducer.js';
 import messages from './../../Messages.js';
-import constants from './../../Constants';
+import {constants, functions} from './../../Constants';
 
 const S_IN = 'in',
     S_BACK= 'back',
@@ -25,18 +25,18 @@ class Mine extends React.Component{
     onInput(input){
         console.log("mine input");
         console.log(this.props);
-        if(input.vId === I_ENTRY_1){
+        if(input.kId === I_ENTRY_1){
             //roll and new asteroid
             sample = createSample();
          //   console.log("setting mine fsm");
             this.props.setFSMState(id, {
                 [constants.fsm.keys.state]: S_IN
             });
-            this.props.onInput(messages.message(this.props.vId));
+            this.props.onInput(messages.message(this.props.kId));
         }else{
             switch(this.props.fsm.state){
                 case S_IN:
-                    if(input.vId === S_MINE){
+                    if(input.kId === S_MINE){
                         //add sample to store
                         // console.log("mined sample:");
                         // console.log(sample);
@@ -45,17 +45,17 @@ class Mine extends React.Component{
                             [constants.fsm.keys.state]: S_MINE_FIN
                         });
                         sample = createSample();
-                    }else if(input.vId === S_LOOK){
+                    }else if(input.kId === S_LOOK){
                         sample = createSample();
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_IN
                         });
-                    }else if(input.vId === S_BACK){
-                        this.props.onInput(messages.message(this.props.vId));
+                    }else if(input.kId === S_BACK){
+                        this.props.onInput(messages.message(this.props.kId));
                     }
                     break;
                 case S_MINE_FIN:
-                    if(input.vId === S_IN){
+                    if(input.kId === S_IN){
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_IN
                         });
@@ -70,7 +70,7 @@ class Mine extends React.Component{
         if(this.props.showEntry){
             return [
                 <div>
-                    <Button vId={I_ENTRY_1} onInput={this.onInput} text={'mine asteroids'}/>
+                    <Button {...functions.propKid(I_ENTRY_1)} onInput={this.onInput} text={'mine asteroids'}/>
                 </div>
             ]
         }else{
@@ -78,16 +78,16 @@ class Mine extends React.Component{
                 case S_MINE_FIN:
                     return [
                         <p>asteroid sample added to inventory</p>,
-                        <Button vId={S_IN} onInput={this.onInput} text={'next'}/>
+                        <Button {...functions.propKid(S_IN)} onInput={this.onInput} text={'next'}/>
                     ]
                 case S_IN:
                 default:
                     return [
                         <p>{`there is a ${sample.game.weight > 8? 'large':'small'} asteroid in front of you, mine it?`}</p>,
                         <div>
-                            <Button vId={S_MINE} onInput={this.onInput} text={'mine it'}/>
-                            <Button vId={S_LOOK} onInput={this.onInput} text={'look for another'}/>
-                            <Button vId={S_BACK} onInput={this.onInput} text={'back'}/>
+                            <Button {...functions.propKid(S_MINE)} onInput={this.onInput} text={'mine it'}/>
+                            <Button {...functions.propKid(S_LOOK)} onInput={this.onInput} text={'look for another'}/>
+                            <Button {...functions.propKid(S_BACK)} onInput={this.onInput} text={'back'}/>
                         </div>
                     ]
             }

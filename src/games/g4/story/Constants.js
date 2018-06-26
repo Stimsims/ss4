@@ -1,6 +1,6 @@
+import React from 'react';
 
-
-const constants = {
+export const constants = {
     fsm: {
         keys:{
             state: 'state',
@@ -29,8 +29,17 @@ const constants = {
     items:{
         asteroidSample:'asteroidSample',
         element: 'element',
-        weight: 'weight'
-    }
+        weight: 'weight',
+        stock: 'stock'
+    },
 }
 
-export default constants;
+//export default constants;
+export const functions = {
+    propKid: (value) => {
+        return {kId: value}
+    },
+    componentTag: (tag, props) => {
+        return <tag {...props}/>
+    }
+}

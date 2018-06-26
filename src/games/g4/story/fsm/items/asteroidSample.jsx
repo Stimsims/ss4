@@ -4,35 +4,31 @@ import {selectFsmState} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
-import {addSample, editItem} from './../../items/reducer.js';
+import {addSample, editItem, addSampleToStock} from './../../items/reducer.js';
 import messages from './../../Messages.js';
-import constants from './../../Constants';
+import {constants, functions} from './../../Constants';
 
 const S_IN = 'in',
     S_BACK= 'back',
     I_ENTRY_1 = 'e1',
-    A_ID = 'aid';
+    A_ID = 'aid',
+    S_STOCK = 'stock';
 export const id = constants.fsm.items.asteroidSample;
 //let itemId = null, itemType = null;
 class AstSamp extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        console.log("@@@@@@@@@@@@@@@@ast samp constructer ");
-        console.log(props);
     }
     onInput(input){
-        console.log("asteroid sample onInput");
-        console.log(this.props);
-        if(input.vId === I_ENTRY_1){
+        if(input.kId === I_ENTRY_1){
             if(this.props.item){
-                console.log('set asteroid sample FSM state ' + id + " item " + this.props.item.id);
                 this.props.setFSMState(id, {
                     [constants.fsm.keys.state]: S_IN,
                     [constants.fsm.keys.item]: this.props.item.id,
                     [constants.fsm.keys.itemType]: this.props.item.type
                 });
-                this.props.onInput(messages.item(this.props.vId, this.props.item));
+                this.props.onInput(messages.item(this.props.kId, this.props.item));
             }else{
                 console.log("error, no item in asteroid sample onInput entry");
             }
@@ -40,21 +36,24 @@ class AstSamp extends React.Component{
         }else{
             switch(this.props.fsm.state){
                 case S_IN:
-                    if(input.vId === A_ID){
+                    if(input.kId === A_ID){
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: A_ID
                         });
-                    }else if(input.vId === S_BACK){
-                        this.props.onInput(messages.message(this.props.vId));
+                    }else if(input.kId === S_BACK){
+                        this.props.onInput(messages.message(this.props.kId));
+                    }else if(input.kId === S_STOCK){
+                        //bug? potential race condition if delete asteroid sample currently open
+                        //1) signal input for parent 2) call addSampleToStock with stock id
+                        //let sampleId = this.props.item.id;
+                        this.props.addSampleToStock(this.props.item.id);
+                       // console.log("adding sample " + sampleId + " to stockpile");
+                        this.props.onInput(messages.message(this.props.kId));
+                        
                     }
-                    break;
-                case S_BACK:
                     break;
                 case A_ID:
                     let element = input.element;
-                    console.log("asteroid sample is element " + element + " constant: " 
-                    + constants.items.element); //id, key, val
-                    console.log(this.props);
                     this.props.editItem(this.props.item, constants.items.element, element);
                     this.props.setFSMState(id, {
                         [constants.fsm.keys.state]: S_IN
@@ -64,15 +63,13 @@ class AstSamp extends React.Component{
         }
     }
     renderView(){
-        console.log("ast sample renderView");
-        console.log(this.props);
         if(!this.props.item){
             return <p>Waiting for item...</p>
         }else{
             if(this.props.showEntry){
                 let t = `item: element: ${this.props.item.user.element?this.props.item.user.element:'unknown'}`;
                 return [
-                    <Button vId={I_ENTRY_1} onInput={this.onInput} text={t} /> 
+                    <Button {...functions.propKid(I_ENTRY_1)} onInput={this.onInput} text={t} /> 
                 ]
             }else{
                 switch(this.props.fsm.state){
@@ -80,7 +77,7 @@ class AstSamp extends React.Component{
                         let idElema = this.props.factory(constants.fsm.questions.idElem)
                         return[
                             <idElema.component item={this.props.item} showEntry={false} factory={this.props.factory} 
-                                            onInput={this.onInput} vId={A_ID}  />
+                                            onInput={this.onInput} {...functions.propKid(A_ID)}  />
                         ]
                     case S_IN:
                     default:
@@ -89,10 +86,12 @@ class AstSamp extends React.Component{
                             <p>
                             asteroid sample: {this.props.item.id}:
                             <idElem.component item={this.props.item} showEntry={true} factory={this.props.factory} 
-                                            onInput={this.onInput} vId={A_ID}  />
+                                            onInput={this.onInput} {...functions.propKid(A_ID)}  />
                             weight: {this.props.item.user.weight?this.props.item.user.weight:'unknown'}
                             </p>,
-                            <Button vId={S_BACK} onInput={this.onInput} text={'back'} /> 
+                            <Button {...functions.propKid(S_STOCK)} onInput={this.onInput} text={'add to stock'} 
+                            disabled={this.props.item.user.element?false:true} />, 
+                            <Button {...functions.propKid(S_BACK)} onInput={this.onInput} text={'back'} /> 
                         ]
                 }
             }
@@ -109,14 +108,12 @@ class AstSamp extends React.Component{
 //editItem(item, key, val)
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
-        {setFSMState, editItem},
+        {setFSMState, editItem, addSampleToStock},
         dispatch
     )
 }
 
 const mapStateToProps = (state, props) => {
-    console.log("ast sample map state to props");
-    console.log(state);
     let fsm = selectFsmState(state, constants.fsm.items.asteroidSample, {[constants.fsm.keys.state]: S_IN});
     //Bug there is a state where the inventory is not passing an item in, and the asteroidSample
     //has not recieved a fresh store state, and thus has no item

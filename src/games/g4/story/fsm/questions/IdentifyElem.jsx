@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
 import {addSample, editItem} from './../../items/reducer.js';
 import messages from './../../Messages.js';
-import constants from './../../Constants';
+import {constants, functions} from './../../Constants';
 
 const S_IN = 'in',
     S_BACK= 'back',
@@ -19,33 +19,31 @@ class IdElem extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        console.log("IdElem constructor, props should have item");
-        console.log(props);
     }
     onInput(input){
-        if(input.vId === I_ENTRY_1){
+        if(input[constants.IO.kId] === I_ENTRY_1){
             this.props.setFSMState(id, {
                 [constants.fsm.keys.state]: S_IN
             });
-            this.props.onInput(messages.message(this.props.vId));
+            this.props.onInput(messages.message(this.props.kId));
         }else{
             switch(this.props.fsm.state){
                 case S_IN:
-                    if(input.vId === S_FLAME){
+                    if(input[constants.IO.kId] === S_FLAME){
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_FLAME
                         });
-                    }else if(input.vId === S_SONAR){
+                    }else if(input[constants.IO.kId] === S_SONAR){
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_SONAR
                         });
-                    }else if(input.vId === S_BACK){
-                        this.props.onInput(messages.message(this.props.vId));
+                    }else if(input[constants.IO.kId] === S_BACK){
+                        this.props.onInput(messages.message(this.props.kId));
                     }
                     break;
                 case S_FLAME:
                 case S_SONAR:
-                    this.props.onInput(messages.answer(this.props.vId, {
+                    this.props.onInput(messages.answer(this.props.kId, {
                         element: input.vId
                     }));
                     break;
@@ -53,13 +51,11 @@ class IdElem extends React.Component{
         }
     }
     renderView(){
-        console.log("identify element renderView");
-        console.log(this.props);
         if(this.props.showEntry){
             let t = `element: ${this.props.item.user.element?this.props.item.user.element:'unknown'}`
             return [
                 <div>
-                    <Button vId={I_ENTRY_1} onInput={this.onInput} text={t}/>
+                    <Button {...functions.propKid(I_ENTRY_1)} onInput={this.onInput} text={t}/>
                 </div>
             ]
         }else{
@@ -68,16 +64,16 @@ class IdElem extends React.Component{
                     return [
                         <p>{`The sample emites a soundwave of 370Hz`}</p>,
                         <div>
-                            <Button vId={'magnesium'} onInput={this.onInput} text={'magnesium'}/>
-                            <Button vId={'lithium'} onInput={this.onInput} text={'lithium'}/>
+                            <Button {...functions.propKid(S_SONAR)} vId={'magnesium'} onInput={this.onInput} text={'magnesium'}/>
+                            <Button {...functions.propKid(S_SONAR)} vId={'lithium'} onInput={this.onInput} text={'lithium'}/>
                         </div>
                     ]
                 case S_FLAME:
                     return [
                         <p>{`The flame is blue, therefore the sample is made of:`}</p>,
                         <div>
-                            <Button vId={'iron'} onInput={this.onInput} text={'iron'}/>
-                            <Button vId={'copper'} onInput={this.onInput} text={'copper'}/>
+                            <Button {...functions.propKid(S_FLAME)} vId={'iron'} onInput={this.onInput} text={'iron'}/>
+                            <Button {...functions.propKid(S_FLAME)} vId={'copper'} onInput={this.onInput} text={'copper'}/>
                         </div>
                     ]
                 case S_IN:
@@ -85,9 +81,9 @@ class IdElem extends React.Component{
                     return [
                         <p>{`The sample element is ${this.props.item.type} id:${this.props.item.id}`}</p>,
                         <div>
-                            <Button vId={S_FLAME} onInput={this.onInput} text={'use flame test'}/>
-                            <Button vId={S_SONAR} onInput={this.onInput} text={'use sonar test'}/>
-                            <Button vId={S_BACK} onInput={this.onInput} text={'back'}/>
+                            <Button {...functions.propKid(S_FLAME)} onInput={this.onInput} text={'use flame test'}/>
+                            <Button {...functions.propKid(S_SONAR)} onInput={this.onInput} text={'use sonar test'}/>
+                            <Button {...functions.propKid(S_BACK)} onInput={this.onInput} text={'back'}/>
                         </div>
                     ]
             }

@@ -107,9 +107,15 @@ module.exports = require("styled-components");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.functions = exports.constants = undefined;
 
+var _react = __webpack_require__(0);
 
-var constants = {
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var constants = exports.constants = {
     fsm: {
         keys: {
             state: 'state',
@@ -138,11 +144,19 @@ var constants = {
     items: {
         asteroidSample: 'asteroidSample',
         element: 'element',
-        weight: 'weight'
+        weight: 'weight',
+        stock: 'stock'
+    }
+
+    //export default constants;
+};var functions = exports.functions = {
+    propKid: function propKid(value) {
+        return { kId: value };
+    },
+    componentTag: function componentTag(tag, props) {
+        return _react2.default.createElement('tag', props);
     }
 };
-
-exports.default = constants;
 
 /***/ }),
 /* 5 */
@@ -329,20 +343,15 @@ exports.default = colors;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.reducer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.setZone = setZone;
 exports.setFSMState = setFSMState;
 
-var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//import constants from './../Constants.js';
 
 //stores fsm state information
 /*
@@ -631,6 +640,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _redux = __webpack_require__(1);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -642,26 +653,44 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Button = function (_React$Component) {
     _inherits(Button, _React$Component);
 
-    function Button() {
+    function Button(props) {
         _classCallCheck(this, Button);
 
-        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
     }
 
     _createClass(Button, [{
+        key: 'handleClick',
+        value: function handleClick() {
+            var o = {
+                kId: this.props.kId,
+                vId: this.props.vId
+            };
+            console.log('button input');
+            console.log(o);
+            this.props.onInput(o);
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        _this2.props.onInput({
-                            vId: _this2.props.vId
-                        });
-                    } },
-                this.props.text
-            );
+            if (this.props.disabled) {
+                return _react2.default.createElement(
+                    'button',
+                    { onClick: this.handleClick, disabled: true },
+                    ' ',
+                    this.props.text
+                );
+            } else {
+                return _react2.default.createElement(
+                    'button',
+                    { onClick: this.handleClick },
+                    ' ',
+                    this.props.text
+                );
+            }
         }
     }]);
 
@@ -684,11 +713,7 @@ exports.selectFsmState = undefined;
 
 var _reselect = __webpack_require__(87);
 
-var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//import constants from './../Constants.js';
 
 var selectFsmState = exports.selectFsmState = function selectFsmState(state, id, def) {
     console.log("selectFsm " + id);
@@ -2276,16 +2301,13 @@ exports.reducer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+exports.addSampleToStock = addSampleToStock;
 exports.addSample = addSample;
 exports.editItem = editItem;
 
 var _Constants = __webpack_require__(4);
 
-var _Constants2 = _interopRequireDefault(_Constants);
-
 var _asteroidSample = __webpack_require__(57);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2294,24 +2316,52 @@ var sample = (0, _asteroidSample.createSample)();
 var sample1 = (0, _asteroidSample.createSample)();
 var sample2 = (0, _asteroidSample.createSample)();
 var reducer = exports.reducer = function reducer() {
-    var _constants$items$aste;
+    var _constants$items$aste, _ref, _extends9;
 
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _defineProperty({}, _Constants2.default.items.asteroidSample, (_constants$items$aste = {}, _defineProperty(_constants$items$aste, sample.id, sample), _defineProperty(_constants$items$aste, sample1.id, sample1), _defineProperty(_constants$items$aste, sample2.id, sample2), _constants$items$aste));
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.items.asteroidSample, (_constants$items$aste = {}, _defineProperty(_constants$items$aste, sample.id, sample), _defineProperty(_constants$items$aste, sample1.id, sample1), _defineProperty(_constants$items$aste, sample2.id, sample2), _constants$items$aste)), _defineProperty(_ref, _Constants.constants.items.stock, {}), _ref);
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     switch (action.type) {
         case 'ADD_SAMPLE':
-            return _extends({}, state, _defineProperty({}, _Constants2.default.items.asteroidSample, _extends({}, state[_Constants2.default.items.asteroidSample], _defineProperty({}, action.payload.sample.id, action.payload.sample))));
+            return _extends({}, state, _defineProperty({}, _Constants.constants.items.asteroidSample, _extends({}, state[_Constants.constants.items.asteroidSample], _defineProperty({}, action.payload.sample.id, action.payload.sample))));
         case 'EDIT_ITEM':
             var update = _extends({}, action.payload.item, {
                 user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
             });
             return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
+        case 'ADD_SAMPLE_TO_STOCK':
+            var _sample = state[_Constants.constants.items.asteroidSample][action.payload.sampleId];
+            var uElem = _sample.user.element;
+            var gElem = _sample.game.element;
+            var weight = _sample.game.weight;
+            //console.log("reducer add sample to stock, gElem = " + gElem + " uElem = " + uElem);
+            //add it to the stock of type element user has identified
+            //add it to the element within that stock that the game has rolled
+            var stock = state[_Constants.constants.items.stock][uElem] ? state[_Constants.constants.items.stock][uElem] : {
+                id: uElem
+            };
+            var currentWeight = stock[gElem] ? stock[gElem] : 0;
+            //   console.log("add sample " + uElem + " to stock, current weight = " + currentWeight + " next weight = " + weight);
+            var n = _extends({}, stock, _defineProperty({}, gElem, currentWeight + weight));
+            var samples = state[_Constants.constants.items.asteroidSample];
+            var deleted = delete samples[action.payload.sampleId];
+            // console.log("add sample to stock, new samples:");
+            // console.log(samples);
+            // console.log("add sample to stock, deleted:");
+            // console.log(deleted);
+            return _extends({}, state, (_extends9 = {}, _defineProperty(_extends9, _Constants.constants.items.asteroidSample, _extends({}, samples)), _defineProperty(_extends9, _Constants.constants.items.stock, _extends({}, state[_Constants.constants.items.stock], _defineProperty({}, uElem, _extends({}, n)))), _extends9));
         default:
             return state;
     }
 };
-
+function addSampleToStock(sampleId) {
+    return {
+        type: 'ADD_SAMPLE_TO_STOCK',
+        payload: {
+            sampleId: sampleId
+        }
+    };
+}
 //handled by parent reducer
 function addSample(sample) {
     console.log("action set zone");
@@ -2347,15 +2397,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//import constants from './Constants.js';
+
 var constants = {
-    message: function message(vId) {
-        return { vId: vId };
+    message: function message(kId) {
+        return { kId: kId };
     },
-    item: function item(vId, _item) {
-        return { vId: vId, item: _item };
+    item: function item(kId, _item) {
+        return { kId: kId, item: _item };
     },
-    answer: function answer(vId, answers) {
-        return _extends({ vId: vId }, answers);
+    answer: function answer(kId, answers) {
+        return _extends({ kId: kId }, answers);
     }
 };
 
@@ -3527,10 +3579,6 @@ var _ids = __webpack_require__(40);
 
 var _Constants = __webpack_require__(4);
 
-var _Constants2 = _interopRequireDefault(_Constants);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var materials = ['iron', 'cobalt', 'copper', 'silver'];
 
 var createSample = exports.createSample = function createSample() {
@@ -3538,7 +3586,7 @@ var createSample = exports.createSample = function createSample() {
     var id = (0, _ids.guid)();
     return {
         id: id,
-        type: _Constants2.default.items.asteroidSample,
+        type: _Constants.constants.items.asteroidSample,
         game: {
             element: material,
             weight: 10 * Math.random() + 3
@@ -5448,6 +5496,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.component = exports.id = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -5467,8 +5517,6 @@ var _redux = __webpack_require__(1);
 var _reducer = __webpack_require__(8);
 
 var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5496,34 +5544,34 @@ var Lounge = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Lounge.__proto__ || Object.getPrototypeOf(Lounge)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        console.log("lounge constructor, props:");
-        console.log(props);
+        // console.log("lounge constructor, props:");
+        // console.log(props);
         return _this;
     }
 
     _createClass(Lounge, [{
         key: 'onInput',
         value: function onInput(input) {
-            console.log("lounge recieved input state: ");
-            console.log(this.props);
-            if (input.vId === I_ENTRY_1) {
+            // console.log("lounge recieved input state: ");
+            // console.log(input);
+            if (input[_Constants.constants.IO.kId] === I_ENTRY_1) {
                 //is an entry point, irrelevant what state the FSM is in
                 //send action to change location setZone(zone, state){
-                console.log("dispatching change zone");
+                //console.log("dispatching change zone")
                 this.props.setZone(id, S_IN);
             } else {
                 switch (this.props.fsm.state) {
                     case I_INVENTORY:
-                        if (input.vId === I_INVENTORY) {
+                        if (input[_Constants.constants.IO.kId] === I_INVENTORY) {
                             // console.log("dispatching lounge in")
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         }
                         break;
                     case S_IN:
                     default:
-                        if (input.vId === I_INVENTORY) {
+                        if (input[_Constants.constants.IO.kId] === I_INVENTORY) {
                             // console.log("dispatching inventory")
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, I_INVENTORY));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, I_INVENTORY));
                         }
                         break;
                 }
@@ -5532,32 +5580,34 @@ var Lounge = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            console.log("lounge render view: ");
-            console.log(this.props);
+            // console.log("lounge render view: ");
+            // console.log(this.props);
             if (this.props.showEntry) {
                 return [_react2.default.createElement(
                     'div',
                     null,
                     'entry to lounge',
-                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'go to lounge' })
+                    _react2.default.createElement(_Button2.default, { kId: I_ENTRY_1, onInput: this.onInput, text: 'go to lounge' })
                 )];
             } else {
                 switch (this.props.fsm.state) {
                     //if top level initial room, may not have state, and may not be an entry point
                     case I_INVENTORY:
-                        var inventory2 = this.props.factory(_Constants2.default.fsm.actions.inventory);
-                        return [_react2.default.createElement(inventory2.component, { showEntry: false, factory: this.props.factory, onInput: this.onInput, vId: I_INVENTORY })];
+                        var inventory2 = this.props.factory(_Constants.constants.fsm.actions.inventory);
+                        return [_react2.default.createElement(inventory2.component, _extends({ showEntry: false, factory: this.props.factory,
+                            onInput: this.onInput }, _Constants.functions.propKid(I_INVENTORY)))];
                     case S_IN:
                     default:
                         var control = this.props.factory('control');
-                        var inventory = this.props.factory(_Constants2.default.fsm.actions.inventory);
+                        var inventory = this.props.factory(_Constants.constants.fsm.actions.inventory);
                         return [_react2.default.createElement(
                             'div',
                             null,
                             'inside lounge',
-                            _react2.default.createElement(control.component, { showEntry: true, factory: this.props.factory, onInput: this.onInput, vId: I_CONTROL }),
-                            _react2.default.createElement(inventory.component, { showEntry: true, factory: this.props.factory,
-                                onInput: this.onInput, vId: I_INVENTORY })
+                            _react2.default.createElement(control.component, _extends({ showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(I_CONTROL))),
+                            _react2.default.createElement(inventory.component, _extends({ showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(I_INVENTORY)))
                         )];
                 }
             }
@@ -5579,7 +5629,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN))
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Lounge);
@@ -5603,6 +5653,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.component = exports.id = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -5622,8 +5674,6 @@ var _redux = __webpack_require__(1);
 var _reducer = __webpack_require__(8);
 
 var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5657,9 +5707,9 @@ var Control = function (_React$Component) {
     _createClass(Control, [{
         key: 'onInput',
         value: function onInput(input) {
-            console.log("control recieved input");
-            console.log(this.props);
-            if (input.vId === I_ENTRY_1) {
+            //  console.log("control recieved input");
+            //  console.log(this.props);
+            if (input.kId === I_ENTRY_1) {
                 //is an entry point, irrelevant what state the FSM is in
                 //send action to change location
                 this.props.setZone(id, S_IN);
@@ -5670,15 +5720,15 @@ var Control = function (_React$Component) {
             } else {
                 switch (this.props.fsm.state) {
                     case S_IN:
-                        if (input.vId === I_MINE) {
+                        if (input.kId === I_MINE) {
                             //   console.log("setting control fsm");
                             this.props.setZone(id, I_MINE);
                         }
                         break;
                     case I_MINE:
-                        if (input.vId === I_MINE) {
+                        if (input.kId === I_MINE) {
                             // console.log("recieved input from mining action");
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         }
                         break;
                 }
@@ -5687,32 +5737,32 @@ var Control = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            console.log("control render view: ");
-            console.log(this.props);
+            // console.log("control render view: ");
+            // console.log(this.props);
             if (this.props.showEntry) {
                 return [_react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'go to control' })
+                    _react2.default.createElement(_Button2.default, { kId: I_ENTRY_1, onInput: this.onInput, text: 'go to control' })
                 )];
             } else {
                 switch (this.props.fsm.state) {
                     case I_MINE:
-                        var mine2 = this.props.factory(_Constants2.default.fsm.actions.mine);
-                        return [_react2.default.createElement(mine2.component, { showEntry: false, factory: this.props.factory,
-                            onInput: this.onInput, vId: I_MINE })];
+                        var mine2 = this.props.factory(_Constants.constants.fsm.actions.mine);
+                        return [_react2.default.createElement(mine2.component, _extends({ showEntry: false, factory: this.props.factory,
+                            onInput: this.onInput }, _Constants.functions.propKid(I_MINE)))];
                     case S_IN:
                     default:
                         var lounge = this.props.factory('lounge');
-                        var mine = this.props.factory(_Constants2.default.fsm.actions.mine);
+                        var mine = this.props.factory(_Constants.constants.fsm.actions.mine);
                         return [_react2.default.createElement(
                             'div',
                             null,
                             'inside control room',
-                            _react2.default.createElement(lounge.component, { showEntry: true, factory: this.props.factory,
-                                onInput: this.onInput, vId: I_LOUNGE }),
-                            _react2.default.createElement(mine.component, { showEntry: true, factory: this.props.factory,
-                                onInput: this.onInput, vId: I_MINE })
+                            _react2.default.createElement(lounge.component, _extends({ showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(I_LOUNGE))),
+                            _react2.default.createElement(mine.component, _extends({ showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(I_MINE)))
                         )];
                 }
             }
@@ -5735,7 +5785,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN))
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Control);
@@ -5752,6 +5802,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.component = exports.id = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5780,8 +5832,6 @@ var _Messages = __webpack_require__(34);
 var _Messages2 = _interopRequireDefault(_Messages);
 
 var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5819,32 +5869,32 @@ var Mine = function (_React$Component) {
         value: function onInput(input) {
             console.log("mine input");
             console.log(this.props);
-            if (input.vId === I_ENTRY_1) {
+            if (input.kId === I_ENTRY_1) {
                 //roll and new asteroid
                 sample = (0, _asteroidSample.createSample)();
                 //   console.log("setting mine fsm");
-                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
-                this.props.onInput(_Messages2.default.message(this.props.vId));
+                this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.kId));
             } else {
                 switch (this.props.fsm.state) {
                     case S_IN:
-                        if (input.vId === S_MINE) {
+                        if (input.kId === S_MINE) {
                             //add sample to store
                             // console.log("mined sample:");
                             // console.log(sample);
                             this.props.addSample(sample);
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_MINE_FIN));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_MINE_FIN));
                             sample = (0, _asteroidSample.createSample)();
-                        } else if (input.vId === S_LOOK) {
+                        } else if (input.kId === S_LOOK) {
                             sample = (0, _asteroidSample.createSample)();
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
-                        } else if (input.vId === S_BACK) {
-                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
+                        } else if (input.kId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.kId));
                         }
                         break;
                     case S_MINE_FIN:
-                        if (input.vId === S_IN) {
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        if (input.kId === S_IN) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         }
                         break;
                 }
@@ -5859,7 +5909,7 @@ var Mine = function (_React$Component) {
                 return [_react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'mine asteroids' })
+                    _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(I_ENTRY_1), { onInput: this.onInput, text: 'mine asteroids' }))
                 )];
             } else {
                 switch (this.props.fsm.state) {
@@ -5868,7 +5918,7 @@ var Mine = function (_React$Component) {
                             'p',
                             null,
                             'asteroid sample added to inventory'
-                        ), _react2.default.createElement(_Button2.default, { vId: S_IN, onInput: this.onInput, text: 'next' })];
+                        ), _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_IN), { onInput: this.onInput, text: 'next' }))];
                     case S_IN:
                     default:
                         return [_react2.default.createElement(
@@ -5878,9 +5928,9 @@ var Mine = function (_React$Component) {
                         ), _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_Button2.default, { vId: S_MINE, onInput: this.onInput, text: 'mine it' }),
-                            _react2.default.createElement(_Button2.default, { vId: S_LOOK, onInput: this.onInput, text: 'look for another' }),
-                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_MINE), { onInput: this.onInput, text: 'mine it' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_LOOK), { onInput: this.onInput, text: 'look for another' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_BACK), { onInput: this.onInput, text: 'back' }))
                         )];
                 }
             }
@@ -5901,7 +5951,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN))
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Mine);
@@ -5934,6 +5984,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.component = exports.id = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -5957,8 +6009,6 @@ var _Messages = __webpack_require__(34);
 var _Messages2 = _interopRequireDefault(_Messages);
 
 var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5995,28 +6045,30 @@ var Inventory = function (_React$Component) {
     _createClass(Inventory, [{
         key: 'onInput',
         value: function onInput(input) {
-            if (input.vId === I_ENTRY_1) {
-                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
-                this.props.onInput(_Messages2.default.message(this.props.vId));
+            console.log("inventory input");
+            console.log(input);
+            if (input.kId === I_ENTRY_1) {
+                this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.kId));
             } else {
                 switch (this.props.fsm.state) {
                     case S_IN:
-                        if (input.vId === S_BACK) {
-                            this.props.onInput(_Messages2.default.message(this.props.vId));
-                        } else if (input.vId === S_SAMPLE) {
+                        if (input.kId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.kId));
+                        } else if (input.kId === S_SAMPLE) {
                             var it = input.item;
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_SAMPLE));
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_SAMPLE));
                         } else {
-                            console.log("item selected " + input.vId);
-                            itemId = input.vId;
+                            console.log("item selected " + input.kId);
+                            itemId = input.kId;
                             this.setState({
                                 item: item
                             });
                         }
                         break;
                     case S_SAMPLE:
-                        if (input.vId === S_SAMPLE) {
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        if (input.kId === S_SAMPLE) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         }
                         break;
                 }
@@ -6030,13 +6082,13 @@ var Inventory = function (_React$Component) {
             console.log("invetory render sample");
 
             //  let idElem = this.props.factory(constants.fsm.questions.idElem);
-            var sample = this.props.factory(_Constants2.default.fsm.items.asteroidSample);
+            var sample = this.props.factory(_Constants.constants.fsm.items.asteroidSample);
             return Object.values(this.props.asteroidSample).map(function (e, i) {
                 console.log("render asteroid sample item ");
                 console.log(e);
                 return _react2.default.createElement(sample.component, { item: e,
                     showEntry: true, factory: _this2.props.factory,
-                    onInput: _this2.onInput, vId: S_SAMPLE });
+                    onInput: _this2.onInput, kId: S_SAMPLE });
                 // if(e.id === itemId){
                 //     itemType = e.type;
                 //     return (
@@ -6062,7 +6114,7 @@ var Inventory = function (_React$Component) {
                 return [_react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'inspect inventory' })
+                    _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(I_ENTRY_1), { onInput: this.onInput, text: 'inspect inventory' }))
                 )];
             } else {
                 switch (this.props.fsm.state) {
@@ -6071,10 +6123,10 @@ var Inventory = function (_React$Component) {
                         //let idElem = this.props.factory(constants.fsm.questions.idElem)
                         //itemId={this.props.fsm[constants.fsm.keys.item]} 
                         //itemType={this.props.fsm[constants.fsm.keys.itemType]} 
-                        var sample = this.props.factory(_Constants2.default.fsm.items.asteroidSample);
-                        return [_react2.default.createElement(sample.component, {
+                        var sample = this.props.factory(_Constants.constants.fsm.items.asteroidSample);
+                        return [_react2.default.createElement(sample.component, _extends({
                             showEntry: false, factory: this.props.factory,
-                            onInput: this.onInput, vId: S_SAMPLE })];
+                            onInput: this.onInput }, _Constants.functions.propKid(S_SAMPLE)))];
                     // return [
                     //     <idElem.component showEntry={false} factory={this.props.factory} 
                     //     onInput={this.onInput} vId={A_ELEM} itemId={itemId} itemType={itemType} />
@@ -6084,7 +6136,7 @@ var Inventory = function (_React$Component) {
                         return [_react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_BACK), { onInput: this.onInput, text: 'back' }))
                         ), _react2.default.createElement(
                             'div',
                             null,
@@ -6111,7 +6163,7 @@ var mapStateToProps = function mapStateToProps(state, props) {
     console.log("mapping asteroid samples");
     console.log(state);
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN)),
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN)),
         asteroidSample: state.items.asteroidSample
     };
 };
@@ -6129,6 +6181,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.component = exports.id = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -6155,8 +6209,6 @@ var _Messages = __webpack_require__(34);
 var _Messages2 = _interopRequireDefault(_Messages);
 
 var _Constants = __webpack_require__(4);
-
-var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6184,31 +6236,29 @@ var IdElem = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IdElem.__proto__ || Object.getPrototypeOf(IdElem)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        console.log("IdElem constructor, props should have item");
-        console.log(props);
         return _this;
     }
 
     _createClass(IdElem, [{
         key: 'onInput',
         value: function onInput(input) {
-            if (input.vId === I_ENTRY_1) {
-                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
-                this.props.onInput(_Messages2.default.message(this.props.vId));
+            if (input[_Constants.constants.IO.kId] === I_ENTRY_1) {
+                this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.kId));
             } else {
                 switch (this.props.fsm.state) {
                     case S_IN:
-                        if (input.vId === S_FLAME) {
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_FLAME));
-                        } else if (input.vId === S_SONAR) {
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_SONAR));
-                        } else if (input.vId === S_BACK) {
-                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        if (input[_Constants.constants.IO.kId] === S_FLAME) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_FLAME));
+                        } else if (input[_Constants.constants.IO.kId] === S_SONAR) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_SONAR));
+                        } else if (input[_Constants.constants.IO.kId] === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.kId));
                         }
                         break;
                     case S_FLAME:
                     case S_SONAR:
-                        this.props.onInput(_Messages2.default.answer(this.props.vId, {
+                        this.props.onInput(_Messages2.default.answer(this.props.kId, {
                             element: input.vId
                         }));
                         break;
@@ -6218,14 +6268,12 @@ var IdElem = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            console.log("identify element renderView");
-            console.log(this.props);
             if (this.props.showEntry) {
                 var t = 'element: ' + (this.props.item.user.element ? this.props.item.user.element : 'unknown');
                 return [_react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: t })
+                    _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(I_ENTRY_1), { onInput: this.onInput, text: t }))
                 )];
             } else {
                 switch (this.props.fsm.state) {
@@ -6237,8 +6285,8 @@ var IdElem = function (_React$Component) {
                         ), _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_Button2.default, { vId: 'magnesium', onInput: this.onInput, text: 'magnesium' }),
-                            _react2.default.createElement(_Button2.default, { vId: 'lithium', onInput: this.onInput, text: 'lithium' })
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_SONAR), { vId: 'magnesium', onInput: this.onInput, text: 'magnesium' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_SONAR), { vId: 'lithium', onInput: this.onInput, text: 'lithium' }))
                         )];
                     case S_FLAME:
                         return [_react2.default.createElement(
@@ -6248,8 +6296,8 @@ var IdElem = function (_React$Component) {
                         ), _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_Button2.default, { vId: 'iron', onInput: this.onInput, text: 'iron' }),
-                            _react2.default.createElement(_Button2.default, { vId: 'copper', onInput: this.onInput, text: 'copper' })
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_FLAME), { vId: 'iron', onInput: this.onInput, text: 'iron' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_FLAME), { vId: 'copper', onInput: this.onInput, text: 'copper' }))
                         )];
                     case S_IN:
                     default:
@@ -6260,9 +6308,9 @@ var IdElem = function (_React$Component) {
                         ), _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_Button2.default, { vId: S_FLAME, onInput: this.onInput, text: 'use flame test' }),
-                            _react2.default.createElement(_Button2.default, { vId: S_SONAR, onInput: this.onInput, text: 'use sonar test' }),
-                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_FLAME), { onInput: this.onInput, text: 'use flame test' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_SONAR), { onInput: this.onInput, text: 'use sonar test' })),
+                            _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_BACK), { onInput: this.onInput, text: 'back' }))
                         )];
                 }
             }
@@ -6286,7 +6334,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN))
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(IdElem);
@@ -6303,6 +6351,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.component = exports.id = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -6330,8 +6380,6 @@ var _Messages2 = _interopRequireDefault(_Messages);
 
 var _Constants = __webpack_require__(4);
 
-var _Constants2 = _interopRequireDefault(_Constants);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -6345,8 +6393,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var S_IN = 'in',
     S_BACK = 'back',
     I_ENTRY_1 = 'e1',
-    A_ID = 'aid';
-var id = exports.id = _Constants2.default.fsm.items.asteroidSample;
+    A_ID = 'aid',
+    S_STOCK = 'stock';
+var id = exports.id = _Constants.constants.fsm.items.asteroidSample;
 //let itemId = null, itemType = null;
 
 var AstSamp = function (_React$Component) {
@@ -6358,43 +6407,41 @@ var AstSamp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (AstSamp.__proto__ || Object.getPrototypeOf(AstSamp)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        console.log("@@@@@@@@@@@@@@@@ast samp constructer ");
-        console.log(props);
         return _this;
     }
 
     _createClass(AstSamp, [{
         key: 'onInput',
         value: function onInput(input) {
-            console.log("asteroid sample onInput");
-            console.log(this.props);
-            if (input.vId === I_ENTRY_1) {
+            if (input.kId === I_ENTRY_1) {
                 if (this.props.item) {
                     var _props$setFSMState;
 
-                    console.log('set asteroid sample FSM state ' + id + " item " + this.props.item.id);
-                    this.props.setFSMState(id, (_props$setFSMState = {}, _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.state, S_IN), _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.item, this.props.item.id), _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.itemType, this.props.item.type), _props$setFSMState));
-                    this.props.onInput(_Messages2.default.item(this.props.vId, this.props.item));
+                    this.props.setFSMState(id, (_props$setFSMState = {}, _defineProperty(_props$setFSMState, _Constants.constants.fsm.keys.state, S_IN), _defineProperty(_props$setFSMState, _Constants.constants.fsm.keys.item, this.props.item.id), _defineProperty(_props$setFSMState, _Constants.constants.fsm.keys.itemType, this.props.item.type), _props$setFSMState));
+                    this.props.onInput(_Messages2.default.item(this.props.kId, this.props.item));
                 } else {
                     console.log("error, no item in asteroid sample onInput entry");
                 }
             } else {
                 switch (this.props.fsm.state) {
                     case S_IN:
-                        if (input.vId === A_ID) {
-                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, A_ID));
-                        } else if (input.vId === S_BACK) {
-                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        if (input.kId === A_ID) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, A_ID));
+                        } else if (input.kId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.kId));
+                        } else if (input.kId === S_STOCK) {
+                            //bug? potential race condition if delete asteroid sample currently open
+                            //1) signal input for parent 2) call addSampleToStock with stock id
+                            //let sampleId = this.props.item.id;
+                            this.props.addSampleToStock(this.props.item.id);
+                            // console.log("adding sample " + sampleId + " to stockpile");
+                            this.props.onInput(_Messages2.default.message(this.props.kId));
                         }
-                        break;
-                    case S_BACK:
                         break;
                     case A_ID:
                         var element = input.element;
-                        console.log("asteroid sample is element " + element + " constant: " + _Constants2.default.items.element); //id, key, val
-                        console.log(this.props);
-                        this.props.editItem(this.props.item, _Constants2.default.items.element, element);
-                        this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        this.props.editItem(this.props.item, _Constants.constants.items.element, element);
+                        this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         break;
                 }
             }
@@ -6402,8 +6449,6 @@ var AstSamp = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            console.log("ast sample renderView");
-            console.log(this.props);
             if (!this.props.item) {
                 return _react2.default.createElement(
                     'p',
@@ -6413,27 +6458,28 @@ var AstSamp = function (_React$Component) {
             } else {
                 if (this.props.showEntry) {
                     var t = 'item: element: ' + (this.props.item.user.element ? this.props.item.user.element : 'unknown');
-                    return [_react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: t })];
+                    return [_react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(I_ENTRY_1), { onInput: this.onInput, text: t }))];
                 } else {
                     switch (this.props.fsm.state) {
                         case A_ID:
-                            var idElema = this.props.factory(_Constants2.default.fsm.questions.idElem);
-                            return [_react2.default.createElement(idElema.component, { item: this.props.item, showEntry: false, factory: this.props.factory,
-                                onInput: this.onInput, vId: A_ID })];
+                            var idElema = this.props.factory(_Constants.constants.fsm.questions.idElem);
+                            return [_react2.default.createElement(idElema.component, _extends({ item: this.props.item, showEntry: false, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(A_ID)))];
                         case S_IN:
                         default:
-                            var idElem = this.props.factory(_Constants2.default.fsm.questions.idElem);
+                            var idElem = this.props.factory(_Constants.constants.fsm.questions.idElem);
                             return [_react2.default.createElement(
                                 'p',
                                 null,
                                 'asteroid sample: ',
                                 this.props.item.id,
                                 ':',
-                                _react2.default.createElement(idElem.component, { item: this.props.item, showEntry: true, factory: this.props.factory,
-                                    onInput: this.onInput, vId: A_ID }),
+                                _react2.default.createElement(idElem.component, _extends({ item: this.props.item, showEntry: true, factory: this.props.factory,
+                                    onInput: this.onInput }, _Constants.functions.propKid(A_ID))),
                                 'weight: ',
                                 this.props.item.user.weight ? this.props.item.user.weight : 'unknown'
-                            ), _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })];
+                            ), _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_STOCK), { onInput: this.onInput, text: 'add to stock',
+                                disabled: this.props.item.user.element ? false : true })), _react2.default.createElement(_Button2.default, _extends({}, _Constants.functions.propKid(S_BACK), { onInput: this.onInput, text: 'back' }))];
                     }
                 }
             }
@@ -6452,19 +6498,17 @@ var AstSamp = function (_React$Component) {
 
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, editItem: _reducer2.editItem }, dispatch);
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, editItem: _reducer2.editItem, addSampleToStock: _reducer2.addSampleToStock }, dispatch);
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
-    console.log("ast sample map state to props");
-    console.log(state);
-    var fsm = (0, _selectors.selectFsmState)(state, _Constants2.default.fsm.items.asteroidSample, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+    var fsm = (0, _selectors.selectFsmState)(state, _Constants.constants.fsm.items.asteroidSample, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
     //Bug there is a state where the inventory is not passing an item in, and the asteroidSample
     //has not recieved a fresh store state, and thus has no item
     //this is resolved in ComponendWillUpdate, which passes in the fresh store state
     //will need to tolerate no item to display
-    var id = fsm[_Constants2.default.fsm.keys.item];
-    var type = fsm[_Constants2.default.fsm.keys.itemType];
+    var id = fsm[_Constants.constants.fsm.keys.item];
+    var type = fsm[_Constants.constants.fsm.keys.itemType];
     var item = props.item ? props.item : id ? state.items[type][id] : null;
     console.log("ast samp id: " + id + " type: " + type + "item: ");
     console.log(item);
@@ -6531,14 +6575,10 @@ exports.setHealth = setHealth;
 
 var _Constants = __webpack_require__(4);
 
-var _Constants2 = _interopRequireDefault(_Constants);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var reducer = exports.reducer = function reducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
         health: 100,
-        zone: _Constants2.default.fsm.zones.lounge
+        zone: _Constants.constants.fsm.zones.lounge
     };
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
@@ -7374,4 +7414,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.29978ca0.js.map
+//# sourceMappingURL=static.c6cd1abf.js.map

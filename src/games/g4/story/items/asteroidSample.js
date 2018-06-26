@@ -1,6 +1,6 @@
 import {getRandomItem} from './../../../../utilities/randomizer.js';
 import {guid} from './../../../../utilities/ids.js';
-import constants from './../Constants.js';
+import {constants} from './../Constants.js';
 
 const materials = ['iron', 'cobalt', 'copper', 'silver']
 

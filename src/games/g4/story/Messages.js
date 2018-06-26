@@ -1,19 +1,19 @@
-
+//import constants from './Constants.js';
 
 const constants = {
-    message: (vId) => {
+    message: (kId) => {
         return (
-            {vId}
+            {kId}
         )
     },
-    item: (vId, item) => {
+    item: (kId, item) => {
         return (
-            {vId, item}
+            {kId, item}
         )
     },
-    answer: (vId, answers) => {
+    answer: (kId, answers) => {
         return(
-            {vId, ...answers}
+            {kId, ...answers}
         )
     }  
 }

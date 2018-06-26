@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
 import messages from './../../Messages.js';
-import constants from './../../Constants';
+import {constants, functions} from './../../Constants';
 
 const S_IN = 'in',
     S_BACK= 'back',
@@ -22,17 +22,19 @@ class Inventory extends React.Component{
     }
 
     onInput(input){
-        if(input.vId === I_ENTRY_1){
+        console.log("inventory input");
+        console.log(input);
+        if(input.kId === I_ENTRY_1){
             this.props.setFSMState(id, {
                 [constants.fsm.keys.state]: S_IN
             });
-            this.props.onInput(messages.message(this.props.vId));
+            this.props.onInput(messages.message(this.props.kId));
         }else{
             switch(this.props.fsm.state){
                 case S_IN:
-                    if(input.vId === S_BACK){
-                        this.props.onInput(messages.message(this.props.vId));
-                    }else if(input.vId === S_SAMPLE){
+                    if(input.kId === S_BACK){
+                        this.props.onInput(messages.message(this.props.kId));
+                    }else if(input.kId === S_SAMPLE){
                         let it = input.item;
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_SAMPLE,
@@ -41,15 +43,15 @@ class Inventory extends React.Component{
                         });
                     }
                     else{
-                        console.log("item selected " + input.vId);
-                        itemId = input.vId;
+                        console.log("item selected " + input.kId);
+                        itemId = input.kId;
                         this.setState({
                             item
                         })
                     }
                     break;
                 case S_SAMPLE:
-                    if(input.vId === S_SAMPLE){
+                    if(input.kId === S_SAMPLE){
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_IN
                         });
@@ -68,7 +70,7 @@ class Inventory extends React.Component{
             console.log(e);
             return <sample.component item={e} 
                     showEntry={true} factory={this.props.factory}
-                    onInput={this.onInput} vId={S_SAMPLE}/>
+                    onInput={this.onInput} kId={S_SAMPLE}/>
             // if(e.id === itemId){
             //     itemType = e.type;
             //     return (
@@ -92,7 +94,7 @@ class Inventory extends React.Component{
         if(this.props.showEntry){
             return [
                 <div>
-                    <Button vId={I_ENTRY_1} onInput={this.onInput} text={'inspect inventory'}/>
+                    <Button {...functions.propKid(I_ENTRY_1)} onInput={this.onInput} text={'inspect inventory'}/>
                 </div>
             ]
         }else{
@@ -106,7 +108,7 @@ class Inventory extends React.Component{
                     return [
                         <sample.component 
                         showEntry={false} factory={this.props.factory}
-                        onInput={this.onInput} vId={S_SAMPLE}/>
+                        onInput={this.onInput} {...functions.propKid(S_SAMPLE)}/>
                     ]
                     // return [
                     //     <idElem.component showEntry={false} factory={this.props.factory} 
@@ -116,7 +118,7 @@ class Inventory extends React.Component{
                 default:
                     return [
                         <div>
-                            <Button vId={S_BACK} onInput={this.onInput} text={'back'}/>
+                            <Button {...functions.propKid(S_BACK)} onInput={this.onInput} text={'back'}/>
                         </div>,
                         <div>
                             {this.renderSample()}

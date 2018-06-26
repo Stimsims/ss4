@@ -1,4 +1,4 @@
-import constants from './Constants.js';
+import {constants} from './Constants.js';
   
 export const reducer = (
     state = {

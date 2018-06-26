@@ -4,7 +4,7 @@ import {selectFsmState} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setZone,setFSMState} from './../reducer.js';
-import constants from './../../Constants.js';
+import {constants, functions} from './../../Constants.js';
 
 const S_IN = 'in',
     S_LOUNGE= 'lounge',
@@ -18,9 +18,9 @@ class Control extends React.Component{
         this.onInput = this.onInput.bind(this);
     }
     onInput(input){
-         console.log("control recieved input");
-         console.log(this.props);
-        if(input.vId === I_ENTRY_1){
+        //  console.log("control recieved input");
+        //  console.log(this.props);
+        if(input.kId === I_ENTRY_1){
             //is an entry point, irrelevant what state the FSM is in
             //send action to change location
             this.props.setZone(id, S_IN);
@@ -31,13 +31,13 @@ class Control extends React.Component{
         }else{
             switch(this.props.fsm.state){
                 case S_IN:
-                    if(input.vId === I_MINE){
+                    if(input.kId === I_MINE){
                      //   console.log("setting control fsm");
                         this.props.setZone(id, I_MINE);
                     }
                     break;
                 case I_MINE:
-                    if(input.vId === I_MINE){
+                    if(input.kId === I_MINE){
                        // console.log("recieved input from mining action");
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_IN
@@ -49,12 +49,12 @@ class Control extends React.Component{
 
     }
     renderView(){
-        console.log("control render view: ");
-        console.log(this.props);
+        // console.log("control render view: ");
+        // console.log(this.props);
         if(this.props.showEntry){
             return [
                 <div>
-                    <Button vId={I_ENTRY_1} onInput={this.onInput} text={'go to control'}/>
+                    <Button kId={I_ENTRY_1} onInput={this.onInput} text={'go to control'}/>
                 </div>
             ]
         }else{
@@ -63,7 +63,7 @@ class Control extends React.Component{
                     let mine2 = this.props.factory(constants.fsm.actions.mine);
                     return [
                         <mine2.component showEntry={false} factory={this.props.factory} 
-                            onInput={this.onInput} vId={I_MINE}/>
+                            onInput={this.onInput} {...functions.propKid(I_MINE)}/>
                     ]
                 case S_IN:
                 default:
@@ -73,9 +73,9 @@ class Control extends React.Component{
                         <div>
                             inside control room
                             <lounge.component showEntry={true} factory={this.props.factory} 
-                            onInput={this.onInput} vId={I_LOUNGE}/>
+                            onInput={this.onInput} {...functions.propKid(I_LOUNGE)}/>
                             <mine.component showEntry={true} factory={this.props.factory} 
-                            onInput={this.onInput} vId={I_MINE}/>
+                            onInput={this.onInput} {...functions.propKid(I_MINE)}/>
                             {/* <Button vId={I_ENTRY_1} onInput={this.onInput} text={'inside control'}/> */}
                         </div>
                     ]
