@@ -1,1 +1,1 @@
-{"path":"posts/hello","templateID":1,"sharedPropsHashes":{},"localProps":{"p":{"title":"hello","id":"hello"}}}
+{"path":"posts/hello","templateID":1,"sharedPropsHashes":{},"localProps":{"p":{"title":"hello","id":"hello","tags":["t1","t2"]}}}

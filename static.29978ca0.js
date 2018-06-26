@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 66);
+/******/ 	return __webpack_require__(__webpack_require__.s = 68);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -83,19 +83,19 @@ module.exports = require("react");
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("styled-components");
+module.exports = require("redux");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
+module.exports = require("styled-components");
 
 /***/ }),
 /* 4 */
@@ -108,76 +108,41 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var constants = exports.constants = {
-    input: {
-        kId: 'kId',
-        vId: 'vId'
+var constants = {
+    fsm: {
+        keys: {
+            state: 'state',
+            item: 'itemId',
+            itemType: 'itemType'
+        },
+        zones: {
+            lounge: 'lounge',
+            control: 'control'
+        },
+        actions: {
+            mine: 'mine',
+            inventory: 'inventory'
+        },
+        questions: {
+            idElem: 'idElem'
+        },
+        items: {
+            asteroidSample: 'asteroidSample'
+        }
     },
-    store: {
-        state: 'state'
+    IO: {
+        vId: 'vId',
+        kId: 'kId'
     },
-    names: {
-        lounge: 'lounge'
-    },
-    types: {
-        zones: 'zones',
-        actions: 'actions',
-        questions: 'questions'
-    },
-    zones: {
-        lounge: 'lounge',
-        control: 'control'
-    },
-    questions: {
-        read: 'read'
-    },
-    actions: {
-        mine: 'mine',
-        inventory: 'inventory'
-    },
-    read: {
-        q1: 'q1'
-    },
-    mine: {
-        samples: 'samples'
-    },
-    inventory: {
-        items: 'items'
-    },
-    logTypes: {
-        action: 'action',
-        answer: 'answer'
+    items: {
+        asteroidSample: 'asteroidSample',
+        element: 'element',
+        weight: 'weight'
     }
 };
 
-var messages = exports.messages = {
-    changeZone: function changeZone(id, to) {
-        var _ref;
-
-        return _ref = {}, _defineProperty(_ref, constants.input.vId, id), _defineProperty(_ref, 'changeFrom', function changeFrom(from) {
-            return {
-                to: to,
-                from: from
-            };
-        }), _ref;
-    },
-    toFSMState: function toFSMState(id, state) {
-        return { id: id, state: state };
-    },
-    zone: function zone(id) {
-        return _defineProperty({}, constants.input.vId, id);
-    },
-    action: function action(id) {
-        return _defineProperty({}, constants.input.vId, id);
-    },
-    output: function output(id, answers) {
-        return _extends(_defineProperty({}, constants.input.vId, id), answers);
-    }
-};
+exports.default = constants;
 
 /***/ }),
 /* 5 */
@@ -198,7 +163,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    display: inline;\n    font-size: 1.5em;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid transparent;\n        transition: all 0.3s ease-in;\n    }\n    a.active{\n        border-bottom: 2px solid black;\n    }\n'], ['\n    display: inline;\n    font-size: 1.5em;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid transparent;\n        transition: all 0.3s ease-in;\n    }\n    a.active{\n        border-bottom: 2px solid black;\n    }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    font-size: 1.8em;\n    margin: 0px;\n    a{\n        color: ', ';\n    }\n'], ['\n    display: inline-block;\n    font-size: 1.8em;\n    margin: 0px;\n    a{\n        color: ', ';\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    display: inline-block;\n    font-size: 1.1em;\n    margin-top: 11px;\n    transition: all 0.3s ease-in;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid ', ';\n        color: ', ';\n    }\n    a.active{\n        border-bottom: 2px solid ', ';\n        color: ', '; \n    }\n'], ['\n    display: inline-block;\n    font-size: 1.1em;\n    margin-top: 11px;\n    transition: all 0.3s ease-in;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid ', ';\n        color: ', ';\n    }\n    a.active{\n        border-bottom: 2px solid ', ';\n        color: ', '; \n    }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -206,11 +172,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-__webpack_require__(30);
+__webpack_require__(37);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(7);
+
+var _Colors2 = _interopRequireDefault(_Colors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -235,19 +205,19 @@ var Menu = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                null,
+                'nav',
+                { style: Bar },
                 _react2.default.createElement(
-                    _reactStatic.Link,
-                    { exact: true, to: '/' },
+                    Title,
+                    null,
                     _react2.default.createElement(
-                        'h1',
-                        { style: Title },
+                        _reactStatic.Link,
+                        { exact: true, to: '/' },
                         this.props.siteTitle
                     )
                 ),
                 _react2.default.createElement(
-                    'nav',
+                    'div',
                     { style: sMenu },
                     _react2.default.createElement(
                         Slinks,
@@ -278,19 +248,24 @@ var Menu = function (_React$Component) {
 exports.default = (0, _reactStatic.withSiteData)(Menu);
 
 
-var Title = {
-    textAlign: 'center',
-    margin: '10px 0px 10px 0px'
-};
-
-var sMenu = {
+var Bar = {
     width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-};
+    padding: '10px'
 
-var Slinks = _styledComponents2.default.span(_templateObject);
+    // const sMenu = {
+    //     width: '100%',
+    //     display: 'flex',
+    //     justifyContent:'center',
+    //     alignItems: 'center',
+    // }
+};var sMenu = {
+    display: 'inline',
+    float: 'right',
+    height: '80px',
+    marginRight: '10px'
+};
+var Title = _styledComponents2.default.h1(_templateObject, _Colors2.default.s);
+var Slinks = _styledComponents2.default.h2(_templateObject2, _Colors2.default.transparent, _Colors2.default.s, _Colors2.default.sLight, _Colors2.default.sLight);
 
 /*
 export interface NavLinkProps extends LinkProps {
@@ -305,6 +280,116 @@ export interface NavLinkProps extends LinkProps {
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var colors = {
+    p: '#101856',
+    pDark: '#040615',
+    pLight: '#2b39d4',
+    s: '#C6FF00',
+    sDark: '#8cb300',
+    sLight: '#e9ff99',
+    a1Light: '#69F0AE',
+    a1Dark: '#10a25c',
+    a2Light: '#FFEB3B',
+    a2Dark: '#F9A825',
+    transparent: 'transparent',
+    text: 'white',
+    accent: '#cc00cc',
+    accentHighlight: '#ffccff',
+    accentShadow: '#660066',
+    shadow: '#f2f2f2',
+    menu: 'white',
+    series0: '#cc66ff',
+    series1: '#99ccff',
+    series2: '#99ffcc',
+    series3: '#ffffcc',
+    series4: '#ffcce6'
+};
+
+exports.default = colors;
+
+// export const timing= {
+//     mini: 0.3
+// };
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.reducer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.setZone = setZone;
+exports.setFSMState = setFSMState;
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//stores fsm state information
+/*
+        [constants.fsm.zones.lounge]:{
+            [constants.fsm.keys.state]:null, 
+            [constants.fsm.keys.item]:null
+        },
+        [constants.fsm.zones.control]:{
+            [constants.fsm.keys.state]:null, 
+            [constants.fsm.keys.item]:null
+        }
+*/
+var reducer = exports.reducer = function reducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    switch (action.type) {
+        case 'SET_FSM_STATE':
+            console.log('action setfsm ' + action.payload.id);
+            return _extends({}, state, _defineProperty({}, action.payload.id, _extends({}, state[action.payload.id], action.payload.state)));
+        default:
+            return state;
+    }
+};
+
+//handled by parent reducer
+function setZone(zone, state) {
+    console.log("action set zone");
+    return {
+        type: 'SET_ZONE',
+        payload: {
+            zone: zone, state: state
+        }
+    };
+}
+
+function setFSMState(id, state) {
+    return {
+        type: 'SET_FSM_STATE',
+        payload: {
+            id: id, state: state
+        }
+    };
+}
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 /*
@@ -386,7 +471,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -402,25 +487,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactAddonsCssTransitionGroup = __webpack_require__(51);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _reactChartist = __webpack_require__(74);
-
-var _reactChartist2 = _interopRequireDefault(_reactChartist);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _animations = __webpack_require__(12);
-
-var _constants = __webpack_require__(9);
-
-var _styles = __webpack_require__(13);
-
-__webpack_require__(31);
+__webpack_require__(39);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -430,84 +501,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//import Legend from 'chartist-plugin-legend';
-// import Axis from 'chartist-plugin-axistitle';
+var Trans = function (_React$Component) {
+  _inherits(Trans, _React$Component);
 
+  function Trans(props) {
+    _classCallCheck(this, Trans);
 
-// import Chartist from 'chartist';
-
-var Pie = function (_React$Component) {
-  _inherits(Pie, _React$Component);
-
-  function Pie(props) {
-    _classCallCheck(this, Pie);
-
-    //let chart = <ChartistGraph  data={props.data} listener={listeners} options={props.options} type={'Line'} />;
-    //listener={this.state.listeners} options={this.props.options}
-    var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
-
-    console.log('line graph');
-    console.log(props);
-    _this.state = {
-      container: (0, _styles.genStyles)(_this.props.data),
-      data: {
-        labels: [1, 2, 3],
-        series: [[1, 2, 3]]
-      }
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
   }
 
-  _createClass(Pie, [{
+  _createClass(Trans, [{
     key: 'render',
     value: function render() {
-
-      // console.log('line graph');
-      // console.log(this.props);
       return _react2.default.createElement(
-        this.state.container,
-        { className: 'chartContainer' },
-        _react2.default.createElement(_reactChartist2.default, { data: this.props.data, listener: this.state.listeners, options: this.props.options, type: 'Line' })
+        _reactAddonsCssTransitionGroup2.default,
+        {
+          transitionName: 'fade-in',
+          transitionAppear: true,
+          transitionAppearTimeout: 500,
+          transitionEnterTimeout: 500,
+          transitionLeaveTimeout: 300 },
+        this.props.children
       );
     }
   }]);
 
-  return Pie;
+  return Trans;
 }(_react2.default.Component);
 
-exports.default = Pie;
+exports.default = Trans;
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var timing = exports.timing = {
-    mini: 0.3
-};
-
-var colors = exports.colors = {
-    accent: '#cc00cc',
-    accentHighlight: '#ffccff',
-    accentShadow: '#660066',
-    shadow: '#f2f2f2',
-    text: 'grey',
-    menu: 'white',
-
-    series0: '#cc66ff',
-    series1: '#99ccff',
-    series2: '#99ffcc',
-    series3: '#ffffcc',
-    series4: '#ffcce6'
-};
-
-/***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -525,7 +550,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -590,7 +615,7 @@ exports.default = Trans;
 var Btn = _styledComponents2.default.button(_templateObject);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -602,37 +627,127 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  margin-top:100px;\n    height: 100vh;\n'], ['\n  margin-top:100px;\n    height: 100vh;\n']);
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$Component) {
+    _inherits(Button, _React$Component);
+
+    function Button() {
+        _classCallCheck(this, Button);
+
+        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+    }
+
+    _createClass(Button, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'button',
+                { onClick: function onClick() {
+                        _this2.props.onInput({
+                            vId: _this2.props.vId
+                        });
+                    } },
+                this.props.text
+            );
+        }
+    }]);
+
+    return Button;
+}(_react2.default.Component);
+
+exports.default = Button;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.selectFsmState = undefined;
+
+var _reselect = __webpack_require__(87);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var selectFsmState = exports.selectFsmState = function selectFsmState(state, id, def) {
+    console.log("selectFsm " + id);
+    console.log(state);
+    var fsm = state.fsm[id];
+    return fsm ? fsm : def;
+};
+
+// export const selectFsmState = createSelector(
+//     getFSM,
+//     fsms => {
+//         return fsms
+//     } 
+// )
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  margin-top:70px;\n    height: 100vh;\n'], ['\n  margin-top:70px;\n    height: 100vh;\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(31);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Line = __webpack_require__(8);
+var _Line = __webpack_require__(15);
 
 var _Line2 = _interopRequireDefault(_Line);
 
-var _adapterParallel = __webpack_require__(32);
+var _adapterParallel = __webpack_require__(77);
 
 var _adapterParallel2 = _interopRequireDefault(_adapterParallel);
 
-var _chartistPluginLegend = __webpack_require__(33);
+var _chartistPluginLegend = __webpack_require__(49);
 
 var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
 
-var _chartistPluginAxistitle = __webpack_require__(34);
+var _chartistPluginAxistitle = __webpack_require__(50);
 
 var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
 
-var _trends = __webpack_require__(46);
+var _trends = __webpack_require__(79);
 
 var _trends2 = _interopRequireDefault(_trends);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -671,79 +786,37 @@ var Pie = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
 
-        var order = ['s1', 's2'];
-
+        var labels = ['math', "physics", "chemistry", "biology", "science"];
+        var xfn = function () {
+            var map = new Map();
+            return function (value) {
+                var t = value.slice(0, 4);
+                if (!map.has(t)) {
+                    map.set(t, 1);
+                    return t;
+                }
+            };
+        }();
+        var options = {
+            axisX: {
+                labelInterpolationFnc: xfn
+            }
+        };
         _this.state = {
-            order: order,
+            options: options,
+            labels: labels,
             adapter: new _adapterParallel2.default(_trends2.default, 'Math', 'Month', ['math: (Worldwide)', "physics: (Worldwide)", "chemistry: (Worldwide)", "biology: (Worldwide)", "science: (Worldwide)"])
         };
         return _this;
     }
 
     _createClass(Pie, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            // //         import Legend from 'chartist-plugin-legend';
-            // // import Axis from 'chartist-plugin-axistitle';
-            //         let Legend = require('chartist-plugin-legend');
-            //         let Axis = require('chartist-plugin-axistitle');
-            var fn = function () {
-                var map = new Map();
-                return function (value) {
-                    var t = value.slice(0, 4);
-                    if (!map.has(t)) {
-                        map.set(t, 1);
-                        return t;
-                    }
-                };
-            }();
-            var options = {
-                showPoint: false,
-                chartPadding: {
-                    top: 10,
-                    right: 20,
-                    bottom: 170,
-                    left: 20
-                },
-                axisX: {
-                    labelInterpolationFnc: fn
-                },
-                plugins: [(0, _chartistPluginLegend2.default)({
-                    position: 'top',
-                    classNames: ['ct-myclass', 'ct-myclass2'],
-                    legendNames: [{ name: 'math: (Worldwide)', series: ['math: (Worldwide)'] }, { name: 'ergo', series: ['chemistry: (Worldwide)'] }]
-                }), (0, _chartistPluginAxistitle2.default)({
-                    axisX: {
-                        axisTitle: 'Time (mins)',
-                        axisClass: 'ct-axis-title',
-                        offset: {
-                            x: 0,
-                            y: 40
-                        },
-                        textAnchor: 'middle'
-                    },
-                    axisY: {
-                        axisTitle: 'Goals',
-                        axisClass: 'ct-axis-title',
-                        offset: {
-                            x: 0,
-                            y: -10
-                        },
-                        flipTitle: false
-                    }
-                })]
-            };
-            this.setState({
-                options: options
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 Container,
                 null,
-                _react2.default.createElement(_Line2.default, { data: this.state.adapter, options: this.state.options })
+                _react2.default.createElement(_Line2.default, { data: this.state.adapter, options: this.state.options, title: 'Search Trends', legend: this.state.labels, titleX: 'Time (mins)', titleY: 'Goals' })
             );
         }
     }]);
@@ -757,7 +830,178 @@ exports.default = Pie;
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 12 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(31);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactChartist = __webpack_require__(76);
+
+var _reactChartist2 = _interopRequireDefault(_reactChartist);
+
+var _styledComponents = __webpack_require__(3);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _chartistPluginLegend = __webpack_require__(49);
+
+var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
+
+var _chartistPluginAxistitle = __webpack_require__(50);
+
+var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
+
+var _animations = __webpack_require__(16);
+
+var _constants = __webpack_require__(17);
+
+var _styles = __webpack_require__(18);
+
+__webpack_require__(38);
+
+var _utilities = __webpack_require__(19);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import Legend from 'chartist-plugin-legend';
+// import Axis from 'chartist-plugin-axistitle';
+
+
+// import Chartist from 'chartist';
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+var Pie = function (_React$Component) {
+  _inherits(Pie, _React$Component);
+
+  function Pie(props) {
+    _classCallCheck(this, Pie);
+
+    //let chart = <ChartistGraph  data={props.data} listener={listeners} options={props.options} type={'Line'} />;
+    //listener={this.state.listeners} options={this.props.options}
+    var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
+
+    console.log('line graph');
+    console.log(props);
+    console.log("props ops");
+    console.log(props.options);
+    var plugins = [];
+    var defaults = {
+      showPoint: false,
+      showGrid: false,
+      chartPadding: {
+        top: 10,
+        right: 20,
+        bottom: 180,
+        left: 20
+      },
+      plugins: plugins
+    };
+
+    if (props.legend) {
+      var names = (0, _utilities.getAxisLabels)(props.legend);
+      plugins.push((0, _chartistPluginLegend2.default)({
+        position: 'top',
+        classNames: ['ct-myclass'],
+        legendNames: names
+      }));
+    }
+    if (props.titleX || props.titleY) {
+      var axis = {};
+      if (props.titleX) {
+        axis.axisX = {
+          axisTitle: '' + props.titleX,
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 0
+          },
+          textAnchor: 'middle'
+        };
+      }
+      if (props.titleY) {
+        axis.axisY = {
+          axisTitle: '' + props.titleY,
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 0
+          },
+          textAnchor: 'middle'
+        };
+      }
+      plugins.push((0, _chartistPluginAxistitle2.default)(axis));
+    }
+    var newOpt = Object.assign(defaults, props.options);
+    console.log("newOpt");
+    console.log(newOpt);
+
+    _this.state = {
+      options: newOpt,
+      container: (0, _styles.genStyles)(_this.props.data),
+      data: {
+        labels: [1, 2, 3],
+        series: [[1, 2, 3]]
+      }
+    };
+    return _this;
+  }
+
+  _createClass(Pie, [{
+    key: 'render',
+    value: function render() {
+
+      // console.log('line graph');
+      // console.log(this.props);
+      return _react2.default.createElement(
+        this.state.container,
+        { className: 'chartContainer' },
+        _react2.default.createElement(
+          'h4',
+          { style: titleStyle },
+          this.props.title
+        ),
+        _react2.default.createElement(_reactChartist2.default, { data: this.props.data, listener: this.state.listeners, options: this.state.options, type: 'Line' })
+      );
+    }
+  }]);
+
+  return Pie;
+}(_react2.default.Component);
+
+exports.default = Pie;
+
+
+var titleStyle = {
+  color: 'white',
+  textAlign: 'center',
+  marginBottom: '0px'
+};
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -850,7 +1094,36 @@ var delays = 80,
 */
 
 /***/ }),
-/* 13 */
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var timing = exports.timing = {
+    mini: 0.3
+};
+
+var colors = exports.colors = {
+    accent: '#cc00cc',
+    accentHighlight: '#ffccff',
+    accentShadow: '#660066',
+    shadow: '#f2f2f2',
+    text: 'grey',
+    menu: 'white',
+
+    series0: '#cc66ff',
+    series1: '#99ccff',
+    series2: '#99ffcc',
+    series3: '#ffffcc',
+    series4: '#ffcce6'
+};
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -860,13 +1133,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    .ct-chart{\n        height: 100%;\n    }\n    ', '\n    .ct-grids line {\n      color: blue;\n    }\n    .ct-labels span {\n      color: blue;\n    }\n    .ct-grid line,\n    .ct-vertical,\n    .ct-start,\n    .ct-horizontal{ \n          stroke: red !important;\n          stroke-width: 1px !important;\n          stroke-dasharray: 2px !important;\n      }\n      .ct-legend{\n        list-style-type: none;\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        margin-bottom:0px;\n        li {\n            padding: 5px;\n            margin: 0px 10px 0px 10px;\n            border-radius: 25px;\n        }\n      }\n    '], ['\n    height: 100%;\n    .ct-chart{\n        height: 100%;\n    }\n    ', '\n    .ct-grids line {\n      color: blue;\n    }\n    .ct-labels span {\n      color: blue;\n    }\n    .ct-grid line,\n    .ct-vertical,\n    .ct-start,\n    .ct-horizontal{ \n          stroke: red !important;\n          stroke-width: 1px !important;\n          stroke-dasharray: 2px !important;\n      }\n      .ct-legend{\n        list-style-type: none;\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        margin-bottom:0px;\n        li {\n            padding: 5px;\n            margin: 0px 10px 0px 10px;\n            border-radius: 25px;\n        }\n      }\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    .ct-chart{\n        height: 100%;\n    }\n    ', '\n\n    .ct-labels span, .ct-axis-title {\n      color: ', ';\n    }\n    .ct-axis-title{\n      stroke: white;\n      stroke-width: 2px;\n    }\n    .ct-legend{\n      list-style-type: none;\n      text-align: center;\n      margin: auto;\n      margin-bottom:0px;\n      padding: 0px;\n      li {\n          padding: 5px;\n          margin: 0px 10px 0px 10px;\n          border-radius: 25px;\n          display: inline-block;\n      }\n    }\n    .ct-label.ct-label.ct-horizontal.ct-end {\n      transform-origin: 100% 0;\n      transform: translate(-100%, 20px) rotate(-45deg);\n    }\n    '], ['\n    height: 100%;\n    .ct-chart{\n        height: 100%;\n    }\n    ', '\n\n    .ct-labels span, .ct-axis-title {\n      color: ', ';\n    }\n    .ct-axis-title{\n      stroke: white;\n      stroke-width: 2px;\n    }\n    .ct-legend{\n      list-style-type: none;\n      text-align: center;\n      margin: auto;\n      margin-bottom:0px;\n      padding: 0px;\n      li {\n          padding: 5px;\n          margin: 0px 10px 0px 10px;\n          border-radius: 25px;\n          display: inline-block;\n      }\n    }\n    .ct-label.ct-label.ct-horizontal.ct-end {\n      transform-origin: 100% 0;\n      transform: translate(-100%, 20px) rotate(-45deg);\n    }\n    ']);
 
 exports.genStyles = genStyles;
 
-var _constants = __webpack_require__(9);
+var _Colors = __webpack_require__(7);
 
-var _styledComponents = __webpack_require__(1);
+var _Colors2 = _interopRequireDefault(_Colors);
+
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -893,17 +1168,17 @@ function getLetter(index) {
 function getColor(index) {
   switch (index) {
     case 0:
-      return _constants.colors.series0;
+      return _Colors2.default.series0;
     case 1:
-      return _constants.colors.series1;
+      return _Colors2.default.series1;
     case 2:
-      return _constants.colors.series2;
+      return _Colors2.default.series2;
     case 3:
-      return _constants.colors.series3;
+      return _Colors2.default.series3;
     case 4:
-      return _constants.colors.series4;
+      return _Colors2.default.series4;
     default:
-      return _constants.colors.series0;
+      return _Colors2.default.series0;
   }
 }
 /*
@@ -914,7 +1189,7 @@ function getColor(index) {
 function generateSeriesStyle(series) {
   var styles = '';
   series.map(function (e, i) {
-    var s = '.ct-series-' + getLetter(i) + ' .ct-bar, .ct-series-' + getLetter(i) + ' .ct-line, \n      .ct-series-' + getLetter(i) + ' .ct-point, .ct-series-' + getLetter(i) + ' .ct-slice-donut, \n      .ct-series-' + i + ', .ct-series-' + getLetter(i) + ' .ct-series {\n        stroke: ' + getColor(i) + ' !important;\n        stroke-width: 2px;\n        font-size:0.8em;\n        animation-delay: ' + i / 4 + 's;\n      }';
+    var s = '.ct-series-' + getLetter(i) + ' .ct-bar, .ct-series-' + getLetter(i) + ' .ct-line, \n      .ct-series-' + getLetter(i) + ' .ct-point, .ct-series-' + getLetter(i) + ' .ct-slice-donut, \n      .ct-series-' + i + ', .ct-series-' + getLetter(i) + ' .ct-series {\n        stroke: ' + getColor(i) + ' !important;\n        color: ' + getColor(i) + ' !important;\n        stroke-width: 2px;\n        font-size:0.9em;\n        animation-delay: ' + i / 4 + 's;\n      }';
     return styles = styles + s;
   });
   return styles;
@@ -923,13 +1198,58 @@ function generateSeriesStyle(series) {
 function genStyles(data) {
   var series = data.series;
 
-  var colors = generateSeriesStyle(series);
-  var Container = _styledComponents2.default.div(_templateObject, colors);
+  var seriesColors = generateSeriesStyle(series);
+  var Container = _styledComponents2.default.div(_templateObject, seriesColors, _Colors2.default.text);
   return Container;
 }
 
+/*
+.ct-legend 
+.ct-series-0 ct-myclass
+.ct-series-1 ct-myclass2
+    .ct-grids line {
+    color: blue;
+  }
+.ct-grid line,
+  .ct-vertical,
+  .ct-start,
+  .ct-horizontal{ 
+        stroke: red !important;
+        stroke-width: 1px !important;
+        stroke-dasharray: 2px !important;
+    }
+    .ct-legend{
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom:0px;
+      li {
+          padding: 5px;
+          margin: 0px 10px 0px 10px;
+          border-radius: 25px;
+      }
+    }
+*/
+
 /***/ }),
-/* 14 */
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var getAxisLabels = exports.getAxisLabels = function getAxisLabels(labels) {
+    return labels.map(function (e) {
+        return { name: "" + e, series: "" + e };
+    });
+};
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -941,15 +1261,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background-color: #330033;\n  z-index: -999999;\n  display: flex;\n  overflow:hidden;\n  padding-top: 10px;\n  div{\n      flex:1;\n  }\n"], ["\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background-color: #330033;\n  z-index: -999999;\n  display: flex;\n  overflow:hidden;\n  padding-top: 10px;\n  div{\n      flex:1;\n  }\n"]);
+var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background: linear-gradient(', ', ', ');\n  z-index: -999999;\n  overflow:hidden;\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background: linear-gradient(', ', ', ');\n  z-index: -999999;\n  overflow:hidden;\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(7);
+
+var _Colors2 = _interopRequireDefault(_Colors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -971,12 +1295,82 @@ var UiBg = function (_React$Component) {
     }
 
     _createClass(UiBg, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             // console.log("rendering game a");
             return _react2.default.createElement(
                 Bg,
-                { className: "bg" },
+                { className: 'bg' },
+                this.props.children
+            );
+        }
+    }]);
+
+    return UiBg;
+}(_react2.default.Component);
+
+exports.default = UiBg;
+
+
+var Bg = _styledComponents2.default.div(_templateObject, _Colors2.default.pDark, _Colors2.default.p);
+
+//background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: 1;\n  overflow:hidden;\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: 1;\n  overflow:hidden;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(3);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(7);
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UiBg = function (_React$Component) {
+    _inherits(UiBg, _React$Component);
+
+    function UiBg(props) {
+        _classCallCheck(this, UiBg);
+
+        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+    }
+
+    _createClass(UiBg, [{
+        key: 'render',
+        value: function render() {
+            // console.log("rendering game a");
+            return _react2.default.createElement(
+                Bg,
+                null,
                 this.props.children
             );
         }
@@ -991,9 +1385,100 @@ exports.default = UiBg;
 var Bg = _styledComponents2.default.div(_templateObject);
 
 //background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064
 
 /***/ }),
-/* 15 */
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    .slide-up-enter{\n        transform: translate(0px, 0px);\n        opacity: 0.1;\n    }\n    .slide-up-enter.slide-up-enter-active {\n        transform: translate(0px, 100vh);\n        transition: all 1s ease-out;\n        opacity: 0.1;\n    }\n\n    .slide-up-leave {\n        transform: translate(0px, 100vh);\n    }\n\n    .slide-up-leave.slide-up-leave-active {\n        transform: translate(0px, 0px);\n        transition:  all 1s ease-out;\n    }\n\n    .slide-up-appear {\n        transform: translate(0px, 100vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear.slide-up-appear-active {\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear-active a div{\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear a div{\n        transition:  all 1s ease-out;\n        transform: translate(0px, 100vh);\n    }\n'], ['\n    .slide-up-enter{\n        transform: translate(0px, 0px);\n        opacity: 0.1;\n    }\n    .slide-up-enter.slide-up-enter-active {\n        transform: translate(0px, 100vh);\n        transition: all 1s ease-out;\n        opacity: 0.1;\n    }\n\n    .slide-up-leave {\n        transform: translate(0px, 100vh);\n    }\n\n    .slide-up-leave.slide-up-leave-active {\n        transform: translate(0px, 0px);\n        transition:  all 1s ease-out;\n    }\n\n    .slide-up-appear {\n        transform: translate(0px, 100vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear.slide-up-appear-active {\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear-active a div{\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear a div{\n        transition:  all 1s ease-out;\n        transform: translate(0px, 100vh);\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsCssTransitionGroup = __webpack_require__(51);
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _styledComponents = __webpack_require__(3);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import './styles.css';
+
+
+var Trans = function (_React$Component) {
+    _inherits(Trans, _React$Component);
+
+    function Trans(props) {
+        _classCallCheck(this, Trans);
+
+        return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
+    }
+
+    _createClass(Trans, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Container,
+                null,
+                _react2.default.createElement(
+                    _reactAddonsCssTransitionGroup2.default,
+                    {
+                        transitionName: 'slide-up',
+                        transitionAppear: true,
+                        transitionAppearTimeout: 1000,
+                        transitionEnterTimeout: 1000,
+                        transitionLeaveTimeout: 1000 },
+                    this.props.children
+                )
+            );
+        }
+    }]);
+
+    return Trans;
+}(_react2.default.Component);
+
+exports.default = Trans;
+
+
+var Container = _styledComponents2.default.span(_templateObject);
+/*
+    .slide-up-appear-active a div{
+        transition: all 1s ease-out;
+        transform: rotate(0deg);
+    }
+    .slide-up-appear a div{
+        transition: all 1s ease-out;
+        transform: rotate(90deg);
+    }
+            &.slide-up-appear-active {
+            transform: translate(0px, 0px);
+        }
+*/
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1003,15 +1488,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(39);
+var _path2 = __webpack_require__(42);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(40);
+var _importCss2 = __webpack_require__(43);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(41);
+var _universalImport2 = __webpack_require__(44);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -1021,7 +1506,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactUniversalComponent = __webpack_require__(42);
+var _reactUniversalComponent = __webpack_require__(45);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -1070,7 +1555,7 @@ var Dynamic = function (_React$Component) {
             id: '',
             file: 'D:/websites/react-static/static-site-2/4/src/components/DynamicComponent.jsx',
             load: function load() {
-                return Promise.all([__webpack_require__(76)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
+                return Promise.all([__webpack_require__(80)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
                     disableWarnings: true
                 })]).then(function (proms) {
                     return proms[0];
@@ -1080,7 +1565,7 @@ var Dynamic = function (_React$Component) {
                 return _path3.default.join(__dirname, '' + _this.props.payload);
             },
             resolve: function resolve() {
-                return /*require.resolve*/(__webpack_require__(98).resolve("" + _this.props.payload));
+                return /*require.resolve*/(__webpack_require__(97).resolve("" + _this.props.payload));
             },
             chunkName: function chunkName() {
                 return '' + _this.props.payload;
@@ -1109,7 +1594,7 @@ exports.default = Dynamic;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 16 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1155,68 +1640,7 @@ var IFrame = function (_React$Component) {
 exports.default = IFrame;
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactAddonsCssTransitionGroup = __webpack_require__(77);
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-__webpack_require__(35);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Trans = function (_React$Component) {
-  _inherits(Trans, _React$Component);
-
-  function Trans(props) {
-    _classCallCheck(this, Trans);
-
-    return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
-  }
-
-  _createClass(Trans, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _reactAddonsCssTransitionGroup2.default,
-        {
-          transitionName: 'fade-in',
-          transitionAppear: true,
-          transitionAppearTimeout: 500,
-          transitionEnterTimeout: 500,
-          transitionLeaveTimeout: 300 },
-        this.props.children
-      );
-    }
-  }]);
-
-  return Trans;
-}(_react2.default.Component);
-
-exports.default = Trans;
-
-/***/ }),
-/* 18 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1232,7 +1656,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGa = __webpack_require__(51);
+var _reactGa = __webpack_require__(56);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -1276,7 +1700,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 19 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1404,7 +1828,7 @@ var Gapi = function (_React$Component) {
 exports.default = Gapi;
 
 /***/ }),
-/* 20 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1420,11 +1844,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _Index = __webpack_require__(80);
+var _Index = __webpack_require__(83);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -1436,6 +1860,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import Sim from './../../games/g1/simulation/index.js';
+
+//import Index from './../../games/g3/components/Index.jsx';
 
 
 var Game = function (_React$Component) {
@@ -1490,7 +1916,7 @@ exports.default = Game;
 */
 
 /***/ }),
-/* 21 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1510,11 +1936,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(11);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -1559,7 +1985,7 @@ exports.default = (0, _reactStatic.withSiteData)(Menu);
 var Bar = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 22 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1575,19 +2001,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(56);
+var _reduxLogger = __webpack_require__(58);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(97);
+var _store = __webpack_require__(94);
 
-var _reducers2 = _interopRequireDefault(_reducers);
+var _store2 = _interopRequireDefault(_store);
 
-var _Game = __webpack_require__(20);
+var _Game = __webpack_require__(27);
 
 var _Game2 = _interopRequireDefault(_Game);
 
@@ -1614,14 +2040,14 @@ var Index = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
         console.log("index constructor ");
-        console.log(_reducers2.default);
+        console.log(_store2.default);
         //expects to recieve the game
         //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
         //simulation and iterates through story nodes
         //the game displays the content, the simulation runs, stops and persists state
         //  let reducers = props.game.getReducers();
         // this.store = createStore(reducers);
-        _this.store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
+        _this.store = (0, _redux.createStore)(_store2.default, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
 
         console.log("sub store created");
         return _this;
@@ -1631,12 +2057,16 @@ var Index = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _reactRedux.Provider,
-                { store: this.store },
+                'div',
+                null,
                 _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_Game2.default, { game: this.props.game })
+                    _reactRedux.Provider,
+                    { store: this.store },
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(_Game2.default, { game: this.props.game })
+                    )
                 )
             );
         }
@@ -1644,6 +2074,13 @@ var Index = function (_React$Component) {
 
     return Index;
 }(_react2.default.Component);
+/*
+<Provider store={this.store}>
+            <div>
+                <Game game={this.props.game} />
+            </div>
+          </Provider>
+*/
 
 exports.default = Index;
 
@@ -1666,7 +2103,7 @@ const store = createStore(
 */
 
 /***/ }),
-/* 23 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1732,13 +2169,13 @@ var Wrapper = function (_React$Component) {
 exports.default = Wrapper;
 
 /***/ }),
-/* 24 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 25 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1757,17 +2194,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(78);
+__webpack_require__(81);
 
-var _reactKatex = __webpack_require__(79);
+var _reactKatex = __webpack_require__(82);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(31);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _ids = __webpack_require__(36);
+var _ids = __webpack_require__(40);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1826,7 +2263,7 @@ exports.default = Katex;
 var Container = _styledComponents2.default.span(_templateObject2);
 
 /***/ }),
-/* 26 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1835,97 +2272,70 @@ var Container = _styledComponents2.default.span(_templateObject2);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.changeZone = exports.reducer = undefined;
+exports.reducer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.setFSMState = setFSMState;
+exports.addSample = addSample;
+exports.editItem = editItem;
 
 var _Constants = __webpack_require__(4);
 
+var _Constants2 = _interopRequireDefault(_Constants);
+
+var _asteroidSample = __webpack_require__(57);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//stores fsm state information
+var sample = (0, _asteroidSample.createSample)();
+var sample1 = (0, _asteroidSample.createSample)();
+var sample2 = (0, _asteroidSample.createSample)();
 var reducer = exports.reducer = function reducer() {
-    var _extends2;
+    var _constants$items$aste;
 
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-        position: {
-            type: _Constants.constants.types.zones,
-            id: 'lounge'
-        },
-        lounge: {
-            type: _Constants.constants.types.zones,
-            id: 'lounge',
-            state: 'in'
-        },
-        control: {
-            type: _Constants.constants.types.zones,
-            id: 'control',
-            state: 0
-        }
-    };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _defineProperty({}, _Constants2.default.items.asteroidSample, (_constants$items$aste = {}, _defineProperty(_constants$items$aste, sample.id, sample), _defineProperty(_constants$items$aste, sample1.id, sample1), _defineProperty(_constants$items$aste, sample2.id, sample2), _constants$items$aste));
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     switch (action.type) {
-        case 'CHANGE_ZONE':
-            // console.log("action change zone");
-            // console.log(action);
-            return _extends({}, state, (_extends2 = {
-                position: _extends({}, state.position, {
-                    id: action.payload.to.id
-                })
-            }, _defineProperty(_extends2, action.payload.to.id, _extends({}, state[action.payload.to.id], {
-                state: action.payload.to.state
-            })), _defineProperty(_extends2, action.payload.from.id, _extends({}, state[action.payload.from.id], {
-                state: action.payload.from.state
-            })), _extends2));
-        case 'SET_ZONE':
-            return _extends({}, state, {
-                position: _extends({}, state.position, {
-                    id: action.payload.id
-                })
+        case 'ADD_SAMPLE':
+            return _extends({}, state, _defineProperty({}, _Constants2.default.items.asteroidSample, _extends({}, state[_Constants2.default.items.asteroidSample], _defineProperty({}, action.payload.sample.id, action.payload.sample))));
+        case 'EDIT_ITEM':
+            var update = _extends({}, action.payload.item, {
+                user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
             });
-        case 'SET_FSM_STATE_ZONE':
-            console.log("zone fsm setting " + action.payload.id + " state to " + action.payload.state);
-            return _extends({}, state, _defineProperty({}, action.payload.id, _extends({}, state[action.payload.id], {
-                state: action.payload.state
-            })));
+            return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
         default:
             return state;
     }
 };
 
-//from(id,state) to(id, state)
-var changeZone = exports.changeZone = function changeZone(payload) {
+//handled by parent reducer
+function addSample(sample) {
+    console.log("action set zone");
     return {
-        type: 'CHANGE_ZONE',
-        payload: payload
-    };
-};
-// export function setZone(id){
-//     return{
-//         type: 'SET_ZONE',
-//         payload: {
-//             id
-//         }
-//     }
-// }
-
-function setFSMState(id, state) {
-    return {
-        type: 'SET_FSM_STATE_ZONE',
+        type: 'ADD_SAMPLE',
         payload: {
-            id: id, state: state
+            sample: sample
         }
     };
 }
 
-// export const actions = {
-//     setZone
-// }
+//handled by parent reducer
+function editItem(item, key, val) {
+    console.log("action edit item key " + key + " val " + val);
+    return {
+        type: 'EDIT_ITEM',
+        payload: {
+            item: item, key: key, val: val
+        }
+    };
+}
 
 /***/ }),
-/* 27 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1935,37 +2345,24 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var reducer = exports.reducer = function reducer() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'ADD_LOG':
-            //console.log("setting " + action.payload.id + " state to " + action.payload.state);
-            return [].concat(_toConsumableArray(state), [action.payload]);
-        default:
-            return state;
+var constants = {
+    message: function message(vId) {
+        return { vId: vId };
+    },
+    item: function item(vId, _item) {
+        return { vId: vId, item: _item };
+    },
+    answer: function answer(vId, answers) {
+        return _extends({ vId: vId }, answers);
     }
 };
 
-//from(id,state) to(id, state)
-var addLog = exports.addLog = function addLog(type, text) {
-    return {
-        type: 'ADD_LOG',
-        payload: {
-            type: type, text: text
-        }
-    };
-};
-
-// export const actions = {
-//     setZone
-// }
+exports.default = constants;
 
 /***/ }),
-/* 28 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2023,7 +2420,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 29 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -2051,10 +2448,10 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 30 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -2065,10 +2462,10 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 31 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 exports.push([module.i, "@import url(//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css);", ""]);
 
@@ -2079,101 +2476,10 @@ exports.push([module.i, ".ct-axis-title{color:#fff}@-webkit-keyframes dance{0%{-
 
 
 /***/ }),
-/* 32 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _lodash = __webpack_require__(75);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Adapter = function () {
-    function Adapter(data, label, xPath, yPaths) {
-        var _this = this;
-
-        _classCallCheck(this, Adapter);
-
-        //data is an array of objects
-        //data is reformed in a series with a label and datapoints with x and y properties
-        this.label = label;
-        this.x = xPath;
-        this.y = yPaths;
-
-        this.series = [];
-        yPaths.map(function (e) {
-            _this.series.push([]);
-        });
-        this.labels = [];
-        this.updateData(data);
-    }
-
-    _createClass(Adapter, [{
-        key: 'updateData',
-        value: function updateData(data) {
-            var _this2 = this;
-
-            if (data.length > this.labels.length) {
-                var _loop = function _loop(i) {
-                    var x = (0, _lodash.get)(data[i], _this2.x);
-                    _this2.labels.push(x);
-                    _this2.y.map(function (e, yIndex) {
-                        var yv = (0, _lodash.get)(data[i], e);
-                        var ray = _this2.series[yIndex];
-                        ray.push(yv);
-                    });
-                };
-
-                for (var i = this.labels.length; i < data.length; i++) {
-                    _loop(i);
-                }
-            }
-        }
-    }, {
-        key: 'createPoint',
-        value: function createPoint(x, y) {
-            return { x: x, y: y };
-        }
-    }, {
-        key: 'getSeries',
-        value: function getSeries() {
-            return {
-                name: this.label,
-                labels: this.labels,
-                series: this.series
-            };
-        }
-    }]);
-
-    return Adapter;
-}();
-
-exports.default = Adapter;
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-module.exports = require("chartist-plugin-legend");
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-module.exports = require("chartist-plugin-axistitle");
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -2184,7 +2490,7 @@ exports.push([module.i, ".fade-in-enter{opacity:.01}.fade-in-enter.fade-in-enter
 
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2202,76 +2508,7 @@ function guid() {
 }
 
 /***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.reducer = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.addSample = addSample;
-exports.setFSMState = setFSMState;
-
-var _Constants = __webpack_require__(4);
-
-var _asteroidSample = __webpack_require__(54);
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var ast1 = (0, _asteroidSample.createAsteroid)();
-var reducer = exports.reducer = function reducer() {
-    var _ref;
-
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.inventory.items, _defineProperty({}, _Constants.constants.mine.samples, _defineProperty({}, ast1.sample.id, ast1.sample))), _defineProperty(_ref, _Constants.constants.actions.mine, {
-        type: _Constants.constants.types.actions,
-        id: _Constants.constants.actions.mine,
-        state: 0
-    }), _defineProperty(_ref, _Constants.constants.actions.inventory, {
-        type: _Constants.constants.types.actions,
-        id: _Constants.constants.actions.inventory,
-        state: 0
-    }), _ref);
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'ADD_SAMPLE':
-            return _extends({}, state, _defineProperty({}, _Constants.constants.inventory.items, _defineProperty({}, _Constants.constants.mine.samples, _extends({}, state.inventory.samples, _defineProperty({}, action.payload.sample.id, action.payload.sample)))));
-        case 'SET_FSM_STATE_ACTION':
-            console.log("action fsm setting " + action.payload.id + " state to " + action.payload.state);
-            return _extends({}, state, _defineProperty({}, action.payload.id, _extends({}, state[action.payload.id], {
-                state: action.payload.state
-            })));
-        default:
-            return state;
-    }
-};
-
-function addSample(sample) {
-    return {
-        type: 'ADD_SAMPLE',
-        payload: {
-            sample: sample
-        }
-    };
-}
-
-function setFSMState(id, state) {
-    return {
-        type: 'SET_FSM_STATE_ACTION',
-        payload: {
-            id: id, state: state
-        }
-    };
-}
-
-/***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2325,25 +2562,25 @@ function setComponentNodeId(payload) {
 }
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/importCss");
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/universalImport");
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2358,7 +2595,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(71);
+var _requireUniversalModule = __webpack_require__(73);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -2373,7 +2610,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(72);
+var _reportChunks = __webpack_require__(74);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -2386,17 +2623,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(44);
+var _propTypes = __webpack_require__(47);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(73);
+var _hoistNonReactStatics = __webpack_require__(75);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(43);
+var _utils = __webpack_require__(46);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2687,10 +2924,10 @@ function universal(component) {
   }, _temp;
 }
 exports.default = universal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)(module)))
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2804,16 +3041,16 @@ var loadFromPromiseCache = exports.loadFromPromiseCache = function loadFromPromi
 var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, promisecache) {
   return promisecache[callForString(chunkName, props)] = pr;
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)(module)))
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2825,9 +3062,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  font-size:1.2em;\n  color: rgb(255,255,255,1);\n  width:100%;\n'], ['\n  font-size:1.2em;\n  color: rgb(255,255,255,1);\n  width:100%;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  width:100%;\n  height:100%;\n  background-color: rgb(255,255,255,1);\n  opacity:1;\n  margin-top: 10px;\n  border-bottom: 2px solid grey;\n  padding:20px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    color: grey;\n    background-color: white;\n    opacity:1;\n  }\n'], ['\n  width:100%;\n  height:100%;\n  background-color: rgb(255,255,255,1);\n  opacity:1;\n  margin-top: 10px;\n  border-bottom: 2px solid grey;\n  padding:20px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    color: grey;\n    background-color: white;\n    opacity:1;\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    opacity:1;\n  }\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    opacity:1;\n  }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n  margin-top: 100px;\n  margin-left: 55px;\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n  margin-top: 100px;\n  margin-left: 55px;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  width:100%;\n  height:100%;\n  opacity:1;\n  margin-top: 5px;\n  padding:20px;\n  padding-bottom: 5px;\n  box-sizing: border-box;\n  border-bottom: 2px solid white;\n  transition: all 0.5s ease-in;\n  &:hover{\n    background-color: white;\n  }\n  h2{\n    font-size: 1.5em;\n    display: inline;\n    color: red;\n    opacity:1;\n  }\n  p{\n    font-size: 0.7em;\n    display: inline;\n    color: black;\n    opacity:1;\n  }\n'], ['\n  width:100%;\n  height:100%;\n  opacity:1;\n  margin-top: 5px;\n  padding:20px;\n  padding-bottom: 5px;\n  box-sizing: border-box;\n  border-bottom: 2px solid white;\n  transition: all 0.5s ease-in;\n  &:hover{\n    background-color: white;\n  }\n  h2{\n    font-size: 1.5em;\n    display: inline;\n    color: red;\n    opacity:1;\n  }\n  p{\n    font-size: 0.7em;\n    display: inline;\n    color: black;\n    opacity:1;\n  }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2839,17 +3076,29 @@ var _MainMenu = __webpack_require__(6);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _Trends = __webpack_require__(11);
+var _Trends = __webpack_require__(14);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
-var _Bg = __webpack_require__(14);
+var _Bg = __webpack_require__(20);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _styledComponents = __webpack_require__(1);
+var _Container = __webpack_require__(21);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _FadeIn = __webpack_require__(10);
+
+var _FadeIn2 = _interopRequireDefault(_FadeIn);
+
+var _SlideUp = __webpack_require__(22);
+
+var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2883,26 +3132,45 @@ var Games = function (_React$Component) {
           null,
           _react2.default.createElement(_Trends2.default, null)
         ),
-        _react2.default.createElement(_MainMenu2.default, null),
         _react2.default.createElement(
-          PostBox,
+          _Container2.default,
           null,
+          _react2.default.createElement(_MainMenu2.default, null),
           _react2.default.createElement(
-            Message,
+            _SlideUp2.default,
             null,
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-          ),
-          this.props.posts.map(function (post) {
-            return _react2.default.createElement(
-              Post,
-              { key: post.id },
+            _react2.default.createElement(
+              PostBox,
+              null,
               _react2.default.createElement(
-                _reactStatic.Link,
-                { key: post.id, to: '/posts/' + post.id },
-                post.title
-              )
-            );
-          })
+                Message,
+                null,
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+              ),
+              this.props.posts.map(function (post, i) {
+                return _react2.default.createElement(
+                  _reactStatic.Link,
+                  { key: post.id, to: '/posts/' + post.id, classNames: 'homepost' },
+                  _react2.default.createElement(
+                    Post,
+                    { key: post.id, style: { "transitionDelay": i * .15 + 's' } },
+                    _react2.default.createElement(
+                      'h2',
+                      null,
+                      post.title
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      post.tags.map(function (t) {
+                        return t + " ";
+                      })
+                    )
+                  )
+                );
+              })
+            )
+          )
         )
       );
     }
@@ -2918,13 +3186,25 @@ var PostBox = _styledComponents2.default.div(_templateObject2);
 var Post = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports) {
 
-module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
+module.exports = require("chartist-plugin-legend");
 
 /***/ }),
-/* 47 */
+/* 50 */
+/***/ (function(module, exports) {
+
+module.exports = require("chartist-plugin-axistitle");
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-addons-css-transition-group");
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2987,7 +3267,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 48 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3005,15 +3285,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _DynamicComponent = __webpack_require__(15);
+var _DynamicComponent = __webpack_require__(23);
 
 var _DynamicComponent2 = _interopRequireDefault(_DynamicComponent);
 
-var _reactGa = __webpack_require__(51);
+var _reactGa = __webpack_require__(56);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _FadeIn = __webpack_require__(17);
+var _FadeIn = __webpack_require__(10);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -3021,15 +3301,15 @@ var _MainMenu = __webpack_require__(6);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(11);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Wrapper = __webpack_require__(23);
+var _Wrapper = __webpack_require__(30);
 
 var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
-var _IFrame = __webpack_require__(16);
+var _IFrame = __webpack_require__(24);
 
 var _IFrame2 = _interopRequireDefault(_IFrame);
 
@@ -3196,10 +3476,10 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Games));
 
 /***/ }),
-/* 49 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
@@ -3210,10 +3490,10 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 50 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 exports.push([module.i, "@import url(https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css);", ""]);
 
@@ -3224,13 +3504,13 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 51 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-ga");
 
 /***/ }),
-/* 52 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3239,227 +3519,45 @@ module.exports = require("react-ga");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.createSample = undefined;
 
-var _index = __webpack_require__(84);
+var _randomizer = __webpack_require__(90);
 
-var _index2 = _interopRequireDefault(_index);
-
-var _index3 = __webpack_require__(85);
-
-var _index4 = _interopRequireDefault(_index3);
-
-var _index5 = __webpack_require__(86);
-
-var _index6 = _interopRequireDefault(_index5);
-
-var _index7 = __webpack_require__(87);
-
-var _index8 = _interopRequireDefault(_index7);
-
-var _index9 = __webpack_require__(89);
-
-var _index10 = _interopRequireDefault(_index9);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (name) {
-    console.log('factory name' + name);
-    switch (name) {
-        case _index4.default.id:
-            return _index4.default;
-        case _index2.default.id:
-            return _index2.default;
-        case _index6.default.id:
-            return _index6.default;
-        case _index8.default.id:
-            return _index8.default;
-        case _index10.default.id:
-            return _index10.default;
-    }
-};
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.reducer = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.setScore = setScore;
-exports.setFSMState = setFSMState;
+var _ids = __webpack_require__(40);
 
 var _Constants = __webpack_require__(4);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _Constants2 = _interopRequireDefault(_Constants);
 
-var reducer = exports.reducer = function reducer() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-        read: {
-            type: _Constants.constants.types.questions,
-            id: 'read',
-            state: 0,
-            scores: {}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var materials = ['iron', 'cobalt', 'copper', 'silver'];
+
+var createSample = exports.createSample = function createSample() {
+    var material = (0, _randomizer.getRandomItem)(materials);
+    var id = (0, _ids.guid)();
+    return {
+        id: id,
+        type: _Constants2.default.items.asteroidSample,
+        game: {
+            element: material,
+            weight: 10 * Math.random() + 3
+        },
+        user: {
+            element: null,
+            weight: null
         }
     };
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'SET_SCORE':
-            console.log("reducer set score, scores: " + action.payload.id);
-            console.log(action.payload.scores);
-            var s = updateScores(action.payload.scores, state[action.payload.id].scores);
-            return _extends({}, state, _defineProperty({}, action.payload.id, _extends({}, state[action.payload.id], {
-                scores: s
-            })));
-        case 'SET_FSM_STATE_QUESTION':
-            console.log("question fsm setting " + action.payload.id + " state to " + action.payload.state);
-            return _extends({}, state, _defineProperty({}, action.payload.id, _extends({}, state[action.payload.id], {
-                state: action.payload.state
-            })));
-        default:
-            return state;
-    }
 };
 
-function updateScores(scores, aggregate) {
-    //for each question add total and actual score
-    console.log("update scores");
-    console.log(scores);
-    console.log(aggregate);
-    var o = _extends({}, aggregate);
-    for (var key in scores) {
-        if (scores.hasOwnProperty(key)) {
-            //console.log(key + " -> " + p[key]);
-            console.log("adding " + key + ":" + scores[key]);
-            o[key] = {
-                total: aggregate[key] ? aggregate[key].total + 1 : 1,
-                score: aggregate[key] ? aggregate[key].score + scores[key].score : scores[key].score
-            };
-        }
-    }
-    console.log("score aggregate");
-    console.log(o);
-    return o;
-}
-
-function setScore(id, scores) {
-    return {
-        type: 'SET_SCORE',
-        payload: {
-            id: id,
-            scores: scores
-        }
-    };
-}
-
-function setFSMState(id, state) {
-    return {
-        type: 'SET_FSM_STATE_QUESTION',
-        payload: {
-            id: id, state: state
-        }
-    };
-}
-
 /***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.createAsteroid = createAsteroid;
-
-var _randomizer = __webpack_require__(88);
-
-var _ids = __webpack_require__(36);
-
-function createAsteroid() {
-    var elem = ['iron', 'magnesium', 'copper', 'silver'];
-    var e = (0, _randomizer.getRandomItem)(elem);
-    return {
-        description: 'it is a ' + e + ' asteroid',
-        sample: {
-            id: (0, _ids.guid)(),
-            name: 'unknown sample',
-            game: {
-                weight: Math.random() * 10 + 5,
-                element: e
-            },
-            user: {
-                weight: null,
-                element: null
-            }
-        }
-    };
-}
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.setTemp = setTemp;
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-var reducer = exports.reducer = function reducer() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-        time: 1,
-        temp: 40,
-        targetTemp: 20,
-        tempData: []
-    };
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'SET_TEMP':
-            return _extends({}, state, {
-                time: action.payload.time,
-                temp: action.payload.temp,
-                tempData: [].concat(_toConsumableArray(state.tempData), [{ time: action.payload.time, temp: action.payload.temp }])
-            });
-        default:
-            return state;
-    }
-};
-
-function setTemp(time, temp) {
-    return {
-        type: 'SET_TEMP',
-        payload: {
-            time: time,
-            temp: temp
-        }
-    };
-}
-
-/***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3477,15 +3575,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _GameMenu = __webpack_require__(21);
+var _GameMenu = __webpack_require__(28);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
-var _Index = __webpack_require__(22);
+var _Index = __webpack_require__(29);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _index = __webpack_require__(99);
+var _index = __webpack_require__(98);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3530,7 +3628,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3542,7 +3640,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Simulation = __webpack_require__(100);
+var _Simulation = __webpack_require__(99);
 
 var _Simulation2 = _interopRequireDefault(_Simulation);
 
@@ -3589,7 +3687,7 @@ var Simulation = function (_Sim) {
 exports.default = Simulation;
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3607,25 +3705,25 @@ var _templateObject = _taggedTemplateLiteral(['\n    background-color: black;\n 
     _templateObject2 = _taggedTemplateLiteral(['\n    display: block;\n    background-color: cyan;\n'], ['\n    display: block;\n    background-color: cyan;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n'], ['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n']);
 
-var _ids = __webpack_require__(36);
+var _ids = __webpack_require__(40);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(1);
+var _styledComponents = __webpack_require__(3);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Choice = __webpack_require__(102);
+var _Choice = __webpack_require__(101);
 
 var _Choice2 = _interopRequireDefault(_Choice);
 
-var _Button = __webpack_require__(61);
+var _Button = __webpack_require__(63);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Text = __webpack_require__(60);
+var _Text = __webpack_require__(62);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -3826,7 +3924,7 @@ var BgInline = _styledComponents2.default.div(_templateObject2);
 var BgFill = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3904,7 +4002,7 @@ var Text = function (_React$Component) {
 exports.default = Text;
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3960,7 +4058,7 @@ var Button = function (_React$Component) {
 exports.default = Button;
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4000,7 +4098,7 @@ var actions = exports.actions = {
 };
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4037,7 +4135,7 @@ function changeHealth(payload) {
 }
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4051,7 +4149,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
 var _MainMenu = __webpack_require__(6);
 
@@ -4159,7 +4257,7 @@ var About = function About() {
 exports.default = About;
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4190,7 +4288,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4204,11 +4302,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(31);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(67);
+var _App = __webpack_require__(69);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4233,7 +4331,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4249,25 +4347,25 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
-var _reactHotLoader = __webpack_require__(68);
+var _reactHotLoader = __webpack_require__(70);
 
-var _reactStaticRoutes = __webpack_require__(69);
+var _reactStaticRoutes = __webpack_require__(71);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(105);
+var _redux = __webpack_require__(104);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(108);
+__webpack_require__(107);
 
-var _Analytics = __webpack_require__(18);
+var _Analytics = __webpack_require__(25);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(19);
+var _Gapi = __webpack_require__(26);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -4297,16 +4395,16 @@ var App = function App() {
 };
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)(module)))
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4316,15 +4414,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(39);
+var _path2 = __webpack_require__(42);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(40);
+var _importCss2 = __webpack_require__(43);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(41);
+var _universalImport2 = __webpack_require__(44);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4336,9 +4434,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(70);
+var _reactRouterDom = __webpack_require__(72);
 
-var _reactUniversalComponent = __webpack_require__(42);
+var _reactUniversalComponent = __webpack_require__(45);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4372,7 +4470,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 45)), (0, _importCss3.default)('src/containers/Home', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 48)), (0, _importCss3.default)('src/containers/Home', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4382,7 +4480,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(45);
+    return /*require.resolve*/(48);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home';
@@ -4392,7 +4490,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 47)), (0, _importCss3.default)('src/containers/Post', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 52)), (0, _importCss3.default)('src/containers/Post', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4402,7 +4500,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(47);
+    return /*require.resolve*/(52);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post';
@@ -4412,7 +4510,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 48)), (0, _importCss3.default)('src/containers/Games', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 53)), (0, _importCss3.default)('src/containers/Games', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4422,7 +4520,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(48);
+    return /*require.resolve*/(53);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games';
@@ -4432,7 +4530,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 57)), (0, _importCss3.default)('src/containers/Game', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 59)), (0, _importCss3.default)('src/containers/Game', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4442,7 +4540,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(57);
+    return /*require.resolve*/(59);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game';
@@ -4452,7 +4550,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 64)), (0, _importCss3.default)('src/containers/About', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 66)), (0, _importCss3.default)('src/containers/About', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4462,7 +4560,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(64);
+    return /*require.resolve*/(66);
   },
   chunkName: function chunkName() {
     return 'src/containers/About';
@@ -4472,7 +4570,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 65)), (0, _importCss3.default)('src/containers/404', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 67)), (0, _importCss3.default)('src/containers/404', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4482,7 +4580,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(65);
+    return /*require.resolve*/(67);
   },
   chunkName: function chunkName() {
     return 'src/containers/404';
@@ -4569,13 +4667,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4587,7 +4685,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(43);
+var _utils = __webpack_require__(46);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -4757,7 +4855,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4773,7 +4871,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(44);
+var _propTypes = __webpack_require__(47);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4820,158 +4918,269 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-chartist");
 
 /***/ }),
-/* 75 */
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _lodash = __webpack_require__(78);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Adapter = function () {
+    function Adapter(data, label, xPath, yPaths) {
+        var _this = this;
+
+        _classCallCheck(this, Adapter);
+
+        //data is an array of objects
+        //data is reformed in a series with a label and datapoints with x and y properties
+        this.label = label;
+        this.x = xPath;
+        this.y = yPaths;
+
+        this.series = [];
+        yPaths.map(function (e) {
+            _this.series.push([]);
+        });
+        this.labels = [];
+        this.updateData(data);
+    }
+
+    _createClass(Adapter, [{
+        key: 'updateData',
+        value: function updateData(data) {
+            var _this2 = this;
+
+            if (data.length > this.labels.length) {
+                var _loop = function _loop(i) {
+                    var x = (0, _lodash.get)(data[i], _this2.x);
+                    _this2.labels.push(x);
+                    _this2.y.map(function (e, yIndex) {
+                        var yv = (0, _lodash.get)(data[i], e);
+                        var ray = _this2.series[yIndex];
+                        ray.push(yv);
+                    });
+                };
+
+                for (var i = this.labels.length; i < data.length; i++) {
+                    _loop(i);
+                }
+            }
+        }
+    }, {
+        key: 'createPoint',
+        value: function createPoint(x, y) {
+            return { x: x, y: y };
+        }
+    }, {
+        key: 'getSeries',
+        value: function getSeries() {
+            return {
+                name: this.label,
+                labels: this.labels,
+                series: this.series
+            };
+        }
+    }]);
+
+    return Adapter;
+}();
+
+exports.default = Adapter;
+
+/***/ }),
+/* 78 */
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
 
 /***/ }),
-/* 76 */
+/* 79 */
+/***/ (function(module, exports) {
+
+module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
+
+/***/ }),
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./DynamicComponent": [
-		15
+		23
 	],
 	"./DynamicComponent.jsx": [
-		15
+		23
 	],
 	"./Trends": [
-		11,
+		14,
 		0
 	],
 	"./Trends.jsx": [
-		11,
+		14,
 		0
 	],
+	"./UI/Colors": [
+		7
+	],
+	"./UI/Colors.js": [
+		7
+	],
 	"./UI/IFrame": [
-		16
+		24
 	],
 	"./UI/IFrame.jsx": [
-		16
+		24
 	],
 	"./UI/animations/FadeIn": [
-		17
+		10
 	],
 	"./UI/animations/FadeIn.jsx": [
-		17
+		10
+	],
+	"./UI/animations/SlideUp": [
+		22
+	],
+	"./UI/animations/SlideUp.jsx": [
+		22
 	],
 	"./UI/animations/styles.css": [
-		35
+		39
 	],
 	"./UI/elements/Bg": [
-		14
+		20
 	],
 	"./UI/elements/Bg.jsx": [
-		14
+		20
+	],
+	"./UI/elements/Container": [
+		21
+	],
+	"./UI/elements/Container.jsx": [
+		21
 	],
 	"./UI/elements/IconButton": [
-		10
+		11
 	],
 	"./UI/elements/IconButton.jsx": [
-		10
+		11
 	],
 	"./UI/elements/icons.css": [
-		49,
+		54,
 		0
 	],
 	"./UI/graphs/Line": [
-		8
+		15,
+		0
 	],
 	"./UI/graphs/Line.jsx": [
-		8
+		15,
+		0
 	],
 	"./UI/graphs/animations": [
-		12
+		16
 	],
 	"./UI/graphs/animations.js": [
-		12
+		16
 	],
 	"./UI/graphs/main.css": [
-		31
+		38
 	],
 	"./UI/graphs/styles": [
-		13
+		18
 	],
 	"./UI/graphs/styles.js": [
-		13
+		18
+	],
+	"./UI/graphs/utilities": [
+		19
+	],
+	"./UI/graphs/utilities.js": [
+		19
 	],
 	"./UI/math/Katex": [
-		25,
+		32,
 		0
 	],
 	"./UI/math/Katex.jsx": [
-		25,
+		32,
 		0
 	],
 	"./UI/math/katex.css": [
-		50,
+		55,
 		0
 	],
 	"./apis/Analytics": [
-		18
+		25
 	],
 	"./apis/Analytics.jsx": [
-		18
+		25
 	],
 	"./apis/Gapi": [
-		19
+		26
 	],
 	"./apis/Gapi.jsx": [
-		19
+		26
 	],
 	"./constants": [
-		9
+		17
 	],
 	"./constants.js": [
-		9
+		17
 	],
 	"./game/Game": [
-		20,
+		27,
 		0
 	],
 	"./game/Game.jsx": [
-		20,
+		27,
 		0
 	],
 	"./game/GameMenu": [
-		21
+		28
 	],
 	"./game/GameMenu.jsx": [
-		21
+		28
 	],
 	"./game/Index": [
-		22,
+		29,
 		0
 	],
 	"./game/Index.jsx": [
-		22,
+		29,
 		0
 	],
 	"./game/Wrapper": [
-		23
+		30
 	],
 	"./game/Wrapper.jsx": [
-		23
+		30
 	],
 	"./game/views/Choice": [
-		28,
+		35,
 		0
 	],
 	"./game/views/Choice.jsx": [
-		28,
+		35,
 		0
 	],
 	"./layout/MainMenu": [
@@ -4981,7 +5190,7 @@ var map = {
 		6
 	],
 	"./layout/menu.css": [
-		30
+		37
 	]
 };
 function webpackAsyncContext(req) {
@@ -4995,485 +5204,20 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 76;
+webpackAsyncContext.id = 80;
 module.exports = webpackAsyncContext;
 
 /***/ }),
-/* 77 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-addons-css-transition-group");
-
-/***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Trends = __webpack_require__(81);
-
-var _Trends2 = _interopRequireDefault(_Trends);
-
-var _Game = __webpack_require__(82);
-
-var _Game2 = _interopRequireDefault(_Game);
-
-var _Log = __webpack_require__(91);
-
-var _Log2 = _interopRequireDefault(_Log);
-
-var _Simulation = __webpack_require__(93);
-
-var _Simulation2 = _interopRequireDefault(_Simulation);
-
-var _index = __webpack_require__(94);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _Temp = __webpack_require__(95);
-
-var _Temp2 = _interopRequireDefault(_Temp);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import View from './View.jsx';
-// import Factory from './../story/Factory.js';
-// import Builder from './Builder.jsx';
-// import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
-// import {changeZone} from './../story/zones/reducers.js';
-
-
-var Index = function (_React$Component) {
-    _inherits(Index, _React$Component);
-
-    function Index(props) {
-        _classCallCheck(this, Index);
-
-        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
-
-        _this.handleWindowSizeChange = function () {
-            _this.setState({
-                isMobile: window.innerWidth <= 500
-            });
-            //console.log("handle size change " + window.innerWidth);
-        };
-
-        _this.state = {
-            width: window.innerWidth
-        };
-        return _this;
-    }
-
-    _createClass(Index, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            window.addEventListener('resize', this.handleWindowSizeChange);
-        }
-
-        // make sure to remove the listener
-        // when the component is not mounted anymore
-
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            window.removeEventListener('resize', this.handleWindowSizeChange);
-        }
-    }, {
-        key: 'renderLayout',
-        value: function renderLayout() {
-            if (this.state.isMobile) {
-                return _react2.default.createElement(
-                    'div',
-                    { style: mContainer },
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(_Log2.default, null)
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: sInputBox },
-                        _react2.default.createElement(_Game2.default, null)
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { style: dContainer },
-                    _react2.default.createElement(
-                        'div',
-                        { style: dPanel },
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement(_Log2.default, null)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { style: sInputBox },
-                            _react2.default.createElement(_Game2.default, null)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: dPanel },
-                        _react2.default.createElement(_Temp2.default, null)
-                    )
-                );
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return this.renderLayout();
-        }
-    }]);
-
-    return Index;
-}(_react2.default.Component);
-
-exports.default = Index;
-
-
-var mContainer = {
-    backgroundColor: 'blue',
-    position: 'absolute',
-    display: 'flex',
-    height: '100vh',
-    width: '100%',
-    flexDirection: 'column',
-    overflow: 'hidden'
-};
-var dContainer = {
-    backgroundColor: 'blue',
-    position: 'absolute',
-    marginTop: '20px',
-    display: 'flex',
-    height: '100vh',
-    width: '100%',
-    flexDirection: 'row',
-    overflow: 'hidden'
-};
-
-var sInputBox = {
-    flexGrow: '2',
-    border: '4px solid green'
-};
-var dPanel = {
-    flexGrow: '1',
-    flexDirection: 'column',
-    backgroundColor: 'yellow'
-};
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    height: 400px;\n    width: 100%;\n'], ['\n    height: 400px;\n    width: 100%;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Line = __webpack_require__(8);
-
-var _Line2 = _interopRequireDefault(_Line);
-
-var _adapterParallel = __webpack_require__(32);
-
-var _adapterParallel2 = _interopRequireDefault(_adapterParallel);
-
-var _chartistPluginLegend = __webpack_require__(33);
-
-var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
-
-var _chartistPluginAxistitle = __webpack_require__(34);
-
-var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
-
-var _trends = __webpack_require__(46);
-
-var _trends2 = _interopRequireDefault(_trends);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import {get} from 'lodash';
-
-
-//import Chartist from 'chartist';
-// import ChartistGraph from 'react-chartist';
-/*
-           series: {
-               'series-1': {
-                 lineSmooth: Chartist.Interpolation.step()
-               },
-               'math: (Worldwide)': {
-                 lineSmooth: Chartist.Interpolation.simple(),
-                 showArea: true,
-                 showLabel: true
-               }
-             },
-*/
-
-var Pie = function (_React$Component) {
-    _inherits(Pie, _React$Component);
-
-    function Pie(props) {
-        _classCallCheck(this, Pie);
-
-        var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
-
-        var order = ['s1', 's2'];
-
-        _this.state = {
-            order: order,
-            adapter: new _adapterParallel2.default(_trends2.default, 'Math', 'Month', ['math: (Worldwide)', "physics: (Worldwide)", "chemistry: (Worldwide)", "biology: (Worldwide)", "science: (Worldwide)"])
-        };
-        return _this;
-    }
-
-    _createClass(Pie, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            // //         import Legend from 'chartist-plugin-legend';
-            // // import Axis from 'chartist-plugin-axistitle';
-            //         let Legend = require('chartist-plugin-legend');
-            //         let Axis = require('chartist-plugin-axistitle');
-            var fn = function () {
-                var map = new Map();
-                return function (value) {
-                    var t = value.slice(0, 4);
-                    if (!map.has(t)) {
-                        map.set(t, 1);
-                        return t;
-                    }
-                };
-            }();
-            var options = {
-                showPoint: false,
-                chartPadding: {
-                    top: 10,
-                    right: 20,
-                    bottom: 170,
-                    left: 20
-                },
-                axisX: {
-                    labelInterpolationFnc: fn
-                },
-                plugins: [(0, _chartistPluginLegend2.default)({
-                    position: 'top',
-                    classNames: ['ct-myclass', 'ct-myclass2'],
-                    legendNames: [{ name: 'math: (Worldwide)', series: ['math: (Worldwide)'] }, { name: 'ergo', series: ['chemistry: (Worldwide)'] }]
-                }), (0, _chartistPluginAxistitle2.default)({
-                    axisX: {
-                        axisTitle: 'Time (mins)',
-                        axisClass: 'ct-axis-title',
-                        offset: {
-                            x: 0,
-                            y: 40
-                        },
-                        textAnchor: 'middle'
-                    },
-                    axisY: {
-                        axisTitle: 'Goals',
-                        axisClass: 'ct-axis-title',
-                        offset: {
-                            x: 0,
-                            y: -10
-                        },
-                        flipTitle: false
-                    }
-                })]
-            };
-            this.setState({
-                options: options
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Container,
-                null,
-                _react2.default.createElement(_Line2.default, { data: this.state.adapter, options: this.state.options })
-            );
-        }
-    }]);
-
-    return Pie;
-}(_react2.default.Component);
-
-exports.default = Pie;
-
-
-var Container = _styledComponents2.default.div(_templateObject);
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _View = __webpack_require__(83);
-
-var _View2 = _interopRequireDefault(_View);
-
-var _Factory = __webpack_require__(52);
-
-var _Factory2 = _interopRequireDefault(_Factory);
-
-var _Builder = __webpack_require__(90);
-
-var _Builder2 = _interopRequireDefault(_Builder);
-
-var _reactRedux = __webpack_require__(3);
-
-var _redux = __webpack_require__(2);
-
-var _reducers = __webpack_require__(26);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Index = function (_React$Component) {
-    _inherits(Index, _React$Component);
-
-    function Index(props) {
-        _classCallCheck(this, Index);
-
-        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
-
-        console.log('index component props:');
-        console.log(props);
-        _this.onInput = _this.onInput.bind(_this);
-        _this.getZone = _this.getZone.bind(_this);
-        var zone = _this.getZone();
-        _this.state = {
-            zone: zone,
-            zoneId: zone.id,
-            builder: (0, _Builder2.default)(_View2.default)
-        };
-        return _this;
-    }
-
-    _createClass(Index, [{
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate(prevProps, prevState) {
-            console.log("has zone " + prevProps.position.id + " changed? " + this.props.position.id);
-            if (prevProps.position.id != this.props.position.id) {
-                var zone = this.getZone();
-                this.setState({
-                    zone: zone,
-                    zoneId: zone.id
-                });
-            }
-        }
-    }, {
-        key: 'getZone',
-        value: function getZone() {
-            return (0, _Factory2.default)(this.props.position.id);
-        }
-    }, {
-        key: 'onInput',
-        value: function onInput(input) {
-            this.props.changeZone(input);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_View2.default, { fsm: this.state.zone, id: this.state.zoneId, onInput: this.onInput, builder: this.state.builder })
-            );
-        }
-    }]);
-
-    return Index;
-}(_react2.default.Component);
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({
-        changeZone: _reducers.changeZone
-    }, dispatch);
-};
-
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        position: state.zones.position
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Index);
 
 /***/ }),
 /* 83 */
@@ -5492,755 +5236,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _Game = __webpack_require__(84);
 
-var _redux = __webpack_require__(2);
-
-var _Factory = __webpack_require__(52);
-
-var _Factory2 = _interopRequireDefault(_Factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var View = function (_React$Component) {
-    _inherits(View, _React$Component);
-
-    function View(props) {
-        _classCallCheck(this, View);
-
-        // console.log('fsm view props id: ' + props.mystate.id + " state: " + props.mystate.state);
-        // console.log(this.props);
-        var _this = _possibleConstructorReturn(this, (View.__proto__ || Object.getPrototypeOf(View)).call(this, props));
-
-        _this.onInput = _this.onInput.bind(_this);
-        _this.state = {
-            //builder: Builder(this.onInput)
-            builder: _this.props.builder(_this.onInput)
-        };
-        return _this;
-    }
-    // componentWillMount(props){
-    //     console.log(`willMount ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    //     console.log(props);
-    // }
-    // componentDidMount(){
-    //     console.log(`didMount ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    // }
-    // componentWillReceiveProps(props){
-    //     console.log(`willRecieveProps ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    //     console.log(props);
-    // }
-    // componentWillUnmount(){
-    //     console.log(`willUnMount ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    // }
-    // componentDidUpdate(){
-    //     console.log(`didUpdate ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    // }
-    // componentWillUpdate(props){
-    //     console.log(`willUpdate ${this.props.mystate.id} with props ${this.props.mystate.state}`)
-    //     console.log(props);
-    // }
-
-
-    _createClass(View, [{
-        key: 'onInput',
-        value: function onInput(input) {
-            console.log("onInput id: " + this.props.id);
-            this.props.fsm.onInput(input, this.props);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            console.log('rerendering gameview ' + this.props.mystate.id + ' with props ' + this.props.mystate.state);
-            return _react2.default.createElement(
-                'div',
-                { className: 'gameview' + this.props.mystate.id },
-                this.props.fsm.onRender(this.state.builder, this.props, _Factory2.default).map(function (e) {
-                    return e;
-                })
-            );
-        }
-    }]);
-
-    return View;
-}(_react2.default.Component);
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
-    // console.log("mapDispatchToProps ");
-    // console.log(dispatch);
-    return (0, _redux.bindActionCreators)(props.fsm.getActions(), dispatch);
-};
-var mapStateToProps = function mapStateToProps(state, props) {
-    var res = props.fsm.getMapState(state, props);
-    // console.log(`mapStateToProps ${res.mystate.id} ${res.mystate.state}`);
-    // console.log(res); 
-    return res;
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(View);
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Constants = __webpack_require__(4);
-
-var _reducers = __webpack_require__(26);
-
-var _log = __webpack_require__(27);
-
-//console.log("lounge importing constants " + constants);
-
-//import {setFSMState} from './../reducers.js';
-var id = 'lounge';
-//import Factory from './../../Factory.js';
-
-var type = _Constants.constants.types.zones;
-var S_ENTRY = 'enter',
-    S_INSIDE = 'in',
-    S_SIT = 'sit',
-    S_READ = 'read',
-    S_INVENTORY = 'inventory';
-
-//0 - entry
-//1 - 
-var fsm = {
-    type: type, id: id,
-    onInput: function onInput(input, props) {
-        console.log("fsm lounge recieved input! " + props.mystate.state);
-        console.log(input);
-        switch (props.mystate.state) {
-            case S_INSIDE:
-                //can choose to sit down - s2, or go to control room/exir - s3
-                if (input[_Constants.constants.input.vId] === S_SIT) {
-                    //console.log("lounge changing state to sitting down");
-                    props.setFSMState(props.id, S_SIT);
-                } else if (input[_Constants.constants.input.vId] === _Constants.constants.zones.control) {
-                    props.onInput(input.changeFrom(_Constants.messages.toFSMState(props.id, S_ENTRY)));
-                } else if (input[_Constants.constants.input.vId] === _Constants.constants.actions.inventory) {
-                    props.setFSMState(props.id, S_INVENTORY);
-                }
-                break;
-            case S_SIT:
-                if (input[_Constants.constants.input.vId] === S_INSIDE) {
-                    props.setFSMState(props.id, S_INSIDE);
-                } else if (input[_Constants.constants.input.vId] === S_READ) {
-                    //console.log("user wants to read");
-                    props.addLog(_Constants.constants.logTypes.action, 'you decided to read');
-                    props.setFSMState(props.id, S_READ);
-                }
-                break;
-            case S_READ:
-                if (input[_Constants.constants.input.vId] === S_READ) {
-                    console.log("recieved input from user reading");
-                    props.setFSMState(props.id, S_SIT);
-                }
-                break;
-            case S_INVENTORY:
-                if (input[_Constants.constants.input.vId] === S_INVENTORY) {
-                    props.setFSMState(props.id, S_INSIDE);
-                }
-                break;
-            case S_ENTRY:
-            default:
-                //enter fsm selected, dispatch setFSMState
-                //is a location FSM, dispatch setZone for Index to update
-                if (input[_Constants.constants.input.vId] === S_INSIDE) {
-                    props.onInput(_Constants.messages.changeZone(props.id, _Constants.messages.toFSMState(props.id, S_INSIDE)));
-                }
-                break;
-        }
-    },
-    onRender: function onRender(builder, props, factory) {
-        // console.log("fsm lounge render, props" + props.mystate.state);
-        switch (props.mystate.state) {
-            case S_INSIDE:
-                return [builder.getText(0, 'you are standing in the lounge'), builder.getChildView(_Constants.constants.zones.control, factory(_Constants.constants.zones.control)), builder.getChildView(S_INVENTORY, factory(_Constants.constants.actions.inventory)), builder.getButtonSet(1, [builder.describeBtn(S_SIT, 'sit down')])];
-            case S_SIT:
-                return [builder.getText(0, 'you are sitting'), builder.getChildView(S_READ, factory(_Constants.constants.questions.read)), builder.getButtonSet(1, [builder.describeBtn(S_INSIDE, 'stand up')])];
-            case S_READ:
-                return [builder.getChildView(S_READ, factory(_Constants.constants.questions.read))];
-            case S_INVENTORY:
-                return [builder.getChildView(S_INVENTORY, factory(_Constants.constants.actions.inventory))];
-            case S_ENTRY:
-            default:
-                return [builder.getButtonSet(0, [builder.describeBtn(S_INSIDE, 'enter lounge')])];
-        }
-    },
-    getActions: function getActions() {
-        return {
-            setFSMState: _reducers.setFSMState, //setFSMState(id, state)
-            addLog: _log.addLog
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            mystate: state[type][props.id]
-        };
-    }
-};
-exports.default = fsm;
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Constants = __webpack_require__(4);
-
-var _reducers = __webpack_require__(26);
-
-var id = 'control';
-var type = _Constants.constants.types.zones;
-var S_MINE = 'mine';
-//0 - entry
-//1 - 
-var fsm = {
-    type: type, id: id,
-    onInput: function onInput(input, props) {
-        console.log("fsm control recieved input! state " + props.mystate.state + " vId: " + input[_Constants.constants.input.vId]);
-        console.log(input);
-        switch (props.mystate.state) {
-            case 0:
-                //enter fsm selected, dispatch setFSMState
-                //is a location FSM, dispatch setZone for Index to update
-                if (input[_Constants.constants.input.vId] === 0) {
-                    props.onInput(_Constants.messages.changeZone(props.id, _Constants.messages.toFSMState(props.id, 1)));
-                }
-                break;
-            case 1:
-                //can choose to sit down - s2, or go to control room/exir - s3
-                if (input[_Constants.constants.input.vId] === 0) {
-                    props.setFSMState(props.id, 2);
-                } else if (input[_Constants.constants.input.vId] === _Constants.constants.zones.lounge) {
-                    console.log("console fsm switching to lounge, props id=" + props.id);
-                    props.onInput(input.changeFrom(_Constants.messages.toFSMState(props.id, 0)));
-                } else if (input[_Constants.constants.input.vId] === _Constants.constants.actions.mine) {
-                    console.log("console fsm switching to mine, props id=" + props.id);
-                    props.setFSMState(props.id, S_MINE);
-                }
-                break;
-            case S_MINE:
-                if (input[_Constants.constants.input.vId] === _Constants.constants.actions.mine) {
-                    props.setFSMState(props.id, 1);
-                }
-                break;
-        }
-    },
-    onRender: function onRender(builder, props, factory) {
-        // console.log("fsm lounge render, props");
-        // console.log(props);
-        console.log("fsm control render, props" + props.mystate.state);
-        switch (props.mystate.state) {
-            case 1:
-                // let lounge = factory(constants.zones.lounge);
-                // let mine = factory(constants.actions.mine)
-                return [builder.getText(0, 'you are in the control room'), builder.getChildView(_Constants.constants.zones.lounge, factory(_Constants.constants.zones.lounge)), builder.getChildView(_Constants.constants.actions.mine, factory(_Constants.constants.actions.mine)), builder.getButtonSet(1, [builder.describeBtn(0, 'steer the ship')])];
-            case 2:
-                return [builder.getText(0, 'you steer the ship')];
-            case S_MINE:
-                return [builder.getChildView(_Constants.constants.actions.mine, factory(_Constants.constants.actions.mine))];
-            case 0:
-            default:
-                return [builder.getButtonSet(0, [builder.describeBtn(0, 'enter control room')])];
-        }
-    },
-    getActions: function getActions() {
-        return {
-            setFSMState: _reducers.setFSMState, //setFSMState(id, state)
-            setZone: _reducers.setZone //setZone(id) 
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            mystate: state[type][props.id]
-        };
-    }
-};
-exports.default = fsm;
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Constants = __webpack_require__(4);
-
-var _reducers = __webpack_require__(53);
-
-var id = 'read';
-//import Factory from './../../Factory.js';
-
-var type = _Constants.constants.types.questions;
-var q1 = 'q1';
-var output = {};
-//0 - entry
-//1 - 
-var fsm = {
-    type: type, id: id,
-    onInput: function onInput(input, props) {
-        console.log("fsm lounge recieved input!");
-        console.log(input);
-        switch (props.mystate.state) {
-            case 0:
-                //enter fsm selected, dispatch setFSMState
-                //is a location FSM, dispatch setZone for Index to update
-                props.setFSMState(props.id, 1);
-                props.onInput(_Constants.messages.action(props.id));
-                break;
-            case 1:
-                props.setFSMState(props.id, 2);
-                break;
-            case 2:
-                if (input[_Constants.constants.input.vId] === 0) {
-                    //wrong answer
-                    output[q1] = {
-                        total: 1,
-                        score: 0
-                    };
-                    props.setFSMState(props.id, 3);
-                } else if (input[_Constants.constants.input.vId] === 1) {
-                    //right answer
-                    output[q1] = {
-                        total: 1,
-                        score: 1
-                    };
-                    props.setFSMState(props.id, 4);
-                }
-                break;
-            case 3:
-            case 4:
-                //record performance
-                console.log("read returning score " + props.id);
-                console.log(output);
-                props.setScore(props.id, output);
-                props.setFSMState(props.id, 0);
-                props.onInput(_Constants.messages.output(props.id, {
-                    output: output
-                }));
-                break;
-        }
-    },
-    onRender: function onRender(builder, props, factory) {
-        // console.log("fsm lounge render, props");
-        // console.log(props);
-        switch (props.mystate.state) {
-            case 1:
-                return [builder.getText(0, 'You read: 1+1=2'), builder.getButtonSet(1, [builder.describeBtn(0, 'next')])];
-            case 2:
-                return [builder.getText(0, 'What is 1+1?'), builder.getButtonSet(1, [builder.describeBtn(0, '1'), builder.describeBtn(1, '2')])];
-            case 3:
-                return [builder.getText(0, 'you are wrong'), builder.getButtonSet(1, [builder.describeBtn(0, 'return')])];
-            case 4:
-                return [builder.getText(0, 'you are right'), builder.getButtonSet(1, [builder.describeBtn(0, 'return')])];
-            case 0:
-            default:
-                return [builder.getButtonSet(0, [builder.describeBtn(0, 'read book')])];
-        }
-    },
-    getActions: function getActions() {
-        return {
-            setFSMState: _reducers.setFSMState, //setFSMState(id, state) setScore(id, scores
-            setScore: _reducers.setScore
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            mystate: state[type][props.id]
-        };
-    }
-};
-exports.default = fsm;
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Constants = __webpack_require__(4);
-
-var _reducers = __webpack_require__(37);
-
-var _log = __webpack_require__(27);
-
-var _asteroidSample = __webpack_require__(54);
-
-//console.log("lounge importing constants " + constants);
-
-//import Factory from './../../Factory.js';
-var id = _Constants.constants.actions.mine;
-// import {getRandomItem} from './../../../../../utilities/randomizer.js';
-// import {guid} from './../../../../../utilities/ids.js';
-
-var type = _Constants.constants.types.actions;
-var S_ENTRY = 'enter',
-    S_LOOK = 'look',
-    S_MINE = 'mine',
-    A_RETURN = 'return';
-
-//0 - entry
-//1 - 
-var asteroid = null;
-var fsm = {
-    type: type, id: id,
-    onInput: function onInput(input, props) {
-        console.log("fsm mine recieved input! id: " + props.id);
-        console.log(input);
-        switch (props.mystate.state) {
-            case S_LOOK:
-                //can choose to sit down - s2, or go to control room/exir - s3
-                if (input[_Constants.constants.input.vId] === S_MINE) {
-                    //console.log("lounge changing state to sitting down");
-                    props.setFSMState(props.id, S_MINE);
-                } else if (input[_Constants.constants.input.vId] === _Constants.constants.zones.control) {
-                    //goback
-                    props.onInput(input.changeFrom(_Constants.messages.toFSMState(props.id, S_ENTRY)));
-                } else if (input[_Constants.constants.input.vId] === S_LOOK) {
-                    //roll asteroid
-                    asteroid = (0, _asteroidSample.createAsteroid)();
-                    props.setFSMState(props.id, S_LOOK);
-                } else if (input[_Constants.constants.input.vId] === A_RETURN) {
-                    props.setFSMState(props.id, S_ENTRY);
-                    props.onInput(_Constants.messages.output(props.id, {}));
-                }
-                break;
-            case S_MINE:
-                if (input[_Constants.constants.input.vId] === S_LOOK) {
-                    //save the sample in inventory/samples
-                    props.addSample(asteroid.sample);
-                    //continue mining
-                    asteroid = (0, _asteroidSample.createAsteroid)();
-                    props.setFSMState(props.id, S_LOOK);
-                }
-                break;
-            case S_ENTRY:
-            default:
-                //enter fsm selected, dispatch setFSMState
-                //is a location FSM, dispatch setZone for Index to update
-                if (input[_Constants.constants.input.vId] === S_LOOK) {
-                    //roll asteroid
-                    asteroid = (0, _asteroidSample.createAsteroid)();
-                    //props.onInput(messages.changeZone(props.id, messages.toFSMState(props.id, S_LOOK)));
-                    props.setFSMState(props.id, S_LOOK);
-                    props.onInput(_Constants.messages.action(id));
-                }
-                break;
-        }
-    },
-    onRender: function onRender(builder, props, factory) {
-        // console.log("fsm lounge render, props" + props.mystate.state);
-        switch (props.mystate.state) {
-            case S_LOOK:
-                return [builder.getText(0, 'there is a reasonably sized asteroid in front of you ' + asteroid.description), builder.getButtonSet(1, [builder.describeBtn(S_MINE, 'mine asteroid'), builder.describeBtn(S_LOOK, 'look for another'), builder.describeBtn(A_RETURN, 'return')])];
-            case S_MINE:
-                return [builder.getText(0, 'you have no idea what material is, youll analyse it later'), builder.getButtonSet(1, [builder.describeBtn(S_LOOK, 'add to inventory')])];
-            case S_ENTRY:
-            default:
-                return [builder.getButtonSet(0, [builder.describeBtn(S_LOOK, 'start mining')])];
-        }
-    },
-    getActions: function getActions() {
-        return {
-            setFSMState: _reducers.setFSMState, //setFSMState(id, state)
-            addLog: _log.addLog,
-            addSample: _reducers.addSample
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            mystate: state[type][props.id]
-        };
-    }
-};
-exports.default = fsm;
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var getRandomItem = exports.getRandomItem = function getRandomItem(ray) {
-    var index = Math.floor(ray.length * Math.random());
-    return ray[index];
-};
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Constants = __webpack_require__(4);
-
-var _reducers = __webpack_require__(37);
-
-var _log = __webpack_require__(27);
-
-//console.log("lounge importing constants " + constants);
-var id = _Constants.constants.actions.inventory;
-//import Factory from './../../Factory.js';
-
-var type = _Constants.constants.types.actions;
-var S_ENTRY = 'enter',
-    S_OVERVIEW = 'look',
-    S_ITEM = 'mine',
-    S_ELEMENT = 'elem',
-    R_ADD_ITEM = 'addItem';
-var itemId = null;
-var fsm = {
-    type: type, id: id,
-    onInput: function onInput(input, props) {
-        switch (props.mystate.state) {
-            case S_OVERVIEW:
-                //can either back out, or view an item
-                if (input[_Constants.constants.input.vId] === S_ENTRY) {
-                    props.setFSMState(props.id, S_ENTRY);
-                    props.onInput(_Constants.messages.output(props.id, {}));
-                } else {
-                    //look for id in inventory
-                    console.log("item clicked, id: " + input[_Constants.constants.input.vId] + " has prop? " + props.items.samples.hasOwnProperty(input[_Constants.constants.input.vId]));
-                    if (props.items.samples.hasOwnProperty(input[_Constants.constants.input.vId])) {
-                        //  item = props.items.samples[input[constants.input.vId]];
-                        itemId = input[_Constants.constants.input.vId];
-                        props.setFSMState(props.id, S_ITEM);
-                    }
-                }
-                break;
-            case S_ITEM:
-                //can back out, throw out or identify item attributes
-                //if specific attributes are filled in, can add item to materials
-                if (input[_Constants.constants.input.vId] === S_OVERVIEW) {
-                    itemId = null;
-                    props.setFSMState(props.id, S_OVERVIEW);
-                } else if (input[_Constants.constants.input.vId] === R_ADD_ITEM) {
-                    console.log("adding item " + itemId);
-                } else if (input[_Constants.constants.input.vId] === S_ELEMENT) {
-                    props.setFSMState(props.id, S_ELEMENT);
-                }
-                break;
-            case S_ELEMENT:
-                if (input[_Constants.constants.input.vId] === S_ELEMENT) {
-                    //props.setFSMState(props.id, S_ELEMENT);
-                    //return back to S_ITEM
-                    props.setFSMState(props.id, S_ITEM);
-                }
-                break;
-            case S_ENTRY:
-            default:
-                if (input[_Constants.constants.input.vId] === S_OVERVIEW) {
-                    props.setFSMState(props.id, S_OVERVIEW);
-                    props.onInput(_Constants.messages.action(props.id));
-                }
-                break;
-        }
-    },
-    onRender: function onRender(builder, props, factory) {
-        console.log("fsm lounge render, props" + props.mystate.state);
-        console.log(props);
-        switch (props.mystate.state) {
-            case S_OVERVIEW:
-                // let items = props.inventory.samples.map(e => {
-                //     return builder.describeBtn(e.id, e.name)
-                // });
-                var btns = [];
-                for (var key in props.items.samples) {
-                    if (props.items.samples.hasOwnProperty(key)) {
-                        var e = props.items.samples[key];
-                        btns.push(builder.describeBtn(e.id, e.name));
-                    }
-                }
-                console.log("iventory items");
-                console.log(btns);
-                return [builder.getText(0, 'Your inventory has the following:'), builder.getButtonSet(1, [builder.describeBtn(S_ENTRY, 'return')]), builder.getButtonSet(2, btns)];
-            case S_ITEM:
-                /*
-                weight: Math.random()*10 + 5,
-                element: e
-                */
-                var sItem = props.items.samples[itemId];
-                console.log('inventory', 'item  element? ' + (sItem.user.element ? true : false));
-                return [builder.getText(0, 'it is an asteroid,  \n                        element: ' + (sItem.user.element ? sItem.element : 'unknown') + '\n                        weight: ' + (sItem.user.weight ? sItem.weight + 'g' : 'unknown') + '\n                        '), builder.getLink(1, S_ELEMENT, 'identify sample'), builder.getButtonSet(2, [builder.describeBtn(R_ADD_ITEM, 'add to material stock', '' + (sItem.user.element ? false : true)), builder.describeBtn(S_OVERVIEW, 'back')])];
-            case S_ELEMENT:
-                return [builder.getText(0, 'identifying element')];
-            case S_ENTRY:
-            default:
-                return [builder.getButtonSet(0, [builder.describeBtn(S_OVERVIEW, 'inspect inventory')])];
-        }
-    },
-    getActions: function getActions() {
-        return {
-            setFSMState: _reducers.setFSMState, //setFSMState(id, state)
-            addLog: _log.addLog
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            mystate: state[type][props.id],
-            items: state.actions.items
-        };
-    }
-};
-exports.default = fsm;
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _templateObject = _taggedTemplateLiteral(['\n    padding: 10px;\n    background: red;\n    color:white;\n    margin: 5px;\n'], ['\n    padding: 10px;\n    background: red;\n    color:white;\n    margin: 5px;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    padding: 10px;\n    background: grey;\n    color:white;\n    margin: 5px;\n    transition: all 0.3s ease-in;\n    &:hover{\n        background: pink;\n    }\n'], ['\n    padding: 10px;\n    background: grey;\n    color:white;\n    margin: 5px;\n    transition: all 0.3s ease-in;\n    &:hover{\n        background: pink;\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Constants = __webpack_require__(4);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Builder = function Builder(View) {
-    return function (onInput) {
-        var getChildView = function getChildView(kId, fsm) {
-            return _react2.default.createElement(View, { fsm: fsm, id: kId, onInput: onInput, builder: Builder(View) });
-        };
-        var getText = function getText(key, text) {
-            return _react2.default.createElement(
-                'p',
-                { key: key },
-                text
-            );
-        };
-        var getLink = function getLink(kId, vId, text) {
-            return _react2.default.createElement(
-                'a',
-                { onClick: function onClick() {
-                        var _onInput;
-
-                        onInput((_onInput = {}, _defineProperty(_onInput, _Constants.constants.input.kId, kId), _defineProperty(_onInput, _Constants.constants.input.vId, vId), _onInput));
-                    } },
-                text
-            );
-        };
-        var getBtn = function getBtn(kId, vId, text) {
-            var disabled = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-            console.log("getBtn disabled " + disabled);
-            if (disabled) {
-                return _react2.default.createElement(
-                    BtnDisabled,
-                    { key: kId, disabled: disabled },
-                    text
-                );
-            } else {
-                return _react2.default.createElement(
-                    Btn,
-                    { key: kId, onClick: function onClick() {
-                            var _onInput2;
-
-                            onInput((_onInput2 = {}, _defineProperty(_onInput2, _Constants.constants.input.kId, kId), _defineProperty(_onInput2, _Constants.constants.input.vId, vId), _onInput2));
-                        } },
-                    text
-                );
-            }
-        };
-        var getButtonSet = function getButtonSet(id, buttons) {
-            return _react2.default.createElement(
-                'div',
-                { key: id },
-                buttons.map(function (b) {
-                    return getBtn(id, b.id, b.text, b.disable);
-                })
-            );
-        };
-        var describeBtn = function describeBtn(id, text, disable) {
-            return { id: id, text: text, disable: disable };
-        };
-        return {
-            getChildView: getChildView, getText: getText, getBtn: getBtn, getLink: getLink, getButtonSet: getButtonSet, describeBtn: describeBtn
-        };
-    };
-};
-exports.default = Builder;
-
-
-var BtnDisabled = _styledComponents2.default.div(_templateObject);
-var Btn = _styledComponents2.default.div(_templateObject2);
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(3);
-
-__webpack_require__(92);
+var _Game2 = _interopRequireDefault(_Game);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6256,57 +5254,16 @@ var Index = function (_React$Component) {
     function Index(props) {
         _classCallCheck(this, Index);
 
-        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
-
-        _this.onLogFocus = function () {
-            console.log('log focus');
-            // isFocused = true;
-            // sLogBox.flexGrow = '3';
-            // sLogBox.backgroundColor = 'red';
-            _this.setState({
-                logFocus: !_this.state.logFocus
-            });
-        };
-
-        _this.onInputFocus = function () {
-            _this.setState({
-                logFocus: false
-            });
-            console.log('input focus');
-        };
-
-        _this.state = {
-            logFocus: false
-        };
-        return _this;
+        return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
     }
 
     _createClass(Index, [{
-        key: 'renderLog',
-        value: function renderLog() {
-            return this.props.log.map(function (e) {
-                return _react2.default.createElement(
-                    'p',
-                    null,
-                    e.text
-                );
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
-            console.log("rendering log " + this.state.logFocus);
             return _react2.default.createElement(
                 'div',
-                { style: sLogBox, onClick: function onClick() {
-                        _this2.onLogFocus();
-                    }, onBlur: function onBlur() {
-                        _this2.onInputFocus();
-                    },
-                    className: this.state.logFocus ? 'flexMax' : 'flexMin' },
-                this.renderLog()
+                null,
+                _react2.default.createElement(_Game2.default, null)
             );
         }
     }]);
@@ -6314,37 +5271,10 @@ var Index = function (_React$Component) {
     return Index;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        log: state.log
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Index);
-
-
-var sLogBox = {
-    backgroundColor: 'green',
-    border: '4px solid red',
-    transition: 'all 2s'
-};
+exports.default = Index;
 
 /***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(7)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".flexMin{height:10vh}.flexMax{height:80vh}#root .content{height:100vh}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 93 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6360,9 +5290,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _Factory = __webpack_require__(85);
 
-var _redux = __webpack_require__(2);
+var _Factory2 = _interopRequireDefault(_Factory);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6372,63 +5306,1175 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Simulation = function (_React$Component) {
-    _inherits(Simulation, _React$Component);
+var Index = function (_React$Component) {
+    _inherits(Index, _React$Component);
 
-    function Simulation(props) {
-        _classCallCheck(this, Simulation);
+    function Index(props) {
+        _classCallCheck(this, Index);
 
-        var _this = _possibleConstructorReturn(this, (Simulation.__proto__ || Object.getPrototypeOf(Simulation)).call(this, props));
+        //retrieve player position to load the correct fsm state
+        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-        console.log("simulation constructor");
+        console.log("game props");
         console.log(props);
-        _this.onUpdate = _this.onUpdate.bind(_this);
+        _this.getFSM = _this.getFSM.bind(_this);
+        _this.state = {};
         return _this;
     }
 
-    _createClass(Simulation, [{
-        key: 'onUpdate',
-        value: function onUpdate() {
-            this.props.sim.update(this.props);
-        }
-    }, {
+    _createClass(Index, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log("sim mounting");
-            var interval = setInterval(this.onUpdate, 5000);
+            this.getFSM(this.props.zone);
+        }
+    }, {
+        key: 'componentWillUpdate',
+        value: function componentWillUpdate(nextProps, currentState) {
+            console.log("component will update, is there a different zone? " + (nextProps.zone !== currentState.fsm.id));
+            // console.log(current);
+            // console.log(next);
+            if (nextProps.zone !== currentState.fsm.id) {
+                var next = nextProps.zone;
+                this.getFSM(next);
+            }
+        }
+    }, {
+        key: 'getFSM',
+        value: function getFSM(zone) {
+            var fsm = (0, _Factory2.default)(zone);
             this.setState({
-                interval: interval
+                fsm: fsm
             });
         }
     }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            console.log("sim unmounting");
-            clearInterval(this.state.interval);
+        key: 'renderFSM',
+        value: function renderFSM() {
+            if (this.state.fsm) {
+                return _react2.default.createElement(this.state.fsm.component, { id: this.state.fsm.id, showEntry: false, factory: _Factory2.default });
+            }
         }
     }, {
         key: 'render',
         value: function render() {
-            return null;
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'current zone: ',
+                    this.props.zone
+                ),
+                this.renderFSM()
+            );
         }
     }]);
 
-    return Simulation;
+    return Index;
 }(_react2.default.Component);
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
-    // console.log("mapDispatchToProps ");
-    // console.log(dispatch);
-    return (0, _redux.bindActionCreators)(props.sim.getActions(), dispatch);
-};
 var mapStateToProps = function mapStateToProps(state, props) {
-    var res = props.sim.getMapState(state, props);
-    // console.log(`mapStateToProps ${res.mystate.id} ${res.mystate.state}`);
-    // console.log(res); 
-    return res;
+    return {
+        zone: state.game.zone
+    };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Simulation);
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Index);
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _Lounge = __webpack_require__(86);
+
+var lounge = _interopRequireWildcard(_Lounge);
+
+var _Control = __webpack_require__(88);
+
+var control = _interopRequireWildcard(_Control);
+
+var _Mine = __webpack_require__(89);
+
+var mine = _interopRequireWildcard(_Mine);
+
+var _Inventory = __webpack_require__(91);
+
+var inventory = _interopRequireWildcard(_Inventory);
+
+var _IdentifyElem = __webpack_require__(92);
+
+var idElem = _interopRequireWildcard(_IdentifyElem);
+
+var _asteroidSample = __webpack_require__(93);
+
+var AstSamp = _interopRequireWildcard(_asteroidSample);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+exports.default = function (name) {
+    console.log('factory name' + name);
+    switch (name) {
+        case control.id:
+            return control;
+        case lounge.id:
+            return lounge;
+        case mine.id:
+            return mine;
+        case inventory.id:
+            return inventory;
+        case idElem.id:
+            return idElem;
+        case AstSamp.id:
+            return AstSamp;
+    }
+};
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_CONTROL = 'control',
+    I_ENTRY_1 = 'e1',
+    I_CONTROL = 'ic',
+    I_INVENTORY = 'inv';
+var id = exports.id = 'lounge';
+
+var Lounge = function (_React$Component) {
+    _inherits(Lounge, _React$Component);
+
+    function Lounge(props) {
+        _classCallCheck(this, Lounge);
+
+        var _this = _possibleConstructorReturn(this, (Lounge.__proto__ || Object.getPrototypeOf(Lounge)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        console.log("lounge constructor, props:");
+        console.log(props);
+        return _this;
+    }
+
+    _createClass(Lounge, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            console.log("lounge recieved input state: ");
+            console.log(this.props);
+            if (input.vId === I_ENTRY_1) {
+                //is an entry point, irrelevant what state the FSM is in
+                //send action to change location setZone(zone, state){
+                console.log("dispatching change zone");
+                this.props.setZone(id, S_IN);
+            } else {
+                switch (this.props.fsm.state) {
+                    case I_INVENTORY:
+                        if (input.vId === I_INVENTORY) {
+                            // console.log("dispatching lounge in")
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        }
+                        break;
+                    case S_IN:
+                    default:
+                        if (input.vId === I_INVENTORY) {
+                            // console.log("dispatching inventory")
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, I_INVENTORY));
+                        }
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            console.log("lounge render view: ");
+            console.log(this.props);
+            if (this.props.showEntry) {
+                return [_react2.default.createElement(
+                    'div',
+                    null,
+                    'entry to lounge',
+                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'go to lounge' })
+                )];
+            } else {
+                switch (this.props.fsm.state) {
+                    //if top level initial room, may not have state, and may not be an entry point
+                    case I_INVENTORY:
+                        var inventory2 = this.props.factory(_Constants2.default.fsm.actions.inventory);
+                        return [_react2.default.createElement(inventory2.component, { showEntry: false, factory: this.props.factory, onInput: this.onInput, vId: I_INVENTORY })];
+                    case S_IN:
+                    default:
+                        var control = this.props.factory('control');
+                        var inventory = this.props.factory(_Constants2.default.fsm.actions.inventory);
+                        return [_react2.default.createElement(
+                            'div',
+                            null,
+                            'inside lounge',
+                            _react2.default.createElement(control.component, { showEntry: true, factory: this.props.factory, onInput: this.onInput, vId: I_CONTROL }),
+                            _react2.default.createElement(inventory.component, { showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput, vId: I_INVENTORY })
+                        )];
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return Lounge;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState
+    }, dispatch);
+};
+var mapStateToProps = function mapStateToProps(state, props) {
+    return {
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Lounge);
+exports.default = component;
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports) {
+
+module.exports = require("reselect");
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_LOUNGE = 'lounge',
+    I_ENTRY_1 = 'e1',
+    I_LOUNGE = 'l1',
+    I_MINE = 'mine';
+var id = exports.id = 'control';
+
+var Control = function (_React$Component) {
+    _inherits(Control, _React$Component);
+
+    function Control(props) {
+        _classCallCheck(this, Control);
+
+        var _this = _possibleConstructorReturn(this, (Control.__proto__ || Object.getPrototypeOf(Control)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Control, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            console.log("control recieved input");
+            console.log(this.props);
+            if (input.vId === I_ENTRY_1) {
+                //is an entry point, irrelevant what state the FSM is in
+                //send action to change location
+                this.props.setZone(id, S_IN);
+                // this.props.onInput({
+                //     vId: this.props.vId,
+                //     setZone: id
+                // })
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_IN:
+                        if (input.vId === I_MINE) {
+                            //   console.log("setting control fsm");
+                            this.props.setZone(id, I_MINE);
+                        }
+                        break;
+                    case I_MINE:
+                        if (input.vId === I_MINE) {
+                            // console.log("recieved input from mining action");
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        }
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            console.log("control render view: ");
+            console.log(this.props);
+            if (this.props.showEntry) {
+                return [_react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'go to control' })
+                )];
+            } else {
+                switch (this.props.fsm.state) {
+                    case I_MINE:
+                        var mine2 = this.props.factory(_Constants2.default.fsm.actions.mine);
+                        return [_react2.default.createElement(mine2.component, { showEntry: false, factory: this.props.factory,
+                            onInput: this.onInput, vId: I_MINE })];
+                    case S_IN:
+                    default:
+                        var lounge = this.props.factory('lounge');
+                        var mine = this.props.factory(_Constants2.default.fsm.actions.mine);
+                        return [_react2.default.createElement(
+                            'div',
+                            null,
+                            'inside control room',
+                            _react2.default.createElement(lounge.component, { showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput, vId: I_LOUNGE }),
+                            _react2.default.createElement(mine.component, { showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput, vId: I_MINE })
+                        )];
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return Control;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState
+    }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+    return {
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Control);
+exports.default = component;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _asteroidSample = __webpack_require__(57);
+
+var _reducer2 = __webpack_require__(33);
+
+var _Messages = __webpack_require__(34);
+
+var _Messages2 = _interopRequireDefault(_Messages);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_BACK = 'back',
+    I_ENTRY_1 = 'e1',
+    S_MINE = 'mine',
+    S_LOOK = 'look',
+    S_MINE_FIN = 'fin';
+var id = exports.id = 'mine';
+var sample = null;
+
+var Mine = function (_React$Component) {
+    _inherits(Mine, _React$Component);
+
+    function Mine(props) {
+        _classCallCheck(this, Mine);
+
+        var _this = _possibleConstructorReturn(this, (Mine.__proto__ || Object.getPrototypeOf(Mine)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Mine, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            console.log("mine input");
+            console.log(this.props);
+            if (input.vId === I_ENTRY_1) {
+                //roll and new asteroid
+                sample = (0, _asteroidSample.createSample)();
+                //   console.log("setting mine fsm");
+                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.vId));
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_IN:
+                        if (input.vId === S_MINE) {
+                            //add sample to store
+                            // console.log("mined sample:");
+                            // console.log(sample);
+                            this.props.addSample(sample);
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_MINE_FIN));
+                            sample = (0, _asteroidSample.createSample)();
+                        } else if (input.vId === S_LOOK) {
+                            sample = (0, _asteroidSample.createSample)();
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        } else if (input.vId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        }
+                        break;
+                    case S_MINE_FIN:
+                        if (input.vId === S_IN) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        }
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            console.log("mine renderView");
+            console.log(this.props);
+            if (this.props.showEntry) {
+                return [_react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'mine asteroids' })
+                )];
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_MINE_FIN:
+                        return [_react2.default.createElement(
+                            'p',
+                            null,
+                            'asteroid sample added to inventory'
+                        ), _react2.default.createElement(_Button2.default, { vId: S_IN, onInput: this.onInput, text: 'next' })];
+                    case S_IN:
+                    default:
+                        return [_react2.default.createElement(
+                            'p',
+                            null,
+                            'there is a ' + (sample.game.weight > 8 ? 'large' : 'small') + ' asteroid in front of you, mine it?'
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(_Button2.default, { vId: S_MINE, onInput: this.onInput, text: 'mine it' }),
+                            _react2.default.createElement(_Button2.default, { vId: S_LOOK, onInput: this.onInput, text: 'look for another' }),
+                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                        )];
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return Mine;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, addSample: _reducer2.addSample }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+    return {
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Mine);
+exports.default = component;
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var getRandomItem = exports.getRandomItem = function getRandomItem(ray) {
+    var index = Math.floor(ray.length * Math.random());
+    return ray[index];
+};
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _Messages = __webpack_require__(34);
+
+var _Messages2 = _interopRequireDefault(_Messages);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_BACK = 'back',
+    I_ENTRY_1 = 'e1',
+    S_ITEM = 'item',
+    S_SAMPLE = 'sample',
+    A_ELEM = 'elem';
+var id = exports.id = 'inventory';
+var itemId = null,
+    itemType = null;
+
+var Inventory = function (_React$Component) {
+    _inherits(Inventory, _React$Component);
+
+    function Inventory(props) {
+        _classCallCheck(this, Inventory);
+
+        var _this = _possibleConstructorReturn(this, (Inventory.__proto__ || Object.getPrototypeOf(Inventory)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Inventory, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            if (input.vId === I_ENTRY_1) {
+                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.vId));
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_IN:
+                        if (input.vId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        } else if (input.vId === S_SAMPLE) {
+                            var it = input.item;
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_SAMPLE));
+                        } else {
+                            console.log("item selected " + input.vId);
+                            itemId = input.vId;
+                            this.setState({
+                                item: item
+                            });
+                        }
+                        break;
+                    case S_SAMPLE:
+                        if (input.vId === S_SAMPLE) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        }
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderSample',
+        value: function renderSample() {
+            var _this2 = this;
+
+            console.log("invetory render sample");
+
+            //  let idElem = this.props.factory(constants.fsm.questions.idElem);
+            var sample = this.props.factory(_Constants2.default.fsm.items.asteroidSample);
+            return Object.values(this.props.asteroidSample).map(function (e, i) {
+                console.log("render asteroid sample item ");
+                console.log(e);
+                return _react2.default.createElement(sample.component, { item: e,
+                    showEntry: true, factory: _this2.props.factory,
+                    onInput: _this2.onInput, vId: S_SAMPLE });
+                // if(e.id === itemId){
+                //     itemType = e.type;
+                //     return (
+                //         <p>asteroid sample {i + 1}: element:
+                //         <idElem.component item={e} showEntry={true} factory={this.props.factory} 
+                //                         onInput={this.onInput} vId={A_ELEM}  />
+                //         weight: {e.user.weight?e.user.weight:'unknown'}</p>
+                //     )
+                // }else{
+                //     let t = `item ${i} element: ${e.user.element?e.user.element:'unknown'}`;
+                //     return  <Button vId={e.id} onInput={this.onInput} text={t} /> 
+                // }
+                /*
+                <Button vId={{vId: S_SAMPLE, item: e, action: A_ELEM}} onInput={this.onInput} 
+                text={e.user.element?e.user.element:'unknown'} /> 
+                */
+            });
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            if (this.props.showEntry) {
+                return [_react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: 'inspect inventory' })
+                )];
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_SAMPLE:
+                        //console.log("inventory: render view type: " + itemType + " id: " + itemId);
+                        //let idElem = this.props.factory(constants.fsm.questions.idElem)
+                        //itemId={this.props.fsm[constants.fsm.keys.item]} 
+                        //itemType={this.props.fsm[constants.fsm.keys.itemType]} 
+                        var sample = this.props.factory(_Constants2.default.fsm.items.asteroidSample);
+                        return [_react2.default.createElement(sample.component, {
+                            showEntry: false, factory: this.props.factory,
+                            onInput: this.onInput, vId: S_SAMPLE })];
+                    // return [
+                    //     <idElem.component showEntry={false} factory={this.props.factory} 
+                    //     onInput={this.onInput} vId={A_ELEM} itemId={itemId} itemType={itemType} />
+                    // ]
+                    case S_IN:
+                    default:
+                        return [_react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
+                            this.renderSample()
+                        )];
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return Inventory;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+    console.log("mapping asteroid samples");
+    console.log(state);
+    return {
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN)),
+        asteroidSample: state.items.asteroidSample
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Inventory);
+exports.default = component;
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _reducer2 = __webpack_require__(33);
+
+var _Messages = __webpack_require__(34);
+
+var _Messages2 = _interopRequireDefault(_Messages);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_BACK = 'back',
+    I_ENTRY_1 = 'e1',
+    S_FLAME = 'flame',
+    S_SONAR = 'sonar';
+var id = exports.id = 'idElem';
+
+var IdElem = function (_React$Component) {
+    _inherits(IdElem, _React$Component);
+
+    function IdElem(props) {
+        _classCallCheck(this, IdElem);
+
+        var _this = _possibleConstructorReturn(this, (IdElem.__proto__ || Object.getPrototypeOf(IdElem)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        console.log("IdElem constructor, props should have item");
+        console.log(props);
+        return _this;
+    }
+
+    _createClass(IdElem, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            if (input.vId === I_ENTRY_1) {
+                this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                this.props.onInput(_Messages2.default.message(this.props.vId));
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_IN:
+                        if (input.vId === S_FLAME) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_FLAME));
+                        } else if (input.vId === S_SONAR) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_SONAR));
+                        } else if (input.vId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        }
+                        break;
+                    case S_FLAME:
+                    case S_SONAR:
+                        this.props.onInput(_Messages2.default.answer(this.props.vId, {
+                            element: input.vId
+                        }));
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            console.log("identify element renderView");
+            console.log(this.props);
+            if (this.props.showEntry) {
+                var t = 'element: ' + (this.props.item.user.element ? this.props.item.user.element : 'unknown');
+                return [_react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: t })
+                )];
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_SONAR:
+                        return [_react2.default.createElement(
+                            'p',
+                            null,
+                            'The sample emites a soundwave of 370Hz'
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(_Button2.default, { vId: 'magnesium', onInput: this.onInput, text: 'magnesium' }),
+                            _react2.default.createElement(_Button2.default, { vId: 'lithium', onInput: this.onInput, text: 'lithium' })
+                        )];
+                    case S_FLAME:
+                        return [_react2.default.createElement(
+                            'p',
+                            null,
+                            'The flame is blue, therefore the sample is made of:'
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(_Button2.default, { vId: 'iron', onInput: this.onInput, text: 'iron' }),
+                            _react2.default.createElement(_Button2.default, { vId: 'copper', onInput: this.onInput, text: 'copper' })
+                        )];
+                    case S_IN:
+                    default:
+                        return [_react2.default.createElement(
+                            'p',
+                            null,
+                            'The sample element is ' + this.props.item.type + ' id:' + this.props.item.id
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(_Button2.default, { vId: S_FLAME, onInput: this.onInput, text: 'use flame test' }),
+                            _react2.default.createElement(_Button2.default, { vId: S_SONAR, onInput: this.onInput, text: 'use sonar test' }),
+                            _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })
+                        )];
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return IdElem;
+}(_react2.default.Component);
+
+//editItem(item, key, val)
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+    return {
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN))
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(IdElem);
+exports.default = component;
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.component = exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Button = __webpack_require__(12);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _selectors = __webpack_require__(13);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(8);
+
+var _reducer2 = __webpack_require__(33);
+
+var _Messages = __webpack_require__(34);
+
+var _Messages2 = _interopRequireDefault(_Messages);
+
+var _Constants = __webpack_require__(4);
+
+var _Constants2 = _interopRequireDefault(_Constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var S_IN = 'in',
+    S_BACK = 'back',
+    I_ENTRY_1 = 'e1',
+    A_ID = 'aid';
+var id = exports.id = _Constants2.default.fsm.items.asteroidSample;
+//let itemId = null, itemType = null;
+
+var AstSamp = function (_React$Component) {
+    _inherits(AstSamp, _React$Component);
+
+    function AstSamp(props) {
+        _classCallCheck(this, AstSamp);
+
+        var _this = _possibleConstructorReturn(this, (AstSamp.__proto__ || Object.getPrototypeOf(AstSamp)).call(this, props));
+
+        _this.onInput = _this.onInput.bind(_this);
+        console.log("@@@@@@@@@@@@@@@@ast samp constructer ");
+        console.log(props);
+        return _this;
+    }
+
+    _createClass(AstSamp, [{
+        key: 'onInput',
+        value: function onInput(input) {
+            console.log("asteroid sample onInput");
+            console.log(this.props);
+            if (input.vId === I_ENTRY_1) {
+                if (this.props.item) {
+                    var _props$setFSMState;
+
+                    console.log('set asteroid sample FSM state ' + id + " item " + this.props.item.id);
+                    this.props.setFSMState(id, (_props$setFSMState = {}, _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.state, S_IN), _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.item, this.props.item.id), _defineProperty(_props$setFSMState, _Constants2.default.fsm.keys.itemType, this.props.item.type), _props$setFSMState));
+                    this.props.onInput(_Messages2.default.item(this.props.vId, this.props.item));
+                } else {
+                    console.log("error, no item in asteroid sample onInput entry");
+                }
+            } else {
+                switch (this.props.fsm.state) {
+                    case S_IN:
+                        if (input.vId === A_ID) {
+                            this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, A_ID));
+                        } else if (input.vId === S_BACK) {
+                            this.props.onInput(_Messages2.default.message(this.props.vId));
+                        }
+                        break;
+                    case S_BACK:
+                        break;
+                    case A_ID:
+                        var element = input.element;
+                        console.log("asteroid sample is element " + element + " constant: " + _Constants2.default.items.element); //id, key, val
+                        console.log(this.props);
+                        this.props.editItem(this.props.item, _Constants2.default.items.element, element);
+                        this.props.setFSMState(id, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+                        break;
+                }
+            }
+        }
+    }, {
+        key: 'renderView',
+        value: function renderView() {
+            console.log("ast sample renderView");
+            console.log(this.props);
+            if (!this.props.item) {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    'Waiting for item...'
+                );
+            } else {
+                if (this.props.showEntry) {
+                    var t = 'item: element: ' + (this.props.item.user.element ? this.props.item.user.element : 'unknown');
+                    return [_react2.default.createElement(_Button2.default, { vId: I_ENTRY_1, onInput: this.onInput, text: t })];
+                } else {
+                    switch (this.props.fsm.state) {
+                        case A_ID:
+                            var idElema = this.props.factory(_Constants2.default.fsm.questions.idElem);
+                            return [_react2.default.createElement(idElema.component, { item: this.props.item, showEntry: false, factory: this.props.factory,
+                                onInput: this.onInput, vId: A_ID })];
+                        case S_IN:
+                        default:
+                            var idElem = this.props.factory(_Constants2.default.fsm.questions.idElem);
+                            return [_react2.default.createElement(
+                                'p',
+                                null,
+                                'asteroid sample: ',
+                                this.props.item.id,
+                                ':',
+                                _react2.default.createElement(idElem.component, { item: this.props.item, showEntry: true, factory: this.props.factory,
+                                    onInput: this.onInput, vId: A_ID }),
+                                'weight: ',
+                                this.props.item.user.weight ? this.props.item.user.weight : 'unknown'
+                            ), _react2.default.createElement(_Button2.default, { vId: S_BACK, onInput: this.onInput, text: 'back' })];
+                    }
+                }
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return AstSamp;
+}(_react2.default.Component);
+
+//editItem(item, key, val)
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, editItem: _reducer2.editItem }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+    console.log("ast sample map state to props");
+    console.log(state);
+    var fsm = (0, _selectors.selectFsmState)(state, _Constants2.default.fsm.items.asteroidSample, _defineProperty({}, _Constants2.default.fsm.keys.state, S_IN));
+    //Bug there is a state where the inventory is not passing an item in, and the asteroidSample
+    //has not recieved a fresh store state, and thus has no item
+    //this is resolved in ComponendWillUpdate, which passes in the fresh store state
+    //will need to tolerate no item to display
+    var id = fsm[_Constants2.default.fsm.keys.item];
+    var type = fsm[_Constants2.default.fsm.keys.itemType];
+    var item = props.item ? props.item : id ? state.items[type][id] : null;
+    console.log("ast samp id: " + id + " type: " + type + "item: ");
+    console.log(item);
+    return {
+        fsm: fsm,
+        item: item
+    };
+};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AstSamp);
+exports.default = component;
 
 /***/ }),
 /* 94 */
@@ -6441,36 +6487,34 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reducer = __webpack_require__(55);
+var _redux = __webpack_require__(1);
 
-function precise(x) {
-    return Number.parseFloat(x).toPrecision(4);
-}
-function round(x) {
-    return Math.round(x * 10) / 10;
-}
-var sim = {
-    update: function update(props) {
-        // console.log("simulation update");
-        // console.log(props);
-        var currentTemp = props.simulation.temp;
-        var targetTemp = props.simulation.targetTemp;
-        var change = (targetTemp - currentTemp) / 10;
-        var time = props.simulation.time;
-        props.setTemp(time + 1, round(currentTemp + change));
-    },
-    getActions: function getActions() {
-        return {
-            setTemp: _reducer.setTemp
-        };
-    },
-    getMapState: function getMapState(state, props) {
-        return {
-            simulation: state.simulation
-        };
-    }
+var _gameReducer = __webpack_require__(95);
+
+var _reducer = __webpack_require__(8);
+
+var _reducer2 = __webpack_require__(33);
+
+var _parentReducer = __webpack_require__(96);
+
+//multiaction reducers
+//change zone - change from state, change to state, change game position
+
+
+var reducers = (0, _redux.combineReducers)({
+    game: _gameReducer.reducer,
+    fsm: _reducer.reducer,
+    items: _reducer2.reducer
+});
+
+var rootReducer = function rootReducer(state, action) {
+    var intermediateState = reducers(state, action);
+    //const finalState = crossSliceReducer(intermediateState, action);
+    var finalState = (0, _parentReducer.parentReducer)(intermediateState, action);
+    return finalState;
 };
-exports.default = sim;
+
+exports.default = rootReducer;
 
 /***/ }),
 /* 95 */
@@ -6482,176 +6526,40 @@ exports.default = sim;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.reducer = undefined;
+exports.setHealth = setHealth;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _Constants = __webpack_require__(4);
 
-var _templateObject = _taggedTemplateLiteral(['\n    height: 400px;\n    width: 100%;\n'], ['\n    height: 400px;\n    width: 100%;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Line = __webpack_require__(8);
-
-var _Line2 = _interopRequireDefault(_Line);
-
-var _adapterParallel = __webpack_require__(32);
-
-var _adapterParallel2 = _interopRequireDefault(_adapterParallel);
-
-var _chartistPluginLegend = __webpack_require__(33);
-
-var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
-
-var _chartistPluginAxistitle = __webpack_require__(34);
-
-var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
-
-var _reactRedux = __webpack_require__(3);
-
-var _redux = __webpack_require__(2);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _chartist = __webpack_require__(96);
-
-var _chartist2 = _interopRequireDefault(_chartist);
+var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-if (typeof window === 'undefined') {
-    global.window = {};
-}
-
-var Graph = function (_React$Component) {
-    _inherits(Graph, _React$Component);
-
-    function Graph(props) {
-        _classCallCheck(this, Graph);
-
-        var _this = _possibleConstructorReturn(this, (Graph.__proto__ || Object.getPrototypeOf(Graph)).call(this, props));
-
-        var order = ['s1', 's2'];
-        _this.state = {
-            order: order,
-            options: {
-                showPoint: false,
-                chartPadding: {
-                    top: 10,
-                    right: 20,
-                    bottom: 170,
-                    left: 20
-                }
-
-            },
-            data: {
-                labels: [1, 2, 3, 1, 2, 3],
-                series: [[1, 2, 3, 1, 2, 3]]
-            },
-            adapter: new _adapterParallel2.default(props.data, 'Temperature', 'time', ['temp'])
-        };
-        return _this;
-    }
-
-    _createClass(Graph, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var o2 = Object.assign({
-                axisX: {
-                    //type: chartist.FixedScaleAxis,
-                    // divisor: 4,
-                    // high:10,
-                    // low:0
-                    labelInterpolationFnc: function labelInterpolationFnc(current, index, all) {
-                        if (all.length > 0) {
-                            console.log("label interp: " + current + ", " + index + " index: " + Math.floor(all.length / 4));
-                            console.log(all);
-                            if (index % Math.round(all.length / 4) == 0) {
-                                return current;
-                            }
-                        }
-                    }
-                },
-                axisY: {
-                    type: _chartist2.default.FixedScaleAxis,
-                    divisor: 4
-                    // high:100,
-                    // low:0
-                },
-                plugins: [(0, _chartistPluginLegend2.default)({
-                    position: 'top',
-                    classNames: ['ct-myclass', 'ct-myclass2'],
-                    legendNames: [{ name: 'Temperature', series: ['temp'] }]
-                }), (0, _chartistPluginAxistitle2.default)({
-                    axisX: {
-                        axisTitle: 'Time (mins)',
-                        axisClass: 'ct-axis-title',
-                        offset: { x: 0, y: 40 },
-                        textAnchor: 'middle'
-                    },
-                    axisY: {
-                        axisTitle: 'Temperature (celsius)',
-                        axisClass: 'ct-axis-title',
-                        offset: { x: 0, y: -10 },
-                        flipTitle: false
-                    }
-                })]
-            }, this.state.options);
-            this.setState({
-                options: o2
-            });
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate() {
-            console.log("temp data");
-            console.log(this.props.data);
-            this.state.adapter.updateData(this.props.data);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            console.log("rendering temp graph");
-            return _react2.default.createElement(
-                Container,
-                null,
-                _react2.default.createElement(_Line2.default, { data: this.state.adapter.getSeries(), options: this.state.options })
-            );
-        }
-    }]);
-
-    return Graph;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        data: state.simulation.tempData
+var reducer = exports.reducer = function reducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+        health: 100,
+        zone: _Constants2.default.fsm.zones.lounge
     };
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    switch (action.type) {
+        default:
+            return state;
+    }
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Graph);
-
-
-var Container = _styledComponents2.default.div(_templateObject);
+function setHealth(time, temp) {
+    return {
+        type: 'SET_HEALTH',
+        payload: {
+            time: time,
+            temp: temp
+        }
+    };
+}
 
 /***/ }),
 /* 96 */
-/***/ (function(module, exports) {
-
-module.exports = require("chartist");
-
-/***/ }),
-/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6661,79 +6569,90 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(2);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _reducers = __webpack_require__(26);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _reducers2 = __webpack_require__(53);
-
-var _reducers3 = __webpack_require__(37);
-
-var _log = __webpack_require__(27);
-
-var _reducer = __webpack_require__(55);
-
-var reducers = (0, _redux.combineReducers)({
-    simulation: _reducer.reducer,
-    zones: _reducers.reducer,
-    questions: _reducers2.reducer,
-    actions: _reducers3.reducer,
-    log: _log.reducer
-});
-//import reduceReducers from 'reduce-reducers';
-//import simulation from './../simulation/reducers.js';
-// import {reducer as index} from './../story/Reducers.js';
-// import {reducer as start} from './../story/start/index.js';
-exports.default = reducers;
+var parentReducer = exports.parentReducer = function parentReducer(state, action) {
+    console.log("parent reducer called");
+    switch (action.type) {
+        case "SET_ZONE":
+            {
+                console.log("reducer set zone");
+                console.log(action);
+                return _extends({}, state, {
+                    fsm: _extends({}, state.fsm, _defineProperty({}, action.payload.zone, {
+                        state: action.payload.state
+                    })),
+                    game: _extends({}, state.game, {
+                        zone: action.payload.zone
+                        // specifically pass state.b as an additional argument
+                        // a : handleSpecialCaseForA(state.a, action, state.b),
+                        // b : sliceReducerB(state.b, action)   setZone(zone, state){
+                    }) });
+            }
+        default:
+            return state;
+    }
+    return state;
+};
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./DynamicComponent": 15,
-	"./DynamicComponent.jsx": 15,
-	"./Trends": 11,
-	"./Trends.jsx": 11,
-	"./UI/IFrame": 16,
-	"./UI/IFrame.jsx": 16,
-	"./UI/animations/FadeIn": 17,
-	"./UI/animations/FadeIn.jsx": 17,
-	"./UI/animations/styles.css": 35,
-	"./UI/elements/Bg": 14,
-	"./UI/elements/Bg.jsx": 14,
-	"./UI/elements/IconButton": 10,
-	"./UI/elements/IconButton.jsx": 10,
-	"./UI/elements/icons.css": 49,
-	"./UI/graphs/Line": 8,
-	"./UI/graphs/Line.jsx": 8,
-	"./UI/graphs/animations": 12,
-	"./UI/graphs/animations.js": 12,
-	"./UI/graphs/main.css": 31,
-	"./UI/graphs/styles": 13,
-	"./UI/graphs/styles.js": 13,
-	"./UI/math/Katex": 25,
-	"./UI/math/Katex.jsx": 25,
-	"./UI/math/katex.css": 50,
-	"./apis/Analytics": 18,
-	"./apis/Analytics.jsx": 18,
-	"./apis/Gapi": 19,
-	"./apis/Gapi.jsx": 19,
-	"./constants": 9,
-	"./constants.js": 9,
-	"./game/Game": 20,
-	"./game/Game.jsx": 20,
-	"./game/GameMenu": 21,
-	"./game/GameMenu.jsx": 21,
-	"./game/Index": 22,
-	"./game/Index.jsx": 22,
-	"./game/Wrapper": 23,
-	"./game/Wrapper.jsx": 23,
-	"./game/views/Choice": 28,
-	"./game/views/Choice.jsx": 28,
+	"./DynamicComponent": 23,
+	"./DynamicComponent.jsx": 23,
+	"./Trends": 14,
+	"./Trends.jsx": 14,
+	"./UI/Colors": 7,
+	"./UI/Colors.js": 7,
+	"./UI/IFrame": 24,
+	"./UI/IFrame.jsx": 24,
+	"./UI/animations/FadeIn": 10,
+	"./UI/animations/FadeIn.jsx": 10,
+	"./UI/animations/SlideUp": 22,
+	"./UI/animations/SlideUp.jsx": 22,
+	"./UI/animations/styles.css": 39,
+	"./UI/elements/Bg": 20,
+	"./UI/elements/Bg.jsx": 20,
+	"./UI/elements/Container": 21,
+	"./UI/elements/Container.jsx": 21,
+	"./UI/elements/IconButton": 11,
+	"./UI/elements/IconButton.jsx": 11,
+	"./UI/elements/icons.css": 54,
+	"./UI/graphs/Line": 15,
+	"./UI/graphs/Line.jsx": 15,
+	"./UI/graphs/animations": 16,
+	"./UI/graphs/animations.js": 16,
+	"./UI/graphs/main.css": 38,
+	"./UI/graphs/styles": 18,
+	"./UI/graphs/styles.js": 18,
+	"./UI/graphs/utilities": 19,
+	"./UI/graphs/utilities.js": 19,
+	"./UI/math/Katex": 32,
+	"./UI/math/Katex.jsx": 32,
+	"./UI/math/katex.css": 55,
+	"./apis/Analytics": 25,
+	"./apis/Analytics.jsx": 25,
+	"./apis/Gapi": 26,
+	"./apis/Gapi.jsx": 26,
+	"./constants": 17,
+	"./constants.js": 17,
+	"./game/Game": 27,
+	"./game/Game.jsx": 27,
+	"./game/GameMenu": 28,
+	"./game/GameMenu.jsx": 28,
+	"./game/Index": 29,
+	"./game/Index.jsx": 29,
+	"./game/Wrapper": 30,
+	"./game/Wrapper.jsx": 30,
+	"./game/views/Choice": 35,
+	"./game/views/Choice.jsx": 35,
 	"./layout/MainMenu": 6,
 	"./layout/MainMenu.jsx": 6,
-	"./layout/menu.css": 30
+	"./layout/menu.css": 37
 };
 function webpackContext(req) {
 	var id = webpackContextResolve(req);
@@ -6751,11 +6670,11 @@ webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
 };
 webpackContext.resolve = webpackContextResolve;
-webpackContext.id = 98;
+webpackContext.id = 97;
 module.exports = webpackContext;
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6765,15 +6684,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(58);
+var _index = __webpack_require__(60);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(101);
+var _index3 = __webpack_require__(100);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _reducers = __webpack_require__(104);
+var _reducers = __webpack_require__(103);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -6800,7 +6719,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6902,7 +6821,7 @@ var Simulation = function (_React$Component) {
 exports.default = Simulation;
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6916,21 +6835,21 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(59);
+var _Story2 = __webpack_require__(61);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
-var _index = __webpack_require__(103);
+var _index = __webpack_require__(102);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(63);
+var _store = __webpack_require__(65);
 
-var _store2 = __webpack_require__(38);
+var _store2 = __webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7044,7 +6963,7 @@ var ConnectedStart = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProp
 exports.default = ConnectedStart;
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7060,11 +6979,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Text = __webpack_require__(60);
+var _Text = __webpack_require__(62);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(61);
+var _Button = __webpack_require__(63);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -7117,7 +7036,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7131,17 +7050,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(59);
+var _Story2 = __webpack_require__(61);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(2);
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(62);
+var _store = __webpack_require__(64);
 
-var _store2 = __webpack_require__(38);
+var _store2 = __webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7307,7 +7226,7 @@ var Connected = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Ro
 exports.default = Connected;
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7317,15 +7236,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _index = __webpack_require__(58);
+var _index = __webpack_require__(60);
 
-var _store = __webpack_require__(63);
+var _store = __webpack_require__(65);
 
-var _store2 = __webpack_require__(62);
+var _store2 = __webpack_require__(64);
 
-var _store3 = __webpack_require__(38);
+var _store3 = __webpack_require__(41);
 
 //import simulation from './../simulation/reducers.js';
 var reducer = (0, _redux.combineReducers)({
@@ -7338,7 +7257,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7348,13 +7267,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(56);
+var _reduxLogger = __webpack_require__(58);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(106);
+var _reducers = __webpack_require__(105);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7379,7 +7298,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7389,9 +7308,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(2);
+var _redux = __webpack_require__(1);
 
-var _counter = __webpack_require__(107);
+var _counter = __webpack_require__(106);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -7404,7 +7323,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7439,15 +7358,15 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
 // module
-exports.push([module.i, "body{font-family:HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}", ""]);
+exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}", ""]);
 
 // exports
 
@@ -7455,4 +7374,4 @@ exports.push([module.i, "body{font-family:HelveticaNeue-Light,Helvetica Neue Lig
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.b13266e6.js.map
+//# sourceMappingURL=static.29978ca0.js.map
