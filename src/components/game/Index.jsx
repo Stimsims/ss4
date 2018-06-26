@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { createStore,  applyMiddleware } from 'redux'
 import logger from 'redux-logger';
-import reducers from './../../games/g3/store/reducers.js';
+import reducers from './../../games/g4/store.js';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -33,14 +33,24 @@ class Index extends React.Component{
     }
     render(){
         return(
+          <div>
           <Provider store={this.store}>
             <div>
                 <Game game={this.props.game} />
             </div>
           </Provider>
+
+          </div>
         )
     }
 }
+/*
+<Provider store={this.store}>
+            <div>
+                <Game game={this.props.game} />
+            </div>
+          </Provider>
+*/
 
 export default Index;
 

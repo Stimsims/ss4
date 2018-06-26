@@ -1,4 +1,4 @@
-import {colors} from './../../constants.js';
+import colors from './../Colors.js';
 import styled from "styled-components";
 
 function getLetter(index){
@@ -33,8 +33,9 @@ function getLetter(index){
       .ct-series-${getLetter(i)} .ct-point, .ct-series-${getLetter(i)} .ct-slice-donut, 
       .ct-series-${i}, .ct-series-${getLetter(i)} .ct-series {
         stroke: ${getColor(i)} !important;
+        color: ${getColor(i)} !important;
         stroke-width: 2px;
-        font-size:0.8em;
+        font-size:0.9em;
         animation-delay: ${i/4}s;
       }`
       return styles = styles + s;
@@ -44,20 +45,51 @@ function getLetter(index){
 
   export function genStyles(data){
       let {series}=data;
-      let colors = generateSeriesStyle(series);
+      let seriesColors = generateSeriesStyle(series);
  const Container = styled.div`
     height: 100%;
     .ct-chart{
         height: 100%;
     }
-    ${colors}
+    ${seriesColors}
+
+    .ct-labels span, .ct-axis-title {
+      color: ${colors.text};
+    }
+    .ct-axis-title{
+      stroke: white;
+      stroke-width: 2px;
+    }
+    .ct-legend{
+      list-style-type: none;
+      text-align: center;
+      margin: auto;
+      margin-bottom:0px;
+      padding: 0px;
+      li {
+          padding: 5px;
+          margin: 0px 10px 0px 10px;
+          border-radius: 25px;
+          display: inline-block;
+      }
+    }
+    .ct-label.ct-label.ct-horizontal.ct-end {
+      transform-origin: 100% 0;
+      transform: translate(-100%, 20px) rotate(-45deg);
+    }
+    `
+    return Container;
+  }
+
+  /*
+.ct-legend 
+.ct-series-0 ct-myclass
+.ct-series-1 ct-myclass2
+
     .ct-grids line {
       color: blue;
     }
-    .ct-labels span {
-      color: blue;
-    }
-    .ct-grid line,
+.ct-grid line,
     .ct-vertical,
     .ct-start,
     .ct-horizontal{ 
@@ -77,6 +109,4 @@ function getLetter(index){
             border-radius: 25px;
         }
       }
-    `
-    return Container;
-  }
+  */

@@ -3,9 +3,10 @@
 import {constants, messages} from './../../Constants.js';
 // import {getRandomItem} from './../../../../../utilities/randomizer.js';
 // import {guid} from './../../../../../utilities/ids.js';
-import {setFSMState, addSample} from './../reducers.js';
+import {setFSMState} from './../reducers.js';
+import {addSample} from './../../items/sample/index.js';
 import {addLog} from './../../../store/log.js';
-import {createAsteroid} from './../inventory/items/asteroidSample.js';
+import {createAsteroid} from './../../items/sample/index.js';
 
 //console.log("lounge importing constants " + constants);
 const id = constants.actions.mine;

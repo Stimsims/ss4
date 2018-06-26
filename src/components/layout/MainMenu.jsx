@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withSiteData } from 'react-static'
 import './menu.css';
 import styled from 'styled-components';
+import colors from './../UI/Colors.js';
 
 class Menu extends React.Component{
     constructor(props){
@@ -9,41 +10,58 @@ class Menu extends React.Component{
     }
     render(){
         return(
-            <div>
-            <Link exact to="/"><h1 style={Title} >{this.props.siteTitle}</h1></Link>
-            <nav style={sMenu}>
-                <Slinks><Link to="/games">Games</Link></Slinks>
-                <Slinks><Link to="/about">About</Link></Slinks>
+            <nav style={Bar}>
+                <Title><Link exact to="/" >{this.props.siteTitle}</Link></Title>
+                <div style={sMenu}>
+                    <Slinks><Link to="/games">Games</Link></Slinks>
+                    <Slinks><Link to="/about">About</Link></Slinks>
+                </div>
             </nav>
-            </div>
         )
     }
 }
 
 export default withSiteData(Menu);
 
-const Title = {
-    textAlign: 'center',
-    margin: '10px 0px 10px 0px'
-}
 
-const sMenu = {
+const Bar = {
     width: '100%',
-    display: 'flex',
-    justifyContent:'center',
-    alignItems: 'center',
+    padding: '10px'
 }
 
-const Slinks = styled.span`
-    display: inline;
-    font-size: 1.5em;
+// const sMenu = {
+//     width: '100%',
+//     display: 'flex',
+//     justifyContent:'center',
+//     alignItems: 'center',
+// }
+const sMenu = {
+    display: 'inline',
+    float: 'right',
+    height: '80px',
+    marginRight: '10px'
+}
+const Title = styled.h1`
+    display: inline-block;
+    font-size: 1.8em;
+    margin: 0px;
+    a{
+        color: ${colors.s};
+    }
+`
+const Slinks = styled.h2`
+    display: inline-block;
+    font-size: 1.1em;
+    margin-top: 11px;
+    transition: all 0.3s ease-in;
     a{
         padding: 20px 10px 0px 10px;
-        border-bottom: 2px solid transparent;
-        transition: all 0.3s ease-in;
+        border-bottom: 2px solid ${colors.transparent};
+        color: ${colors.s};
     }
     a.active{
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid ${colors.sLight};
+        color: ${colors.sLight}; 
     }
 `
 

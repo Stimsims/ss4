@@ -1,4 +1,5 @@
 {
     "title": "hello",
-    "id": "hello"
+    "id": "hello",
+    "tags": ["t1", "t2"]
 }

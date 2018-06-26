@@ -24,3 +24,32 @@ opacity: 0.01;
 opacity: 1;
 transition: opacity .5s ease-in;
 }
+
+
+
+/* .slide-up-enter{
+    transform: translate(0px, 0px);
+}
+.slide-up-enter.slide-up-enter-active {
+    transform: translate(0px, 100vh);
+    transition: all 1s ease-out;
+}
+
+.slide-up-leave {
+    transform: translate(0px, 100vh);
+}
+
+.slide-up-leave.slide-up-leave-active {
+    transform: translate(0px, 0px);
+    transition:  all 1s ease-out;
+}
+
+.slide-up-appear {
+    transform: translate(0px, 100vh);
+
+}
+
+.slide-up-appear.slide-up-appear-active {
+    transform: translate(0px, 0px);
+    transition: all 1s ease-out;
+} */

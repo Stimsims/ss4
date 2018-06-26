@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import colors from './../Colors.js';
 
 class UiBg extends React.Component{
     constructor(props){
@@ -25,14 +26,11 @@ const Bg = styled.div`
   left:0;
   bottom:0;
   right:0;
-  background-color: #330033;
+  background: linear-gradient(${colors.pDark}, ${colors.p});
   z-index: -999999;
-  display: flex;
   overflow:hidden;
-  padding-top: 10px;
-  div{
-      flex:1;
-  }
 `
 
 //background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 import styled from "styled-components";
+import Legend from 'chartist-plugin-legend';
+import Axis from 'chartist-plugin-axistitle';
 
 //import Legend from 'chartist-plugin-legend';
 // import Axis from 'chartist-plugin-axistitle';
@@ -9,9 +11,12 @@ import {lineScaleUp, heightUp, fadeIn, widthRight, translate} from './animations
 import {colors} from './../../constants.js';
 import {genStyles} from './styles.js';
 import './main.css';
+import {getAxisLabels} from './utilities.js';
 
 // import Chartist from 'chartist';
- 
+if (typeof window === 'undefined') {
+  global.window = {}
+}
 export default class Pie extends React.Component {
   constructor(props){
     super(props);
@@ -20,7 +25,61 @@ export default class Pie extends React.Component {
     //listener={this.state.listeners} options={this.props.options}
     console.log('line graph');
     console.log(props);
+    console.log("props ops");
+    console.log(props.options);
+    let plugins = [];
+    let defaults = {
+      showPoint: false,
+      showGrid: false,
+      chartPadding: {
+        top: 10,
+          right: 20,
+          bottom: 180,
+          left: 20
+      },
+      plugins
+    }
+    
+    if(props.legend){
+            let names = getAxisLabels(props.legend);
+            plugins.push(Legend({
+                position: 'top',
+                classNames: ['ct-myclass'],
+                legendNames: names
+            }))
+    }
+    if(props.titleX || props.titleY){
+      let axis = {};
+      if(props.titleX){
+        axis.axisX = {
+          axisTitle: `${props.titleX}`,
+          axisClass: 'ct-axis-title',
+          offset: {
+              x: 0,
+              y: 0
+          },
+          textAnchor: 'middle'
+        }
+      }
+      if(props.titleY){
+        axis.axisY = {
+          axisTitle: `${props.titleY}`,
+          axisClass: 'ct-axis-title',
+          offset: {
+              x: 0,
+              y: 0
+          },
+          textAnchor: 'middle'
+        }
+      }
+      plugins.push(Axis(axis));
+    }
+    let newOpt = Object.assign(defaults, props.options);
+    console.log("newOpt");
+    console.log(newOpt);
+
     this.state={
+      options: newOpt,
       container: genStyles(this.props.data),
       data: {
         labels: [1,2,3],
@@ -31,17 +90,23 @@ export default class Pie extends React.Component {
     }
   }
   
+  
   render() {
 
     // console.log('line graph');
     // console.log(this.props);
     return (
       <this.state.container className="chartContainer">
-        <ChartistGraph  data={this.props.data} listener={this.state.listeners} options={this.props.options} type={'Line'} />
-        {/* <ChartistGraph data={this.props.data} options={this.props.options} type={type} /> */}
+        <h4 style={titleStyle}>{this.props.title}</h4>
+        <ChartistGraph  data={this.props.data} listener={this.state.listeners} options={this.state.options} type={'Line'} />
       </this.state.container>
     )
   }
 }
 
 
+const titleStyle ={
+  color: 'white',
+  textAlign: 'center',
+  marginBottom: '0px'
+}

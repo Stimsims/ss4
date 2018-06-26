@@ -2,7 +2,7 @@ import lounge from './zones/lounge/index.js';
 import control from './zones/control/index.js';
 import read from './questions/read/index.js';
 import mine from './actions/mine/index.js';
-import inventory from './actions/inventory/index.js';
+import inventory from './items/inventory/index.js';
 
 export default (name) => {
     console.log('factory name' + name);

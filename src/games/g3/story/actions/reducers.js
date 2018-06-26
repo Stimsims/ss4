@@ -1,5 +1,5 @@
 import {constants} from './../Constants.js'
-  import {createAsteroid} from './inventory/items/asteroidSample.js';
+  import {createAsteroid} from './../items/sample/index.js';
 let ast1 = createAsteroid();
 export const reducer = (
     state = {

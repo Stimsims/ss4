@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 //import Sim from './../../games/g1/simulation/index.js';
 import { bindActionCreators } from 'redux'
-import Index from './../../games/g3/components/Index.jsx';
+//import Index from './../../games/g3/components/Index.jsx';
+import Index from './../../games/g4/Index.jsx';
 
 class Game extends React.Component{
     constructor(props){
