@@ -46,7 +46,7 @@ class AstSamp extends React.Component{
                         //bug? potential race condition if delete asteroid sample currently open
                         //1) signal input for parent 2) call addSampleToStock with stock id
                         //let sampleId = this.props.item.id;
-                        this.props.addSampleToStock(this.props.item.id);
+                        this.props.addSampleToStock(this.props.item.id, this.props.item.user.element);
                        // console.log("adding sample " + sampleId + " to stockpile");
                         this.props.onInput(messages.message(this.props.kId));
                         

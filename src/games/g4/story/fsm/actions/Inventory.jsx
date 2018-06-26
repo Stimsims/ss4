@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './../../../components/views/Button.jsx';
-import {selectFsmState} from './../selectors.js';
+import {selectFsmState, selectContained} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
@@ -19,11 +19,12 @@ class Inventory extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
+        console.log("inventory constructor");
+        console.log(props);
     }
 
     onInput(input){
-        console.log("inventory input");
-        console.log(input);
+
         if(input.kId === I_ENTRY_1){
             this.props.setFSMState(id, {
                 [constants.fsm.keys.state]: S_IN
@@ -60,33 +61,33 @@ class Inventory extends React.Component{
             }
         }
     }
-    renderSample(){
-        console.log("invetory render sample");
-       
-      //  let idElem = this.props.factory(constants.fsm.questions.idElem);
-        let sample = this.props.factory(constants.fsm.items.asteroidSample);
-        return Object.values(this.props.asteroidSample).map((e, i) => {
-            console.log("render asteroid sample item ");
-            console.log(e);
-            return <sample.component item={e} 
-                    showEntry={true} factory={this.props.factory}
-                    onInput={this.onInput} kId={S_SAMPLE}/>
-            // if(e.id === itemId){
-            //     itemType = e.type;
-            //     return (
-            //         <p>asteroid sample {i + 1}: element:
-            //         <idElem.component item={e} showEntry={true} factory={this.props.factory} 
-            //                         onInput={this.onInput} vId={A_ELEM}  />
-            //         weight: {e.user.weight?e.user.weight:'unknown'}</p>
-            //     )
-            // }else{
-            //     let t = `item ${i} element: ${e.user.element?e.user.element:'unknown'}`;
-            //     return  <Button vId={e.id} onInput={this.onInput} text={t} /> 
-            // }
-            /*
-            <Button vId={{vId: S_SAMPLE, item: e, action: A_ELEM}} onInput={this.onInput} 
-            text={e.user.element?e.user.element:'unknown'} /> 
-            */
+    renderItems(){
+       /*
+    //    let idElem = this.props.factory(constants.fsm.questions.idElem);
+    //           let sample = this.props.factory(constants.fsm.items.asteroidSample);
+    //     return Object.values(this.props.asteroidSample).map((e, i) => {
+    //         console.log("render asteroid sample item ");
+    //         console.log(e);
+    //         return <sample.component item={e} 
+    //                 showEntry={true} factory={this.props.factory}
+    //                 onInput={this.onInput} kId={S_SAMPLE}/>
+    //     })
+            return Object.keys(this.props.contained).map((k, i) => {
+                return (<p>key {k} : {i}</p>);
+        }
+    */
+        return Object.keys(this.props.items).map((k, i) => {
+            return this.props.items[k].map((e) => {
+                console.log("rendering items for " + k + " item " + e.id);
+                if(k === constants.items.asteroidSample){
+                    let sample = this.props.factory(k);
+                    return (
+                        <sample.component item={e} 
+                        showEntry={true} factory={this.props.factory}
+                        onInput={this.onInput} kId={S_SAMPLE}/>
+                    )
+                }
+            })
 
         })
     }
@@ -100,20 +101,12 @@ class Inventory extends React.Component{
         }else{
             switch(this.props.fsm.state){
                 case S_SAMPLE:
-                    //console.log("inventory: render view type: " + itemType + " id: " + itemId);
-                    //let idElem = this.props.factory(constants.fsm.questions.idElem)
-                    //itemId={this.props.fsm[constants.fsm.keys.item]} 
-                    //itemType={this.props.fsm[constants.fsm.keys.itemType]} 
                     let sample = this.props.factory(constants.fsm.items.asteroidSample);
                     return [
                         <sample.component 
                         showEntry={false} factory={this.props.factory}
                         onInput={this.onInput} {...functions.propKid(S_SAMPLE)}/>
                     ]
-                    // return [
-                    //     <idElem.component showEntry={false} factory={this.props.factory} 
-                    //     onInput={this.onInput} vId={A_ELEM} itemId={itemId} itemType={itemType} />
-                    // ]
                 case S_IN:
                 default:
                     return [
@@ -121,7 +114,7 @@ class Inventory extends React.Component{
                             <Button {...functions.propKid(S_BACK)} onInput={this.onInput} text={'back'}/>
                         </div>,
                         <div>
-                            {this.renderSample()}
+                            {this.renderItems()}
                         </div>
                     ]
             }
@@ -147,9 +140,10 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, props) => {
     console.log("mapping asteroid samples");
     console.log(state);
+    //asteroidSample: state.items.asteroidSample
     return {
         fsm: selectFsmState(state, id, {[constants.fsm.keys.state]: S_IN}),
-        asteroidSample: state.items.asteroidSample
+        items: selectContained(state, id)
     }
 }
 export const component = connect(mapStateToProps, mapDispatchToProps)(Inventory);

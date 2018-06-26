@@ -1,15 +1,13 @@
 import {constants} from './../Constants.js';
  import {createSample} from './asteroidSample.js'; 
 //stores fsm state information
-let sample = createSample();
-let sample1 = createSample();
-let sample2 = createSample();
+// let sample = createSample();
+// let sample1 = createSample();
+// let sample2 = createSample();
 export const reducer = (
     state = {
         [constants.items.asteroidSample]:{
-            [sample.id]: sample,
-            [sample1.id]: sample1,
-            [sample2.id]: sample2
+
         },
         [constants.items.stock]:{
 
@@ -19,6 +17,7 @@ export const reducer = (
 ) => {
     switch (action.type) {
         case 'ADD_SAMPLE':
+            console.log("items reducer add sample");
             return {
                 ...state,
                 [constants.items.asteroidSample]:{
@@ -80,11 +79,13 @@ export const reducer = (
             return state;
     }
 }
-export function addSampleToStock(sampleId){
+//parent needs to modify samples and stocks
+export function addSampleToStock(sampleId, element){
+    console.log("action addSampleToStock " + element);
     return {
         type: 'ADD_SAMPLE_TO_STOCK',
         payload:{
-            sampleId
+            sampleId, element
         }
     }
 }

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import {reducer as game} from './story/gameReducer.js';
 import {reducer as fsm} from './story/fsm/reducer.js';
 import {reducer as items} from './story/items/reducer.js';
+import {reducer as relations} from './story/relationsReducer.js';
 import {parentReducer} from './parentReducer.js';
 //multiaction reducers
 //change zone - change from state, change to state, change game position
@@ -11,15 +12,17 @@ import {parentReducer} from './parentReducer.js';
 const reducers = combineReducers({
     game,
     fsm,
-    items
+    items,
+    relations
 });
 
 
 const rootReducer = (state, action) => {
-    const intermediateState = reducers(state, action);
+    const finalState = parentReducer(state, action);
+    const intermediateState = reducers(finalState, action);
     //const finalState = crossSliceReducer(intermediateState, action);
-    const finalState = parentReducer(intermediateState, action);
-    return finalState;
+    
+    return intermediateState;
 }
 
 

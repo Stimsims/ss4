@@ -19,7 +19,7 @@ export const constants = {
             idElem: 'idElem'
         },
         items:{
-            asteroidSample: 'asteroidSample'
+            asteroidSample: 'asteroidSample' //important that items and item template tag remain the same
         }
     },
     IO:{
@@ -32,6 +32,9 @@ export const constants = {
         weight: 'weight',
         stock: 'stock'
     },
+    relations:{
+        contains: 'contains'
+    }
 }
 
 //export default constants;
