@@ -12,7 +12,7 @@ const S_IN = 'in',
     I_CONTROL = 'ic',
     I_INVENTORY ='inv';
 export const id = 'lounge';
-class Lounge extends React.Component{
+export class Lounge extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);

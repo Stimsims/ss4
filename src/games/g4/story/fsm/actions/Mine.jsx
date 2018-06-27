@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
 import {createSample} from './../../items/asteroidSample.js';
-import {addSample} from './../../items/reducer.js';
+import {addItem} from './../../items/reducer.js';
 import messages from './../../Messages.js';
 import {constants, functions} from './../../Constants';
 
@@ -23,8 +23,8 @@ class Mine extends React.Component{
         this.onInput = this.onInput.bind(this);
     }
     onInput(input){
-        console.log("mine input");
-        console.log(this.props);
+        // console.log("mine input");
+        // console.log(this.props);
         if(input.kId === I_ENTRY_1){
             //roll and new asteroid
             sample = createSample();
@@ -40,7 +40,7 @@ class Mine extends React.Component{
                         //add sample to store
                         // console.log("mined sample:");
                         // console.log(sample);
-                        this.props.addSample(sample);
+                        this.props.addItem(constants.fsm.actions.inventory, sample.type, sample.id, sample);
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_MINE_FIN
                         });
@@ -65,8 +65,8 @@ class Mine extends React.Component{
         }
     }
     renderView(){
-        console.log("mine renderView");
-        console.log(this.props);
+        // console.log("mine renderView");
+        // console.log(this.props);
         if(this.props.showEntry){
             return [
                 <div>
@@ -105,7 +105,7 @@ class Mine extends React.Component{
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
-        {setFSMState, addSample},
+        {setFSMState, addItem},
         dispatch
     )
 }

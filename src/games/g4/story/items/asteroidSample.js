@@ -1,8 +1,9 @@
 import {getRandomItem} from './../../../../utilities/randomizer.js';
 import {guid} from './../../../../utilities/ids.js';
 import {constants} from './../Constants.js';
-
-const materials = ['iron', 'cobalt', 'copper', 'silver']
+console.log("creating samples");
+const materials = Object.keys(constants.elements);
+console.log("create sample materials", materials);
 
 export const createSample = () => {
     let material = getRandomItem(materials);

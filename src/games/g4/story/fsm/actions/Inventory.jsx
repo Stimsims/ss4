@@ -19,8 +19,8 @@ class Inventory extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        console.log("inventory constructor");
-        console.log(props);
+        // console.log("inventory constructor");
+        // console.log(props);
     }
 
     onInput(input){
@@ -44,7 +44,7 @@ class Inventory extends React.Component{
                         });
                     }
                     else{
-                        console.log("item selected " + input.kId);
+                       // console.log("item selected " + input.kId);
                         itemId = input.kId;
                         this.setState({
                             item
@@ -62,31 +62,39 @@ class Inventory extends React.Component{
         }
     }
     renderItems(){
-       /*
-    //    let idElem = this.props.factory(constants.fsm.questions.idElem);
-    //           let sample = this.props.factory(constants.fsm.items.asteroidSample);
-    //     return Object.values(this.props.asteroidSample).map((e, i) => {
-    //         console.log("render asteroid sample item ");
-    //         console.log(e);
-    //         return <sample.component item={e} 
-    //                 showEntry={true} factory={this.props.factory}
-    //                 onInput={this.onInput} kId={S_SAMPLE}/>
-    //     })
-            return Object.keys(this.props.contained).map((k, i) => {
-                return (<p>key {k} : {i}</p>);
-        }
-    */
         return Object.keys(this.props.items).map((k, i) => {
-            return this.props.items[k].map((e) => {
-                console.log("rendering items for " + k + " item " + e.id);
-                if(k === constants.items.asteroidSample){
-                    let sample = this.props.factory(k);
-                    return (
-                        <sample.component item={e} 
-                        showEntry={true} factory={this.props.factory}
-                        onInput={this.onInput} kId={S_SAMPLE}/>
+            return this.props.items[k].map((e, ei) => {
+                if(e){
+                   // console.log("rendering items for " + k + " item " + e.id);
+                    if(k === constants.items.asteroidSample){
+                        let sample = this.props.factory(k);
+                        return (
+                            <div>
+                                {(ei == 0)? <p>{k}</p>:''}
+                                <sample.component item={e} 
+                                showEntry={true} factory={this.props.factory}
+                                onInput={this.onInput} kId={S_SAMPLE}/>
+                            </div>
+                        )
+                    }else if(k === constants.items.stock){
+                        return(
+                            <div>
+                                {(ei == 0)? <p>{k}</p>:''}
+                                <p><span>element: {e.id}</span>
+                                {Object.keys(e).map((m) => {
+                                    if(m != 'id'){
+                                        return <span> {m} weight:{e[m]}</span>
+                                    }
+                                })}</p>
+                            </div>
+                        )
+                    }
+                }else{
+                    return(
+                        <div>item undefined</div>
                     )
                 }
+
             })
 
         })
@@ -138,8 +146,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log("mapping asteroid samples");
-    console.log(state);
+    // console.log("mapping asteroid samples");
+    // console.log(state);
     //asteroidSample: state.items.asteroidSample
     return {
         fsm: selectFsmState(state, id, {[constants.fsm.keys.state]: S_IN}),

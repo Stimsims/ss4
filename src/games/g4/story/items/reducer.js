@@ -1,11 +1,21 @@
 import {constants} from './../Constants.js';
- import {createSample} from './asteroidSample.js'; 
-//stores fsm state information
-// let sample = createSample();
-// let sample1 = createSample();
-// let sample2 = createSample();
+
 export const reducer = (
     state = {
+        [constants.items.ship]:{
+            [constants.items.engine]:{
+                id: constants.items.engine,
+                element: 'iron',
+                temp:constants.elements.iron.shc,
+                state: constants.sim.engine.ok
+            },
+            [constants.items.hull]:{
+                id: constants.items.hull,
+                element: 'iron',
+                temp:constants.elements.iron.shc,
+                state: constants.sim.engine.ok
+            }
+        },
         [constants.items.asteroidSample]:{
 
         },
@@ -16,16 +26,28 @@ export const reducer = (
     action = {}
 ) => {
     switch (action.type) {
-        case 'ADD_SAMPLE':
+        case 'ADD_ITEM':
             console.log("items reducer add sample");
+            //parent reducer also adds id to container relationship list
             return {
                 ...state,
-                [constants.items.asteroidSample]:{
-                    ...state[constants.items.asteroidSample],
-                    [action.payload.sample.id]: action.payload.sample
+                [action.payload.type]:{
+                    ...state[action.payload.type],
+                    [action.payload.id]: action.payload.item
                 }
             };
-        case 'EDIT_ITEM':
+        case `DEL_ITEM`: 
+            console.log("items reducer del item");
+            let items = {
+                ...state[action.payload.type]
+            }
+            delete items[action.payload.id];
+            return {
+                ...state,
+                [action.payload.type]:items
+            };
+        case 'EDIT_USER_ANS':
+        // [action.payload.key]: action.payload.val
             let update = {
                 ...action.payload.item,
                 user:{
@@ -40,75 +62,49 @@ export const reducer = (
                     [action.payload.item.id]: update
                 }
             }
-        case 'ADD_SAMPLE_TO_STOCK':
-            let sample = state[constants.items.asteroidSample][action.payload.sampleId];
-            let uElem = sample.user.element;
-            let gElem = sample.game.element;
-            let weight = sample.game.weight;
-            //console.log("reducer add sample to stock, gElem = " + gElem + " uElem = " + uElem);
-            //add it to the stock of type element user has identified
-            //add it to the element within that stock that the game has rolled
-            let stock = state[constants.items.stock][uElem]?state[constants.items.stock][uElem]:{
-                id: uElem
-            };
-            let currentWeight = stock[gElem]?stock[gElem]:0;
-         //   console.log("add sample " + uElem + " to stock, current weight = " + currentWeight + " next weight = " + weight);
-            let n = {
-                ...stock,
-                [gElem]: currentWeight + weight
-            }
-            let samples = state[constants.items.asteroidSample];
-            let deleted = delete samples[action.payload.sampleId];
-            // console.log("add sample to stock, new samples:");
-            // console.log(samples);
-            // console.log("add sample to stock, deleted:");
-            // console.log(deleted);
-            return{
-                ...state,
-                [constants.items.asteroidSample]:{
-                    ...samples
-                },
-                [constants.items.stock]:{
-                    ...state[constants.items.stock],
-                    [uElem]:{
-                        ...n
-                    }
-                }
-            }
         default:
             return state;
     }
 }
-//parent needs to modify samples and stocks
-export function addSampleToStock(sampleId, element){
-    console.log("action addSampleToStock " + element);
+
+export function addItem(container, type, id, item){
+    //console.log("action set zone");
+    console.log("action addItem " + container + " type " + type + " id " + id);
     return {
-        type: 'ADD_SAMPLE_TO_STOCK',
+        type: `ADD_ITEM`,
         payload:{
-            sampleId, element
+            container, type, id, item
         }
     }
 }
-//handled by parent reducer
-export function addSample(sample){
-    console.log("action set zone");
+export function deleteItem(container, type, id, item){
+    console.log("action deleteItem " + container + " type " + type + " id " + id);
     return {
-        type: `ADD_SAMPLE`,
+        type: `DEL_ITEM`,
         payload:{
-            sample
+            container, type, id, item
         }
     }
 }
 
-//handled by parent reducer
-export function editItem(item, key, val){
+// //handled by parent reducer
+export function editUserAns(item, key, val){
     console.log("action edit item key " + key + " val " + val);
     return {
-        type: `EDIT_ITEM`,
+        type: `EDIT_USER_ANS`,
         payload:{
             item, key, val
         }
     }
 }
+// export function editItem(item, edits){
+//     console.log("action edit item",edits);
+//     return {
+//         type: `EDIT_ITEM`,
+//         payload:{
+//             item, edits
+//         }
+//     }
+// }
 
 

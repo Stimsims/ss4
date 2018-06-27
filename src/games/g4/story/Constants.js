@@ -22,6 +22,13 @@ export const constants = {
             asteroidSample: 'asteroidSample' //important that items and item template tag remain the same
         }
     },
+    sim:{
+        engine:{
+            ok:'ok',
+            overheat: 'overheat',
+            exploded:'explo'
+        }
+    },
     IO:{
         vId: 'vId',
         kId: 'kId'
@@ -30,10 +37,27 @@ export const constants = {
         asteroidSample:'asteroidSample',
         element: 'element',
         weight: 'weight',
-        stock: 'stock'
+        stock: 'stock',
+        ship: 'ship',
+        engine: 'engine',
+        hull: 'hull'
     },
     relations:{
         contains: 'contains'
+    },
+    elements:{
+        iron: {
+            shc: 20
+        },
+        copper: {
+            shc: 10
+        },
+        potassium: {
+            shc:30
+        },
+        chromium: {
+            shc: 10
+        }
     }
 }
 

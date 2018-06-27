@@ -4,7 +4,6 @@ import {selectFsmState} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
-import {addSample, editItem} from './../../items/reducer.js';
 import messages from './../../Messages.js';
 import {constants, functions} from './../../Constants';
 
@@ -19,6 +18,7 @@ class IdElem extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
+    //    console.log("IdElem constructor ", props);
     }
     onInput(input){
         if(input[constants.IO.kId] === I_ENTRY_1){

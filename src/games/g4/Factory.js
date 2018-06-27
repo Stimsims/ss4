@@ -4,6 +4,7 @@ import * as mine from './story/fsm/actions/Mine.jsx';
 import * as inventory from './story/fsm/actions/Inventory.jsx';
 import * as idElem from './story/fsm/questions/IdentifyElem.jsx';
 import * as AstSamp from './story/fsm/items/asteroidSample.jsx';
+import * as Engine from './story/fsm/items/Engine.jsx';
 
 export default (name) => {
     console.log('factory name' + name);
@@ -20,5 +21,7 @@ export default (name) => {
             return idElem;
         case AstSamp.id:
             return AstSamp;
+        case Engine.id:
+            return Engine;
     }
 }

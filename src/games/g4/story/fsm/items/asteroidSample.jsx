@@ -4,7 +4,8 @@ import {selectFsmState} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setFSMState} from './../reducer.js';
-import {addSample, editItem, addSampleToStock} from './../../items/reducer.js';
+import {editUserAns, addItem, deleteItem} from './../../items/reducer.js';
+import {addToStock, createStock} from './../../items/stock.js';
 import messages from './../../Messages.js';
 import {constants, functions} from './../../Constants';
 
@@ -19,6 +20,8 @@ class AstSamp extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
+       // console.log("AstSamp constructor");
+       // console.log(props);
     }
     onInput(input){
         if(input.kId === I_ENTRY_1){
@@ -43,18 +46,24 @@ class AstSamp extends React.Component{
                     }else if(input.kId === S_BACK){
                         this.props.onInput(messages.message(this.props.kId));
                     }else if(input.kId === S_STOCK){
-                        //bug? potential race condition if delete asteroid sample currently open
-                        //1) signal input for parent 2) call addSampleToStock with stock id
-                        //let sampleId = this.props.item.id;
-                        this.props.addSampleToStock(this.props.item.id, this.props.item.user.element);
-                       // console.log("adding sample " + sampleId + " to stockpile");
-                        this.props.onInput(messages.message(this.props.kId));
-                        
+                        let item = this.props.item;
+                        let stock = this.props.stocks[item.user.element];
+                        if(!stock){
+                            stock = createStock(item.user.element);
+                        }
+                        stock = addToStock(stock, item.game.element, item.game.weight);
+
+                        this.props.addItem(constants.fsm.actions.inventory, constants.items.stock, 
+                            item.user.element, stock);
+                        this.props.deleteItem(constants.fsm.actions.inventory, constants.items.asteroidSample, 
+                            item.id, item);
+
+                        this.props.onInput(messages.message(this.props.kId));    
                     }
                     break;
                 case A_ID:
                     let element = input.element;
-                    this.props.editItem(this.props.item, constants.items.element, element);
+                    this.props.editUserAns(this.props.item, constants.items.element, element);
                     this.props.setFSMState(id, {
                         [constants.fsm.keys.state]: S_IN
                     });
@@ -108,7 +117,7 @@ class AstSamp extends React.Component{
 //editItem(item, key, val)
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
-        {setFSMState, editItem, addSampleToStock},
+        {setFSMState, editUserAns, addItem, deleteItem},
         dispatch
     )
 }
@@ -122,11 +131,12 @@ const mapStateToProps = (state, props) => {
     let id = fsm[constants.fsm.keys.item];
     let type = fsm[constants.fsm.keys.itemType];
     let item = props.item? props.item: id?state.items[type][id]:null;
-    console.log("ast samp id: " + id + " type: " + type + "item: ");
-    console.log(item);
+    // console.log("ast samp id: " + id + " type: " + type + "item: ");
+    // console.log(item);
     return {
         fsm: fsm,
-        item: item
+        item: item,
+        stocks: state.items[constants.items.stock]
     }
 }
 export const component = connect(mapStateToProps, mapDispatchToProps)(AstSamp);
