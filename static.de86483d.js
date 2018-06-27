@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 69);
+/******/ 	return __webpack_require__(__webpack_require__.s = 71);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -93,12 +93,6 @@ module.exports = require("react-redux");
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("styled-components");
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -137,6 +131,13 @@ var constants = exports.constants = {
             asteroidSample: 'asteroidSample' //important that items and item template tag remain the same
         }
     },
+    sim: {
+        engine: {
+            ok: 'ok',
+            overheat: 'overheat',
+            exploded: 'explo'
+        }
+    },
     IO: {
         vId: 'vId',
         kId: 'kId'
@@ -145,10 +146,27 @@ var constants = exports.constants = {
         asteroidSample: 'asteroidSample',
         element: 'element',
         weight: 'weight',
-        stock: 'stock'
+        stock: 'stock',
+        ship: 'ship',
+        engine: 'engine',
+        hull: 'hull'
     },
     relations: {
         contains: 'contains'
+    },
+    elements: {
+        iron: {
+            shc: 20
+        },
+        copper: {
+            shc: 10
+        },
+        potassium: {
+            shc: 30
+        },
+        chromium: {
+            shc: 10
+        }
     }
 
     //export default constants;
@@ -160,6 +178,12 @@ var constants = exports.constants = {
         return _react2.default.createElement('tag', props);
     }
 };
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 /* 5 */
@@ -189,9 +213,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-__webpack_require__(38);
+__webpack_require__(39);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -499,11 +523,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(51);
+var _reactAddonsCssTransitionGroup = __webpack_require__(53);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-__webpack_require__(40);
+__webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -562,7 +586,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -714,39 +738,39 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.selectContained = exports.selectFsmState = undefined;
 
-var _reselect = __webpack_require__(88);
+var _reselect = __webpack_require__(90);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 var _Constants2 = _interopRequireDefault(_Constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var selectFsmState = exports.selectFsmState = function selectFsmState(state, id, def) {
-    console.log("selectFsm " + id);
-    console.log(state);
+    // console.log("selectFsm " + id);
+    // console.log(state);
     var fsm = state.fsm[id];
     return fsm ? fsm : def;
 };
 
 var selectContained = exports.selectContained = function selectContained(state, id) {
     var contained = state.relations.contains[id];
-    console.log("selectContained " + id);
-    console.log(contained);
+    // console.log("selectContained " + id);
+    // console.log(contained);
     if (contained) {
         var items = {};
         for (var key in contained) {
             if (contained.hasOwnProperty(key)) {
-                console.log(key + " -> " + contained[key]);
+                //console.log(key + " -> " + contained[key]);
                 var ids = contained[key];
                 var item = ids.map(function (e) {
                     var i = state.items[key][e];
-                    console.log("item " + e);
-                    console.log(i);
+                    // console.log("item " + e);
+                    // console.log(i);
                     return i;
                 });
-                console.log("items:");
-                console.log(item);
+                // console.log("items:");
+                // console.log(item);
                 items[key] = item;
             }
         }
@@ -774,6 +798,105 @@ var selectContained = exports.selectContained = function selectContained(state, 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.reducer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.addItem = addItem;
+exports.deleteItem = deleteItem;
+exports.editUserAns = editUserAns;
+
+var _Constants = __webpack_require__(3);
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var reducer = exports.reducer = function reducer() {
+    var _constants$items$ship, _ref;
+
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.items.ship, (_constants$items$ship = {}, _defineProperty(_constants$items$ship, _Constants.constants.items.engine, {
+        id: _Constants.constants.items.engine,
+        element: 'iron',
+        temp: _Constants.constants.elements.iron.shc,
+        state: _Constants.constants.sim.engine.ok
+    }), _defineProperty(_constants$items$ship, _Constants.constants.items.hull, {
+        id: _Constants.constants.items.hull,
+        element: 'iron',
+        temp: _Constants.constants.elements.iron.shc,
+        state: _Constants.constants.sim.engine.ok
+    }), _constants$items$ship)), _defineProperty(_ref, _Constants.constants.items.asteroidSample, {}), _defineProperty(_ref, _Constants.constants.items.stock, {}), _ref);
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    switch (action.type) {
+        case 'ADD_ITEM':
+            console.log("items reducer add sample");
+            //parent reducer also adds id to container relationship list
+            return _extends({}, state, _defineProperty({}, action.payload.type, _extends({}, state[action.payload.type], _defineProperty({}, action.payload.id, action.payload.item))));
+        case 'DEL_ITEM':
+            console.log("items reducer del item");
+            var items = _extends({}, state[action.payload.type]);
+            delete items[action.payload.id];
+            return _extends({}, state, _defineProperty({}, action.payload.type, items));
+        case 'EDIT_USER_ANS':
+            // [action.payload.key]: action.payload.val
+            var update = _extends({}, action.payload.item, {
+                user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
+            });
+            return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
+        default:
+            return state;
+    }
+};
+
+function addItem(container, type, id, item) {
+    //console.log("action set zone");
+    console.log("action addItem " + container + " type " + type + " id " + id);
+    return {
+        type: 'ADD_ITEM',
+        payload: {
+            container: container, type: type, id: id, item: item
+        }
+    };
+}
+function deleteItem(container, type, id, item) {
+    console.log("action deleteItem " + container + " type " + type + " id " + id);
+    return {
+        type: 'DEL_ITEM',
+        payload: {
+            container: container, type: type, id: id, item: item
+        }
+    };
+}
+
+// //handled by parent reducer
+function editUserAns(item, key, val) {
+    console.log("action edit item key " + key + " val " + val);
+    return {
+        type: 'EDIT_USER_ANS',
+        payload: {
+            item: item, key: key, val: val
+        }
+    };
+}
+// export function editItem(item, edits){
+//     console.log("action edit item",edits);
+//     return {
+//         type: `EDIT_ITEM`,
+//         payload:{
+//             item, edits
+//         }
+//     }
+// }
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -783,31 +906,31 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(31);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Line = __webpack_require__(15);
+var _Line = __webpack_require__(16);
 
 var _Line2 = _interopRequireDefault(_Line);
 
-var _adapterParallel = __webpack_require__(78);
+var _adapterParallel = __webpack_require__(80);
 
 var _adapterParallel2 = _interopRequireDefault(_adapterParallel);
 
-var _chartistPluginLegend = __webpack_require__(49);
+var _chartistPluginLegend = __webpack_require__(51);
 
 var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
 
-var _chartistPluginAxistitle = __webpack_require__(50);
+var _chartistPluginAxistitle = __webpack_require__(52);
 
 var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
 
-var _trends = __webpack_require__(80);
+var _trends = __webpack_require__(82);
 
 var _trends2 = _interopRequireDefault(_trends);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -890,7 +1013,7 @@ exports.default = Pie;
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -906,35 +1029,35 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(31);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactChartist = __webpack_require__(77);
+var _reactChartist = __webpack_require__(79);
 
 var _reactChartist2 = _interopRequireDefault(_reactChartist);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _chartistPluginLegend = __webpack_require__(49);
+var _chartistPluginLegend = __webpack_require__(51);
 
 var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
 
-var _chartistPluginAxistitle = __webpack_require__(50);
+var _chartistPluginAxistitle = __webpack_require__(52);
 
 var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
 
-var _animations = __webpack_require__(16);
+var _animations = __webpack_require__(17);
 
-var _constants = __webpack_require__(17);
+var _constants = __webpack_require__(18);
 
-var _styles = __webpack_require__(18);
+var _styles = __webpack_require__(19);
 
-__webpack_require__(39);
+__webpack_require__(40);
 
-var _utilities = __webpack_require__(19);
+var _utilities = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1061,7 +1184,7 @@ var titleStyle = {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1154,7 +1277,7 @@ var delays = 80,
 */
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1183,7 +1306,7 @@ var colors = exports.colors = {
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1201,7 +1324,7 @@ var _Colors = __webpack_require__(7);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1293,7 +1416,7 @@ function genStyles(data) {
 */
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1309,7 +1432,7 @@ var getAxisLabels = exports.getAxisLabels = function getAxisLabels(labels) {
 };
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1327,7 +1450,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1379,7 +1502,7 @@ var Bg = _styledComponents2.default.div(_templateObject, _Colors2.default.pDark,
 //dark blue #1A237E   dark cyan  #006064
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1397,7 +1520,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1449,7 +1572,7 @@ var Bg = _styledComponents2.default.div(_templateObject);
 //dark blue #1A237E   dark cyan  #006064
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1467,11 +1590,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(51);
+var _reactAddonsCssTransitionGroup = __webpack_require__(53);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1538,7 +1661,7 @@ var Container = _styledComponents2.default.span(_templateObject);
 */
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1548,15 +1671,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(42);
+var _path2 = __webpack_require__(44);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(43);
+var _importCss2 = __webpack_require__(45);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(44);
+var _universalImport2 = __webpack_require__(46);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -1566,7 +1689,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactUniversalComponent = __webpack_require__(45);
+var _reactUniversalComponent = __webpack_require__(47);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -1615,7 +1738,7 @@ var Dynamic = function (_React$Component) {
             id: '',
             file: 'D:/websites/react-static/static-site-2/4/src/components/DynamicComponent.jsx',
             load: function load() {
-                return Promise.all([__webpack_require__(81)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
+                return Promise.all([__webpack_require__(83)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
                     disableWarnings: true
                 })]).then(function (proms) {
                     return proms[0];
@@ -1625,7 +1748,7 @@ var Dynamic = function (_React$Component) {
                 return _path3.default.join(__dirname, '' + _this.props.payload);
             },
             resolve: function resolve() {
-                return /*require.resolve*/(__webpack_require__(101).resolve("" + _this.props.payload));
+                return /*require.resolve*/(__webpack_require__(108).resolve("" + _this.props.payload));
             },
             chunkName: function chunkName() {
                 return '' + _this.props.payload;
@@ -1654,7 +1777,7 @@ exports.default = Dynamic;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1700,7 +1823,7 @@ var IFrame = function (_React$Component) {
 exports.default = IFrame;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1716,7 +1839,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGa = __webpack_require__(56);
+var _reactGa = __webpack_require__(58);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -1760,7 +1883,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1888,7 +2011,7 @@ var Gapi = function (_React$Component) {
 exports.default = Gapi;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1908,7 +2031,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _Index = __webpack_require__(84);
+var _Index = __webpack_require__(86);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -1976,7 +2099,7 @@ exports.default = Game;
 */
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1996,7 +2119,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -2045,7 +2168,7 @@ exports.default = (0, _reactStatic.withSiteData)(Menu);
 var Bar = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2065,15 +2188,15 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(59);
+var _reduxLogger = __webpack_require__(61);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _store = __webpack_require__(94);
+var _store = __webpack_require__(101);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _Game = __webpack_require__(27);
+var _Game = __webpack_require__(28);
 
 var _Game2 = _interopRequireDefault(_Game);
 
@@ -2163,7 +2286,7 @@ const store = createStore(
 */
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2229,13 +2352,13 @@ var Wrapper = function (_React$Component) {
 exports.default = Wrapper;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2254,17 +2377,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(82);
+__webpack_require__(84);
 
-var _reactKatex = __webpack_require__(83);
+var _reactKatex = __webpack_require__(85);
 
-var _reactDom = __webpack_require__(31);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _ids = __webpack_require__(33);
+var _ids = __webpack_require__(34);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -2323,7 +2446,7 @@ exports.default = Katex;
 var Container = _styledComponents2.default.span(_templateObject2);
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2338,106 +2461,6 @@ function guid() {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.reducer = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.addSampleToStock = addSampleToStock;
-exports.addSample = addSample;
-exports.editItem = editItem;
-
-var _Constants = __webpack_require__(4);
-
-var _asteroidSample = __webpack_require__(57);
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//stores fsm state information
-// let sample = createSample();
-// let sample1 = createSample();
-// let sample2 = createSample();
-var reducer = exports.reducer = function reducer() {
-    var _ref, _extends9;
-
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.items.asteroidSample, {}), _defineProperty(_ref, _Constants.constants.items.stock, {}), _ref);
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'ADD_SAMPLE':
-            console.log("items reducer add sample");
-            return _extends({}, state, _defineProperty({}, _Constants.constants.items.asteroidSample, _extends({}, state[_Constants.constants.items.asteroidSample], _defineProperty({}, action.payload.sample.id, action.payload.sample))));
-        case 'EDIT_ITEM':
-            var update = _extends({}, action.payload.item, {
-                user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
-            });
-            return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
-        case 'ADD_SAMPLE_TO_STOCK':
-            var sample = state[_Constants.constants.items.asteroidSample][action.payload.sampleId];
-            var uElem = sample.user.element;
-            var gElem = sample.game.element;
-            var weight = sample.game.weight;
-            //console.log("reducer add sample to stock, gElem = " + gElem + " uElem = " + uElem);
-            //add it to the stock of type element user has identified
-            //add it to the element within that stock that the game has rolled
-            var stock = state[_Constants.constants.items.stock][uElem] ? state[_Constants.constants.items.stock][uElem] : {
-                id: uElem
-            };
-            var currentWeight = stock[gElem] ? stock[gElem] : 0;
-            //   console.log("add sample " + uElem + " to stock, current weight = " + currentWeight + " next weight = " + weight);
-            var n = _extends({}, stock, _defineProperty({}, gElem, currentWeight + weight));
-            var samples = state[_Constants.constants.items.asteroidSample];
-            var deleted = delete samples[action.payload.sampleId];
-            // console.log("add sample to stock, new samples:");
-            // console.log(samples);
-            // console.log("add sample to stock, deleted:");
-            // console.log(deleted);
-            return _extends({}, state, (_extends9 = {}, _defineProperty(_extends9, _Constants.constants.items.asteroidSample, _extends({}, samples)), _defineProperty(_extends9, _Constants.constants.items.stock, _extends({}, state[_Constants.constants.items.stock], _defineProperty({}, uElem, _extends({}, n)))), _extends9));
-        default:
-            return state;
-    }
-};
-//parent needs to modify samples and stocks
-function addSampleToStock(sampleId, element) {
-    console.log("action addSampleToStock " + element);
-    return {
-        type: 'ADD_SAMPLE_TO_STOCK',
-        payload: {
-            sampleId: sampleId, element: element
-        }
-    };
-}
-//handled by parent reducer
-function addSample(sample) {
-    console.log("action set zone");
-    return {
-        type: 'ADD_SAMPLE',
-        payload: {
-            sample: sample
-        }
-    };
-}
-
-//handled by parent reducer
-function editItem(item, key, val) {
-    console.log("action edit item key " + key + " val " + val);
-    return {
-        type: 'EDIT_ITEM',
-        payload: {
-            item: item, key: key, val: val
-        }
-    };
 }
 
 /***/ }),
@@ -2471,6 +2494,75 @@ exports.default = constants;
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.dispatchAny = dispatchAny;
+exports.nextStep = nextStep;
+exports.playSim = playSim;
+//import {constants} from './../story/Constants.js';
+
+var reducer = exports.reducer = function reducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+        ui: {
+            play: true
+        },
+        sim: {
+            t: 0,
+            temp: 20
+        }
+    };
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    switch (action.type) {
+        case 'NEXT_STEP':
+            //console.log('action next step ', action); //{t: 1, temp: 20.75225369254921}
+            return _extends({}, state, {
+                sim: _extends({}, state.sim, action.payload.step)
+            });
+        case 'PLAY_SIM':
+            return _extends({}, state, {
+                ui: _extends({}, state.ui, {
+                    play: action.payload.play
+                })
+            });
+        default:
+            return state;
+    }
+};
+
+function dispatchAny(action) {
+    return action;
+}
+
+function nextStep(step) {
+    return {
+        type: 'NEXT_STEP',
+        payload: {
+            step: step
+        }
+    };
+}
+
+function playSim(play) {
+    return {
+        type: 'PLAY_SIM',
+        payload: {
+            play: play
+        }
+    };
+}
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2528,7 +2620,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -2556,7 +2648,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -2570,7 +2662,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -2584,7 +2676,7 @@ exports.push([module.i, ".ct-axis-title{color:#fff}@-webkit-keyframes dance{0%{-
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -2598,7 +2690,22 @@ exports.push([module.i, ".fade-in-enter{opacity:.01}.fade-in-enter.fade-in-enter
 
 
 /***/ }),
-/* 41 */
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var getRandomItem = exports.getRandomItem = function getRandomItem(ray) {
+    var index = Math.floor(ray.length * Math.random());
+    return ray[index];
+};
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2652,25 +2759,25 @@ function setComponentNodeId(payload) {
 }
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/importCss");
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/universalImport");
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2685,7 +2792,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(74);
+var _requireUniversalModule = __webpack_require__(76);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -2700,7 +2807,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(75);
+var _reportChunks = __webpack_require__(77);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -2713,17 +2820,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(47);
+var _propTypes = __webpack_require__(49);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(76);
+var _hoistNonReactStatics = __webpack_require__(78);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(46);
+var _utils = __webpack_require__(48);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3014,10 +3121,10 @@ function universal(component) {
   }, _temp;
 }
 exports.default = universal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3131,16 +3238,16 @@ var loadFromPromiseCache = exports.loadFromPromiseCache = function loadFromPromi
 var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, promisecache) {
   return promisecache[callForString(chunkName, props)] = pr;
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3166,19 +3273,19 @@ var _MainMenu = __webpack_require__(6);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _Trends = __webpack_require__(14);
+var _Trends = __webpack_require__(15);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
-var _Bg = __webpack_require__(20);
+var _Bg = __webpack_require__(21);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _Container = __webpack_require__(21);
+var _Container = __webpack_require__(22);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -3186,7 +3293,7 @@ var _FadeIn = __webpack_require__(10);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
-var _SlideUp = __webpack_require__(22);
+var _SlideUp = __webpack_require__(23);
 
 var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
@@ -3276,25 +3383,25 @@ var PostBox = _styledComponents2.default.div(_templateObject2);
 var Post = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = require("chartist-plugin-legend");
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("chartist-plugin-axistitle");
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3357,7 +3464,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3375,11 +3482,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _DynamicComponent = __webpack_require__(23);
+var _DynamicComponent = __webpack_require__(24);
 
 var _DynamicComponent2 = _interopRequireDefault(_DynamicComponent);
 
-var _reactGa = __webpack_require__(56);
+var _reactGa = __webpack_require__(58);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -3395,11 +3502,11 @@ var _IconButton = __webpack_require__(11);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Wrapper = __webpack_require__(30);
+var _Wrapper = __webpack_require__(31);
 
 var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
-var _IFrame = __webpack_require__(24);
+var _IFrame = __webpack_require__(25);
 
 var _IFrame2 = _interopRequireDefault(_IFrame);
 
@@ -3566,7 +3673,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Games));
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -3580,7 +3687,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -3594,13 +3701,13 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-ga");
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3611,13 +3718,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createSample = undefined;
 
-var _randomizer = __webpack_require__(58);
+var _randomizer = __webpack_require__(42);
 
-var _ids = __webpack_require__(33);
+var _ids = __webpack_require__(34);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
-var materials = ['iron', 'cobalt', 'copper', 'silver'];
+console.log("creating samples");
+var materials = Object.keys(_Constants.constants.elements);
+console.log("create sample materials", materials);
 
 var createSample = exports.createSample = function createSample() {
     var material = (0, _randomizer.getRandomItem)(materials);
@@ -3637,7 +3746,7 @@ var createSample = exports.createSample = function createSample() {
 };
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3646,19 +3755,43 @@ var createSample = exports.createSample = function createSample() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var getRandomItem = exports.getRandomItem = function getRandomItem(ray) {
-    var index = Math.floor(ray.length * Math.random());
-    return ray[index];
+exports.addToStock = exports.createStock = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // import {getRandomItem} from './../../../../utilities/randomizer.js';
+// import {guid} from './../../../../utilities/ids.js';
+
+
+var _Constants = __webpack_require__(3);
+
+//a stock is an accumulation of an item based on either count or weight
+//the contents of a stock may be different from what the id claims to be if the user is wrong
+var createStock = exports.createStock = function createStock(id) {
+    return {
+        id: id
+    };
+};
+
+//TODO, may want to add deep cloning if stock becomes multi-layered
+
+var addToStock = exports.addToStock = function addToStock(stock, key, value) {
+    var newStock = _extends({}, stock);
+    var current = 0;
+    if (stock[key]) {
+        current = stock[key];
+    }
+    newStock[key] = current + value;
+    console.log("addToStock", newStock);
+    return newStock;
 };
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3676,15 +3809,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _GameMenu = __webpack_require__(28);
+var _GameMenu = __webpack_require__(29);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
-var _Index = __webpack_require__(29);
+var _Index = __webpack_require__(30);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _index = __webpack_require__(102);
+var _index = __webpack_require__(109);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3729,7 +3862,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3741,7 +3874,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Simulation = __webpack_require__(103);
+var _Simulation = __webpack_require__(110);
 
 var _Simulation2 = _interopRequireDefault(_Simulation);
 
@@ -3788,7 +3921,7 @@ var Simulation = function (_Sim) {
 exports.default = Simulation;
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3806,25 +3939,25 @@ var _templateObject = _taggedTemplateLiteral(['\n    background-color: black;\n 
     _templateObject2 = _taggedTemplateLiteral(['\n    display: block;\n    background-color: cyan;\n'], ['\n    display: block;\n    background-color: cyan;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n'], ['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n']);
 
-var _ids = __webpack_require__(33);
+var _ids = __webpack_require__(34);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(3);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Choice = __webpack_require__(105);
+var _Choice = __webpack_require__(112);
 
 var _Choice2 = _interopRequireDefault(_Choice);
 
-var _Button = __webpack_require__(64);
+var _Button = __webpack_require__(66);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Text = __webpack_require__(63);
+var _Text = __webpack_require__(65);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -4025,7 +4158,7 @@ var BgInline = _styledComponents2.default.div(_templateObject2);
 var BgFill = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4103,7 +4236,7 @@ var Text = function (_React$Component) {
 exports.default = Text;
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4159,7 +4292,7 @@ var Button = function (_React$Component) {
 exports.default = Button;
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4199,7 +4332,7 @@ var actions = exports.actions = {
 };
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4236,7 +4369,7 @@ function changeHealth(payload) {
 }
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4358,7 +4491,7 @@ var About = function About() {
 exports.default = About;
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4389,7 +4522,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4403,11 +4536,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(31);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(70);
+var _App = __webpack_require__(72);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4432,7 +4565,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4450,23 +4583,23 @@ var _reactStatic = __webpack_require__(5);
 
 var _reactRedux = __webpack_require__(2);
 
-var _reactHotLoader = __webpack_require__(71);
+var _reactHotLoader = __webpack_require__(73);
 
-var _reactStaticRoutes = __webpack_require__(72);
+var _reactStaticRoutes = __webpack_require__(74);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(108);
+var _redux = __webpack_require__(115);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(111);
+__webpack_require__(118);
 
-var _Analytics = __webpack_require__(25);
+var _Analytics = __webpack_require__(26);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(26);
+var _Gapi = __webpack_require__(27);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -4496,16 +4629,16 @@ var App = function App() {
 };
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4515,15 +4648,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(42);
+var _path2 = __webpack_require__(44);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(43);
+var _importCss2 = __webpack_require__(45);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(44);
+var _universalImport2 = __webpack_require__(46);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4535,9 +4668,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(73);
+var _reactRouterDom = __webpack_require__(75);
 
-var _reactUniversalComponent = __webpack_require__(45);
+var _reactUniversalComponent = __webpack_require__(47);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4571,7 +4704,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 48)), (0, _importCss3.default)('src/containers/Home', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 50)), (0, _importCss3.default)('src/containers/Home', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4581,7 +4714,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(48);
+    return /*require.resolve*/(50);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home';
@@ -4591,7 +4724,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 52)), (0, _importCss3.default)('src/containers/Post', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 54)), (0, _importCss3.default)('src/containers/Post', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4601,7 +4734,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(52);
+    return /*require.resolve*/(54);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post';
@@ -4611,7 +4744,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 53)), (0, _importCss3.default)('src/containers/Games', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 55)), (0, _importCss3.default)('src/containers/Games', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4621,7 +4754,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(53);
+    return /*require.resolve*/(55);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games';
@@ -4631,7 +4764,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 60)), (0, _importCss3.default)('src/containers/Game', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 62)), (0, _importCss3.default)('src/containers/Game', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4641,7 +4774,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(60);
+    return /*require.resolve*/(62);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game';
@@ -4651,7 +4784,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 67)), (0, _importCss3.default)('src/containers/About', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 69)), (0, _importCss3.default)('src/containers/About', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4661,7 +4794,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(67);
+    return /*require.resolve*/(69);
   },
   chunkName: function chunkName() {
     return 'src/containers/About';
@@ -4671,7 +4804,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 68)), (0, _importCss3.default)('src/containers/404', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 70)), (0, _importCss3.default)('src/containers/404', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4681,7 +4814,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(68);
+    return /*require.resolve*/(70);
   },
   chunkName: function chunkName() {
     return 'src/containers/404';
@@ -4768,13 +4901,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4786,7 +4919,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(46);
+var _utils = __webpack_require__(48);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -4956,7 +5089,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4972,7 +5105,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(47);
+var _propTypes = __webpack_require__(49);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5019,19 +5152,19 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-chartist");
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5043,7 +5176,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _lodash = __webpack_require__(79);
+var _lodash = __webpack_require__(81);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -5110,34 +5243,34 @@ var Adapter = function () {
 exports.default = Adapter;
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./DynamicComponent": [
-		23
+		24
 	],
 	"./DynamicComponent.jsx": [
-		23
+		24
 	],
 	"./Trends": [
-		14,
+		15,
 		0
 	],
 	"./Trends.jsx": [
-		14,
+		15,
 		0
 	],
 	"./UI/Colors": [
@@ -5147,10 +5280,10 @@ var map = {
 		7
 	],
 	"./UI/IFrame": [
-		24
+		25
 	],
 	"./UI/IFrame.jsx": [
-		24
+		25
 	],
 	"./UI/animations/FadeIn": [
 		10
@@ -5159,25 +5292,25 @@ var map = {
 		10
 	],
 	"./UI/animations/SlideUp": [
-		22
+		23
 	],
 	"./UI/animations/SlideUp.jsx": [
-		22
+		23
 	],
 	"./UI/animations/styles.css": [
-		40
+		41
 	],
 	"./UI/elements/Bg": [
-		20
+		21
 	],
 	"./UI/elements/Bg.jsx": [
-		20
+		21
 	],
 	"./UI/elements/Container": [
-		21
+		22
 	],
 	"./UI/elements/Container.jsx": [
-		21
+		22
 	],
 	"./UI/elements/IconButton": [
 		11
@@ -5186,102 +5319,102 @@ var map = {
 		11
 	],
 	"./UI/elements/icons.css": [
-		54,
+		56,
 		0
 	],
 	"./UI/graphs/Line": [
-		15,
+		16,
 		0
 	],
 	"./UI/graphs/Line.jsx": [
-		15,
+		16,
 		0
 	],
 	"./UI/graphs/animations": [
-		16
+		17
 	],
 	"./UI/graphs/animations.js": [
-		16
+		17
 	],
 	"./UI/graphs/main.css": [
-		39
+		40
 	],
 	"./UI/graphs/styles": [
-		18
+		19
 	],
 	"./UI/graphs/styles.js": [
-		18
+		19
 	],
 	"./UI/graphs/utilities": [
-		19
+		20
 	],
 	"./UI/graphs/utilities.js": [
-		19
+		20
 	],
 	"./UI/math/Katex": [
-		32,
+		33,
 		0
 	],
 	"./UI/math/Katex.jsx": [
-		32,
+		33,
 		0
 	],
 	"./UI/math/katex.css": [
-		55,
+		57,
 		0
 	],
 	"./apis/Analytics": [
-		25
+		26
 	],
 	"./apis/Analytics.jsx": [
-		25
+		26
 	],
 	"./apis/Gapi": [
-		26
+		27
 	],
 	"./apis/Gapi.jsx": [
-		26
+		27
 	],
 	"./constants": [
-		17
+		18
 	],
 	"./constants.js": [
-		17
+		18
 	],
 	"./game/Game": [
-		27,
+		28,
 		0
 	],
 	"./game/Game.jsx": [
-		27,
+		28,
 		0
 	],
 	"./game/GameMenu": [
-		28
+		29
 	],
 	"./game/GameMenu.jsx": [
-		28
+		29
 	],
 	"./game/Index": [
-		29,
+		30,
 		0
 	],
 	"./game/Index.jsx": [
-		29,
+		30,
 		0
 	],
 	"./game/Wrapper": [
-		30
+		31
 	],
 	"./game/Wrapper.jsx": [
-		30
+		31
 	],
 	"./game/views/Choice": [
-		36,
+		37,
 		0
 	],
 	"./game/views/Choice.jsx": [
-		36,
+		37,
 		0
 	],
 	"./layout/MainMenu": [
@@ -5291,7 +5424,7 @@ var map = {
 		6
 	],
 	"./layout/menu.css": [
-		38
+		39
 	]
 };
 function webpackAsyncContext(req) {
@@ -5305,23 +5438,23 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 81;
+webpackAsyncContext.id = 83;
 module.exports = webpackAsyncContext;
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5337,9 +5470,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Game = __webpack_require__(85);
+var _Game = __webpack_require__(87);
 
 var _Game2 = _interopRequireDefault(_Game);
+
+var _Index = __webpack_require__(97);
+
+var _Index2 = _interopRequireDefault(_Index);
+
+var _PlayButtons = __webpack_require__(99);
+
+var _PlayButtons2 = _interopRequireDefault(_PlayButtons);
+
+var _InitializeGame = __webpack_require__(100);
+
+var _InitializeGame2 = _interopRequireDefault(_InitializeGame);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5364,6 +5509,9 @@ var Index = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(_InitializeGame2.default, null),
+                _react2.default.createElement(_PlayButtons2.default, null),
+                _react2.default.createElement(_Index2.default, null),
                 _react2.default.createElement(_Game2.default, null)
             );
         }
@@ -5375,7 +5523,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5391,7 +5539,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Factory = __webpack_require__(86);
+var _Factory = __webpack_require__(88);
 
 var _Factory2 = _interopRequireDefault(_Factory);
 
@@ -5483,7 +5631,7 @@ var mapStateToProps = function mapStateToProps(state, props) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Index);
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5493,29 +5641,33 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Lounge = __webpack_require__(87);
+var _Lounge = __webpack_require__(89);
 
 var lounge = _interopRequireWildcard(_Lounge);
 
-var _Control = __webpack_require__(89);
+var _Control = __webpack_require__(91);
 
 var control = _interopRequireWildcard(_Control);
 
-var _Mine = __webpack_require__(90);
+var _Mine = __webpack_require__(92);
 
 var mine = _interopRequireWildcard(_Mine);
 
-var _Inventory = __webpack_require__(91);
+var _Inventory = __webpack_require__(93);
 
 var inventory = _interopRequireWildcard(_Inventory);
 
-var _IdentifyElem = __webpack_require__(92);
+var _IdentifyElem = __webpack_require__(94);
 
 var idElem = _interopRequireWildcard(_IdentifyElem);
 
-var _asteroidSample = __webpack_require__(93);
+var _asteroidSample = __webpack_require__(95);
 
 var AstSamp = _interopRequireWildcard(_asteroidSample);
+
+var _Engine = __webpack_require__(96);
+
+var Engine = _interopRequireWildcard(_Engine);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -5534,11 +5686,13 @@ exports.default = function (name) {
             return idElem;
         case AstSamp.id:
             return AstSamp;
+        case Engine.id:
+            return Engine;
     }
 };
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5547,7 +5701,7 @@ exports.default = function (name) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.component = exports.id = undefined;
+exports.component = exports.Lounge = exports.id = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -5569,7 +5723,7 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5588,7 +5742,7 @@ var S_IN = 'in',
     I_INVENTORY = 'inv';
 var id = exports.id = 'lounge';
 
-var Lounge = function (_React$Component) {
+var Lounge = exports.Lounge = function (_React$Component) {
     _inherits(Lounge, _React$Component);
 
     function Lounge(props) {
@@ -5689,13 +5843,13 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports) {
 
 module.exports = require("reselect");
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5726,7 +5880,11 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _Constants = __webpack_require__(4);
+var _reducer2 = __webpack_require__(14);
+
+var _Constants = __webpack_require__(3);
+
+var _randomizer = __webpack_require__(42);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5754,6 +5912,8 @@ var Control = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Control.__proto__ || Object.getPrototypeOf(Control)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
+        console.log("control constructor");
+        console.log(props);
         return _this;
     }
 
@@ -5776,6 +5936,10 @@ var Control = function (_React$Component) {
                         if (input.kId === I_MINE) {
                             //   console.log("setting control fsm");
                             this.props.setZone(id, I_MINE);
+                        } else if (input.kId === _Constants.constants.items.engine) {
+                            console.log("input, updating engine material to " + input.vId);
+                        } else if (input.kId === _Constants.constants.items.hull) {
+                            console.log("input, updating hull material to " + input.vId);
                         }
                         break;
                     case I_MINE:
@@ -5785,6 +5949,41 @@ var Control = function (_React$Component) {
                         }
                         break;
                 }
+            }
+        }
+    }, {
+        key: 'renderShip',
+        value: function renderShip() {
+            var _this2 = this;
+
+            if (this.props.items.ship) {
+                return this.props.items.ship.map(function (e, i) {
+                    //Object.keys(constants.elements) getRandomItem(materials)
+                    var metal = (0, _randomizer.getRandomItem)(Object.keys(_Constants.constants.elements));
+                    console.log("rendering ship element", e);
+                    return _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'ship part ',
+                            e.id,
+                            ', element: ',
+                            e.element,
+                            ', temperature tolerance ',
+                            e.temp
+                        ),
+                        _react2.default.createElement(_Button2.default, { kId: e.id, vId: metal,
+                            onInput: _this2.onInput, text: metal })
+                    );
+                });
+            } else {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    'there is no ship'
+                );
             }
         }
     }, {
@@ -5811,6 +6010,10 @@ var Control = function (_React$Component) {
                         return [_react2.default.createElement(
                             'div',
                             null,
+                            this.renderShip()
+                        ), _react2.default.createElement(
+                            'div',
+                            null,
                             'inside control room',
                             _react2.default.createElement(lounge.component, _extends({ showEntry: true, factory: this.props.factory,
                                 onInput: this.onInput }, _Constants.functions.propKid(I_LOUNGE))),
@@ -5832,20 +6035,21 @@ var Control = function (_React$Component) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
-        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState
+        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState, editUserAns: _reducer2.editUserAns
     }, dispatch);
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN))
+        fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN)),
+        items: (0, _selectors.selectContained)(state, props.id)
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Control);
 exports.default = component;
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5876,15 +6080,15 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _asteroidSample = __webpack_require__(57);
+var _asteroidSample = __webpack_require__(59);
 
-var _reducer2 = __webpack_require__(34);
+var _reducer2 = __webpack_require__(14);
 
 var _Messages = __webpack_require__(35);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5920,8 +6124,8 @@ var Mine = function (_React$Component) {
     _createClass(Mine, [{
         key: 'onInput',
         value: function onInput(input) {
-            console.log("mine input");
-            console.log(this.props);
+            // console.log("mine input");
+            // console.log(this.props);
             if (input.kId === I_ENTRY_1) {
                 //roll and new asteroid
                 sample = (0, _asteroidSample.createSample)();
@@ -5935,7 +6139,7 @@ var Mine = function (_React$Component) {
                             //add sample to store
                             // console.log("mined sample:");
                             // console.log(sample);
-                            this.props.addSample(sample);
+                            this.props.addItem(_Constants.constants.fsm.actions.inventory, sample.type, sample.id, sample);
                             this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_MINE_FIN));
                             sample = (0, _asteroidSample.createSample)();
                         } else if (input.kId === S_LOOK) {
@@ -5956,8 +6160,8 @@ var Mine = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            console.log("mine renderView");
-            console.log(this.props);
+            // console.log("mine renderView");
+            // console.log(this.props);
             if (this.props.showEntry) {
                 return [_react2.default.createElement(
                     'div',
@@ -5999,7 +6203,7 @@ var Mine = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, addSample: _reducer2.addSample }, dispatch);
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, addItem: _reducer2.addItem }, dispatch);
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
@@ -6011,7 +6215,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6046,7 +6250,7 @@ var _Messages = __webpack_require__(35);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6077,8 +6281,8 @@ var Inventory = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Inventory.__proto__ || Object.getPrototypeOf(Inventory)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        console.log("inventory constructor");
-        console.log(props);
+        // console.log("inventory constructor");
+        // console.log(props);
         return _this;
     }
 
@@ -6098,7 +6302,7 @@ var Inventory = function (_React$Component) {
                             var it = input.item;
                             this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_SAMPLE));
                         } else {
-                            console.log("item selected " + input.kId);
+                            // console.log("item selected " + input.kId);
                             itemId = input.kId;
                             this.setState({
                                 item: item
@@ -6118,28 +6322,63 @@ var Inventory = function (_React$Component) {
         value: function renderItems() {
             var _this2 = this;
 
-            /*
-            //    let idElem = this.props.factory(constants.fsm.questions.idElem);
-            //           let sample = this.props.factory(constants.fsm.items.asteroidSample);
-            //     return Object.values(this.props.asteroidSample).map((e, i) => {
-            //         console.log("render asteroid sample item ");
-            //         console.log(e);
-            //         return <sample.component item={e} 
-            //                 showEntry={true} factory={this.props.factory}
-            //                 onInput={this.onInput} kId={S_SAMPLE}/>
-            //     })
-                 return Object.keys(this.props.contained).map((k, i) => {
-                     return (<p>key {k} : {i}</p>);
-             }
-            */
             return Object.keys(this.props.items).map(function (k, i) {
-                return _this2.props.items[k].map(function (e) {
-                    console.log("rendering items for " + k + " item " + e.id);
-                    if (k === _Constants.constants.items.asteroidSample) {
-                        var sample = _this2.props.factory(k);
-                        return _react2.default.createElement(sample.component, { item: e,
-                            showEntry: true, factory: _this2.props.factory,
-                            onInput: _this2.onInput, kId: S_SAMPLE });
+                return _this2.props.items[k].map(function (e, ei) {
+                    if (e) {
+                        // console.log("rendering items for " + k + " item " + e.id);
+                        if (k === _Constants.constants.items.asteroidSample) {
+                            var sample = _this2.props.factory(k);
+                            return _react2.default.createElement(
+                                'div',
+                                null,
+                                ei == 0 ? _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    k
+                                ) : '',
+                                _react2.default.createElement(sample.component, { item: e,
+                                    showEntry: true, factory: _this2.props.factory,
+                                    onInput: _this2.onInput, kId: S_SAMPLE })
+                            );
+                        } else if (k === _Constants.constants.items.stock) {
+                            return _react2.default.createElement(
+                                'div',
+                                null,
+                                ei == 0 ? _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    k
+                                ) : '',
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        'element: ',
+                                        e.id
+                                    ),
+                                    Object.keys(e).map(function (m) {
+                                        if (m != 'id') {
+                                            return _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                ' ',
+                                                m,
+                                                ' weight:',
+                                                e[m]
+                                            );
+                                        }
+                                    })
+                                )
+                            );
+                        }
+                    } else {
+                        return _react2.default.createElement(
+                            'div',
+                            null,
+                            'item undefined'
+                        );
                     }
                 });
             });
@@ -6189,8 +6428,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
-    console.log("mapping asteroid samples");
-    console.log(state);
+    // console.log("mapping asteroid samples");
+    // console.log(state);
     //asteroidSample: state.items.asteroidSample
     return {
         fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN)),
@@ -6201,7 +6440,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6232,13 +6471,11 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(34);
-
 var _Messages = __webpack_require__(35);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6266,6 +6503,7 @@ var IdElem = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IdElem.__proto__ || Object.getPrototypeOf(IdElem)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
+        //    console.log("IdElem constructor ", props);
         return _this;
     }
 
@@ -6371,7 +6609,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6402,13 +6640,15 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(34);
+var _reducer2 = __webpack_require__(14);
+
+var _stock = __webpack_require__(60);
 
 var _Messages = __webpack_require__(35);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6437,6 +6677,8 @@ var AstSamp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (AstSamp.__proto__ || Object.getPrototypeOf(AstSamp)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
+        // console.log("AstSamp constructor");
+        // console.log(props);
         return _this;
     }
 
@@ -6460,17 +6702,22 @@ var AstSamp = function (_React$Component) {
                         } else if (input.kId === S_BACK) {
                             this.props.onInput(_Messages2.default.message(this.props.kId));
                         } else if (input.kId === S_STOCK) {
-                            //bug? potential race condition if delete asteroid sample currently open
-                            //1) signal input for parent 2) call addSampleToStock with stock id
-                            //let sampleId = this.props.item.id;
-                            this.props.addSampleToStock(this.props.item.id, this.props.item.user.element);
-                            // console.log("adding sample " + sampleId + " to stockpile");
+                            var item = this.props.item;
+                            var stock = this.props.stocks[item.user.element];
+                            if (!stock) {
+                                stock = (0, _stock.createStock)(item.user.element);
+                            }
+                            stock = (0, _stock.addToStock)(stock, item.game.element, item.game.weight);
+
+                            this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.stock, item.user.element, stock);
+                            this.props.deleteItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
+
                             this.props.onInput(_Messages2.default.message(this.props.kId));
                         }
                         break;
                     case A_ID:
                         var element = input.element;
-                        this.props.editItem(this.props.item, _Constants.constants.items.element, element);
+                        this.props.editUserAns(this.props.item, _Constants.constants.items.element, element);
                         this.props.setFSMState(id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN));
                         break;
                 }
@@ -6528,7 +6775,7 @@ var AstSamp = function (_React$Component) {
 
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, editItem: _reducer2.editItem, addSampleToStock: _reducer2.addSampleToStock }, dispatch);
+    return (0, _redux.bindActionCreators)({ setFSMState: _reducer.setFSMState, editUserAns: _reducer2.editUserAns, addItem: _reducer2.addItem, deleteItem: _reducer2.deleteItem }, dispatch);
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
@@ -6540,18 +6787,448 @@ var mapStateToProps = function mapStateToProps(state, props) {
     var id = fsm[_Constants.constants.fsm.keys.item];
     var type = fsm[_Constants.constants.fsm.keys.itemType];
     var item = props.item ? props.item : id ? state.items[type][id] : null;
-    console.log("ast samp id: " + id + " type: " + type + "item: ");
-    console.log(item);
+    // console.log("ast samp id: " + id + " type: " + type + "item: ");
+    // console.log(item);
     return {
         fsm: fsm,
-        item: item
+        item: item,
+        stocks: state.items[_Constants.constants.items.stock]
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AstSamp);
 exports.default = component;
 
 /***/ }),
-/* 94 */
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.id = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(14);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var id = exports.id = 'engine';
+
+var Engine = function (_React$Component) {
+    _inherits(Engine, _React$Component);
+
+    function Engine() {
+        _classCallCheck(this, Engine);
+
+        return _possibleConstructorReturn(this, (Engine.__proto__ || Object.getPrototypeOf(Engine)).apply(this, arguments));
+    }
+
+    _createClass(Engine, [{
+        key: 'renderView',
+        value: function renderView() {
+            return _react2.default.createElement(
+                'p',
+                null,
+                'the engine is okay'
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderView();
+        }
+    }]);
+
+    return Engine;
+}(_react2.default.Component);
+//export default Engine;
+
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        engine: state.items.engine
+    };
+};
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        editUserAns: _reducer.editUserAns
+    }, dispatch);
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Engine);
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(36);
+
+var _simulation = __webpack_require__(98);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Simulation = function (_React$Component) {
+    _inherits(Simulation, _React$Component);
+
+    function Simulation(props) {
+        _classCallCheck(this, Simulation);
+
+        var _this = _possibleConstructorReturn(this, (Simulation.__proto__ || Object.getPrototypeOf(Simulation)).call(this, props));
+
+        _this.update = _this.update.bind(_this);
+        _this.play = _this.play.bind(_this);
+        _this.pause = _this.pause.bind(_this);
+        _this.state = {
+            interval: null
+        };
+        return _this;
+    }
+
+    _createClass(Simulation, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.play();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.pause();
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            //if previous play state does not match current, is time to either play or pause
+            //  console.log("simulation did update, prev: " + prevProps.play + " current: " + this.props.play);
+            if (prevProps.play != this.props.play) {
+                if (this.props.play) {
+                    this.play();
+                } else {
+                    this.pause();
+                }
+            }
+        }
+    }, {
+        key: 'play',
+        value: function play() {
+            //  console.log("playing simulation");
+            if (!this.state.interval && this.props.play) {
+                var interval = setInterval(this.update, 10000);
+                this.setState({
+                    interval: interval
+                });
+            }
+        }
+    }, {
+        key: 'pause',
+        value: function pause() {
+            //  console.log("pausing simulation");
+            if (this.state.interval) {
+                clearInterval(this.state.interval);
+                this.setState({
+                    interval: null
+                });
+            }
+        }
+    }, {
+        key: 'update',
+        value: function update() {
+            var _this2 = this;
+
+            console.log("simulation updating");
+            //console.log(this.props);
+            var actions = (0, _simulation.update)(this.props.state);
+            console.log("update actions", actions);
+            // this.props.dispatchAny(playSim(true));
+            actions.map(function (a) {
+                _this2.props.dispatchAny(a);
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return null;
+        }
+    }]);
+
+    return Simulation;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ dispatchAny: _reducer.dispatchAny }, dispatch);
+};
+var mapStateToProps = function mapStateToProps(state) {
+    console.log("map sim state");
+    console.log(state);
+    return {
+        state: {
+            sim: state.simulation.sim
+        },
+        play: state.simulation.ui.play
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Simulation);
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.update = undefined;
+
+var _Constants = __webpack_require__(3);
+
+var _reducer = __webpack_require__(36);
+
+var update = exports.update = function update(state) {
+    console.log("simulation state", state);
+    var updates = {};
+    var actions = [];
+    //perlin noise temperature sim
+    updates = updateTime(state, updates);
+    updates = updateTemp(state, updates);
+    actions.push((0, _reducer.nextStep)(updates));
+
+    return actions; //actions
+};
+
+function updateTime(state, next) {
+    var t = state.sim.t;
+    next.t = t + 1;
+    return next;
+}
+function updateTemp(state, next) {
+    var temp = state.sim.temp;
+    next.temp = temp + Math.random();
+    return next;
+}
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _reducer = __webpack_require__(36);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Play = function (_React$Component) {
+    _inherits(Play, _React$Component);
+
+    function Play(props) {
+        _classCallCheck(this, Play);
+
+        var _this = _possibleConstructorReturn(this, (Play.__proto__ || Object.getPrototypeOf(Play)).call(this, props));
+
+        _this.handleInput = _this.handleInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Play, [{
+        key: 'handleInput',
+        value: function handleInput(play) {
+            console.log("handle click input, play  " + play);
+            this.props.playSim(play);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            _this2.handleInput(true);
+                        } },
+                    'play'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            _this2.handleInput(false);
+                        } },
+                    'pause'
+                )
+            );
+        }
+    }]);
+
+    return Play;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        play: state.simulation.ui.play
+    };
+};
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        playSim: _reducer.playSim
+    }, dispatch);
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Play);
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _redux = __webpack_require__(1);
+
+var _asteroidSample = __webpack_require__(59);
+
+var _Constants = __webpack_require__(3);
+
+var _reducer = __webpack_require__(14);
+
+var _stock = __webpack_require__(60);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Initialize = function (_React$Component) {
+    _inherits(Initialize, _React$Component);
+
+    function Initialize() {
+        _classCallCheck(this, Initialize);
+
+        return _possibleConstructorReturn(this, (Initialize.__proto__ || Object.getPrototypeOf(Initialize)).apply(this, arguments));
+    }
+
+    _createClass(Initialize, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            console.log("initialization beginning");
+            if (Object.keys(this.props.state.items[_Constants.constants.items.asteroidSample]).length < 3) {
+                console.log('initializaing asteroid samples');
+                var item = void 0;
+                for (var i = 0; i < 3; i++) {
+                    item = this.props.createSample(); //addItem(container, type, id, item){
+                    this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
+                }
+                var stock = (0, _stock.createStock)(item.game.element);
+                stock = (0, _stock.addToStock)(stock, item.game.element, item.game.weight);
+
+                this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.stock, item.game.element, stock);
+                this.props.deleteItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return null;
+        }
+    }]);
+
+    return Initialize;
+}(_react2.default.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        createSample: _asteroidSample.createSample, addItem: _reducer.addItem, deleteItem: _reducer.deleteItem
+    }, dispatch);
+};
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        state: state
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Initialize);
+
+/***/ }),
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6563,21 +7240,24 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _gameReducer = __webpack_require__(95);
+var _gameReducer = __webpack_require__(102);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(34);
+var _reducer2 = __webpack_require__(14);
 
-var _relationsReducer = __webpack_require__(96);
+var _relationsReducer = __webpack_require__(103);
 
-var _parentReducer = __webpack_require__(97);
+var _reducer3 = __webpack_require__(36);
+
+var _parentReducer = __webpack_require__(104);
 
 //multiaction reducers
 //change zone - change from state, change to state, change game position
 
 
 var reducers = (0, _redux.combineReducers)({
+    simulation: _reducer3.reducer,
     game: _gameReducer.reducer,
     fsm: _reducer.reducer,
     items: _reducer2.reducer,
@@ -6595,7 +7275,7 @@ var rootReducer = function rootReducer(state, action) {
 exports.default = rootReducer;
 
 /***/ }),
-/* 95 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6607,7 +7287,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.reducer = undefined;
 exports.setHealth = setHealth;
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 var reducer = exports.reducer = function reducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
@@ -6633,7 +7313,7 @@ function setHealth(time, temp) {
 }
 
 /***/ }),
-/* 96 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6644,12 +7324,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.reducer = undefined;
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var reducer = exports.reducer = function reducer() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _defineProperty({}, _Constants.constants.relations.contains, {});
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _defineProperty({}, _Constants.constants.relations.contains, _defineProperty({}, _Constants.constants.fsm.zones.control, _defineProperty({}, _Constants.constants.items.ship, [_Constants.constants.items.engine, _Constants.constants.items.hull])));
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     switch (action.type) {
@@ -6659,7 +7339,7 @@ var reducer = exports.reducer = function reducer() {
 };
 
 /***/ }),
-/* 97 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6672,9 +7352,9 @@ exports.moveItem = exports.parentReducer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _reducer = __webpack_require__(98);
+var _reducer = __webpack_require__(105);
 
-var _Constants = __webpack_require__(4);
+var _Constants = __webpack_require__(3);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -6683,40 +7363,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //Bug potential: templates found with item type, template and item cannot store items at same time
 //concept: can the template of an item hold items distinct from that item? or are its items the same as the item it holds?
 var parentReducer = exports.parentReducer = function parentReducer(state, action) {
-    var _extends3;
-
-    console.log("parent reducer called");
-    console.log(state);
-    console.log(action);
+    // console.log("parent reducer called");
+    // console.log(state);
+    // console.log(action);
     switch (action.type) {
-        case "ADD_SAMPLE":
-            var contents = state.relations[_Constants.constants.relations.contains][_Constants.constants.fsm.actions.inventory] ? state.relations[_Constants.constants.relations.contains][_Constants.constants.fsm.actions.inventory] : {};
-            // console.log("parent reducer add sample");
-            // console.log(contents);
-            //add relation container of inventory to sample
-            var ray = contents[action.payload.sample.type] ? contents[action.payload.sample.type] : [];
-            return _extends({}, state, {
-                relations: _defineProperty({}, _Constants.constants.relations.contains, _defineProperty({}, _Constants.constants.fsm.actions.inventory, _extends({}, contents, _defineProperty({}, action.payload.sample.type, [].concat(_toConsumableArray(ray), [action.payload.sample.id])))))
-            });
-            break;
-        case 'ADD_SAMPLE_TO_STOCK':
-            // addSampleToStock(sampleId){
-            console.log("parent reducer add sample to stock");
-            var samples = state.relations[_Constants.constants.relations.contains][_Constants.constants.fsm.actions.inventory][_Constants.constants.items.asteroidSample];
-            var stock = state.relations[_Constants.constants.relations.contains][_Constants.constants.fsm.actions.inventory][_Constants.constants.items.stock];
-            if (!stock) {
-                stock = [];
+        case "ADD_ITEM":
+            var contents = state.relations[_Constants.constants.relations.contains][action.payload.container] ? state.relations[_Constants.constants.relations.contains][action.payload.container] : {};
+            var ray = contents[action.payload.type] ? contents[action.payload.type] : [];
+            var index = ray.indexOf(action.payload.id);
+            //if the item is not already linked, add it to the array
+            if (index <= -1) {
+                return _extends({}, state, {
+                    relations: _defineProperty({}, _Constants.constants.relations.contains, _extends({}, state.relations[_Constants.constants.relations.contains], _defineProperty({}, action.payload.container, _extends({}, contents, _defineProperty({}, action.payload.type, [].concat(_toConsumableArray(ray), [action.payload.id]))))))
+                });
             }
-            var sample = state.items[_Constants.constants.items.asteroidSample][action.payload.sampleId];
-            var filtered = samples.filter(function (s) {
-                console.log("filtering sample " + s + " against " + action.payload.sampleId + " of element " + sample.id);
-                if (s != action.payload.sampleId) {
-                    return s;
+            break;
+        case "DEL_ITEM":
+            var contents2 = state.relations[_Constants.constants.relations.contains][action.payload.container];
+            var ray3 = contents2[action.payload.type].filter(function (e) {
+                if (e != action.payload.id) {
+                    return e;
                 }
             });
-            console.log("filtered items", filtered);
             return _extends({}, state, {
-                relations: _defineProperty({}, _Constants.constants.relations.contains, _defineProperty({}, _Constants.constants.fsm.actions.inventory, _extends({}, contents, (_extends3 = {}, _defineProperty(_extends3, _Constants.constants.items.asteroidSample, [].concat(_toConsumableArray(filtered))), _defineProperty(_extends3, _Constants.constants.items.stock, [].concat(_toConsumableArray(stock), [sample.user.element])), _extends3))))
+                relations: _defineProperty({}, _Constants.constants.relations.contains, _extends({}, state.relations[_Constants.constants.relations.contains], _defineProperty({}, action.payload.container, _extends({}, contents2, _defineProperty({}, action.payload.type, ray3)))))
             });
             break;
         case "MOVE_ITEM":
@@ -6753,7 +7423,7 @@ var moveItem = exports.moveItem = function moveItem(from, to, item) {
 };
 
 /***/ }),
-/* 98 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6768,9 +7438,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.addSample = addSample;
 
-var _Constants = __webpack_require__(99);
+var _Constants = __webpack_require__(106);
 
-var _index = __webpack_require__(100);
+var _index = __webpack_require__(107);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -6797,7 +7467,7 @@ function addSample(sample) {
 }
 
 /***/ }),
-/* 99 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6879,7 +7549,7 @@ var messages = exports.messages = {
 };
 
 /***/ }),
-/* 100 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6890,9 +7560,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createAsteroid = createAsteroid;
 
-var _randomizer = __webpack_require__(58);
+var _randomizer = __webpack_require__(42);
 
-var _ids = __webpack_require__(33);
+var _ids = __webpack_require__(34);
 
 function createAsteroid() {
     var elem = ['iron', 'magnesium', 'copper', 'silver'];
@@ -6915,61 +7585,61 @@ function createAsteroid() {
 }
 
 /***/ }),
-/* 101 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./DynamicComponent": 23,
-	"./DynamicComponent.jsx": 23,
-	"./Trends": 14,
-	"./Trends.jsx": 14,
+	"./DynamicComponent": 24,
+	"./DynamicComponent.jsx": 24,
+	"./Trends": 15,
+	"./Trends.jsx": 15,
 	"./UI/Colors": 7,
 	"./UI/Colors.js": 7,
-	"./UI/IFrame": 24,
-	"./UI/IFrame.jsx": 24,
+	"./UI/IFrame": 25,
+	"./UI/IFrame.jsx": 25,
 	"./UI/animations/FadeIn": 10,
 	"./UI/animations/FadeIn.jsx": 10,
-	"./UI/animations/SlideUp": 22,
-	"./UI/animations/SlideUp.jsx": 22,
-	"./UI/animations/styles.css": 40,
-	"./UI/elements/Bg": 20,
-	"./UI/elements/Bg.jsx": 20,
-	"./UI/elements/Container": 21,
-	"./UI/elements/Container.jsx": 21,
+	"./UI/animations/SlideUp": 23,
+	"./UI/animations/SlideUp.jsx": 23,
+	"./UI/animations/styles.css": 41,
+	"./UI/elements/Bg": 21,
+	"./UI/elements/Bg.jsx": 21,
+	"./UI/elements/Container": 22,
+	"./UI/elements/Container.jsx": 22,
 	"./UI/elements/IconButton": 11,
 	"./UI/elements/IconButton.jsx": 11,
-	"./UI/elements/icons.css": 54,
-	"./UI/graphs/Line": 15,
-	"./UI/graphs/Line.jsx": 15,
-	"./UI/graphs/animations": 16,
-	"./UI/graphs/animations.js": 16,
-	"./UI/graphs/main.css": 39,
-	"./UI/graphs/styles": 18,
-	"./UI/graphs/styles.js": 18,
-	"./UI/graphs/utilities": 19,
-	"./UI/graphs/utilities.js": 19,
-	"./UI/math/Katex": 32,
-	"./UI/math/Katex.jsx": 32,
-	"./UI/math/katex.css": 55,
-	"./apis/Analytics": 25,
-	"./apis/Analytics.jsx": 25,
-	"./apis/Gapi": 26,
-	"./apis/Gapi.jsx": 26,
-	"./constants": 17,
-	"./constants.js": 17,
-	"./game/Game": 27,
-	"./game/Game.jsx": 27,
-	"./game/GameMenu": 28,
-	"./game/GameMenu.jsx": 28,
-	"./game/Index": 29,
-	"./game/Index.jsx": 29,
-	"./game/Wrapper": 30,
-	"./game/Wrapper.jsx": 30,
-	"./game/views/Choice": 36,
-	"./game/views/Choice.jsx": 36,
+	"./UI/elements/icons.css": 56,
+	"./UI/graphs/Line": 16,
+	"./UI/graphs/Line.jsx": 16,
+	"./UI/graphs/animations": 17,
+	"./UI/graphs/animations.js": 17,
+	"./UI/graphs/main.css": 40,
+	"./UI/graphs/styles": 19,
+	"./UI/graphs/styles.js": 19,
+	"./UI/graphs/utilities": 20,
+	"./UI/graphs/utilities.js": 20,
+	"./UI/math/Katex": 33,
+	"./UI/math/Katex.jsx": 33,
+	"./UI/math/katex.css": 57,
+	"./apis/Analytics": 26,
+	"./apis/Analytics.jsx": 26,
+	"./apis/Gapi": 27,
+	"./apis/Gapi.jsx": 27,
+	"./constants": 18,
+	"./constants.js": 18,
+	"./game/Game": 28,
+	"./game/Game.jsx": 28,
+	"./game/GameMenu": 29,
+	"./game/GameMenu.jsx": 29,
+	"./game/Index": 30,
+	"./game/Index.jsx": 30,
+	"./game/Wrapper": 31,
+	"./game/Wrapper.jsx": 31,
+	"./game/views/Choice": 37,
+	"./game/views/Choice.jsx": 37,
 	"./layout/MainMenu": 6,
 	"./layout/MainMenu.jsx": 6,
-	"./layout/menu.css": 38
+	"./layout/menu.css": 39
 };
 function webpackContext(req) {
 	var id = webpackContextResolve(req);
@@ -6987,11 +7657,11 @@ webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
 };
 webpackContext.resolve = webpackContextResolve;
-webpackContext.id = 101;
+webpackContext.id = 108;
 module.exports = webpackContext;
 
 /***/ }),
-/* 102 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7001,15 +7671,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(61);
+var _index = __webpack_require__(63);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(104);
+var _index3 = __webpack_require__(111);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _reducers = __webpack_require__(107);
+var _reducers = __webpack_require__(114);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7036,7 +7706,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 103 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7138,7 +7808,7 @@ var Simulation = function (_React$Component) {
 exports.default = Simulation;
 
 /***/ }),
-/* 104 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7152,11 +7822,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(62);
+var _Story2 = __webpack_require__(64);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
-var _index = __webpack_require__(106);
+var _index = __webpack_require__(113);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -7164,9 +7834,9 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(66);
+var _store = __webpack_require__(68);
 
-var _store2 = __webpack_require__(41);
+var _store2 = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7280,7 +7950,7 @@ var ConnectedStart = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProp
 exports.default = ConnectedStart;
 
 /***/ }),
-/* 105 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7296,11 +7966,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Text = __webpack_require__(63);
+var _Text = __webpack_require__(65);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(64);
+var _Button = __webpack_require__(66);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -7353,7 +8023,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 106 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7367,7 +8037,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(62);
+var _Story2 = __webpack_require__(64);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
@@ -7375,9 +8045,9 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(65);
+var _store = __webpack_require__(67);
 
-var _store2 = __webpack_require__(41);
+var _store2 = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7543,7 +8213,7 @@ var Connected = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Ro
 exports.default = Connected;
 
 /***/ }),
-/* 107 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7555,13 +8225,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _index = __webpack_require__(61);
+var _index = __webpack_require__(63);
 
-var _store = __webpack_require__(66);
+var _store = __webpack_require__(68);
 
-var _store2 = __webpack_require__(65);
+var _store2 = __webpack_require__(67);
 
-var _store3 = __webpack_require__(41);
+var _store3 = __webpack_require__(43);
 
 //import simulation from './../simulation/reducers.js';
 var reducer = (0, _redux.combineReducers)({
@@ -7574,7 +8244,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 108 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7586,11 +8256,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(59);
+var _reduxLogger = __webpack_require__(61);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(109);
+var _reducers = __webpack_require__(116);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7615,7 +8285,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 109 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7627,7 +8297,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _counter = __webpack_require__(110);
+var _counter = __webpack_require__(117);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -7640,7 +8310,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 110 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7675,7 +8345,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 111 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)(false);
@@ -7691,4 +8361,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.53131b42.js.map
+//# sourceMappingURL=static.de86483d.js.map
