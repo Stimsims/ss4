@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 71);
@@ -1771,7 +1771,7 @@ var Dynamic = function (_React$Component) {
                 return _path3.default.join(__dirname, '' + _this.props.payload);
             },
             resolve: function resolve() {
-                return /*require.resolve*/(__webpack_require__(108).resolve("" + _this.props.payload));
+                return /*require.resolve*/(__webpack_require__(112).resolve("" + _this.props.payload));
             },
             chunkName: function chunkName() {
                 return '' + _this.props.payload;
@@ -2198,7 +2198,7 @@ var Bar = _styledComponents2.default.div(_templateObject);
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2219,6 +2219,18 @@ var _store = __webpack_require__(101);
 
 var _store2 = _interopRequireDefault(_store);
 
+var _reduxPersist = __webpack_require__(108);
+
+var _storage = __webpack_require__(109);
+
+var _storage2 = _interopRequireDefault(_storage);
+
+var _autoMergeLevel = __webpack_require__(110);
+
+var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
+
+var _react3 = __webpack_require__(111);
+
 var _Game = __webpack_require__(28);
 
 var _Game2 = _interopRequireDefault(_Game);
@@ -2231,54 +2243,109 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var SetTransform = (0, _reduxPersist.createTransform)(
+// transform state on its way to being serialized and persisted.
+function (inboundState, key) {
+  // convert mySet to an Array.
+  //return { ...inboundState, mySet: [...inboundState.mySet] };
+  console.log("transform persisted key: " + key, inboundState);
+  return inboundState;
+},
+// transform state being rehydrated
+function (outboundState, key) {
+  // convert mySet back to a Set.
+  //return { ...outboundState, mySet: new Set(outboundState.mySet) };
+  console.log("transform rehydration key: " + key, outboundState);
+  return outboundState;
+});
+var persistConfig = {
+  key: 'rootB',
+  storage: _storage2.default,
+  stateReconciler: _autoMergeLevel2.default
+  //transforms: [SetTransform]
+};
+
+var pReducer = (0, _reduxPersist.persistReducer)(persistConfig, _store2.default);
+
 if (typeof window === 'undefined') {
-    global.window = {};
+  global.window = {};
 }
 
 //import Sim from './Simulation.jsx';
+var onBeforeLift = function onBeforeLift(arg1) {
+  // take some action before the gate lifts
+  console.log("persistor before lift ", arg1);
+};
 
 var Index = function (_React$Component) {
-    _inherits(Index, _React$Component);
+  _inherits(Index, _React$Component);
 
-    function Index(props) {
-        _classCallCheck(this, Index);
+  function Index(props) {
+    _classCallCheck(this, Index);
 
-        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+    // console.log("index constructor ");
+    // console.log(reducers);
+    //expects to recieve the game
+    //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
+    //simulation and iterates through story nodes
+    //the game displays the content, the simulation runs, stops and persists state
+    //  let reducers = props.game.getReducers();
+    // this.store = createStore(reducers);
+    //  this.store = createStore(
+    //       reducers,
+    //       {},
+    //       applyMiddleware(logger),
+    //   )
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-        console.log("index constructor ");
-        console.log(_store2.default);
-        //expects to recieve the game
-        //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
-        //simulation and iterates through story nodes
-        //the game displays the content, the simulation runs, stops and persists state
-        //  let reducers = props.game.getReducers();
-        // this.store = createStore(reducers);
-        _this.store = (0, _redux.createStore)(_store2.default, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
+    _this.store = (0, _redux.createStore)(pReducer, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
+    _this.persistor = (0, _reduxPersist.persistStore)(_this.store);
+    console.log("persistor", _this.persistor);
+    // console.log("sub store created");
+    return _this;
+  }
 
-        console.log("sub store created");
-        return _this;
-    }
-
-    _createClass(Index, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _reactRedux.Provider,
+          { store: this.store },
+          _react2.default.createElement(
+            _react3.PersistGate,
+            { loading: _react2.default.createElement(
+                'p',
                 null,
-                _react2.default.createElement(
-                    _reactRedux.Provider,
-                    { store: this.store },
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(_Game2.default, { game: this.props.game })
-                    )
-                )
-            );
-        }
-    }]);
+                'persisting!'
+              ),
+              onBeforeLift: onBeforeLift,
+              persistor: this.persistor },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(_Game2.default, { game: this.props.game, persistor: this.persistor })
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var storage = window.localStorage;
+      console.log("storage", storage);
+      var stored = storage.getItem('persist:rootA');
+      console.log("stored", stored);
+      //cannot read a serialized json file
+      storage.setItem('metadata:rootA', 'Thu 05 18 5:06pm, health: 100pts');
+      storage.setItem('persist:rootB', stored);
+    }
+  }]);
 
-    return Index;
+  return Index;
 }(_react2.default.Component);
 /*
 <Provider store={this.store}>
@@ -3838,7 +3905,7 @@ var _Index = __webpack_require__(30);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _index = __webpack_require__(109);
+var _index = __webpack_require__(113);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3895,7 +3962,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Simulation = __webpack_require__(110);
+var _Simulation = __webpack_require__(114);
 
 var _Simulation2 = _interopRequireDefault(_Simulation);
 
@@ -3970,7 +4037,7 @@ var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Choice = __webpack_require__(112);
+var _Choice = __webpack_require__(116);
 
 var _Choice2 = _interopRequireDefault(_Choice);
 
@@ -4610,11 +4677,11 @@ var _reactStaticRoutes = __webpack_require__(74);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(115);
+var _redux = __webpack_require__(119);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(118);
+__webpack_require__(122);
 
 var _Analytics = __webpack_require__(26);
 
@@ -5530,9 +5597,6 @@ var Index = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_InitializeGame2.default, null),
-                _react2.default.createElement(_PlayButtons2.default, null),
-                _react2.default.createElement(_Index2.default, null),
                 _react2.default.createElement(_Game2.default, null)
             );
         }
@@ -7664,6 +7728,30 @@ function createAsteroid() {
 
 /***/ }),
 /* 108 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-persist");
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-persist/lib/storage");
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-persist/lib/integration/react");
+
+/***/ }),
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -7735,11 +7823,11 @@ webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
 };
 webpackContext.resolve = webpackContextResolve;
-webpackContext.id = 108;
+webpackContext.id = 112;
 module.exports = webpackContext;
 
 /***/ }),
-/* 109 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7753,11 +7841,11 @@ var _index = __webpack_require__(63);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(111);
+var _index3 = __webpack_require__(115);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _reducers = __webpack_require__(114);
+var _reducers = __webpack_require__(118);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7784,7 +7872,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 110 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7886,7 +7974,7 @@ var Simulation = function (_React$Component) {
 exports.default = Simulation;
 
 /***/ }),
-/* 111 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7904,7 +7992,7 @@ var _Story2 = __webpack_require__(64);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
-var _index = __webpack_require__(113);
+var _index = __webpack_require__(117);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -8028,7 +8116,7 @@ var ConnectedStart = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProp
 exports.default = ConnectedStart;
 
 /***/ }),
-/* 112 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8101,7 +8189,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 113 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8291,7 +8379,7 @@ var Connected = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Ro
 exports.default = Connected;
 
 /***/ }),
-/* 114 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8322,7 +8410,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 115 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8338,7 +8426,7 @@ var _reduxLogger = __webpack_require__(61);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(116);
+var _reducers = __webpack_require__(120);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -8363,7 +8451,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 116 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8375,7 +8463,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _counter = __webpack_require__(117);
+var _counter = __webpack_require__(121);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -8388,7 +8476,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 117 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8423,7 +8511,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 118 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -8439,4 +8527,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.10e3fd42.js.map
+//# sourceMappingURL=static.1ccba615.js.map
