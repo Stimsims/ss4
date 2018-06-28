@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 71);
+/******/ 	return __webpack_require__(__webpack_require__.s = 73);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -213,7 +213,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-__webpack_require__(39);
+__webpack_require__(41);
 
 var _styledComponents = __webpack_require__(4);
 
@@ -645,11 +645,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(53);
+var _reactAddonsCssTransitionGroup = __webpack_require__(55);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-__webpack_require__(41);
+__webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -860,7 +860,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.selectContained = exports.selectFsmState = undefined;
 
-var _reselect = __webpack_require__(90);
+var _reselect = __webpack_require__(92);
 
 var _Constants = __webpack_require__(3);
 
@@ -929,7 +929,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(35);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -937,19 +937,19 @@ var _Line = __webpack_require__(16);
 
 var _Line2 = _interopRequireDefault(_Line);
 
-var _adapterParallel = __webpack_require__(80);
+var _adapterParallel = __webpack_require__(82);
 
 var _adapterParallel2 = _interopRequireDefault(_adapterParallel);
 
-var _chartistPluginLegend = __webpack_require__(51);
+var _chartistPluginLegend = __webpack_require__(53);
 
 var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
 
-var _chartistPluginAxistitle = __webpack_require__(52);
+var _chartistPluginAxistitle = __webpack_require__(54);
 
 var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
 
-var _trends = __webpack_require__(82);
+var _trends = __webpack_require__(84);
 
 var _trends2 = _interopRequireDefault(_trends);
 
@@ -1052,11 +1052,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(35);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactChartist = __webpack_require__(79);
+var _reactChartist = __webpack_require__(81);
 
 var _reactChartist2 = _interopRequireDefault(_reactChartist);
 
@@ -1064,11 +1064,11 @@ var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _chartistPluginLegend = __webpack_require__(51);
+var _chartistPluginLegend = __webpack_require__(53);
 
 var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
 
-var _chartistPluginAxistitle = __webpack_require__(52);
+var _chartistPluginAxistitle = __webpack_require__(54);
 
 var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
 
@@ -1078,7 +1078,7 @@ var _constants = __webpack_require__(18);
 
 var _styles = __webpack_require__(19);
 
-__webpack_require__(40);
+__webpack_require__(42);
 
 var _utilities = __webpack_require__(20);
 
@@ -1613,7 +1613,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(53);
+var _reactAddonsCssTransitionGroup = __webpack_require__(55);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
@@ -1694,15 +1694,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(44);
+var _path2 = __webpack_require__(46);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(45);
+var _importCss2 = __webpack_require__(47);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(46);
+var _universalImport2 = __webpack_require__(48);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -1712,7 +1712,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactUniversalComponent = __webpack_require__(47);
+var _reactUniversalComponent = __webpack_require__(49);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -1761,7 +1761,7 @@ var Dynamic = function (_React$Component) {
             id: '',
             file: 'D:/websites/react-static/static-site-2/4/src/components/DynamicComponent.jsx',
             load: function load() {
-                return Promise.all([__webpack_require__(83)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
+                return Promise.all([__webpack_require__(85)("" + _this.props.payload), (0, _importCss3.default)('' + _this.props.payload, {
                     disableWarnings: true
                 })]).then(function (proms) {
                     return proms[0];
@@ -1771,7 +1771,7 @@ var Dynamic = function (_React$Component) {
                 return _path3.default.join(__dirname, '' + _this.props.payload);
             },
             resolve: function resolve() {
-                return /*require.resolve*/(__webpack_require__(112).resolve("" + _this.props.payload));
+                return /*require.resolve*/(__webpack_require__(114).resolve("" + _this.props.payload));
             },
             chunkName: function chunkName() {
                 return '' + _this.props.payload;
@@ -1855,6 +1855,24 @@ exports.default = IFrame;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.guid = guid;
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1862,7 +1880,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGa = __webpack_require__(58);
+var _reactGa = __webpack_require__(60);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -1906,7 +1924,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2034,7 +2052,7 @@ var Gapi = function (_React$Component) {
 exports.default = Gapi;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2054,7 +2072,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _Index = __webpack_require__(86);
+var _Index = __webpack_require__(88);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -2122,7 +2140,7 @@ exports.default = Game;
 */
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2191,14 +2209,269 @@ exports.default = (0, _reactStatic.withSiteData)(Menu);
 var Bar = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Load = __webpack_require__(32);
+
+var _Load2 = _interopRequireDefault(_Load);
+
+var _Game = __webpack_require__(29);
+
+var _Game2 = _interopRequireDefault(_Game);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import Store from './Store.jsx';
+
+
+if (typeof window === 'undefined') {
+    global.window = {};
+}
+
+var Index = function (_React$Component) {
+    _inherits(Index, _React$Component);
+
+    function Index() {
+        _classCallCheck(this, Index);
+
+        return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+    }
+
+    _createClass(Index, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _Load2.default,
+                { gamename: 'g4' },
+                _react2.default.createElement(_Game2.default, { game: this.props.game })
+            );
+        }
+    }]);
+
+    return Index;
+}(_react2.default.Component);
+
+exports.default = Index;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Store = __webpack_require__(33);
+
+var _Store2 = _interopRequireDefault(_Store);
+
+var _ids = __webpack_require__(26);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+if (typeof window === 'undefined') {
+    global.window = {};
+}
+function getFileName(game, id, name) {
+    return game + ':' + id + ':' + name;
+}
+function getStoreName(game, id) {
+    return game + '-' + id;
+}
+var DATE = 'date',
+    DESC = 'desc';
+
+var Index = function (_React$Component) {
+    _inherits(Index, _React$Component);
+
+    function Index(props) {
+        _classCallCheck(this, Index);
+
+        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+        _this.onNewGame = _this.onNewGame.bind(_this);
+        _this.onLoadGame = _this.onLoadGame.bind(_this);
+        _this.state = {
+            filename: null,
+            local: {}
+        };
+        return _this;
+    }
+
+    _createClass(Index, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            var localStorage = window.localStorage;
+            //let query = /(mygames)/;
+            var query = new RegExp("(" + this.props.gamename + ":)");
+            var i = void 0,
+                results = [];
+            for (i in localStorage) {
+                if (localStorage.hasOwnProperty(i)) {
+                    console.log("does key " + i + " match " + query + "? " + i.match(query));
+                    //if (i.match(query) || (!query && typeof i === 'string')) {
+                    if (i.match(query)) {
+                        console.log("yes it does!");
+                        //value = JSON.parse(localStorage.getItem(i));
+                        var value = localStorage.getItem(i);
+                        results.push({ key: i, val: value });
+                    }
+                }
+            }
+            console.log("loading files", results);
+            var ids = results.map(function (f) {
+                var parts = f.key.split(":");
+                return parts[1];
+            });
+            console.log("file ids", ids);
+            //put ids into state.local, pointing to obj with keys for date and desc
+            var local = {};
+            ids.map(function (id) {
+                if (!local[id]) {
+                    local[id] = {
+                        date: localStorage.getItem(getFileName(_this2.props.gamename, id, DATE)),
+                        desc: localStorage.getItem(getFileName(_this2.props.gamename, id, DESC))
+                    };
+                }
+            });
+            this.setState({
+                local: local
+            });
+            console.log("local meta", local);
+        }
+    }, {
+        key: 'renderNewGame',
+        value: function renderNewGame() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                'button',
+                { onClick: function onClick() {
+                        _this3.onNewGame();
+                    } },
+                'New Game'
+            );
+        }
+    }, {
+        key: 'renderSaves',
+        value: function renderSaves() {
+            var _this4 = this;
+
+            if (this.state.local) {
+                return Object.keys(this.state.local).map(function (k, i) {
+                    var save = _this4.state.local[k];
+                    return _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this4.onLoadGame(k);
+                            } },
+                        'save ',
+                        i,
+                        ' date: ',
+                        save.date,
+                        ', desc: ',
+                        save.desc
+                    );
+                });
+                // return this.state.local[k].map((e, i) => {{}
+            }
+        }
+    }, {
+        key: 'onNewGame',
+        value: function onNewGame() {
+            //create a new save id, and generate first save date and desc
+            //set game +id as filename
+            var id = (0, _ids.guid)();
+            var name = getStoreName(this.props.gamename, id);
+            console.log("new game name: " + name);
+            var localStorage = window.localStorage;
+            localStorage.setItem(getFileName(this.props.gamename, id, DATE), 'Sunday 2:21am');
+            localStorage.setItem(getFileName(this.props.gamename, id, DESC), 'hello world');
+            this.setState({
+                filename: name
+            });
+        }
+    }, {
+        key: 'onLoadGame',
+        value: function onLoadGame(id) {
+            //use game + id as filename, set as filename
+            var name = getStoreName(this.props.gamename, id);
+            console.log("load game name: " + name);
+            this.setState({
+                filename: name
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (this.state.filename) {
+                return _react2.default.createElement(
+                    _Store2.default,
+                    { savefile: this.state.filename },
+                    this.props.children
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    this.renderNewGame(),
+                    _react2.default.createElement('hr', null),
+                    this.renderSaves()
+                );
+            }
+        }
+    }]);
+
+    return Index;
+}(_react2.default.Component);
+
+exports.default = Index;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2211,29 +2484,25 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(61);
+var _reduxLogger = __webpack_require__(63);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _store = __webpack_require__(101);
+var _store = __webpack_require__(103);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _reduxPersist = __webpack_require__(108);
+var _reduxPersist = __webpack_require__(110);
 
-var _storage = __webpack_require__(109);
+var _storage = __webpack_require__(111);
 
 var _storage2 = _interopRequireDefault(_storage);
 
-var _autoMergeLevel = __webpack_require__(110);
+var _autoMergeLevel = __webpack_require__(112);
 
 var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
 
-var _react3 = __webpack_require__(111);
-
-var _Game = __webpack_require__(28);
-
-var _Game2 = _interopRequireDefault(_Game);
+var _react3 = __webpack_require__(113);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2243,140 +2512,81 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SetTransform = (0, _reduxPersist.createTransform)(
-// transform state on its way to being serialized and persisted.
-function (inboundState, key) {
-  // convert mySet to an Array.
-  //return { ...inboundState, mySet: [...inboundState.mySet] };
-  console.log("transform persisted key: " + key, inboundState);
-  return inboundState;
-},
-// transform state being rehydrated
-function (outboundState, key) {
-  // convert mySet back to a Set.
-  //return { ...outboundState, mySet: new Set(outboundState.mySet) };
-  console.log("transform rehydration key: " + key, outboundState);
-  return outboundState;
-});
-var persistConfig = {
-  key: 'rootB',
-  storage: _storage2.default,
-  stateReconciler: _autoMergeLevel2.default
-  //transforms: [SetTransform]
-};
+// const SetTransform = createTransform(
+//   // transform state on its way to being serialized and persisted.
+//   (inboundState, key) => {
+//     // convert mySet to an Array.
+//     //return { ...inboundState, mySet: [...inboundState.mySet] };
+//     console.log("transform persisted key: " + key, inboundState);
+//     return inboundState;
+//   },
+//   // transform state being rehydrated
+//   (outboundState, key) => {
+//     // convert mySet back to a Set.
+//     //return { ...outboundState, mySet: new Set(outboundState.mySet) };
+//     console.log("transform rehydration key: " + key, outboundState);
+//     return outboundState;
+//   }
+// );
+// const persistConfig = {
+//   key: 'rootB',
+//   storage: storage,
+//   stateReconciler: autoMergeLevel2,
+//   //transforms: [SetTransform]
+//  };
 
-var pReducer = (0, _reduxPersist.persistReducer)(persistConfig, _store2.default);
+//const pReducer = persistReducer(persistConfig, reducers);
 
 if (typeof window === 'undefined') {
-  global.window = {};
+    global.window = {};
 }
 
-//import Sim from './Simulation.jsx';
-var onBeforeLift = function onBeforeLift(arg1) {
-  // take some action before the gate lifts
-  console.log("persistor before lift ", arg1);
-};
-
 var Index = function (_React$Component) {
-  _inherits(Index, _React$Component);
+    _inherits(Index, _React$Component);
 
-  function Index(props) {
-    _classCallCheck(this, Index);
+    function Index(props) {
+        _classCallCheck(this, Index);
 
-    // console.log("index constructor ");
-    // console.log(reducers);
-    //expects to recieve the game
-    //the game gives reducers, selectors, mapStteToProps, dispatchToStore, 
-    //simulation and iterates through story nodes
-    //the game displays the content, the simulation runs, stops and persists state
-    //  let reducers = props.game.getReducers();
-    // this.store = createStore(reducers);
-    //  this.store = createStore(
-    //       reducers,
-    //       {},
-    //       applyMiddleware(logger),
-    //   )
-    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    _this.store = (0, _redux.createStore)(pReducer, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
-    _this.persistor = (0, _reduxPersist.persistStore)(_this.store);
-    console.log("persistor", _this.persistor);
-    // console.log("sub store created");
-    return _this;
-  }
-
-  _createClass(Index, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _reactRedux.Provider,
-          { store: this.store },
-          _react2.default.createElement(
-            _react3.PersistGate,
-            { loading: _react2.default.createElement(
-                'p',
-                null,
-                'persisting!'
-              ),
-              onBeforeLift: onBeforeLift,
-              persistor: this.persistor },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(_Game2.default, { game: this.props.game, persistor: this.persistor })
-            )
-          )
-        )
-      );
+        _this.persistConfig = {
+            key: props.savefile,
+            storage: _storage2.default,
+            stateReconciler: _autoMergeLevel2.default
+        };
+        _this.pReducer = (0, _reduxPersist.persistReducer)(_this.persistConfig, _store2.default);
+        _this.store = (0, _redux.createStore)(_this.pReducer, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
+        _this.persistor = (0, _reduxPersist.persistStore)(_this.store);
+        return _this;
     }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var storage = window.localStorage;
-      console.log("storage", storage);
-      var stored = storage.getItem('persist:rootA');
-      console.log("stored", stored);
-      //cannot read a serialized json file
-      storage.setItem('metadata:rootA', 'Thu 05 18 5:06pm, health: 100pts');
-      storage.setItem('persist:rootB', stored);
-    }
-  }]);
 
-  return Index;
+    _createClass(Index, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactRedux.Provider,
+                { store: this.store },
+                _react2.default.createElement(
+                    _react3.PersistGate,
+                    { loading: _react2.default.createElement(
+                            'p',
+                            null,
+                            'persisting!'
+                        ),
+                        persistor: this.persistor },
+                    this.props.children
+                )
+            );
+        }
+    }]);
+
+    return Index;
 }(_react2.default.Component);
-/*
-<Provider store={this.store}>
-            <div>
-                <Game game={this.props.game} />
-            </div>
-          </Provider>
-*/
 
 exports.default = Index;
 
-/*
-import { createStore,  applyMiddleware } from 'redux'
-import logger from 'redux-logger';
-
-import reducer from './reducers'
-
-if (typeof window === 'undefined') {
-  global.window = {}
-}
-
-const store = createStore(
-    reducer,
-    {},
-    applyMiddleware(logger),
-  )
-  
-*/
-
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2442,13 +2652,13 @@ var Wrapper = function (_React$Component) {
 exports.default = Wrapper;
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2467,15 +2677,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(84);
+__webpack_require__(86);
 
-var _reactKatex = __webpack_require__(85);
+var _reactKatex = __webpack_require__(87);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(35);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _ids = __webpack_require__(34);
+var _ids = __webpack_require__(26);
 
 var _styledComponents = __webpack_require__(4);
 
@@ -2536,25 +2746,7 @@ exports.default = Katex;
 var Container = _styledComponents2.default.span(_templateObject2);
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.guid = guid;
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
-/***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2583,7 +2775,7 @@ var constants = {
 exports.default = constants;
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2652,7 +2844,7 @@ function playSim(play) {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2710,7 +2902,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -2738,7 +2930,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -2752,7 +2944,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -2766,7 +2958,7 @@ exports.push([module.i, ".ct-axis-title{color:#fff}@-webkit-keyframes dance{0%{-
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -2780,7 +2972,7 @@ exports.push([module.i, ".fade-in-enter{opacity:.01}.fade-in-enter.fade-in-enter
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2795,7 +2987,7 @@ var getRandomItem = exports.getRandomItem = function getRandomItem(ray) {
 };
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2849,25 +3041,25 @@ function setComponentNodeId(payload) {
 }
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/importCss");
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/universalImport");
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2882,7 +3074,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(76);
+var _requireUniversalModule = __webpack_require__(78);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -2897,7 +3089,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(77);
+var _reportChunks = __webpack_require__(79);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -2910,17 +3102,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(49);
+var _propTypes = __webpack_require__(51);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(78);
+var _hoistNonReactStatics = __webpack_require__(80);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(48);
+var _utils = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3211,10 +3403,10 @@ function universal(component) {
   }, _temp;
 }
 exports.default = universal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)(module)))
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3328,16 +3520,16 @@ var loadFromPromiseCache = exports.loadFromPromiseCache = function loadFromPromi
 var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, promisecache) {
   return promisecache[callForString(chunkName, props)] = pr;
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)(module)))
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3473,25 +3665,25 @@ var PostBox = _styledComponents2.default.div(_templateObject2);
 var Post = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = require("chartist-plugin-legend");
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 module.exports = require("chartist-plugin-axistitle");
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3554,7 +3746,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3576,7 +3768,7 @@ var _DynamicComponent = __webpack_require__(24);
 
 var _DynamicComponent2 = _interopRequireDefault(_DynamicComponent);
 
-var _reactGa = __webpack_require__(58);
+var _reactGa = __webpack_require__(60);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -3592,7 +3784,7 @@ var _IconButton = __webpack_require__(12);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Wrapper = __webpack_require__(31);
+var _Wrapper = __webpack_require__(34);
 
 var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
@@ -3763,7 +3955,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Games));
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -3777,7 +3969,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -3791,13 +3983,13 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-ga");
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3808,9 +4000,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createSample = undefined;
 
-var _randomizer = __webpack_require__(42);
+var _randomizer = __webpack_require__(44);
 
-var _ids = __webpack_require__(34);
+var _ids = __webpack_require__(26);
 
 var _Constants = __webpack_require__(3);
 
@@ -3834,7 +4026,7 @@ var createSample = exports.createSample = function createSample() {
 };
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3873,13 +4065,13 @@ var addToStock = exports.addToStock = function addToStock(stock, key, value) {
 };
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3897,15 +4089,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(5);
 
-var _GameMenu = __webpack_require__(29);
+var _GameMenu = __webpack_require__(30);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
-var _Index = __webpack_require__(30);
+var _Index = __webpack_require__(31);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _index = __webpack_require__(113);
+var _index = __webpack_require__(115);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3950,7 +4142,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3962,7 +4154,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Simulation = __webpack_require__(114);
+var _Simulation = __webpack_require__(116);
 
 var _Simulation2 = _interopRequireDefault(_Simulation);
 
@@ -4009,7 +4201,7 @@ var Simulation = function (_Sim) {
 exports.default = Simulation;
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4027,7 +4219,7 @@ var _templateObject = _taggedTemplateLiteral(['\n    background-color: black;\n 
     _templateObject2 = _taggedTemplateLiteral(['\n    display: block;\n    background-color: cyan;\n'], ['\n    display: block;\n    background-color: cyan;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n'], ['\n    position: fixed;\n    left: 0px;\n    top: 50px;\n    background-color: red;\n    display: block;\n    height: 100vh;\n    width: 100vw;\n']);
 
-var _ids = __webpack_require__(34);
+var _ids = __webpack_require__(26);
 
 var _react = __webpack_require__(0);
 
@@ -4037,15 +4229,15 @@ var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Choice = __webpack_require__(116);
+var _Choice = __webpack_require__(118);
 
 var _Choice2 = _interopRequireDefault(_Choice);
 
-var _Button = __webpack_require__(66);
+var _Button = __webpack_require__(68);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Text = __webpack_require__(65);
+var _Text = __webpack_require__(67);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -4246,7 +4438,7 @@ var BgInline = _styledComponents2.default.div(_templateObject2);
 var BgFill = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4324,7 +4516,7 @@ var Text = function (_React$Component) {
 exports.default = Text;
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4380,7 +4572,7 @@ var Button = function (_React$Component) {
 exports.default = Button;
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4420,7 +4612,7 @@ var actions = exports.actions = {
 };
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4457,7 +4649,7 @@ function changeHealth(payload) {
 }
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4579,7 +4771,7 @@ var About = function About() {
 exports.default = About;
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4610,7 +4802,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4624,11 +4816,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(35);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(72);
+var _App = __webpack_require__(74);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4653,7 +4845,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4671,23 +4863,23 @@ var _reactStatic = __webpack_require__(5);
 
 var _reactRedux = __webpack_require__(2);
 
-var _reactHotLoader = __webpack_require__(73);
+var _reactHotLoader = __webpack_require__(75);
 
-var _reactStaticRoutes = __webpack_require__(74);
+var _reactStaticRoutes = __webpack_require__(76);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(119);
+var _redux = __webpack_require__(121);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(122);
+__webpack_require__(124);
 
-var _Analytics = __webpack_require__(26);
+var _Analytics = __webpack_require__(27);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(27);
+var _Gapi = __webpack_require__(28);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -4717,16 +4909,16 @@ var App = function App() {
 };
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)(module)))
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4736,15 +4928,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(44);
+var _path2 = __webpack_require__(46);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(45);
+var _importCss2 = __webpack_require__(47);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(46);
+var _universalImport2 = __webpack_require__(48);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4756,9 +4948,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(75);
+var _reactRouterDom = __webpack_require__(77);
 
-var _reactUniversalComponent = __webpack_require__(47);
+var _reactUniversalComponent = __webpack_require__(49);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4792,7 +4984,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 50)), (0, _importCss3.default)('src/containers/Home', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 52)), (0, _importCss3.default)('src/containers/Home', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4802,7 +4994,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(50);
+    return /*require.resolve*/(52);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home';
@@ -4812,7 +5004,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 54)), (0, _importCss3.default)('src/containers/Post', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 56)), (0, _importCss3.default)('src/containers/Post', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4822,7 +5014,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(54);
+    return /*require.resolve*/(56);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post';
@@ -4832,7 +5024,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 55)), (0, _importCss3.default)('src/containers/Games', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 57)), (0, _importCss3.default)('src/containers/Games', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4842,7 +5034,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(55);
+    return /*require.resolve*/(57);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games';
@@ -4852,7 +5044,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 62)), (0, _importCss3.default)('src/containers/Game', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 64)), (0, _importCss3.default)('src/containers/Game', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4862,7 +5054,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(62);
+    return /*require.resolve*/(64);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game';
@@ -4872,7 +5064,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 69)), (0, _importCss3.default)('src/containers/About', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 71)), (0, _importCss3.default)('src/containers/About', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4882,7 +5074,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(69);
+    return /*require.resolve*/(71);
   },
   chunkName: function chunkName() {
     return 'src/containers/About';
@@ -4892,7 +5084,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 70)), (0, _importCss3.default)('src/containers/404', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 72)), (0, _importCss3.default)('src/containers/404', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4902,7 +5094,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(70);
+    return /*require.resolve*/(72);
   },
   chunkName: function chunkName() {
     return 'src/containers/404';
@@ -4989,13 +5181,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5007,7 +5199,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(48);
+var _utils = __webpack_require__(50);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -5177,7 +5369,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5193,7 +5385,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(49);
+var _propTypes = __webpack_require__(51);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5240,19 +5432,19 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-chartist");
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5264,7 +5456,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _lodash = __webpack_require__(81);
+var _lodash = __webpack_require__(83);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -5331,19 +5523,19 @@ var Adapter = function () {
 exports.default = Adapter;
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -5386,7 +5578,7 @@ var map = {
 		23
 	],
 	"./UI/animations/styles.css": [
-		41
+		43
 	],
 	"./UI/elements/Bg": [
 		21
@@ -5407,7 +5599,7 @@ var map = {
 		12
 	],
 	"./UI/elements/icons.css": [
-		56,
+		58,
 		0
 	],
 	"./UI/graphs/Line": [
@@ -5425,7 +5617,7 @@ var map = {
 		17
 	],
 	"./UI/graphs/main.css": [
-		40
+		42
 	],
 	"./UI/graphs/styles": [
 		19
@@ -5440,28 +5632,28 @@ var map = {
 		20
 	],
 	"./UI/math/Katex": [
-		33,
+		36,
 		0
 	],
 	"./UI/math/Katex.jsx": [
-		33,
+		36,
 		0
 	],
 	"./UI/math/katex.css": [
-		57,
+		59,
 		0
 	],
 	"./apis/Analytics": [
-		26
+		27
 	],
 	"./apis/Analytics.jsx": [
-		26
+		27
 	],
 	"./apis/Gapi": [
-		27
+		28
 	],
 	"./apis/Gapi.jsx": [
-		27
+		28
 	],
 	"./constants": [
 		18
@@ -5470,39 +5662,55 @@ var map = {
 		18
 	],
 	"./game/Game": [
-		28,
+		29,
 		0
 	],
 	"./game/Game.jsx": [
-		28,
+		29,
 		0
 	],
 	"./game/GameMenu": [
-		29
+		30
 	],
 	"./game/GameMenu.jsx": [
-		29
+		30
 	],
 	"./game/Index": [
-		30,
+		31,
 		0
 	],
 	"./game/Index.jsx": [
-		30,
+		31,
+		0
+	],
+	"./game/Load": [
+		32,
+		0
+	],
+	"./game/Load.jsx": [
+		32,
+		0
+	],
+	"./game/Store": [
+		33,
+		0
+	],
+	"./game/Store.jsx": [
+		33,
 		0
 	],
 	"./game/Wrapper": [
-		31
+		34
 	],
 	"./game/Wrapper.jsx": [
-		31
+		34
 	],
 	"./game/views/Choice": [
-		37,
+		39,
 		0
 	],
 	"./game/views/Choice.jsx": [
-		37,
+		39,
 		0
 	],
 	"./layout/MainMenu": [
@@ -5512,7 +5720,7 @@ var map = {
 		6
 	],
 	"./layout/menu.css": [
-		39
+		41
 	]
 };
 function webpackAsyncContext(req) {
@@ -5526,23 +5734,23 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 83;
+webpackAsyncContext.id = 85;
 module.exports = webpackAsyncContext;
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5558,19 +5766,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Game = __webpack_require__(87);
+var _Game = __webpack_require__(89);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _Index = __webpack_require__(97);
+var _Index = __webpack_require__(99);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _PlayButtons = __webpack_require__(99);
+var _PlayButtons = __webpack_require__(101);
 
 var _PlayButtons2 = _interopRequireDefault(_PlayButtons);
 
-var _InitializeGame = __webpack_require__(100);
+var _InitializeGame = __webpack_require__(102);
 
 var _InitializeGame2 = _interopRequireDefault(_InitializeGame);
 
@@ -5608,7 +5816,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5624,7 +5832,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Factory = __webpack_require__(88);
+var _Factory = __webpack_require__(90);
 
 var _Factory2 = _interopRequireDefault(_Factory);
 
@@ -5716,7 +5924,7 @@ var mapStateToProps = function mapStateToProps(state, props) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Index);
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5726,31 +5934,31 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Lounge = __webpack_require__(89);
+var _Lounge = __webpack_require__(91);
 
 var lounge = _interopRequireWildcard(_Lounge);
 
-var _Control = __webpack_require__(91);
+var _Control = __webpack_require__(93);
 
 var control = _interopRequireWildcard(_Control);
 
-var _Mine = __webpack_require__(92);
+var _Mine = __webpack_require__(94);
 
 var mine = _interopRequireWildcard(_Mine);
 
-var _Inventory = __webpack_require__(93);
+var _Inventory = __webpack_require__(95);
 
 var inventory = _interopRequireWildcard(_Inventory);
 
-var _IdentifyElem = __webpack_require__(94);
+var _IdentifyElem = __webpack_require__(96);
 
 var idElem = _interopRequireWildcard(_IdentifyElem);
 
-var _asteroidSample = __webpack_require__(95);
+var _asteroidSample = __webpack_require__(97);
 
 var AstSamp = _interopRequireWildcard(_asteroidSample);
 
-var _Engine = __webpack_require__(96);
+var _Engine = __webpack_require__(98);
 
 var Engine = _interopRequireWildcard(_Engine);
 
@@ -5777,7 +5985,7 @@ exports.default = function (name) {
 };
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5928,13 +6136,13 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 //export default component;
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports) {
 
 module.exports = require("reselect");
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5969,7 +6177,7 @@ var _reducer2 = __webpack_require__(9);
 
 var _Constants = __webpack_require__(3);
 
-var _randomizer = __webpack_require__(42);
+var _randomizer = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6134,7 +6342,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6165,11 +6373,11 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _asteroidSample = __webpack_require__(59);
+var _asteroidSample = __webpack_require__(61);
 
 var _reducer2 = __webpack_require__(9);
 
-var _Messages = __webpack_require__(35);
+var _Messages = __webpack_require__(37);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
@@ -6300,7 +6508,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6331,7 +6539,7 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _Messages = __webpack_require__(35);
+var _Messages = __webpack_require__(37);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
@@ -6525,7 +6733,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 94 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6556,7 +6764,7 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _Messages = __webpack_require__(35);
+var _Messages = __webpack_require__(37);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
@@ -6694,7 +6902,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 95 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6727,9 +6935,9 @@ var _reducer = __webpack_require__(8);
 
 var _reducer2 = __webpack_require__(9);
 
-var _stock = __webpack_require__(60);
+var _stock = __webpack_require__(62);
 
-var _Messages = __webpack_require__(35);
+var _Messages = __webpack_require__(37);
 
 var _Messages2 = _interopRequireDefault(_Messages);
 
@@ -6884,7 +7092,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 exports.default = component;
 
 /***/ }),
-/* 96 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6994,7 +7202,7 @@ var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, ma
 //export const component = connect(mapStateToProps, mapDispatchToProps)(Lounge);
 
 /***/ }),
-/* 97 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7014,11 +7222,11 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _reducer = __webpack_require__(36);
+var _reducer = __webpack_require__(38);
 
 var _reducer2 = __webpack_require__(9);
 
-var _simulation = __webpack_require__(98);
+var _simulation = __webpack_require__(100);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7134,7 +7342,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Simulation);
 
 /***/ }),
-/* 98 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7147,7 +7355,7 @@ exports.update = undefined;
 
 var _Constants = __webpack_require__(3);
 
-var _reducer = __webpack_require__(36);
+var _reducer = __webpack_require__(38);
 
 var _reducer2 = __webpack_require__(9);
 
@@ -7192,7 +7400,7 @@ function updateTemp(state, next) {
 }
 
 /***/ }),
-/* 99 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7212,7 +7420,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _reducer = __webpack_require__(36);
+var _reducer = __webpack_require__(38);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7283,7 +7491,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Play);
 
 /***/ }),
-/* 100 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7303,13 +7511,13 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _asteroidSample = __webpack_require__(59);
+var _asteroidSample = __webpack_require__(61);
 
 var _Constants = __webpack_require__(3);
 
 var _reducer = __webpack_require__(9);
 
-var _stock = __webpack_require__(60);
+var _stock = __webpack_require__(62);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7370,7 +7578,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Initialize);
 
 /***/ }),
-/* 101 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7382,17 +7590,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _gameReducer = __webpack_require__(102);
+var _gameReducer = __webpack_require__(104);
 
 var _reducer = __webpack_require__(8);
 
 var _reducer2 = __webpack_require__(9);
 
-var _relationsReducer = __webpack_require__(103);
+var _relationsReducer = __webpack_require__(105);
 
-var _reducer3 = __webpack_require__(36);
+var _reducer3 = __webpack_require__(38);
 
-var _parentReducer = __webpack_require__(104);
+var _parentReducer = __webpack_require__(106);
 
 //multiaction reducers
 //change zone - change from state, change to state, change game position
@@ -7417,7 +7625,7 @@ var rootReducer = function rootReducer(state, action) {
 exports.default = rootReducer;
 
 /***/ }),
-/* 102 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7455,7 +7663,7 @@ function setHealth(time, temp) {
 }
 
 /***/ }),
-/* 103 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7481,7 +7689,7 @@ var reducer = exports.reducer = function reducer() {
 };
 
 /***/ }),
-/* 104 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7494,7 +7702,7 @@ exports.moveItem = exports.parentReducer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _reducer = __webpack_require__(105);
+var _reducer = __webpack_require__(107);
 
 var _Constants = __webpack_require__(3);
 
@@ -7565,7 +7773,7 @@ var moveItem = exports.moveItem = function moveItem(from, to, item) {
 };
 
 /***/ }),
-/* 105 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7580,9 +7788,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.addSample = addSample;
 
-var _Constants = __webpack_require__(106);
+var _Constants = __webpack_require__(108);
 
-var _index = __webpack_require__(107);
+var _index = __webpack_require__(109);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -7609,7 +7817,7 @@ function addSample(sample) {
 }
 
 /***/ }),
-/* 106 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7691,7 +7899,7 @@ var messages = exports.messages = {
 };
 
 /***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7702,9 +7910,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createAsteroid = createAsteroid;
 
-var _randomizer = __webpack_require__(42);
+var _randomizer = __webpack_require__(44);
 
-var _ids = __webpack_require__(34);
+var _ids = __webpack_require__(26);
 
 function createAsteroid() {
     var elem = ['iron', 'magnesium', 'copper', 'silver'];
@@ -7727,31 +7935,31 @@ function createAsteroid() {
 }
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
 
 /***/ }),
-/* 111 */
+/* 113 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/integration/react");
 
 /***/ }),
-/* 112 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -7767,45 +7975,49 @@ var map = {
 	"./UI/animations/FadeIn.jsx": 11,
 	"./UI/animations/SlideUp": 23,
 	"./UI/animations/SlideUp.jsx": 23,
-	"./UI/animations/styles.css": 41,
+	"./UI/animations/styles.css": 43,
 	"./UI/elements/Bg": 21,
 	"./UI/elements/Bg.jsx": 21,
 	"./UI/elements/Container": 22,
 	"./UI/elements/Container.jsx": 22,
 	"./UI/elements/IconButton": 12,
 	"./UI/elements/IconButton.jsx": 12,
-	"./UI/elements/icons.css": 56,
+	"./UI/elements/icons.css": 58,
 	"./UI/graphs/Line": 16,
 	"./UI/graphs/Line.jsx": 16,
 	"./UI/graphs/animations": 17,
 	"./UI/graphs/animations.js": 17,
-	"./UI/graphs/main.css": 40,
+	"./UI/graphs/main.css": 42,
 	"./UI/graphs/styles": 19,
 	"./UI/graphs/styles.js": 19,
 	"./UI/graphs/utilities": 20,
 	"./UI/graphs/utilities.js": 20,
-	"./UI/math/Katex": 33,
-	"./UI/math/Katex.jsx": 33,
-	"./UI/math/katex.css": 57,
-	"./apis/Analytics": 26,
-	"./apis/Analytics.jsx": 26,
-	"./apis/Gapi": 27,
-	"./apis/Gapi.jsx": 27,
+	"./UI/math/Katex": 36,
+	"./UI/math/Katex.jsx": 36,
+	"./UI/math/katex.css": 59,
+	"./apis/Analytics": 27,
+	"./apis/Analytics.jsx": 27,
+	"./apis/Gapi": 28,
+	"./apis/Gapi.jsx": 28,
 	"./constants": 18,
 	"./constants.js": 18,
-	"./game/Game": 28,
-	"./game/Game.jsx": 28,
-	"./game/GameMenu": 29,
-	"./game/GameMenu.jsx": 29,
-	"./game/Index": 30,
-	"./game/Index.jsx": 30,
-	"./game/Wrapper": 31,
-	"./game/Wrapper.jsx": 31,
-	"./game/views/Choice": 37,
-	"./game/views/Choice.jsx": 37,
+	"./game/Game": 29,
+	"./game/Game.jsx": 29,
+	"./game/GameMenu": 30,
+	"./game/GameMenu.jsx": 30,
+	"./game/Index": 31,
+	"./game/Index.jsx": 31,
+	"./game/Load": 32,
+	"./game/Load.jsx": 32,
+	"./game/Store": 33,
+	"./game/Store.jsx": 33,
+	"./game/Wrapper": 34,
+	"./game/Wrapper.jsx": 34,
+	"./game/views/Choice": 39,
+	"./game/views/Choice.jsx": 39,
 	"./layout/MainMenu": 6,
 	"./layout/MainMenu.jsx": 6,
-	"./layout/menu.css": 39
+	"./layout/menu.css": 41
 };
 function webpackContext(req) {
 	var id = webpackContextResolve(req);
@@ -7823,11 +8035,11 @@ webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
 };
 webpackContext.resolve = webpackContextResolve;
-webpackContext.id = 112;
+webpackContext.id = 114;
 module.exports = webpackContext;
 
 /***/ }),
-/* 113 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7837,15 +8049,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(65);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(115);
+var _index3 = __webpack_require__(117);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _reducers = __webpack_require__(118);
+var _reducers = __webpack_require__(120);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7872,7 +8084,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 114 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7974,7 +8186,7 @@ var Simulation = function (_React$Component) {
 exports.default = Simulation;
 
 /***/ }),
-/* 115 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7988,11 +8200,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(64);
+var _Story2 = __webpack_require__(66);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
-var _index = __webpack_require__(117);
+var _index = __webpack_require__(119);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -8000,9 +8212,9 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(68);
+var _store = __webpack_require__(70);
 
-var _store2 = __webpack_require__(43);
+var _store2 = __webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8116,7 +8328,7 @@ var ConnectedStart = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProp
 exports.default = ConnectedStart;
 
 /***/ }),
-/* 116 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8132,11 +8344,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Text = __webpack_require__(65);
+var _Text = __webpack_require__(67);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(66);
+var _Button = __webpack_require__(68);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -8189,7 +8401,7 @@ var Choice = function (_React$Component) {
 exports.default = Choice;
 
 /***/ }),
-/* 117 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8203,7 +8415,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Story2 = __webpack_require__(64);
+var _Story2 = __webpack_require__(66);
 
 var _Story3 = _interopRequireDefault(_Story2);
 
@@ -8211,9 +8423,9 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _store = __webpack_require__(67);
+var _store = __webpack_require__(69);
 
-var _store2 = __webpack_require__(43);
+var _store2 = __webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8379,7 +8591,7 @@ var Connected = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Ro
 exports.default = Connected;
 
 /***/ }),
-/* 118 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8391,13 +8603,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(65);
 
-var _store = __webpack_require__(68);
+var _store = __webpack_require__(70);
 
-var _store2 = __webpack_require__(67);
+var _store2 = __webpack_require__(69);
 
-var _store3 = __webpack_require__(43);
+var _store3 = __webpack_require__(45);
 
 //import simulation from './../simulation/reducers.js';
 var reducer = (0, _redux.combineReducers)({
@@ -8410,7 +8622,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 119 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8422,11 +8634,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _reduxLogger = __webpack_require__(61);
+var _reduxLogger = __webpack_require__(63);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(120);
+var _reducers = __webpack_require__(122);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -8451,7 +8663,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 120 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8463,7 +8675,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _counter = __webpack_require__(121);
+var _counter = __webpack_require__(123);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -8476,7 +8688,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 121 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8511,7 +8723,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 122 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(10)(false);
@@ -8527,4 +8739,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.1ccba615.js.map
+//# sourceMappingURL=static.e01779e4.js.map
