@@ -19,8 +19,8 @@ class Inventory extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        // console.log("inventory constructor");
-        // console.log(props);
+        console.log("inventory constructor");
+        console.log(props);
     }
 
     onInput(input){
@@ -146,8 +146,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, props) => {
-    // console.log("mapping asteroid samples");
-    // console.log(state);
+    console.log("mapping asteroid samples");
+    console.log(state);
     //asteroidSample: state.items.asteroidSample
     return {
         fsm: selectFsmState(state, id, {[constants.fsm.keys.state]: S_IN}),

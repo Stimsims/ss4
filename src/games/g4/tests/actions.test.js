@@ -8,11 +8,12 @@ describe('actions', () => {
       const expectedAction = {
         type: 'ADD_ITEM',
         payload:{
+            container: 'inventory',
             type: sample.type,
             id: sample.id,
             item: sample
         }
       }
-      expect(actions.addItem(sample.type, sample.id, sample)).toEqual(expectedAction)
+      expect(actions.addItem('inventory', sample.type, sample.id, sample)).toEqual(expectedAction)
     })
   })

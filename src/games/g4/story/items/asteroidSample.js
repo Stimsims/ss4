@@ -11,10 +11,8 @@ export const createSample = () => {
     return {
         id,
         type: constants.items.asteroidSample,
-        game:{
-            element: material,
-            weight: 10*Math.random() + 3
-        },
+        element: material,
+        weight: 10*Math.random() + 3,
         user:{
             element: null,
             weight: null

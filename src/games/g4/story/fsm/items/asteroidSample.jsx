@@ -20,8 +20,8 @@ class AstSamp extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-       // console.log("AstSamp constructor");
-       // console.log(props);
+       console.log("AstSamp constructor");
+       console.log(props);
     }
     onInput(input){
         if(input.kId === I_ENTRY_1){
@@ -51,7 +51,7 @@ class AstSamp extends React.Component{
                         if(!stock){
                             stock = createStock(item.user.element);
                         }
-                        stock = addToStock(stock, item.game.element, item.game.weight);
+                        stock = addToStock(stock, item.element, item.weight);
 
                         this.props.addItem(constants.fsm.actions.inventory, constants.items.stock, 
                             item.user.element, stock);

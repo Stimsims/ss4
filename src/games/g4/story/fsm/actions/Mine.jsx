@@ -83,7 +83,7 @@ class Mine extends React.Component{
                 case S_IN:
                 default:
                     return [
-                        <p>{`there is a ${sample.game.weight > 8? 'large':'small'} asteroid in front of you, mine it?`}</p>,
+                        <p>{`there is a ${sample.weight > 8? 'large':'small'} asteroid in front of you, mine it?`}</p>,
                         <div>
                             <Button {...functions.propKid(S_MINE)} onInput={this.onInput} text={'mine it'}/>
                             <Button {...functions.propKid(S_LOOK)} onInput={this.onInput} text={'look for another'}/>

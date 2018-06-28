@@ -17,10 +17,10 @@ class Initialize extends React.Component{
                 item = this.props.createSample(); //addItem(container, type, id, item){
                 this.props.addItem(constants.fsm.actions.inventory, constants.items.asteroidSample, item.id, item);
             }
-            let stock = createStock(item.game.element);
-            stock = addToStock(stock, item.game.element, item.game.weight);
+            let stock = createStock(item.element);
+            stock = addToStock(stock, item.element, item.weight);
 
-            this.props.addItem(constants.fsm.actions.inventory, constants.items.stock, item.game.element, stock);
+            this.props.addItem(constants.fsm.actions.inventory, constants.items.stock, item.element, stock);
             this.props.deleteItem(constants.fsm.actions.inventory, constants.items.asteroidSample, item.id, item);
         }
     }

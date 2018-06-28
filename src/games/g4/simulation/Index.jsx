@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {dispatchAny, playSim} from './reducer.js'
+import {editItem} from './../story/items/reducer.js';
 import {update as simulate} from './simulation.js';
 
 class Simulation extends React.Component{
@@ -35,7 +36,7 @@ class Simulation extends React.Component{
     play(){
       //  console.log("playing simulation");
         if(!this.state.interval && this.props.play){
-            let interval = setInterval(this.update, 10000);
+            let interval = setInterval(this.update, 1000);
             this.setState({
                 interval
             })
@@ -56,6 +57,8 @@ class Simulation extends React.Component{
         let actions = simulate(this.props.state);
         console.log("update actions", actions);
        // this.props.dispatchAny(playSim(true));
+       //editItem(type, id, props){
+           //this.props.editItem('ship', 'engine', {hello: 'hi'})
         actions.map(a => {
             this.props.dispatchAny(a);
         })
@@ -68,7 +71,7 @@ class Simulation extends React.Component{
 }
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
-        {dispatchAny},
+        {dispatchAny, editItem},
         dispatch
     )
 }
@@ -77,7 +80,8 @@ const mapStateToProps = (state) => {
     console.log(state);
     return {
         state: {
-            sim: state.simulation.sim
+            sim: state.simulation.sim,
+            items: state.items
         },
         play: state.simulation.ui.play
     }

@@ -7,7 +7,7 @@ import * as AstSamp from './story/fsm/items/asteroidSample.jsx';
 import * as Engine from './story/fsm/items/Engine.jsx';
 
 export default (name) => {
-    console.log('factory name' + name);
+    console.log('factory name ' + name + " engine name: " + Engine.id);
     switch(name){
         case control.id:
             return control;

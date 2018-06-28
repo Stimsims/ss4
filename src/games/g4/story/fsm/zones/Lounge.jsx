@@ -16,13 +16,13 @@ export class Lounge extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        // console.log("lounge constructor, props:");
-        // console.log(props);
+        console.log("lounge constructor, props:");
+        console.log(props);
     }
 
     onInput(input){
-        // console.log("lounge recieved input state: ");
-        // console.log(input);
+        console.log("lounge recieved input state: ");
+        console.log(input);
         if(input[constants.IO.kId] === I_ENTRY_1){
             //is an entry point, irrelevant what state the FSM is in
             //send action to change location setZone(zone, state){
@@ -52,8 +52,8 @@ export class Lounge extends React.Component{
 
     }
     renderView(){
-        // console.log("lounge render view: ");
-        // console.log(this.props);
+        console.log("lounge render view: ");
+        console.log(this.props);
         if(this.props.showEntry){
             return [
                 <div>
@@ -110,4 +110,4 @@ const mapStateToProps = (state, props) => {
     }
 }
 export const component = connect(mapStateToProps, mapDispatchToProps)(Lounge);
-export default component;
+//export default component;

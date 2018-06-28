@@ -18,7 +18,7 @@ class IdElem extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-    //    console.log("IdElem constructor ", props);
+        console.log("IdElem constructor ", props);
     }
     onInput(input){
         if(input[constants.IO.kId] === I_ENTRY_1){
