@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 71);
@@ -426,6 +426,128 @@ function setFSMState(id, state) {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.reducer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.addItem = addItem;
+exports.deleteItem = deleteItem;
+exports.editItem = editItem;
+exports.editUserAns = editUserAns;
+
+var _Constants = __webpack_require__(3);
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var reducer = exports.reducer = function reducer() {
+    var _constants$items$ship, _ref;
+
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.items.ship, (_constants$items$ship = {}, _defineProperty(_constants$items$ship, _Constants.constants.items.engine, {
+        id: _Constants.constants.items.engine,
+        element: 'iron',
+        temp: _Constants.constants.elements.iron.shc,
+        state: _Constants.constants.sim.engine.ok
+    }), _defineProperty(_constants$items$ship, _Constants.constants.items.hull, {
+        id: _Constants.constants.items.hull,
+        element: 'iron',
+        temp: _Constants.constants.elements.iron.shc,
+        state: _Constants.constants.sim.engine.ok
+    }), _constants$items$ship)), _defineProperty(_ref, _Constants.constants.items.asteroidSample, {}), _defineProperty(_ref, _Constants.constants.items.stock, {}), _ref);
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    switch (action.type) {
+        case 'ADD_ITEM':
+            console.log("items reducer add sample");
+            //parent reducer also adds id to container relationship list
+            return _extends({}, state, _defineProperty({}, action.payload.type, _extends({}, state[action.payload.type], _defineProperty({}, action.payload.id, action.payload.item))));
+        case 'DEL_ITEM':
+            console.log("items reducer del item");
+            var items = _extends({}, state[action.payload.type]);
+            delete items[action.payload.id];
+            return _extends({}, state, _defineProperty({}, action.payload.type, items));
+        case 'EDIT_ITEM':
+            //if id is null, assume item is top level, if not, search for id
+            var edit = action.payload.id ? state[action.payload.type][action.payload.id] : state[action.payload.type];
+            var nEdit = _extends({}, edit, action.payload.props);
+            if (action.payload.id) {
+                //if has an id, make edit a value of that id key
+                nEdit = _defineProperty({}, action.payload.id, nEdit);
+            }
+            // nEdit = {
+            //     [action.payload.type]: nEdit
+            // }
+            console.log("edit item with props", action.payload.props);
+            console.log("edit item = ", nEdit);
+            return _extends({}, state, _defineProperty({}, action.payload.type, _extends({}, state[action.payload.type], nEdit)));
+        case 'EDIT_USER_ANS':
+            // [action.payload.key]: action.payload.val
+            var update = _extends({}, action.payload.item, {
+                user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
+            });
+            return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
+        default:
+            return state;
+    }
+};
+
+function addItem(container, type, id, item) {
+    //console.log("action set zone");
+    console.log("action addItem " + container + " type " + type + " id " + id);
+    return {
+        type: 'ADD_ITEM',
+        payload: {
+            container: container, type: type, id: id, item: item
+        }
+    };
+}
+function deleteItem(container, type, id, item) {
+    console.log("action deleteItem " + container + " type " + type + " id " + id);
+    return {
+        type: 'DEL_ITEM',
+        payload: {
+            container: container, type: type, id: id, item: item
+        }
+    };
+}
+function editItem(type, id, props) {
+    console.log("action editItem type " + type + " id " + id);
+    return {
+        type: 'EDIT_ITEM',
+        payload: {
+            type: type, id: id, props: props
+        }
+    };
+}
+// //handled by parent reducer
+function editUserAns(item, key, val) {
+    console.log("action edit item key " + key + " val " + val);
+    return {
+        type: 'EDIT_USER_ANS',
+        payload: {
+            item: item, key: key, val: val
+        }
+    };
+}
+// export function editItem(item, edits){
+//     console.log("action edit item",edits);
+//     return {
+//         type: `EDIT_ITEM`,
+//         payload:{
+//             item, edits
+//         }
+//     }
+// }
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports) {
 
 /*
@@ -507,7 +629,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -568,7 +690,7 @@ var Trans = function (_React$Component) {
 exports.default = Trans;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -651,7 +773,7 @@ exports.default = Trans;
 var Btn = _styledComponents2.default.button(_templateObject);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -727,7 +849,7 @@ var Button = function (_React$Component) {
 exports.default = Button;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -787,105 +909,6 @@ var selectContained = exports.selectContained = function selectContained(state, 
 //         return fsms
 //     } 
 // )
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.reducer = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.addItem = addItem;
-exports.deleteItem = deleteItem;
-exports.editUserAns = editUserAns;
-
-var _Constants = __webpack_require__(3);
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var reducer = exports.reducer = function reducer() {
-    var _constants$items$ship, _ref;
-
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _defineProperty(_ref, _Constants.constants.items.ship, (_constants$items$ship = {}, _defineProperty(_constants$items$ship, _Constants.constants.items.engine, {
-        id: _Constants.constants.items.engine,
-        element: 'iron',
-        temp: _Constants.constants.elements.iron.shc,
-        state: _Constants.constants.sim.engine.ok
-    }), _defineProperty(_constants$items$ship, _Constants.constants.items.hull, {
-        id: _Constants.constants.items.hull,
-        element: 'iron',
-        temp: _Constants.constants.elements.iron.shc,
-        state: _Constants.constants.sim.engine.ok
-    }), _constants$items$ship)), _defineProperty(_ref, _Constants.constants.items.asteroidSample, {}), _defineProperty(_ref, _Constants.constants.items.stock, {}), _ref);
-    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    switch (action.type) {
-        case 'ADD_ITEM':
-            console.log("items reducer add sample");
-            //parent reducer also adds id to container relationship list
-            return _extends({}, state, _defineProperty({}, action.payload.type, _extends({}, state[action.payload.type], _defineProperty({}, action.payload.id, action.payload.item))));
-        case 'DEL_ITEM':
-            console.log("items reducer del item");
-            var items = _extends({}, state[action.payload.type]);
-            delete items[action.payload.id];
-            return _extends({}, state, _defineProperty({}, action.payload.type, items));
-        case 'EDIT_USER_ANS':
-            // [action.payload.key]: action.payload.val
-            var update = _extends({}, action.payload.item, {
-                user: _extends({}, action.payload.item.user, _defineProperty({}, action.payload.key, action.payload.val))
-            });
-            return _extends({}, state, _defineProperty({}, action.payload.item.type, _extends({}, state[action.payload.item.type], _defineProperty({}, action.payload.item.id, update))));
-        default:
-            return state;
-    }
-};
-
-function addItem(container, type, id, item) {
-    //console.log("action set zone");
-    console.log("action addItem " + container + " type " + type + " id " + id);
-    return {
-        type: 'ADD_ITEM',
-        payload: {
-            container: container, type: type, id: id, item: item
-        }
-    };
-}
-function deleteItem(container, type, id, item) {
-    console.log("action deleteItem " + container + " type " + type + " id " + id);
-    return {
-        type: 'DEL_ITEM',
-        payload: {
-            container: container, type: type, id: id, item: item
-        }
-    };
-}
-
-// //handled by parent reducer
-function editUserAns(item, key, val) {
-    console.log("action edit item key " + key + " val " + val);
-    return {
-        type: 'EDIT_USER_ANS',
-        payload: {
-            item: item, key: key, val: val
-        }
-    };
-}
-// export function editItem(item, edits){
-//     console.log("action edit item",edits);
-//     return {
-//         type: `EDIT_ITEM`,
-//         payload:{
-//             item, edits
-//         }
-//     }
-// }
 
 /***/ }),
 /* 15 */
@@ -2123,7 +2146,7 @@ var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(11);
+var _IconButton = __webpack_require__(12);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -2651,7 +2674,7 @@ module.exports = function(module) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
@@ -2665,7 +2688,7 @@ exports.push([module.i, "", ""]);
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 exports.push([module.i, "@import url(//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css);", ""]);
 
@@ -2679,7 +2702,7 @@ exports.push([module.i, ".ct-axis-title{color:#fff}@-webkit-keyframes dance{0%{-
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
@@ -3289,7 +3312,7 @@ var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _FadeIn = __webpack_require__(10);
+var _FadeIn = __webpack_require__(11);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -3490,7 +3513,7 @@ var _reactGa = __webpack_require__(58);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _FadeIn = __webpack_require__(10);
+var _FadeIn = __webpack_require__(11);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -3498,7 +3521,7 @@ var _MainMenu = __webpack_require__(6);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _IconButton = __webpack_require__(11);
+var _IconButton = __webpack_require__(12);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -3676,7 +3699,7 @@ exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
@@ -3690,7 +3713,7 @@ exports.push([module.i, "", ""]);
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 exports.push([module.i, "@import url(https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css);", ""]);
 
@@ -3734,10 +3757,8 @@ var createSample = exports.createSample = function createSample() {
     return {
         id: id,
         type: _Constants.constants.items.asteroidSample,
-        game: {
-            element: material,
-            weight: 10 * Math.random() + 3
-        },
+        element: material,
+        weight: 10 * Math.random() + 3,
         user: {
             element: null,
             weight: null
@@ -5286,10 +5307,10 @@ var map = {
 		25
 	],
 	"./UI/animations/FadeIn": [
-		10
+		11
 	],
 	"./UI/animations/FadeIn.jsx": [
-		10
+		11
 	],
 	"./UI/animations/SlideUp": [
 		23
@@ -5313,10 +5334,10 @@ var map = {
 		22
 	],
 	"./UI/elements/IconButton": [
-		11
+		12
 	],
 	"./UI/elements/IconButton.jsx": [
-		11
+		12
 	],
 	"./UI/elements/icons.css": [
 		56,
@@ -5672,7 +5693,7 @@ var Engine = _interopRequireWildcard(_Engine);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 exports.default = function (name) {
-    console.log('factory name' + name);
+    console.log('factory name ' + name + " engine name: " + Engine.id);
     switch (name) {
         case control.id:
             return control;
@@ -5711,11 +5732,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -5751,16 +5772,16 @@ var Lounge = exports.Lounge = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Lounge.__proto__ || Object.getPrototypeOf(Lounge)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        // console.log("lounge constructor, props:");
-        // console.log(props);
+        console.log("lounge constructor, props:");
+        console.log(props);
         return _this;
     }
 
     _createClass(Lounge, [{
         key: 'onInput',
         value: function onInput(input) {
-            // console.log("lounge recieved input state: ");
-            // console.log(input);
+            console.log("lounge recieved input state: ");
+            console.log(input);
             if (input[_Constants.constants.IO.kId] === I_ENTRY_1) {
                 //is an entry point, irrelevant what state the FSM is in
                 //send action to change location setZone(zone, state){
@@ -5787,8 +5808,8 @@ var Lounge = exports.Lounge = function (_React$Component) {
     }, {
         key: 'renderView',
         value: function renderView() {
-            // console.log("lounge render view: ");
-            // console.log(this.props);
+            console.log("lounge render view: ");
+            console.log(this.props);
             if (this.props.showEntry) {
                 return [_react2.default.createElement(
                     'div',
@@ -5840,7 +5861,7 @@ var mapStateToProps = function mapStateToProps(state, props) {
     };
 };
 var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Lounge);
-exports.default = component;
+//export default component;
 
 /***/ }),
 /* 90 */
@@ -5868,11 +5889,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -5880,7 +5901,7 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(14);
+var _reducer2 = __webpack_require__(9);
 
 var _Constants = __webpack_require__(3);
 
@@ -5936,10 +5957,12 @@ var Control = function (_React$Component) {
                         if (input.kId === I_MINE) {
                             //   console.log("setting control fsm");
                             this.props.setZone(id, I_MINE);
-                        } else if (input.kId === _Constants.constants.items.engine) {
+                        } else if (input.kId === _Constants.constants.items.engine || input.kId === _Constants.constants.items.hull) {
                             console.log("input, updating engine material to " + input.vId);
-                        } else if (input.kId === _Constants.constants.items.hull) {
-                            console.log("input, updating hull material to " + input.vId);
+                            //get constants.elements[element].shc value and store as temp
+                            var shc = _Constants.constants.elements[input.vId].shc;
+                            //edit time - type, id, props
+                            this.props.editItem(_Constants.constants.items.ship, input.kId, { temp: shc, element: input.vId });
                         }
                         break;
                     case I_MINE:
@@ -5954,37 +5977,34 @@ var Control = function (_React$Component) {
     }, {
         key: 'renderShip',
         value: function renderShip() {
-            var _this2 = this;
-
-            if (this.props.items.ship) {
-                return this.props.items.ship.map(function (e, i) {
-                    //Object.keys(constants.elements) getRandomItem(materials)
-                    var metal = (0, _randomizer.getRandomItem)(Object.keys(_Constants.constants.elements));
-                    console.log("rendering ship element", e);
-                    return _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'ship part ',
-                            e.id,
-                            ', element: ',
-                            e.element,
-                            ', temperature tolerance ',
-                            e.temp
-                        ),
-                        _react2.default.createElement(_Button2.default, { kId: e.id, vId: metal,
-                            onInput: _this2.onInput, text: metal })
-                    );
-                });
-            } else {
-                return _react2.default.createElement(
-                    'p',
-                    null,
-                    'there is no ship'
-                );
-            }
+            // if(this.props.items.ship){
+            //     return this.props.items.ship.map((e, i) => {
+            //         if(e.id === constants.items.engine){
+            //             let engine = this.props.factory(constants.items.engine);
+            //             console.log("factory view fsm engine", engine);
+            //             return (<div>
+            //                 <engine.component showEntry={false} factory={this.props.factory} 
+            //             onInput={this.onInput} {...functions.propKid(I_MINE)}/>
+            //             </div>)
+            //            // return <p>hello</p>
+            //         }else{
+            //             //Object.keys(constants.elements) getRandomItem(materials)
+            //             let metal = getRandomItem(Object.keys(constants.elements));
+            //             console.log("rendering ship element", e);
+            //             return (<div>
+            //                 <p>ship part {e.id}, element: {e.element}, temperature tolerance {e.temp}</p>
+            //                 <Button kId={e.id} vId={metal} 
+            //                 onInput={this.onInput} text={metal}/>
+            //             </div>)
+            //         }
+            //     })
+            // }else{
+            //     return <p>there is no ship</p>
+            // }
+            var engine = this.props.factory(_Constants.constants.items.engine);
+            console.log("factory view fsm engine", engine);
+            return _react2.default.createElement(engine.component, _extends({ showEntry: false, factory: this.props.factory,
+                onInput: this.onInput }, _Constants.functions.propKid(I_MINE)));
         }
     }, {
         key: 'renderView',
@@ -6005,16 +6025,17 @@ var Control = function (_React$Component) {
                             onInput: this.onInput }, _Constants.functions.propKid(I_MINE)))];
                     case S_IN:
                     default:
+                        var engine = this.props.factory(_Constants.constants.items.engine);
+                        console.log("engine view ", engine);
                         var lounge = this.props.factory('lounge');
+                        console.log("lounge view ", lounge);
                         var mine = this.props.factory(_Constants.constants.fsm.actions.mine);
                         return [_react2.default.createElement(
                             'div',
                             null,
-                            this.renderShip()
-                        ), _react2.default.createElement(
-                            'div',
-                            null,
                             'inside control room',
+                            _react2.default.createElement(engine.component, _extends({ showEntry: true, factory: this.props.factory,
+                                onInput: this.onInput }, _Constants.functions.propKid(I_MINE))),
                             _react2.default.createElement(lounge.component, _extends({ showEntry: true, factory: this.props.factory,
                                 onInput: this.onInput }, _Constants.functions.propKid(I_LOUNGE))),
                             _react2.default.createElement(mine.component, _extends({ showEntry: true, factory: this.props.factory,
@@ -6035,7 +6056,7 @@ var Control = function (_React$Component) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
-        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState, editUserAns: _reducer2.editUserAns
+        setZone: _reducer.setZone, setFSMState: _reducer.setFSMState, editUserAns: _reducer2.editUserAns, editItem: _reducer2.editItem
     }, dispatch);
 };
 
@@ -6068,11 +6089,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -6082,7 +6103,7 @@ var _reducer = __webpack_require__(8);
 
 var _asteroidSample = __webpack_require__(59);
 
-var _reducer2 = __webpack_require__(14);
+var _reducer2 = __webpack_require__(9);
 
 var _Messages = __webpack_require__(35);
 
@@ -6181,7 +6202,7 @@ var Mine = function (_React$Component) {
                         return [_react2.default.createElement(
                             'p',
                             null,
-                            'there is a ' + (sample.game.weight > 8 ? 'large' : 'small') + ' asteroid in front of you, mine it?'
+                            'there is a ' + (sample.weight > 8 ? 'large' : 'small') + ' asteroid in front of you, mine it?'
                         ), _react2.default.createElement(
                             'div',
                             null,
@@ -6234,11 +6255,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -6281,8 +6302,8 @@ var Inventory = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Inventory.__proto__ || Object.getPrototypeOf(Inventory)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        // console.log("inventory constructor");
-        // console.log(props);
+        console.log("inventory constructor");
+        console.log(props);
         return _this;
     }
 
@@ -6428,8 +6449,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 var mapStateToProps = function mapStateToProps(state, props) {
-    // console.log("mapping asteroid samples");
-    // console.log(state);
+    console.log("mapping asteroid samples");
+    console.log(state);
     //asteroidSample: state.items.asteroidSample
     return {
         fsm: (0, _selectors.selectFsmState)(state, id, _defineProperty({}, _Constants.constants.fsm.keys.state, S_IN)),
@@ -6459,11 +6480,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -6503,7 +6524,7 @@ var IdElem = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IdElem.__proto__ || Object.getPrototypeOf(IdElem)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        //    console.log("IdElem constructor ", props);
+        console.log("IdElem constructor ", props);
         return _this;
     }
 
@@ -6628,11 +6649,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Button = __webpack_require__(12);
+var _Button = __webpack_require__(13);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _selectors = __webpack_require__(13);
+var _selectors = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -6640,7 +6661,7 @@ var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(14);
+var _reducer2 = __webpack_require__(9);
 
 var _stock = __webpack_require__(60);
 
@@ -6677,8 +6698,8 @@ var AstSamp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (AstSamp.__proto__ || Object.getPrototypeOf(AstSamp)).call(this, props));
 
         _this.onInput = _this.onInput.bind(_this);
-        // console.log("AstSamp constructor");
-        // console.log(props);
+        console.log("AstSamp constructor");
+        console.log(props);
         return _this;
     }
 
@@ -6707,7 +6728,7 @@ var AstSamp = function (_React$Component) {
                             if (!stock) {
                                 stock = (0, _stock.createStock)(item.user.element);
                             }
-                            stock = (0, _stock.addToStock)(stock, item.game.element, item.game.weight);
+                            stock = (0, _stock.addToStock)(stock, item.element, item.weight);
 
                             this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.stock, item.user.element, stock);
                             this.props.deleteItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
@@ -6808,7 +6829,7 @@ exports.default = component;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.id = undefined;
+exports.component = exports.id = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -6820,7 +6841,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _reducer = __webpack_require__(14);
+var _Constants = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6830,25 +6851,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var id = exports.id = 'engine';
+var id = exports.id = _Constants.constants.items.engine;
+//let itemId = null, itemType = null;
+/*
+    sim:{
+        engine:{
+            ok:'ok',
+            overheat: 'overheat',
+            exploded:'explo'
+        }
+    },
+*/
 
 var Engine = function (_React$Component) {
     _inherits(Engine, _React$Component);
 
-    function Engine() {
+    function Engine(props) {
         _classCallCheck(this, Engine);
 
-        return _possibleConstructorReturn(this, (Engine.__proto__ || Object.getPrototypeOf(Engine)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Engine.__proto__ || Object.getPrototypeOf(Engine)).call(this, props));
+        //   this.onInput = this.onInput.bind(this);
+        //    console.log("AstSamp constructor");
+        //    console.log(props);
     }
 
     _createClass(Engine, [{
         key: 'renderView',
         value: function renderView() {
-            return _react2.default.createElement(
-                'p',
-                null,
-                'the engine is okay'
-            );
+            console.log("rendering engine view, state: " + this.props.engine.state);
+            var temp = 'the engine is running at ' + this.props.engine.temp;
+            if (this.props.engine.state === _Constants.constants.sim.engine.overheat) {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    temp,
+                    '. It\'s overheating'
+                );
+            } else if (this.props.engine.state === _Constants.constants.sim.engine.exploded) {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    'The engine has exploded, it\'s not working'
+                );
+            } else {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    temp,
+                    '. The engine is running within its tolerant range'
+                );
+            }
         }
     }, {
         key: 'render',
@@ -6859,21 +6911,23 @@ var Engine = function (_React$Component) {
 
     return Engine;
 }(_react2.default.Component);
-//export default Engine;
+
+//editItem(item, key, val)
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({}, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
     return {
-        engine: state.items.engine
+        engine: state.items.ship.engine
     };
 };
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({
-        editUserAns: _reducer.editUserAns
-    }, dispatch);
-};
+var component = exports.component = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Engine);
+//export default component;
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Engine);
+//export const component = connect(mapStateToProps, mapDispatchToProps)(Lounge);
 
 /***/ }),
 /* 97 */
@@ -6897,6 +6951,8 @@ var _reactRedux = __webpack_require__(2);
 var _redux = __webpack_require__(1);
 
 var _reducer = __webpack_require__(36);
+
+var _reducer2 = __webpack_require__(9);
 
 var _simulation = __webpack_require__(98);
 
@@ -6953,7 +7009,7 @@ var Simulation = function (_React$Component) {
         value: function play() {
             //  console.log("playing simulation");
             if (!this.state.interval && this.props.play) {
-                var interval = setInterval(this.update, 10000);
+                var interval = setInterval(this.update, 1000);
                 this.setState({
                     interval: interval
                 });
@@ -6980,6 +7036,8 @@ var Simulation = function (_React$Component) {
             var actions = (0, _simulation.update)(this.props.state);
             console.log("update actions", actions);
             // this.props.dispatchAny(playSim(true));
+            //editItem(type, id, props){
+            //this.props.editItem('ship', 'engine', {hello: 'hi'})
             actions.map(function (a) {
                 _this2.props.dispatchAny(a);
             });
@@ -6995,14 +7053,15 @@ var Simulation = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ dispatchAny: _reducer.dispatchAny }, dispatch);
+    return (0, _redux.bindActionCreators)({ dispatchAny: _reducer.dispatchAny, editItem: _reducer2.editItem }, dispatch);
 };
 var mapStateToProps = function mapStateToProps(state) {
     console.log("map sim state");
     console.log(state);
     return {
         state: {
-            sim: state.simulation.sim
+            sim: state.simulation.sim,
+            items: state.items
         },
         play: state.simulation.ui.play
     };
@@ -7026,6 +7085,8 @@ var _Constants = __webpack_require__(3);
 
 var _reducer = __webpack_require__(36);
 
+var _reducer2 = __webpack_require__(9);
+
 var update = exports.update = function update(state) {
     console.log("simulation state", state);
     var updates = {};
@@ -7035,9 +7096,26 @@ var update = exports.update = function update(state) {
     updates = updateTemp(state, updates);
     actions.push((0, _reducer.nextStep)(updates));
 
+    //update engine state
+    var ship = updateShip(state);
+    actions = actions.concat(ship);
+    console.log("update actions after ship", actions);
+
     return actions; //actions
 };
-
+function updateShip(state) {
+    var actions = [];
+    var engine = state.items[_Constants.constants.items.ship][_Constants.constants.items.engine];
+    var temp = state.sim.temp;
+    console.log("updateShip engine temp = " + engine.temp + " sim temp = " + temp);
+    if (engine.temp < temp) {
+        actions.push((0, _reducer2.editItem)(_Constants.constants.items.ship, _Constants.constants.items.engine, { state: _Constants.constants.sim.engine.exploded }));
+    } else if (engine.temp < temp - 10) {
+        actions.push((0, _reducer2.editItem)(_Constants.constants.items.ship, _Constants.constants.items.engine, { state: _Constants.constants.sim.engine.overheat }));
+    }
+    //let hull = state.items[constants.items.ship][constants.items.hull];
+    return actions;
+}
 function updateTime(state, next) {
     var t = state.sim.t;
     next.t = t + 1;
@@ -7165,7 +7243,7 @@ var _asteroidSample = __webpack_require__(59);
 
 var _Constants = __webpack_require__(3);
 
-var _reducer = __webpack_require__(14);
+var _reducer = __webpack_require__(9);
 
 var _stock = __webpack_require__(60);
 
@@ -7197,10 +7275,10 @@ var Initialize = function (_React$Component) {
                     item = this.props.createSample(); //addItem(container, type, id, item){
                     this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
                 }
-                var stock = (0, _stock.createStock)(item.game.element);
-                stock = (0, _stock.addToStock)(stock, item.game.element, item.game.weight);
+                var stock = (0, _stock.createStock)(item.element);
+                stock = (0, _stock.addToStock)(stock, item.element, item.weight);
 
-                this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.stock, item.game.element, stock);
+                this.props.addItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.stock, item.element, stock);
                 this.props.deleteItem(_Constants.constants.fsm.actions.inventory, _Constants.constants.items.asteroidSample, item.id, item);
             }
         }
@@ -7244,7 +7322,7 @@ var _gameReducer = __webpack_require__(102);
 
 var _reducer = __webpack_require__(8);
 
-var _reducer2 = __webpack_require__(14);
+var _reducer2 = __webpack_require__(9);
 
 var _relationsReducer = __webpack_require__(103);
 
@@ -7597,8 +7675,8 @@ var map = {
 	"./UI/Colors.js": 7,
 	"./UI/IFrame": 25,
 	"./UI/IFrame.jsx": 25,
-	"./UI/animations/FadeIn": 10,
-	"./UI/animations/FadeIn.jsx": 10,
+	"./UI/animations/FadeIn": 11,
+	"./UI/animations/FadeIn.jsx": 11,
 	"./UI/animations/SlideUp": 23,
 	"./UI/animations/SlideUp.jsx": 23,
 	"./UI/animations/styles.css": 41,
@@ -7606,8 +7684,8 @@ var map = {
 	"./UI/elements/Bg.jsx": 21,
 	"./UI/elements/Container": 22,
 	"./UI/elements/Container.jsx": 22,
-	"./UI/elements/IconButton": 11,
-	"./UI/elements/IconButton.jsx": 11,
+	"./UI/elements/IconButton": 12,
+	"./UI/elements/IconButton.jsx": 12,
 	"./UI/elements/icons.css": 56,
 	"./UI/graphs/Line": 16,
 	"./UI/graphs/Line.jsx": 16,
@@ -8348,7 +8426,7 @@ exports.default = function () {
 /* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
@@ -8361,4 +8439,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.de86483d.js.map
+//# sourceMappingURL=static.10e3fd42.js.map
