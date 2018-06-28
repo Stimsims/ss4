@@ -8,7 +8,6 @@ import Index from './../../games/g4/Index.jsx';
 class Game extends React.Component{
     constructor(props){
         super(props);
-
     }
 
     render(){
