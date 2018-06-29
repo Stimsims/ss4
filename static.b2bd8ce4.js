@@ -2429,6 +2429,9 @@ function getStoreName(game, id) {
 function getDriveName(game, id) {
     return game + ':' + id;
 }
+function getMetaName(meta, game, id) {
+    return meta + ':' + game + '-' + id;
+}
 var DATE = 'date',
     DESC = 'desc';
 
@@ -2491,13 +2494,10 @@ var Index = function (_React$Component) {
         //this.uploadFile = this.uploadFile.bind(this);
         _this.listSaveFiles = _this.listSaveFiles.bind(_this);
         _this.state = {
-            filename: null,
             id: null,
             local: {},
-            driveChecked: false,
-            drive: ['still searching for files'],
-            driveSave: null,
-            synced: false
+            synced: false,
+            syncing: false
         };
         return _this;
     }
@@ -2507,24 +2507,102 @@ var Index = function (_React$Component) {
         value: function componentDidMount() {
             this.getLocalFiles();
         }
+        // componentWillUnmount(){
+        //     console.log("unmounting, saving to drive");
+        //     this.saveGame();
+        // }
+
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            if (this.props.gapi.isSignedIn && !this.state.synced) {
+            if (this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing) {
                 //only check the drive at the start of the session, cache check
                 //  this.getDriveFiles();
                 //this.uploadFile();
                 //this.getAppData();
                 // this.getFile();
                 //this.listSaveFiles();
-                this.loadGame();
+                this.syncSaves();
             }
+        }
+    }, {
+        key: 'getLocalFiles',
+        value: function getLocalFiles() {
+            var _this2 = this;
+
+            var localStorage = window.localStorage;
+
+            var query = new RegExp("(" + this.props.gamename + "-A)");
+            var results = [];
+            for (var i in localStorage) {
+                if (localStorage.hasOwnProperty(i)) {
+                    if (i.match(query)) {
+                        results.push({ key: i, val: localStorage.getItem(i) });
+                    }
+                }
+            }
+            //extract id from file string
+            var ids = results.map(function (f) {
+                var parts = f.key.split("-");
+                return parts[1];
+            });
+            console.log("local ids", ids);
+            if (ids) {
+                //put ids into state.local, pointing to obj with keys for date and desc getMetaName(meta, game, id)
+                var local = {};
+                ids.map(function (id) {
+                    if (!local[id]) {
+                        local[id] = {
+                            date: localStorage.getItem(getMetaName(DATE, _this2.props.gamename, 'A')),
+                            desc: localStorage.getItem(getMetaName(DESC, _this2.props.gamename, 'A'))
+                        };
+                    }
+                });
+                this.setState({
+                    local: local
+                });
+                console.log("local meta", local);
+            }
+        }
+    }, {
+        key: 'onNewGame',
+        value: function onNewGame() {
+            //create a new save id, and generate first save date and desc
+            //set game +id as filename
+            //  let id = guid(); getMetaName(meta, game, id){
+            // let name = 'A';
+            // let date = new Date();
+            // //let name = getStoreName(this.props.gamename, id);
+            // console.log("new game name: " + name + " date: " + date.getTime());
+            // let localStorage = window.localStorage;
+            // //save metadata locally
+            // localStorage.setItem(getMetaName(DATE, this.props.gamename, name), date.getTime());
+            // localStorage.setItem(getMetaName(DESC, this.props.gamename, name), 'a game description');
+            this.saveLocalMeta();
+            //game will be persisted to cloud on close
+            this.setState({
+                filename: getStoreName(this.props.gamename, name)
+            });
+        }
+    }, {
+        key: 'saveLocalMeta',
+        value: function saveLocalMeta() {
+            var name = 'A';
+            var date = new Date();
+            //let name = getStoreName(this.props.gamename, id);
+            console.log("new game name: " + name + " date: " + date.getTime());
+            var localStorage = window.localStorage;
+            //save metadata locally
+            localStorage.setItem(getMetaName(DATE, this.props.gamename, name), date.getTime());
+            localStorage.setItem(getMetaName(DESC, this.props.gamename, name), 'a game description');
         }
     }, {
         key: 'saveGame',
         value: function saveGame() {
             //get list of files with gamename: this.props.game
-            var name = 'anogamesave';
+
+            var name = getStoreName(this.props.gamename, 'A');
+            console.log("saving game to drive name " + name);
             var localStorage = window.localStorage;
             var list = this.listSaveFiles().then(function (response) {
                 var list = response.result.files;
@@ -2533,17 +2611,22 @@ var Index = function (_React$Component) {
                 if (list && list.length > 0) {
                     var id = list[0].id;
                     //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
-                    var updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e');
+                    // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
+                    var updatedfile = localStorage.getItem('persist:' + name);
+                    console.log("updated file from local", updatedfile);
                     this.createFileWithJSONContent(false, id, name, updatedfile, function (res) {
                         console.log("create file with json callback", res);
                     });
                 } else {
                     //if not, create it
-                    var newfile = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06');
+                    //let newfile = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06')
+                    var newfile = localStorage.getItem('persist:' + name);
+                    console.log("create file from local", newfile);
                     this.createFileWithJSONContent(true, null, name, newfile, function (res) {
                         console.log("create file with json callback", res);
                     });
                 }
+                this.saveLocalMeta();
             }.bind(this));
         }
     }, {
@@ -2553,7 +2636,6 @@ var Index = function (_React$Component) {
                 'q': "mimeType contains 'application/json'",
                 'fields': "files(id, name, mimeType, modifiedTime)"
                 'q': "appProperties has { key='gamename' and value='witcher' }"
-                  invalid: 'q': "gamename contains 'witcher'",
             */
             return gapi.client.drive.files.list({
                 'q': 'appProperties has { key=\'gamename\' and value=\'' + this.props.gamename + '\' }',
@@ -2563,70 +2645,88 @@ var Index = function (_React$Component) {
     }, {
         key: 'getFile',
         value: function getFile(id) {
-            // mimeType: 'application/json'
-            //customprop: 1wExMmgAYP94nNFKAPDuw9rtXHCCTq4xx
-            //let id = '1yz7h4Ot5Ta0SKKgDnRFn7u4_O0BGcvm5';
             return gapi.client.drive.files.get({
                 fileId: id,
                 alt: 'media',
                 fields: "id, name, mimeType, modifiedTime"
             });
-            //   .then((res)=>{
-            //         console.log("get file result", res);
-            //         console.log("file body", res.body);
-            //         console.log("file result", res.result);
-            //         let localStorage = window.localStorage;
-            //         let file = localStorage.setItem('persist:post', res.body);
-            //         this.setState({
-            //             driveSave: res.body
-            //         })
-            //         //add driveSave to localstorage under persist:post, 
-
-            // }).catch((err)=> {
-            //     console.log("fet file error", err);
-            // })
-            //   var result = request.execute(function(resp) {
-            //     console.log('execute response', resp);
-            //   });
         }
     }, {
-        key: 'loadGame',
-        value: function loadGame() {
+        key: 'syncSaves',
+        value: function syncSaves() {
             //list files, compare modifiedDates, use id to download google drive file, place in localstorage
+            this.setState({
+                syncing: true
+            });
             var localStorage = window.localStorage;
-            var list = this.listSaveFiles().then(function (response) {
-                var _this2 = this;
-
+            this.listSaveFiles().then(function (response) {
                 var list = response.result.files;
                 console.log("loadGame response", response);
                 console.log("loadinggame, drive files found: " + list.length);
                 if (list && list.length > 0) {
                     var driveTime = list[0].modifiedTime;
-                    var localTime = localStorage.getItem('g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date');
-                    var id = list[0].id;
+                    //let localTime = localStorage.getItem('g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date');
+                    var localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, 'A'));
+                    //  let localDate = new Date(localTime);
+                    var driveDate = new Date(driveTime);
+                    console.log("driveTime " + driveTime, driveDate);
+                    //console.log("localTime " + localTime, localDate)
+                    console.log("is drive.getTime " + driveDate.getTime() + " less than local time? " + localTime + " -> " + (driveDate.getTime() < localTime));
                     //if file exists, check if cloud modifiedTime is later than local modified time, if so overwrite, if not ask user
-                    if (true) {
+                    //driveDate.getTime()>localTime
+                    if (driveDate.getTime() > localTime) {
+                        console.log("drive file modified later than local file, downloading");
                         //user picks drive, download from drive and store in local
-                        this.getFile(id).then(function (res) {
-                            console.log("get file result", res);
-                            console.log("file body", res.body);
-                            console.log("file result", res.result);
-                            var file = localStorage.setItem('persist:drive', res.body);
-                            // this.setState({
-                            //     driveSave: res.body
-                            // })
-                            _this2.setState({
-                                synced: true
-                            });
-                        }).catch(function (err) {
-                            console.log("fet file error", err);
-                        });
+                        this.downloadSave(list[0]);
                     } else {
-                        console.log("which save file do you want?");
+                        console.log("local file is later than drive file, which save file do you want?");
                         //user picks local, save to cloud?
+                        this.setState({
+                            saveConflict: list[0]
+                        });
                     }
                 }
-            }.bind(this));
+            }.bind(this)).catch(function (err) {
+                console.log("syncSaves failed", err);
+                this.setState({
+                    syncing: false,
+                    synced: true
+                });
+            });
+        }
+    }, {
+        key: 'downloadSave',
+        value: function downloadSave(file) {
+            var _this3 = this;
+
+            // a save file has been downloaded and should replace the file at game-nameid
+            console.log("downloading saving file ", file);
+            var localStorage = window.localStorage;
+            var id = file.id;
+            var name = file.name;
+            console.log("downloading save file id: " + id + " name: " + name);
+            this.getFile(id).then(function (res) {
+                console.log("get file result", res);
+                console.log("file body", res.body);
+                console.log("file result", res.result);
+                var file = localStorage.setItem('persist:' + name, res.body);
+                console.log("saving drive file to local storage at " + ('persist:' + name));
+                _this3.setState({
+                    syncing: false,
+                    synced: true,
+                    saveConflict: null,
+                    error: null
+                });
+                //load from local
+            }).catch(function (err) {
+                console.log("fet file error", err);
+                _this3.setState({
+                    syncing: false,
+                    synced: true,
+                    error: err,
+                    saveConflict: null
+                });
+            });
         }
     }, {
         key: 'getAppData',
@@ -2644,90 +2744,41 @@ var Index = function (_React$Component) {
             });
         }
     }, {
-        key: 'getLocalFiles',
-        value: function getLocalFiles() {
-            var _this3 = this;
-
-            var localStorage = window.localStorage;
-
-            var query = new RegExp("(" + this.props.gamename + ":)");
-            var results = [];
-            for (var i in localStorage) {
-                if (localStorage.hasOwnProperty(i)) {
-                    if (i.match(query)) {
-                        results.push({ key: i, val: localStorage.getItem(i) });
-                    }
-                }
-            }
-            //extract id from file string
-            var ids = results.map(function (f) {
-                var parts = f.key.split(":");
-                return parts[1];
-            });
-            //put ids into state.local, pointing to obj with keys for date and desc
-            var local = {};
-            ids.map(function (id) {
-                if (!local[id]) {
-                    local[id] = {
-                        date: localStorage.getItem(getFileName(_this3.props.gamename, id, DATE)),
-                        desc: localStorage.getItem(getFileName(_this3.props.gamename, id, DESC))
-                    };
-                }
-            });
-            this.setState({
-                local: local
-            });
-            console.log("local meta", local);
-        }
-    }, {
-        key: 'renderLoadGame',
-        value: function renderLoadGame() {
+        key: 'renderNewGame',
+        value: function renderNewGame() {
             var _this4 = this;
 
-            //if not synced, show disabled, when synced, show button, load persisted name
-            if (this.state.synced) {
+            if (!this.state.syncing) {
                 return _react2.default.createElement(
                     'button',
                     { onClick: function onClick() {
-                            _this4.setState({
-                                filename: 'drive'
-                            });
+                            _this4.onNewGame();
                         } },
-                    'load game'
+                    'New Game'
                 );
             } else {
                 return _react2.default.createElement(
                     'button',
-                    { disabled: true },
-                    'load game'
+                    { onClick: function onClick() {
+                            _this4.onNewGame();
+                        }, disabled: true },
+                    'New Game'
                 );
             }
         }
     }, {
-        key: 'renderNewGame',
-        value: function renderNewGame() {
-            var _this5 = this;
-
-            return _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        _this5.onNewGame();
-                    } },
-                'New Game'
-            );
-        }
-    }, {
         key: 'renderSaves',
         value: function renderSaves() {
-            var _this6 = this;
+            var _this5 = this;
 
-            if (this.state.local) {
+            if (!this.state.syncing && this.state.local) {
+                console.log("rendering save files, local:", this.state.local);
                 return Object.keys(this.state.local).map(function (k, i) {
-                    var save = _this6.state.local[k];
+                    var save = _this5.state.local[k];
                     return _react2.default.createElement(
                         'button',
                         { onClick: function onClick() {
-                                _this6.onLoadGame(k);
+                                _this5.onLoadGame(k);
                             } },
                         'save ',
                         i,
@@ -2741,66 +2792,73 @@ var Index = function (_React$Component) {
             }
         }
     }, {
-        key: 'renderDriveSave',
-        value: function renderDriveSave() {
-            if (this.state.driveSave) {
-                return _react2.default.createElement(
-                    'p',
-                    null,
-                    'drive save found'
-                );
-            } else {
-                return _react2.default.createElement(
-                    'p',
-                    null,
-                    'waiting for drive save...'
-                );
-            }
-        }
-    }, {
-        key: 'onNewGame',
-        value: function onNewGame() {
-            //create a new save id, and generate first save date and desc
-            //set game +id as filename
-            var id = (0, _ids.guid)();
-            var name = getStoreName(this.props.gamename, id);
-            console.log("new game name: " + name);
-            var localStorage = window.localStorage;
-            localStorage.setItem(getFileName(this.props.gamename, id, DATE), 'Sunday 2:21am');
-            localStorage.setItem(getFileName(this.props.gamename, id, DESC), 'hello world');
-            this.setState({
-                filename: name,
-                id: id
-            });
-        }
-    }, {
         key: 'onLoadGame',
         value: function onLoadGame(id) {
             //use game + id as filename, set as filename
-            var name = getStoreName(this.props.gamename, id);
+            var name = getStoreName(this.props.gamename, 'A');
             console.log("load game name: " + name);
             this.setState({
-                filename: name,
-                fileid: id
+                filename: name
             });
+        }
+    }, {
+        key: 'renderSaveConflict',
+        value: function renderSaveConflict() {
+            var _this6 = this;
+
+            if (this.state.saveConflict) {
+                // downloadSave(file)
+                //if they choose the drive file, download it with fiel id
+                //if not, save local to drive
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Your local file is ahead of your drive file, which would you like to continue with? (the other will be deleted)'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this6.downloadSave(_this6.state.saveConflict);
+                            } },
+                        'Choose drive'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this6.saveGame();
+                                console.log("saving local game", _this6.state);
+                                _this6.setState({
+                                    syncing: false,
+                                    synced: true,
+                                    saveConflict: null,
+                                    error: null
+                                });
+                            } },
+                        'Choose local'
+                    )
+                );
+            }
+            return _react2.default.createElement(
+                'p',
+                null,
+                'probelm displaying conflict...'
+            );
         }
     }, {
         key: 'render',
         value: function render() {
             var _this7 = this;
 
-            if (this.state.filename) {
+            if (this.state.saveConflict) {
+                return this.renderSaveConflict();
+            } else if (this.state.synced && this.state.filename) {
                 //savefile={this.state.filename}
                 return _react2.default.createElement(
                     _Store2.default,
                     { savefile: this.state.filename },
-                    this.props.children
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_GameMenu2.default, null),
                     _react2.default.createElement(
                         'button',
                         { onClick: function onClick() {
@@ -2808,21 +2866,28 @@ var Index = function (_React$Component) {
                             } },
                         'save game to drive'
                     ),
-                    this.renderLoadGame(),
+                    this.props.children
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_GameMenu2.default, null),
+                    this.state.synced ? _react2.default.createElement(
+                        'p',
+                        null,
+                        'synced'
+                    ) : _react2.default.createElement(
+                        'p',
+                        null,
+                        'not synced'
+                    ),
                     _react2.default.createElement('hr', null),
                     this.renderNewGame(),
                     _react2.default.createElement('hr', null),
                     this.renderSaves(),
                     _react2.default.createElement('hr', null),
-                    this.renderDriveSave(),
-                    _react2.default.createElement('hr', null),
-                    this.state.drive.map(function (f) {
-                        return _react2.default.createElement(
-                            'p',
-                            null,
-                            f
-                        );
-                    })
+                    _react2.default.createElement('hr', null)
                 );
             }
         }
@@ -4412,9 +4477,9 @@ module.exports = require("redux-logger");
 
 /***/ }),
 /* 65 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "data:text/plain;base64,ICAgIHVwbG9hZEZpbGUoKXsNCiAgICAgICAgICBjb25zb2xlLmxvZygic2VuZGluZyB1cGxvYWQgZmlsZSByZXF1ZXN0Iik7DQogICAgICAgICAgZ2FwaS5jbGllbnQuZHJpdmUuZmlsZXMuY3JlYXRlKHsNCiAgICAgICAgICAgIG5hbWU6ICdoaXRoZXJlMi5qc29uJywNCiAgICAgICAgICAgIG1pbWVUeXBlOiAnYXBwbGljYXRpb24vanNvbicsDQogICAgICAgICAgICBmaWVsZHM6ICdpZCwgbmFtZSwgbWltZVR5cGUsIHBhcmVudHMnDQogICAgICAgICAgfSkudGhlbigocmVzKT0+ew0KICAgICAgICAgICAgY29uc29sZS5sb2coInVwbG9hZCByZXN1bHQiLCByZXMpOw0KICAgICAgICB9KS5jYXRjaCgoZXJyKT0+IHsNCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJ1cGxvYWQgZXJyb3IiLCBlcnIpOw0KICAgICAgICB9KQ0KICAgIH0NCiAgICBnZXRBcHBEYXRhKCl7DQogICAgICAgIGNvbnNvbGUubG9nKCJnZXR0aW5nIGFwcCBkYXRhIGZyb20gZHJpdmUiKTsNCiAgICAgICAgY29uc29sZS5sb2coImRyaXZlIiwgZ2FwaS5jbGllbnQuZHJpdmUpOw0KICAgICAgICB2YXIgcmVxdWVzdCA9IGdhcGkuY2xpZW50LmRyaXZlLmZpbGVzLmxpc3Qoew0KICAgICAgICAgICAgc3BhY2VzOiAnYXBwRGF0YUZvbGRlcicsDQogICAgICAgICAgICBmaWVsZHM6ICduZXh0UGFnZVRva2VuLCBmaWxlcyhpZCwgbmFtZSknLA0KICAgICAgICAgICAgcGFnZVNpemU6IDEwMA0KICAgICAgICAgIH0pLnRoZW4oKHJlcyk9PnsNCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJhcHAgZGF0YSByZXN1bHQiLCByZXMpOw0KICAgICAgICB9KS5jYXRjaCgoZXJyKT0+IHsNCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJhcHAgZGF0YSBlcnJvciIsIGVycik7DQogICAgICAgIH0pDQogICAgfQ0KDQoNCg0KDQoNCmRvd25sb2FkR0RyaXZlRmlsZSAodXJsKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJkb3dubG9hZEdEcml2ZUZpbGUiLCB1cmwpOw0KICAgICAgICBpZiAodXJsKSB7DQogICAgICAgICAgdmFyIGFjY2Vzc1Rva2VuID0gZ2FwaS5hdXRoLmdldFRva2VuKCkuYWNjZXNzX3Rva2VuOw0KICAgICAgICAgIHZhciB4aHIgPSBuZXcgWE1MSHR0cFJlcXVlc3QoKTsNCiAgICAgICAgICAvL3hoci5vcGVuKCdHRVQnLCBmaWxlLmRvd25sb2FkVXJsKTsNCiAgICAgICAgICB4aHIub3BlbignR0VUJywgdXJsKTsNCiAgICAgICAgICB4aHIuc2V0UmVxdWVzdEhlYWRlcignQXV0aG9yaXphdGlvbicsICdCZWFyZXIgJyArIGFjY2Vzc1Rva2VuKTsNCiAgICAgICAgICB4aHIub25sb2FkID0gZnVuY3Rpb24oKSB7DQogICAgICAgICAgICB2YXIgY29udGVudCA9IHhoci5yZXNwb25zZVRleHQ7DQogICAgICAgICAgICBkb19zb21ldGhpbmdfd2l0aF9maWxlX2NvbnRlbnQoZmlsZS50aXRsZSwgY29udGVudCk7DQogICAgICAgICAgfTsNCiAgICAgICAgICANCiAgICAgICAgICB4aHIub25lcnJvciA9IGZ1bmN0aW9uKCkgew0KICAgICAgICAgICAgYWxlcnQoIkRvd25sb2FkIGZhaWx1cmUuIik7DQogICAgICAgICAgfTsNCiAgICAgICAgICANCiAgICAgICAgICB4aHIuc2VuZCgpOw0KICAgICAgICB9DQogICAgICAgIA0KICAgICAgICBlbHNlIHsNCiAgICAgICAgICBjb25zb2xlLmxvZygiVW5hYmxlIHRvIGRvd25sb2FkIGZpbGUuIik7DQogICAgICAgIH0NCiAgICAgIH0NCiAgICBnZXRGaWxlKCl7DQogICAgICAgIC8vIG1pbWVUeXBlOiAnYXBwbGljYXRpb24vanNvbicNCiAgICAgICAgbGV0IGlkID0gJzF5ejdoNE90NVRhMFNLS2dEblJGbjd1NF9PMEJHY3ZtNSc7DQogICAgICAgIHZhciByZXF1ZXN0ID0gZ2FwaS5jbGllbnQuZHJpdmUuZmlsZXMuZ2V0KHsNCiAgICAgICAgICAgIGZpbGVJZDogaWQsDQogICAgICAgICAgICBhbHQ6ICdtZWRpYScsDQogICAgICAgICAgICBmaWVsZHM6ICJpZCwgbmFtZSwgbWltZVR5cGUiDQogICAgICAgICAgfSkudGhlbigocmVzKT0+ew0KICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCJnZXQgZmlsZSByZXN1bHQiLCByZXMpOw0KICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCJmaWxlIGJvZHkiLCByZXMuYm9keSk7DQogICAgICAgICAgICAgICAgY29uc29sZS5sb2coImZpbGUgcmVzdWx0IiwgcmVzLnJlc3VsdCk7DQogICAgICAgICAgICAgICAgbGV0IGxvY2FsU3RvcmFnZSA9IHdpbmRvdy5sb2NhbFN0b3JhZ2U7DQogICAgICAgICAgICAgICAgbGV0IGZpbGUgPSBsb2NhbFN0b3JhZ2Uuc2V0SXRlbSgncGVyc2lzdDpwb3N0JywgcmVzLmJvZHkpOw0KICAgICAgICAgICAgICAgIHRoaXMuc2V0U3RhdGUoew0KICAgICAgICAgICAgICAgICAgICBkcml2ZVNhdmU6IHJlcy5ib2R5DQogICAgICAgICAgICAgICAgfSkNCiAgICAgICAgICAgICAgICAvL2FkZCBkcml2ZVNhdmUgdG8gbG9jYWxzdG9yYWdlIHVuZGVyIHBlcnNpc3Q6cG9zdCwgDQoNCiAgICAgICAgfSkuY2F0Y2goKGVycik9PiB7DQogICAgICAgICAgICBjb25zb2xlLmxvZygiZmV0IGZpbGUgZXJyb3IiLCBlcnIpOw0KICAgICAgICB9KQ0KICAgICAgICAvLyAgIHZhciByZXN1bHQgPSByZXF1ZXN0LmV4ZWN1dGUoZnVuY3Rpb24ocmVzcCkgew0KICAgICAgICAvLyAgICAgY29uc29sZS5sb2coJ2V4ZWN1dGUgcmVzcG9uc2UnLCByZXNwKTsNCiAgICAgICAgLy8gICB9KTsNCiAgICB9DQogICAgY3JlYXRlRmlsZVdpdGhKU09OQ29udGVudCA9IGZ1bmN0aW9uKG5hbWUsZGF0YSxjYWxsYmFjaykgew0KICAgICAgICAvL2FwcERhdGEgZmlsZTogMWlVQVMzWVlpdzk1cS1NYmdMWnJPWHRKdmdqX1h5d2lHNF9GeHFTdV94R2RzYmZFUU93DQogICAgICAgIGNvbnN0IGJvdW5kYXJ5ID0gJy0tLS0tLS0zMTQxNTkyNjUzNTg5NzkzMjM4NDYnOw0KICAgICAgICBjb25zdCBkZWxpbWl0ZXIgPSAiXHJcbi0tIiArIGJvdW5kYXJ5ICsgIlxyXG4iOw0KICAgICAgICBjb25zdCBjbG9zZV9kZWxpbSA9ICJcclxuLS0iICsgYm91bmRhcnkgKyAiLS0iOw0KICAgICAgDQogICAgICAgIGNvbnN0IGNvbnRlbnRUeXBlID0gJ2FwcGxpY2F0aW9uL2pzb24nOw0KICAgICAgLy9nZXRHYW1lTmFtZSh0aGlzLnByb3BzLmdhbWVuYW1lLCAxKQ0KICAgICAgICB2YXIgbWV0YWRhdGEgPSB7DQogICAgICAgICAgICAnbmFtZSc6ICdteWFwcERhdGFTYXZlJywNCiAgICAgICAgICAgICdtaW1lVHlwZSc6IGNvbnRlbnRUeXBlLA0KICAgICAgICAgICAgJ3BhcmVudHMnOiAgWydhcHBEYXRhRm9sZGVyJ10NCiAgICAgICAgICB9Ow0KICAgICAgDQogICAgICAgICAgdmFyIG11bHRpcGFydFJlcXVlc3RCb2R5ID0NCiAgICAgICAgICAgICAgZGVsaW1pdGVyICsNCiAgICAgICAgICAgICAgJ0NvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvblxyXG5cclxuJyArDQogICAgICAgICAgICAgIEpTT04uc3RyaW5naWZ5KG1ldGFkYXRhKSArDQogICAgICAgICAgICAgIGRlbGltaXRlciArDQogICAgICAgICAgICAgICdDb250ZW50LVR5cGU6ICcgKyBjb250ZW50VHlwZSArICdcclxuXHJcbicgKw0KICAgICAgICAgICAgICBkYXRhICsNCiAgICAgICAgICAgICAgY2xvc2VfZGVsaW07DQogICAgICANCiAgICAgICAgICB2YXIgcmVxdWVzdCA9IGdhcGkuY2xpZW50LnJlcXVlc3Qoew0KICAgICAgICAgICAgICAncGF0aCc6ICcvdXBsb2FkL2RyaXZlL3YzL2ZpbGVzJywNCiAgICAgICAgICAgICAgJ21ldGhvZCc6ICdQT1NUJywNCiAgICAgICAgICAgICAgJ3BhcmFtcyc6IHsndXBsb2FkVHlwZSc6ICdtdWx0aXBhcnQnfSwNCiAgICAgICAgICAgICAgJ2hlYWRlcnMnOiB7DQogICAgICAgICAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdtdWx0aXBhcnQvcmVsYXRlZDsgYm91bmRhcnk9IicgKyBib3VuZGFyeSArICciJw0KICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAnYm9keSc6IG11bHRpcGFydFJlcXVlc3RCb2R5fSk7DQogICAgICAgICAgaWYgKCFjYWxsYmFjaykgew0KICAgICAgICAgICAgY2FsbGJhY2sgPSBmdW5jdGlvbihmaWxlKSB7DQogICAgICAgICAgICAgIGNvbnNvbGUubG9nKGZpbGUpDQogICAgICAgICAgICB9Ow0KICAgICAgICAgIH0NCiAgICAgICAgICByZXF1ZXN0LmV4ZWN1dGUoY2FsbGJhY2spOw0KICAgICAgfQ0KICAgIHVwbG9hZEZpbGUoKXsNCiAgICAgICAgLy9maWxlIGlkOiAxeXo3aDRPdDVUYTBTS0tnRG5SRm43dTRfTzBCR2N2bTUNCiAgICAgICAgbGV0IGxvY2FsU3RvcmFnZSA9IHdpbmRvdy5sb2NhbFN0b3JhZ2U7DQogICAgICAgIGxldCBmaWxlID0gbG9jYWxTdG9yYWdlLmdldEl0ZW0oJ3BlcnNpc3Q6ZzQtNTM3OTcyNWQtY2VlYy04MDcwLTExNzYtNjEyYjFhOWQ1YjA2JykNCiAgICAgICAgbGV0IG5hbWUgPSAidGVzdHNhdmUiDQogICAgICAgIHRoaXMuY3JlYXRlRmlsZVdpdGhKU09OQ29udGVudChuYW1lLCBmaWxlLCAocmVzKSA9PiB7Y29uc29sZS5sb2coImNyZWF0ZSBmaWxlIHdpdGgganNvbiBjYWxsYmFjayIsIHJlcyl9KQ0KICAgIH0="
+module.exports = __webpack_require__.p + "static/notes.2c888a65.txt";
 
 /***/ }),
 /* 66 */
@@ -8010,4 +8075,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.4370acbe.js.map
+//# sourceMappingURL=static.b2bd8ce4.js.map
