@@ -1,0 +1,124 @@
+    uploadFile(){
+          console.log("sending upload file request");
+          gapi.client.drive.files.create({
+            name: 'hithere2.json',
+            mimeType: 'application/json',
+            fields: 'id, name, mimeType, parents'
+          }).then((res)=>{
+            console.log("upload result", res);
+        }).catch((err)=> {
+            console.log("upload error", err);
+        })
+    }
+    getAppData(){
+        console.log("getting app data from drive");
+        console.log("drive", gapi.client.drive);
+        var request = gapi.client.drive.files.list({
+            spaces: 'appDataFolder',
+            fields: 'nextPageToken, files(id, name)',
+            pageSize: 100
+          }).then((res)=>{
+            console.log("app data result", res);
+        }).catch((err)=> {
+            console.log("app data error", err);
+        })
+    }
+
+
+
+
+
+downloadGDriveFile (url) {
+        console.log("downloadGDriveFile", url);
+        if (url) {
+          var accessToken = gapi.auth.getToken().access_token;
+          var xhr = new XMLHttpRequest();
+          //xhr.open('GET', file.downloadUrl);
+          xhr.open('GET', url);
+          xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+          xhr.onload = function() {
+            var content = xhr.responseText;
+            do_something_with_file_content(file.title, content);
+          };
+          
+          xhr.onerror = function() {
+            alert("Download failure.");
+          };
+          
+          xhr.send();
+        }
+        
+        else {
+          console.log("Unable to download file.");
+        }
+      }
+    getFile(){
+        // mimeType: 'application/json'
+        let id = '1yz7h4Ot5Ta0SKKgDnRFn7u4_O0BGcvm5';
+        var request = gapi.client.drive.files.get({
+            fileId: id,
+            alt: 'media',
+            fields: "id, name, mimeType"
+          }).then((res)=>{
+                console.log("get file result", res);
+                console.log("file body", res.body);
+                console.log("file result", res.result);
+                let localStorage = window.localStorage;
+                let file = localStorage.setItem('persist:post', res.body);
+                this.setState({
+                    driveSave: res.body
+                })
+                //add driveSave to localstorage under persist:post, 
+
+        }).catch((err)=> {
+            console.log("fet file error", err);
+        })
+        //   var result = request.execute(function(resp) {
+        //     console.log('execute response', resp);
+        //   });
+    }
+    createFileWithJSONContent = function(name,data,callback) {
+        //appData file: 1iUAS3YYiw95q-MbgLZrOXtJvgj_XywiG4_FxqSu_xGdsbfEQOw
+        const boundary = '-------314159265358979323846';
+        const delimiter = "\r\n--" + boundary + "\r\n";
+        const close_delim = "\r\n--" + boundary + "--";
+      
+        const contentType = 'application/json';
+      //getGameName(this.props.gamename, 1)
+        var metadata = {
+            'name': 'myappDataSave',
+            'mimeType': contentType,
+            'parents':  ['appDataFolder']
+          };
+      
+          var multipartRequestBody =
+              delimiter +
+              'Content-Type: application/json\r\n\r\n' +
+              JSON.stringify(metadata) +
+              delimiter +
+              'Content-Type: ' + contentType + '\r\n\r\n' +
+              data +
+              close_delim;
+      
+          var request = gapi.client.request({
+              'path': '/upload/drive/v3/files',
+              'method': 'POST',
+              'params': {'uploadType': 'multipart'},
+              'headers': {
+                'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+              },
+              'body': multipartRequestBody});
+          if (!callback) {
+            callback = function(file) {
+              console.log(file)
+            };
+          }
+          request.execute(callback);
+      }
+    uploadFile(){
+        //file id: 1yz7h4Ot5Ta0SKKgDnRFn7u4_O0BGcvm5
+        let localStorage = window.localStorage;
+        let file = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06')
+        let name = "testsave"
+        this.createFileWithJSONContent(name, file, (res) => {console.log("create file with json callback", res)})
+    }
