@@ -10,8 +10,8 @@ export const selectFsmState = (state, id, def) => {
 
 export const selectContained = (state, id) => {
     let contained = state.relations.contains[id];
-    // console.log("selectContained " + id);
-    // console.log(contained);
+    console.log("selectContained " + id);
+    console.log(contained);
     if(contained){
         let items = {};
         for (var key in contained) {

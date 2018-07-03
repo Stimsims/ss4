@@ -21,6 +21,9 @@ export const reducer = (
         },
         [constants.items.stock]:{
 
+        },
+        [constants.items.sequence]:{
+
         }
     }, 
     action = {}

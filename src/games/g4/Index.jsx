@@ -12,8 +12,8 @@ class Index extends React.Component{
     render(){
         return(
             <div>
-                {/* <Initialize />
-                <PlayButtons />
+                <Initialize />
+                {/* <PlayButtons />
                 <Sim /> */}
                 <Game />
             </div>

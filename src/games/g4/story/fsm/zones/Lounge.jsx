@@ -1,28 +1,29 @@
 import React from 'react';
 import Button from './../../../components/views/Button.jsx';
-import {selectFsmState} from './../selectors.js';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {setZone, setFSMState} from './../reducer.js';
 import {constants, functions} from './../../Constants.js';
+import {selectFsmState, selectContained} from './../selectors.js';
 
 const S_IN = 'in',
     S_CONTROL= 'control',
     I_ENTRY_1 = 'e1',
     I_CONTROL = 'ic',
-    I_INVENTORY ='inv';
+    I_INVENTORY ='inv',
+    I_SEQ = 'iSeq';
 export const id = 'lounge';
 export class Lounge extends React.Component{
     constructor(props){
         super(props);
         this.onInput = this.onInput.bind(this);
-        console.log("lounge constructor, props:");
-        console.log(props);
+        // console.log("lounge constructor, props:");
+        // console.log(props);
     }
 
     onInput(input){
-        console.log("lounge recieved input state: ");
-        console.log(input);
+        // console.log("lounge recieved input state: ");
+        // console.log(input);
         if(input[constants.IO.kId] === I_ENTRY_1){
             //is an entry point, irrelevant what state the FSM is in
             //send action to change location setZone(zone, state){
@@ -31,7 +32,8 @@ export class Lounge extends React.Component{
         }else{
             switch(this.props.fsm.state){
                 case I_INVENTORY:
-                    if(input[constants.IO.kId] === I_INVENTORY){
+                case I_SEQ:
+                    if(input[constants.IO.kId] === I_INVENTORY || input[constants.IO.kId] === I_SEQ){
                        // console.log("dispatching lounge in")
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: S_IN
@@ -45,15 +47,28 @@ export class Lounge extends React.Component{
                         this.props.setFSMState(id, {
                             [constants.fsm.keys.state]: I_INVENTORY
                         });
-                    }
+                    }else if(input[constants.IO.kId] === I_SEQ){
+                        // console.log("dispatching inventory")
+                         this.props.setFSMState(id, {
+                             [constants.fsm.keys.state]: I_SEQ
+                         });
+                     }
                     break;
             }
         }
 
     }
+    renderSequences(){
+        console.log("render sequences", this.props);
+        return Object.keys(this.props.items.sequence).map((k, i) => {
+            let seq = this.props.factory(constants.items.sequence);
+            return (<seq.component showEntry={true} factory={this.props.factory} item={this.props.items.sequence[k]} 
+            onInput={this.onInput} {...functions.propKid(I_SEQ)}/>)
+        })
+    }
     renderView(){
-        console.log("lounge render view: ");
-        console.log(this.props);
+        // console.log("lounge render view: ");
+        // console.log(this.props);
         if(this.props.showEntry){
             return [
                 <div>
@@ -70,6 +85,12 @@ export class Lounge extends React.Component{
                         <inventory2.component showEntry={false} factory={this.props.factory} 
                         onInput={this.onInput} {...functions.propKid(I_INVENTORY)}/>
                     ]
+                case I_SEQ:
+                    let seq = this.props.factory(constants.items.sequence);
+                    return (
+                        <seq.component showEntry={false} factory={this.props.factory}
+                        onInput={this.onInput} {...functions.propKid(I_SEQ)}/>
+                    )
                 case S_IN:
                 default:
                     let control = this.props.factory('control');
@@ -81,7 +102,8 @@ export class Lounge extends React.Component{
                                 onInput={this.onInput} {...functions.propKid(I_CONTROL)}/>
                                 <inventory.component showEntry={true} factory={this.props.factory} 
                                 onInput={this.onInput} {...functions.propKid(I_INVENTORY)} />
-                            </div>
+                            </div>,
+                            this.renderSequences()
                         ]
             }
         }
@@ -106,7 +128,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 const mapStateToProps = (state, props) => {
     return {
-        fsm: selectFsmState(state, id, {[constants.fsm.keys.state]: S_IN})
+        fsm: selectFsmState(state, id, {[constants.fsm.keys.state]: S_IN}),
+        items: selectContained(state, id)
     }
 }
 export const component = connect(mapStateToProps, mapDispatchToProps)(Lounge);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Store from './Store.jsx';
+import Store from './PersistStore.jsx';
 import {guid} from './../../utilities/ids.js';
 import {connect} from 'react-redux';
 import Menu from './GameMenu.jsx';
@@ -39,20 +39,20 @@ class Index extends React.Component{
     }
     componentDidMount(){
         this.getLocalFiles();
-        
+        // console.log("set route leave hook, ", this.props);
+        // this.props.router.setRouteLeaveHook(this.props.route, () => {
+        //     // if (this.state.unsaved)
+        //     //   return 'You have unsaved information, are you sure you want to leave this page?'
+        //     console.log("router detects user is refreshing");
+        //   })
     }
-    // componentWillUnmount(){
-    //     console.log("unmounting, saving to drive");
-    //     this.saveGame();
-    // }
+    componentWillUnmount(){
+        console.log("unmounting, saving to drive");
+        this.saveLocalMeta();
+        this.saveGame();
+    }
     componentDidUpdate(prevProps, prevState){
         if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
-            //only check the drive at the start of the session, cache check
-              //  this.getDriveFiles();
-                //this.uploadFile();
-                //this.getAppData();
-               // this.getFile();
-               //this.listSaveFiles();
                this.syncSaves();
         }
     }
@@ -176,28 +176,38 @@ class Index extends React.Component{
         let name = getStoreName(this.props.gamename, 'A');
         console.log("saving game to drive name " + name);
         let localStorage = window.localStorage;
-        let list = this.listSaveFiles().then(
-            function(response) {
-                let list = response.result.files;
-                console.log("saveGame response", response);
-                console.log("saving game, drive files found: " + list.length);
-                if(list && list.length > 0){
-                    let id = list[0].id;
-                    //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
-                   // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
-                    let updatedfile = localStorage.getItem('persist:' + name)
-                    console.log("updated file from local", updatedfile);
-                    this.createFileWithJSONContent(false, id, name, updatedfile, (res) => {console.log("create file with json callback", res)})
-                }else{
-                    //if not, create it
-                    //let newfile = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06')
-                    let newfile = localStorage.getItem('persist:' + name)
-                    console.log("create file from local", newfile);
-                    this.createFileWithJSONContent(true, null, name, newfile, (res) => {console.log("create file with json callback", res)})
-                }
-                this.saveLocalMeta();
-            }.bind(this)
-        );
+        
+        if(this.props.gapi.isSignedIn){
+            let list = this.listSaveFiles().then(
+                function(response) {
+                    let list = response.result.files;
+                    console.log("saveGame response", response);
+                    console.log("saving game, drive files found: " + list.length);
+                    
+                    
+                        if(list && list.length > 0){
+                            let id = list[0].id;
+                            //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
+                        // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
+                            let updatedfile = localStorage.getItem('persist:' + name)
+                            console.log("updated file from local", updatedfile);
+                            this.createFileWithJSONContent(false, id, name, updatedfile, (res) => {console.log("create file with json callback", res)})
+                        }
+
+
+                    // else{
+                    //     //if not, create it
+                    //     //let newfile = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06')
+                    //     let newfile = localStorage.getItem('persist:' + name)
+                    //     console.log("create file from local", newfile);
+                    //     this.createFileWithJSONContent(true, null, name, newfile, (res) => {console.log("create file with json callback", res)})
+                    // }
+                    
+                }.bind(this)
+            );
+        }else{
+            console.log("ERROR, unable to upload to drive, not signed in");
+        }
     }
     listSaveFiles(){
         /*
@@ -282,6 +292,7 @@ class Index extends React.Component{
                     error: null
                 })
                 //load from local
+               
             }).catch((err)=> {
                 console.log("fet file error", err);
                 this.setState({
@@ -343,8 +354,13 @@ class Index extends React.Component{
             return(
                 <div>
                     <p>Your local file is ahead of your drive file, which would you like to continue with? (the other will be deleted)</p>
-                    <button onClick={() => {this.downloadSave(this.state.saveConflict)}}>Choose drive</button>
                     <button onClick={() => {
+                        this.downloadSave(this.state.saveConflict);
+                        //this.saveGame();
+                        this.saveLocalMeta();
+                    }}>Choose drive</button>
+                    <button onClick={() => {
+                       // this.saveLocalMeta();
                         this.saveGame();
                         console.log("saving local game", this.state);
                         this.setState({
@@ -366,12 +382,17 @@ class Index extends React.Component{
             //savefile={this.state.filename}
             return(
                 <Store savefile={this.state.filename}>
-                <button onClick={() => {
-                    this.saveGame();
-                    }}>
-                        save game to drive
-                    </button>
-                  {this.props.children}
+                    <button onClick={() => {
+                        this.saveGame();
+                        }}>
+                            save game to drive
+                        </button>
+                        <button onClick={() => {
+                        this.saveLocalMeta();
+                        }}>
+                            save local metadata
+                        </button>
+                    {this.props.children}
                 </Store>
               )
         }else{

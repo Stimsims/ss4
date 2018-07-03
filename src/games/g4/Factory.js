@@ -5,6 +5,7 @@ import * as inventory from './story/fsm/actions/Inventory.jsx';
 import * as idElem from './story/fsm/questions/IdentifyElem.jsx';
 import * as AstSamp from './story/fsm/items/asteroidSample.jsx';
 import * as Engine from './story/fsm/items/Engine.jsx';
+import * as Sequence from './story/fsm/items/Sequence.jsx';
 
 export default (name) => {
     console.log('factory name ' + name + " engine name: " + Engine.id);
@@ -23,5 +24,7 @@ export default (name) => {
             return AstSamp;
         case Engine.id:
             return Engine;
+        case Sequence.id:
+            return Sequence;
     }
 }
