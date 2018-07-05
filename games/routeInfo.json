@@ -1,1 +1,1 @@
-{"path":"games","templateID":2,"sharedPropsHashes":{},"localProps":{"games":[{"title":"gamea","id":"gamea","import":"gamea"}]}}
+{"path":"games","templateID":2,"sharedPropsHashes":{},"localProps":{"games":[{"title":"gamea","id":"gamea","import":"gamea"},{"title":"A Game About Samples","id":"samplegame","import":"samplegame"}]}}
