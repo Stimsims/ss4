@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { createStore,  applyMiddleware } from 'redux'
 import logger from 'redux-logger';
-import reducers from './../../games/g4/store.js';
+import reducers from './../../games/g5/reducers.js';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';

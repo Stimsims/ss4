@@ -9,7 +9,8 @@
     "build": "react-static build",
     "serve": "serve dist -p 3000",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "link": "npm link ./../../../Games/SampleGame"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -34,7 +35,10 @@
     "styled-components": "^3.3.2"
   },
   "devDependencies": {
+    "babel-helpers": "^6.24.1",
     "babel-jest": "^23.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-react-tools": "1.x.x",

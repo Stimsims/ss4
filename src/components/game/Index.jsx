@@ -1,26 +1,47 @@
 import React from 'react';
-import Load from './Load.jsx';
+// import Load from './Load.jsx';
 import Store from './Store.jsx';
 import Game from './Game.jsx';
+//import SampleGame from './SampleGame.jsx';
+import samplegame from 'samplegame';
 
 if (typeof window === 'undefined') {
     global.window = {}
   }
 
 class Index extends React.Component{
-    renderPersistStore(){
-      return(
-        <Load gamename={'g4'}>
-          <Game game={this.props.game}/>
-        </Load>
-      )
+  constructor(props){
+    super(props);
+    this.state = {
+      game: null
+    }
+  }
+    // renderPersistStore(){
+    //   return(
+    //     <Load gamename={'g5'}>
+    //       <Game game={this.props.game}/>
+    //     </Load>
+    //   )
+    // }
+    componentDidMount(){
+    //  console.log("index mounted", samplegame);
+        this.setState({
+            game: samplegame.getComponent(),
+            reducers: samplegame.getReducers()
+        })
     }
     renderStore(){
-      return (
-        <Store>
-          <Game game={this.props.game}/>
-        </Store>
-      )
+      if(this.state.game){
+        return (
+          <Store reducers={this.state.reducers} >
+            <Game game={this.state.game}/>
+            {/* <SampleGame game={this.props.game} /> */}
+          </Store>
+        )
+      }else{
+        return <p>loading game...</p>
+      }
+
     }
     render(){
         return(

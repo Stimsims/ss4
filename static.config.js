@@ -18,6 +18,8 @@ import React from 'react';
   fix build problem by deleting node modules and package-lock
  siteRoot: 'https://illulli-1e5a.com/',
     bundleAnalyzer: true,
+
+      bundleAnalyzer: true,
 */
 
 export default {

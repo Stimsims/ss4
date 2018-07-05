@@ -8,6 +8,7 @@ import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import Wrapper from './../components/game/Wrapper.jsx';
 import IFrame from './../components/UI/IFrame.jsx';
+import SampleGame from './../components/game/SampleGame.jsx';
 
 const fnc = () => {
     return <p>hello</p>
@@ -60,6 +61,7 @@ class Games extends React.Component{
                 <Menu />
               <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
               <h2>site 3</h2>
+                <SampleGame />
               <p>set variable</p>
               <p>{this.getExpression()}{this.getText("hello")}{this.getExpression()}</p>
               <div>
