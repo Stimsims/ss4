@@ -37,9 +37,9 @@ class Games extends React.Component{
                           <Post key={post.id} style={{"transitionDelay": `${ i * .15 }s` }}>
                             <h2>{post.title}</h2>
                             <p>
-                            {post.tags.map(t => {
-                              return t + " "
-                            })}
+                              {post.tags.map((t, i) => {
+                                return i===0? ""+t:", "+t;
+                              })}
                             </p>
                           </Post>
                         </Link>
@@ -94,10 +94,11 @@ const Post = styled.div`
     display: inline;
     color: red;
     opacity:1;
+    text-transform: capitalize;
+    margin:0
   }
   p{
     font-size: 0.7em;
-    display: inline;
     color: black;
     opacity:1;
   }

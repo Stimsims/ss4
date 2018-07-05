@@ -38,8 +38,6 @@ export default {
         posts,
       }),
       children: posts.map(p => {
-        console.log("game post!! " + `/${p.id}`);
-        console.log(p.id);
         return({
           path: `/posts/${p.id}`,
           component: 'src/containers/Post',
@@ -56,8 +54,6 @@ export default {
           games,
         }),
         children: games.map(g => {
-          console.log("game post!! " + `/${g.id}`);
-          console.log(g.id);
           return({
             path: `/${g.id}`,
             component: 'src/containers/Game',
@@ -135,3 +131,44 @@ export default {
 }
 
 
+/*
+      // Make an index route for every 5 blog posts
+      ...makePageRoutes({
+        items: posts,
+        pageSize: 5,
+        pageToken: 'page', // use page for the prefix, eg. blog/page/3
+        route: {
+          // Use this route as the base route
+          path: 'blog',
+          component: 'src/pages/blog',
+        },
+        decorate: (posts, i, totalPages) => ({
+          // For each page, supply the posts, page and totalPages
+          getData: () => ({
+            posts,
+            currentPage: i,
+            totalPages,
+          }),
+        }),
+      }),
+
+
+
+
+          {
+      path: '/',
+      component: 'src/containers/Home',
+      getData: () => ({
+        posts,
+      }),
+      children: posts.map(p => {
+        return({
+          path: `/posts/${p.id}`,
+          component: 'src/containers/Post',
+          getData: () => ({
+            p,
+          }),
+        })
+      })
+    },
+*/
