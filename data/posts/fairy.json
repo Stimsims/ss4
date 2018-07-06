@@ -1,5 +1,6 @@
 {
     "title": "fairy",
     "id": "fairy",
-    "tags": ["t1", "t2"]
+    "tags": ["t2"],
+    "featured": true
 }

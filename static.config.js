@@ -2,7 +2,7 @@
 import posts from './data/posts/index.js';
 import games from './data/games/index.js';
 import React from 'react';
-
+import { makePageRoutes } from 'react-static/node'
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
@@ -22,6 +22,7 @@ import React from 'react';
       bundleAnalyzer: true,
 */
 
+
 export default {
   siteRoot: 'https://illulli-1e5a.com/',
   getSiteData: () => ({
@@ -30,16 +31,33 @@ export default {
   }),
   getRoutes: async () => {
    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+   let featured = posts.filter(e => {
+     return e.featured
+   })
+   let tags = extractUniqueValues(posts, 'tags');
+   let pages = getTagPages(posts, 'tags', tags);
    return [
+    ...posts.map(post => ({
+      path: `/post/${post.id}`,
+      component: 'src/containers/Post',
+      getData: () => ({
+        post
+      }),
+    })),
+    ...pages,
+    // ...makePages(t1, 2, 't1', 'src/containers/Posts.jsx', 
+    //   (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: "t1" ,tag: "t1", tags, base: "t1"}),
+    ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
+      (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: 'Posts', tag: null, tags, base: "posts"}),
     {
       path: '/',
-      component: 'src/containers/Home',
+      component: 'src/containers/Home.jsx',
       getData: () => ({
-        posts,
+        posts: featured,
       }),
-      children: posts.map(p => {
+      children: featured.map(p => {
         return({
-          path: `/posts/${p.id}`,
+          path: `/post/${p.id}`,
           component: 'src/containers/Post',
           getData: () => ({
             p,
@@ -65,11 +83,13 @@ export default {
       },
       {
         path: '/about',
-        component: 'src/containers/About',
+        component: 'src/containers/About.jsx',
+        getData: () => ({
+        }) //have to call get data to use is component
       },
       {
         is404: true,
-        component: 'src/containers/404',
+        component: 'src/containers/404.jsx'
       },
     ]
   },
@@ -131,6 +151,111 @@ export default {
 }
 
 
+const getTagPages = (items, key, tags) => {
+  // let tags = extractTags(posts);
+  // console.log("extracted tags", tags);
+  // let pages = [];
+  // tags.map(t => {
+  //    let tagPosts = posts.filter(e => {
+  //      return e.tags.indexOf(t) > -1
+  //    })
+  //    pages = [
+  //      ...pages,
+  //      ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
+  //      (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: t ,tag: t, tags, base: t})
+  //    ]
+  // })
+  
+ // console.log("extracted tags", tags);
+  let pages = [];
+  tags.map(t => {
+     let tagPosts = posts.filter(e => {
+       return e[key].indexOf(t) > -1
+     })
+     pages = [
+       ...pages,
+       ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
+       (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: t ,tag: t, tags, base: t})
+     ]
+  })
+  return pages;
+}
+
+const extractUniqueValues = (p, key) => {
+  let map = new Map();
+  p.map(e => {
+    e[key].map(t => {
+      if(!map.has(t)){
+        map.set(t, null);
+      }
+    })
+  })
+  return Array.from( map.keys() );
+}
+
+
+//let t1 = makePages(t1, 100, 't1', 'src/containers/Posts', (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {tag: "t1", tags, base: "t1"})
+const makePages = (items, pageSize, parentPath, parentComponent, childPath, childComponent, childProps) => {
+  console.log("making " + items.length + " pages for route " + parentPath);
+  console.log("make pages items: " + items.length + " page size " + pageSize);
+  if(items.length > pageSize){
+      //make paginated pages
+      return makePageRoutes({
+        items,
+        pageSize,
+        pageToken: "page", // use page for the prefix, eg. blog/page/3
+        route: {
+          // Use this route as the base route
+          path: parentPath, //"t1",
+          component: parentComponent //'src/containers/Posts',
+        },
+        decorate: (posts, i, totalPages) => ({
+          // For each page, supply the posts, page and totalPages
+          getData: () => ({
+            posts,
+            currentPage: i,
+            totalPages,
+            pageToken: 'page',
+            ...childProps
+          }),
+        }),
+      })
+  }else{
+    //make regular page
+    return [{
+      path: parentPath, //'/',
+      component: parentComponent, //'src/containers/Home',
+      getData: () => ({
+        posts: items,
+        ...childProps
+      }),
+      children: items.map(p => {
+        return({
+          path: childPath(p.id), //`/posts/${p.id}`,
+          component: childComponent, //'src/containers/Post',
+          getData: () => ({
+            p,
+          }),
+        })
+      })
+    }]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
       // Make an index route for every 5 blog posts
       ...makePageRoutes({
@@ -171,4 +296,31 @@ export default {
         })
       })
     },
+
+
+
+
+
+        // ...makePageRoutes({
+    //   items: t1,
+    //   pageSize: 100,
+    //   pageToken: "page", // use page for the prefix, eg. blog/page/3
+    //   route: {
+    //     // Use this route as the base route
+    //     path: "t1",
+    //     component: 'src/containers/Posts',
+    //   },
+    //   decorate: (posts, i, totalPages) => ({
+    //     // For each page, supply the posts, page and totalPages
+    //     getData: () => ({
+    //       posts,
+    //       currentPage: i,
+    //       totalPages,
+    //       tag: "t1",
+    //       tags,
+    //       base: "t1",
+    //       pageToken: 'page'
+    //     }),
+    //   }),
+    // }),
 */

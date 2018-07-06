@@ -14,6 +14,7 @@ class Menu extends React.Component{
                 <Title><Link exact to="/" >{this.props.siteTitle}</Link></Title>
                 <div style={sMenu}>
                     <Slinks><Link to="/games">Games</Link></Slinks>
+                    <Slinks><Link to="/posts">Posts</Link></Slinks>
                     <Slinks><Link to="/about">About</Link></Slinks>
                 </div>
             </nav>
