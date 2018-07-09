@@ -21,11 +21,12 @@ const universalOptions = {
 
   const t_0 = universal(import('../src/containers/Post'), universalOptions)
 const t_1 = universal(import('../src/containers/Posts.jsx'), universalOptions)
-const t_2 = universal(import('../src/containers/Home.jsx'), universalOptions)
-const t_3 = universal(import('../src/containers/Games'), universalOptions)
-const t_4 = universal(import('../src/containers/Game'), universalOptions)
-const t_5 = universal(import('../src/containers/About.jsx'), universalOptions)
-const t_6 = universal(import('../src/containers/404.jsx'), universalOptions)
+const t_2 = universal(import('../src/containers/Post.jsx'), universalOptions)
+const t_3 = universal(import('../src/containers/Home.jsx'), universalOptions)
+const t_4 = universal(import('../src/containers/Games'), universalOptions)
+const t_5 = universal(import('../src/containers/Game'), universalOptions)
+const t_6 = universal(import('../src/containers/About.jsx'), universalOptions)
+const t_7 = universal(import('../src/containers/404.jsx'), universalOptions)
 
 
 // Template Map
@@ -36,12 +37,13 @@ t_2,
 t_3,
 t_4,
 t_5,
-t_6
+t_6,
+t_7
 ]
 
 // Template Tree
 global.templateIDsByPath = global.templateIDsByPath || {
-  '404': 6
+  '404': 7
 }
 
 // Get template for given path
