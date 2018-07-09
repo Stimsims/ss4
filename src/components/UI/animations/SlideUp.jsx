@@ -14,9 +14,9 @@ class Trans extends React.Component {
             <ReactCSSTransitionGroup
                 transitionName="slide-up"
                 transitionAppear={true}
-                transitionAppearTimeout={1000}
-                transitionEnterTimeout={1000}
-                transitionLeaveTimeout={1000}>
+                transitionAppearTimeout={2000}
+                transitionEnterTimeout={2000}
+                transitionLeaveTimeout={2000}>
                 {this.props.children}
             </ReactCSSTransitionGroup>
         </Container>
@@ -28,11 +28,11 @@ export default Trans;
 
 const Container = styled.span`
     .slide-up-enter{
-        transform: translate(0px, 0px);
+        transform: translate(0px, 100vh);
         opacity: 0.1;
     }
     .slide-up-enter.slide-up-enter-active {
-        transform: translate(0px, 100vh);
+        transform: translate(0px, 0vh);
         transition: all 1s ease-out;
         opacity: 0.1;
     }
@@ -46,6 +46,7 @@ const Container = styled.span`
         transition:  all 1s ease-out;
     }
 
+
     .slide-up-appear {
         transform: translate(0px, 100vh);
         transition:  all 1s ease-out;
@@ -54,6 +55,17 @@ const Container = styled.span`
         transform: translate(0px, 0vh);
         transition:  all 1s ease-out;
     }
+
+`
+/*    .slide-up-appear {
+        transform: translate(0px, 100vh);
+        transition:  all 1s ease-out;
+    }
+    .slide-up-appear.slide-up-appear-active {
+        transform: translate(0px, 0vh);
+        transition:  all 1s ease-out;
+    }
+
     .slide-up-appear-active a div{
         transform: translate(0px, 0vh);
         transition:  all 1s ease-out;
@@ -62,8 +74,9 @@ const Container = styled.span`
         transition:  all 1s ease-out;
         transform: translate(0px, 100vh);
     }
-`
-/*
+
+
+
     .slide-up-appear-active a div{
         transition: all 1s ease-out;
         transform: rotate(0deg);

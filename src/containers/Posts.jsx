@@ -4,6 +4,7 @@ import { withRouteData, Link, Head, Redirect  } from 'react-static'
 import styled from 'styled-components';
 import Menu from './../components/layout/MainMenu.jsx';
 import Bg from './../components/UI/elements/Bg.jsx';
+import Container from './../components/UI/elements/Container';
 import PostList from './../components/layout/PostList.jsx';
 import Tags from './../components/layout/Tags.jsx';
 import SlideUp from './../components/UI/animations/SlideUp';
@@ -37,17 +38,15 @@ class Games extends React.Component{
     }
     render(){
         return (
-            <Container>
+            <Container color={'black'}>
                     {this.redirect()}
                     <Menu />
                     <Title>{this.props.title}</Title>
                     <Tags tags={this.props.tags} tag={this.props.tag} />
-                    {this.renderPagination()}
-                <SlideUp>            
+                    {this.renderPagination()}          
                     <div>
                         <PostList posts={this.props.posts} />
                     </div>
-                </SlideUp>
             </Container>
           )
     }
@@ -64,9 +63,9 @@ const Title = styled.h2`
     padding: 0px;
     display: inline-block;
 `
-const Container = styled.div`
-    background: black;
-    width:100%;
-    height:100vh;
-    overflow: hidden;
-`
+// const Container = styled.div`
+//     background: black;
+//     width:100%;
+//     height:100vh;
+//     overflow: hidden;
+// `

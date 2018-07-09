@@ -18,10 +18,10 @@
     "chartist-plugin-axistitle": "0.0.4",
     "chartist-plugin-legend": "^0.6.2",
     "json-loader": "^0.5.7",
-    "react": "^16.0.0",
+    "react": "^16.4.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-chartist": "^0.13.1",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.4.1",
     "react-ga": "^2.5.3",
     "react-katex": "^2.0.2",
     "react-redux": "^5.0.6",
@@ -32,7 +32,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "reselect": "^3.0.1",
-    "styled-components": "^3.3.2"
+    "styled-components": "^3.3.3"
   },
   "devDependencies": {
     "babel-helpers": "^6.24.1",
@@ -42,8 +42,8 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-react-tools": "1.x.x",
-    "jest": "^23.2.0",
+    "jest": "^23.3.0",
     "redux-mock-store": "^1.5.3",
-    "serve": "^8.2.0 "
+    "serve": "^9.2.0 "
   }
 }

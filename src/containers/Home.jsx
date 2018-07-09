@@ -26,7 +26,7 @@ class Games extends React.Component{
             <Bg>
               <Trends />
             </Bg>
-            <Container>
+            <Container color={'transparent'}>
               <Menu />
               <SlideUp>
                 <PostBox>

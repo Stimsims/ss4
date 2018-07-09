@@ -9,7 +9,7 @@ class UiBg extends React.Component{
     render(){
        // console.log("rendering game a");
         return (
-            <Bg>
+            <Bg style={{background: `${this.props.color}`}}>
                 {this.props.children}
             </Bg>
         )                     

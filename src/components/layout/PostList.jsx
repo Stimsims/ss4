@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-static';
+import SlideUp from './../UI/animations/SlideUp.jsx';
 
 export default class PostList extends React.Component{
     render(){
@@ -8,16 +9,20 @@ export default class PostList extends React.Component{
             return (
                 this.props.posts.map((post, i)=>{
                     return(
-                    <Link key={post.id} to={`/post/${post.id}`} classNames={'homepost'}>
-                        <Post key={post.id} style={{"transitionDelay": `${ i * .15 }s` }}>
-                            <h2>{post.title}</h2>
-                            <p style={{color:'grey'}}>
-                                {post.tags.map((t, i) => {
-                                return i===0? ""+t:", "+t;
-                                })}
-                            </p>
-                        </Post>
-                    </Link>
+                    
+                        <Link key={post.id} to={`/post/${post.id}`} classNames={'homepost'}>
+                            <SlideUp>
+                                <Post key={post.id} style={{"transitionDelay": `${ i * .15 }s` }}>
+                                    <h2>{post.title}</h2>
+                                    <p style={{color:'grey'}}>
+                                        {post.tags.map((t, i) => {
+                                        return i===0? ""+t:", "+t;
+                                        })}
+                                    </p>
+                                </Post>
+                            </SlideUp>
+                        </Link>
+                   
                 )}
                 )
             )

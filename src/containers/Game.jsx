@@ -27,7 +27,7 @@ class Games extends React.Component{
         }
     }
     componentDidMount(){
-        let getImport = this.getImport(this.props.g.import)
+        let getImport = this.getImport(this.props.game.import)
         if(getImport){
             getImport.then(res => {
                 console.log("import of game files complete, promise:", res);

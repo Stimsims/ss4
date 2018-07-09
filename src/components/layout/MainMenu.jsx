@@ -3,6 +3,10 @@ import { Link, withSiteData } from 'react-static'
 import './menu.css';
 import styled from 'styled-components';
 import colors from './../UI/Colors.js';
+// import FoldOut from './../UI/elements/FoldOut.jsx';
+// import PostList from './PostList.jsx';
+// import Tags from './Tags.jsx';
+import All from './../AllComponents.js';
 
 class Menu extends React.Component{
     constructor(props){
@@ -17,6 +21,7 @@ class Menu extends React.Component{
                     <Slinks><Link to="/posts">Posts</Link></Slinks>
                     <Slinks><Link to="/about">About</Link></Slinks>
                 </div>
+                {/* <FoldOut snippet={"hello"} callToAction={()=>{return ("action")}} >Children</FoldOut> */}
             </nav>
         )
     }

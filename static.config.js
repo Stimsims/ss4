@@ -48,7 +48,7 @@ export default {
     // ...makePages(t1, 2, 't1', 'src/containers/Posts.jsx', 
     //   (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: "t1" ,tag: "t1", tags, base: "t1"}),
     ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
-      (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: 'Posts', tag: null, tags, base: "posts"}),
+      (cid)=>{return `/post/${cid}`}, 'src/containers/Post.jsx', {title: 'Posts', tag: null, tags, base: "posts"}),
     {
       path: '/',
       component: 'src/containers/Home.jsx',
@@ -60,7 +60,7 @@ export default {
           path: `/post/${p.id}`,
           component: 'src/containers/Post',
           getData: () => ({
-            p,
+            post: p,
           }),
         })
       })
@@ -76,7 +76,7 @@ export default {
             path: `/${g.id}`,
             component: 'src/containers/Game',
             getData: () => ({
-              g,
+              game: g,
             }),
           })
         })
@@ -175,7 +175,7 @@ const getTagPages = (items, key, tags) => {
      pages = [
        ...pages,
        ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
-       (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: t ,tag: t, tags, base: t})
+       (cid)=>{return `/post/${cid}`}, 'src/containers/Post.jsx', {title: t ,tag: t, tags, base: t})
      ]
   })
   return pages;
@@ -234,7 +234,7 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
           path: childPath(p.id), //`/posts/${p.id}`,
           component: childComponent, //'src/containers/Post',
           getData: () => ({
-            p,
+            post: p,
           }),
         })
       })

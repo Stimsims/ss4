@@ -9,3 +9,5 @@ class IFrame extends React.Component{
 }
 
 export default IFrame;
+
+//      <IFrame src={"https://datastudio.google.com/embed/reporting/1AD-Xywiz627t-znwAMj1oe_7WL8fv-XM/page/MCWT"} />
