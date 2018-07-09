@@ -110,8 +110,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    font-size: 1.8em;\n    margin: 0px;\n    a{\n        color: ', ';\n    }\n'], ['\n    display: inline-block;\n    font-size: 1.8em;\n    margin: 0px;\n    a{\n        color: ', ';\n    }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    display: inline-block;\n    font-size: 1.1em;\n    margin-top: 11px;\n    transition: all 0.3s ease-in;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid ', ';\n        color: ', ';\n    }\n    a.active{\n        border-bottom: 2px solid ', ';\n        color: ', '; \n    }\n'], ['\n    display: inline-block;\n    font-size: 1.1em;\n    margin-top: 11px;\n    transition: all 0.3s ease-in;\n    a{\n        padding: 20px 10px 0px 10px;\n        border-bottom: 2px solid ', ';\n        color: ', ';\n    }\n    a.active{\n        border-bottom: 2px solid ', ';\n        color: ', '; \n    }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    \n    color: grey;\n    background: yellow;\n    vertical-align: middle;\n    a{\n        display: inline-block\n        vertical-align: middle;\n    }\n    a.active{\n        display: inline-block\n        background: red;\n        vertical-align: middle;\n    }\n'], ['\n    \n    color: grey;\n    background: yellow;\n    vertical-align: middle;\n    a{\n        display: inline-block\n        vertical-align: middle;\n    }\n    a.active{\n        display: inline-block\n        background: red;\n        vertical-align: middle;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: middle;\n    padding:0;\n    margin:0;\n    a{\n        display: inline-block;\n        line-height:50px;\n        padding:0 10px;\n        color: ', '\n        transition: all ', ' ease;\n        h1, h4{\n            margin:0;\n            padding:0;\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: color: ', ';\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n'], ['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: middle;\n    padding:0;\n    margin:0;\n    a{\n        display: inline-block;\n        line-height:50px;\n        padding:0 10px;\n        color: ', '\n        transition: all ', ' ease;\n        h1, h4{\n            margin:0;\n            padding:0;\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: color: ', ';\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    display: inline;\n    color: grey;\n    padding: 10px;\n    background: yellow;\n'], ['\n    display: inline;\n    color: grey;\n    padding: 10px;\n    background: yellow;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    width:100%;\n    height: 50px;\n    background: ', ';\n    display: flex;\n    padding:0 10px;\n    margin:0;\n'], ['\n    width:100%;\n    height: 50px;\n    background: ', ';\n    display: flex;\n    padding:0 10px;\n    margin:0;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    width: 100%;\n    height: 50px;\n    background: ', ';\n'], ['\n    width: 100%;\n    height: 50px;\n    background: ', ';\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\nheight: 100%;\nwidth: 100%;\ndisplay: inline-block;\n'], ['\nheight: 100%;\nwidth: 100%;\ndisplay: inline-block;\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n    display: inline-block;\n    font-size: 1.1em;\n    transition: all 0.3s ease-in;\n    height: 100%;\n    margin: auto;\n    vertical-align: middle;\n    a {\n        div{\n            height: 100%;\n            width: 100%;\n        }\n        height: 100%;\n        width: 100%;\n        display: inline-block;\n        color: ', ';\n    };\n    a.active{\n        div{\n\n            height: 100%;\n            width: 100%;\n            background-color: ', ';\n        }\n        height: 100%;\n        width: 100%;\n        background-color: ', ';\n        display: inline-block;\n        color: ', '; \n    };\n'], ['\n    display: inline-block;\n    font-size: 1.1em;\n    transition: all 0.3s ease-in;\n    height: 100%;\n    margin: auto;\n    vertical-align: middle;\n    a {\n        div{\n            height: 100%;\n            width: 100%;\n        }\n        height: 100%;\n        width: 100%;\n        display: inline-block;\n        color: ', ';\n    };\n    a.active{\n        div{\n\n            height: 100%;\n            width: 100%;\n            background-color: ', ';\n        }\n        height: 100%;\n        width: 100%;\n        background-color: ', ';\n        display: inline-block;\n        color: ', '; \n    };\n']);
 
 var _react = __webpack_require__(0);
 
@@ -125,7 +131,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Colors = __webpack_require__(5);
+var _Colors = __webpack_require__(6);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
@@ -160,49 +166,71 @@ var Menu = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'nav',
-                { style: Bar },
+                Container,
+                null,
                 _react2.default.createElement(
-                    Title,
+                    FlexChild,
                     null,
                     _react2.default.createElement(
                         _reactStatic.Link,
                         { exact: true, to: '/' },
-                        this.props.siteTitle
+                        _react2.default.createElement(
+                            'h1',
+                            null,
+                            this.props.siteTitle
+                        )
+                    )
+                ),
+                _react2.default.createElement(Mid, null),
+                _react2.default.createElement(
+                    FlexChild,
+                    null,
+                    _react2.default.createElement(
+                        _reactStatic.Link,
+                        { to: '/games' },
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            'Games'
+                        )
                     )
                 ),
                 _react2.default.createElement(
-                    'div',
-                    { style: sMenu },
+                    FlexChild,
+                    null,
                     _react2.default.createElement(
-                        Slinks,
-                        null,
+                        _reactStatic.Link,
+                        { to: '/posts' },
                         _react2.default.createElement(
-                            _reactStatic.Link,
-                            { to: '/games' },
-                            'Games'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        Slinks,
-                        null,
-                        _react2.default.createElement(
-                            _reactStatic.Link,
-                            { to: '/posts' },
+                            'h4',
+                            null,
                             'Posts'
                         )
-                    ),
+                    )
+                ),
+                _react2.default.createElement(
+                    FlexChild,
+                    null,
                     _react2.default.createElement(
-                        Slinks,
-                        null,
+                        _reactStatic.Link,
+                        { to: '/about' },
                         _react2.default.createElement(
-                            _reactStatic.Link,
-                            { to: '/about' },
+                            'h4',
+                            null,
                             'About'
                         )
                     )
                 )
-            );
+            )
+            // <Bar>
+            //     <Title><Link exact to="/" >{this.props.siteTitle}</Link></Title>
+            //     <div style={sMenu}>
+            //         <Slinks><Link to="/games"><Inner>Games</Inner></Link></Slinks>
+            //         <Slinks><Link to="/posts">Posts</Link></Slinks>
+            //         <Slinks><Link to="/about">About</Link></Slinks>
+            //     </div>
+            // </Bar>
+            ;
         }
     }]);
 
@@ -211,25 +239,55 @@ var Menu = function (_React$Component) {
 
 exports.default = (0, _reactStatic.withSiteData)(Menu);
 
+var Tag = _styledComponents2.default.h4(_templateObject);
+var Mid = _styledComponents2.default.span(_templateObject2);
 
-var Bar = {
-    width: '100%',
-    padding: '10px'
+var FlexChild = _styledComponents2.default.span(_templateObject3, function (props) {
+    return props.theme.text;
+}, function (props) {
+    return props.theme.animS;
+}, function (props) {
+    return props.theme.accent;
+}, function (props) {
+    return props.theme.textInverted;
+}, function (props) {
+    return props.theme.accentL;
+});
+var Title = _styledComponents2.default.h1(_templateObject4);
+var Container = _styledComponents2.default.div(_templateObject5, function (props) {
+    return props.theme.neutralL;
+});
 
-    // const sMenu = {
-    //     width: '100%',
-    //     display: 'flex',
-    //     justifyContent:'center',
-    //     alignItems: 'center',
-    // }
-};var sMenu = {
-    display: 'inline',
+var Bar = _styledComponents2.default.div(_templateObject6, function (props) {
+    return props.theme.neutralD;
+});
+
+var sMenu = {
+    display: 'inline-block',
     float: 'right',
-    height: '80px',
-    marginRight: '10px'
-};
-var Title = _styledComponents2.default.h1(_templateObject, _Colors2.default.s);
-var Slinks = _styledComponents2.default.h2(_templateObject2, _Colors2.default.transparent, _Colors2.default.s, _Colors2.default.sLight, _Colors2.default.sLight);
+    height: '100%'
+    // const Title = styled.h1`
+    //     display: inline-block;
+    //     font-size: 1.8em;
+    //     margin: 0px;
+    //     a{
+    //         color: ${props=>props.theme.accent};
+    //     }
+    //     a.active{
+    //         background-color: ${props=>props.theme.accent};
+    //         color: ${props => props.theme.textInverted};
+    //     }
+    // `
+};var Inner = _styledComponents2.default.div(_templateObject7);
+var Slinks = _styledComponents2.default.h2(_templateObject8, function (props) {
+    return props.theme.text;
+}, function (props) {
+    return props.theme.accent;
+}, function (props) {
+    return props.theme.accent;
+}, function (props) {
+    return props.theme.textInverted;
+});
 
 /*
 export interface NavLinkProps extends LinkProps {
@@ -244,6 +302,80 @@ export interface NavLinkProps extends LinkProps {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(6);
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UiBg = function (_React$Component) {
+    _inherits(UiBg, _React$Component);
+
+    function UiBg(props) {
+        _classCallCheck(this, UiBg);
+
+        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+    }
+
+    _createClass(UiBg, [{
+        key: 'render',
+        value: function render() {
+            // console.log("rendering game a");
+            return _react2.default.createElement(
+                Bg,
+                { z: this.props.z, color: this.props.color },
+                this.props.children
+            );
+        }
+    }]);
+
+    return UiBg;
+}(_react2.default.Component);
+
+exports.default = UiBg;
+
+
+var Bg = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.z ? props.z : 1;
+}, function (props) {
+    return props.color ? props.color : props.theme.neutral;
+});
+
+//background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -284,7 +416,7 @@ exports.default = colors;
 // };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -392,7 +524,7 @@ var Container = _styledComponents2.default.span(_templateObject);
 */
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -519,78 +651,8 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
     return props.theme.animS;
 }, function (props) {
     //console.log("icon btn props", props);
-    return props.color ? props.color : props.theme.accent;
+    return props.theme.primaryL;
 });
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: 1;\n  overflow:hidden;\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: 1;\n  overflow:hidden;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Colors = __webpack_require__(5);
-
-var _Colors2 = _interopRequireDefault(_Colors);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UiBg = function (_React$Component) {
-    _inherits(UiBg, _React$Component);
-
-    function UiBg(props) {
-        _classCallCheck(this, UiBg);
-
-        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
-    }
-
-    _createClass(UiBg, [{
-        key: 'render',
-        value: function render() {
-            // console.log("rendering game a");
-            return _react2.default.createElement(
-                Bg,
-                { style: { background: '' + this.props.color } },
-                this.props.children
-            );
-        }
-    }]);
-
-    return UiBg;
-}(_react2.default.Component);
-
-exports.default = UiBg;
-
-
-var Bg = _styledComponents2.default.div(_templateObject);
-
-//background-color: #330033;
-//lime #C6FF00   green #B2FF59   yellow #FFEB3B
-//dark blue #1A237E   dark cyan  #006064
 
 /***/ }),
 /* 9 */
@@ -617,7 +679,7 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 var _reactStatic = __webpack_require__(2);
 
-var _SlideUp = __webpack_require__(6);
+var _SlideUp = __webpack_require__(7);
 
 var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
@@ -949,7 +1011,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: orange;\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: orange;\n    padding: 10px;\n    margin: auto;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n    align-items: baseline;  \n    display: flex;\n'], ['\n    align-items: baseline;  \n    display: flex;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
     _templateObject7 = _taggedTemplateLiteral(['\n    align-self: center  \n'], ['\n    align-self: center  \n']);
@@ -962,7 +1024,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(7);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -1028,7 +1090,7 @@ var FoldOut = function (_React$Component) {
                 return _react2.default.createElement(
                     Wrapper,
                     { style: { display: 'inline-block', transform: 'rotate(90deg)' } },
-                    _react2.default.createElement(_IconButton2.default, { icon: "arrow", color: 'red', onInput: function onInput() {
+                    _react2.default.createElement(_IconButton2.default, { icon: "arrow", onInput: function onInput() {
                             _this2.handleClick(_this2.state.iOpen);
                         } })
                 );
@@ -1036,7 +1098,7 @@ var FoldOut = function (_React$Component) {
                 return _react2.default.createElement(
                     Wrapper,
                     { style: { display: 'inline-block', transform: 'rotate(0deg)' } },
-                    _react2.default.createElement(_IconButton2.default, { icon: "arrow", color: 'red', onInput: function onInput() {
+                    _react2.default.createElement(_IconButton2.default, { icon: "arrow", onInput: function onInput() {
                             _this2.handleClick(_this2.state.iOpen);
                         } })
                 );
@@ -1136,7 +1198,9 @@ var Accordion = _styledComponents2.default.div(_templateObject2);
 var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) {
     return props.theme.animM;
 });
-var Pill = _styledComponents2.default.div(_templateObject4);
+var Pill = _styledComponents2.default.div(_templateObject4, function (props) {
+    return props.theme.primary;
+});
 var Panel = _styledComponents2.default.div(_templateObject5);
 
 var Mid = _styledComponents2.default.span(_templateObject6);
@@ -1166,7 +1230,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Colors = __webpack_require__(5);
+var _Colors = __webpack_require__(6);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
@@ -1395,7 +1459,7 @@ var _FadeIn = __webpack_require__(10);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
-var _SlideUp = __webpack_require__(6);
+var _SlideUp = __webpack_require__(7);
 
 var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
@@ -1403,7 +1467,7 @@ var _Accordion = __webpack_require__(13);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
-var _Container = __webpack_require__(8);
+var _Container = __webpack_require__(5);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -2190,7 +2254,7 @@ var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    .ct-char
 
 exports.genStyles = genStyles;
 
-var _Colors = __webpack_require__(5);
+var _Colors = __webpack_require__(6);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
@@ -2429,12 +2493,33 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     main: 'orange',
-    accent: 'magenta',
-    accentD: 'red',
-    accentL: 'pink',
     animS: '0.3s',
-    animM: '0.5s'
+    animM: '0.5s',
+    neutral: '#303030',
+    neutralD: '#C4C4C4',
+    neutralL: '#C4C4C4',
+    text: '#303030',
+    textInverted: '#D1D1D1',
+    transparent: 'transparent',
+    primary: '#E07831',
+    primaryL: '#FFA638',
+    primaryD: '#A64E20',
+    accent: '#24C2C7',
+    accentD: '#157275',
+    accentL: '#7ACFDB'
 };
+/*
+neutral: '#CFC4A9',
+F7E9A8
+153F4C
+black and grey: 2B284C   F7EBA8
+limey green: 86BF33 L B0FC43 D 608A25
+dull yellow: D4AF2C
+aqua blue: 38B1C7
+purple looks good for info
+pink C75DB7 L EB8CE9
+orange: E07831 L FFA638
+*/
 
 /***/ }),
 /* 29 */
@@ -2800,7 +2885,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(7);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -3268,7 +3353,7 @@ var _MainMenu = __webpack_require__(4);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _IconButton = __webpack_require__(7);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -3279,6 +3364,10 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _TalkitGame = __webpack_require__(20);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
+
+var _Container = __webpack_require__(5);
+
+var _Container2 = _interopRequireDefault(_Container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3366,23 +3455,27 @@ var Games = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'div',
+                _Container2.default,
                 null,
-                _react2.default.createElement(_MainMenu2.default, null),
                 _react2.default.createElement(
-                    Title,
+                    'div',
                     null,
-                    this.props.post.title
-                ),
-                this.renderTags(),
-                this.renderContent(),
-                _react2.default.createElement(
-                    Shareable,
-                    null,
-                    _react2.default.createElement(_IconButton2.default, { icon: "done" }),
-                    _react2.default.createElement(_IconButton2.default, { icon: "delete" }),
-                    _react2.default.createElement(_IconButton2.default, { icon: "cached" }),
-                    _react2.default.createElement(_IconButton2.default, { icon: "save" })
+                    _react2.default.createElement(_MainMenu2.default, null),
+                    _react2.default.createElement(
+                        Title,
+                        null,
+                        this.props.post.title
+                    ),
+                    this.renderTags(),
+                    this.renderContent(),
+                    _react2.default.createElement(
+                        Shareable,
+                        null,
+                        _react2.default.createElement(_IconButton2.default, { icon: "done" }),
+                        _react2.default.createElement(_IconButton2.default, { icon: "delete" }),
+                        _react2.default.createElement(_IconButton2.default, { icon: "cached" }),
+                        _react2.default.createElement(_IconButton2.default, { icon: "save" })
+                    )
                 )
             );
         }
@@ -4869,7 +4962,7 @@ var _Bg = __webpack_require__(14);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _Container = __webpack_require__(8);
+var _Container = __webpack_require__(5);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -4881,7 +4974,7 @@ var _Tags = __webpack_require__(12);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _SlideUp = __webpack_require__(6);
+var _SlideUp = __webpack_require__(7);
 
 var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
@@ -4946,7 +5039,7 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                { color: 'black' },
+                null,
                 this.redirect(),
                 _react2.default.createElement(_MainMenu2.default, null),
                 _react2.default.createElement(
@@ -5013,7 +5106,7 @@ var _Bg = __webpack_require__(14);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _Container = __webpack_require__(8);
+var _Container = __webpack_require__(5);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -5025,7 +5118,7 @@ var _FadeIn = __webpack_require__(10);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
-var _SlideUp = __webpack_require__(6);
+var _SlideUp = __webpack_require__(7);
 
 var _SlideUp2 = _interopRequireDefault(_SlideUp);
 
@@ -5069,8 +5162,8 @@ var Games = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          _Bg2.default,
-          null,
+          _Container2.default,
+          { z: -1000 },
           _react2.default.createElement(_Trends2.default, null)
         ),
         _react2.default.createElement(
@@ -5155,11 +5248,11 @@ var _GameListItem = __webpack_require__(37);
 
 var _GameListItem2 = _interopRequireDefault(_GameListItem);
 
-var _Container = __webpack_require__(8);
+var _Container = __webpack_require__(5);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _IconButton = __webpack_require__(7);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -5224,15 +5317,8 @@ var Games = function (_React$Component) {
                 null,
                 _react2.default.createElement(_MainMenu2.default, null),
                 _react2.default.createElement(
-                    'button',
-                    { onClick: this.addKatex },
-                    'Katex'
-                ),
-                this.renderKatex(),
-                'All Posts:',
-                _react2.default.createElement(
                     'div',
-                    { style: { width: '100%' } },
+                    null,
                     this.props.games.map(function (post) {
                         return _react2.default.createElement(_GameListItem2.default, { game: post });
                     })
@@ -6676,10 +6762,10 @@ var map = {
 		21
 	],
 	"./UI/Colors": [
-		5
+		6
 	],
 	"./UI/Colors.js": [
-		5
+		6
 	],
 	"./UI/IFrame": [
 		41,
@@ -6704,10 +6790,10 @@ var map = {
 		0
 	],
 	"./UI/animations/SlideUp": [
-		6
+		7
 	],
 	"./UI/animations/SlideUp.jsx": [
-		6
+		7
 	],
 	"./UI/animations/styles.css": [
 		54
@@ -6731,16 +6817,16 @@ var map = {
 		19
 	],
 	"./UI/elements/Container": [
-		8
+		5
 	],
 	"./UI/elements/Container.jsx": [
-		8
+		5
 	],
 	"./UI/elements/IconButton": [
-		7
+		8
 	],
 	"./UI/elements/IconButton.jsx": [
-		7
+		8
 	],
 	"./UI/elements/TalkitGame": [
 		20
@@ -7130,16 +7216,16 @@ var map = {
 	"./DynamicComponent.jsx": 27,
 	"./Trends": 21,
 	"./Trends.jsx": 21,
-	"./UI/Colors": 5,
-	"./UI/Colors.js": 5,
+	"./UI/Colors": 6,
+	"./UI/Colors.js": 6,
 	"./UI/IFrame": 41,
 	"./UI/IFrame.jsx": 41,
 	"./UI/animations/FadeIn": 10,
 	"./UI/animations/FadeIn.jsx": 10,
 	"./UI/animations/Rotate": 42,
 	"./UI/animations/Rotate.jsx": 42,
-	"./UI/animations/SlideUp": 6,
-	"./UI/animations/SlideUp.jsx": 6,
+	"./UI/animations/SlideUp": 7,
+	"./UI/animations/SlideUp.jsx": 7,
 	"./UI/animations/styles.css": 54,
 	"./UI/elements/Accordion": 13,
 	"./UI/elements/Accordion.jsx": 13,
@@ -7147,10 +7233,10 @@ var map = {
 	"./UI/elements/Bg.jsx": 14,
 	"./UI/elements/Button": 19,
 	"./UI/elements/Button.jsx": 19,
-	"./UI/elements/Container": 8,
-	"./UI/elements/Container.jsx": 8,
-	"./UI/elements/IconButton": 7,
-	"./UI/elements/IconButton.jsx": 7,
+	"./UI/elements/Container": 5,
+	"./UI/elements/Container.jsx": 5,
+	"./UI/elements/IconButton": 8,
+	"./UI/elements/IconButton.jsx": 8,
 	"./UI/elements/TalkitGame": 20,
 	"./UI/elements/TalkitGame.jsx": 20,
 	"./UI/elements/icons.css": 65,
@@ -7347,4 +7433,4 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.8c84ad27.js.map
+//# sourceMappingURL=static.5f0701db.js.map
