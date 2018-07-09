@@ -38,7 +38,7 @@ class Games extends React.Component{
     }
     render(){
         return (
-            <Container color={'black'}>
+            <Container>
                     {this.redirect()}
                     <Menu />
                     <Title>{this.props.title}</Title>

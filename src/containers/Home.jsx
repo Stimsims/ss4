@@ -23,9 +23,12 @@ class Games extends React.Component{
     render(){
         return (
           <div>
-            <Bg>
+            {/* <Bg>
               <Trends />
-            </Bg>
+            </Bg> */}
+            <Container z={-1000}>
+              <Trends/>
+            </Container>
             <Container color={'transparent'}>
               <Menu />
               <SlideUp>

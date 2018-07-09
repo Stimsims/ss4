@@ -9,7 +9,7 @@ class UiBg extends React.Component{
     render(){
        // console.log("rendering game a");
         return (
-            <Bg style={{background: `${this.props.color}`}}>
+            <Bg z={this.props.z} color={this.props.color}>
                 {this.props.children}
             </Bg>
         )                     
@@ -26,8 +26,9 @@ const Bg = styled.div`
   left:0;
   bottom:0;
   right:0;
-  z-index: 1;
+  z-index: ${props => props.z? props.z:1};
   overflow:hidden;
+  background-color: ${props => props.color? props.color:props.theme.neutral}
 `
 
 //background-color: #330033;

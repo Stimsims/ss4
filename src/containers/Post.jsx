@@ -5,6 +5,7 @@ import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Talkit from './../components/UI/elements/TalkitGame.jsx';
+import Container from './../components/UI/elements/Container';
 
 class Games extends React.Component{
     constructor(props){
@@ -56,6 +57,7 @@ class Games extends React.Component{
    */
     render(){
         return (
+            <Container>
             <div>
               <Menu />
               <Title>{this.props.post.title}</Title>
@@ -68,6 +70,7 @@ class Games extends React.Component{
                 <Icon icon={"save"} />
               </Shareable>
             </div>
+            </Container>
           )
     }
 }

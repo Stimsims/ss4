@@ -44,7 +44,7 @@ class Games extends React.Component{
                 <Menu />
               {/* <button onClick={this.addKatex}>Katex</button>
               {this.renderKatex()} */}
-                <div style={{width: '100%'}}>
+                <div>
                     {this.props.games.map(post => {
                         return(
                             <GameItem game={post} />

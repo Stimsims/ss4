@@ -74,7 +74,7 @@ export default Icon;
     &:hover {
         background-color: ${props => {
             //console.log("icon btn props", props);
-            return props.color ? props.color : props.theme.accent;
+            return props.theme.primaryL;
         }};
     };
     img{  

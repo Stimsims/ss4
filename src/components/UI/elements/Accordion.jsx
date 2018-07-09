@@ -33,13 +33,13 @@ class FoldOut extends React.Component{
         if(this.state.open){
             return (
                 <Wrapper style={{display: 'inline-block', transform: 'rotate(90deg)'}}>
-                    <Icon icon={"arrow"} color={'red'} onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                    <Icon icon={"arrow"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }else{
             return (
                 <Wrapper style={{display: 'inline-block', transform: 'rotate(0deg)'}}>
-                    <Icon icon={"arrow"} color={'red'} onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                    <Icon icon={"arrow"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }
@@ -128,7 +128,7 @@ const Wrapper = styled.div`
 `
 const Pill = styled.div`
     border-radius: 50px;
-    background-color: orange;
+    background-color: ${props=>props.theme.primary};
     padding: 10px;
     margin: auto;
 `
