@@ -40,12 +40,11 @@ class Games extends React.Component{
     }
     render(){
         return (
-            <Container color={'blue'}>
+            <Container>
                 <Menu />
-              <button onClick={this.addKatex}>Katex</button>
-              {this.renderKatex()}
-              All Posts:
-                <div>
+              {/* <button onClick={this.addKatex}>Katex</button>
+              {this.renderKatex()} */}
+                <div style={{width: '100%'}}>
                     {this.props.games.map(post => {
                         return(
                             <GameItem game={post} />

@@ -946,11 +946,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    width:100%;\n    padding: 0;\n    margin: 0;\n    overflow: hidden;\n    background-color: pink;\n'], ['\n    width:100%;\n    padding: 0;\n    margin: 0;\n    overflow: hidden;\n    background-color: pink;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    display:inline-block;\n    background: yellow;\n    margin: 0;\n    p{\n        display: inline;\n    }\n'], ['\n    display:inline-block;\n    background: yellow;\n    margin: 0;\n    p{\n        display: inline;\n    }\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    background: green;\n    float: right;\n    margin: 0;\n'], ['\n    background: green;\n    float: right;\n    margin: 0;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: orange;\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: orange;\n    padding: 10px;\n    margin: auto;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    align-items: baseline;  \n    display: flex;\n'], ['\n    align-items: baseline;  \n    display: flex;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    align-self: center  \n'], ['\n    align-self: center  \n']);
 
 var _react = __webpack_require__(0);
 
@@ -1072,33 +1074,51 @@ var FoldOut = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { style: { width: '100%', padding: '10px', overflow: 'hidden' } },
                 _react2.default.createElement(
-                    Panel,
+                    Pill,
                     null,
                     _react2.default.createElement(
-                        Left,
+                        Panel,
                         null,
-                        this.renderOpenButton(),
                         _react2.default.createElement(
-                            'p',
+                            FlexChild,
                             null,
-                            this.props.snippet
+                            this.renderOpenButton()
+                        ),
+                        _react2.default.createElement(
+                            FlexChild,
+                            null,
+                            _react2.default.createElement(
+                                Stack,
+                                null,
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    this.props.title
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    this.props.subtitle
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(Mid, null),
+                        _react2.default.createElement(
+                            FlexChild,
+                            null,
+                            _react2.default.createElement(
+                                _Button2.default,
+                                { onInput: function onInput() {
+                                        _this3.handleClick(_this3.state.iSelect);
+                                    } },
+                                this.props.callToAction()
+                            )
                         )
                     ),
-                    _react2.default.createElement(
-                        Right,
-                        null,
-                        _react2.default.createElement(
-                            _Button2.default,
-                            { onInput: function onInput() {
-                                    _this3.handleClick(_this3.state.iSelect);
-                                } },
-                            this.props.callToAction()
-                        )
-                    )
-                ),
-                this.renderFoldOut()
+                    this.renderFoldOut()
+                )
             );
         }
     }]);
@@ -1111,14 +1131,17 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(FoldOut);
 
-
-var Accordion = _styledComponents2.default.div(_templateObject);
-var Wrapper = _styledComponents2.default.div(_templateObject2, function (props) {
+var Stack = _styledComponents2.default.ul(_templateObject);
+var Accordion = _styledComponents2.default.div(_templateObject2);
+var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) {
     return props.theme.animM;
 });
-var Panel = _styledComponents2.default.div(_templateObject3);
-var Left = _styledComponents2.default.span(_templateObject4);
-var Right = _styledComponents2.default.span(_templateObject5);
+var Pill = _styledComponents2.default.div(_templateObject4);
+var Panel = _styledComponents2.default.div(_templateObject5);
+
+var Mid = _styledComponents2.default.span(_templateObject6);
+
+var FlexChild = _styledComponents2.default.span(_templateObject7);
 
 /***/ }),
 /* 14 */
@@ -1399,7 +1422,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all ', ' ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n'], ['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all ', ' ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n'], ['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1458,8 +1481,6 @@ exports.default = Button;
 
 var Btn = _styledComponents2.default.button(_templateObject, function (props) {
     return props.theme.accent;
-}, function (props) {
-    return props.theme.animS;
 }, function (props) {
     return props.theme.accentD;
 });
@@ -3171,10 +3192,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var GameItem = function (_React$Component) {
     _inherits(GameItem, _React$Component);
 
-    function GameItem() {
+    function GameItem(props) {
         _classCallCheck(this, GameItem);
 
-        return _possibleConstructorReturn(this, (GameItem.__proto__ || Object.getPrototypeOf(GameItem)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (GameItem.__proto__ || Object.getPrototypeOf(GameItem)).call(this, props));
+
+        var subtitle = _this.props.game.tags.map(function (t, i) {
+            return i <= 0 ? '' + t : ', ' + t;
+        });
+        _this.state = {
+            subtitle: subtitle
+        };
+        return _this;
     }
 
     _createClass(GameItem, [{
@@ -3187,13 +3216,14 @@ var GameItem = function (_React$Component) {
                 {
                     key: this.props.game.id,
                     event: { category: 'GamesPage', label: this.props.game.id },
-                    snippet: this.props.game.title,
+                    title: this.props.game.title,
+                    subtitle: this.state.subtitle,
                     callToAction: function callToAction() {
                         return _react2.default.createElement(
                             _reactStatic.Link,
                             { key: _this2.props.game.id,
                                 to: '/games/' + _this2.props.game.id },
-                            'Play Game'
+                            'Play'
                         );
                     } },
                 this.props.game.desc
@@ -5191,7 +5221,7 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                { color: 'blue' },
+                null,
                 _react2.default.createElement(_MainMenu2.default, null),
                 _react2.default.createElement(
                     'button',
@@ -5202,7 +5232,7 @@ var Games = function (_React$Component) {
                 'All Posts:',
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { style: { width: '100%' } },
                     this.props.games.map(function (post) {
                         return _react2.default.createElement(_GameListItem2.default, { game: post });
                     })
@@ -7309,7 +7339,7 @@ exports = module.exports = __webpack_require__(11)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
 // module
-exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}", ""]);
+exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:Raleway,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}", ""]);
 
 // exports
 
@@ -7317,4 +7347,4 @@ exports.push([module.i, "body{font-family:Raleway,sans-serif;font-weight:300;fon
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.754e1121.js.map
+//# sourceMappingURL=static.8c84ad27.js.map

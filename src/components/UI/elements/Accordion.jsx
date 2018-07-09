@@ -53,17 +53,32 @@ class FoldOut extends React.Component{
     }
     render(){
         return (
-            <div>
+            <div style={{width: '100%', padding: '10px', overflow: 'hidden'}}>
+            <Pill>
                 <Panel>
-                    <Left>
+                    <FlexChild>{this.renderOpenButton()}</FlexChild>
+                    <FlexChild>
+                        <Stack>
+                            <h3>{this.props.title}</h3>
+                            <p>{this.props.subtitle}</p>
+                        </Stack>
+                    </FlexChild>
+                    <Mid />
+                    <FlexChild><Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button></FlexChild>
+                    {/* <Left>
                         {this.renderOpenButton()}
-                        <p>{this.props.snippet}</p>
+                        <Stack>
+                            <h3>{this.props.title}</h3>
+                            <p>{this.props.subtitle}</p>
+                        </Stack>
                     </Left>
+                    <Mid />
                     <Right>
                         <Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button>
-                    </Right>
+                    </Right> */}
                 </Panel>
                 {this.renderFoldOut()}
+            </Pill>
             </div>
         )
     }
@@ -74,7 +89,15 @@ const mapStateToProps = (state) => {
     )
 }
 export default connect(mapStateToProps)(FoldOut);
-
+const Stack = styled.ul`
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    h3, p{
+        margin: 3px;
+    }
+`
 const Accordion = styled.div`
     margin: 0px;
     padding: 0px;
@@ -103,23 +126,22 @@ const Wrapper = styled.div`
     }} ease;
     display: 'inline-block'; 
 `
+const Pill = styled.div`
+    border-radius: 50px;
+    background-color: orange;
+    padding: 10px;
+    margin: auto;
+`
 const Panel = styled.div`
-    width:100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    background-color: pink;
+    align-items: baseline;  
+    display: flex;
 `
-const Left = styled.span`
-    display:inline-block;
-    background: yellow;
-    margin: 0;
-    p{
-        display: inline;
-    }
+
+const Mid = styled.span`
+    display: inline-block;
+    flex: 1;
 `
-const Right = styled.span`
-    background: green;
-    float: right;
-    margin: 0;
+
+const FlexChild = styled.span`
+    align-self: center  
 `
