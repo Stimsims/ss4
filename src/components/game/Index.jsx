@@ -15,6 +15,7 @@ class Index extends React.Component{
     this.state = {
       game: null
     }
+    console.log("website: index of game, reducers: ", samplegame.getReducers()());
   }
     // renderPersistStore(){
     //   return(
