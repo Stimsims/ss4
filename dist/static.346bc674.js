@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 73);
@@ -135,7 +135,7 @@ var _Colors = __webpack_require__(6);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
-var _AllComponents = __webpack_require__(18);
+var _AllComponents = __webpack_require__(19);
 
 var _AllComponents2 = _interopRequireDefault(_AllComponents);
 
@@ -1034,7 +1034,7 @@ var _reactGa2 = _interopRequireDefault(_reactGa);
 
 var _reactRedux = __webpack_require__(3);
 
-var _Button = __webpack_require__(19);
+var _Button = __webpack_require__(20);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -1285,6 +1285,177 @@ var Bg = _styledComponents2.default.div(_templateObject, _Colors2.default.pDark,
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(38);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactChartist = __webpack_require__(87);
+
+var _reactChartist2 = _interopRequireDefault(_reactChartist);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _chartistPluginLegend = __webpack_require__(62);
+
+var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
+
+var _chartistPluginAxistitle = __webpack_require__(63);
+
+var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
+
+var _animations = __webpack_require__(23);
+
+var _constants = __webpack_require__(24);
+
+var _styles = __webpack_require__(25);
+
+__webpack_require__(55);
+
+var _utilities = __webpack_require__(26);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import Legend from 'chartist-plugin-legend';
+// import Axis from 'chartist-plugin-axistitle';
+
+
+// import Chartist from 'chartist';
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+var Pie = function (_React$Component) {
+  _inherits(Pie, _React$Component);
+
+  function Pie(props) {
+    _classCallCheck(this, Pie);
+
+    //let chart = <ChartistGraph  data={props.data} listener={listeners} options={props.options} type={'Line'} />;
+    //listener={this.state.listeners} options={this.props.options}
+    var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
+
+    console.log('line graph');
+    console.log(props);
+    console.log("props ops");
+    console.log(props.options);
+    var plugins = [];
+    var defaults = {
+      showPoint: false,
+      showGrid: false,
+      chartPadding: {
+        top: 10,
+        right: 20,
+        bottom: 180,
+        left: 20
+      },
+      plugins: plugins
+    };
+
+    if (props.legend) {
+      var names = (0, _utilities.getAxisLabels)(props.legend);
+      plugins.push((0, _chartistPluginLegend2.default)({
+        position: 'top',
+        classNames: ['ct-myclass'],
+        legendNames: names
+      }));
+    }
+    if (props.titleX || props.titleY) {
+      var axis = {};
+      if (props.titleX) {
+        axis.axisX = {
+          axisTitle: '' + props.titleX,
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 0
+          },
+          textAnchor: 'middle'
+        };
+      }
+      if (props.titleY) {
+        axis.axisY = {
+          axisTitle: '' + props.titleY,
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 0
+          },
+          textAnchor: 'middle'
+        };
+      }
+      plugins.push((0, _chartistPluginAxistitle2.default)(axis));
+    }
+    var newOpt = Object.assign(defaults, props.options);
+    console.log("newOpt");
+    console.log(newOpt);
+
+    _this.state = {
+      options: newOpt,
+      container: (0, _styles.genStyles)(_this.props.data),
+      data: {
+        labels: [1, 2, 3],
+        series: [[1, 2, 3]]
+      }
+    };
+    return _this;
+  }
+
+  _createClass(Pie, [{
+    key: 'render',
+    value: function render() {
+
+      // console.log('line graph');
+      // console.log(this.props);
+      return _react2.default.createElement(
+        this.state.container,
+        { className: 'chartContainer' },
+        _react2.default.createElement(
+          'h4',
+          { style: titleStyle },
+          this.props.title
+        ),
+        _react2.default.createElement(_reactChartist2.default, { data: this.props.data, listener: this.state.listeners, options: this.state.options, type: 'Line' })
+      );
+    }
+  }]);
+
+  return Pie;
+}(_react2.default.Component);
+
+exports.default = Pie;
+
+
+var titleStyle = {
+  color: 'white',
+  textAlign: 'center',
+  marginBottom: '0px'
+};
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
@@ -1366,13 +1537,13 @@ exports.default = Katex;
 var Container = _styledComponents2.default.span(_templateObject2);
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1441,7 +1612,7 @@ function setSignedIn(signedIn) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1474,7 +1645,7 @@ var _Container2 = _interopRequireDefault(_Container);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1550,7 +1721,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1822,7 +1993,7 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1844,7 +2015,7 @@ var _reactDom = __webpack_require__(38);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Line = __webpack_require__(22);
+var _Line = __webpack_require__(15);
 
 var _Line2 = _interopRequireDefault(_Line);
 
@@ -1945,177 +2116,6 @@ exports.default = Pie;
 
 
 var Container = _styledComponents2.default.div(_templateObject);
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(38);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactChartist = __webpack_require__(87);
-
-var _reactChartist2 = _interopRequireDefault(_reactChartist);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _chartistPluginLegend = __webpack_require__(62);
-
-var _chartistPluginLegend2 = _interopRequireDefault(_chartistPluginLegend);
-
-var _chartistPluginAxistitle = __webpack_require__(63);
-
-var _chartistPluginAxistitle2 = _interopRequireDefault(_chartistPluginAxistitle);
-
-var _animations = __webpack_require__(23);
-
-var _constants = __webpack_require__(24);
-
-var _styles = __webpack_require__(25);
-
-__webpack_require__(55);
-
-var _utilities = __webpack_require__(26);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import Legend from 'chartist-plugin-legend';
-// import Axis from 'chartist-plugin-axistitle';
-
-
-// import Chartist from 'chartist';
-if (typeof window === 'undefined') {
-  global.window = {};
-}
-
-var Pie = function (_React$Component) {
-  _inherits(Pie, _React$Component);
-
-  function Pie(props) {
-    _classCallCheck(this, Pie);
-
-    //let chart = <ChartistGraph  data={props.data} listener={listeners} options={props.options} type={'Line'} />;
-    //listener={this.state.listeners} options={this.props.options}
-    var _this = _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
-
-    console.log('line graph');
-    console.log(props);
-    console.log("props ops");
-    console.log(props.options);
-    var plugins = [];
-    var defaults = {
-      showPoint: false,
-      showGrid: false,
-      chartPadding: {
-        top: 10,
-        right: 20,
-        bottom: 180,
-        left: 20
-      },
-      plugins: plugins
-    };
-
-    if (props.legend) {
-      var names = (0, _utilities.getAxisLabels)(props.legend);
-      plugins.push((0, _chartistPluginLegend2.default)({
-        position: 'top',
-        classNames: ['ct-myclass'],
-        legendNames: names
-      }));
-    }
-    if (props.titleX || props.titleY) {
-      var axis = {};
-      if (props.titleX) {
-        axis.axisX = {
-          axisTitle: '' + props.titleX,
-          axisClass: 'ct-axis-title',
-          offset: {
-            x: 0,
-            y: 0
-          },
-          textAnchor: 'middle'
-        };
-      }
-      if (props.titleY) {
-        axis.axisY = {
-          axisTitle: '' + props.titleY,
-          axisClass: 'ct-axis-title',
-          offset: {
-            x: 0,
-            y: 0
-          },
-          textAnchor: 'middle'
-        };
-      }
-      plugins.push((0, _chartistPluginAxistitle2.default)(axis));
-    }
-    var newOpt = Object.assign(defaults, props.options);
-    console.log("newOpt");
-    console.log(newOpt);
-
-    _this.state = {
-      options: newOpt,
-      container: (0, _styles.genStyles)(_this.props.data),
-      data: {
-        labels: [1, 2, 3],
-        series: [[1, 2, 3]]
-      }
-    };
-    return _this;
-  }
-
-  _createClass(Pie, [{
-    key: 'render',
-    value: function render() {
-
-      // console.log('line graph');
-      // console.log(this.props);
-      return _react2.default.createElement(
-        this.state.container,
-        { className: 'chartContainer' },
-        _react2.default.createElement(
-          'h4',
-          { style: titleStyle },
-          this.props.title
-        ),
-        _react2.default.createElement(_reactChartist2.default, { data: this.props.data, listener: this.state.listeners, options: this.state.options, type: 'Line' })
-      );
-    }
-  }]);
-
-  return Pie;
-}(_react2.default.Component);
-
-exports.default = Pie;
-
-
-var titleStyle = {
-  color: 'white',
-  textAlign: 'center',
-  marginBottom: '0px'
-};
 
 /***/ }),
 /* 23 */
@@ -2600,9 +2600,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
-var _apiReducer = __webpack_require__(17);
+var _apiReducer = __webpack_require__(18);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2812,9 +2812,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Katex = __webpack_require__(15);
+var _Katex = __webpack_require__(16);
 
 var _Katex2 = _interopRequireDefault(_Katex);
+
+var _Line = __webpack_require__(15);
+
+var _Line2 = _interopRequireDefault(_Line);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2838,7 +2842,8 @@ var Game = function (_React$Component) {
 
         _this.state = {
             tools: {
-                katex: _Katex2.default
+                katex: _Katex2.default,
+                gLine: _Line2.default
             }
         };
         return _this;
@@ -3059,7 +3064,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
 var _reduxLogger = __webpack_require__(56);
 
@@ -3128,7 +3133,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
 var _reduxLogger = __webpack_require__(56);
 
@@ -3360,7 +3365,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(20);
+var _TalkitGame = __webpack_require__(21);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
@@ -4187,7 +4192,7 @@ var _samplegame = __webpack_require__(43);
 
 var _samplegame2 = _interopRequireDefault(_samplegame);
 
-var _Katex = __webpack_require__(15);
+var _Katex = __webpack_require__(16);
 
 var _Katex2 = _interopRequireDefault(_Katex);
 
@@ -5097,7 +5102,7 @@ var _MainMenu = __webpack_require__(4);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _Trends = __webpack_require__(21);
+var _Trends = __webpack_require__(22);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
@@ -6706,10 +6711,10 @@ module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide
 
 var map = {
 	"./AllComponents": [
-		18
+		19
 	],
 	"./AllComponents.js": [
-		18
+		19
 	],
 	"./DynamicComponent": [
 		27
@@ -6718,10 +6723,10 @@ var map = {
 		27
 	],
 	"./Trends": [
-		21
+		22
 	],
 	"./Trends.jsx": [
-		21
+		22
 	],
 	"./UI/Colors": [
 		6
@@ -6773,10 +6778,10 @@ var map = {
 		14
 	],
 	"./UI/elements/Button": [
-		19
+		20
 	],
 	"./UI/elements/Button.jsx": [
-		19
+		20
 	],
 	"./UI/elements/Container": [
 		5
@@ -6791,20 +6796,20 @@ var map = {
 		8
 	],
 	"./UI/elements/TalkitGame": [
-		20
+		21
 	],
 	"./UI/elements/TalkitGame.jsx": [
-		20
+		21
 	],
 	"./UI/elements/icons.css": [
 		65,
 		0
 	],
 	"./UI/graphs/Line": [
-		22
+		15
 	],
 	"./UI/graphs/Line.jsx": [
-		22
+		15
 	],
 	"./UI/graphs/animations": [
 		23
@@ -6828,12 +6833,10 @@ var map = {
 		26
 	],
 	"./UI/math/Katex": [
-		15,
-		0
+		16
 	],
 	"./UI/math/Katex.jsx": [
-		15,
-		0
+		16
 	],
 	"./UI/math/katex.css": [
 		67,
@@ -6866,10 +6869,10 @@ var map = {
 		0
 	],
 	"./apis/apiReducer": [
-		17
+		18
 	],
 	"./apis/apiReducer.js": [
-		17
+		18
 	],
 	"./constants": [
 		24
@@ -6878,12 +6881,10 @@ var map = {
 		24
 	],
 	"./game/Game": [
-		32,
-		0
+		32
 	],
 	"./game/Game.jsx": [
-		32,
-		0
+		32
 	],
 	"./game/GameMenu": [
 		33,
@@ -6894,12 +6895,10 @@ var map = {
 		0
 	],
 	"./game/Index": [
-		34,
-		0
+		34
 	],
 	"./game/Index.jsx": [
-		34,
-		0
+		34
 	],
 	"./game/Load": [
 		44,
@@ -6926,12 +6925,10 @@ var map = {
 		0
 	],
 	"./game/Store": [
-		35,
-		0
+		35
 	],
 	"./game/Store.jsx": [
-		35,
-		0
+		35
 	],
 	"./game/Wrapper": [
 		46,
@@ -7018,7 +7015,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
 var _reducer = __webpack_require__(95);
 
@@ -7209,12 +7206,12 @@ module.exports = require("redux-persist/lib/integration/react");
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./AllComponents": 18,
-	"./AllComponents.js": 18,
+	"./AllComponents": 19,
+	"./AllComponents.js": 19,
 	"./DynamicComponent": 27,
 	"./DynamicComponent.jsx": 27,
-	"./Trends": 21,
-	"./Trends.jsx": 21,
+	"./Trends": 22,
+	"./Trends.jsx": 22,
 	"./UI/Colors": 6,
 	"./UI/Colors.js": 6,
 	"./UI/IFrame": 41,
@@ -7230,17 +7227,17 @@ var map = {
 	"./UI/elements/Accordion.jsx": 13,
 	"./UI/elements/Bg": 14,
 	"./UI/elements/Bg.jsx": 14,
-	"./UI/elements/Button": 19,
-	"./UI/elements/Button.jsx": 19,
+	"./UI/elements/Button": 20,
+	"./UI/elements/Button.jsx": 20,
 	"./UI/elements/Container": 5,
 	"./UI/elements/Container.jsx": 5,
 	"./UI/elements/IconButton": 8,
 	"./UI/elements/IconButton.jsx": 8,
-	"./UI/elements/TalkitGame": 20,
-	"./UI/elements/TalkitGame.jsx": 20,
+	"./UI/elements/TalkitGame": 21,
+	"./UI/elements/TalkitGame.jsx": 21,
 	"./UI/elements/icons.css": 65,
-	"./UI/graphs/Line": 22,
-	"./UI/graphs/Line.jsx": 22,
+	"./UI/graphs/Line": 15,
+	"./UI/graphs/Line.jsx": 15,
 	"./UI/graphs/animations": 23,
 	"./UI/graphs/animations.js": 23,
 	"./UI/graphs/main.css": 55,
@@ -7248,8 +7245,8 @@ var map = {
 	"./UI/graphs/styles.js": 25,
 	"./UI/graphs/utilities": 26,
 	"./UI/graphs/utilities.js": 26,
-	"./UI/math/Katex": 15,
-	"./UI/math/Katex.jsx": 15,
+	"./UI/math/Katex": 16,
+	"./UI/math/Katex.jsx": 16,
 	"./UI/math/katex.css": 67,
 	"./UI/theme": 28,
 	"./UI/theme.js": 28,
@@ -7259,8 +7256,8 @@ var map = {
 	"./apis/Gapi.jsx": 30,
 	"./apis/SignInUi": 31,
 	"./apis/SignInUi.jsx": 31,
-	"./apis/apiReducer": 17,
-	"./apis/apiReducer.js": 17,
+	"./apis/apiReducer": 18,
+	"./apis/apiReducer.js": 18,
 	"./constants": 24,
 	"./constants.js": 24,
 	"./game/Game": 32,
@@ -7322,7 +7319,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
 var _reduxLogger = __webpack_require__(56);
 
@@ -7363,13 +7360,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(16);
+var _redux = __webpack_require__(17);
 
 var _counter = __webpack_require__(104);
 
 var _counter2 = _interopRequireDefault(_counter);
 
-var _apiReducer = __webpack_require__(17);
+var _apiReducer = __webpack_require__(18);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7432,4 +7429,4 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.6b90ed56.js.map
+//# sourceMappingURL=static.346bc674.js.map

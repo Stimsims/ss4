@@ -2,6 +2,7 @@ import React from 'react'
 //import Index from './../../games/g5/components/Index.jsx';
 //import samplegame from 'samplegame';
 import Katex from './../UI/math/Katex.jsx';
+import Line from './../UI/graphs/Line.jsx';
 
 class Game extends React.Component{
     constructor(props){
@@ -9,7 +10,8 @@ class Game extends React.Component{
         //console.log("game constructor, sample game: ", samplegame);
         this.state = {
             tools: {
-                katex: Katex
+                katex: Katex,
+                gLine: Line
             }
         }
     }
