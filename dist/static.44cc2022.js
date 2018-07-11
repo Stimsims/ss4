@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 73);
@@ -93,12 +93,86 @@ module.exports = require("react-static");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(6);
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UiBg = function (_React$Component) {
+    _inherits(UiBg, _React$Component);
+
+    function UiBg(props) {
+        _classCallCheck(this, UiBg);
+
+        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+    }
+
+    _createClass(UiBg, [{
+        key: 'render',
+        value: function render() {
+            // console.log("rendering game a");
+            return _react2.default.createElement(
+                Bg,
+                { z: this.props.z, color: this.props.color },
+                this.props.children
+            );
+        }
+    }]);
+
+    return UiBg;
+}(_react2.default.Component);
+
+exports.default = UiBg;
+
+
+var Bg = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.z ? props.z : 1;
+}, function (props) {
+    return props.color ? props.color : props.theme.neutral;
+});
+
+//background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -299,80 +373,6 @@ export interface NavLinkProps extends LinkProps {
     location?: H.Location;
 }
 */
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Colors = __webpack_require__(6);
-
-var _Colors2 = _interopRequireDefault(_Colors);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UiBg = function (_React$Component) {
-    _inherits(UiBg, _React$Component);
-
-    function UiBg(props) {
-        _classCallCheck(this, UiBg);
-
-        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
-    }
-
-    _createClass(UiBg, [{
-        key: 'render',
-        value: function render() {
-            // console.log("rendering game a");
-            return _react2.default.createElement(
-                Bg,
-                { z: this.props.z, color: this.props.color },
-                this.props.children
-            );
-        }
-    }]);
-
-    return UiBg;
-}(_react2.default.Component);
-
-exports.default = UiBg;
-
-
-var Bg = _styledComponents2.default.div(_templateObject, function (props) {
-    return props.z ? props.z : 1;
-}, function (props) {
-    return props.color ? props.color : props.theme.neutral;
-});
-
-//background-color: #330033;
-//lime #C6FF00   green #B2FF59   yellow #FFEB3B
-//dark blue #1A237E   dark cyan  #006064
 
 /***/ }),
 /* 6 */
@@ -1032,7 +1032,7 @@ var _reactGa = __webpack_require__(40);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _Button = __webpack_require__(19);
 
@@ -1467,7 +1467,7 @@ var _Accordion = __webpack_require__(13);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -2597,7 +2597,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _redux = __webpack_require__(16);
 
@@ -2722,7 +2722,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2817,6 +2817,14 @@ var _Katex2 = _interopRequireDefault(_Katex);
 
 var _recharts = __webpack_require__(94);
 
+var _Container = __webpack_require__(3);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2853,7 +2861,9 @@ var Game = function (_React$Component) {
                     CartesianGrid: _recharts.CartesianGrid,
                     Tooltip: _recharts.Tooltip,
                     Legend: _recharts.Legend
-                }
+                },
+                container: _Container2.default,
+                styled: _styledComponents2.default
             }
         };
         return _this;
@@ -3072,7 +3082,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _redux = __webpack_require__(16);
 
@@ -3141,7 +3151,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _redux = __webpack_require__(16);
 
@@ -3363,7 +3373,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(5);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -3379,7 +3389,7 @@ var _TalkitGame = __webpack_require__(20);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -3663,7 +3673,7 @@ var _PersistStore2 = _interopRequireDefault(_PersistStore);
 
 var _ids = __webpack_require__(66);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _GameMenu = __webpack_require__(33);
 
@@ -4968,7 +4978,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(5);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -4976,7 +4986,7 @@ var _Bg = __webpack_require__(14);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -5106,7 +5116,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(5);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -5118,7 +5128,7 @@ var _Bg = __webpack_require__(14);
 
 var _Bg2 = _interopRequireDefault(_Bg);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -5252,7 +5262,7 @@ var _FadeIn = __webpack_require__(10);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(5);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -5260,7 +5270,7 @@ var _GameListItem = __webpack_require__(37);
 
 var _GameListItem2 = _interopRequireDefault(_GameListItem);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -5622,9 +5632,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(5);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -5793,7 +5803,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _reactGa = __webpack_require__(40);
 
@@ -5949,7 +5959,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _reactHotLoader = __webpack_require__(75);
 
@@ -6792,10 +6802,10 @@ var map = {
 		19
 	],
 	"./UI/elements/Container": [
-		5
+		3
 	],
 	"./UI/elements/Container.jsx": [
-		5
+		3
 	],
 	"./UI/elements/IconButton": [
 		8
@@ -6939,12 +6949,10 @@ var map = {
 		0
 	],
 	"./game/Store": [
-		35,
-		0
+		35
 	],
 	"./game/Store.jsx": [
-		35,
-		0
+		35
 	],
 	"./game/Wrapper": [
 		46,
@@ -6973,10 +6981,10 @@ var map = {
 		37
 	],
 	"./layout/MainMenu": [
-		4
+		5
 	],
 	"./layout/MainMenu.jsx": [
-		4
+		5
 	],
 	"./layout/PostList": [
 		9
@@ -7251,8 +7259,8 @@ var map = {
 	"./UI/elements/Bg.jsx": 14,
 	"./UI/elements/Button": 19,
 	"./UI/elements/Button.jsx": 19,
-	"./UI/elements/Container": 5,
-	"./UI/elements/Container.jsx": 5,
+	"./UI/elements/Container": 3,
+	"./UI/elements/Container.jsx": 3,
 	"./UI/elements/IconButton": 8,
 	"./UI/elements/IconButton.jsx": 8,
 	"./UI/elements/TalkitGame": 20,
@@ -7303,8 +7311,8 @@ var map = {
 	"./game/views/Choice.jsx": 47,
 	"./layout/GameListItem": 37,
 	"./layout/GameListItem.jsx": 37,
-	"./layout/MainMenu": 4,
-	"./layout/MainMenu.jsx": 4,
+	"./layout/MainMenu": 5,
+	"./layout/MainMenu.jsx": 5,
 	"./layout/PostList": 9,
 	"./layout/PostList.jsx": 9,
 	"./layout/Tags": 12,
@@ -7451,4 +7459,4 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.f7eece7e.js.map
+//# sourceMappingURL=static.44cc2022.js.map

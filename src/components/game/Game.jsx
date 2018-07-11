@@ -3,6 +3,8 @@ import React from 'react'
 //import samplegame from 'samplegame';
 import Katex from './../UI/math/Katex.jsx';
 import {ResponsiveContainer, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import container from './../UI/elements/Container.jsx';
+import styled from 'styled-components';
 
 class Game extends React.Component{
     constructor(props){
@@ -24,7 +26,9 @@ class Game extends React.Component{
                     CartesianGrid,
                     Tooltip,
                     Legend
-                }
+                },
+                container,
+                styled
             }
         }
     }
