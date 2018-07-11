@@ -11,7 +11,7 @@ class Games extends React.Component{
     constructor(props){
         super(props);
         //iterate through content, create talkit for each game node
-        console.log("Post constructor", props);
+     //   console.log("Post constructor", props);
         let games = {};
         if(props.post.content){
             props.post.content.map((c, i) => {
@@ -27,7 +27,7 @@ class Games extends React.Component{
     }
     
     renderTags(){
-        console.log("indi post render tags", this.props);
+    //    console.log("indi post render tags", this.props);
         if(this.props.post.tags){
             return (<p>
                 {this.props.post.tags.map(t => {

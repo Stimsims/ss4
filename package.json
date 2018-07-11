@@ -27,6 +27,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-static": "^5.9.7",
+    "recharts": "^1.0.1",
     "reduce-reducers": "^0.3.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",

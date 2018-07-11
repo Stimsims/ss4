@@ -8,7 +8,7 @@ import Game from './../components/game/Index.jsx';
 class Games extends React.Component{
     constructor(props){
         super(props);
-        console.log("game post constructor props", props);
+     //   console.log("game post constructor props", props);
         this.loadGame = this.loadGame.bind(this);
         this.getImport = this.getImport.bind(this);
         this.state = {
@@ -30,11 +30,11 @@ class Games extends React.Component{
         let getImport = this.getImport(this.props.game.import)
         if(getImport){
             getImport.then(res => {
-                console.log("import of game files complete, promise:", res);
+              //  console.log("import of game files complete, promise:", res);
                 this.loadGame(res);
             })
             .catch(e => {
-                console.log("error importing game", e);
+              //  console.log("error importing game", e);
             })
         }
     }

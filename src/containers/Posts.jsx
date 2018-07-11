@@ -11,7 +11,7 @@ import SlideUp from './../components/UI/animations/SlideUp';
 class Games extends React.Component{
     constructor(props){
         super(props);
-        console.log("posts constructor", props);
+      //  console.log("posts constructor", props);
     }
     renderPagination(){
         if(this.props.totalPages > 1){

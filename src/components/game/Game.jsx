@@ -2,7 +2,7 @@ import React from 'react'
 //import Index from './../../games/g5/components/Index.jsx';
 //import samplegame from 'samplegame';
 import Katex from './../UI/math/Katex.jsx';
-import Line from './../UI/graphs/Line.jsx';
+import {ResponsiveContainer, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 class Game extends React.Component{
     constructor(props){
@@ -11,7 +11,20 @@ class Game extends React.Component{
         this.state = {
             tools: {
                 katex: Katex,
-                gLine: Line
+                recharts: {
+                    ResponsiveContainer,
+                    ScatterChart,
+                    Scatter,
+                    ComposedChart,
+                    Line,
+                    Area,
+                    Bar,
+                    XAxis,
+                    YAxis,
+                    CartesianGrid,
+                    Tooltip,
+                    Legend
+                }
             }
         }
     }
