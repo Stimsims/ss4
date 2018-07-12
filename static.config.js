@@ -18,14 +18,14 @@ import { makePageRoutes } from 'react-static/node'
   fix build problem by deleting node modules and package-lock
  siteRoot: 'https://illulli-1e5a.com/',
     bundleAnalyzer: true,
-
+bundleAnalyzer: true,
       bundleAnalyzer: true,
 */
 
 
 export default {
   siteRoot: 'https://illulli-1e5a.com/',
-  codeSplitting: false,
+  
   getSiteData: () => ({
     siteTitle: 'Q Games',
     hello: 'world'
