@@ -5,7 +5,7 @@ import Katex from './../UI/math/Katex.jsx';
 import {ResponsiveContainer, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import container from './../UI/elements/Container.jsx';
 import styled from 'styled-components';
-
+import nerdamer from './../UI/math/Nerdamer.js';
 class Game extends React.Component{
     constructor(props){
         super(props);
@@ -28,7 +28,8 @@ class Game extends React.Component{
                     Legend
                 },
                 container,
-                styled
+                styled,
+                nerdamer
             }
         }
     }

@@ -25,7 +25,7 @@ bundleAnalyzer: true,
 
 export default {
   siteRoot: 'https://illulli-1e5a.com/',
-  bundleAnalyzer: true,
+
   getSiteData: () => ({
     siteTitle: 'Q Games',
     hello: 'world'
