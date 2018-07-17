@@ -4671,7 +4671,7 @@ var Game = function (_React$Component) {
                         katex: true
                     }),
                     tools: _extends({}, _this3.state.tools, {
-                        katex: r
+                        katex: r.default
                     })
                 });
             }).catch(function (e) {
@@ -5135,4 +5135,4 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.867e0edf.js.map
+//# sourceMappingURL=static.b0ff9d75.js.map
