@@ -17,6 +17,17 @@ import {getAxisLabels} from './utilities.js';
 if (typeof window === 'undefined') {
   global.window = {}
 }
+//interface props.title, props.titleX, props.titleY, props.legend
+/*
+        return {
+            name: this.label,
+            data: [{x, y}]
+        }
+  let labels = ['math', "physics", "chemistry", "biology", "science"]
+    <Line data={this.state.adapter} options={this.state.options} 
+    title={'Search Trends'} legend={this.state.labels} 
+    titleX={'Time (mins)'} titleY={'Goals'} />
+*/
 export default class Pie extends React.Component {
   constructor(props){
     super(props);
@@ -67,7 +78,7 @@ export default class Pie extends React.Component {
           axisClass: 'ct-axis-title',
           offset: {
               x: 0,
-              y: 0
+              y: 20
           },
           textAnchor: 'middle'
         }

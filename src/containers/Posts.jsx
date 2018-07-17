@@ -8,6 +8,7 @@ import Container from './../components/UI/elements/Container';
 import PostList from './../components/layout/PostList.jsx';
 import Tags from './../components/layout/Tags.jsx';
 import SlideUp from './../components/UI/animations/SlideUp';
+//import Katex from './../components/UI/math/Katex.jsx';
 class Games extends React.Component{
     constructor(props){
         super(props);

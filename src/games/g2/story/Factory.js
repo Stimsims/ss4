@@ -10,6 +10,6 @@ export const keys = {
 export function getStory(key){
     switch(key){
         default:
-            return Start;
+            return getView();
     }
 }

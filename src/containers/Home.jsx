@@ -2,7 +2,7 @@
 import React from 'react'
 import { withRouteData, Link, withSiteData } from 'react-static'
 import Menu from './../components/layout/MainMenu.jsx';
-import Trends from './../components/Trends.jsx';
+//import Trends from './../components/Trends.jsx';
 import Bg from './../components/UI/elements/Bg.jsx';
 import Container from './../components/UI/elements/Container';
 import styled from 'styled-components';
@@ -27,7 +27,7 @@ class Games extends React.Component{
               <Trends />
             </Bg> */}
             <Container z={-1000}>
-              <Trends/>
+              {/* <Trends/> */}
             </Container>
             <Container color={'transparent'}>
               <Menu />

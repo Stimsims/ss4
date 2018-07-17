@@ -2,6 +2,8 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import Game from './../components/game/Index.jsx';
+//import samplegame from 'samplegame';
+//import katex from 'react-katex';
 // import Dynamic from './../components/DynamicComponent.jsx';
 //<Dynamic payload="./UI/math/Katex.jsx" />
 
@@ -15,6 +17,15 @@ class Games extends React.Component{
             game: null
         }
     }
+    // importKatex(){
+    //     import(/* webpackChunkName: "mykatex" */ 'react-katex')
+    //     .then(r=>{
+
+    //     })
+    //     .catch(e=>{
+
+    //     })
+    // }
     getImport(game){
         switch(game){
             case 'samplegame':

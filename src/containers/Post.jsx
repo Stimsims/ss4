@@ -6,7 +6,7 @@ import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Talkit from './../components/UI/elements/TalkitGame.jsx';
 import Container from './../components/UI/elements/Container';
-
+//import katex from 'react-katex';
 class Games extends React.Component{
     constructor(props){
         super(props);
@@ -25,7 +25,24 @@ class Games extends React.Component{
             games
         }
     }
-    
+    importKatex(){
+        import(/* webpackChunkName: "mykatex" */ 'react-katex')
+        .then(r=>{
+
+        })
+        .catch(e=>{
+
+        })
+    }
+    importGraph(){
+        import(/* webpackChunkName: "mygraph" */ 'recharts')
+        .then(r=>{
+
+        })
+        .catch(e=>{
+
+        })
+    }
     renderTags(){
     //    console.log("indi post render tags", this.props);
         if(this.props.post.tags){

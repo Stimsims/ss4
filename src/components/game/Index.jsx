@@ -39,6 +39,7 @@ class Index extends React.Component{
             {/* <SampleGame game={this.props.game} /> */}
           </Store>
         )
+        //return null;
       }else{
         return <p>loading game...</p>
       }

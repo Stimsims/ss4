@@ -58,7 +58,9 @@ export default class Pie extends React.Component {
     render() {
       return (
         <Container>
-          <Line data={this.state.adapter} options={this.state.options} title={'Search Trends'} legend={this.state.labels} titleX={'Time (mins)'} titleY={'Goals'} />
+          <Line data={this.state.adapter} options={this.state.options} 
+          title={'Search Trends'} legend={this.state.labels} 
+          titleX={'Time (mins)'} titleY={'Goals'} />
         </Container>
       )
     }

@@ -103,7 +103,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 const mapStateToProps = (state) => {
     console.log("lounge mapStateToProps", state);
-    let fsm= selectFSMState(state, store.zLounge, {state: SIn});
+    let fsm= getFSMState(state, store.zLounge, {state: SIn});
     return {
         fsm,
         state: fsm.state,
