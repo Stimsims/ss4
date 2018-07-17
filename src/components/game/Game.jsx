@@ -66,7 +66,7 @@ class Game extends React.Component{
                 },
                 tools:{
                     ...this.state.tools,
-                    katex: r
+                    katex: r.default
                 }
             })
         })
