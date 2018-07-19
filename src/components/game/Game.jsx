@@ -5,6 +5,7 @@ import nerdamer from 'nerdamer/all';
 import container from './../UI/elements/Container.jsx';
 import accordion from './../UI/elements/Accordion.jsx';
 import styled from 'styled-components';
+import GameLibs from 'mygamelibs';
 
 class Game extends React.Component{
     constructor(props){
@@ -16,6 +17,13 @@ class Game extends React.Component{
                 recharts: null
             },
             tools: {
+                views:{
+                    ...GameLibs.views,
+                    container,
+                    styled,
+                    accordion,
+                    nerdamer
+                }
                 //katex: Katex,
                 // recharts: {
                 //     ResponsiveContainer,
@@ -32,10 +40,7 @@ class Game extends React.Component{
                 //     Tooltip,
                 //     Legend
                 // },
-                container,
-                styled,
-                accordion,
-                nerdamer
+ 
             }
         }
     }
@@ -66,7 +71,10 @@ class Game extends React.Component{
                 },
                 tools:{
                     ...this.state.tools,
-                    katex: r.default
+                    views:{
+                        ...this.state.tools.views,
+                        katex: r.default
+                    }
                 }
             })
         })
@@ -90,21 +98,24 @@ class Game extends React.Component{
                     },
                     tools:{
                         ...this.state.tools,
-                        recharts: {
-                            ResponsiveContainer,
-                            LineChart,
-                            ScatterChart,
-                            Scatter,
-                            ComposedChart,
-                            Line,
-                            Area,
-                            Bar,
-                            XAxis,
-                            YAxis,
-                            CartesianGrid,
-                            Tooltip,
-                            Legend
-                        },
+                        views:{
+                            ...this.state.tools.views,
+                            recharts: {
+                                ResponsiveContainer,
+                                LineChart,
+                                ScatterChart,
+                                Scatter,
+                                ComposedChart,
+                                Line,
+                                Area,
+                                Bar,
+                                XAxis,
+                                YAxis,
+                                CartesianGrid,
+                                Tooltip,
+                                Legend
+                            },
+                        }
                     }
                 })
         })

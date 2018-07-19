@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 38);
@@ -2254,7 +2254,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(63);
+__webpack_require__(64);
 
 var _reactKatex = __webpack_require__(19);
 
@@ -2853,25 +2853,25 @@ var _reactStaticRoutes = __webpack_require__(41);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(64);
+var _redux = __webpack_require__(65);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(67);
+__webpack_require__(68);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(68);
+var _theme = __webpack_require__(69);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(69);
+var _Analytics = __webpack_require__(70);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(70);
+var _Gapi = __webpack_require__(71);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -4567,6 +4567,10 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+var _mygamelibs = __webpack_require__(63);
+
+var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4593,27 +4597,29 @@ var Game = function (_React$Component) {
                 recharts: null
             },
             tools: {
-                //katex: Katex,
-                // recharts: {
-                //     ResponsiveContainer,
-                //     LineChart,
-                //     ScatterChart,
-                //     Scatter,
-                //     ComposedChart,
-                //     Line,
-                //     Area,
-                //     Bar,
-                //     XAxis,
-                //     YAxis,
-                //     CartesianGrid,
-                //     Tooltip,
-                //     Legend
-                // },
-                container: _Container2.default,
-                styled: _styledComponents2.default,
-                accordion: _Accordion2.default,
-                nerdamer: _all2.default
-            }
+                views: _extends({}, _mygamelibs2.default.views, {
+                    container: _Container2.default,
+                    styled: _styledComponents2.default,
+                    accordion: _Accordion2.default,
+                    nerdamer: _all2.default
+                    //katex: Katex,
+                    // recharts: {
+                    //     ResponsiveContainer,
+                    //     LineChart,
+                    //     ScatterChart,
+                    //     Scatter,
+                    //     ComposedChart,
+                    //     Line,
+                    //     Area,
+                    //     Bar,
+                    //     XAxis,
+                    //     YAxis,
+                    //     CartesianGrid,
+                    //     Tooltip,
+                    //     Legend
+                    // },
+
+                }) }
         };
         return _this;
     }
@@ -4671,7 +4677,9 @@ var Game = function (_React$Component) {
                         katex: true
                     }),
                     tools: _extends({}, _this3.state.tools, {
-                        katex: r.default
+                        views: _extends({}, _this3.state.tools.views, {
+                            katex: r.default
+                        })
                     })
                 });
             }).catch(function (e) {
@@ -4727,21 +4735,23 @@ var Game = function (_React$Component) {
                         recharts: true
                     }),
                     tools: _extends({}, _this4.state.tools, {
-                        recharts: {
-                            ResponsiveContainer: ResponsiveContainer,
-                            LineChart: LineChart,
-                            ScatterChart: ScatterChart,
-                            Scatter: Scatter,
-                            ComposedChart: ComposedChart,
-                            Line: Line,
-                            Area: Area,
-                            Bar: Bar,
-                            XAxis: XAxis,
-                            YAxis: YAxis,
-                            CartesianGrid: CartesianGrid,
-                            Tooltip: Tooltip,
-                            Legend: Legend
-                        }
+                        views: _extends({}, _this4.state.tools.views, {
+                            recharts: {
+                                ResponsiveContainer: ResponsiveContainer,
+                                LineChart: LineChart,
+                                ScatterChart: ScatterChart,
+                                Scatter: Scatter,
+                                ComposedChart: ComposedChart,
+                                Line: Line,
+                                Area: Area,
+                                Bar: Bar,
+                                XAxis: XAxis,
+                                YAxis: YAxis,
+                                CartesianGrid: CartesianGrid,
+                                Tooltip: Tooltip,
+                                Legend: Legend
+                            }
+                        })
                     })
                 });
             }).catch(function (e) {
@@ -4787,10 +4797,16 @@ module.exports = require("nerdamer/all");
 /* 63 */
 /***/ (function(module, exports) {
 
-module.exports = require("katex/dist/katex.min.css");
+module.exports = require("mygamelibs");
 
 /***/ }),
 /* 64 */
+/***/ (function(module, exports) {
+
+module.exports = require("katex/dist/katex.min.css");
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4806,7 +4822,7 @@ var _reduxLogger = __webpack_require__(33);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(65);
+var _reducers = __webpack_require__(66);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -4831,7 +4847,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4843,7 +4859,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(12);
 
-var _counter = __webpack_require__(66);
+var _counter = __webpack_require__(67);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -4859,7 +4875,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4894,7 +4910,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(14)(false);
@@ -4908,7 +4924,7 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4948,7 +4964,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5008,7 +5024,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5135,4 +5151,4 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.b0ff9d75.js.map
+//# sourceMappingURL=static.2361c1bc.js.map
