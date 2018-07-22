@@ -40,14 +40,15 @@ class Games extends React.Component{
     render(){
         return (
             <Container>
-                    {this.redirect()}
-                    {/* <Menu /> */}
-                    <Title>{this.props.title}</Title>
-                    <Tags tags={this.props.tags} tag={this.props.tag} />
-                    {this.renderPagination()}          
-                    <div>
-                        <PostList posts={this.props.posts} />
-                    </div>
+                    <FlexBox>
+                        {this.redirect()}
+                        {/* <Menu /> */}
+                        <Tags tags={this.props.tags} tag={this.props.tag} />
+                        {this.renderPagination()}          
+                        <PostBox>
+                            <PostList posts={this.props.posts} />
+                        </PostBox>
+                    </FlexBox>
             </Container>
           )
     }
@@ -55,6 +56,19 @@ class Games extends React.Component{
 
 export default withRouteData(Games);
 
+const FlexBox = styled.div`
+    display: flex;
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+`
+
+const PostBox = styled.div`
+    position: relative;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+`
 const Title = styled.h2`
     text-transform: capitalize;
     color: white;

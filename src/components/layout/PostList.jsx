@@ -35,12 +35,14 @@ export default class PostList extends React.Component{
 
 const Wrapper = styled.div`
     width:100%;
-    height:100%;
+    top:0; left: 0; right:0; bottom: 0;
     padding: 10px;
+    position: absolute;
+    overflow-y: auto;
 `
 const Post = styled.div`
   width:100%;
-  height:100%;
+  height:200px;
   opacity:1;
   margin: 10px 0px 0px 0px;
   padding:10px 10px 3px 10px;

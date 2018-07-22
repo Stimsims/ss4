@@ -141,29 +141,35 @@ class App extends React.Component{
     return(
       <Provider store={store}>
         <Router >
-          <div>
+          <div style={{position: 'relative'}}>
             <Analytics />
             <Gapi />
-            <div className="content" onDoubleClick={()=>{
-                      let nTheme = this.state.myTheme;
-                      nTheme.setTheme(nTheme);
-                      this.setState({
-                        myTheme: {...nTheme}
-                    })
-            }}>
+              
               <ThemeProvider theme={this.state.myTheme}>
-                  <div>
-                    <Route component={() => {return <Menu />}} />
-                    <Routes component={AnimatedRoutes} />
-                  </div>
+                      <Root className="content" style={{backgroundColor: this.state.myTheme[this.state.myTheme.theme].neutral}} onDoubleClick={()=>{
+                                let nTheme = this.state.myTheme;
+                                nTheme.setTheme(nTheme);
+                                this.setState({
+                                  myTheme: {...nTheme}
+                              })
+                      }}>
+                      <Route component={() => {return <Menu />}} />
+                      <Routes component={AnimatedRoutes} />
+                    </Root>
               </ThemeProvider>
-            </div>
+            
           </div>
         </Router>
       </Provider>
     )
   }
 }
+
+const Root = styled.div`
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`
 // const App = () => (
 //   <Provider store={store}>
 //     <Router >

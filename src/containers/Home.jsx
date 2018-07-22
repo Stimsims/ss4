@@ -38,8 +38,9 @@ class Games extends React.Component{
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                   ut labore et dolore magna aliqua. 
                   </Message>
-                  <PostList posts={this.props.posts} />
-                
+                  <PostWrapper>
+                    <PostList posts={this.props.posts} />
+                  </PostWrapper>
                 </PostBox>
               </SlideUp>
             </Bg>
@@ -57,11 +58,17 @@ const Message = styled.h4`
   padding-bottom:0px;
 
 `
+const PostWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 50vh;
+`
 const PostBox = styled.div`
   width: 50%;
   background-color: rgb(255,255,255,0.5);
   margin-top: 100px;
   margin-left: 55px;
+
 `
 
 const Bg = styled.div`
@@ -73,6 +80,7 @@ const Bg = styled.div`
     bottom:0;
     right:0;
     z-index: -1000;
+    overflow: hidden;
     margin: ${props => props.margin? props.margin:'0px'};
     background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutral};
 `

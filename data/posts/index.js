@@ -5,7 +5,7 @@ import fairy from './fairy.json';
 import apple from './apple.json';
 
 const posts = [
-    a, b, tree, fairy, apple
+    a, b, tree, fairy, apple, a, b, tree, fairy, apple, a, b, tree, fairy, apple, fairy, apple, a, b, tree, fairy, apple
 ];
 
 export default posts;
