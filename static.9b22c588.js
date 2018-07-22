@@ -110,7 +110,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  z-index: ', ';\n  overflow:hidden;\n  background-color: ', '\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: ', ';\n    margin: ', '\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n'], ['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: ', ';\n    margin: ', '\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    width: ', ';\n    margin: ', '\n    background-color: ', '\n'], ['\n    width: ', ';\n    margin: ', '\n    background-color: ', '\n']);
 
 var _react = __webpack_require__(0);
 
@@ -140,18 +141,59 @@ var UiBg = function (_React$Component) {
     function UiBg(props) {
         _classCallCheck(this, UiBg);
 
-        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+        //if fill is true, fills 100% of space
+        //takes zindex as a prop, defaults to 1
+        //overflow property as prop, defaults to scroll
+        var _this = _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+
+        console.log("Container UI constructor props", props);
+        // let view = null;
+        // if(!props.fill){
+        //     view = styled.div`
+        //         width: ${props => props.width? props.width:'100%'};
+        //         margin: ${props => props.margin? props.margin:'0 0 0 0'}
+        //         background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutral}
+        //     `
+        // }else{
+        //     view = styled.div`
+        //         position:fixed;
+        //         top: 0;
+        //         left:0;
+        //         bottom:0;
+        //         right:0;
+        //         width: ${props => props.width? props.width:'inherit'};
+        //         margin: ${props => props.margin? props.margin:'0 0 0 0'}
+        //         z-index: ${props => props.z? props.z:1};
+        //         overflow: ${props => props.overflow? props.overflow:'scroll-y'}
+        //         background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutral}
+        //     `
+
+        // }
+        // this.state = {
+        //     view
+        // }
+        return _this;
     }
 
     _createClass(UiBg, [{
         key: 'render',
         value: function render() {
             // console.log("rendering game a");
-            return _react2.default.createElement(
-                Bg,
-                { z: this.props.z, color: this.props.color },
-                this.props.children
-            );
+            if (this.props.fill) {
+                return _react2.default.createElement(
+                    Bg,
+                    { z: this.props.z, color: this.props.color, width: this.props.width,
+                        margin: this.props.margin, overflow: this.props.overflow },
+                    this.props.children
+                );
+            } else {
+                return _react2.default.createElement(
+                    Box,
+                    { z: this.props.z, color: this.props.color, width: this.props.width,
+                        margin: this.props.margin, overflow: this.props.overflow },
+                    this.props.children
+                );
+            }
         }
     }]);
 
@@ -162,14 +204,36 @@ exports.default = UiBg;
 
 
 var Bg = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.width ? props.width : 'inherit';
+}, function (props) {
+    return props.margin ? props.margin : '0 0 0 0';
+}, function (props) {
     return props.z ? props.z : 1;
 }, function (props) {
-    return props.color ? props.color : props.theme.neutral;
+    return props.overflow ? props.overflow : 'scroll-y';
+}, function (props) {
+    return props.color ? props.color : props.theme[props.theme.theme].neutral;
+});
+var Box = _styledComponents2.default.div(_templateObject2, function (props) {
+    return props.width ? props.width : '100%';
+}, function (props) {
+    return props.margin ? props.margin : '0 0 0 0';
+}, function (props) {
+    return props.color ? props.color : props.theme[props.theme.theme].neutral;
 });
 
 //background-color: #330033;
 //lime #C6FF00   green #B2FF59   yellow #FFEB3B
 //dark blue #1A237E   dark cyan  #006064
+
+/*
+const PostBox = styled.div`
+  width: 50%;
+  background-color: rgb(255,255,255,0.5);
+  margin-top: 100px;
+  margin-left: 55px;
+`
+*/
 
 /***/ }),
 /* 5 */
@@ -317,23 +381,23 @@ var Tag = _styledComponents2.default.h4(_templateObject);
 var Mid = _styledComponents2.default.span(_templateObject2);
 
 var FlexChild = _styledComponents2.default.span(_templateObject3, function (props) {
-    return props.theme.text;
+    return props.theme[props.theme.theme].text;
 }, function (props) {
-    return props.theme.animS;
+    return props.theme[props.theme.theme].animS;
 }, function (props) {
-    return props.theme.accent;
+    return props.theme[props.theme.theme].accent;
 }, function (props) {
-    return props.theme.textInverted;
+    return props.theme[props.theme.theme].textInverted;
 }, function (props) {
-    return props.theme.accentL;
+    return props.theme[props.theme.theme].accentL;
 });
 var Title = _styledComponents2.default.h1(_templateObject4);
 var Container = _styledComponents2.default.div(_templateObject5, function (props) {
-    return props.theme.neutralL;
+    return props.theme[props.theme.theme].neutralL;
 });
 
 var Bar = _styledComponents2.default.div(_templateObject6, function (props) {
-    return props.theme.neutralD;
+    return props.theme[props.theme.theme].neutralD;
 });
 
 var sMenu = {
@@ -989,11 +1053,11 @@ exports.default = PostList;
 
 var Wrapper = _styledComponents2.default.div(_templateObject);
 var Post = _styledComponents2.default.div(_templateObject2, function (props) {
-    return props.theme.primary;
+    return props.theme[props.theme.theme].primary;
 }, function (props) {
-    return props.theme.animS;
+    return props.theme[props.theme.theme].animS;
 }, function (props) {
-    return props.theme.text;
+    return props.theme[props.theme.theme].text;
 });
 
 /***/ }),
@@ -1049,6 +1113,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//import themes from './../theme.js';
+var aTheme = {
+    theme: 'a',
+    a: {
+        main: 'green',
+        animS: '0.3s',
+        animM: '0.5s',
+        neutral: 'green',
+        neutralD: 'green',
+        neutralL: 'green',
+        text: '#303030',
+        textInverted: '#D1D1D1',
+        transparent: 'transparent',
+        primary: 'green',
+        primaryL: 'green',
+        primaryD: 'green',
+        accent: '#24C2C7',
+        accentD: '#157275',
+        accentL: '#7ACFDB'
+    },
+    b: {
+        main: 'pink',
+        animS: '0.3s',
+        animM: '0.5s',
+        neutral: 'pink',
+        neutralD: 'pink',
+        neutralL: 'pink',
+        text: '#303030',
+        textInverted: '#D1D1D1',
+        transparent: 'transparent',
+        primary: 'pink',
+        primaryL: 'pink',
+        primaryD: 'pink',
+        accent: '#24C2C7',
+        accentD: '#157275',
+        accentL: '#7ACFDB'
+    }
+};
+
 var FoldOut = function (_React$Component) {
     _inherits(FoldOut, _React$Component);
 
@@ -1071,6 +1174,7 @@ var FoldOut = function (_React$Component) {
         key: 'handleClick',
         value: function handleClick(type) {
             if (type == this.state.iOpen) {
+                //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
                 this.setState({
                     open: !this.state.open
                 });
@@ -1197,10 +1301,11 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(FoldOut);
 var Stack = _styledComponents2.default.ul(_templateObject);
 var Accordion = _styledComponents2.default.div(_templateObject2);
 var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) {
-    return props.theme.animM;
+    return props.theme[props.theme.theme].animM;
 });
 var Pill = _styledComponents2.default.div(_templateObject4, function (props) {
-    return props.theme.primary;
+    console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
+    return props.theme[props.theme.theme].main;
 });
 var Panel = _styledComponents2.default.div(_templateObject5);
 
@@ -1649,10 +1754,10 @@ exports.default = Icon;
 //${props => props.primary ? 'blue' : props.theme.main}
 
 var Btn = _styledComponents2.default.button(_templateObject, function (props) {
-    return props.theme.animS;
+    return props.theme[props.theme.theme].animS;
 }, function (props) {
     //console.log("icon btn props", props);
-    return props.theme.primaryL;
+    return props.theme[props.theme.theme].primaryL;
 });
 
 /***/ }),
@@ -1880,8 +1985,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    opacity:1;\n  }\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n  box-sizing: border-box;\n  a{\n    width:100%;\n    height:100%;\n    opacity:1;\n  }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n  margin-top: 100px;\n  margin-left: 55px;\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  box-sizing: border-box;\n  margin-top: 100px;\n  margin-left: 55px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1954,7 +2059,7 @@ var Games = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Container2.default, { z: -1000 }),
+        _react2.default.createElement(_Container2.default, { z: -1000, fill: true }),
         _react2.default.createElement(
           _Container2.default,
           { color: 'transparent' },
@@ -2038,6 +2143,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import(/* webpackChunkName: "mykatex" */ 'react-katex') can pull into own bundle that can be shared between
 //referencing directly in game and post duplicates module
 //referencing direct in 1, and dynamic in other, causes duplication
+
+
 var Games = function (_React$Component) {
     _inherits(Games, _React$Component);
 
@@ -2839,6 +2946,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -2877,36 +2988,90 @@ var _Gapi2 = _interopRequireDefault(_Gapi);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import charts from 'recharts';
-//import All from './components/AllComponents.js';
-//import Katex from './components/UI/math/Katex.jsx';
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //
-var App = function App() {
-  return _react2.default.createElement(
-    _reactRedux.Provider,
-    { store: _redux2.default },
-    _react2.default.createElement(
-      _reactStatic.Router,
-      null,
-      _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_Analytics2.default, null),
-        _react2.default.createElement(_Gapi2.default, null),
+
+
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    var startTheme = (0, _theme2.default)();
+    // startTheme.theme = startTheme.setTheme(); //set to default for consistent static package class names?
+    _this.state = {
+      myTheme: startTheme
+      //console.log("my random theme ", this.state.myTheme);
+    };return _this;
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        _reactRedux.Provider,
+        { store: _redux2.default },
         _react2.default.createElement(
-          _styledComponents.ThemeProvider,
-          { theme: _theme2.default },
+          _reactStatic.Router,
+          null,
           _react2.default.createElement(
             'div',
-            { className: 'content' },
-            _react2.default.createElement(_reactStaticRoutes2.default, null)
+            null,
+            _react2.default.createElement(_Analytics2.default, null),
+            _react2.default.createElement(_Gapi2.default, null),
+            _react2.default.createElement(
+              'div',
+              { className: 'content', onDoubleClick: function onDoubleClick() {
+                  var nTheme = _this2.state.myTheme;
+                  nTheme.setTheme(nTheme);
+                  _this2.setState({
+                    myTheme: _extends({}, nTheme)
+                  });
+                } },
+              _react2.default.createElement(
+                _styledComponents.ThemeProvider,
+                { theme: this.state.myTheme },
+                _react2.default.createElement(_reactStaticRoutes2.default, null)
+              )
+            )
           )
         )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+// const App = () => (
+//   <Provider store={store}>
+//     <Router >
+//       <div>
+//         <Analytics />
+//         <Gapi />
+//         <div className="content" onDoubleClick={()=>{
+//                   this.setState({
+//                     myTheme: theme()
+//                 })
+//         }}>
+//           <ThemeProvider theme={this.state.myTheme}>
+
+//               <Routes />
+
+//           </ThemeProvider>
+//         </div>
+//       </div>
+//     </Router>
+//   </Provider>
+// )
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
@@ -3992,9 +4157,9 @@ exports.default = Button;
 
 
 var Btn = _styledComponents2.default.button(_templateObject, function (props) {
-    return props.theme.accent;
+    return props.theme[props.theme.theme].accent;
 }, function (props) {
-    return props.theme.accentD;
+    return props.theme[props.theme.theme].accentD;
 });
 
 /***/ }),
@@ -4933,7 +5098,8 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = {
+
+var themes = [{
     main: 'orange',
     animS: '0.3s',
     animM: '0.5s',
@@ -4949,7 +5115,110 @@ exports.default = {
     accent: '#24C2C7',
     accentD: '#157275',
     accentL: '#7ACFDB'
+}, {
+    main: 'red',
+    animS: '0.3s',
+    animM: '0.5s',
+    neutral: 'red',
+    neutralD: 'red',
+    neutralL: 'red',
+    text: '#303030',
+    textInverted: '#D1D1D1',
+    transparent: 'transparent',
+    primary: 'red',
+    primaryL: 'red',
+    primaryD: 'red',
+    accent: '#24C2C7',
+    accentD: '#157275',
+    accentL: '#7ACFDB'
+}, {
+    main: 'pink',
+    animS: '0.3s',
+    animM: '0.5s',
+    neutral: 'pink',
+    neutralD: 'pink',
+    neutralL: 'pink',
+    text: '#303030',
+    textInverted: '#D1D1D1',
+    transparent: 'transparent',
+    primary: 'pink',
+    primaryL: 'pink',
+    primaryD: 'pink',
+    accent: '#24C2C7',
+    accentD: '#157275',
+    accentL: '#7ACFDB'
+}, {
+    main: 'green',
+    animS: '0.3s',
+    animM: '0.5s',
+    neutral: 'green',
+    neutralD: 'green',
+    neutralL: 'green',
+    text: '#303030',
+    textInverted: '#D1D1D1',
+    transparent: 'transparent',
+    primary: 'green',
+    primaryL: 'green',
+    primaryD: 'green',
+    accent: '#24C2C7',
+    accentD: '#157275',
+    accentL: '#7ACFDB'
+}];
+
+// const pick = () => {
+//     let r = Math.random();
+//     console.log("pick theme, r = " + r);
+//         switch(true){
+//             case (r < 0.25):
+//                 return 'day'
+//             case (r < 0.5):
+//                 return 'night'
+//             case (r < 0.75):
+//                 return 'other'
+//             default: 
+//                 return 'default'
+//         }
+// }
+var themeNames = ['default', 'day', 'night', 'other'];
+var theme = function theme() {
+    var counter = 0;
+    return {
+        setTheme: function setTheme(theme) {
+            //caller passes in the theme object, this method sets a prop theme with name on it
+            counter++;
+            var name = themeNames[counter % themeNames.length];
+            console.log("theme counter " + counter + " name " + name);
+            theme.theme = name;
+        },
+        theme: 'default',
+        default: themes[0],
+        day: themes[1],
+        night: themes[2],
+        other: themes[3]
+    };
 };
+
+exports.default = theme;
+
+// export default {
+//     main: 'orange',
+//     animS: '0.3s',
+//     animM: '0.5s',
+//     neutral: '#303030',
+//     neutralD: '#C4C4C4',
+//     neutralL: '#C4C4C4',
+//     text: '#303030',
+//     textInverted: '#D1D1D1',
+//     transparent: 'transparent',
+//     primary: '#E07831',
+//     primaryL: '#FFA638',
+//     primaryD: '#A64E20',
+//     accent: '#24C2C7',
+//     accentD: '#157275',
+//     accentL: '#7ACFDB'
+// };
+
+
 /*
 neutral: '#CFC4A9',
 F7E9A8
@@ -5151,4 +5420,4 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.2361c1bc.js.map
+//# sourceMappingURL=static.9b22c588.js.map
