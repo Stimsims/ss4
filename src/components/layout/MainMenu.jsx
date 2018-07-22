@@ -2,11 +2,11 @@ import React from 'react';
 import { Link, withSiteData } from 'react-static'
 import './menu.css';
 import styled from 'styled-components';
-import colors from './../UI/Colors.js';
+//import colors from './../UI/Colors.js';
 // import FoldOut from './../UI/elements/FoldOut.jsx';
 // import PostList from './PostList.jsx';
 // import Tags from './Tags.jsx';
-import All from './../AllComponents.js';
+//import All from './../AllComponents.js';
 
 class Menu extends React.Component{
     constructor(props){

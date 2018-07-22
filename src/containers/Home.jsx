@@ -3,7 +3,7 @@ import React from 'react'
 import { withRouteData, Link, withSiteData } from 'react-static'
 import Menu from './../components/layout/MainMenu.jsx';
 //import Trends from './../components/Trends.jsx';
-import Bg from './../components/UI/elements/Bg.jsx';
+//import Bg from './../components/UI/elements/Bg.jsx';
 import Container from './../components/UI/elements/Container';
 import styled from 'styled-components';
 import FadeIn from './../components/UI/animations/FadeIn.jsx';
@@ -26,10 +26,10 @@ class Games extends React.Component{
             {/* <Bg>
               <Trends />
             </Bg> */}
-            <Container z={-1000} fill={true}>
+            <Bg z={-1000}>
               {/* <Trends/> */}
-            </Container>
-            <Container color={'transparent'}>
+            </Bg>
+            <Bg color={'transparent'} z={1}>
               <Menu />
               <SlideUp>
                 <PostBox>
@@ -42,7 +42,7 @@ class Games extends React.Component{
                 
                 </PostBox>
               </SlideUp>
-            </Container>
+            </Bg>
         </div>
           )
     }
@@ -63,3 +63,24 @@ const PostBox = styled.div`
   margin-top: 100px;
   margin-left: 55px;
 `
+
+const Bg = styled.div`
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: -1000;
+    margin: ${props => props.margin? props.margin:'0px'};
+    background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutral};
+`
+
+/*
+    position:absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right:0;
+*/
