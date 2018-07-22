@@ -4,7 +4,44 @@ import Icon from './IconButton.jsx';
 import ReactGa from 'react-ga';
 import {connect} from 'react-redux';
 import Button from './Button.jsx';
-
+//import themes from './../theme.js';
+const aTheme =     {
+    theme: 'a',
+    a:{
+        main: 'green',
+        animS: '0.3s',
+        animM: '0.5s',
+        neutral: 'green',
+        neutralD: 'green',
+        neutralL: 'green',
+        text: '#303030',
+        textInverted: '#D1D1D1',
+        transparent: 'transparent',
+        primary: 'green',
+        primaryL: 'green',
+        primaryD: 'green',
+        accent: '#24C2C7',
+        accentD: '#157275',
+        accentL: '#7ACFDB'
+    },
+    b:    {
+        main: 'pink',
+        animS: '0.3s',
+        animM: '0.5s',
+        neutral: 'pink',
+        neutralD: 'pink',
+        neutralL: 'pink',
+        text: '#303030',
+        textInverted: '#D1D1D1',
+        transparent: 'transparent',
+        primary: 'pink',
+        primaryL: 'pink',
+        primaryD: 'pink',
+        accent: '#24C2C7',
+        accentD: '#157275',
+        accentL: '#7ACFDB'
+    },
+}
 class FoldOut extends React.Component{
     constructor(props){
         super(props);
@@ -18,6 +55,7 @@ class FoldOut extends React.Component{
     }
     handleClick(type){
         if(type == this.state.iOpen){
+            //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
             this.setState({
                 open: !this.state.open
             })
@@ -54,7 +92,7 @@ class FoldOut extends React.Component{
     render(){
         return (
             <div style={{width: '100%', padding: '10px', overflow: 'hidden'}}>
-            <Pill>
+            <Pill >
                 <Panel>
                     <FlexChild>{this.renderOpenButton()}</FlexChild>
                     <FlexChild>
@@ -122,13 +160,16 @@ const Wrapper = styled.div`
     padding: 0;
     margin: 0;
     transition: transform ${props => {
-        return props.theme.animM
+        return props.theme[props.theme.theme].animM
     }} ease;
     display: 'inline-block'; 
 `
 const Pill = styled.div`
     border-radius: 50px;
-    background-color: ${props=>props.theme.primary};
+    background-color: ${props=>{
+        console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
+        return props.theme[props.theme.theme].main
+    }};
     padding: 10px;
     margin: auto;
 `

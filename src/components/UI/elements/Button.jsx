@@ -24,7 +24,7 @@ export default Button;
 const Btn = styled.button`
     padding: 10px;
     color: white;
-    background-color: ${props=>props.theme.accent};
+    background-color: ${props=>props.theme[props.theme.theme].accent};
     border-radius: 5px;
     outline: 0;
     border: 0;
@@ -35,6 +35,6 @@ const Btn = styled.button`
         color: white !important;
     }
     &:hover{
-        background-color: ${props=>props.theme.accentD};
+        background-color: ${props=>props.theme[props.theme.theme].accentD};
     }
 `

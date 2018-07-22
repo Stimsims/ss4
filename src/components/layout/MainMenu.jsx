@@ -65,8 +65,8 @@ const FlexChild = styled.span`
         display: inline-block;
         line-height:50px;
         padding:0 10px;
-        color: ${props=>props.theme.text}
-        transition: all ${props=>props.theme.animS} ease;
+        color: ${props=>props.theme[props.theme.theme].text}
+        transition: all ${props=>props.theme[props.theme.theme].animS} ease;
         h1, h4{
             margin:0;
             padding:0;
@@ -76,10 +76,10 @@ const FlexChild = styled.span`
         }
     }
     a.active{
-        background-color: ${props=>props.theme.accent};
-        color: color: ${props=>props.theme.textInverted};
+        background-color: ${props=>props.theme[props.theme.theme].accent};
+        color: color: ${props=>props.theme[props.theme.theme].textInverted};
         &:hover{
-            background-color: ${props=>props.theme.accentL};
+            background-color: ${props=>props.theme[props.theme.theme].accentL};
         }
     }  
 `
@@ -92,7 +92,7 @@ const Title = styled.h1`
 const Container = styled.div`
     width:100%;
     height: 50px;
-    background: ${props=>props.theme.neutralL};
+    background: ${props=>props.theme[props.theme.theme].neutralL};
     display: flex;
     padding:0 10px;
     margin:0;
@@ -101,7 +101,7 @@ const Container = styled.div`
 const Bar = styled.div`
     width: 100%;
     height: 50px;
-    background: ${props => props.theme.neutralD};
+    background: ${props => props.theme[props.theme.theme].neutralD};
 `
 
 const sMenu = {

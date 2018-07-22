@@ -26,7 +26,7 @@ class Games extends React.Component{
             {/* <Bg>
               <Trends />
             </Bg> */}
-            <Container z={-1000}>
+            <Container z={-1000} fill={true}>
               {/* <Trends/> */}
             </Container>
             <Container color={'transparent'}>
@@ -55,17 +55,11 @@ const Message = styled.h4`
   width:100%;
   padding: 10px;
   padding-bottom:0px;
-  box-sizing: border-box;
-  a{
-    width:100%;
-    height:100%;
-    opacity:1;
-  }
+
 `
 const PostBox = styled.div`
   width: 50%;
   background-color: rgb(255,255,255,0.5);
-  box-sizing: border-box;
   margin-top: 100px;
   margin-left: 55px;
 `

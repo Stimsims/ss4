@@ -70,11 +70,11 @@ export default Icon;
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
     border-radius:50%;
-    transition: background-color ${props=>props.theme.animS} ease-in;
+    transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
     &:hover {
         background-color: ${props => {
             //console.log("icon btn props", props);
-            return props.theme.primaryL;
+            return props.theme[props.theme.theme].primaryL;
         }};
     };
     img{  

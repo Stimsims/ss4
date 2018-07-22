@@ -16,18 +16,21 @@ import Container from './../components/UI/elements/Container';
 // import(/* webpackChunkName: "mykatex" */ 'react-katex') can pull into own bundle that can be shared between
 //referencing directly in game and post duplicates module
 //referencing direct in 1, and dynamic in other, causes duplication
+
+
 class Games extends React.Component{
     constructor(props){
         super(props);
+
     }
     // dynamic(){
     //     return <Dynamic payload={'./../components/UI/math/Katex.jsx'}/>
     // }
     render(){
         return (
+            
             <Container>
                 <Menu />
-
                 <div>
                     {this.props.games.map(post => {
                         return(

@@ -45,15 +45,15 @@ const Post = styled.div`
   margin: 10px 0px 0px 0px;
   padding:10px 10px 3px 10px;
   border-radius: 10px;
-  background-color:  ${props=>props.theme.primary};
-  transition: all  ${props=>props.theme.animS} ease-in;
+  background-color:  ${props=>props.theme[props.theme.theme].primary};
+  transition: all  ${props=>props.theme[props.theme.theme].animS} ease-in;
   &:hover{
     background-color: white;
   }
   h2{
     font-size: 1.5em;
     display: inline;
-    color: ${props=>props.theme.text};
+    color: ${props=>props.theme[props.theme.theme].text};
     opacity:1;
     text-transform: capitalize;
     margin:0

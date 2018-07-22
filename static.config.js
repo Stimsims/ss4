@@ -3,6 +3,7 @@ import posts from './data/posts/index.js';
 import games from './data/games/index.js';
 import React from 'react';
 import { makePageRoutes } from 'react-static/node'
+import { ServerStyleSheet } from 'styled-components'
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
@@ -94,6 +95,12 @@ export default {
       },
     ]
   },
+  renderToHtml: (render, Comp, meta) => {
+    const sheet = new ServerStyleSheet()
+    const html = render(sheet.collectStyles(<Comp />))
+    meta.styleTags = sheet.getStyleElement()
+    return html
+  },
   Document: class CustomHtml extends React.Component {
     constructor(props){
       super(props);
@@ -101,9 +108,6 @@ export default {
     }
     render() {
       const { Html, Head, Body, children, renderMeta } = this.props
-      // console.log("document render, head:");
-      // console.log(Head);
-      const script1 = "document.createElement('picture')"
       const workboxScript = `// Check that service workers are registered
       if ('serviceWorker' in navigator) {
         // Use the window load event to keep the page load performant
