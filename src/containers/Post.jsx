@@ -76,7 +76,7 @@ class Games extends React.Component{
         return (
             <Container>
             <div>
-              <Menu />
+              {/* <Menu /> */}
               <Title>{this.props.post.title}</Title>
               {this.renderTags()}
               {this.renderContent()}

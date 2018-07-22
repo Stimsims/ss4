@@ -40,17 +40,15 @@ export default {
    let pages = getTagPages(posts, 'tags', tags);
    return [
     ...posts.map(post => ({
-      path: `/post/${post.id}`,
+      path: `/posts/${post.id}`,
       component: 'src/containers/Post',
       getData: () => ({
         post
       }),
     })),
     ...pages,
-    // ...makePages(t1, 2, 't1', 'src/containers/Posts.jsx', 
-    //   (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: "t1" ,tag: "t1", tags, base: "t1"}),
     ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
-      (cid)=>{return `/post/${cid}`}, 'src/containers/Post.jsx', {title: 'Posts', tag: null, tags, base: "posts"}),
+      (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', {title: 'Posts', tag: null, tags, base: "posts"}),
     {
       path: '/',
       component: 'src/containers/Home.jsx',
@@ -59,7 +57,7 @@ export default {
       }),
       children: featured.map(p => {
         return({
-          path: `/post/${p.id}`,
+          path: `/posts/${p.id}`,
           component: 'src/containers/Post',
           getData: () => ({
             post: p,
@@ -180,7 +178,7 @@ const getTagPages = (items, key, tags) => {
      pages = [
        ...pages,
        ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
-       (cid)=>{return `/post/${cid}`}, 'src/containers/Post.jsx', {title: t ,tag: t, tags, base: t})
+       (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', {title: t ,tag: t, tags, base: t})
      ]
   })
   return pages;

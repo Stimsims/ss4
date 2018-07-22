@@ -30,7 +30,7 @@ class Games extends React.Component{
               {/* <Trends/> */}
             </Bg>
             <Bg color={'transparent'} z={1}>
-              <Menu />
+              {/* <Menu /> */}
               <SlideUp>
                 <PostBox>
                   

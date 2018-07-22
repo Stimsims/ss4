@@ -10,7 +10,7 @@ export default class PostList extends React.Component{
                 {this.props.posts.map((post, i)=>{
                         return(
                         
-                            <Link key={post.id} to={`/post/${post.id}`} classNames={'homepost'}>
+                            <Link key={post.id} to={`/posts/${post.id}`} classNames={'homepost'}>
                                 <SlideUp>
                                     <Post key={post.id} style={{"transitionDelay": `${ i * .15 }s` }}>
                                         <h2>{post.title}</h2>

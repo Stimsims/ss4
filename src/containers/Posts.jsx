@@ -41,7 +41,7 @@ class Games extends React.Component{
         return (
             <Container>
                     {this.redirect()}
-                    <Menu />
+                    {/* <Menu /> */}
                     <Title>{this.props.title}</Title>
                     <Tags tags={this.props.tags} tag={this.props.tag} />
                     {this.renderPagination()}          

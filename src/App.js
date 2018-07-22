@@ -20,6 +20,8 @@ import { NodeGroup } from 'react-move'
 import { withContext, getContext } from 'recompose'
 import PropTypes from 'prop-types'
 
+import Menu from './components/layout/MainMenu.jsx';
+
 const AnimatedRoutes = getContext({
   // We have to preserve the router context for each route
   // otherwise, a component may rerender with the wrong data
@@ -36,7 +38,7 @@ const AnimatedRoutes = getContext({
       if (!Comp) {
         Comp = getComponentForPath('404')
       }
-
+      console.log("App animated route " + props.location.pathname, props);
       // When we're rendering for static HTML, be sure to NOT animate in.
       if (staticURL) {
         return (
@@ -63,28 +65,34 @@ const AnimatedRoutes = getContext({
           keyAccessor={d => d.id}
           start={() => ({
             opacity: [0],
-            scale: 1,
-            translateY: [10],
+            scale: [1.2],
+            translateY: [20],
+            timing: { duration: 800, delay: 200, ease: easeQuadOut },
           })}
           enter={() => ({
             opacity: [1],
             translateY: [0],
-            timing: { duration: 200, delay: 200, ease: easeQuadOut },
+            scale: [1],
+            timing: { duration: 800, delay: 200, ease: easeQuadOut },
           })}
           update={() => ({
             opacity: [1],
+            scale: [1],
+            timing: { duration: 800, delay: 200, ease: easeQuadOut },
           })}
           leave={() => ({
             opacity: [0],
-            translateY: [-10],
-            timing: { duration: 200, ease: easeQuadOut },
+            translateY: [-0],
+            scale: [0.2],
+            timing: { duration: 800, ease: easeQuadOut },
           })}
         >
           {nodes => (
             <div style={{ position: 'relative' }}>
-              {nodes.map(({ key, data, state: { opacity, translateY } }) => {
+              {nodes.map(({ key, data, state: { opacity, translateY, scale } }) => {
                 // Here, we override the router context with the one that was
-                // passed with each route
+                // passed with each route scale(${scale}, ${scale}) 
+                //console.log(`animating map ${key} with opacity ${opacity} and scaleY ${scale} and rotate ${rotate}`);
                 const PreservedRouterContext = withContext(
                   {
                     router: PropTypes.object,
@@ -103,7 +111,7 @@ const AnimatedRoutes = getContext({
                       right: 0,
                       bottom: 0,
                       left: 0,
-                      transform: `translateY(${translateY}px)`,
+                      transform: `translateY(${translateY}px) scale(${scale}, ${scale})`,
                       opacity,
                     }}
                   >
@@ -144,9 +152,10 @@ class App extends React.Component{
                     })
             }}>
               <ThemeProvider theme={this.state.myTheme}>
-                  
-                  <Routes component={AnimatedRoutes} />
-                
+                  <div>
+                    <Route component={() => {return <Menu />}} />
+                    <Routes component={AnimatedRoutes} />
+                  </div>
               </ThemeProvider>
             </div>
           </div>

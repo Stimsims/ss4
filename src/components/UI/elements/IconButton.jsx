@@ -50,7 +50,7 @@ class Icon extends React.Component {
     render() {
         //themeprovider provides base theme, can be overridden
       return (
-            <Btn color={this.props.color? this.props.color:this.getColor(this.props.icon)} onClick={this.props.onInput}>
+            <Btn bg={this.props.bg} hover={this.props.hover? this.props.hover:this.getColor(this.props.icon)} onClick={this.props.onInput}>
                 <img src={this.getImg(this.props.icon)}/>
             </Btn>
       );
@@ -64,23 +64,24 @@ export default Icon;
     width:36px;
     height:36px;
     padding:0;
-    margin: 3px;
-    background-color: grey; /* Blue background */
+    margin: 0px;
+    background-color: ${props=>props.bg?props.bg:'grey'}; /* Blue background */
     border: none; /* Remove borders */
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
     border-radius:50%;
+    vertical-align: middle;
     transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
     &:hover {
         background-color: ${props => {
             //console.log("icon btn props", props);
-            return props.theme[props.theme.theme].primaryL;
+            return props.hover? props.hover: props.theme[props.theme.theme].primaryL;
         }};
     };
     img{  
         margin: 0;
         padding: 0;
         border: none;
-        margin-top:3px;
+        vertical-align: middle;
     }
 `

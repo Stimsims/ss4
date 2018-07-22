@@ -30,7 +30,7 @@ class Games extends React.Component{
         return (
             
             <Container>
-                <Menu />
+                {/* <Menu /> */}
                 <div>
                     {this.props.games.map(post => {
                         return(
