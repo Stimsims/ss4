@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, withSiteData, withRouteData, Switch, Route, withRouter } from 'react-static';
-import './menu.css';
-import styled, { StaticRouter } from 'styled-components';
+
+import {withRouter} from 'react-router';
 import Animate from 'react-move/Animate';
 import { easeExpOut } from 'd3-ease';
 import { withContext, getContext } from 'recompose';
@@ -178,9 +177,6 @@ const Drop = styled.div`
         h4 {
             color: ${props=>props.theme[props.theme.theme].text};
         }
-        &:hover{
-            background-color: grey;
-        }
     }
 
 `
@@ -188,7 +184,6 @@ const PostTitle = styled.h1`
     font-size: ${props=>props.theme[props.theme.theme].textSizeM};
     color: ${props=>props.theme[props.theme.theme].primaryL};
     padding-left: 10px;
-    display: inline-block;
 `
 const Tag = styled.h4`
     display: inline;

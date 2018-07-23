@@ -6,6 +6,8 @@ import iCached from './../../../assets/baseline-cached-24px.svg';
 import iArrow from './../../../assets/baseline-keyboard_arrow_right-24px.svg';
 import iSave from './../../../assets/baseline-save-24px.svg';
 import iSettings from './../../../assets/baseline-settings-20px.svg';
+import iUpArrow from './../../../assets/baseline-keyboard_arrow_up-24px.svg';
+import iPlay from './../../../assets/baseline-play_arrow-24px.svg';
 
 
 class Icon extends React.Component {
@@ -45,6 +47,10 @@ class Icon extends React.Component {
                 return iSave;
             case 'settings':
                 return iSettings;
+            case 'up':
+                return iUpArrow;
+            case 'play':
+                return iPlay;
         }
     }
     render() {

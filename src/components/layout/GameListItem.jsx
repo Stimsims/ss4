@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-static'
 import Accordion from '../UI/elements/Accordion.jsx';
+import Icon from './../UI/elements/IconButton.jsx';
 
 class GameItem extends React.Component{
     constructor(props){
@@ -22,7 +23,8 @@ class GameItem extends React.Component{
                 callToAction={()=>{
                     return( 
                     <Link key={this.props.game.id} 
-                    to={`/games/${this.props.game.id}`}>Play
+                    to={`/games/${this.props.game.id}`}>
+                        <Icon icon={"play"} />
                     </Link>)
                 }}>
                 {this.props.game.desc}

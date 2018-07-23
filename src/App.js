@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Link, cleanPath } from 'react-static'
+import { Router, Route, Switch, Link, cleanPath } from 'react-static'
 import { Provider } from 'react-redux'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
@@ -7,7 +7,7 @@ import Routes from 'react-static-routes'
 import store from './connectors/redux'
 
 import './app.css'
-import styled, {ThemeProvider} from 'styled-components';
+import styled, {ThemeProvider, injectGlobal} from 'styled-components';
 import theme from './components/UI/theme.js';
 
 import Analytics from './components/apis/Analytics.jsx';
@@ -21,6 +21,9 @@ import { withContext, getContext } from 'recompose'
 import PropTypes from 'prop-types'
 
 import Menu from './components/layout/MainMenu.jsx';
+
+const startTheme = theme();
+
 
 const AnimatedRoutes = getContext({
   // We have to preserve the router context for each route
@@ -127,16 +130,61 @@ const AnimatedRoutes = getContext({
   />
 ))
 
+
+
+
+//${props=>props.theme[props.theme.theme].accent}
+
+
 class App extends React.Component{
   constructor(props){
     super(props);
-    let startTheme = theme();
+    //let startTheme = theme();
    // startTheme.theme = startTheme.setTheme(); //set to default for consistent static package class names?
       this.state = {
-        myTheme: startTheme
+        myTheme: startTheme,
+        themeKey: startTheme.theme
     }
+    this.injectStyles();
     //console.log("my random theme ", this.state.myTheme);
   }
+  componentDidUpdate(prevProps, prevState){
+    console.log("app updated prevProps: ", this.state);
+    console.log("app updated prevState: ", prevState);
+    console.log("app updated prev: " + prevState.themeKey + " this: " + this.state.myTheme.theme);
+    if(prevState.themeKey !== this.state.myTheme.theme){
+        this.injectStyles();
+    }
+  }
+  injectStyles(){
+      injectGlobal`
+      /* width */
+      ::-webkit-scrollbar {
+          width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+          background:  ${this.state.myTheme[this.state.myTheme.theme].neutral}; 
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+          background:  ${this.state.myTheme[this.state.myTheme.theme].accent}; 
+          border-radius: 5px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+          background: ${this.state.myTheme[this.state.myTheme.theme].accentL}; 
+      }
+      ::-webkit-scrollbar-button{
+        background: ${this.state.myTheme[this.state.myTheme.theme].neutralL}; 
+        color: white;
+      }
+    `
+  }
+
   render(){
     return(
       <Provider store={store}>
@@ -150,10 +198,14 @@ class App extends React.Component{
                                 let nTheme = this.state.myTheme;
                                 nTheme.setTheme(nTheme);
                                 this.setState({
-                                  myTheme: {...nTheme}
+                                  myTheme: {...nTheme},
+                                  themeKey: nTheme.theme
                               })
                       }}>
-                      <Route component={() => {return <Menu />}} />
+                      <Switch>
+                        <Route path="/games/:game" exact component={() => {return null}} />
+                        <Route path="/" component={() => {return <Menu />}} />
+                      </Switch>
                       <Routes component={AnimatedRoutes} />
                     </Root>
               </ThemeProvider>

@@ -5,43 +5,7 @@ import ReactGa from 'react-ga';
 import {connect} from 'react-redux';
 import Button from './Button.jsx';
 //import themes from './../theme.js';
-const aTheme =     {
-    theme: 'a',
-    a:{
-        main: 'green',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: 'green',
-        neutralD: 'green',
-        neutralL: 'green',
-        text: '#303030',
-        textInverted: '#D1D1D1',
-        transparent: 'transparent',
-        primary: 'green',
-        primaryL: 'green',
-        primaryD: 'green',
-        accent: '#24C2C7',
-        accentD: '#157275',
-        accentL: '#7ACFDB'
-    },
-    b:    {
-        main: 'pink',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: 'pink',
-        neutralD: 'pink',
-        neutralL: 'pink',
-        text: '#303030',
-        textInverted: '#D1D1D1',
-        transparent: 'transparent',
-        primary: 'pink',
-        primaryL: 'pink',
-        primaryD: 'pink',
-        accent: '#24C2C7',
-        accentD: '#157275',
-        accentL: '#7ACFDB'
-    },
-}
+
 class FoldOut extends React.Component{
     constructor(props){
         super(props);
@@ -54,6 +18,7 @@ class FoldOut extends React.Component{
         }
     }
     handleClick(type){
+        console.log("handleClick type ", type);
         if(type == this.state.iOpen){
             //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
             this.setState({
@@ -70,14 +35,14 @@ class FoldOut extends React.Component{
     renderOpenButton(){
         if(this.state.open){
             return (
-                <Wrapper style={{display: 'inline-block', transform: 'rotate(90deg)'}}>
-                    <Icon icon={"arrow"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                <Wrapper style={{display: 'inline-block', transform: 'rotate(180deg)'}}>
+                    <Icon icon={"up"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }else{
             return (
                 <Wrapper style={{display: 'inline-block', transform: 'rotate(0deg)'}}>
-                    <Icon icon={"arrow"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                    <Icon icon={"up"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }
@@ -102,18 +67,8 @@ class FoldOut extends React.Component{
                         </Stack>
                     </FlexChild>
                     <Mid />
-                    <FlexChild><Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button></FlexChild>
-                    {/* <Left>
-                        {this.renderOpenButton()}
-                        <Stack>
-                            <h3>{this.props.title}</h3>
-                            <p>{this.props.subtitle}</p>
-                        </Stack>
-                    </Left>
-                    <Mid />
-                    <Right>
-                        <Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button>
-                    </Right> */}
+                    {/* <FlexChild><Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button></FlexChild> */}
+                    <FlexChild>{this.props.callToAction()}</FlexChild>
                 </Panel>
                 {this.renderFoldOut()}
             </Pill>

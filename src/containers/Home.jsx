@@ -82,7 +82,7 @@ const Bg = styled.div`
     z-index: -1000;
     overflow: hidden;
     margin: ${props => props.margin? props.margin:'0px'};
-    background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutral};
+    background-color: ${props => props.color? props.color:props.theme[props.theme.theme].neutralD};
 `
 
 /*
