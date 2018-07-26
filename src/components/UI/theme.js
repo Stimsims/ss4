@@ -18,7 +18,11 @@ const themes = [
         primaryD: '#A64E20',
         accent: '#24C2C7',
         accentD: '#157275',
-        accentL: '#7ACFDB'
+        accentL: '#7ACFDB',
+        spaceXS: '3',
+        spaceS: '5',
+        spaceM: '10',
+        spaceL: '20'
     },
     {
         main: '#FFA508',
@@ -38,7 +42,11 @@ const themes = [
         primaryD: '#9C2E0F',
         accent: '#E3658B',
         accentD: '#9E3A50',
-        accentL: '#F791B2'
+        accentL: '#F791B2',
+        spaceXS: '3',
+        spaceS: '5',
+        spaceM: '10',
+        spaceL: '20'
     },
     {
         main: '#89C939',
@@ -58,7 +66,11 @@ const themes = [
         primaryD: '#3B611B',
         accent: '#F2E451',
         accentD: '#978623',
-        accentL: '#F2E291'
+        accentL: '#F2E291',
+        spaceXS: '3',
+        spaceS: '5',
+        spaceM: '10',
+        spaceL: '20'
     }
 ]
 
@@ -83,7 +95,7 @@ const theme = () => {
         setTheme: (theme) => {
             //caller passes in the theme object, this method sets a prop theme with name on it
             counter++;
-            let name = themeNames[counter % themeNames.length];
+            let name = themeNames[counter % (themeNames.length-1)];
             console.log("theme counter " + counter + " name " + name);
             theme.theme = name;
         },

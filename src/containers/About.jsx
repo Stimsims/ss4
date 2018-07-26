@@ -53,7 +53,7 @@ const CounterConnected = connect(mapStateToProps, mapDispatchToProps)(Counter);
 class About extends React.Component{
   constructor(props){
     super(props);
-    console.log("about constructor", props);
+   // console.log("about constructor", props);
   }
   render(){
     return (

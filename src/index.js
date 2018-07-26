@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import MyError from './Error.js';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 
 // Your top level component
 import App from './App'
@@ -11,9 +13,15 @@ export default App
 if (typeof document !== 'undefined') {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate || ReactDOM.render
   const render = Comp => {
-    renderMethod(<Comp />, document.getElementById('root'))
+    renderMethod(
+        <ErrorBoundary>
+          <Comp />
+        </ErrorBoundary>
+      , document.getElementById('root'))
   }
 
   // Render!
-  render(App)
+  render(
+    App
+  )
 }

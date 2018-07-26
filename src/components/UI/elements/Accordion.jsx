@@ -9,7 +9,7 @@ import Button from './Button.jsx';
 class FoldOut extends React.Component{
     constructor(props){
         super(props);
-        console.log("Accordion constructor", props);
+        //console.log("Accordion constructor", props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             open: false,
@@ -18,7 +18,7 @@ class FoldOut extends React.Component{
         }
     }
     handleClick(type){
-        console.log("handleClick type ", type);
+        //console.log("handleClick type ", type);
         if(type == this.state.iOpen){
             //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
             this.setState({
@@ -122,7 +122,7 @@ const Wrapper = styled.div`
 const Pill = styled.div`
     border-radius: 50px;
     background-color: ${props=>{
-        console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
+      //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
         return props.theme[props.theme.theme].main
     }};
     padding: 10px;

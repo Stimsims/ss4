@@ -6,6 +6,7 @@ import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Talkit from './../components/UI/elements/TalkitGame.jsx';
 import Container from './../components/UI/elements/Container';
+import Loading from './../components/UI/animations/Loading.jsx';
 //import katex from 'react-katex';
 class Games extends React.Component{
     constructor(props){
@@ -77,7 +78,7 @@ class Games extends React.Component{
             <Container>
             <div>
               {/* <Menu /> */}
-              <Title>{this.props.post.title}</Title>
+              {/* <Title>{this.props.post.title}</Title>
               {this.renderTags()}
               {this.renderContent()}
               <Shareable>
@@ -85,7 +86,8 @@ class Games extends React.Component{
                 <Icon icon={"delete"} />
                 <Icon icon={"cached"} />
                 <Icon icon={"save"} />
-              </Shareable>
+              </Shareable> */}
+              <Loading />
             </div>
             </Container>
           )

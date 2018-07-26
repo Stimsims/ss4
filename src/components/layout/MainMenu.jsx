@@ -10,13 +10,6 @@ import Icon from './../UI/elements/IconButton.jsx';
 class Menu extends React.Component{
     constructor(props){
         super(props);
-        
-        //display path in pieces descending in size
-        // let path = props.location.pathname.split('/');
-        // path = path.filter(p => {
-        //     return !p || p === '';
-        // })
-         console.log("MainMenu constructor route data ", props);
         this.state = {
             path: this.setPath(props.location.pathname),
             categories: ['games', 'posts', 'about', 't1'],
@@ -89,7 +82,7 @@ class Menu extends React.Component{
     renderPostHeading(){
         if(this.state.path[1] && this.state.path[1] === 'page'){
             return (
-                <p style={{fontSize: '1em'}}>{this.state.path[1]? this.state.path[1]: ''} {this.state.path[2]? ' ' + this.state.path[2]: ''}</p>
+                <p style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''} {this.state.path[2]? ' ' + this.state.path[2]: ''}</p>
             )
         }else{
             return <PostTitle style={{fontSize: '1em'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
@@ -110,10 +103,10 @@ class Menu extends React.Component{
                                 {this.renderOpenButton()}
                             </Selected>
                             {this.renderDrop()}
-                            {this.renderPostHeading()}
+                            
                         </FlexChild>
                         <FlexChild >
-
+                            {this.renderPostHeading()}
                         </FlexChild>
                     </Container>
                     {this.renderTags()}
@@ -187,7 +180,7 @@ const Drop = styled.div`
 const PostTitle = styled.h1`
     font-size: ${props=>props.theme[props.theme.theme].textSizeM};
     color: ${props=>props.theme[props.theme.theme].primaryL};
-    padding-left: 10px;
+    padding-left: ${props=>props.theme[props.theme.theme].spaceM}px;
     display: inline-block;
 `
 const Tag = styled.h4`
@@ -252,7 +245,7 @@ const Container = styled.div`
     width:100%;
     height: 50px;
     display: flex;
-    padding:0 10px;
+    padding:0 0px;
     margin:0 0 10px 0;
    
 `
@@ -262,6 +255,7 @@ const Outer = styled.div`
     background: ${props=>props.theme[props.theme.theme].neutral};
     padding:0px;
     margin:0;
+    border-bottom: 2px solid ${props=>props.theme[props.theme.theme].neutralL};
 `
 
 const Wrapper = styled.div`

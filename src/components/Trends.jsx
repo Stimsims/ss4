@@ -1,72 +1,73 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Line from './UI/graphs/Line.jsx';
-//import {get} from 'lodash';
-import Adapter from './../utilities/adapterParallel.js';
-import Legend from 'chartist-plugin-legend';
-import Axis from 'chartist-plugin-axistitle';
 import Trends from './../../data/trends.json';
 import styled from 'styled-components';
-//import Chartist from 'chartist';
-// import ChartistGraph from 'react-chartist';
- /*
-            series: {
-                'series-1': {
-                  lineSmooth: Chartist.Interpolation.step()
-                },
-                'math: (Worldwide)': {
-                  lineSmooth: Chartist.Interpolation.simple(),
-                  showArea: true,
-                  showLabel: true
-                }
-              },
- */
+import Loading from './UI/animations/Loading.jsx';
+import Container from './UI/elements/Container.jsx';
+//import {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+/*
+      "Month": "2004-01",
+      "math: (Worldwide)": 35,
+      "physics: (Worldwide)": 20,
+      "chemistry: (Worldwide)": 21,
+      import { error } from 'util';
+"biology: (Worldwide)": 18,
+      "science: (Worldwide)": 100
 
-export default class Pie extends React.Component {
+      tick={{ fill: 'red' }}
+*/
+export default class Graph extends React.Component{
     constructor(props){
         super(props);
-        let labels = [
-            'math', 
-            "physics", "chemistry", "biology", 
-            "science"
-        ]
-        let xfn = (function(){
-            let map = new Map();
-            return function(value){
-                let t = value.slice(0, 4);
-                if(!map.has(t)){
-                    map.set(t, 1);
-                    return t;
-                }
-            }
-        })();
-        var options = {
-          axisX: {
-            labelInterpolationFnc: xfn
-          }
-        }
-        this.state={
-            options,
-            labels,
-            adapter: new Adapter(Trends, 'Math', 'Month', [
-                'math: (Worldwide)', "physics: (Worldwide)", "chemistry: (Worldwide)", 
-                "biology: (Worldwide)", "science: (Worldwide)"
-            ])
+        this.state = {
+            recharts: null,
+            error: null
         }
     }
+    componentDidMount(){
+        import(/* webpackChunkName: "mygraph" */ 'recharts')
+            .then(r=>{
+                this.setState({
+                    recharts: r
+                })
+            })
+            .catch(e=>{
+                this.setState({
+                    error: 'unable to load graph'
+                })
+        })
+    }
+    renderGraph(){
+        let {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} = this.state.recharts;
+        return (
+            // <p>graph</p>
+            <ResponsiveContainer>
+                    <LineChart width={600} height={300} data={Trends}
+                        margin={{top: 10, right: 20, left: -20, bottom: 50}}>
+                        <XAxis dataKey="Month" label={{ value: "Year-Month", offset: 25, angle: 0, position: 'bottom'}} 
+                        tickFormatter={(t) => {return t.slice(2)}}  angle={-45} textAnchor="end" />
+                        <YAxis/>
+                        <CartesianGrid strokeDasharray="1 6"/>
+                        <Tooltip/>
+                        <Legend verticalAlign="top" height={36} />
+                        <Line type="monotone" dot={false} dataKey="math: (Worldwide)" fill='#8884d8' stroke='#8884d8' strokeWidth={3}/>
+                        <Line type="monotone" dot={false} dataKey="physics: (Worldwide)" stroke="#82ca9d" strokeWidth={3}/>
+                    </LineChart>
+            </ResponsiveContainer>
+      );
+    }
+    //runs a loading animation until data and graph are imported
+    render () {
 
-    render() {
-      return (
-        <Container>
-          <Line data={this.state.adapter} options={this.state.options} 
-          title={'Search Trends'} legend={this.state.labels} 
-          titleX={'Time (mins)'} titleY={'Goals'} />
-        </Container>
-      )
+        if(this.state.recharts){
+            return this.renderGraph();
+        }else if(this.state.error){
+            return <p>{this.state.error}</p>
+        }else{
+            return (<Container>
+                        <Loading />
+                    </Container>)
+        }
     }
 }
 
-const Container = styled.div`
-  margin-top:70px;
-    height: 100vh;
-`
+

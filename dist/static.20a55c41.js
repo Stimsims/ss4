@@ -67,10 +67,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -110,14 +110,168 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: 100vw;\n    height: 100vh;\n    width: ', ';\n    margin: ', ';\n    padding: ', ';\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n'], ['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: 100vw;\n    height: 100vh;\n    width: ', ';\n    margin: ', ';\n    padding: ', ';\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    position: relative;\n    width: ', ';\n    margin: ', ';\n    height: ', ';\n    padding: ', ';\n    background-color: ', '\n'], ['\n    position: relative;\n    width: ', ';\n    margin: ', ';\n    height: ', ';\n    padding: ', ';\n    background-color: ', '\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Colors = __webpack_require__(59);
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UiBg = function (_React$Component) {
+    _inherits(UiBg, _React$Component);
+
+    function UiBg(props) {
+        _classCallCheck(this, UiBg);
+
+        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+        //if fill is true, fills 100% of space
+        //takes zindex as a prop, defaults to 1
+        //overflow property as prop, defaults to scroll
+        //  console.log("Container UI constructor props", props);
+    }
+
+    _createClass(UiBg, [{
+        key: 'render',
+        value: function render() {
+            // console.log("rendering game a");
+            if (this.props.fixed) {
+                return _react2.default.createElement(
+                    Bg,
+                    { z: this.props.z, colorKey: this.props.colorKey, color: this.props.color, width: this.props.width, height: this.props.height,
+                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow },
+                    this.props.children
+                );
+            } else {
+                return _react2.default.createElement(
+                    Box,
+                    { z: this.props.z, colorKey: this.props.colorKey, height: this.props.height, color: this.props.color, width: this.props.width,
+                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow },
+                    this.props.children
+                );
+            }
+        }
+    }]);
+
+    return UiBg;
+}(_react2.default.Component);
+
+exports.default = UiBg;
+
+
+var Bg = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.width ? props.width : 'inherit';
+}, function (props) {
+    return props.margin ? props.margin : '0 0 0 0';
+}, function (props) {
+    return props.padding ? props.padding : '0 0 0 0';
+}, function (props) {
+    return props.z ? props.z : 1;
+}, function (props) {
+    return props.overflow ? props.overflow : 'scroll-y';
+}, function (props) {
+    if (props.color) {
+        return props.color;
+    } else if (props.colorKey) {
+        return props.theme[props.theme.theme][props.colorKey];
+    } else {
+        return props.theme[props.theme.theme].neutral;
+    }
+    //props.color? props.color:props.theme[props.theme.theme].neutral
+});
+var Box = _styledComponents2.default.div(_templateObject2, function (props) {
+    return props.width ? props.width : '100%';
+}, function (props) {
+    return props.margin ? props.margin : '0 0 0 0';
+}, function (props) {
+    return props.height ? props.height : '100%';
+}, function (props) {
+    return props.padding ? props.padding : '0 0 0 0';
+}, function (props) {
+    if (props.color) {
+        return props.color;
+    } else if (props.colorKey) {
+        return props.theme[props.theme.theme][props.colorKey];
+    } else {
+        return props.theme[props.theme.theme].neutral;
+    }
+});
+
+//background-color: #330033;
+//lime #C6FF00   green #B2FF59   yellow #FFEB3B
+//dark blue #1A237E   dark cyan  #006064
+
+/*
+const PostBox = styled.div`
+  width: 50%;
+  background-color: rgb(255,255,255,0.5);
+  margin-top: 100px;
+  margin-left: 55px;
+`
+*/
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("recharts");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-plugin-universal-import/importCss");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-plugin-universal-import/universalImport");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _templateObject = _taggedTemplateLiteral(['\n    position: absolute;\n    z-index: 100; \n    padding: 10px; \n    background-color: white;\n    .active {\n        h4 {\n            color: ', ' !important;\n        }\n    }\n    .drop-item{\n        display:block;\n        h4 {\n            color: ', ';\n        }\n        &:hover{\n            background-color: grey;\n        }\n    }\n\n'], ['\n    position: absolute;\n    z-index: 100; \n    padding: 10px; \n    background-color: white;\n    .active {\n        h4 {\n            color: ', ' !important;\n        }\n    }\n    .drop-item{\n        display:block;\n        h4 {\n            color: ', ';\n        }\n        &:hover{\n            background-color: grey;\n        }\n    }\n\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    font-size: ', ';\n    color: ', ';\n    padding-left: 10px;\n    display: inline-block;\n'], ['\n    font-size: ', ';\n    color: ', ';\n    padding-left: 10px;\n    display: inline-block;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    font-size: ', ';\n    color: ', ';\n    padding-left: ', 'px;\n    display: inline-block;\n'], ['\n    font-size: ', ';\n    color: ', ';\n    padding-left: ', 'px;\n    display: inline-block;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    display: inline;\n    padding: 0px 10px;\n    a{\n        color: ', ';\n    }\n    a.active{\n        color: ', ';\n    }\n'], ['\n    display: inline;\n    padding: 0px 10px;\n    a{\n        color: ', ';\n    }\n    a.active{\n        color: ', ';\n    }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n'], ['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n'], ['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n']),
     _templateObject6 = _taggedTemplateLiteral(['\n    background-color: ', ';\n'], ['\n    background-color: ', ';\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 10px;\n    margin:0 0 10px 0;\n   \n'], ['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 10px;\n    margin:0 0 10px 0;\n   \n']),
-    _templateObject8 = _taggedTemplateLiteral(['\n    width:100%;\n    height: auto;\n    background: ', ';\n    padding:0px;\n    margin:0;\n'], ['\n    width:100%;\n    height: auto;\n    background: ', ';\n    padding:0px;\n    margin:0;\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 0px;\n    margin:0 0 10px 0;\n   \n'], ['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 0px;\n    margin:0 0 10px 0;\n   \n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n    width:100%;\n    height: auto;\n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n'], ['\n    width:100%;\n    height: auto;\n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n']),
     _templateObject9 = _taggedTemplateLiteral(['\n    verticalAlign: middle; \n    transform-origin: 50%;\n    transition: transform ', ' ease;\n    display: inline-block; \n'], ['\n    verticalAlign: middle; \n    transform-origin: 50%;\n    transition: transform ', ' ease;\n    display: inline-block; \n']);
 
 var _react = __webpack_require__(0);
@@ -126,21 +280,21 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-__webpack_require__(46);
+__webpack_require__(49);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Animate = __webpack_require__(47);
+var _Animate = __webpack_require__(23);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _d3Ease = __webpack_require__(16);
+var _d3Ease = __webpack_require__(12);
 
-var _recompose = __webpack_require__(23);
+var _recompose = __webpack_require__(24);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -162,14 +316,8 @@ var Menu = function (_React$Component) {
     function Menu(props) {
         _classCallCheck(this, Menu);
 
-        //display path in pieces descending in size
-        // let path = props.location.pathname.split('/');
-        // path = path.filter(p => {
-        //     return !p || p === '';
-        // })
         var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
-        console.log("MainMenu constructor route data ", props);
         _this.state = {
             path: _this.setPath(props.location.pathname),
             categories: ['games', 'posts', 'about', 't1'],
@@ -291,7 +439,7 @@ var Menu = function (_React$Component) {
             if (this.state.path[1] && this.state.path[1] === 'page') {
                 return _react2.default.createElement(
                     'p',
-                    { style: { fontSize: '1em' } },
+                    { style: { fontSize: '1em', paddingLeft: '10px' } },
                     this.state.path[1] ? this.state.path[1] : '',
                     ' ',
                     this.state.path[2] ? ' ' + this.state.path[2] : ''
@@ -345,10 +493,13 @@ var Menu = function (_React$Component) {
                                 ),
                                 this.renderOpenButton()
                             ),
-                            this.renderDrop(),
-                            this.renderPostHeading()
+                            this.renderDrop()
                         ),
-                        _react2.default.createElement(FlexChild, null)
+                        _react2.default.createElement(
+                            FlexChild,
+                            null,
+                            this.renderPostHeading()
+                        )
                     ),
                     this.renderTags(),
                     _react2.default.createElement(
@@ -467,6 +618,8 @@ var PostTitle = _styledComponents2.default.h1(_templateObject2, function (props)
     return props.theme[props.theme.theme].textSizeM;
 }, function (props) {
     return props.theme[props.theme.theme].primaryL;
+}, function (props) {
+    return props.theme[props.theme.theme].spaceM;
 });
 var Tag = _styledComponents2.default.h4(_templateObject3, function (props) {
     return props.theme[props.theme.theme].neutralL;
@@ -502,6 +655,8 @@ var Selected = _styledComponents2.default.div(_templateObject6, function (props)
 var Container = _styledComponents2.default.div(_templateObject7);
 var Outer = _styledComponents2.default.div(_templateObject8, function (props) {
     return props.theme[props.theme.theme].neutral;
+}, function (props) {
+    return props.theme[props.theme.theme].neutralL;
 });
 
 var Wrapper = _styledComponents2.default.div(_templateObject9, function (props) {
@@ -509,140 +664,13 @@ var Wrapper = _styledComponents2.default.div(_templateObject9, function (props) 
 });
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: 100vw;\n    height: 100vh;\n    width: ', ';\n    margin: ', '\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n'], ['\n    position:fixed;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    width: 100vw;\n    height: 100vh;\n    width: ', ';\n    margin: ', '\n    z-index: ', ';\n    overflow: ', '\n    background-color: ', '\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    position: relative;\n    width: ', ';\n    margin: ', ';\n    height: ', ';\n    background-color: ', '\n'], ['\n    position: relative;\n    width: ', ';\n    margin: ', ';\n    height: ', ';\n    background-color: ', '\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Colors = __webpack_require__(24);
-
-var _Colors2 = _interopRequireDefault(_Colors);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UiBg = function (_React$Component) {
-    _inherits(UiBg, _React$Component);
-
-    function UiBg(props) {
-        _classCallCheck(this, UiBg);
-
-        //if fill is true, fills 100% of space
-        //takes zindex as a prop, defaults to 1
-        //overflow property as prop, defaults to scroll
-        var _this = _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
-
-        console.log("Container UI constructor props", props);
-        return _this;
-    }
-
-    _createClass(UiBg, [{
-        key: 'render',
-        value: function render() {
-            // console.log("rendering game a");
-            if (this.props.fill) {
-                return _react2.default.createElement(
-                    Bg,
-                    { z: this.props.z, color: this.props.color, width: this.props.width, height: this.props.height,
-                        margin: this.props.margin, overflow: this.props.overflow },
-                    this.props.children
-                );
-            } else {
-                return _react2.default.createElement(
-                    Box,
-                    { z: this.props.z, height: this.props.height, color: this.props.color, width: this.props.width,
-                        margin: this.props.margin, overflow: this.props.overflow },
-                    this.props.children
-                );
-            }
-        }
-    }]);
-
-    return UiBg;
-}(_react2.default.Component);
-
-exports.default = UiBg;
-
-
-var Bg = _styledComponents2.default.div(_templateObject, function (props) {
-    return props.width ? props.width : 'inherit';
-}, function (props) {
-    return props.margin ? props.margin : '0 0 0 0';
-}, function (props) {
-    return props.z ? props.z : 1;
-}, function (props) {
-    return props.overflow ? props.overflow : 'scroll-y';
-}, function (props) {
-    return props.color ? props.color : props.theme[props.theme.theme].neutral;
-});
-var Box = _styledComponents2.default.div(_templateObject2, function (props) {
-    return props.width ? props.width : '100%';
-}, function (props) {
-    return props.margin ? props.margin : '0 0 0 0';
-}, function (props) {
-    return props.height ? props.height : '100vh';
-}, function (props) {
-    return props.color ? props.color : props.theme[props.theme.theme].neutral;
-});
-
-//background-color: #330033;
-//lime #C6FF00   green #B2FF59   yellow #FFEB3B
-//dark blue #1A237E   dark cyan  #006064
-
-/*
-const PostBox = styled.div`
-  width: 50%;
-  background-color: rgb(255,255,255,0.5);
-  margin-top: 100px;
-  margin-left: 55px;
-`
-*/
-
-/***/ }),
-/* 6 */
+/* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("prop-types");
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-plugin-universal-import/importCss");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-plugin-universal-import/universalImport");
-
-/***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -675,11 +703,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(9);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -687,13 +715,17 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(56);
+var _TalkitGame = __webpack_require__(58);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
+
+var _Loading = __webpack_require__(25);
+
+var _Loading2 = _interopRequireDefault(_Loading);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -738,7 +770,7 @@ var Games = function (_React$Component) {
                 id: 'react-katex',
                 file: 'D:/websites/react-static/static-site-2/4/src/containers/Post.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 17)), (0, _importCss3.default)('react-katex', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 16)), (0, _importCss3.default)('react-katex', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -748,7 +780,7 @@ var Games = function (_React$Component) {
                     return _path3.default.join(__dirname, 'react-katex');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(17);
+                    return /*require.resolve*/(16);
                 },
                 chunkName: function chunkName() {
                     return 'mykatex';
@@ -762,7 +794,7 @@ var Games = function (_React$Component) {
                 id: 'recharts',
                 file: 'D:/websites/react-static/static-site-2/4/src/containers/Post.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 11)), (0, _importCss3.default)('recharts', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 5)), (0, _importCss3.default)('recharts', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -772,7 +804,7 @@ var Games = function (_React$Component) {
                     return _path3.default.join(__dirname, 'recharts');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(11);
+                    return /*require.resolve*/(5);
                 },
                 chunkName: function chunkName() {
                     return 'mygraph';
@@ -835,21 +867,7 @@ var Games = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(
-                        Title,
-                        null,
-                        this.props.post.title
-                    ),
-                    this.renderTags(),
-                    this.renderContent(),
-                    _react2.default.createElement(
-                        Shareable,
-                        null,
-                        _react2.default.createElement(_IconButton2.default, { icon: "done" }),
-                        _react2.default.createElement(_IconButton2.default, { icon: "delete" }),
-                        _react2.default.createElement(_IconButton2.default, { icon: "cached" }),
-                        _react2.default.createElement(_IconButton2.default, { icon: "save" })
-                    )
+                    _react2.default.createElement(_Loading2.default, null)
                 )
             );
         }
@@ -866,7 +884,13 @@ var Title = _styledComponents2.default.h2(_templateObject2);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 10 */
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("d3-ease");
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -888,35 +912,35 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _baselineDelete24px = __webpack_require__(48);
+var _baselineDelete24px = __webpack_require__(50);
 
 var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
 
-var _baselineDone24px = __webpack_require__(49);
+var _baselineDone24px = __webpack_require__(51);
 
 var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
 
-var _baselineCached24px = __webpack_require__(50);
+var _baselineCached24px = __webpack_require__(52);
 
 var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(51);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(53);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
-var _baselineSave24px = __webpack_require__(52);
+var _baselineSave24px = __webpack_require__(54);
 
 var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
 
-var _baselineSettings20px = __webpack_require__(53);
+var _baselineSettings20px = __webpack_require__(55);
 
 var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
 
-var _baselineKeyboard_arrow_up24px = __webpack_require__(54);
+var _baselineKeyboard_arrow_up24px = __webpack_require__(56);
 
 var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
 
-var _baselinePlay_arrow24px = __webpack_require__(55);
+var _baselinePlay_arrow24px = __webpack_require__(57);
 
 var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
 
@@ -1011,19 +1035,13 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("recharts");
-
-/***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -1051,107 +1069,31 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("prop-types");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
 /* 16 */
-/***/ (function(module, exports) {
-
-module.exports = require("d3-ease");
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
 
 /***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-ga");
+
+/***/ }),
 /* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("samplegame");
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom");
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1160,124 +1102,56 @@ module.exports = require("react-katex");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    .slide-up-enter{\n        transform: translate(0px, 100vh);\n        opacity: 0.1;\n    }\n    .slide-up-enter.slide-up-enter-active {\n        transform: translate(0px, 0vh);\n        transition: all 1s ease-out;\n        opacity: 0.1;\n    }\n\n    .slide-up-leave {\n        transform: translate(0px, 100vh);\n    }\n\n    .slide-up-leave.slide-up-leave-active {\n        transform: translate(0px, 0px);\n        transition:  all 1s ease-out;\n    }\n\n\n    .slide-up-appear {\n        transform: translate(0px, 100vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear.slide-up-appear-active {\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n\n'], ['\n    .slide-up-enter{\n        transform: translate(0px, 100vh);\n        opacity: 0.1;\n    }\n    .slide-up-enter.slide-up-enter-active {\n        transform: translate(0px, 0vh);\n        transition: all 1s ease-out;\n        opacity: 0.1;\n    }\n\n    .slide-up-leave {\n        transform: translate(0px, 100vh);\n    }\n\n    .slide-up-leave.slide-up-leave-active {\n        transform: translate(0px, 0px);\n        transition:  all 1s ease-out;\n    }\n\n\n    .slide-up-appear {\n        transform: translate(0px, 100vh);\n        transition:  all 1s ease-out;\n    }\n    .slide-up-appear.slide-up-appear-active {\n        transform: translate(0px, 0vh);\n        transition:  all 1s ease-out;\n    }\n\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactAddonsCssTransitionGroup = __webpack_require__(27);
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import './styles.css';
-
-
-var Trans = function (_React$Component) {
-    _inherits(Trans, _React$Component);
-
-    function Trans(props) {
-        _classCallCheck(this, Trans);
-
-        return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
-    }
-
-    _createClass(Trans, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Container,
-                null,
-                _react2.default.createElement(
-                    _reactAddonsCssTransitionGroup2.default,
-                    {
-                        transitionName: 'slide-up',
-                        transitionAppear: true,
-                        transitionAppearTimeout: 2000,
-                        transitionEnterTimeout: 2000,
-                        transitionLeaveTimeout: 2000 },
-                    this.props.children
-                )
-            );
+var isListening = false;
+var errors = [];
+var catchError = function catchError(error) {
+    //console.log("catchError", error);
+    if (isListening) {
+        //throw error;
+    } else {
+        if (errors.length < 10) {
+            errors.push(error);
         }
-    }]);
-
-    return Trans;
-}(_react2.default.Component);
-
-exports.default = Trans;
-
-
-var Container = _styledComponents2.default.span(_templateObject);
-/*    .slide-up-appear {
-        transform: translate(0px, 100vh);
-        transition:  all 1s ease-out;
     }
-    .slide-up-appear.slide-up-appear-active {
-        transform: translate(0px, 0vh);
-        transition:  all 1s ease-out;
-    }
+};
 
-    .slide-up-appear-active a div{
-        transform: translate(0px, 0vh);
-        transition:  all 1s ease-out;
-    }
-    .slide-up-appear a div{
-        transition:  all 1s ease-out;
-        transform: translate(0px, 100vh);
-    }
+if (typeof window !== 'undefined') {
+    console.log("error, window is defined, adding listener");
+    window.onerror = function (message, source, lineNum, colNum, errorObj) {
+        console.warn('onerror details: message ' + message + ' source: ' + source + ' lineNum ' + lineNum, errorObj);
+        // window.location.href = (
+        //     `http://stackoverflow.com/search?q=[js]${message}`
+        // )
+        return true; //prevents users from seeing in console
+        //false creates uncaught error and a stack trace
+    };
+    window.addEventListener('error', function (event) {
+        console.warn("addEventListener caught ", event);
+        return true;
+    });
+    isListening = true;
+    errors.map(function (e) {
+        catchError(e);
+    });
+    errors = [];
 
+    // try{
+    //     let fail = 10/0;
+    //     console.log("succeeded in dividing by 0 " + fail);
+    //     throw new Error('divided by zero');
+    //   }catch(e){
+    //     console.log("failed to divide by 0", e);
+    //     throw e;
+    //     //MyError(e);
+    //   }
+} else {
+    console.log("error, window is undefined, cannot listen");
+}
 
-
-    .slide-up-appear-active a div{
-        transition: all 1s ease-out;
-        transform: rotate(0deg);
-    }
-    .slide-up-appear a div{
-        transition: all 1s ease-out;
-        transform: rotate(90deg);
-    }
-            &.slide-up-appear-active {
-            transform: translate(0px, 0px);
-        }
-*/
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-ga");
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-module.exports = require("samplegame");
+exports.default = catchError;
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-dom");
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1391,16 +1265,104 @@ var loadFromPromiseCache = exports.loadFromPromiseCache = function loadFromPromi
 var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, promisecache) {
   return promisecache[callForString(chunkName, props)] = pr;
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)(module)))
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = require("recompose");
+module.exports = require("react-move/Animate");
 
 /***/ }),
 /* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose");
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1409,39 +1371,239 @@ module.exports = require("recompose");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var colors = {
-    p: '#101856',
-    pDark: '#040615',
-    pLight: '#2b39d4',
-    s: '#C6FF00',
-    sDark: '#8cb300',
-    sLight: '#e9ff99',
-    a1Light: '#69F0AE',
-    a1Dark: '#10a25c',
-    a2Light: '#FFEB3B',
-    a2Dark: '#F9A825',
-    transparent: 'transparent',
-    text: 'white',
-    accent: '#cc00cc',
-    accentHighlight: '#ffccff',
-    accentShadow: '#660066',
-    shadow: '#f2f2f2',
-    menu: 'white',
-    series0: '#cc66ff',
-    series1: '#99ccff',
-    series2: '#99ffcc',
-    series3: '#ffffcc',
-    series4: '#ffcce6'
-};
 
-exports.default = colors;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-// export const timing= {
-//     mini: 0.3
-// };
+var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n'], ['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Animate = __webpack_require__(23);
+
+var _Animate2 = _interopRequireDefault(_Animate);
+
+var _NodeGroup = __webpack_require__(26);
+
+var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
+
+var _d3Ease = __webpack_require__(12);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function createCircle(id, x, y) {
+    this.id = id;
+    this.x = x;
+    this.y = y;
+    this.r = 16;
+}
+var circles = [];
+function drawCircles() {
+    var radius = 50;
+    var offset = 68;
+    for (var i = 0; i < 2 * Math.PI; i += Math.PI / 6) {
+        //for(var i = 0; i<360; i+=30){
+        console.log('creating circle i:' + i + ' cos: ' + Math.cos(i) * radius + ' sin: ' + Math.sin(i) * radius);
+        circles.push(new createCircle(i, Math.cos(i) * radius + offset, Math.sin(i) * radius + offset));
+    }
+}
+drawCircles();
+
+var Loading = function (_React$PureComponent) {
+    _inherits(Loading, _React$PureComponent);
+
+    function Loading(props) {
+        _classCallCheck(this, Loading);
+
+        //let c = new createCircle(50, 50);
+        var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, props));
+
+        _this.state = {
+            // animation: this.getAnimation(),
+            forward: true
+        };
+        return _this;
+    }
+
+    _createClass(Loading, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Load,
+                null,
+                circles.map(function (c) {
+                    return _react2.default.createElement('div', { className: 'load-circle', style: { position: 'absolute', width: c.r * 2 + 'px', height: c.r * 2 + 'px',
+                            left: c.x + 'px', top: c.y + 'px', backgroundColor: 'transparent'
+                        } });
+                })
+            );
+        }
+    }]);
+
+    return Loading;
+}(_react2.default.PureComponent);
+
+exports.default = Loading;
+
+
+var Load = _styledComponents2.default.div(_templateObject, circles.map(function (c, i) {
+    return '\n            div:nth-child(' + i + '){\n                animation-delay: ' + i * 0.25 + 's;\n            }\n            ';
+}));
+
+/*
+
+
+div:nth-child(1){
+        animation-delay: 1s;
+    }
+    div:nth-child(2){
+        animation-delay: 2s;
+    }
+    div:nth-child(3){
+        animation-delay: 3s;
+    }
+
+return <div style={{position: 'relative', backgroundColor: 'yellow', height: '300px', width: '300px'}}>
+                <button onClick={()=>{this.setState({forward:!this.state.forward, 
+                    circles: [...this.state.circles, new createCircle(this.state.circles.length, 
+                    Math.random()*200, Math.random()*200)]}
+                )}}>scale</button>
+                <NodeGroup
+                        data={this.state.circles}
+                        keyAccessor={(p) => p.id}
+                        start={() => ({
+                            scale: [1],
+                            events: { 
+                                end: () => {this.restartAnimation('enter', e)}
+                            }
+                        })}
+
+                        enter={(e, i) => ({
+                            scale: [2],
+                            timing: { duration: 1000, delay: i*350 },
+                            events: { 
+                                end: () => {this.restartAnimation('enter', e)}
+                            }
+                        })}
+                        update={(c, i) => ({
+                            scale: () => {
+                               // console.log('loading restartAnimation  update scale called, ' + this.state.forward);
+                                return this.state.forward? [1]:[2]
+                            },
+                            timing: {duration: 1000, delay: i*350 },
+                            events: { 
+                                end: () => {this.restartAnimation('update', c)}
+                            }
+                        })}
+                        >
+                        {(nodes) => {
+                            console.log("loading nodes", nodes);
+                            return(
+                                <div>
+                                    {   
+                                        nodes.map((node) => {
+                                            const { state, data } = node;
+                                            const {scale} = state;
+                                            console.log(`loading animation circles scale: ${scale}`, node);
+                                            data.scale = scale;
+                                            return <div style={{position: 'absolute', width: `${data.r*2}px`, height: `${data.r*2}px`, 
+                                            left: `${data.x}px`, top: `${data.y}px`, backgroundColor: 'transparent', 
+                                            transform: `scale(${scale})`,
+                                            borderRadius: '50%', border: '5px solid red'}} ></div>
+                                        })
+                                    }
+                                </div>
+                            )
+                        }}
+                </NodeGroup>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+return <div>
+                <Animate
+                        start={() => ({
+                            rotate: [0]
+                        })}
+
+                        enter={() => ({
+                            rotate: [360],
+                            timing: { duration: 2000, ease: easeExpOut },
+                            events: { 
+                                start: () => {this.restartAnimation('enter', 0)}
+                            }
+                        })}
+                        update={() => ({
+                            rotate: [this.state.angle],
+                            timing: {duration: 2000, ease: easeExpOut },
+                            events: { 
+                                end: () => {this.restartAnimation('update', this.state.angle === 360? 0: 360)}
+                            }
+                        })}
+                        >
+                        {(state) => {
+                            const { rotate } = state;
+                            console.log(`loading animation rotate: ${rotate}`);
+                            return (
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        width: 50,
+                                        height: 50,
+                                        borderRadius: '50%',
+                                        backgroundColor: '#00cf77',
+                                        WebkitTransform: `rotate(${rotate}deg)`,
+                                        transform: `rotate(${rotate}deg)`,
+                                    }}
+                            >
+                            loading 
+                            </div>
+                            );
+                        }}
+                </Animate>
+            </div>
+*/
 
 /***/ }),
-/* 25 */
+/* 26 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-move/NodeGroup");
+
+/***/ }),
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1467,29 +1629,25 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(9);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _Bg = __webpack_require__(57);
-
-var _Bg2 = _interopRequireDefault(_Bg);
-
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _PostList = __webpack_require__(26);
-
-var _PostList2 = _interopRequireDefault(_PostList);
-
-var _Tags = __webpack_require__(59);
+var _Tags = __webpack_require__(60);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _SlideUp = __webpack_require__(18);
+var _Translate = __webpack_require__(28);
 
-var _SlideUp2 = _interopRequireDefault(_SlideUp);
+var _Translate2 = _interopRequireDefault(_Translate);
+
+var _PostItem = __webpack_require__(29);
+
+var _PostItem2 = _interopRequireDefault(_PostItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1500,17 +1658,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import PostList from './../components/layout/PostList.jsx';
 
-//import Katex from './../components/UI/math/Katex.jsx';
+
+// const Post = (arg) => {
+//     console.log("Post function arg1 ", arg);
+//     return <p>Post item</p>
+// }
+
 var Games = function (_React$Component) {
     _inherits(Games, _React$Component);
 
     function Games(props) {
         _classCallCheck(this, Games);
 
-        return _possibleConstructorReturn(this, (Games.__proto__ || Object.getPrototypeOf(Games)).call(this, props));
-        //  console.log("posts constructor", props);
+        var _this = _possibleConstructorReturn(this, (Games.__proto__ || Object.getPrototypeOf(Games)).call(this, props));
+
+        console.log("posts constructor", props);
+        _this.state = {
+            render: false
+        };
+        return _this;
     }
+    // componentDidMount(){
+    //     setTimeout(() => {
+    //         this.setState({
+    //             render: true
+    //         })
+    //     }, 3000);
+    // }
+
 
     _createClass(Games, [{
         key: 'renderPagination',
@@ -1547,11 +1724,28 @@ var Games = function (_React$Component) {
             }
         }
     }, {
+        key: 'renderPosts',
+        value: function renderPosts() {
+            //if exiting, don't bother with translate this.props.animationState === 1
+            //parent animations don't seem to restart child transitions
+            if (this.props.animationState === 1) {
+                console.log("renderPosts called with state 1");
+                return _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
+                    component: _PostItem2.default.component, y: { start: -2000, enter: 0 }, x: { start: -500, enter: 0 } });
+            } else {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    'Not rendering that when leaving!!'
+                );
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                null,
+                { fixed: true },
                 _react2.default.createElement(
                     FlexBox,
                     null,
@@ -1561,7 +1755,9 @@ var Games = function (_React$Component) {
                     _react2.default.createElement(
                         PostBox,
                         null,
-                        _react2.default.createElement(_PostList2.default, { posts: this.props.posts })
+                        _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
+                            component: _PostItem2.default.component, y: { start: -200, enter: 0, unit: 'vh' }
+                        })
                     )
                 )
             );
@@ -1586,7 +1782,7 @@ var Title = _styledComponents2.default.h2(_templateObject3);
 // `
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1596,30 +1792,29 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    width:100%;\n    top:0; left: 0; right:0; bottom: 0;\n    padding: 10px;\n    position: absolute;\n    overflow-y: auto;\n'], ['\n    width:100%;\n    top:0; left: 0; right:0; bottom: 0;\n    padding: 10px;\n    position: absolute;\n    overflow-y: auto;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  width:100%;\n  height: 75px;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  height: 75px;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    width:100%;\n    top:0; left: 0; right:0; bottom: 0;\n    padding: 10px;\n    position: absolute;\n    overflow-y: auto;\n'], ['\n    width:100%;\n    top:0; left: 0; right:0; bottom: 0;\n    padding: 10px;\n    position: absolute;\n    overflow-y: auto;\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _reactStatic = __webpack_require__(2);
-
-var _SlideUp = __webpack_require__(18);
-
-var _SlideUp2 = _interopRequireDefault(_SlideUp);
-
-var _NodeGroup = __webpack_require__(58);
+var _NodeGroup = __webpack_require__(26);
 
 var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
-var _d3Ease = __webpack_require__(16);
+var _d3Ease = __webpack_require__(12);
+
+var _propTypes = __webpack_require__(10);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1627,82 +1822,127 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PostList = function (_React$Component) {
-    _inherits(PostList, _React$Component);
+//translates (x or y) a list of items
+//passes item as data with itemKey, and props.other to props.component
+var Translate = function (_React$Component) {
+    _inherits(Translate, _React$Component);
 
-    function PostList() {
-        _classCallCheck(this, PostList);
+    function Translate(props) {
+        _classCallCheck(this, Translate);
 
-        return _possibleConstructorReturn(this, (PostList.__proto__ || Object.getPrototypeOf(PostList)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Translate.__proto__ || Object.getPrototypeOf(Translate)).call(this, props));
+
+        console.log("renderPosts called Translate constructor", props);
+        return _this;
     }
 
-    _createClass(PostList, [{
+    _createClass(Translate, [{
         key: 'render',
         value: function render() {
-            if (this.props.posts) {
+            var _this2 = this;
+
+            if (this.props.items) {
+                var inject = _defineProperty({}, this.props.itemKey, null);
                 return _react2.default.createElement(
                     Wrapper,
                     null,
                     _react2.default.createElement(
                         _NodeGroup2.default,
                         {
-                            data: this.props.posts,
+                            data: this.props.items,
                             keyAccessor: function keyAccessor(p) {
-                                return p.id;
-                            },
-
-                            start: function start(d, i) {
-                                return {
-                                    transY: [-1000],
-                                    timing: { duration: 800, delay: i * 300, ease: _d3Ease.easeExpInOut }
+                                return p[_this2.props.itemId];
+                            }
+                            // start={(d, i) => ({
+                            //     transY: [-2000],
+                            //     timing: { duration: 800, delay: i*300,  ease: easeExpInOut },
+                            // })}
+                            // enter={(d, i) => ({
+                            //     transY: [0],
+                            //     timing: { duration: 800, delay: i*300,  ease: easeExpInOut },
+                            // })}
+                            , start: function start(d, i) {
+                                var s = {
+                                    timing: { duration: 800, delay: i * 150, ease: _d3Ease.easePolyOut }
                                 };
+                                if (_this2.props.y) {
+                                    s.y = _this2.props.y.start ? [_this2.props.y.start] : [0];
+                                };
+                                if (_this2.props.x) {
+                                    s.x = _this2.props.x.start ? [_this2.props.x.start] : [0];
+                                };
+                                //if(this.props.x) {s.x = this.props.x.start? [this.props.x.start]:[0]};
+                                console.log("Translate start obj ", s);
+                                return s;
                             },
-
                             enter: function enter(d, i) {
-                                //console.log("enter anim i = " + i, d);
-                                return {
-                                    transY: [0],
-                                    timing: { duration: 800, delay: i * 300, ease: _d3Ease.easeExpInOut }
+                                var e = {
+                                    timing: { duration: 800, delay: i * 150, ease: _d3Ease.easePolyOut }
                                 };
+                                if (_this2.props.y) {
+                                    e.y = _this2.props.y.enter ? [_this2.props.y.enter] : [0];
+                                };
+                                if (_this2.props.x) {
+                                    e.x = _this2.props.x.enter ? [_this2.props.x.enter] : [0];
+                                };
+                                console.log("Translate enter obj ", e);
+                                return e;
+                            },
+                            update: function update(d, i) {
+                                var u = {
+                                    timing: { duration: 800, delay: i * 150, ease: _d3Ease.easePolyOut }
+                                };
+                                if (_this2.props.y) {
+                                    u.y = _this2.props.y.update ? [_this2.props.y.update] : [0];
+                                };
+                                if (_this2.props.x) {
+                                    u.x = _this2.props.x.update ? [_this2.props.x.update] : [0];
+                                };
+                                console.log("Translate update obj ", u);
+                                return u;
+                            },
+                            leave: function leave(d, i) {
+                                var l = {
+                                    timing: { duration: 800, delay: i * 150, ease: _d3Ease.easePolyOut }
+                                };
+                                if (_this2.props.y) {
+                                    l.y = _this2.props.y.leave ? [_this2.props.y.leave] : [0];
+                                };
+                                if (_this2.props.x) {
+                                    l.x = _this2.props.x.leave ? [_this2.props.x.leave] : [0];
+                                };
+                                console.log("Translate update obj ", l);
+                                return l;
                             }
                         },
                         function (nodes) {
                             return _react2.default.createElement(
                                 'div',
                                 null,
-                                nodes.map(function (_ref) {
-                                    var key = _ref.key,
-                                        data = _ref.data,
-                                        state = _ref.state;
+                                nodes.map(function (node) {
+                                    var key = node.key,
+                                        data = node.data,
+                                        state = node.state;
 
-                                    var transY = state.transY,
-                                        rest = _objectWithoutProperties(state, ['transY']);
+                                    var y = state.y,
+                                        x = state.x,
+                                        rest = _objectWithoutProperties(state, ['y', 'x']);
 
+                                    inject[_this2.props.itemKey] = data;
+                                    console.log('translate data', node);
                                     return _react2.default.createElement(
-                                        _reactStatic.Link,
-                                        { to: '/posts/' + data.id, key: key, style: { display: 'block', translate: 'all 1s ease', transform: 'translate(0, ' + transY + 'px)' } },
-                                        _react2.default.createElement(
-                                            Post,
-                                            { key: key },
-                                            _react2.default.createElement(
-                                                'h2',
-                                                null,
-                                                data.title
-                                            ),
-                                            _react2.default.createElement(
-                                                'p',
-                                                null,
-                                                data.tags.map(function (t, i) {
-                                                    return i === 0 ? "" + t : ", " + t;
-                                                })
-                                            )
-                                        )
+                                        'div',
+                                        { style: { display: 'block', translate: 'all 1s ease',
+                                                transform: 'translate(' + (x ? x : 0) + (_this2.props.x && _this2.props.x.unit ? _this2.props.x.unit : 'px') + '\n                                                            , ' + (y ? y : 0) + (_this2.props.y && _this2.props.y.unit ? _this2.props.y.unit : 'px') + ')' } },
+                                        _react2.default.createElement(_this2.props.component, _extends({}, inject, _this2.props.other))
                                     );
                                 })
                             );
@@ -1713,56 +1953,100 @@ var PostList = function (_React$Component) {
                 return _react2.default.createElement(
                     'p',
                     null,
-                    'No posts to render'
+                    'Translate has no items to animate'
                 );
             }
         }
     }]);
 
-    return PostList;
+    return Translate;
 }(_react2.default.Component);
 
-exports.default = PostList;
+exports.default = Translate;
 
+
+Translate.PropTypes = {
+    itemId: _propTypes2.default.string,
+    itemKey: _propTypes2.default.string,
+    items: _propTypes2.default.array,
+    component: _propTypes2.default.object
+};
 
 var Wrapper = _styledComponents2.default.div(_templateObject);
-var Post = _styledComponents2.default.div(_templateObject2, function (props) {
-    return props.theme[props.theme.theme].primary;
-}, function (props) {
-    return props.theme[props.theme.theme].animS;
-}, function (props) {
-    return props.theme[props.theme.theme].primaryL;
-}, function (props) {
-    return props.theme[props.theme.theme].text;
-}, function (props) {
-    return props.theme[props.theme.theme].textInverted;
-}, function (props) {
-    return props.theme[props.theme.theme].primary;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 
-/*
-    <Link key={post.id} to={`/posts/${post.id}`} classNames={'homepost'}>
-        <SlideUp>
-            <Post key={post.id} style={{"transitionDelay": `${ i * .15 }s` }}>
-                <h2>{post.title}</h2>
-                <p>
-                    {post.tags.map((t, i) => {
-                    return i===0? ""+t:", "+t;
-                    })}
-                </p>
-            </Post>
-        </SlideUp>
-    </Link>
-*/
+var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactStatic = __webpack_require__(2);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var key = 'post';
+
+var component = function component(props) {
+  // return <p>post {props.post.id}</p>
+  return _react2.default.createElement(
+    _reactStatic.Link,
+    { to: '/posts/' + props[key].id, key: props[key].id },
+    _react2.default.createElement(
+      Post,
+      { key: props[key].id },
+      _react2.default.createElement(
+        'h2',
+        null,
+        props[key].title
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        props[key].tags.map(function (t, i) {
+          return i === 0 ? "" + t : ", " + t;
+        })
+      )
+    )
+  );
+};
+var Post = _styledComponents2.default.div(_templateObject, function (props) {
+  return props.theme[props.theme.theme].primary;
+}, function (props) {
+  return props.theme[props.theme.theme].animS;
+}, function (props) {
+  return props.theme[props.theme.theme].primaryL;
+}, function (props) {
+  return props.theme[props.theme.theme].text;
+}, function (props) {
+  return props.theme[props.theme.theme].textInverted;
+}, function (props) {
+  return props.theme[props.theme.theme].primary;
+});
+
+exports.default = {
+  component: component,
+  key: key
+};
 
 /***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-addons-css-transition-group");
-
-/***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1776,8 +2060,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  position: relative;\n  width: 100%;\n  height: 50vh;\n'], ['\n  position: relative;\n  width: 100%;\n  height: 50vh;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    position: fixed;\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    z-index: -1000;\n    overflow: hidden;\n    margin: ', ';\n    background-color: ', ';\n'], ['\n    position: fixed;\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    z-index: -1000;\n    overflow: hidden;\n    margin: ', ';\n    background-color: ', ';\n']);
+    _templateObject3 = _taggedTemplateLiteral(['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n\n'], ['\n  width: 50%;\n  background-color: rgb(255,255,255,0.5);\n  margin-top: 100px;\n  margin-left: 55px;\n\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1785,29 +2068,29 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _MainMenu = __webpack_require__(4);
-
-var _MainMenu2 = _interopRequireDefault(_MainMenu);
-
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
+
+var _Text = __webpack_require__(61);
+
+var _Text2 = _interopRequireDefault(_Text);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _FadeIn = __webpack_require__(60);
+var _Translate = __webpack_require__(28);
 
-var _FadeIn2 = _interopRequireDefault(_FadeIn);
+var _Translate2 = _interopRequireDefault(_Translate);
 
-var _SlideUp = __webpack_require__(18);
+var _PostItem = __webpack_require__(29);
 
-var _SlideUp2 = _interopRequireDefault(_SlideUp);
+var _PostItem2 = _interopRequireDefault(_PostItem);
 
-var _PostList = __webpack_require__(26);
+var _Trends = __webpack_require__(62);
 
-var _PostList2 = _interopRequireDefault(_PostList);
+var _Trends2 = _interopRequireDefault(_Trends);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1818,28 +2101,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import Trends from './../components/Trends.jsx';
-//import Bg from './../components/UI/elements/Bg.jsx';
 
+var Home = function (_React$Component) {
+  _inherits(Home, _React$Component);
 
-var Games = function (_React$Component) {
-  _inherits(Games, _React$Component);
+  function Home(props) {
+    _classCallCheck(this, Home);
 
-  function Games(props) {
-    _classCallCheck(this, Games);
-
-    var _this = _possibleConstructorReturn(this, (Games.__proto__ || Object.getPrototypeOf(Games)).call(this, props));
-
-    console.log("home constructor", props);
-    // console.log("home");
-    // console.log(this.props);
-    return _this;
+    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
   }
 
-  _createClass(Games, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      console.log("home component did mount");
+  _createClass(Home, [{
+    key: 'renderGraph',
+    value: function renderGraph() {
+      console.log("home component renderGraph animationState " + this.props.animationState);
+      if (this.props.animationState === 1) {
+        return _react2.default.createElement(_Trends2.default, null);
+      }
+      return null;
     }
   }, {
     key: 'render',
@@ -1847,26 +2126,32 @@ var Games = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Bg, { z: -1000 }),
         _react2.default.createElement(
-          Bg,
-          { color: 'transparent', z: 1 },
+          _Container2.default,
+          { fixed: true, colorKey: 'neutral', z: -1000, padding: '10px 0px 100px 0px' },
+          _react2.default.createElement(_Text2.default, { tag: 'h3', display: 'block', colorKey: 'textInverted', text: 'Google Search Trends for Subjects' }),
           _react2.default.createElement(
-            _SlideUp2.default,
+            _Container2.default,
+            { fixed: false, width: '100%', height: '90%' },
+            this.renderGraph()
+          )
+        ),
+        _react2.default.createElement(
+          _Container2.default,
+          { fixed: true, color: 'transparent', z: 1 },
+          _react2.default.createElement(
+            PostBox,
             null,
             _react2.default.createElement(
-              PostBox,
+              Message,
               null,
-              _react2.default.createElement(
-                Message,
-                null,
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-              ),
-              _react2.default.createElement(
-                PostWrapper,
-                null,
-                _react2.default.createElement(_PostList2.default, { posts: this.props.posts })
-              )
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            ),
+            _react2.default.createElement(
+              PostWrapper,
+              null,
+              _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
+                component: _PostItem2.default.component, y: { start: -800, enter: 0, unit: 'px' } })
             )
           )
         )
@@ -1874,31 +2159,17 @@ var Games = function (_React$Component) {
     }
   }]);
 
-  return Games;
+  return Home;
 }(_react2.default.Component);
 
-exports.default = (0, _reactStatic.withRouteData)(Games);
+exports.default = (0, _reactStatic.withRouteData)(Home);
 
 var Message = _styledComponents2.default.h4(_templateObject);
 var PostWrapper = _styledComponents2.default.div(_templateObject2);
 var PostBox = _styledComponents2.default.div(_templateObject3);
 
-var Bg = _styledComponents2.default.div(_templateObject4, function (props) {
-  return props.margin ? props.margin : '0px';
-}, function (props) {
-  return props.color ? props.color : props.theme[props.theme.theme].neutralD;
-});
-
-/*
-    position:absolute;
-    top: 0;
-    left:0;
-    bottom:0;
-    right:0;
-*/
-
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1916,15 +2187,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(9);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _GameListItem = __webpack_require__(62);
+var _GameListItem = __webpack_require__(64);
 
 var _GameListItem2 = _interopRequireDefault(_GameListItem);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -1969,7 +2240,7 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                { height: '100%' },
+                { fixed: true },
                 _react2.default.createElement(
                     'div',
                     null,
@@ -1987,7 +2258,7 @@ var Games = function (_React$Component) {
 exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Games));
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2015,17 +2286,17 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _reactGa = __webpack_require__(19);
+var _reactGa = __webpack_require__(17);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
 var _reactRedux = __webpack_require__(3);
 
-var _Button = __webpack_require__(63);
+var _Button = __webpack_require__(65);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -2047,9 +2318,9 @@ var FoldOut = function (_React$Component) {
     function FoldOut(props) {
         _classCallCheck(this, FoldOut);
 
+        //console.log("Accordion constructor", props);
         var _this = _possibleConstructorReturn(this, (FoldOut.__proto__ || Object.getPrototypeOf(FoldOut)).call(this, props));
 
-        console.log("Accordion constructor", props);
         _this.handleClick = _this.handleClick.bind(_this);
         _this.state = {
             open: false,
@@ -2062,7 +2333,7 @@ var FoldOut = function (_React$Component) {
     _createClass(FoldOut, [{
         key: 'handleClick',
         value: function handleClick(type) {
-            console.log("handleClick type ", type);
+            //console.log("handleClick type ", type);
             if (type == this.state.iOpen) {
                 //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
                 this.setState({
@@ -2186,7 +2457,7 @@ var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) 
     return props.theme[props.theme.theme].animM;
 });
 var Pill = _styledComponents2.default.div(_templateObject4, function (props) {
-    console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
+    //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
     return props.theme[props.theme.theme].main;
 });
 var Panel = _styledComponents2.default.div(_templateObject5);
@@ -2196,7 +2467,7 @@ var Mid = _styledComponents2.default.span(_templateObject6);
 var FlexChild = _styledComponents2.default.span(_templateObject7);
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2226,7 +2497,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(64);
+var _Index = __webpack_require__(66);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -2279,7 +2550,7 @@ var Games = function (_React$Component) {
                         id: 'samplegame',
                         file: 'D:/websites/react-static/static-site-2/4/src/containers/Game.jsx',
                         load: function load() {
-                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 20)), (0, _importCss3.default)('samplegame', {
+                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 18)), (0, _importCss3.default)('samplegame', {
                                 disableWarnings: true
                             })]).then(function (proms) {
                                 return proms[0];
@@ -2289,7 +2560,7 @@ var Games = function (_React$Component) {
                             return _path3.default.join(__dirname, 'samplegame');
                         },
                         resolve: function resolve() {
-                            return /*require.resolve*/(20);
+                            return /*require.resolve*/(18);
                         },
                         chunkName: function chunkName() {
                             return 'samplegame';
@@ -2353,13 +2624,13 @@ exports.default = (0, _reactStatic.withRouteData)(Games);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2375,11 +2646,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(69);
+__webpack_require__(71);
 
-var _reactKatex = __webpack_require__(17);
+var _reactKatex = __webpack_require__(16);
 
-var _reactDom = __webpack_require__(21);
+var _reactDom = __webpack_require__(19);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2554,7 +2825,7 @@ exports.default = Katex;
 // // `
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2572,7 +2843,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(9);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -2666,10 +2937,8 @@ var About = function (_React$Component) {
   function About(props) {
     _classCallCheck(this, About);
 
-    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
-
-    console.log("about constructor", props);
-    return _this;
+    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+    // console.log("about constructor", props);
   }
 
   _createClass(About, [{
@@ -2722,7 +2991,7 @@ exports.default = (0, _reactStatic.withSiteData)(About);
 // )
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2742,7 +3011,7 @@ var _reactStatic = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(3);
 
-var _reactGa = __webpack_require__(19);
+var _reactGa = __webpack_require__(17);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -2837,7 +3106,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Lost);
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2906,7 +3175,7 @@ function setSignedIn(signedIn) {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2920,11 +3189,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(21);
+var _reactDom = __webpack_require__(19);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(38);
+var _Error = __webpack_require__(20);
+
+var _Error2 = _interopRequireDefault(_Error);
+
+var _ErrorBoundary = __webpack_require__(40);
+
+var _ErrorBoundary2 = _interopRequireDefault(_ErrorBoundary);
+
+var _App = __webpack_require__(41);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -2941,7 +3218,11 @@ exports.default = _App2.default;
 if (typeof document !== 'undefined') {
   var renderMethod =  false ? _reactDom2.default.render : _reactDom2.default.hydrate || _reactDom2.default.render;
   var render = function render(Comp) {
-    renderMethod(_react2.default.createElement(Comp, null), document.getElementById('root'));
+    renderMethod(_react2.default.createElement(
+      _ErrorBoundary2.default,
+      null,
+      _react2.default.createElement(Comp, null)
+    ), document.getElementById('root'));
   };
 
   // Render!
@@ -2949,7 +3230,78 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 38 */
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Error = __webpack_require__(20);
+
+var _Error2 = _interopRequireDefault(_Error);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ErrorBoundary = function (_React$Component) {
+  _inherits(ErrorBoundary, _React$Component);
+
+  function ErrorBoundary(props) {
+    _classCallCheck(this, ErrorBoundary);
+
+    var _this = _possibleConstructorReturn(this, (ErrorBoundary.__proto__ || Object.getPrototypeOf(ErrorBoundary)).call(this, props));
+
+    _this.state = { hasError: false };
+    return _this;
+  }
+
+  _createClass(ErrorBoundary, [{
+    key: 'componentDidCatch',
+    value: function componentDidCatch(error, info) {
+      console.log("ErrorBoundary componentDidCatch");
+      // Display fallback UI
+      this.setState({ hasError: true });
+      // You can also log the error to an error reporting service
+      //logErrorToMyService(error, info);
+      (0, _Error2.default)(error, info);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (this.state.hasError) {
+        // You can render any custom fallback UI
+        return _react2.default.createElement(
+          'h1',
+          null,
+          'Something went wrong.'
+        );
+      }
+      return this.props.children;
+    }
+  }]);
+
+  return ErrorBoundary;
+}(_react2.default.Component);
+
+exports.default = ErrorBoundary;
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2959,9 +3311,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+//
+
+
+//import MyError from './Error.js';
 
 var _templateObject = _taggedTemplateLiteral(['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n    '], ['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n    ']),
     _templateObject2 = _taggedTemplateLiteral(['\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n'], ['\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n']);
@@ -2974,45 +3330,45 @@ var _reactStatic = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(3);
 
-var _reactHotLoader = __webpack_require__(39);
+var _reactHotLoader = __webpack_require__(42);
 
-var _reactStaticRoutes = __webpack_require__(40);
+var _reactStaticRoutes = __webpack_require__(43);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(70);
+var _redux = __webpack_require__(72);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(73);
+__webpack_require__(75);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(74);
+var _theme = __webpack_require__(76);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(75);
+var _Analytics = __webpack_require__(77);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(76);
+var _Gapi = __webpack_require__(78);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
-var _d3Ease = __webpack_require__(16);
+var _d3Ease = __webpack_require__(12);
 
-var _reactMove = __webpack_require__(77);
+var _reactMove = __webpack_require__(79);
 
-var _recompose = __webpack_require__(23);
+var _recompose = __webpack_require__(24);
 
-var _propTypes = __webpack_require__(14);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MainMenu = __webpack_require__(4);
+var _MainMenu = __webpack_require__(9);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
@@ -3025,10 +3381,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//
-
 
 var startTheme = (0, _theme2.default)();
+
+function myAnimate() {
+  var _this = this;
+
+  this.state = 1;
+  this.update = function (type, phase) {
+    if (type === 'enter' && phase === 'end' || type === 'leave' && phase === 'end' || type === 'update' && phase === 'end') {
+      _this.state = 1;
+    } else if (_this.state === 1) {
+      _this.state = 0;
+    }
+    console.log('animationUpdate type: ' + type + ' phase: ' + phase + ' state: ' + _this.state);
+  };
+}
+var animationState = new myAnimate();
+//console.log("AnimationUpdate obj ", animationState);
+// animationUpdate = animationUpdate();
+//var animationUpdate = () => {};
 
 var AnimatedRoutes = (0, _recompose.getContext)({
   // We have to preserve the router context for each route
@@ -3049,7 +3421,7 @@ var AnimatedRoutes = (0, _recompose.getContext)({
       if (!Comp) {
         Comp = getComponentForPath('404');
       }
-      console.log("App animated route " + props.location.pathname, props);
+      //  console.log("App animated route " + props.location.pathname, props);
       // When we're rendering for static HTML, be sure to NOT animate in.
       if (staticURL) {
         return (
@@ -3082,7 +3454,14 @@ var AnimatedRoutes = (0, _recompose.getContext)({
               opacity: [0],
               scale: [1.2],
               translateY: [20],
-              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut }
+              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut },
+              events: {
+                start: function start() {
+                  animationState.update('start', 'start');
+                },
+                end: function end() {
+                  animationState.update('start', 'end');
+                } }
             };
           },
           enter: function enter() {
@@ -3090,14 +3469,29 @@ var AnimatedRoutes = (0, _recompose.getContext)({
               opacity: [1],
               translateY: [0],
               scale: [1],
-              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut }
+              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut },
+              events: {
+                start: function start() {
+                  animationState.update('enter', 'start');
+                },
+                end: function end() {
+                  animationState.update('enter', 'end');
+                }
+              }
             };
           },
           update: function update() {
             return {
               opacity: [1],
               scale: [1],
-              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut }
+              timing: { duration: 800, delay: 200, ease: _d3Ease.easeQuadOut },
+              events: {
+                start: function start() {
+                  animationState.update('update', 'start');
+                },
+                end: function end() {
+                  animationState.update('update', 'end');
+                } }
             };
           },
           leave: function leave() {
@@ -3105,7 +3499,15 @@ var AnimatedRoutes = (0, _recompose.getContext)({
               opacity: [0],
               translateY: [-0],
               scale: [0.2],
-              timing: { duration: 800, ease: _d3Ease.easeQuadOut }
+              timing: { duration: 800, ease: _d3Ease.easeQuadOut },
+              events: {
+                start: function start() {
+                  animationState.update('leave', 'start');
+                },
+                end: function end() {
+                  animationState.update('leave', 'end');
+                }
+              }
             };
           }
         },
@@ -3113,14 +3515,16 @@ var AnimatedRoutes = (0, _recompose.getContext)({
           return _react2.default.createElement(
             'div',
             { style: { position: 'relative' } },
-            nodes.map(function (_ref2) {
-              var key = _ref2.key,
-                  data = _ref2.data,
-                  _ref2$state = _ref2.state,
-                  opacity = _ref2$state.opacity,
-                  translateY = _ref2$state.translateY,
-                  scale = _ref2$state.scale;
+            nodes.map(function (props) {
+              var key = props.key,
+                  data = props.data,
+                  type = props.type,
+                  _props$state = props.state,
+                  opacity = _props$state.opacity,
+                  translateY = _props$state.translateY,
+                  scale = _props$state.scale;
 
+              console.log("pageRendering props anim state " + animationState.state, props);
               // Here, we override the router context with the one that was
               // passed with each route scale(${scale}, ${scale}) 
               //console.log(`animating map ${key} with opacity ${opacity} and scaleY ${scale} and rotate ${rotate}`);
@@ -3148,7 +3552,7 @@ var AnimatedRoutes = (0, _recompose.getContext)({
                     opacity: opacity
                   }
                 },
-                _react2.default.createElement(data.Comp, data.props)
+                _react2.default.createElement(data.Comp, _extends({}, data.props, { animationState: animationState.state }))
               );
             })
           );
@@ -3169,23 +3573,37 @@ var App = function (_React$Component) {
 
     //let startTheme = theme();
     // startTheme.theme = startTheme.setTheme(); //set to default for consistent static package class names?
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = {
+    _this2.state = {
       myTheme: startTheme,
       themeKey: startTheme.theme
     };
-    _this.injectStyles();
+
+    _this2.injectStyles();
     //console.log("my random theme ", this.state.myTheme);
-    return _this;
+    return _this2;
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      try {
+        var fail = 10 / 0;
+        console.log("app try succeeded in dividing by 0 " + fail);
+        throw new Error('divided by zero');
+      } catch (e) {
+        console.log("app catch block failed to divide by 0", e);
+        throw e;
+        //MyError(e);
+      }
+      // this.setState({
+      //   mounted: true
+      // })
+    }
+  }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
-      console.log("app updated prevProps: ", this.state);
-      console.log("app updated prevState: ", prevState);
-      console.log("app updated prev: " + prevState.themeKey + " this: " + this.state.myTheme.theme);
       if (prevState.themeKey !== this.state.myTheme.theme) {
         this.injectStyles();
       }
@@ -3195,10 +3613,17 @@ var App = function (_React$Component) {
     value: function injectStyles() {
       (0, _styledComponents.injectGlobal)(_templateObject, this.state.myTheme[this.state.myTheme.theme].neutral, this.state.myTheme[this.state.myTheme.theme].accent, this.state.myTheme[this.state.myTheme.theme].accentL, this.state.myTheme[this.state.myTheme.theme].neutralL);
     }
+    // renderThing(){
+    //   if(this.state.mounted){
+    //     return this.state.none.prop;
+    //   }
+    //   return null;
+    // }
+
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         _reactRedux.Provider,
@@ -3217,9 +3642,9 @@ var App = function (_React$Component) {
               _react2.default.createElement(
                 Root,
                 { className: 'content', style: { backgroundColor: this.state.myTheme[this.state.myTheme.theme].neutral }, onDoubleClick: function onDoubleClick() {
-                    var nTheme = _this2.state.myTheme;
+                    var nTheme = _this3.state.myTheme;
                     nTheme.setTheme(nTheme);
-                    _this2.setState({
+                    _this3.setState({
                       myTheme: _extends({}, nTheme),
                       themeKey: nTheme.theme
                     });
@@ -3247,6 +3672,28 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 var Root = _styledComponents2.default.div(_templateObject2);
+
+/*
+  
+ <Analytics />
+            <Gapi />
+              <ThemeProvider theme={this.state.myTheme}>
+                      <Root className="content" style={{backgroundColor: this.state.myTheme[this.state.myTheme.theme].neutral}} onDoubleClick={()=>{
+                                let nTheme = this.state.myTheme;
+                                nTheme.setTheme(nTheme);
+                                this.setState({
+                                  myTheme: {...nTheme},
+                                  themeKey: nTheme.theme
+                              })
+                      }}>
+                      <Switch>
+                        <Route path="/games/:game" exact component={() => {return null}} />
+                        <Route path="/" component={() => {return <Menu />}} />
+                      </Switch>
+                      <Routes component={AnimatedRoutes} />
+                    </Root>
+              </ThemeProvider>
+*/
 // const App = () => (
 //   <Provider store={store}>
 //     <Router >
@@ -3270,16 +3717,16 @@ var Root = _styledComponents2.default.div(_templateObject2);
 // )
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)(module)))
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3309,9 +3756,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(41);
+var _reactRouterDom = __webpack_require__(44);
 
-var _reactUniversalComponent = __webpack_require__(42);
+var _reactUniversalComponent = __webpack_require__(45);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -3345,7 +3792,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('src/containers/Post', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 11)), (0, _importCss3.default)('src/containers/Post', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3355,7 +3802,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(9);
+    return /*require.resolve*/(11);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post';
@@ -3365,7 +3812,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Posts.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 25)), (0, _importCss3.default)('src/containers/Posts.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 27)), (0, _importCss3.default)('src/containers/Posts.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3375,7 +3822,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Posts.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(25);
+    return /*require.resolve*/(27);
   },
   chunkName: function chunkName() {
     return 'src/containers/Posts.jsx';
@@ -3385,7 +3832,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('src/containers/Post.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 11)), (0, _importCss3.default)('src/containers/Post.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3395,7 +3842,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(9);
+    return /*require.resolve*/(11);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post.jsx';
@@ -3405,7 +3852,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 28)), (0, _importCss3.default)('src/containers/Home.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 30)), (0, _importCss3.default)('src/containers/Home.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3415,7 +3862,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(28);
+    return /*require.resolve*/(30);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home.jsx';
@@ -3425,7 +3872,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 29)), (0, _importCss3.default)('src/containers/Games', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 31)), (0, _importCss3.default)('src/containers/Games', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3435,7 +3882,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(29);
+    return /*require.resolve*/(31);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games';
@@ -3445,7 +3892,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 31)), (0, _importCss3.default)('src/containers/Game', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 33)), (0, _importCss3.default)('src/containers/Game', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3455,7 +3902,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(31);
+    return /*require.resolve*/(33);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game';
@@ -3465,7 +3912,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 34)), (0, _importCss3.default)('src/containers/About.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 36)), (0, _importCss3.default)('src/containers/About.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3475,7 +3922,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(34);
+    return /*require.resolve*/(36);
   },
   chunkName: function chunkName() {
     return 'src/containers/About.jsx';
@@ -3485,7 +3932,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 35)), (0, _importCss3.default)('src/containers/404.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 37)), (0, _importCss3.default)('src/containers/404.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -3495,7 +3942,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(35);
+    return /*require.resolve*/(37);
   },
   chunkName: function chunkName() {
     return 'src/containers/404.jsx';
@@ -3582,13 +4029,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3603,7 +4050,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(43);
+var _requireUniversalModule = __webpack_require__(46);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -3618,7 +4065,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(44);
+var _reportChunks = __webpack_require__(47);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -3631,17 +4078,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(14);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(45);
+var _hoistNonReactStatics = __webpack_require__(48);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(22);
+var _utils = __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3932,10 +4379,10 @@ function universal(component) {
   }, _temp;
 }
 exports.default = universal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)(module)))
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3947,7 +4394,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(22);
+var _utils = __webpack_require__(21);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -4117,7 +4564,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4133,7 +4580,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(14);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4180,16 +4627,16 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(15)(false);
+exports = module.exports = __webpack_require__(22)(false);
 // imports
 
 
@@ -4200,61 +4647,55 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-move/Animate");
-
-/***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAxOWMwIDEuMS45IDIgMiAyaDhjMS4xIDAgMi0uOSAyLTJWN0g2djEyek0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNFY0eiIvPgogICAgPHBhdGggIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPgo8L3N2Zz4K"
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgOGwtNCA0aDNjMCAzLjMxLTIuNjkgNi02IDYtMS4wMSAwLTEuOTctLjI1LTIuOC0uN2wtMS40NiAxLjQ2QzguOTcgMTkuNTQgMTAuNDMgMjAgMTIgMjBjNC40MiAwIDgtMy41OCA4LThoM2wtNC00ek02IDEyYzAtMy4zMSAyLjY5LTYgNi02IDEuMDEgMCAxLjk3LjI1IDIuOC43bDEuNDYtMS40NkMxNS4wMyA0LjQ2IDEzLjU3IDQgMTIgNGMtNC40MiAwLTggMy41OC04IDhIMWw0IDQgNC00SDZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik04LjU5LDE2LjU5TDEzLjE3LDEyTDguNTksNy40MUwxMCw2bDYsNmwtNiw2TDguNTksMTYuNTl6Ii8+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTcgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xIDAgMi0uOSAyLTJWN2wtNC00em0tNSAxNmMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtMyAzIDEuMzQgMyAzLTEuMzQgMy0zIDN6bTMtMTBINVY1aDEwdjR6Ii8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjB2MjBIMFYweiIvPgogICAgPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNS45NSAxMC43OGMuMDMtLjI1LjA1LS41MS4wNS0uNzhzLS4wMi0uNTMtLjA2LS43OGwxLjY5LTEuMzJjLjE1LS4xMi4xOS0uMzQuMS0uNTFsLTEuNi0yLjc3Yy0uMS0uMTgtLjMxLS4yNC0uNDktLjE4bC0xLjk5LjhjLS40Mi0uMzItLjg2LS41OC0xLjM1LS43OEwxMiAyLjM0Yy0uMDMtLjItLjItLjM0LS40LS4zNEg4LjRjLS4yIDAtLjM2LjE0LS4zOS4zNGwtLjMgMi4xMmMtLjQ5LjItLjk0LjQ3LTEuMzUuNzhsLTEuOTktLjhjLS4xOC0uMDctLjM5IDAtLjQ5LjE4bC0xLjYgMi43N2MtLjEuMTgtLjA2LjM5LjEuNTFsMS42OSAxLjMyYy0uMDQuMjUtLjA3LjUyLS4wNy43OHMuMDIuNTMuMDYuNzhMMi4zNyAxMi4xYy0uMTUuMTItLjE5LjM0LS4xLjUxbDEuNiAyLjc3Yy4xLjE4LjMxLjI0LjQ5LjE4bDEuOTktLjhjLjQyLjMyLjg2LjU4IDEuMzUuNzhsLjMgMi4xMmMuMDQuMi4yLjM0LjQuMzRoMy4yYy4yIDAgLjM3LS4xNC4zOS0uMzRsLjMtMi4xMmMuNDktLjIuOTQtLjQ3IDEuMzUtLjc4bDEuOTkuOGMuMTguMDcuMzkgMCAuNDktLjE4bDEuNi0yLjc3Yy4xLS4xOC4wNi0uMzktLjEtLjUxbC0xLjY3LTEuMzJ6TTEwIDEzYy0xLjY1IDAtMy0xLjM1LTMtM3MxLjM1LTMgMy0zIDMgMS4zNSAzIDMtMS4zNSAzLTMgM3oiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik03LjQxIDE1LjQxTDEyIDEwLjgzbDQuNTkgNC41OEwxOCAxNGwtNi02LTYgNnoiLz4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik04IDV2MTRsMTEtN3oiLz4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
-
-/***/ }),
 /* 56 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNNy40MSAxNS40MUwxMiAxMC44M2w0LjU5IDQuNThMMTggMTRsLTYtNi02IDZ6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNOCA1djE0bDExLTd6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
+
+/***/ }),
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4525,7 +4966,7 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4534,74 +4975,39 @@ var Game = _styledComponents2.default.div(_templateObject);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var colors = {
+    p: '#101856',
+    pDark: '#040615',
+    pLight: '#2b39d4',
+    s: '#C6FF00',
+    sDark: '#8cb300',
+    sLight: '#e9ff99',
+    a1Light: '#69F0AE',
+    a1Dark: '#10a25c',
+    a2Light: '#FFEB3B',
+    a2Dark: '#F9A825',
+    transparent: 'transparent',
+    text: 'white',
+    accent: '#cc00cc',
+    accentHighlight: '#ffccff',
+    accentShadow: '#660066',
+    shadow: '#f2f2f2',
+    menu: 'white',
+    series0: '#cc66ff',
+    series1: '#99ccff',
+    series2: '#99ffcc',
+    series3: '#ffffcc',
+    series4: '#ffcce6'
+};
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports.default = colors;
 
-var _templateObject = _taggedTemplateLiteral(['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background: linear-gradient(', ', ', ');\n  z-index: -999999;\n  overflow:hidden;\n'], ['\n  position:fixed;\n  top:0;\n  left:0;\n  bottom:0;\n  right:0;\n  background: linear-gradient(', ', ', ');\n  z-index: -999999;\n  overflow:hidden;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Colors = __webpack_require__(24);
-
-var _Colors2 = _interopRequireDefault(_Colors);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UiBg = function (_React$Component) {
-    _inherits(UiBg, _React$Component);
-
-    function UiBg(props) {
-        _classCallCheck(this, UiBg);
-
-        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
-    }
-
-    _createClass(UiBg, [{
-        key: 'render',
-        value: function render() {
-            // console.log("rendering game a");
-            return _react2.default.createElement(
-                Bg,
-                { className: 'bg' },
-                this.props.children
-            );
-        }
-    }]);
-
-    return UiBg;
-}(_react2.default.Component);
-
-exports.default = UiBg;
-
-
-var Bg = _styledComponents2.default.div(_templateObject, _Colors2.default.pDark, _Colors2.default.p);
-
-//background-color: #330033;
-//lime #C6FF00   green #B2FF59   yellow #FFEB3B
-//dark blue #1A237E   dark cyan  #006064
+// export const timing= {
+//     mini: 0.3
+// };
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-move/NodeGroup");
-
-/***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4674,15 +5080,171 @@ var Tag = _styledComponents2.default.h4(_templateObject);
 var Container = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    margin: auto;\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n'], ['\n    display: ', ';\n    margin: auto;\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Text = function (_React$Component) {
+    _inherits(Text, _React$Component);
+
+    function Text() {
+        _classCallCheck(this, Text);
+
+        return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
+    }
+
+    _createClass(Text, [{
+        key: 'render',
+        value: function render() {
+            switch (this.props.tag) {
+                case 'h1':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h1',
+                            null,
+                            this.props.text
+                        )
+                    );
+                case 'h2':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            this.props.text
+                        )
+                    );
+                case 'h3':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            this.props.text
+                        )
+                    );
+                case 'h4':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            this.props.text
+                        )
+                    );
+                case 'h5':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h5',
+                            null,
+                            this.props.text
+                        )
+                    );
+                case 'h6':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            this.props.text
+                        )
+                    );
+                default:
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.props.text
+                        )
+                    );
+            }
+        }
+    }]);
+
+    return Text;
+}(_react2.default.Component);
+
+exports.default = Text;
+
+
+var Wrapper = _styledComponents2.default.span(_templateObject, function (props) {
+    return props.display ? props.display : 'inline-block';
+}, function (props) {
+    return props.display ? props.display : 'inline-block';
+}, function (props) {
+    return props.align ? props.align : 'center';
+}, function (props) {
+    if (props.color) {
+        return props.color;
+    } else if (props.colorKey) {
+        return props.theme[props.theme.theme][props.colorKey];
+    } else {
+        return props.theme[props.theme.theme].text;
+    }
+}, function (props) {
+    return props.size ? props.size : '1em';
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _path2 = __webpack_require__(6);
+
+var _path3 = _interopRequireDefault(_path2);
+
+var _importCss2 = __webpack_require__(7);
+
+var _importCss3 = _interopRequireDefault(_importCss2);
+
+var _universalImport2 = __webpack_require__(8);
+
+var _universalImport3 = _interopRequireDefault(_universalImport2);
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -4690,11 +5252,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(27);
+var _trends = __webpack_require__(63);
 
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+var _trends2 = _interopRequireDefault(_trends);
 
-__webpack_require__(61);
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Loading = __webpack_require__(25);
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
+var _Container = __webpack_require__(4);
+
+var _Container2 = _interopRequireDefault(_Container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4704,52 +5276,142 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Trans = function (_React$Component) {
-  _inherits(Trans, _React$Component);
+//import {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+/*
+      "Month": "2004-01",
+      "math: (Worldwide)": 35,
+      "physics: (Worldwide)": 20,
+      "chemistry: (Worldwide)": 21,
+      import { error } from 'util';
+"biology: (Worldwide)": 18,
+      "science: (Worldwide)": 100
 
-  function Trans(props) {
-    _classCallCheck(this, Trans);
+      tick={{ fill: 'red' }}
+*/
+var Graph = function (_React$Component) {
+    _inherits(Graph, _React$Component);
 
-    return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
-  }
+    function Graph(props) {
+        _classCallCheck(this, Graph);
 
-  _createClass(Trans, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _reactAddonsCssTransitionGroup2.default,
-        {
-          transitionName: 'fade-in',
-          transitionAppear: true,
-          transitionAppearTimeout: 500,
-          transitionEnterTimeout: 500,
-          transitionLeaveTimeout: 300 },
-        this.props.children
-      );
+        var _this = _possibleConstructorReturn(this, (Graph.__proto__ || Object.getPrototypeOf(Graph)).call(this, props));
+
+        _this.state = {
+            recharts: null,
+            error: null
+        };
+        return _this;
     }
-  }]);
 
-  return Trans;
+    _createClass(Graph, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            (0, _universalImport3.default)({
+                id: 'recharts',
+                file: 'D:/websites/react-static/static-site-2/4/src/components/Trends.jsx',
+                load: function load() {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 5)), (0, _importCss3.default)('recharts', {
+                        disableWarnings: true
+                    })]).then(function (proms) {
+                        return proms[0];
+                    });
+                },
+                path: function path() {
+                    return _path3.default.join(__dirname, 'recharts');
+                },
+                resolve: function resolve() {
+                    return /*require.resolve*/(5);
+                },
+                chunkName: function chunkName() {
+                    return 'mygraph';
+                }
+            }).then(function (r) {
+                _this2.setState({
+                    recharts: r
+                });
+            }).catch(function (e) {
+                _this2.setState({
+                    error: 'unable to load graph'
+                });
+            });
+        }
+    }, {
+        key: 'renderGraph',
+        value: function renderGraph() {
+            var _state$recharts = this.state.recharts,
+                ResponsiveContainer = _state$recharts.ResponsiveContainer,
+                LineChart = _state$recharts.LineChart,
+                Line = _state$recharts.Line,
+                Area = _state$recharts.Area,
+                XAxis = _state$recharts.XAxis,
+                YAxis = _state$recharts.YAxis,
+                CartesianGrid = _state$recharts.CartesianGrid,
+                Tooltip = _state$recharts.Tooltip,
+                Legend = _state$recharts.Legend;
+
+            return (
+                // <p>graph</p>
+                _react2.default.createElement(
+                    ResponsiveContainer,
+                    null,
+                    _react2.default.createElement(
+                        LineChart,
+                        { width: 600, height: 300, data: _trends2.default,
+                            margin: { top: 10, right: 20, left: -20, bottom: 50 } },
+                        _react2.default.createElement(XAxis, { dataKey: 'Month', label: { value: "Year-Month", offset: 25, angle: 0, position: 'bottom' },
+                            tickFormatter: function tickFormatter(t) {
+                                return t.slice(2);
+                            }, angle: -45, textAnchor: 'end' }),
+                        _react2.default.createElement(YAxis, null),
+                        _react2.default.createElement(CartesianGrid, { strokeDasharray: '1 6' }),
+                        _react2.default.createElement(Tooltip, null),
+                        _react2.default.createElement(Legend, { verticalAlign: 'top', height: 36 }),
+                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'math: (Worldwide)', fill: '#8884d8', stroke: '#8884d8', strokeWidth: 3 }),
+                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'physics: (Worldwide)', stroke: '#82ca9d', strokeWidth: 3 })
+                    )
+                )
+            );
+        }
+        //runs a loading animation until data and graph are imported
+
+    }, {
+        key: 'render',
+        value: function render() {
+
+            if (this.state.recharts) {
+                return this.renderGraph();
+            } else if (this.state.error) {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    this.state.error
+                );
+            } else {
+                return _react2.default.createElement(
+                    _Container2.default,
+                    null,
+                    _react2.default.createElement(_Loading2.default, null)
+                );
+            }
+        }
+    }]);
+
+    return Graph;
 }(_react2.default.Component);
 
-exports.default = Trans;
+exports.default = Graph;
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 63 */
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(15)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".fade-in-enter{opacity:.01}.fade-in-enter.fade-in-enter-active{opacity:1;-webkit-transition:opacity .5s ease-in;-o-transition:opacity .5s ease-in;transition:opacity .5s ease-in}.fade-in-leave{opacity:1}.fade-in-leave.fade-in-leave-active{opacity:.01;-webkit-transition:opacity .3s ease-in;-o-transition:opacity .3s ease-in;transition:opacity .3s ease-in}.fade-in-appear{opacity:.01}.fade-in-appear.fade-in-appear-active{opacity:1;-webkit-transition:opacity .5s ease-in;-o-transition:opacity .5s ease-in;transition:opacity .5s ease-in}", ""]);
-
-// exports
-
+module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4767,11 +5429,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Accordion = __webpack_require__(30);
+var _Accordion = __webpack_require__(32);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
-var _IconButton = __webpack_require__(10);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -4831,7 +5493,7 @@ var GameItem = function (_React$Component) {
 exports.default = GameItem;
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4907,7 +5569,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4923,15 +5585,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Store = __webpack_require__(65);
+var _Store = __webpack_require__(67);
 
 var _Store2 = _interopRequireDefault(_Store);
 
-var _Game = __webpack_require__(66);
+var _Game = __webpack_require__(68);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _samplegame = __webpack_require__(20);
+var _samplegame = __webpack_require__(18);
 
 var _samplegame2 = _interopRequireDefault(_samplegame);
 
@@ -5014,7 +5676,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5032,9 +5694,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(12);
+var _redux = __webpack_require__(14);
 
-var _reduxLogger = __webpack_require__(32);
+var _reduxLogger = __webpack_require__(34);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
@@ -5081,7 +5743,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5111,15 +5773,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _all = __webpack_require__(67);
+var _all = __webpack_require__(69);
 
 var _all2 = _interopRequireDefault(_all);
 
-var _Container = __webpack_require__(5);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Accordion = __webpack_require__(30);
+var _Accordion = __webpack_require__(32);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
@@ -5127,7 +5789,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(68);
+var _mygamelibs = __webpack_require__(70);
 
 var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
 
@@ -5215,7 +5877,7 @@ var Game = function (_React$Component) {
                 id: './../UI/math/Katex.jsx',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 33)), (0, _importCss3.default)('UI/math/Katex.jsx', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 35)), (0, _importCss3.default)('UI/math/Katex.jsx', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -5225,7 +5887,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(33);
+                    return /*require.resolve*/(35);
                 },
                 chunkName: function chunkName() {
                     return 'UI/math/Katex.jsx';
@@ -5258,7 +5920,7 @@ var Game = function (_React$Component) {
                 id: 'recharts',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 11)), (0, _importCss3.default)('recharts', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 5)), (0, _importCss3.default)('recharts', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -5268,7 +5930,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, 'recharts');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(11);
+                    return /*require.resolve*/(5);
                 },
                 chunkName: function chunkName() {
                     return 'recharts';
@@ -5348,25 +6010,25 @@ exports.default = Game;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports) {
 
 module.exports = require("nerdamer/all");
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5376,13 +6038,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(12);
+var _redux = __webpack_require__(14);
 
-var _reduxLogger = __webpack_require__(32);
+var _reduxLogger = __webpack_require__(34);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(71);
+var _reducers = __webpack_require__(73);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -5407,7 +6069,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5417,13 +6079,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(12);
+var _redux = __webpack_require__(14);
 
-var _counter = __webpack_require__(72);
+var _counter = __webpack_require__(74);
 
 var _counter2 = _interopRequireDefault(_counter);
 
-var _apiReducer = __webpack_require__(36);
+var _apiReducer = __webpack_require__(38);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5435,7 +6097,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5470,21 +6132,21 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(15)(false);
+exports = module.exports = __webpack_require__(22)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
 // module
-exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:Raleway,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}", ""]);
+exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:Raleway,sans-serif;font-weight:300;font-size:16px;margin:0;padding:0}a{text-decoration:none;color:#108db8;font-weight:700}img{max-width:100%}.recharts-legend-item-text{color:grey}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5512,7 +6174,11 @@ var themes = [{
     primaryD: '#A64E20',
     accent: '#24C2C7',
     accentD: '#157275',
-    accentL: '#7ACFDB'
+    accentL: '#7ACFDB',
+    spaceXS: '3',
+    spaceS: '5',
+    spaceM: '10',
+    spaceL: '20'
 }, {
     main: '#FFA508',
     animS: '0.3s',
@@ -5531,7 +6197,11 @@ var themes = [{
     primaryD: '#9C2E0F',
     accent: '#E3658B',
     accentD: '#9E3A50',
-    accentL: '#F791B2'
+    accentL: '#F791B2',
+    spaceXS: '3',
+    spaceS: '5',
+    spaceM: '10',
+    spaceL: '20'
 }, {
     main: '#89C939',
     animS: '0.3s',
@@ -5550,7 +6220,11 @@ var themes = [{
     primaryD: '#3B611B',
     accent: '#F2E451',
     accentD: '#978623',
-    accentL: '#F2E291'
+    accentL: '#F2E291',
+    spaceXS: '3',
+    spaceS: '5',
+    spaceM: '10',
+    spaceL: '20'
 }];
 
 // const pick = () => {
@@ -5574,7 +6248,7 @@ var theme = function theme() {
         setTheme: function setTheme(theme) {
             //caller passes in the theme object, this method sets a prop theme with name on it
             counter++;
-            var name = themeNames[counter % themeNames.length];
+            var name = themeNames[counter % (themeNames.length - 1)];
             console.log("theme counter " + counter + " name " + name);
             theme.theme = name;
         },
@@ -5621,7 +6295,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5637,7 +6311,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGa = __webpack_require__(19);
+var _reactGa = __webpack_require__(17);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -5681,7 +6355,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5699,9 +6373,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(12);
+var _redux = __webpack_require__(14);
 
-var _apiReducer = __webpack_require__(36);
+var _apiReducer = __webpack_require__(38);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5806,7 +6480,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move");
@@ -5814,4 +6488,4 @@ module.exports = require("react-move");
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.d10a1cd4.js.map
+//# sourceMappingURL=static.20a55c41.js.map

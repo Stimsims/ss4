@@ -29,7 +29,7 @@ class Games extends React.Component{
     render(){
         return (
             
-            <Container height={'100%'}>
+            <Container fixed={true}>
                 {/* <Menu /> */}
                 <div>
                     {this.props.games.map(post => {

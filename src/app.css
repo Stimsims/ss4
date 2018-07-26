@@ -23,6 +23,9 @@ img {
   max-width: 100%;
 }
 
+.recharts-legend-item-text{
+  color: grey;
+}
 
 /* nav {
   width: 100%;

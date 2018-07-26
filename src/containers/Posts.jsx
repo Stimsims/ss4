@@ -3,17 +3,31 @@ import React from 'react'
 import { withRouteData, Link, Head, Redirect  } from 'react-static'
 import styled from 'styled-components';
 import Menu from './../components/layout/MainMenu.jsx';
-import Bg from './../components/UI/elements/Bg.jsx';
 import Container from './../components/UI/elements/Container';
-import PostList from './../components/layout/PostList.jsx';
+//import PostList from './../components/layout/PostList.jsx';
 import Tags from './../components/layout/Tags.jsx';
-import SlideUp from './../components/UI/animations/SlideUp';
-//import Katex from './../components/UI/math/Katex.jsx';
+import Translate from './../components/UI/animations/Translate.jsx';
+import PostItem from './../components/layout/PostItem.jsx';
+// const Post = (arg) => {
+//     console.log("Post function arg1 ", arg);
+//     return <p>Post item</p>
+// }
+
 class Games extends React.Component{
     constructor(props){
         super(props);
-      //  console.log("posts constructor", props);
+        console.log("posts constructor", props);
+        this.state = {
+            render: false
+        }
     }
+    // componentDidMount(){
+    //     setTimeout(() => {
+    //         this.setState({
+    //             render: true
+    //         })
+    //     }, 3000);
+    // }
     renderPagination(){
         if(this.props.totalPages > 1){
             let pagination = [];
@@ -37,16 +51,31 @@ class Games extends React.Component{
             return <Redirect to={`${this.props.base}/${this.props.pageToken}/1`} />
         }
     }
+    renderPosts(){
+        //if exiting, don't bother with translate this.props.animationState === 1
+        //parent animations don't seem to restart child transitions
+        if(this.props.animationState === 1){
+            console.log("renderPosts called with state 1");
+            return (
+                <Translate items={this.props.posts} itemKey={PostItem.key} itemId={'id'} 
+                    component={PostItem.component} y={{start: -2000, enter: 0}} x={{start: -500, enter: 0}} />
+            )
+        }else{
+            return <p>Not rendering that when leaving!!</p>
+        }
+    }
     render(){
         return (
-            <Container>
+            <Container fixed={true}>
                     <FlexBox>
                         {this.redirect()}
-                        {/* <Menu /> */}
                         <Tags tags={this.props.tags} tag={this.props.tag} />
                         {this.renderPagination()}          
                         <PostBox>
-                            <PostList posts={this.props.posts} />
+                            {/* {this.renderPosts()} */}
+                            <Translate items={this.props.posts} itemKey={PostItem.key} itemId={'id'} 
+                                component={PostItem.component} y={{start: -200, enter: 0, unit: 'vh'}} 
+                                />
                         </PostBox>
                     </FlexBox>
             </Container>
