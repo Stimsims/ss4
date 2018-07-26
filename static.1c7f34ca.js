@@ -4229,27 +4229,27 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // setTimeout(()=>{
-      //   console.log("timeout, divide by zero now");
-      //   try{
-      //     let fail = 10/0;
-      //     console.log("app try succeeded in dividing by 0 " + fail);
-      //     throw new Error('divided by zero');
-      //   }catch(e){
-      //     console.log("app catch block failed to divide by 0", e);
-      //     //throw obvious error, shouldnt show up in production build?
-      //     throw e;
-      //   }
-      // }, 5000);
-      try {
-        var fail = 10 / 0;
-        console.log("app try succeeded in dividing by 0 " + fail);
-        throw new Error('divided by zero');
-      } catch (e) {
-        console.log("app catch block failed to divide by 0", e);
-        //throw obvious error, shouldnt show up in production build?
-        throw e;
-      }
+      setTimeout(function () {
+        console.log("timeout, divide by zero now");
+        try {
+          var fail = 10 / 0;
+          console.log("app try succeeded in dividing by 0 " + fail);
+          throw new Error('divided by zero');
+        } catch (e) {
+          console.log("app catch block failed to divide by 0", e);
+          //throw obvious error, shouldnt show up in production build?
+          throw e;
+        }
+      }, 5000);
+      // try{
+      //   let fail = 10/0;
+      //   console.log("app try succeeded in dividing by 0 " + fail);
+      //   throw new Error('divided by zero');
+      // }catch(e){
+      //   console.log("app catch block failed to divide by 0", e);
+      //   //throw obvious error, shouldnt show up in production build?
+      //   throw e;
+      // }
     }
   }, {
     key: 'componentDidUpdate',
@@ -7430,4 +7430,4 @@ module.exports = require("react-move");
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.a8913055.js.map
+//# sourceMappingURL=static.1c7f34ca.js.map
