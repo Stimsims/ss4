@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 39);
@@ -107,6 +107,7 @@ module.exports = require("react-redux");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Container.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -156,14 +157,22 @@ var UiBg = function (_React$Component) {
                 return _react2.default.createElement(
                     Bg,
                     { z: this.props.z, colorKey: this.props.colorKey, color: this.props.color, width: this.props.width, height: this.props.height,
-                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow },
+                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 17
+                        }
+                    },
                     this.props.children
                 );
             } else {
                 return _react2.default.createElement(
                     Box,
                     { z: this.props.z, colorKey: this.props.colorKey, height: this.props.height, color: this.props.color, width: this.props.width,
-                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow },
+                        padding: this.props.padding, margin: this.props.margin, overflow: this.props.overflow, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 24
+                        }
+                    },
                     this.props.children
                 );
             }
@@ -261,6 +270,7 @@ module.exports = require("babel-plugin-universal-import/universalImport");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\MainMenu.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -360,18 +370,34 @@ var Menu = function (_React$Component) {
             if (this.state.cat) {
                 return _react2.default.createElement(
                     Wrapper,
-                    { style: { transform: 'rotate(90deg)' } },
+                    { style: { transform: 'rotate(90deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 45
+                        }
+                    },
                     _react2.default.createElement(_IconButton2.default, { icon: "arrow", bg: 'transparent', hover: 'transparent', onInput: function onInput() {
                             _this2.handleClick('cat', false);
-                        } })
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 46
+                        }
+                    })
                 );
             } else {
                 return _react2.default.createElement(
                     Wrapper,
-                    { style: { transform: 'rotate(0deg)' } },
+                    { style: { transform: 'rotate(0deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 51
+                        }
+                    },
                     _react2.default.createElement(_IconButton2.default, { icon: "arrow", bg: 'transparent', hover: 'transparent', onInput: function onInput() {
                             _this2.handleClick('cat', true);
-                        } })
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 52
+                        }
+                    })
                 );
             }
         }
@@ -381,14 +407,28 @@ var Menu = function (_React$Component) {
             if (this.state.cat) {
                 return _react2.default.createElement(
                     Drop,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 59
+                        }
+                    },
                     this.state.categories.map(function (c) {
                         return _react2.default.createElement(
                             _reactStatic.Link,
-                            { className: 'drop-item', to: '/' + c },
+                            { className: 'drop-item', to: '/' + c, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 61
+                                }
+                            },
                             _react2.default.createElement(
                                 'h4',
-                                null,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 62
+                                    }
+                                },
                                 c
                             )
                         );
@@ -405,26 +445,49 @@ var Menu = function (_React$Component) {
             if (this.props.tags) {
                 return _react2.default.createElement(
                     'div',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 71
+                        }
+                    },
                     this.props.tags.map(function (t) {
                         //  console.log(`tags rendering ${t} with target tag ${this.props.tag} does it match? ${t === this.props.tag}`);
                         if (_this3.props.tag && t === _this3.props.tag) {
                             return _react2.default.createElement(
                                 Tag,
-                                null,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 74
+                                    }
+                                },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
-                                    { to: '/' + t, className: 'active' },
+                                    { to: '/' + t, className: 'active', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 74
+                                        }
+                                    },
                                     t
                                 )
                             );
                         } else {
                             return _react2.default.createElement(
                                 Tag,
-                                null,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 76
+                                    }
+                                },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
-                                    { to: '/' + t },
+                                    { to: '/' + t, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 76
+                                        }
+                                    },
                                     t
                                 )
                             );
@@ -439,7 +502,11 @@ var Menu = function (_React$Component) {
             if (this.state.path[1] && this.state.path[1] === 'page') {
                 return _react2.default.createElement(
                     'p',
-                    { style: { fontSize: '1em', paddingLeft: '10px' } },
+                    { style: { fontSize: '1em', paddingLeft: '10px' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 85
+                        }
+                    },
                     this.state.path[1] ? this.state.path[1] : '',
                     ' ',
                     this.state.path[2] ? ' ' + this.state.path[2] : ''
@@ -447,7 +514,11 @@ var Menu = function (_React$Component) {
             } else {
                 return _react2.default.createElement(
                     PostTitle,
-                    { style: { fontSize: '1em' } },
+                    { style: { fontSize: '1em' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 88
+                        }
+                    },
                     this.state.path[1] ? this.state.path[1] : ''
                 );
             }
@@ -458,36 +529,81 @@ var Menu = function (_React$Component) {
             if (this.state.path[0]) {
                 return _react2.default.createElement(
                     Outer,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 94
+                        }
+                    },
                     _react2.default.createElement(
                         Container,
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 95
+                            }
+                        },
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 96
+                                }
+                            },
                             _react2.default.createElement(
                                 _reactStatic.Link,
-                                { exact: true, to: '/', className: 'title' },
+                                { exact: true, to: '/', className: 'title', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 96
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h2',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 96
+                                        }
+                                    },
                                     'Title'
                                 )
                             )
                         ),
-                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '0' } }),
+                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '0' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 97
+                            }
+                        }),
                         _react2.default.createElement(
                             FlexChild,
-                            { key: this.state.path[0] ? this.state.path[0] : '' },
+                            { key: this.state.path[0] ? this.state.path[0] : '', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 98
+                                }
+                            },
                             _react2.default.createElement(
                                 Selected,
-                                { style: { height: '50px', margin: 'auto' } },
+                                { style: { height: '50px', margin: 'auto' }, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 99
+                                    }
+                                },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
-                                    { to: '/' + (this.state.path[0] ? this.state.path[0] : '') },
+                                    { to: '/' + (this.state.path[0] ? this.state.path[0] : ''), __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 100
+                                        }
+                                    },
                                     _react2.default.createElement(
                                         'h4',
-                                        null,
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 101
+                                            }
+                                        },
                                         this.state.path[0] ? this.state.path[0] : ''
                                     )
                                 ),
@@ -497,73 +613,149 @@ var Menu = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 108
+                                }
+                            },
                             this.renderPostHeading()
                         )
                     ),
                     this.renderTags(),
                     _react2.default.createElement(
                         'p',
-                        { style: { textAlign: 'center', margin: '0px', color: 'grey' } },
+                        { style: { textAlign: 'center', margin: '0px', color: 'grey' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 113
+                            }
+                        },
                         'double tap screen to change theme colors'
                     )
                 );
             } else {
                 return _react2.default.createElement(
                     Outer,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 118
+                        }
+                    },
                     _react2.default.createElement(
                         Container,
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 119
+                            }
+                        },
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 120
+                                }
+                            },
                             _react2.default.createElement(
                                 _reactStatic.Link,
-                                { exact: true, to: '/', className: 'title' },
+                                { exact: true, to: '/', className: 'title', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 120
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h2',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 120
+                                        }
+                                    },
                                     'Title'
                                 )
                             )
                         ),
-                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '1' } }),
+                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '1' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 121
+                            }
+                        }),
                         _react2.default.createElement(
                             FlexChild,
-                            { key: "games" },
+                            { key: "games", __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 122
+                                }
+                            },
                             _react2.default.createElement(
                                 _reactStatic.Link,
-                                { to: '/games' },
+                                { to: '/games', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 122
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h4',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 122
+                                        }
+                                    },
                                     'Games'
                                 )
                             )
                         ),
                         _react2.default.createElement(
                             FlexChild,
-                            { key: "posts" },
+                            { key: "posts", __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 123
+                                }
+                            },
                             _react2.default.createElement(
                                 _reactStatic.Link,
-                                { to: '/posts' },
+                                { to: '/posts', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 123
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h4',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 123
+                                        }
+                                    },
                                     'Posts'
                                 )
                             )
                         ),
                         _react2.default.createElement(
                             FlexChild,
-                            { key: "about" },
+                            { key: "about", __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 124
+                                }
+                            },
                             _react2.default.createElement(
                                 _reactStatic.Link,
-                                { to: '/about' },
+                                { to: '/about', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 124
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h4',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 124
+                                        }
+                                    },
                                     'About'
                                 )
                             )
@@ -572,7 +764,11 @@ var Menu = function (_React$Component) {
                     this.renderTags(),
                     _react2.default.createElement(
                         'p',
-                        { style: { textAlign: 'center', margin: '0px', color: 'grey' } },
+                        { style: { textAlign: 'center', margin: '0px', color: 'grey' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 127
+                            }
+                        },
                         'double tap screen to change theme colors'
                     )
                 );
@@ -692,6 +888,8 @@ var _universalImport2 = __webpack_require__(8);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Post.jsx';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    margin:auto;\n'], ['\n    margin:auto;\n']),
@@ -752,7 +950,11 @@ var Games = function (_React$Component) {
         if (props.post.content) {
             props.post.content.map(function (c, i) {
                 if (c.type == "game") {
-                    games[i] = _react2.default.createElement(_TalkitGame2.default, { tree: c.content });
+                    games[i] = _react2.default.createElement(_TalkitGame2.default, { tree: c.content, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 20
+                        }
+                    });
                 }
             });
         }
@@ -818,11 +1020,21 @@ var Games = function (_React$Component) {
             if (this.props.post.tags) {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 50
+                        }
+                    },
                     this.props.post.tags.map(function (t) {
                         return _react2.default.createElement(
                             'span',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 52
+                                }
+                            },
                             ' ',
                             t,
                             ' '
@@ -841,7 +1053,12 @@ var Games = function (_React$Component) {
                     if (c.type == "text") {
                         return _react2.default.createElement(
                             'p',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 62
+                                }
+                            },
                             c.content
                         );
                     } else if (c.type == "game") {
@@ -863,11 +1080,26 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                null,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 78
+                    }
+                },
                 _react2.default.createElement(
                     'div',
-                    null,
-                    _react2.default.createElement(_Loading2.default, null)
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 79
+                        }
+                    },
+                    _react2.default.createElement(_Loading2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 90
+                        }
+                    })
                 )
             );
         }
@@ -899,6 +1131,7 @@ module.exports = require("d3-ease");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\IconButton.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1012,8 +1245,16 @@ var Icon = function (_React$Component) {
             //themeprovider provides base theme, can be overridden
             return _react2.default.createElement(
                 Btn,
-                { bg: this.props.bg, hover: this.props.hover ? this.props.hover : this.getColor(this.props.icon), onClick: this.props.onInput },
-                _react2.default.createElement('img', { src: this.getImg(this.props.icon) })
+                { bg: this.props.bg, hover: this.props.hover ? this.props.hover : this.getColor(this.props.icon), onClick: this.props.onInput, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 59
+                    }
+                },
+                _react2.default.createElement('img', { src: this.getImg(this.props.icon), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 60
+                    }
+                })
             );
         }
     }]);
@@ -1107,6 +1348,8 @@ var errors = [];
 var catchError = function catchError(error) {
     //console.log("catchError", error);
     if (isListening) {
+        //log error to google analytics
+
         //throw error;
     } else {
         if (errors.length < 10) {
@@ -1118,6 +1361,7 @@ var catchError = function catchError(error) {
 if (typeof window !== 'undefined') {
     console.log("error, window is defined, adding listener");
     window.onerror = function (message, source, lineNum, colNum, errorObj) {
+        //can bubble up without explicit MyError call()
         console.warn('onerror details: message ' + message + ' source: ' + source + ' lineNum ' + lineNum, errorObj);
         // window.location.href = (
         //     `http://stackoverflow.com/search?q=[js]${message}`
@@ -1130,25 +1374,33 @@ if (typeof window !== 'undefined') {
         return true;
     });
     isListening = true;
+    //catch any stored errors now that they will be caught
     errors.map(function (e) {
         catchError(e);
     });
     errors = [];
-
-    // try{
-    //     let fail = 10/0;
-    //     console.log("succeeded in dividing by 0 " + fail);
-    //     throw new Error('divided by zero');
-    //   }catch(e){
-    //     console.log("failed to divide by 0", e);
-    //     throw e;
-    //     //MyError(e);
-    //   }
 } else {
     console.log("error, window is undefined, cannot listen");
 }
 
 exports.default = catchError;
+
+/*
+    successfully bubbles up an error from inside a react component
+    setTimeout(()=>{
+      console.log("timeout, divide by zero now");
+      try{
+        let fail = 10/0;
+        console.log("app try succeeded in dividing by 0 " + fail);
+        throw new Error('divided by zero');
+      }catch(e){
+        console.log("app catch block failed to divide by 0", e);
+        //throw obvious error, shouldnt show up in production build?
+        throw e;
+      }
+    }, 5000);
+
+*/
 
 /***/ }),
 /* 21 */
@@ -1371,6 +1623,7 @@ module.exports = require("recompose");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\Loading.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1443,11 +1696,20 @@ var Loading = function (_React$PureComponent) {
         value: function render() {
             return _react2.default.createElement(
                 Load,
-                null,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 36
+                    }
+                },
                 circles.map(function (c) {
                     return _react2.default.createElement('div', { className: 'load-circle', style: { position: 'absolute', width: c.r * 2 + 'px', height: c.r * 2 + 'px',
                             left: c.x + 'px', top: c.y + 'px', backgroundColor: 'transparent'
-                        } });
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 40
+                        }
+                    });
                 })
             );
         }
@@ -1612,6 +1874,7 @@ module.exports = require("react-move/NodeGroup");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Posts.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1699,7 +1962,11 @@ var Games = function (_React$Component) {
                     //pagination.push(<p>go to prev page {this.props.currentPage-1}</p>)
                     pagination.push(_react2.default.createElement(
                         _reactStatic.Link,
-                        { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage - 1) },
+                        { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage - 1), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 37
+                            }
+                        },
                         'Previous'
                     ));
                 }
@@ -1708,7 +1975,11 @@ var Games = function (_React$Component) {
                     // pagination.push(<p>go to next page {this.props.currentPage+1}</p>)
                     pagination.push(_react2.default.createElement(
                         _reactStatic.Link,
-                        { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage + 1) },
+                        { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage + 1), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 42
+                            }
+                        },
                         'Next'
                     ));
                 }
@@ -1720,7 +1991,11 @@ var Games = function (_React$Component) {
         key: 'redirect',
         value: function redirect() {
             if (this.props.totalPages > 1 && this.props.match.url == '/' + this.props.base) {
-                return _react2.default.createElement(_reactStatic.Redirect, { to: this.props.base + '/' + this.props.pageToken + '/1' });
+                return _react2.default.createElement(_reactStatic.Redirect, { to: this.props.base + '/' + this.props.pageToken + '/1', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 51
+                    }
+                });
             }
         }
     }, {
@@ -1731,11 +2006,20 @@ var Games = function (_React$Component) {
             if (this.props.animationState === 1) {
                 console.log("renderPosts called with state 1");
                 return _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
-                    component: _PostItem2.default.component, y: { start: -2000, enter: 0 }, x: { start: -500, enter: 0 } });
+                    component: _PostItem2.default.component, y: { start: -2000, enter: 0 }, x: { start: -500, enter: 0 }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 60
+                    }
+                });
             } else {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 64
+                        }
+                    },
                     'Not rendering that when leaving!!'
                 );
             }
@@ -1745,18 +2029,40 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                { fixed: true },
+                { fixed: true, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 69
+                    }
+                },
                 _react2.default.createElement(
                     FlexBox,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 70
+                        }
+                    },
                     this.redirect(),
-                    _react2.default.createElement(_Tags2.default, { tags: this.props.tags, tag: this.props.tag }),
+                    _react2.default.createElement(_Tags2.default, { tags: this.props.tags, tag: this.props.tag, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 72
+                        }
+                    }),
                     this.renderPagination(),
                     _react2.default.createElement(
                         PostBox,
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 74
+                            }
+                        },
                         _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
-                            component: _PostItem2.default.component, y: { start: -200, enter: 0, unit: 'vh' }
+                            component: _PostItem2.default.component, y: { start: -200, enter: 0, unit: 'vh' },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 76
+                            }
                         })
                     )
                 )
@@ -1793,6 +2099,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\Translate.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1853,7 +2161,12 @@ var Translate = function (_React$Component) {
                 var inject = _defineProperty({}, this.props.itemKey, null);
                 return _react2.default.createElement(
                     Wrapper,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 20
+                        }
+                    },
                     _react2.default.createElement(
                         _NodeGroup2.default,
                         {
@@ -1921,12 +2234,21 @@ var Translate = function (_React$Component) {
                                 };
                                 console.log("Translate update obj ", l);
                                 return l;
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 21
                             }
                         },
                         function (nodes) {
                             return _react2.default.createElement(
                                 'div',
-                                null,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 71
+                                    }
+                                },
                                 nodes.map(function (node) {
                                     var key = node.key,
                                         data = node.data,
@@ -1941,8 +2263,17 @@ var Translate = function (_React$Component) {
                                     return _react2.default.createElement(
                                         'div',
                                         { style: { display: 'block', translate: 'all 1s ease',
-                                                transform: 'translate(' + (x ? x : 0) + (_this2.props.x && _this2.props.x.unit ? _this2.props.x.unit : 'px') + '\n                                                            , ' + (y ? y : 0) + (_this2.props.y && _this2.props.y.unit ? _this2.props.y.unit : 'px') + ')' } },
-                                        _react2.default.createElement(_this2.props.component, _extends({}, inject, _this2.props.other))
+                                                transform: 'translate(' + (x ? x : 0) + (_this2.props.x && _this2.props.x.unit ? _this2.props.x.unit : 'px') + '\n                                                            , ' + (y ? y : 0) + (_this2.props.y && _this2.props.y.unit ? _this2.props.y.unit : 'px') + ')' }, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 78
+                                            }
+                                        },
+                                        _react2.default.createElement(_this2.props.component, _extends({}, inject, _this2.props.other, {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 81
+                                            }
+                                        }))
                                     );
                                 })
                             );
@@ -1952,7 +2283,12 @@ var Translate = function (_React$Component) {
             } else {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 91
+                        }
+                    },
                     'Translate has no items to animate'
                 );
             }
@@ -1984,6 +2320,7 @@ var Wrapper = _styledComponents2.default.div(_templateObject);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\PostItem.jsx';
 
 var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
 
@@ -2007,18 +2344,36 @@ var component = function component(props) {
   // return <p>post {props.post.id}</p>
   return _react2.default.createElement(
     _reactStatic.Link,
-    { to: '/posts/' + props[key].id, key: props[key].id },
+    { to: '/posts/' + props[key].id, key: props[key].id, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      }
+    },
     _react2.default.createElement(
       Post,
-      { key: props[key].id },
+      { key: props[key].id, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      },
       _react2.default.createElement(
         'h2',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        },
         props[key].title
       ),
       _react2.default.createElement(
         'p',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          }
+        },
         props[key].tags.map(function (t, i) {
           return i === 0 ? "" + t : ", " + t;
         })
@@ -2055,6 +2410,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Home.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2116,7 +2472,12 @@ var Home = function (_React$Component) {
     value: function renderGraph() {
       console.log("home component renderGraph animationState " + this.props.animationState);
       if (this.props.animationState === 1) {
-        return _react2.default.createElement(_Trends2.default, null);
+        return _react2.default.createElement(_Trends2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18
+          }
+        });
       }
       return null;
     }
@@ -2125,33 +2486,73 @@ var Home = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          }
+        },
         _react2.default.createElement(
           _Container2.default,
-          { fixed: true, colorKey: 'neutral', z: -1000, padding: '10px 0px 100px 0px' },
-          _react2.default.createElement(_Text2.default, { tag: 'h3', display: 'block', colorKey: 'textInverted', text: 'Google Search Trends for Subjects' }),
+          { fixed: true, colorKey: 'neutral', z: -1000, padding: '10px 0px 100px 0px', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          },
+          _react2.default.createElement(_Text2.default, { tag: 'h3', display: 'block', colorKey: 'textInverted', text: 'Google Search Trends for Subjects', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            }
+          }),
           _react2.default.createElement(
             _Container2.default,
-            { fixed: false, width: '100%', height: '90%' },
+            { fixed: false, width: '100%', height: '90%', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 27
+              }
+            },
             this.renderGraph()
           )
         ),
         _react2.default.createElement(
           _Container2.default,
-          { fixed: true, color: 'transparent', z: 1 },
+          { fixed: true, color: 'transparent', z: 1, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
           _react2.default.createElement(
             PostBox,
-            null,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+              }
+            },
             _react2.default.createElement(
               Message,
-              null,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                }
+              },
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
             ),
             _react2.default.createElement(
               PostWrapper,
-              null,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                }
+              },
               _react2.default.createElement(_Translate2.default, { items: this.props.posts, itemKey: _PostItem2.default.key, itemId: 'id',
-                component: _PostItem2.default.component, y: { start: -800, enter: 0, unit: 'px' } })
+                component: _PostItem2.default.component, y: { start: -800, enter: 0, unit: 'px' }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 38
+                }
+              })
             )
           )
         )
@@ -2178,6 +2579,7 @@ var PostBox = _styledComponents2.default.div(_templateObject3);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Games.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2240,12 +2642,25 @@ var Games = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Container2.default,
-                { fixed: true },
+                { fixed: true, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 32
+                    }
+                },
                 _react2.default.createElement(
                     'div',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 34
+                        }
+                    },
                     this.props.games.map(function (post) {
-                        return _react2.default.createElement(_GameListItem2.default, { game: post });
+                        return _react2.default.createElement(_GameListItem2.default, { game: post, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 37
+                            }
+                        });
                     })
                 )
             );
@@ -2267,6 +2682,7 @@ exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Accordion.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2355,18 +2771,34 @@ var FoldOut = function (_React$Component) {
             if (this.state.open) {
                 return _react2.default.createElement(
                     Wrapper,
-                    { style: { display: 'inline-block', transform: 'rotate(180deg)' } },
+                    { style: { display: 'inline-block', transform: 'rotate(180deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 38
+                        }
+                    },
                     _react2.default.createElement(_IconButton2.default, { icon: "up", onInput: function onInput() {
                             _this2.handleClick(_this2.state.iOpen);
-                        } })
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 39
+                        }
+                    })
                 );
             } else {
                 return _react2.default.createElement(
                     Wrapper,
-                    { style: { display: 'inline-block', transform: 'rotate(0deg)' } },
+                    { style: { display: 'inline-block', transform: 'rotate(0deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 44
+                        }
+                    },
                     _react2.default.createElement(_IconButton2.default, { icon: "up", onInput: function onInput() {
                             _this2.handleClick(_this2.state.iOpen);
-                        } })
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 45
+                        }
+                    })
                 );
             }
         }
@@ -2376,20 +2808,38 @@ var FoldOut = function (_React$Component) {
             if (this.state.open) {
                 return _react2.default.createElement(
                     Accordion,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 52
+                        }
+                    },
                     _react2.default.createElement(
                         'p',
-                        { className: 'open' },
+                        { className: 'open', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 52
+                            }
+                        },
                         this.props.children
                     )
                 );
             } else {
                 return _react2.default.createElement(
                     Accordion,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 54
+                        }
+                    },
                     _react2.default.createElement(
                         'p',
-                        { className: 'closed' },
+                        { className: 'closed', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 54
+                            }
+                        },
                         this.props.children
                     )
                 );
@@ -2400,40 +2850,89 @@ var FoldOut = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { style: { width: '100%', padding: '10px', overflow: 'hidden' } },
+                { style: { width: '100%', padding: '10px', overflow: 'hidden' }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 59
+                    }
+                },
                 _react2.default.createElement(
                     Pill,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 60
+                        }
+                    },
                     _react2.default.createElement(
                         Panel,
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 61
+                            }
+                        },
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 62
+                                }
+                            },
                             this.renderOpenButton()
                         ),
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 63
+                                }
+                            },
                             _react2.default.createElement(
                                 Stack,
-                                null,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 64
+                                    }
+                                },
                                 _react2.default.createElement(
                                     'h3',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 65
+                                        }
+                                    },
                                     this.props.title
                                 ),
                                 _react2.default.createElement(
                                     'p',
-                                    null,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 66
+                                        }
+                                    },
                                     this.props.subtitle
                                 )
                             )
                         ),
-                        _react2.default.createElement(Mid, null),
+                        _react2.default.createElement(Mid, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 69
+                            }
+                        }),
                         _react2.default.createElement(
                             FlexChild,
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 71
+                                }
+                            },
                             this.props.callToAction()
                         )
                     ),
@@ -2488,6 +2987,8 @@ var _importCss3 = _interopRequireDefault(_importCss2);
 var _universalImport2 = __webpack_require__(8);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Game.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2599,18 +3100,32 @@ var Games = function (_React$Component) {
         key: 'render',
         value: function render() {
             if (this.state.game) {
-                return _react2.default.createElement(_Index2.default, { game: this.state.game });
+                return _react2.default.createElement(_Index2.default, { game: this.state.game, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 60
+                    }
+                });
             } else if (this.state.error) {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 63
+                        }
+                    },
                     'error loading game: ',
                     this.state.error
                 );
             } else {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 65
+                        }
+                    },
                     'loading game files...'
                 );
             }
@@ -2639,6 +3154,7 @@ module.exports = require("redux-logger");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\math\\Katex.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2695,7 +3211,11 @@ var Katex = function (_React$Component) {
             console.log("katex did mount", this.props);
             // render(<BlockMath math={"c = \\pm\\sqrt{a^2 + b^2}"}/>,
             //         document.getElementById('math'));
-            (0, _reactDom.render)(_react2.default.createElement(_reactKatex.InlineMath, { math: this.props.latex }), document.getElementById(this.state.id));
+            (0, _reactDom.render)(_react2.default.createElement(_reactKatex.InlineMath, { math: this.props.latex, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 31
+                }
+            }), document.getElementById(this.state.id));
             // const top = "m";
             // const bottom = "s";
             // ReactDOM.render(<InlineMath>{String.raw`\frac{\text{${top}}}{\text{${bottom}}^2}`}</InlineMath>,
@@ -2706,14 +3226,22 @@ var Katex = function (_React$Component) {
         value: function componentDidUpdate(prevProps, prevState) {
             console.log("katex did update", this.props);
             if (prevProps.latex !== this.props.latex) {
-                (0, _reactDom.render)(_react2.default.createElement(_reactKatex.InlineMath, { math: this.props.latex }), document.getElementById(this.state.id));
+                (0, _reactDom.render)(_react2.default.createElement(_reactKatex.InlineMath, { math: this.props.latex, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 41
+                    }
+                }), document.getElementById(this.state.id));
             }
         }
     }, {
         key: 'render',
         value: function render() {
             //var InlineMathV = ReactKaTeX.InlineMath;
-            return _react2.default.createElement('span', { id: this.state.id, key: this.state.id })
+            return _react2.default.createElement('span', { id: this.state.id, key: this.state.id, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 48
+                }
+            })
             // <span id={this.state.id} />
             ;
         }
@@ -2837,6 +3365,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\About.jsx';
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -2867,21 +3397,39 @@ var Counter = function Counter(_ref) {
       reset = _ref.reset;
   return _react2.default.createElement(
     'div',
-    null,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
+      }
+    },
     _react2.default.createElement(
       'p',
-      null,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      },
       'Value: ',
       count
     ),
     _react2.default.createElement(
       'button',
-      { onClick: increment },
+      { onClick: increment, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      },
       'Increment'
     ),
     _react2.default.createElement(
       'button',
-      { onClick: reset },
+      { onClick: reset, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      },
       'Reset'
     )
   );
@@ -2946,20 +3494,40 @@ var About = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 60
+          }
+        },
         _react2.default.createElement(
           'h1',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          },
           'This is what we\'re all about.1'
         ),
         _react2.default.createElement(
           'p',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            }
+          },
           'React, static sites, performance, speed. It\'s the stuff that makes us tick.'
         ),
         _react2.default.createElement(
           'h2',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 67
+            }
+          },
           'Here is a redux counter:'
         )
       );
@@ -3000,6 +3568,7 @@ exports.default = (0, _reactStatic.withSiteData)(About);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\404.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3074,20 +3643,39 @@ var Lost = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          }
+        },
         _react2.default.createElement(
           'p',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          },
           'That page doesn\'t exist. We have made a note of the problem.'
         ),
         _react2.default.createElement(
           'p',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 42
+            }
+          },
           'In the meantime, here are some pages that definitely exist'
         ),
         _react2.default.createElement(
           _reactStatic.Link,
-          { to: '/' },
+          { to: '/', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 43
+            }
+          },
           'Home'
         )
       );
@@ -3184,6 +3772,9 @@ function setSignedIn(signedIn) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\index.js';
+
+// Your top level component
 
 var _react = __webpack_require__(0);
 
@@ -3212,16 +3803,23 @@ exports.default = _App2.default;
 
 // Render your app
 
-
-// Your top level component
-
 if (typeof document !== 'undefined') {
   var renderMethod =  false ? _reactDom2.default.render : _reactDom2.default.hydrate || _reactDom2.default.render;
   var render = function render(Comp) {
     renderMethod(_react2.default.createElement(
       _ErrorBoundary2.default,
-      null,
-      _react2.default.createElement(Comp, null)
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      },
+      _react2.default.createElement(Comp, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      })
     ), document.getElementById('root'));
   };
 
@@ -3239,6 +3837,7 @@ if (typeof document !== 'undefined') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\ErrorBoundary.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3278,7 +3877,7 @@ var ErrorBoundary = function (_React$Component) {
       this.setState({ hasError: true });
       // You can also log the error to an error reporting service
       //logErrorToMyService(error, info);
-      (0, _Error2.default)(error, info);
+      (0, _Error2.default)(error, info); //if an error is thrown here, breaks app, no error boundary to catch
     }
   }, {
     key: 'render',
@@ -3287,7 +3886,12 @@ var ErrorBoundary = function (_React$Component) {
         // You can render any custom fallback UI
         return _react2.default.createElement(
           'h1',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          },
           'Something went wrong.'
         );
       }
@@ -3298,6 +3902,7 @@ var ErrorBoundary = function (_React$Component) {
   return ErrorBoundary;
 }(_react2.default.Component);
 
+ErrorBoundary.displayName = 'errorboundary';
 exports.default = ErrorBoundary;
 
 /***/ }),
@@ -3314,6 +3919,8 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\App.js';
 //
 
 
@@ -3428,8 +4035,17 @@ var AnimatedRoutes = (0, _recompose.getContext)({
           // This relative wrapper is necessary for accurate rehydration :)
           _react2.default.createElement(
             'div',
-            { style: { position: 'relative' } },
-            _react2.default.createElement(Comp, props)
+            { style: { position: 'relative' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 67
+              }
+            },
+            _react2.default.createElement(Comp, _extends({}, props, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 68
+              }
+            }))
           )
         );
       }
@@ -3509,12 +4125,20 @@ var AnimatedRoutes = (0, _recompose.getContext)({
                 }
               }
             };
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 75
           }
         },
         function (nodes) {
           return _react2.default.createElement(
             'div',
-            { style: { position: 'relative' } },
+            { style: { position: 'relative' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 126
+              }
+            },
             nodes.map(function (props) {
               var key = props.key,
                   data = props.data,
@@ -3535,7 +4159,12 @@ var AnimatedRoutes = (0, _recompose.getContext)({
                   router: data.router
                 };
               })(function (props) {
-                return _react2.default.createElement('div', props);
+                return _react2.default.createElement('div', _extends({}, props, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 140
+                  }
+                }));
               });
 
               return _react2.default.createElement(
@@ -3550,14 +4179,26 @@ var AnimatedRoutes = (0, _recompose.getContext)({
                     left: 0,
                     transform: 'translateY(' + translateY + 'px) scale(' + scale + ', ' + scale + ')',
                     opacity: opacity
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 143
                   }
                 },
-                _react2.default.createElement(data.Comp, _extends({}, data.props, { animationState: animationState.state }))
+                _react2.default.createElement(data.Comp, _extends({}, data.props, { animationState: animationState.state, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 155
+                  }
+                }))
               );
             })
           );
         }
       );
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     }
   });
 });
@@ -3588,18 +4229,27 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      // setTimeout(()=>{
+      //   console.log("timeout, divide by zero now");
+      //   try{
+      //     let fail = 10/0;
+      //     console.log("app try succeeded in dividing by 0 " + fail);
+      //     throw new Error('divided by zero');
+      //   }catch(e){
+      //     console.log("app catch block failed to divide by 0", e);
+      //     //throw obvious error, shouldnt show up in production build?
+      //     throw e;
+      //   }
+      // }, 5000);
       try {
         var fail = 10 / 0;
         console.log("app try succeeded in dividing by 0 " + fail);
         throw new Error('divided by zero');
       } catch (e) {
         console.log("app catch block failed to divide by 0", e);
+        //throw obvious error, shouldnt show up in production build?
         throw e;
-        //MyError(e);
       }
-      // this.setState({
-      //   mounted: true
-      // })
     }
   }, {
     key: 'componentDidUpdate',
@@ -3627,18 +4277,45 @@ var App = function (_React$Component) {
 
       return _react2.default.createElement(
         _reactRedux.Provider,
-        { store: _redux2.default },
+        { store: _redux2.default, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 251
+          }
+        },
         _react2.default.createElement(
           _reactStatic.Router,
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 252
+            }
+          },
           _react2.default.createElement(
             'div',
-            { style: { position: 'relative' } },
-            _react2.default.createElement(_Analytics2.default, null),
-            _react2.default.createElement(_Gapi2.default, null),
+            { style: { position: 'relative' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 253
+              }
+            },
+            _react2.default.createElement(_Analytics2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 254
+              }
+            }),
+            _react2.default.createElement(_Gapi2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 255
+              }
+            }),
             _react2.default.createElement(
               _styledComponents.ThemeProvider,
-              { theme: this.state.myTheme },
+              { theme: this.state.myTheme, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 256
+                }
+              },
               _react2.default.createElement(
                 Root,
                 { className: 'content', style: { backgroundColor: this.state.myTheme[this.state.myTheme.theme].neutral }, onDoubleClick: function onDoubleClick() {
@@ -3648,18 +4325,44 @@ var App = function (_React$Component) {
                       myTheme: _extends({}, nTheme),
                       themeKey: nTheme.theme
                     });
-                  } },
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 257
+                  }
+                },
                 _react2.default.createElement(
                   _reactStatic.Switch,
-                  null,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 265
+                    }
+                  },
                   _react2.default.createElement(_reactStatic.Route, { path: '/games/:game', exact: true, component: function component() {
                       return null;
-                    } }),
+                    }, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 266
+                    }
+                  }),
                   _react2.default.createElement(_reactStatic.Route, { path: '/', component: function component() {
-                      return _react2.default.createElement(_MainMenu2.default, null);
-                    } })
+                      return _react2.default.createElement(_MainMenu2.default, {
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 267
+                        }
+                      });
+                    }, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 267
+                    }
+                  })
                 ),
-                _react2.default.createElement(_reactStaticRoutes2.default, { component: AnimatedRoutes })
+                _react2.default.createElement(_reactStaticRoutes2.default, { component: AnimatedRoutes, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 269
+                  }
+                })
               )
             )
           )
@@ -3752,6 +4455,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\dist\\react-static-routes.js';
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -3782,7 +4487,12 @@ var universalOptions = {
     console.error(props.error);
     return _react2.default.createElement(
       'div',
-      null,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      },
       'An error occurred loading this page\'s template. More information is available in the console.'
     );
   }
@@ -3993,7 +4703,12 @@ var Routes = function (_Component) {
           Comp = getComponentForPath('404');
         }
         return function (newProps) {
-          return Comp ? _react2.default.createElement(Comp, _extends({}, newProps, is404 ? { is404: true } : {})) : null;
+          return Comp ? _react2.default.createElement(Comp, _extends({}, newProps, is404 ? { is404: true } : {}, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 73
+            }
+          })) : null;
         };
       };
 
@@ -4004,7 +4719,12 @@ var Routes = function (_Component) {
       };
 
       if (Comp) {
-        return _react2.default.createElement(Comp, renderProps);
+        return _react2.default.createElement(Comp, _extends({}, renderProps, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 86
+          }
+        }));
       }
 
       if (render || children) {
@@ -4018,7 +4738,11 @@ var Routes = function (_Component) {
           // component tree underneath during reconciliation, losing all internal state.
           // By unwrapping it here we keep the real, static component exposed directly to React.
           return Comp && Comp(_extends({}, props, { key: props.location.pathname }));
-        } });
+        }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98
+        }
+      });
     }
   }]);
 
@@ -4704,6 +5428,7 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5v
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\TalkitGame.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -4897,7 +5622,12 @@ var Talkit = function (_React$Component) {
                 if (game.name) {
                     views.push(_react2.default.createElement(
                         'p',
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 147
+                            }
+                        },
                         game.name
                     ));
                 }
@@ -4908,7 +5638,11 @@ var Talkit = function (_React$Component) {
                             'button',
                             { onClick: function onClick() {
                                     _this3.onInput(c.id);
-                                } },
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 152
+                                }
+                            },
                             c.title
                         ));
                     });
@@ -4919,7 +5653,11 @@ var Talkit = function (_React$Component) {
                         'button',
                         { onClick: function onClick() {
                                 _this3.onInput(game.next);
-                            } },
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 157
+                            }
+                        },
                         game.name
                     ));
                 }
@@ -4930,7 +5668,12 @@ var Talkit = function (_React$Component) {
                 //game is finished
                 views.push(_react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 164
+                        }
+                    },
                     'game finished'
                 ));
             }
@@ -4943,13 +5686,23 @@ var Talkit = function (_React$Component) {
             if (this.state.ids) {
                 return _react2.default.createElement(
                     Game,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 172
+                        }
+                    },
                     this.renderGame()
                 );
             } else {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 177
+                        }
+                    },
                     'no ids found'
                 );
             }
@@ -5016,6 +5769,7 @@ exports.default = colors;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\Tags.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5055,14 +5809,29 @@ var Tags = function (_React$Component) {
         key: 'render',
         value: function render() {
             if (this.props.tags) {
-                return _react2.default.createElement(Container, null);
+                return _react2.default.createElement(Container, {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 10
+                    }
+                });
             } else {
                 return _react2.default.createElement(
                     Container,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 21
+                        }
+                    },
                     _react2.default.createElement(
                         'p',
-                        null,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 21
+                            }
+                        },
                         'no tags to be found'
                     )
                 );
@@ -5089,6 +5858,7 @@ var Container = _styledComponents2.default.div(_templateObject2);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Text.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5128,70 +5898,133 @@ var Text = function (_React$Component) {
                 case 'h1':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 8
+                            }
+                        },
                         _react2.default.createElement(
                             'h1',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 8
+                                }
+                            },
                             this.props.text
                         )
                     );
                 case 'h2':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 10
+                            }
+                        },
                         _react2.default.createElement(
                             'h2',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 10
+                                }
+                            },
                             this.props.text
                         )
                     );
                 case 'h3':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 12
+                            }
+                        },
                         _react2.default.createElement(
                             'h3',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 12
+                                }
+                            },
                             this.props.text
                         )
                     );
                 case 'h4':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 14
+                            }
+                        },
                         _react2.default.createElement(
                             'h4',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 14
+                                }
+                            },
                             this.props.text
                         )
                     );
                 case 'h5':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 16
+                            }
+                        },
                         _react2.default.createElement(
                             'h5',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 16
+                                }
+                            },
                             this.props.text
                         )
                     );
                 case 'h6':
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 18
+                            }
+                        },
                         _react2.default.createElement(
                             'h6',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 18
+                                }
+                            },
                             this.props.text
                         )
                     );
                 default:
                     return _react2.default.createElement(
                         Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey },
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 20
+                            }
+                        },
                         _react2.default.createElement(
                             'p',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 20
+                                }
+                            },
                             this.props.text
                         )
                     );
@@ -5245,6 +6078,8 @@ var _importCss3 = _interopRequireDefault(_importCss2);
 var _universalImport2 = __webpack_require__(8);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\Trends.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5355,21 +6190,60 @@ var Graph = function (_React$Component) {
                 // <p>graph</p>
                 _react2.default.createElement(
                     ResponsiveContainer,
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 43
+                        }
+                    },
                     _react2.default.createElement(
                         LineChart,
                         { width: 600, height: 300, data: _trends2.default,
-                            margin: { top: 10, right: 20, left: -20, bottom: 50 } },
+                            margin: { top: 10, right: 20, left: -20, bottom: 50 }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 44
+                            }
+                        },
                         _react2.default.createElement(XAxis, { dataKey: 'Month', label: { value: "Year-Month", offset: 25, angle: 0, position: 'bottom' },
                             tickFormatter: function tickFormatter(t) {
                                 return t.slice(2);
-                            }, angle: -45, textAnchor: 'end' }),
-                        _react2.default.createElement(YAxis, null),
-                        _react2.default.createElement(CartesianGrid, { strokeDasharray: '1 6' }),
-                        _react2.default.createElement(Tooltip, null),
-                        _react2.default.createElement(Legend, { verticalAlign: 'top', height: 36 }),
-                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'math: (Worldwide)', fill: '#8884d8', stroke: '#8884d8', strokeWidth: 3 }),
-                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'physics: (Worldwide)', stroke: '#82ca9d', strokeWidth: 3 })
+                            }, angle: -45, textAnchor: 'end', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 46
+                            }
+                        }),
+                        _react2.default.createElement(YAxis, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 48
+                            }
+                        }),
+                        _react2.default.createElement(CartesianGrid, { strokeDasharray: '1 6', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 49
+                            }
+                        }),
+                        _react2.default.createElement(Tooltip, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 50
+                            }
+                        }),
+                        _react2.default.createElement(Legend, { verticalAlign: 'top', height: 36, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 51
+                            }
+                        }),
+                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'math: (Worldwide)', fill: '#8884d8', stroke: '#8884d8', strokeWidth: 3, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 52
+                            }
+                        }),
+                        _react2.default.createElement(Line, { type: 'monotone', dot: false, dataKey: 'physics: (Worldwide)', stroke: '#82ca9d', strokeWidth: 3, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 53
+                            }
+                        })
                     )
                 )
             );
@@ -5385,14 +6259,29 @@ var Graph = function (_React$Component) {
             } else if (this.state.error) {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 64
+                        }
+                    },
                     this.state.error
                 );
             } else {
                 return _react2.default.createElement(
                     _Container2.default,
-                    null,
-                    _react2.default.createElement(_Loading2.default, null)
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 66
+                        }
+                    },
+                    _react2.default.createElement(_Loading2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 67
+                        }
+                    })
                 );
             }
         }
@@ -5420,6 +6309,7 @@ module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\GameListItem.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5478,10 +6368,22 @@ var GameItem = function (_React$Component) {
                         return _react2.default.createElement(
                             _reactStatic.Link,
                             { key: _this2.props.game.id,
-                                to: '/games/' + _this2.props.game.id },
-                            _react2.default.createElement(_IconButton2.default, { icon: "play" })
+                                to: '/games/' + _this2.props.game.id, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 25
+                                }
+                            },
+                            _react2.default.createElement(_IconButton2.default, { icon: "play", __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 27
+                                }
+                            })
                         );
-                    } },
+                    }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 18
+                    }
+                },
                 this.props.game.desc
             );
         }
@@ -5502,6 +6404,7 @@ exports.default = GameItem;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Button.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5550,7 +6453,11 @@ var Button = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 Btn,
-                { onClick: this.handleInput },
+                { onClick: this.handleInput, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 17
+                    }
+                },
                 this.props.children
             );
         }
@@ -5578,6 +6485,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Index.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5651,14 +6559,27 @@ var Index = function (_React$Component) {
       if (this.state.game) {
         return _react2.default.createElement(
           _Store2.default,
-          { reducers: this.state.reducers },
-          _react2.default.createElement(_Game2.default, { game: this.state.game })
+          { reducers: this.state.reducers, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          },
+          _react2.default.createElement(_Game2.default, { game: this.state.game, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 38
+            }
+          })
         );
         //return null;
       } else {
         return _react2.default.createElement(
           'p',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 44
+            }
+          },
           'loading game...'
         );
       }
@@ -5685,6 +6606,7 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Store.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5731,7 +6653,11 @@ var Index = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _reactRedux.Provider,
-                { store: this.store },
+                { store: this.store, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 20
+                    }
+                },
                 this.props.children
             );
         }
@@ -5764,6 +6690,8 @@ var _importCss3 = _interopRequireDefault(_importCss2);
 var _universalImport2 = __webpack_require__(8);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Game.jsx';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -5990,13 +6918,27 @@ var Game = function (_React$Component) {
             if (this.areToolsReady()) {
                 return _react2.default.createElement(
                     'div',
-                    null,
-                    _react2.default.createElement(this.props.game, { tools: this.state.tools })
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 134
+                        }
+                    },
+                    _react2.default.createElement(this.props.game, { tools: this.state.tools, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 135
+                        }
+                    })
                 );
             } else {
                 return _react2.default.createElement(
                     'p',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 139
+                        }
+                    },
                     'loading tools...'
                 );
             }
@@ -6488,4 +7430,4 @@ module.exports = require("react-move");
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.20a55c41.js.map
+//# sourceMappingURL=static.a8913055.js.map

@@ -3,6 +3,8 @@ var errors = [];
 const catchError = (error) => {
     //console.log("catchError", error);
     if(isListening){
+        //log error to google analytics
+        
         //throw error;
     }else{
         if(errors.length < 10){
@@ -14,6 +16,7 @@ const catchError = (error) => {
 if (typeof window !== 'undefined') {
     console.log("error, window is defined, adding listener");
     window.onerror = function(message, source, lineNum, colNum, errorObj){
+        //can bubble up without explicit MyError call()
         console.warn(`onerror details: message ${message} source: ${source} lineNum ${lineNum}`, errorObj);
         // window.location.href = (
         //     `http://stackoverflow.com/search?q=[js]${message}`
@@ -26,22 +29,30 @@ if (typeof window !== 'undefined') {
         return true; 
     })
     isListening = true;
+    //catch any stored errors now that they will be caught
     errors.map(e =>{
         catchError(e);
     })
     errors = [];
-
-    // try{
-    //     let fail = 10/0;
-    //     console.log("succeeded in dividing by 0 " + fail);
-    //     throw new Error('divided by zero');
-    //   }catch(e){
-    //     console.log("failed to divide by 0", e);
-    //     throw e;
-    //     //MyError(e);
-    //   }
 }else{
     console.log("error, window is undefined, cannot listen");
 }
 
 export default catchError;
+
+/*
+    successfully bubbles up an error from inside a react component
+    setTimeout(()=>{
+      console.log("timeout, divide by zero now");
+      try{
+        let fail = 10/0;
+        console.log("app try succeeded in dividing by 0 " + fail);
+        throw new Error('divided by zero');
+      }catch(e){
+        console.log("app catch block failed to divide by 0", e);
+        //throw obvious error, shouldnt show up in production build?
+        throw e;
+      }
+    }, 5000);
+
+*/
