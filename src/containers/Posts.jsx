@@ -83,12 +83,21 @@ class Games extends React.Component{
                 {/* <Translate items={this.props.posts} itemKey={'post'} itemId={'id'} 
                     component={PostItem.component} y={{start: -200, enter: 0, unit: 'vh'}} 
                     /> */}
-                        <Slide>
+                        <Slide offset={100} duration={1500} childDelay={150}>
+                            {/* <Space />
                             <Space />
                             <Space />
                             <Space />
-                            <Space />
-                            <Space />
+                            <Space /> */}
+                            {this.props.posts.map(p =>{
+                                //<PostItem.component post={p} />
+                                    //return <PostItem.component  className='anim-child' post={p} />
+                                    return <span className='anim-child'>
+                                            <PostItem.component post={p} />
+                                        </span>;
+                                    //return <p className='anim-child' >hello</p>
+                                } 
+                            )}
                         </Slide>
             </PostBox>
           )
@@ -99,11 +108,11 @@ class Games extends React.Component{
 Games.displayName='Posts';
 export default withRouteData(Games);
 const Space = styled.div`
-    width:100%;
-    height: 400px;
-    background-color: cyan;
-    margin:10px:
+    width:90%;
+    height: 100px;
+    margin: 10px auto;
     position: relative;
+    display: block;
 `
 const FlexBox = styled.div`
     position: relative;

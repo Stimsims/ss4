@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {withSiteData} from 'react-static';
 import Table from './../components/UI/elements/Table.jsx';
+import styled from 'styled-components';
 
 const fnc = () => {
   return <div style={{backgroundColor: 'green', margin: '10px', height: '100%', width: '100%'}}>hi</div>
@@ -31,7 +32,7 @@ class About extends React.Component{
     )
   }
 }
-About.displayName = 'About';
+About.displayName = 'mAbout';
 export default withSiteData(About)
 
 const Box = styled.div`

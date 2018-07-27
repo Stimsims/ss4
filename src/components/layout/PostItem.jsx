@@ -49,7 +49,8 @@ export default {
 const Post = styled.div`
   width:100%;
   height: 240px;
-  position: static;
+  position: relative;
+  display: block;
   opacity:1;
   margin: 10px 0px 0px 0px;
   padding:20px 20px 5px 20px;

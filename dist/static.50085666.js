@@ -93,6 +93,12 @@ module.exports = require("react-static");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -201,16 +207,10 @@ const PostBox = styled.div`
 */
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("prop-types");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 6 */
@@ -291,7 +291,7 @@ var _TalkitGame = __webpack_require__(64);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -303,7 +303,7 @@ var _Loading = __webpack_require__(25);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
-var _MyLog = __webpack_require__(17);
+var _MyLog = __webpack_require__(13);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
@@ -730,12 +730,6 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -745,7 +739,42 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactGa = __webpack_require__(15);
+var _validate = __webpack_require__(23);
+
+var _validate2 = _interopRequireDefault(_validate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var levels = ['log', 'warn', 'error'];
+var MyLog = function MyLog(level, log, obj) {
+    if (_validate2.default.contains(levels, level)) {
+        if (_validate2.default.isDefined(obj)) {
+            console[level](log, obj);
+        } else {
+            console[level](log);
+        }
+    }
+};
+exports.default = MyLog;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -824,13 +853,13 @@ exports.default = logError;
 */
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-ga");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -856,35 +885,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _validate = __webpack_require__(23);
-
-var _validate2 = _interopRequireDefault(_validate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var levels = ['log', 'warn', 'error'];
-var MyLog = function MyLog(level, log, obj) {
-    if (_validate2.default.contains(levels, level)) {
-        if (_validate2.default.isDefined(obj)) {
-            console[level](log, obj);
-        } else {
-            console[level](log);
-        }
-    }
-};
-exports.default = MyLog;
 
 /***/ }),
 /* 18 */
@@ -1113,7 +1113,7 @@ var loadFromPromiseCache = exports.loadFromPromiseCache = function loadFromPromi
 var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, promisecache) {
   return promisecache[callForString(chunkName, props)] = pr;
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
 /* 25 */
@@ -1386,7 +1386,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\container
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    width:100%;\n    height: 400px;\n    background-color: cyan;\n    margin:10px:\n    position: relative;\n'], ['\n    width:100%;\n    height: 400px;\n    background-color: cyan;\n    margin:10px:\n    position: relative;\n']),
+var _templateObject = _taggedTemplateLiteral(['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n'], ['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    position: relative;\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    padding-top: ', ';\n'], ['\n    position: relative;\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    padding-top: ', ';\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n    text-transform: capitalize;\n    color: white;\n    background: grey;\n    text-align: center;\n    width: 100%;\n    padding: 0px;\n    display: inline-block;\n'], ['\n    text-transform: capitalize;\n    color: white;\n    background: grey;\n    text-align: center;\n    width: 100%;\n    padding: 0px;\n    display: inline-block;\n']);
@@ -1401,7 +1401,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -1586,41 +1586,28 @@ var Games = function (_React$Component) {
                 },
                 _react2.default.createElement(
                     _SlideDown2.default,
-                    {
-                        __source: {
+                    { offset: 100, duration: 1500, childDelay: 150, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 86
                         }
                     },
-                    _react2.default.createElement(Space, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 87
-                        }
-                    }),
-                    _react2.default.createElement(Space, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 88
-                        }
-                    }),
-                    _react2.default.createElement(Space, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 89
-                        }
-                    }),
-                    _react2.default.createElement(Space, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 90
-                        }
-                    }),
-                    _react2.default.createElement(Space, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 91
-                        }
+                    this.props.posts.map(function (p) {
+                        //<PostItem.component post={p} />
+                        //return <PostItem.component  className='anim-child' post={p} />
+                        return _react2.default.createElement(
+                            'span',
+                            { className: 'anim-child', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 95
+                                }
+                            },
+                            _react2.default.createElement(_PostItem2.default.component, { post: p, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 96
+                                }
+                            })
+                        );
+                        //return <p className='anim-child' >hello</p>
                     })
                 )
             );
@@ -1679,7 +1666,7 @@ var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
 var _d3Ease = __webpack_require__(10);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -1887,7 +1874,7 @@ var Wrapper = _styledComponents2.default.div(_templateObject);
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-transition-group");
+module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
 /* 31 */
@@ -1903,7 +1890,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  height: 240px;\n  position: static;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  height: 240px;\n  position: static;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  height: 240px;\n  position: relative;\n  display: block;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  height: 240px;\n  position: relative;\n  display: block;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1915,7 +1902,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MyLog = __webpack_require__(17);
+var _MyLog = __webpack_require__(13);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
@@ -2056,7 +2043,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -2088,7 +2075,7 @@ var _Trends = __webpack_require__(70);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
-var _MyLog = __webpack_require__(17);
+var _MyLog = __webpack_require__(13);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
@@ -2455,7 +2442,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -2567,11 +2554,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(72);
+var _reactAddonsCssTransitionGroup = __webpack_require__(30);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-__webpack_require__(73);
+__webpack_require__(72);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2635,11 +2622,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _GameListItem = __webpack_require__(74);
+var _GameListItem = __webpack_require__(73);
 
 var _GameListItem2 = _interopRequireDefault(_GameListItem);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -2740,13 +2727,13 @@ var _IconButton = __webpack_require__(12);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _reactGa = __webpack_require__(15);
+var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
-var _Button = __webpack_require__(75);
+var _Button = __webpack_require__(74);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -3032,7 +3019,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(76);
+var _Index = __webpack_require__(75);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -3197,7 +3184,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(81);
+__webpack_require__(80);
 
 var _reactKatex = __webpack_require__(18);
 
@@ -3408,13 +3395,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
 var _reactStatic = __webpack_require__(2);
 
 var _Table = __webpack_require__(34);
 
 var _Table2 = _interopRequireDefault(_Table);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3431,7 +3422,7 @@ var fnc = function fnc() {
     'div',
     { style: { backgroundColor: 'green', margin: '10px', height: '100%', width: '100%' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 9
       }
     },
     'hi'
@@ -3455,7 +3446,7 @@ var About = function (_React$Component) {
         'div',
         { style: { margin: '0', backgroundColor: 'red', width: '100%', height: '500px' }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 18
           }
         },
         _react2.default.createElement(
@@ -3463,7 +3454,7 @@ var About = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 20
             }
           },
           'This is what we\'re all about.1'
@@ -3473,7 +3464,7 @@ var About = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 21
             }
           },
           'React, static sites, performance, speed. It\'s the stuff that makes us tick.'
@@ -3482,7 +3473,7 @@ var About = function (_React$Component) {
           _Table2.default,
           { heights: ['10%', '30%', null], __source: {
               fileName: _jsxFileName,
-              lineNumber: 25
+              lineNumber: 26
             }
           },
           fnc(),
@@ -3496,11 +3487,11 @@ var About = function (_React$Component) {
   return About;
 }(_react2.default.Component);
 
-About.displayName = 'About';
+About.displayName = 'mAbout';
 exports.default = (0, _reactStatic.withSiteData)(About);
 
 
-var Box = styled.div(_templateObject);
+var Box = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
 /* 42 */
@@ -3522,9 +3513,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
-var _LogError = __webpack_require__(14);
+var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
@@ -3746,7 +3737,7 @@ var _reactDom = __webpack_require__(22);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _LogError = __webpack_require__(14);
+var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
@@ -3807,7 +3798,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _LogError = __webpack_require__(14);
+var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
@@ -3957,7 +3948,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
 var _reactHotLoader = __webpack_require__(49);
 
@@ -3965,25 +3956,25 @@ var _reactStaticRoutes = __webpack_require__(50);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(82);
+var _redux = __webpack_require__(81);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(85);
+__webpack_require__(84);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(86);
+var _theme = __webpack_require__(85);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(87);
+var _Analytics = __webpack_require__(86);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(88);
+var _Gapi = __webpack_require__(87);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -3993,19 +3984,19 @@ var _reactMove = __webpack_require__(44);
 
 var _recompose = __webpack_require__(21);
 
-var _Page = __webpack_require__(89);
+var _Page = __webpack_require__(88);
 
 var _Page2 = _interopRequireDefault(_Page);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Ma = __webpack_require__(91);
+var _Ma = __webpack_require__(90);
 
 var _Ma2 = _interopRequireDefault(_Ma);
 
-var _reactTransitionGroup = __webpack_require__(30);
+var _reactTransitionGroup = __webpack_require__(92);
 
 var _reactTransitionGroup2 = _interopRequireDefault(_reactTransitionGroup);
 
@@ -4013,7 +4004,7 @@ var _FadeIn = __webpack_require__(35);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -4573,7 +4564,7 @@ var Root = _styledComponents2.default.div(_templateObject4, function (props) {
 */
 
 exports.default = (0, _reactHotLoader.hot)(module)(App);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
 /* 49 */
@@ -4955,7 +4946,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5256,7 +5247,7 @@ function universal(component) {
   }, _temp;
 }
 exports.default = universal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
 /* 53 */
@@ -5457,7 +5448,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -6048,8 +6039,11 @@ var Container = _styledComponents2.default.div(_templateObject2);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\SlideDown.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    span div {\n        background-color: pink;\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        background-color: red;\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        background-color: blue;\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n'], ['\n    span div {\n        background-color: pink;\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        background-color: red;\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        background-color: blue;\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n']);
 
 var _react = __webpack_require__(0);
 
@@ -6059,11 +6053,21 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _reactTransitionGroup = __webpack_require__(30);
+var _reactAddonsCssTransitionGroup = __webpack_require__(30);
 
-var _reactTransitionGroup2 = _interopRequireDefault(_reactTransitionGroup);
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _MyLog = __webpack_require__(13);
+
+var _MyLog2 = _interopRequireDefault(_MyLog);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6071,19 +6075,76 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var calcTime = function calcTime() {
+    var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var childDelay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var childLength = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+    var time = offset + duration + childDelay * childLength;
+    (0, _MyLog2.default)('log', 'Slidedown offset ' + offset + ' duration ' + duration + ' delay ' + childDelay + ' \n    child length ' + childLength + ' time ' + time);
+    return time > 0 ? time : 1000;
+};
+
 var SlideDown = function (_React$Component) {
     _inherits(SlideDown, _React$Component);
 
-    function SlideDown() {
+    function SlideDown(props) {
         _classCallCheck(this, SlideDown);
 
-        return _possibleConstructorReturn(this, (SlideDown.__proto__ || Object.getPrototypeOf(SlideDown)).apply(this, arguments));
+        // let offset = props.offset? props.offset:0;
+        // let duration = props.duration? props.duration:0;
+        // let childDelay = props.childDelay? props.childDelay:0;
+        //validate input ranges
+        //let time = offset + duration + childDelay*this.props.children.length;
+        var _this = _possibleConstructorReturn(this, (SlideDown.__proto__ || Object.getPrototypeOf(SlideDown)).call(this, props));
+
+        var time = calcTime(props.offset, props.duration, props.childDelay, props.children.length + 1);
+
+        _this.state = {
+            time: time
+        };
+        return _this;
     }
 
     _createClass(SlideDown, [{
         key: 'render',
         value: function render() {
-            return this.props.children;
+            return _react2.default.createElement(
+                Slide,
+                { offset: this.props.offset, duration: this.props.duration, childDelay: this.props.childDelay,
+                    childLength: this.props.children.length + 1, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 29
+                    }
+                },
+                _react2.default.createElement(
+                    'p',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 31
+                        }
+                    },
+                    'Slide'
+                ),
+                _react2.default.createElement(
+                    _reactAddonsCssTransitionGroup2.default,
+                    {
+                        transitionName: 'slide-down',
+                        transitionAppear: true,
+                        transitionEnter: true,
+                        transitionAppearTimeout: this.state.time,
+                        transitionEnterTimeout: this.state.time,
+                        transitionLeaveTimeout: this.state.time,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 32
+                        }
+                    },
+                    this.props.children
+                )
+            );
         }
     }]);
 
@@ -6091,6 +6152,58 @@ var SlideDown = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SlideDown;
+
+SlideDown.displayName = 'SlideDown';
+
+SlideDown.PropTypes = {
+    offset: _propTypes2.default.number,
+    duration: _propTypes2.default.number,
+    childDelay: _propTypes2.default.number
+};
+
+var Slide = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.duration;
+}, function (props) {
+    var val = '';
+    for (var i = 1; i <= props.childLength; i++) {
+        val += '&:nth-child(' + i + '){\n                    transition-delay: ' + props.childDelay * i + 'ms;\n                }';
+    }
+    console.log("nth child " + val);
+    return val;
+});
+
+/*
+transition-property: all;
+        transition-duration: ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
+
+    span .slide-down-appear-active{
+        transform: translate(0px, 0px);
+        background-color: blue;
+        transition: all  ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
+    }
+
+
+    ${props => {
+        let val = ``;
+        for(let i = 0; i<2; i++){
+            val += `span div:nth-child(${i}){
+                transition-delay: ${props.childDelay*i}ms;
+            }`;
+            console.log("nth child " + val);
+            
+        }
+        return val;
+    }}
+
+    span .slide-down-enter{
+        transform: translate(0px, -1000px);
+        background-color: red !important;
+    }
+    span .slide-down-enter-active{
+        transform: translate(0px, 0px);
+        background-color: blue !important;
+    }
+*/
 
 /***/ }),
 /* 68 */
@@ -6300,7 +6413,7 @@ var _Loading = __webpack_require__(25);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -6555,12 +6668,6 @@ module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide
 
 /***/ }),
 /* 72 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-addons-css-transition-group");
-
-/***/ }),
-/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(19)(false);
@@ -6574,7 +6681,7 @@ exports.push([module.i, ".fade-in-enter{opacity:.01}.fade-in-enter.fade-in-enter
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6669,7 +6776,7 @@ var GameItem = function (_React$Component) {
 exports.default = GameItem;
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6750,7 +6857,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6767,11 +6874,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Store = __webpack_require__(77);
+var _Store = __webpack_require__(76);
 
 var _Store2 = _interopRequireDefault(_Store);
 
-var _Game = __webpack_require__(78);
+var _Game = __webpack_require__(77);
 
 var _Game2 = _interopRequireDefault(_Game);
 
@@ -6871,7 +6978,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6888,9 +6995,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
-var _redux = __webpack_require__(13);
+var _redux = __webpack_require__(14);
 
 var _reduxLogger = __webpack_require__(39);
 
@@ -6943,7 +7050,7 @@ var Index = function (_React$Component) {
 exports.default = Index;
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6975,11 +7082,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _all = __webpack_require__(79);
+var _all = __webpack_require__(78);
 
 var _all2 = _interopRequireDefault(_all);
 
-var _Container = __webpack_require__(3);
+var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -6991,7 +7098,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(80);
+var _mygamelibs = __webpack_require__(79);
 
 var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
 
@@ -7226,25 +7333,25 @@ exports.default = Game;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports) {
 
 module.exports = require("nerdamer/all");
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7254,13 +7361,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(13);
+var _redux = __webpack_require__(14);
 
 var _reduxLogger = __webpack_require__(39);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(83);
+var _reducers = __webpack_require__(82);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -7285,7 +7392,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7295,9 +7402,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(13);
+var _redux = __webpack_require__(14);
 
-var _counter = __webpack_require__(84);
+var _counter = __webpack_require__(83);
 
 var _counter2 = _interopRequireDefault(_counter);
 
@@ -7313,7 +7420,7 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7348,7 +7455,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(19)(false);
@@ -7362,7 +7469,7 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7514,7 +7621,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7530,7 +7637,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGa = __webpack_require__(15);
+var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
@@ -7548,16 +7655,14 @@ var Analytics = function (_React$Component) {
     function Analytics(props) {
         _classCallCheck(this, Analytics);
 
-        var _this = _possibleConstructorReturn(this, (Analytics.__proto__ || Object.getPrototypeOf(Analytics)).call(this, props));
-
-        console.log("analytics constructor");
-        return _this;
+        return _possibleConstructorReturn(this, (Analytics.__proto__ || Object.getPrototypeOf(Analytics)).call(this, props));
+        // console.log("analytics constructor");
     }
 
     _createClass(Analytics, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log("init react-ga");
+            //console.log("init react-ga");
             _reactGa2.default.initialize('UA-59498836-3', { debug: true });
             // ReactGA.pageview(window.location.pathname + window.location.search);
         }
@@ -7574,7 +7679,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7590,9 +7695,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
-var _redux = __webpack_require__(13);
+var _redux = __webpack_require__(14);
 
 var _apiReducer = __webpack_require__(43);
 
@@ -7699,7 +7804,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7719,7 +7824,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _State = __webpack_require__(90);
+var _State = __webpack_require__(89);
 
 var _State2 = _interopRequireDefault(_State);
 
@@ -7729,7 +7834,7 @@ var _reactMove = __webpack_require__(44);
 
 var _recompose = __webpack_require__(21);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -7913,7 +8018,7 @@ var Page = function (_React$Component) {
 exports.default = Page;
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7940,7 +8045,7 @@ var animationState = new myAnimate();
 exports.default = animationState;
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7969,7 +8074,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-__webpack_require__(92);
+__webpack_require__(91);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -8607,7 +8712,7 @@ var Wrapper = _styledComponents2.default.div(_templateObject9, function (props) 
 });
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(19)(false);
@@ -8620,7 +8725,13 @@ exports.push([module.i, "", ""]);
 // exports
 
 
+/***/ }),
+/* 92 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-transition-group");
+
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.448ad677.js.map
+//# sourceMappingURL=static.50085666.js.map
