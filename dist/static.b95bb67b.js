@@ -67,10 +67,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -287,7 +287,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(64);
+var _TalkitGame = __webpack_require__(65);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
@@ -295,11 +295,11 @@ var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _CenterBox = __webpack_require__(65);
+var _CenterBox = __webpack_require__(66);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
-var _Loading = __webpack_require__(25);
+var _Loading = __webpack_require__(26);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -598,35 +598,35 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _baselineDelete24px = __webpack_require__(56);
+var _baselineDelete24px = __webpack_require__(57);
 
 var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
 
-var _baselineDone24px = __webpack_require__(57);
+var _baselineDone24px = __webpack_require__(58);
 
 var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
 
-var _baselineCached24px = __webpack_require__(58);
+var _baselineCached24px = __webpack_require__(59);
 
 var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(59);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(60);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
-var _baselineSave24px = __webpack_require__(60);
+var _baselineSave24px = __webpack_require__(61);
 
 var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
 
-var _baselineSettings20px = __webpack_require__(61);
+var _baselineSettings20px = __webpack_require__(62);
 
 var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
 
-var _baselineKeyboard_arrow_up24px = __webpack_require__(62);
+var _baselineKeyboard_arrow_up24px = __webpack_require__(63);
 
 var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
 
-var _baselinePlay_arrow24px = __webpack_require__(63);
+var _baselinePlay_arrow24px = __webpack_require__(64);
 
 var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
 
@@ -739,7 +739,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _validate = __webpack_require__(23);
+var _validate = __webpack_require__(24);
 
 var _validate2 = _interopRequireDefault(_validate);
 
@@ -894,6 +894,220 @@ module.exports = require("react-katex");
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Text.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    margin: auto;\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n'], ['\n    display: ', ';\n    margin: auto;\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Text = function (_React$Component) {
+    _inherits(Text, _React$Component);
+
+    function Text() {
+        _classCallCheck(this, Text);
+
+        return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
+    }
+
+    _createClass(Text, [{
+        key: 'render',
+        value: function render() {
+            switch (this.props.tag) {
+                case 'h1':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 8
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h1',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 8
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                case 'h2':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 10
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h2',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 10
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                case 'h3':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 12
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h3',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 12
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                case 'h4':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 14
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h4',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 14
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                case 'h5':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 16
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h5',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 16
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                case 'h6':
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 18
+                            }
+                        },
+                        _react2.default.createElement(
+                            'h6',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 18
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+                default:
+                    return _react2.default.createElement(
+                        Wrapper,
+                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 20
+                            }
+                        },
+                        _react2.default.createElement(
+                            'p',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 20
+                                }
+                            },
+                            this.props.text
+                        )
+                    );
+            }
+        }
+    }]);
+
+    return Text;
+}(_react2.default.Component);
+
+exports.default = Text;
+
+
+var Wrapper = _styledComponents2.default.span(_templateObject, function (props) {
+    return props.display ? props.display : 'inline-block';
+}, function (props) {
+    return props.height ? props.height : 'auto';
+}, function (props) {
+    return props.width ? props.width : '100%';
+}, function (props) {
+    return props.align ? props.align : 'center';
+}, function (props) {
+    return props.display ? props.display : 'inline-block';
+}, function (props) {
+    return props.align ? props.align : 'center';
+}, function (props) {
+    if (props.color) {
+        return props.color;
+    } else if (props.colorKey) {
+        return props.theme[props.theme.theme][props.colorKey];
+    } else {
+        return props.theme[props.theme.theme].text;
+    }
+}, function (props) {
+    return props.size ? props.size : '1em';
+});
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports) {
 
 /*
@@ -975,31 +1189,31 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("samplegame");
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("recompose");
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("validate.js");
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1116,7 +1330,7 @@ var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, pro
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1135,11 +1349,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Animate = __webpack_require__(26);
+var _Animate = __webpack_require__(27);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _NodeGroup = __webpack_require__(27);
+var _NodeGroup = __webpack_require__(28);
 
 var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
@@ -1361,19 +1575,19 @@ return <div>
 */
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move/Animate");
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move/NodeGroup");
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1387,9 +1601,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\container
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n'], ['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    position: relative;\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    padding-top: ', ';\n'], ['\n    position: relative;\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    padding-top: ', ';\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    text-transform: capitalize;\n    color: white;\n    background: grey;\n    text-align: center;\n    width: 100%;\n    padding: 0px;\n    display: inline-block;\n'], ['\n    text-transform: capitalize;\n    color: white;\n    background: grey;\n    text-align: center;\n    width: 100%;\n    padding: 0px;\n    display: inline-block;\n']);
+    _templateObject2 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1405,19 +1617,19 @@ var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(66);
+var _Tags = __webpack_require__(67);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _Translate = __webpack_require__(29);
+var _Translate = __webpack_require__(30);
 
 var _Translate2 = _interopRequireDefault(_Translate);
 
-var _SlideDown = __webpack_require__(67);
+var _SlideDown = __webpack_require__(31);
 
 var _SlideDown2 = _interopRequireDefault(_SlideDown);
 
-var _PostItem = __webpack_require__(31);
+var _PostItem = __webpack_require__(33);
 
 var _PostItem2 = _interopRequireDefault(_PostItem);
 
@@ -1454,14 +1666,6 @@ var Games = function (_React$Component) {
         };
         return _this;
     }
-    // componentDidMount(){
-    //     setTimeout(() => {
-    //         this.setState({
-    //             render: true
-    //         })
-    //     }, 3000);
-    // }
-
 
     _createClass(Games, [{
         key: 'renderPagination',
@@ -1475,7 +1679,7 @@ var Games = function (_React$Component) {
                         _reactStatic.Link,
                         { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage - 1), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 38
+                                lineNumber: 32
                             }
                         },
                         'Previous'
@@ -1488,7 +1692,7 @@ var Games = function (_React$Component) {
                         _reactStatic.Link,
                         { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage + 1), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 43
+                                lineNumber: 37
                             }
                         },
                         'Next'
@@ -1504,74 +1708,10 @@ var Games = function (_React$Component) {
             if (this.props.totalPages > 1 && this.props.match.url == '/' + this.props.base) {
                 return _react2.default.createElement(_reactStatic.Redirect, { to: this.props.base + '/' + this.props.pageToken + '/1', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 52
+                        lineNumber: 46
                     }
                 });
             }
-        }
-    }, {
-        key: 'renderBody',
-        value: function renderBody() {
-            //if exiting, don't bother with translate this.props.animationState === 1
-            //parent animations don't seem to restart child transitions
-            return _react2.default.createElement(
-                FlexBox,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 59
-                    }
-                },
-                this.redirect(),
-                _react2.default.createElement(
-                    PostBox,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 63
-                        }
-                    },
-                    _react2.default.createElement(
-                        _SlideDown2.default,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 68
-                            }
-                        },
-                        _react2.default.createElement(Space, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 69
-                            }
-                        }),
-                        _react2.default.createElement(Space, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 70
-                            }
-                        }),
-                        _react2.default.createElement(Space, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 71
-                            }
-                        }),
-                        _react2.default.createElement(Space, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 72
-                            }
-                        }),
-                        _react2.default.createElement(Space, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 73
-                            }
-                        })
-                    )
-                )
-            );
         }
     }, {
         key: 'render',
@@ -1581,37 +1721,40 @@ var Games = function (_React$Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 81
+                        lineNumber: 52
                     }
                 },
+                this.redirect(),
+                _react2.default.createElement(_Tags2.default, { tags: this.props.tags, tag: this.props.tag, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 54
+                    }
+                }),
+                this.renderPagination(),
                 _react2.default.createElement(
                     _SlideDown2.default,
                     { offset: 100, duration: 1500, childDelay: 150, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 86
+                            lineNumber: 56
                         }
                     },
                     this.props.posts.map(function (p) {
-                        //<PostItem.component post={p} />
-                        //return <PostItem.component  className='anim-child' post={p} />
                         return _react2.default.createElement(
                             'span',
                             { className: 'anim-child', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 95
+                                    lineNumber: 58
                                 }
                             },
                             _react2.default.createElement(_PostItem2.default.component, { post: p, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 96
+                                    lineNumber: 59
                                 }
                             })
                         );
-                        //return <p className='anim-child' >hello</p>
                     })
                 )
             );
-            // return <p>Not rendering that when leaving!!</p>
         }
     }]);
 
@@ -1621,24 +1764,15 @@ var Games = function (_React$Component) {
 Games.displayName = 'Posts';
 exports.default = (0, _reactStatic.withRouteData)(Games);
 
-var Space = _styledComponents2.default.div(_templateObject);
-var FlexBox = _styledComponents2.default.div(_templateObject2, function (props) {
-    return props.theme[props.theme.theme].menuHeight;
-});
 
-var PostBox = _styledComponents2.default.div(_templateObject3, function (props) {
-    return props.theme[props.theme.theme].neutralD;
+var Space = _styledComponents2.default.div(_templateObject);
+
+var PostBox = _styledComponents2.default.div(_templateObject2, function (props) {
+    return props.theme[props.theme.theme].neutral;
 });
-var Title = _styledComponents2.default.h2(_templateObject4);
-// const Container = styled.div`
-//     background: black;
-//     width:100%;
-//     height:100vh;
-//     overflow: hidden;
-// `
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1660,7 +1794,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _NodeGroup = __webpack_require__(27);
+var _NodeGroup = __webpack_require__(28);
 
 var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
@@ -1871,13 +2005,179 @@ var Wrapper = _styledComponents2.default.div(_templateObject);
 */
 
 /***/ }),
-/* 30 */
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\SlideDown.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n'], ['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _reactAddonsCssTransitionGroup = __webpack_require__(32);
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _MyLog = __webpack_require__(13);
+
+var _MyLog2 = _interopRequireDefault(_MyLog);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var calcTime = function calcTime() {
+    var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var childDelay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var childLength = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+    var time = offset + duration + childDelay * childLength;
+    (0, _MyLog2.default)('log', 'Slidedown offset ' + offset + ' duration ' + duration + ' delay ' + childDelay + ' \n    child length ' + childLength + ' time ' + time);
+    return time > 0 ? time : 1000;
+};
+
+var SlideDown = function (_React$Component) {
+    _inherits(SlideDown, _React$Component);
+
+    function SlideDown(props) {
+        _classCallCheck(this, SlideDown);
+
+        // let offset = props.offset? props.offset:0;
+        // let duration = props.duration? props.duration:0;
+        // let childDelay = props.childDelay? props.childDelay:0;
+        //validate input ranges
+        //let time = offset + duration + childDelay*this.props.children.length;
+        var _this = _possibleConstructorReturn(this, (SlideDown.__proto__ || Object.getPrototypeOf(SlideDown)).call(this, props));
+
+        var time = calcTime(props.offset, props.duration, props.childDelay, props.children.length + 1);
+
+        _this.state = {
+            time: time
+        };
+        return _this;
+    }
+
+    _createClass(SlideDown, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Slide,
+                { offset: this.props.offset, duration: this.props.duration, childDelay: this.props.childDelay,
+                    childLength: this.props.children.length + 1, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 29
+                    }
+                },
+                _react2.default.createElement(
+                    _reactAddonsCssTransitionGroup2.default,
+                    {
+                        transitionName: 'slide-down',
+                        transitionAppear: true,
+                        transitionEnter: true,
+                        transitionAppearTimeout: this.state.time,
+                        transitionEnterTimeout: this.state.time,
+                        transitionLeaveTimeout: this.state.time,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 31
+                        }
+                    },
+                    this.props.children
+                )
+            );
+        }
+    }]);
+
+    return SlideDown;
+}(_react2.default.Component);
+
+exports.default = SlideDown;
+
+SlideDown.displayName = 'SlideDown';
+
+SlideDown.PropTypes = {
+    offset: _propTypes2.default.number,
+    duration: _propTypes2.default.number,
+    childDelay: _propTypes2.default.number
+};
+
+var Slide = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.duration;
+}, function (props) {
+    var val = '';
+    for (var i = 1; i <= props.childLength; i++) {
+        val += '&:nth-child(' + i + '){\n                    transition-delay: ' + props.childDelay * i + 'ms;\n                }';
+    }
+    console.log("nth child " + val);
+    return val;
+});
+
+/*
+transition-property: all;
+        transition-duration: ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
+
+    span .slide-down-appear-active{
+        transform: translate(0px, 0px);
+        background-color: blue;
+        transition: all  ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
+    }
+
+
+    ${props => {
+        let val = ``;
+        for(let i = 0; i<2; i++){
+            val += `span div:nth-child(${i}){
+                transition-delay: ${props.childDelay*i}ms;
+            }`;
+            console.log("nth child " + val);
+            
+        }
+        return val;
+    }}
+
+    span .slide-down-enter{
+        transform: translate(0px, -1000px);
+        background-color: red !important;
+    }
+    span .slide-down-enter-active{
+        transform: translate(0px, 0px);
+        background-color: blue !important;
+    }
+*/
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2020,7 +2320,7 @@ var Post = _styledComponents2.default.div(_templateObject, function (props) {
 // }
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2055,7 +2355,7 @@ var _Flexbox = __webpack_require__(69);
 
 var _Flexbox2 = _interopRequireDefault(_Flexbox);
 
-var _Text = __webpack_require__(33);
+var _Text = __webpack_require__(19);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -2063,11 +2363,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Translate = __webpack_require__(29);
+var _Translate = __webpack_require__(30);
 
 var _Translate2 = _interopRequireDefault(_Translate);
 
-var _PostItem = __webpack_require__(31);
+var _PostItem = __webpack_require__(33);
 
 var _PostItem2 = _interopRequireDefault(_PostItem);
 
@@ -2079,7 +2379,7 @@ var _MyLog = __webpack_require__(13);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _FadeIn = __webpack_require__(35);
+var _FadeIn = __webpack_require__(36);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -2208,217 +2508,7 @@ var PostWrapper = _styledComponents2.default.div(_templateObject2);
 var PostBox = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Text.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    margin: auto;\n    height: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n'], ['\n    display: ', ';\n    margin: auto;\n    height: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        font-size: ', ';\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Text = function (_React$Component) {
-    _inherits(Text, _React$Component);
-
-    function Text() {
-        _classCallCheck(this, Text);
-
-        return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
-    }
-
-    _createClass(Text, [{
-        key: 'render',
-        value: function render() {
-            switch (this.props.tag) {
-                case 'h1':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 8
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h1',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 8
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h2':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 10
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h2',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 10
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h3':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 12
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h3',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 12
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h4':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 14
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h4',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 14
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h5':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 16
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h5',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 16
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h6':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 18
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h6',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 18
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                default:
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { align: this.props.align, size: this.props.size, display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 20
-                            }
-                        },
-                        _react2.default.createElement(
-                            'p',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 20
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-            }
-        }
-    }]);
-
-    return Text;
-}(_react2.default.Component);
-
-exports.default = Text;
-
-
-var Wrapper = _styledComponents2.default.span(_templateObject, function (props) {
-    return props.display ? props.display : 'inline-block';
-}, function (props) {
-    return props.height ? props.height : 'inherit';
-}, function (props) {
-    return props.display ? props.display : 'inline-block';
-}, function (props) {
-    return props.align ? props.align : 'center';
-}, function (props) {
-    if (props.color) {
-        return props.color;
-    } else if (props.colorKey) {
-        return props.theme[props.theme.theme][props.colorKey];
-    } else {
-        return props.theme[props.theme.theme].text;
-    }
-}, function (props) {
-    return props.size ? props.size : '1em';
-});
-
-/***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2537,7 +2627,7 @@ var Tab = _styledComponents2.default.div(_templateObject);
 var Row = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2554,7 +2644,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(30);
+var _reactAddonsCssTransitionGroup = __webpack_require__(32);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
@@ -2603,7 +2693,7 @@ var Trans = function (_React$Component) {
 exports.default = Trans;
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2615,6 +2705,8 @@ Object.defineProperty(exports, "__esModule", {
 var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Games.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2630,7 +2722,17 @@ var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _SlideDown = __webpack_require__(31);
+
+var _SlideDown2 = _interopRequireDefault(_SlideDown);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2671,18 +2773,36 @@ var Games = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _Container2.default,
-                { fixed: false, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 32
-                    }
-                },
-                _react2.default.createElement('div', {
+                GamesBox,
+                {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 34
+                        lineNumber: 33
                     }
-                })
+                },
+                _react2.default.createElement(
+                    _SlideDown2.default,
+                    { offset: 100, duration: 1500, childDelay: 150, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 34
+                        }
+                    },
+                    this.props.games.map(function (p) {
+                        return _react2.default.createElement(
+                            'span',
+                            { className: 'anim-child', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 36
+                                }
+                            },
+                            _react2.default.createElement(_GameListItem2.default, { game: p, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 37
+                                }
+                            })
+                        );
+                    })
+                )
             );
         }
     }]);
@@ -2693,8 +2813,21 @@ var Games = function (_React$Component) {
 Games.displayName = 'Games';
 exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Games));
 
+
+var GamesBox = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.theme[props.theme.theme].neutral;
+});
+
+/*
+                    {this.props.games.map(post => {
+                        return(
+                            <GameItem game={post} />
+                        )
+                    })}
+*/
+
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2708,7 +2841,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0px;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n']),
     _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n    align-items: baseline;  \n    display: flex;\n'], ['\n    align-items: baseline;  \n    display: flex;\n']),
@@ -2871,7 +3004,7 @@ var FoldOut = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { style: { width: '100%', padding: '10px', overflow: 'hidden' }, __source: {
+                { style: { width: '100%', padding: '10px', margin: '20px 0 0 0', overflow: 'hidden' }, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 59
                     }
@@ -2987,7 +3120,7 @@ var Mid = _styledComponents2.default.span(_templateObject6);
 var FlexChild = _styledComponents2.default.span(_templateObject7);
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3072,7 +3205,7 @@ var Games = function (_React$Component) {
                         id: 'samplegame',
                         file: 'D:/websites/react-static/static-site-2/4/src/containers/Game.jsx',
                         load: function load() {
-                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 20)), (0, _importCss3.default)('samplegame', {
+                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 21)), (0, _importCss3.default)('samplegame', {
                                 disableWarnings: true
                             })]).then(function (proms) {
                                 return proms[0];
@@ -3082,7 +3215,7 @@ var Games = function (_React$Component) {
                             return _path3.default.join(__dirname, 'samplegame');
                         },
                         resolve: function resolve() {
-                            return /*require.resolve*/(20);
+                            return /*require.resolve*/(21);
                         },
                         chunkName: function chunkName() {
                             return 'samplegame';
@@ -3161,13 +3294,13 @@ exports.default = (0, _reactStatic.withRouteData)(Games);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3188,7 +3321,7 @@ __webpack_require__(80);
 
 var _reactKatex = __webpack_require__(18);
 
-var _reactDom = __webpack_require__(22);
+var _reactDom = __webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3375,7 +3508,7 @@ exports.default = Katex;
 // // `
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3389,7 +3522,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\About.jsx';
 
-var _templateObject = _taggedTemplateLiteral(['\n  margin: 10px;\n  background-color: blue;\n  width: 100px;\n  height: 100px;\n'], ['\n  margin: 10px;\n  background-color: blue;\n  width: 100px;\n  height: 100px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -3399,9 +3532,13 @@ var _reactRedux = __webpack_require__(5);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(35);
 
 var _Table2 = _interopRequireDefault(_Table);
+
+var _Text = __webpack_require__(19);
+
+var _Text2 = _interopRequireDefault(_Text);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -3422,7 +3559,7 @@ var fnc = function fnc() {
     'div',
     { style: { backgroundColor: 'green', margin: '10px', height: '100%', width: '100%' }, __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 10
       }
     },
     'hi'
@@ -3443,43 +3580,23 @@ var About = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { style: { margin: '0', backgroundColor: 'red', width: '100%', height: '500px' }, __source: {
+        Box,
+        {
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 19
           }
         },
-        _react2.default.createElement(
-          'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          },
-          'This is what we\'re all about.1'
-        ),
-        _react2.default.createElement(
-          'p',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          'React, static sites, performance, speed. It\'s the stuff that makes us tick.'
-        ),
-        _react2.default.createElement(
-          _Table2.default,
-          { heights: ['10%', '30%', null], __source: {
-              fileName: _jsxFileName,
-              lineNumber: 26
-            }
-          },
-          fnc(),
-          fnc(),
-          fnc()
-        )
+        _react2.default.createElement(_Text2.default, { tag: 'h1', colorKey: 'textInverted', text: 'This is what we\'re all about.', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        }),
+        _react2.default.createElement(_Text2.default, { tag: 'p', colorKey: 'textInverted', text: 'React, static sites, performance, speed. It\'s the stuff that makes us tick.', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          }
+        })
       );
     }
   }]);
@@ -3491,10 +3608,12 @@ About.displayName = 'mAbout';
 exports.default = (0, _reactStatic.withSiteData)(About);
 
 
-var Box = _styledComponents2.default.div(_templateObject);
+var Box = _styledComponents2.default.div(_templateObject, function (props) {
+  return props.theme[props.theme.theme].neutral;
+});
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3639,7 +3758,7 @@ var connected = (0, _reactRedux.connect)(mapStateToProps)(Lost);
 exports.default = (0, _reactStatic.withRouteData)(connected);
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3708,13 +3827,13 @@ function setSignedIn(signedIn) {
 }
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move");
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3733,7 +3852,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(22);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -3741,15 +3860,15 @@ var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
-var _ErrorBoundary = __webpack_require__(46);
+var _ErrorBoundary = __webpack_require__(47);
 
 var _ErrorBoundary2 = _interopRequireDefault(_ErrorBoundary);
 
-var _MyValid = __webpack_require__(47);
+var _MyValid = __webpack_require__(48);
 
 var _MyValid2 = _interopRequireDefault(_MyValid);
 
-var _App = __webpack_require__(48);
+var _App = __webpack_require__(49);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -3785,7 +3904,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3864,13 +3983,13 @@ ErrorBoundary.displayName = 'errorboundary';
 exports.default = ErrorBoundary;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _validate = __webpack_require__(23);
+var _validate = __webpack_require__(24);
 
 var _validate2 = _interopRequireDefault(_validate);
 
@@ -3920,7 +4039,7 @@ var constraints = {
 //=> {"creditCardZip": ["Credit card zip is required when using AMEX"]}
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3938,8 +4057,8 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\App.js';
 //
 
 var _templateObject = _taggedTemplateLiteral(['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n      .fade-enter{\n        opacity: 0;\n        transition: all 300ms;\n      }\n      .fade-enter-active{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave-active{\n        opacity: 0;\n        transition: all 300ms;\n      }\n    '], ['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n      .fade-enter{\n        opacity: 0;\n        transition: all 300ms;\n      }\n      .fade-enter-active{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave-active{\n        opacity: 0;\n        transition: all 300ms;\n      }\n    ']),
-    _templateObject2 = _taggedTemplateLiteral([' \n    width:100%\n    background-color:red;\n    padding: 0;\n    margin: 0;\n'], [' \n    width:100%\n    background-color:red;\n    padding: 0;\n    margin: 0;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    background-color:yellow;\n    flex:1;\n    width:100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n'], ['\n    background-color:yellow;\n    flex:1;\n    width:100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n']),
+    _templateObject2 = _taggedTemplateLiteral([' \n    width:100%\n    padding: 0;\n    margin: 0;\n'], [' \n    width:100%\n    padding: 0;\n    margin: 0;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: hidden;\n'], ['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: hidden;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  background-color: ', ';\n'], ['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  background-color: ', ';\n']);
 
 var _react = __webpack_require__(0);
@@ -3950,9 +4069,9 @@ var _reactStatic = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(5);
 
-var _reactHotLoader = __webpack_require__(49);
+var _reactHotLoader = __webpack_require__(50);
 
-var _reactStaticRoutes = __webpack_require__(50);
+var _reactStaticRoutes = __webpack_require__(51);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
@@ -3980,9 +4099,9 @@ var _Gapi2 = _interopRequireDefault(_Gapi);
 
 var _d3Ease = __webpack_require__(10);
 
-var _reactMove = __webpack_require__(44);
+var _reactMove = __webpack_require__(45);
 
-var _recompose = __webpack_require__(21);
+var _recompose = __webpack_require__(22);
 
 var _Page = __webpack_require__(88);
 
@@ -4000,7 +4119,7 @@ var _reactTransitionGroup = __webpack_require__(92);
 
 var _reactTransitionGroup2 = _interopRequireDefault(_reactTransitionGroup);
 
-var _FadeIn = __webpack_require__(35);
+var _FadeIn = __webpack_require__(36);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -4354,8 +4473,7 @@ var AnimatedRoutes = (0, _recompose.getContext)({
             top: 0,
             right: 0,
             bottom: 0,
-            left: 0,
-            backgroundColor: 'pink'
+            left: 0
           },
           __source: {
             fileName: _jsxFileName,
@@ -4367,13 +4485,13 @@ var AnimatedRoutes = (0, _recompose.getContext)({
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 350
+              lineNumber: 349
             }
           },
           _react2.default.createElement(Comp, _extends({}, props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 351
+              lineNumber: 350
             }
           }))
         )
@@ -4423,7 +4541,7 @@ var App = function (_React$Component) {
         _reactRedux.Provider,
         { store: _redux2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 421
+            lineNumber: 420
           }
         },
         _react2.default.createElement(
@@ -4431,33 +4549,33 @@ var App = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 422
+              lineNumber: 421
             }
           },
           _react2.default.createElement(
             'div',
             { style: { position: 'relative' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 423
+                lineNumber: 422
               }
             },
             _react2.default.createElement(_Analytics2.default, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 424
+                lineNumber: 423
               }
             }),
             _react2.default.createElement(_Gapi2.default, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 425
+                lineNumber: 424
               }
             }),
             _react2.default.createElement(
               _styledComponents.ThemeProvider,
               { theme: this.state.myTheme, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 426
+                  lineNumber: 425
                 }
               },
               _react2.default.createElement(
@@ -4472,7 +4590,7 @@ var App = function (_React$Component) {
                     });
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 427
+                    lineNumber: 426
                   }
                 },
                 _react2.default.createElement(
@@ -4480,13 +4598,13 @@ var App = function (_React$Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 435
+                      lineNumber: 434
                     }
                   },
                   _react2.default.createElement(_Ma2.default, {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 436
+                      lineNumber: 435
                     }
                   })
                 ),
@@ -4495,13 +4613,12 @@ var App = function (_React$Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 442
+                      lineNumber: 441
                     }
                   },
-                  _react2.default.createElement(_reactStaticRoutes2.default, {
-                    __source: {
+                  _react2.default.createElement(_reactStaticRoutes2.default, { component: AnimatedRoutes, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 443
+                      lineNumber: 442
                     }
                   })
                 )
@@ -4567,13 +4684,13 @@ exports.default = (0, _reactHotLoader.hot)(module)(App);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4605,9 +4722,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(51);
+var _reactRouterDom = __webpack_require__(52);
 
-var _reactUniversalComponent = __webpack_require__(52);
+var _reactUniversalComponent = __webpack_require__(53);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4666,7 +4783,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Posts.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 28)), (0, _importCss3.default)('src/containers/Posts.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 29)), (0, _importCss3.default)('src/containers/Posts.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4676,7 +4793,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Posts.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(28);
+    return /*require.resolve*/(29);
   },
   chunkName: function chunkName() {
     return 'src/containers/Posts.jsx';
@@ -4706,7 +4823,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 32)), (0, _importCss3.default)('src/containers/Home.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 34)), (0, _importCss3.default)('src/containers/Home.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4716,7 +4833,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(32);
+    return /*require.resolve*/(34);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home.jsx';
@@ -4726,7 +4843,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 36)), (0, _importCss3.default)('src/containers/Games', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 37)), (0, _importCss3.default)('src/containers/Games', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4736,7 +4853,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(36);
+    return /*require.resolve*/(37);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games';
@@ -4746,7 +4863,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 38)), (0, _importCss3.default)('src/containers/Game', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('src/containers/Game', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4756,7 +4873,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(38);
+    return /*require.resolve*/(39);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game';
@@ -4766,7 +4883,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('src/containers/About.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('src/containers/About.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4776,7 +4893,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(41);
+    return /*require.resolve*/(42);
   },
   chunkName: function chunkName() {
     return 'src/containers/About.jsx';
@@ -4786,7 +4903,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('src/containers/404.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 43)), (0, _importCss3.default)('src/containers/404.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4796,7 +4913,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(42);
+    return /*require.resolve*/(43);
   },
   chunkName: function chunkName() {
     return 'src/containers/404.jsx';
@@ -4897,13 +5014,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4918,7 +5035,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(53);
+var _requireUniversalModule = __webpack_require__(54);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -4933,7 +5050,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(54);
+var _reportChunks = __webpack_require__(55);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -4950,13 +5067,13 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(55);
+var _hoistNonReactStatics = __webpack_require__(56);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(24);
+var _utils = __webpack_require__(25);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5250,7 +5367,7 @@ exports.default = universal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5262,7 +5379,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(24);
+var _utils = __webpack_require__(25);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -5432,7 +5549,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5495,61 +5612,61 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAxOWMwIDEuMS45IDIgMiAyaDhjMS4xIDAgMi0uOSAyLTJWN0g2djEyek0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNFY0eiIvPgogICAgPHBhdGggIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPgo8L3N2Zz4K"
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgOGwtNCA0aDNjMCAzLjMxLTIuNjkgNi02IDYtMS4wMSAwLTEuOTctLjI1LTIuOC0uN2wtMS40NiAxLjQ2QzguOTcgMTkuNTQgMTAuNDMgMjAgMTIgMjBjNC40MiAwIDgtMy41OCA4LThoM2wtNC00ek02IDEyYzAtMy4zMSAyLjY5LTYgNi02IDEuMDEgMCAxLjk3LjI1IDIuOC43bDEuNDYtMS40NkMxNS4wMyA0LjQ2IDEzLjU3IDQgMTIgNGMtNC40MiAwLTggMy41OC04IDhIMWw0IDQgNC00SDZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik04LjU5LDE2LjU5TDEzLjE3LDEyTDguNTksNy40MUwxMCw2bDYsNmwtNiw2TDguNTksMTYuNTl6Ii8+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTcgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xIDAgMi0uOSAyLTJWN2wtNC00em0tNSAxNmMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtMyAzIDEuMzQgMyAzLTEuMzQgMy0zIDN6bTMtMTBINVY1aDEwdjR6Ii8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjB2MjBIMFYweiIvPgogICAgPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNS45NSAxMC43OGMuMDMtLjI1LjA1LS41MS4wNS0uNzhzLS4wMi0uNTMtLjA2LS43OGwxLjY5LTEuMzJjLjE1LS4xMi4xOS0uMzQuMS0uNTFsLTEuNi0yLjc3Yy0uMS0uMTgtLjMxLS4yNC0uNDktLjE4bC0xLjk5LjhjLS40Mi0uMzItLjg2LS41OC0xLjM1LS43OEwxMiAyLjM0Yy0uMDMtLjItLjItLjM0LS40LS4zNEg4LjRjLS4yIDAtLjM2LjE0LS4zOS4zNGwtLjMgMi4xMmMtLjQ5LjItLjk0LjQ3LTEuMzUuNzhsLTEuOTktLjhjLS4xOC0uMDctLjM5IDAtLjQ5LjE4bC0xLjYgMi43N2MtLjEuMTgtLjA2LjM5LjEuNTFsMS42OSAxLjMyYy0uMDQuMjUtLjA3LjUyLS4wNy43OHMuMDIuNTMuMDYuNzhMMi4zNyAxMi4xYy0uMTUuMTItLjE5LjM0LS4xLjUxbDEuNiAyLjc3Yy4xLjE4LjMxLjI0LjQ5LjE4bDEuOTktLjhjLjQyLjMyLjg2LjU4IDEuMzUuNzhsLjMgMi4xMmMuMDQuMi4yLjM0LjQuMzRoMy4yYy4yIDAgLjM3LS4xNC4zOS0uMzRsLjMtMi4xMmMuNDktLjIuOTQtLjQ3IDEuMzUtLjc4bDEuOTkuOGMuMTguMDcuMzkgMCAuNDktLjE4bDEuNi0yLjc3Yy4xLS4xOC4wNi0uMzktLjEtLjUxbC0xLjY3LTEuMzJ6TTEwIDEzYy0xLjY1IDAtMy0xLjM1LTMtM3MxLjM1LTMgMy0zIDMgMS4zNSAzIDMtMS4zNSAzLTMgM3oiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNNy40MSAxNS40MUwxMiAxMC44M2w0LjU5IDQuNThMMTggMTRsLTYtNi02IDZ6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNOCA1djE0bDExLTd6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5849,7 +5966,7 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5941,7 +6058,7 @@ var Center = _styledComponents2.default.div(_templateObject2);
 var Child = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6028,182 +6145,6 @@ exports.default = Tags;
 
 var Tag = _styledComponents2.default.h4(_templateObject);
 var Container = _styledComponents2.default.div(_templateObject2);
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\SlideDown.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    span div {\n        background-color: pink;\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        background-color: red;\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        background-color: blue;\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n'], ['\n    span div {\n        background-color: pink;\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        background-color: red;\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        background-color: blue;\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _reactAddonsCssTransitionGroup = __webpack_require__(30);
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _MyLog = __webpack_require__(13);
-
-var _MyLog2 = _interopRequireDefault(_MyLog);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var calcTime = function calcTime() {
-    var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-    var childDelay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-    var childLength = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-
-    var time = offset + duration + childDelay * childLength;
-    (0, _MyLog2.default)('log', 'Slidedown offset ' + offset + ' duration ' + duration + ' delay ' + childDelay + ' \n    child length ' + childLength + ' time ' + time);
-    return time > 0 ? time : 1000;
-};
-
-var SlideDown = function (_React$Component) {
-    _inherits(SlideDown, _React$Component);
-
-    function SlideDown(props) {
-        _classCallCheck(this, SlideDown);
-
-        // let offset = props.offset? props.offset:0;
-        // let duration = props.duration? props.duration:0;
-        // let childDelay = props.childDelay? props.childDelay:0;
-        //validate input ranges
-        //let time = offset + duration + childDelay*this.props.children.length;
-        var _this = _possibleConstructorReturn(this, (SlideDown.__proto__ || Object.getPrototypeOf(SlideDown)).call(this, props));
-
-        var time = calcTime(props.offset, props.duration, props.childDelay, props.children.length + 1);
-
-        _this.state = {
-            time: time
-        };
-        return _this;
-    }
-
-    _createClass(SlideDown, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Slide,
-                { offset: this.props.offset, duration: this.props.duration, childDelay: this.props.childDelay,
-                    childLength: this.props.children.length + 1, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 29
-                    }
-                },
-                _react2.default.createElement(
-                    'p',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 31
-                        }
-                    },
-                    'Slide'
-                ),
-                _react2.default.createElement(
-                    _reactAddonsCssTransitionGroup2.default,
-                    {
-                        transitionName: 'slide-down',
-                        transitionAppear: true,
-                        transitionEnter: true,
-                        transitionAppearTimeout: this.state.time,
-                        transitionEnterTimeout: this.state.time,
-                        transitionLeaveTimeout: this.state.time,
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 32
-                        }
-                    },
-                    this.props.children
-                )
-            );
-        }
-    }]);
-
-    return SlideDown;
-}(_react2.default.Component);
-
-exports.default = SlideDown;
-
-SlideDown.displayName = 'SlideDown';
-
-SlideDown.PropTypes = {
-    offset: _propTypes2.default.number,
-    duration: _propTypes2.default.number,
-    childDelay: _propTypes2.default.number
-};
-
-var Slide = _styledComponents2.default.div(_templateObject, function (props) {
-    return props.duration;
-}, function (props) {
-    var val = '';
-    for (var i = 1; i <= props.childLength; i++) {
-        val += '&:nth-child(' + i + '){\n                    transition-delay: ' + props.childDelay * i + 'ms;\n                }';
-    }
-    console.log("nth child " + val);
-    return val;
-});
-
-/*
-transition-property: all;
-        transition-duration: ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
-
-    span .slide-down-appear-active{
-        transform: translate(0px, 0px);
-        background-color: blue;
-        transition: all  ${props => calcTime(props.offset, props.duration, props.childDelay, props.childLength)}ms;
-    }
-
-
-    ${props => {
-        let val = ``;
-        for(let i = 0; i<2; i++){
-            val += `span div:nth-child(${i}){
-                transition-delay: ${props.childDelay*i}ms;
-            }`;
-            console.log("nth child " + val);
-            
-        }
-        return val;
-    }}
-
-    span .slide-down-enter{
-        transform: translate(0px, -1000px);
-        background-color: red !important;
-    }
-    span .slide-down-enter-active{
-        transform: translate(0px, 0px);
-        background-color: blue !important;
-    }
-*/
 
 /***/ }),
 /* 68 */
@@ -6409,7 +6350,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Loading = __webpack_require__(25);
+var _Loading = __webpack_require__(26);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -6417,11 +6358,11 @@ var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Text = __webpack_require__(33);
+var _Text = __webpack_require__(19);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(35);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -6670,7 +6611,7 @@ module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide
 /* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(20)(false);
 // imports
 
 
@@ -6700,7 +6641,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Accordion = __webpack_require__(37);
+var _Accordion = __webpack_require__(38);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
@@ -6882,7 +6823,7 @@ var _Game = __webpack_require__(77);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _samplegame = __webpack_require__(20);
+var _samplegame = __webpack_require__(21);
 
 var _samplegame2 = _interopRequireDefault(_samplegame);
 
@@ -6999,7 +6940,7 @@ var _reactRedux = __webpack_require__(5);
 
 var _redux = __webpack_require__(14);
 
-var _reduxLogger = __webpack_require__(39);
+var _reduxLogger = __webpack_require__(40);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
@@ -7090,7 +7031,7 @@ var _Container = __webpack_require__(4);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Accordion = __webpack_require__(37);
+var _Accordion = __webpack_require__(38);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
@@ -7186,7 +7127,7 @@ var Game = function (_React$Component) {
                 id: './../UI/math/Katex.jsx',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('UI/math/Katex.jsx', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('UI/math/Katex.jsx', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -7196,7 +7137,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(40);
+                    return /*require.resolve*/(41);
                 },
                 chunkName: function chunkName() {
                     return 'UI/math/Katex.jsx';
@@ -7363,7 +7304,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(14);
 
-var _reduxLogger = __webpack_require__(39);
+var _reduxLogger = __webpack_require__(40);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
@@ -7408,7 +7349,7 @@ var _counter = __webpack_require__(83);
 
 var _counter2 = _interopRequireDefault(_counter);
 
-var _apiReducer = __webpack_require__(43);
+var _apiReducer = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7458,7 +7399,7 @@ exports.default = function () {
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(20)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
@@ -7699,7 +7640,7 @@ var _reactRedux = __webpack_require__(5);
 
 var _redux = __webpack_require__(14);
 
-var _apiReducer = __webpack_require__(43);
+var _apiReducer = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7830,9 +7771,9 @@ var _State2 = _interopRequireDefault(_State);
 
 var _d3Ease = __webpack_require__(10);
 
-var _reactMove = __webpack_require__(44);
+var _reactMove = __webpack_require__(45);
 
-var _recompose = __webpack_require__(21);
+var _recompose = __webpack_require__(22);
 
 var _propTypes = __webpack_require__(3);
 
@@ -8080,13 +8021,13 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Animate = __webpack_require__(26);
+var _Animate = __webpack_require__(27);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
 var _d3Ease = __webpack_require__(10);
 
-var _recompose = __webpack_require__(21);
+var _recompose = __webpack_require__(22);
 
 var _IconButton = __webpack_require__(12);
 
@@ -8715,7 +8656,7 @@ var Wrapper = _styledComponents2.default.div(_templateObject9, function (props) 
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(20)(false);
 // imports
 
 
@@ -8734,4 +8675,4 @@ module.exports = require("react-transition-group");
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.50085666.js.map
+//# sourceMappingURL=static.b95bb67b.js.map

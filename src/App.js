@@ -344,7 +344,6 @@ const AnimatedRoutes = getContext({
                       right: 0,
                       bottom: 0,
                       left: 0,
-                      backgroundColor: 'pink'
                     }}
                   >
                       <FadeIn>
@@ -440,10 +439,9 @@ class App extends React.Component{
                           <Route path="/" component={() => {return <Menu />}} />
                         </Switch> */}
                         <Content>
-                          <Routes  />
+                          <Routes component={AnimatedRoutes} />
+                          {/* <Routes  /> */}
                         </Content>
-                        {/* <Routes  /> */}
-                        {/* <Routes component={AnimatedRoutes} /> */}
                     </Root>
               </ThemeProvider>
             
@@ -455,17 +453,17 @@ class App extends React.Component{
 }
 const Top = styled.div` 
     width:100%
-    background-color:red;
     padding: 0;
     margin: 0;
 `
 const Content = styled.div`
-    background-color:yellow;
     flex:1;
     width:100%;
+    height: 100%;
     position: relative;
     padding: 0;
     margin: 0;
+    overflow-y: hidden;
 `
 const Root = styled.div`
   width: 100%;

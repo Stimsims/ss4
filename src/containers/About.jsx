@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {withSiteData} from 'react-static';
 import Table from './../components/UI/elements/Table.jsx';
+import Text from './../components/UI/elements/Text.jsx';
 import styled from 'styled-components';
 
 const fnc = () => {
@@ -15,20 +16,16 @@ class About extends React.Component{
   }
   render(){
     return (
-      <div style={{margin: '0', backgroundColor: 'red', width: '100%', height: '500px'}}>
+      <Box>
         {/* <Menu /> */}
-        <h1>This is what we're all about.1</h1>
-        <p>
+        <Text tag={'h1'} colorKey='textInverted' text={`This is what we're all about.`}/>
+        <Text tag={'p'} colorKey='textInverted' text={`React, static sites, performance, speed. It's the stuff that makes us tick.`}/>
+        {/* <h1>This is what we're all about.1</h1> */}
+        {/* <p>
           React, static sites, performance, speed. It's the stuff that makes us
           tick.
-        </p>
-        
-        <Table heights={['10%', '30%', null]}>
-            {fnc()}
-            {fnc()}
-            {fnc()}
-        </Table>
-      </div>
+        </p> */}
+      </Box>
     )
   }
 }
@@ -36,8 +33,9 @@ About.displayName = 'mAbout';
 export default withSiteData(About)
 
 const Box = styled.div`
-  margin: 10px;
-  background-color: blue;
-  width: 100px;
-  height: 100px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+    background-color ${props => props.theme[props.theme.theme].neutral};
+    overflow-y: scroll;
 `

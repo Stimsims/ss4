@@ -56,7 +56,7 @@ class FoldOut extends React.Component{
     }
     render(){
         return (
-            <div style={{width: '100%', padding: '10px', overflow: 'hidden'}}>
+            <div style={{width: '100%', padding: '10px', margin: '20px 0 0 0', overflow: 'hidden'}}>
             <Pill >
                 <Panel>
                     <FlexChild>{this.renderOpenButton()}</FlexChild>
@@ -92,7 +92,7 @@ const Stack = styled.ul`
     }
 `
 const Accordion = styled.div`
-    margin: 0px;
+    margin: 0;
     padding: 0px;
     .open{
         max-height: 400px;

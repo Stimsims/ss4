@@ -22,13 +22,7 @@ class Games extends React.Component{
             render: false
         }
     }
-    // componentDidMount(){
-    //     setTimeout(() => {
-    //         this.setState({
-    //             render: true
-    //         })
-    //     }, 3000);
-    // }
+
     renderPagination(){
         if(this.props.totalPages > 1){
             let pagination = [];
@@ -52,61 +46,29 @@ class Games extends React.Component{
             return <Redirect to={`${this.props.base}/${this.props.pageToken}/1`} />
         }
     }
-    renderBody(){
-        //if exiting, don't bother with translate this.props.animationState === 1
-        //parent animations don't seem to restart child transitions
-        return (
-            <FlexBox>
-                {this.redirect()}
-                {/* <Tags tags={this.props.tags} tag={this.props.tag} /> */}
-                {/* {this.renderPagination()}           */}
-                <PostBox>
-                    
-                    {/* <Translate items={this.props.posts} itemKey={'post'} itemId={'id'} 
-                        component={PostItem.component} y={{start: -200, enter: 0, unit: 'vh'}} 
-                        /> */}
-                        <Slide>
-                            <Space />
-                            <Space />
-                            <Space />
-                            <Space />
-                            <Space />
-                        </Slide>
-                </PostBox>
-            </FlexBox>
-        )
-    }
+
     render(){
         return (
             <PostBox>
-                    
-                {/* <Translate items={this.props.posts} itemKey={'post'} itemId={'id'} 
-                    component={PostItem.component} y={{start: -200, enter: 0, unit: 'vh'}} 
-                    /> */}
+                {this.redirect()}
+                <Tags tags={this.props.tags} tag={this.props.tag} />
+                {this.renderPagination()}          
                         <Slide offset={100} duration={1500} childDelay={150}>
-                            {/* <Space />
-                            <Space />
-                            <Space />
-                            <Space />
-                            <Space /> */}
                             {this.props.posts.map(p =>{
-                                //<PostItem.component post={p} />
-                                    //return <PostItem.component  className='anim-child' post={p} />
                                     return <span className='anim-child'>
                                             <PostItem.component post={p} />
                                         </span>;
-                                    //return <p className='anim-child' >hello</p>
                                 } 
                             )}
                         </Slide>
             </PostBox>
           )
-       // return <p>Not rendering that when leaving!!</p>
     }
 }
 
 Games.displayName='Posts';
 export default withRouteData(Games);
+
 const Space = styled.div`
     width:90%;
     height: 100px;
@@ -114,33 +76,11 @@ const Space = styled.div`
     position: relative;
     display: block;
 `
-const FlexBox = styled.div`
-    position: relative;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    padding-top: ${props=>props.theme[props.theme.theme].menuHeight};
-`
 
 const PostBox = styled.div`
     height: 100%;
     width: 100%;
     padding-bottom: 100px;
-    background-color ${props => props.theme[props.theme.theme].neutralD};
-    overflow-y: auto;
+    background-color ${props => props.theme[props.theme.theme].neutral};
+    overflow-y: scroll;
 `
-const Title = styled.h2`
-    text-transform: capitalize;
-    color: white;
-    background: grey;
-    text-align: center;
-    width: 100%;
-    padding: 0px;
-    display: inline-block;
-`
-// const Container = styled.div`
-//     background: black;
-//     width:100%;
-//     height:100vh;
-//     overflow: hidden;
-// `

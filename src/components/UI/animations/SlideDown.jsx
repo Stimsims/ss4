@@ -28,7 +28,6 @@ export default class SlideDown extends React.Component{
         return (
             <Slide offset={this.props.offset} duration={this.props.duration} childDelay={this.props.childDelay} 
                     childLength={this.props.children.length+1}>
-                    <p>Slide</p>
                 <ReactCSSTransitionGroup
                     transitionName="slide-down"
                     transitionAppear={true}
@@ -53,7 +52,6 @@ SlideDown.PropTypes = {
 
 const Slide = styled.div`
     span div {
-        background-color: pink;
         opacity: 1;
     }
     span{
@@ -72,12 +70,10 @@ const Slide = styled.div`
 
     span .slide-down-appear{
         transform: translate(0px, -1000px);
-        background-color: red;
         opacity: 0;
     }
     span .slide-down-appear-active{
         transform: translate(0px, 0px);
-        background-color: blue;
         opacity: 1;
         transition-property: all;
         transition-timing-function: ease-out;

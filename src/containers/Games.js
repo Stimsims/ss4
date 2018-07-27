@@ -5,6 +5,8 @@ import { withRouteData, Link, withSiteData } from 'react-static'
 //import Menu from './../components/layout/MainMenu.jsx';
 import GameItem from './../components/layout/GameListItem.jsx';
 import Container from './../components/UI/elements/Container';
+import styled from 'styled-components';
+import Slide from './../components/UI/animations/SlideDown.jsx';
 //import Katex from './../components/UI/math/Katex.jsx';
 //pulling katex out of games removed it from most modules and from sample game
 //referencing katex at top of file brings katex into 1 templates/Games
@@ -28,19 +30,34 @@ class Games extends React.Component{
     // }
     render(){
         return (
-            
-            <Container fixed={false}>
-                {/* <Menu /> */}
-                <div>
-                    {/* {this.props.games.map(post => {
-                        return(
-                            <GameItem game={post} />
-                        )
-                    })} */}
-                </div>
-            </Container>
+            <GamesBox>
+                <Slide offset={100} duration={1500} childDelay={150}>
+                    {this.props.games.map(p =>{
+                            return <span className='anim-child'>
+                                    <GameItem game={p} />
+                                </span>;
+                        } 
+                    )}
+                </Slide>
+            </GamesBox>
           )
     }
 }
 Games.displayName = 'Games';
 export default withSiteData(withRouteData(Games));
+
+const GamesBox = styled.div`
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+    background-color ${props => props.theme[props.theme.theme].neutral};
+    overflow-y: scroll;
+`
+
+/*
+                    {this.props.games.map(post => {
+                        return(
+                            <GameItem game={post} />
+                        )
+                    })}
+*/
