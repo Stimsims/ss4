@@ -1,55 +1,12 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import Menu from './../components/layout/MainMenu.jsx';
 import {withSiteData} from 'react-static';
+import Table from './../components/UI/elements/Table.jsx';
 
-// /////////////////////////////////////////////////////////
-// Redux components
-// From http://redux.js.org/docs/basics/UsageWithReact.html
-// Display component
-const Counter = ({ count, increment, reset }) => (
-  <div>
-    <p>Value: {count}</p>
-    <button onClick={increment}>Increment</button>
-    <button onClick={reset}>Reset</button>
-  </div>
-)
-// Connexion with redux
-// const CounterConnected = connect(
-//   ({ counter: { count } }) => ({ count }),
-//   dispatch => ({
-//     increment: () => dispatch({ type: 'INCREMENT' }),
-//     reset: () => dispatch({ type: 'RESET' }),
-//   }),
-// )(Counter)
-
-// const mapStateToProps = (state) => {
-//   console.log("mapStateToProps");
-//   console.log(state);
-//   return {
-//     count: state.counter
-//   }
-// }
-
-const mapStateToProps = ({ counter: { count } }) => ({ count });
-
-// const mapDispatchToProps = (dispatch) => {
-//   console.log("mapDispatchToProps");
-//   console.log(dispatch);
-//   return {
-//     increment: () => dispatch({ type: 'INCREMENT' }),
-//     reset: () => dispatch({ type: 'RESET' }),
-//   }
-// }
-const mapDispatchToProps = dispatch => ({
-      increment: () => dispatch({ type: 'INCREMENT' }),
-      reset: () => dispatch({ type: 'RESET' }),
-    })
-const CounterConnected = connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-// /////////////////////////////////////////////////////////
-// Actual container
+const fnc = () => {
+  return <div style={{backgroundColor: 'green', margin: '10px', height: '100%', width: '100%'}}>hi</div>
+}
 class About extends React.Component{
   constructor(props){
     super(props);
@@ -57,38 +14,29 @@ class About extends React.Component{
   }
   render(){
     return (
-      <div>
+      <div style={{margin: '0', backgroundColor: 'red', width: '100%', height: '500px'}}>
         {/* <Menu /> */}
         <h1>This is what we're all about.1</h1>
         <p>
           React, static sites, performance, speed. It's the stuff that makes us
           tick.
         </p>
-        <h2>Here is a redux counter:</h2>
-        {/* <CounterConnected /> */}
+        
+        <Table heights={['10%', '30%', null]}>
+            {fnc()}
+            {fnc()}
+            {fnc()}
+        </Table>
       </div>
     )
   }
 }
-
+About.displayName = 'About';
 export default withSiteData(About)
 
-
-// export default withSiteData((data) => {
-//   console.log("about fn", data);
-//   return(
-//     <div>
-//       <h1>This is what we're all about.1</h1>
-//       <p>
-//       React, static sites, performance, speed. It's the stuff that makes us
-//       tick.
-//       </p>
-//       <h2>Here is a redux counter:</h2>
-//   </div>
-//   )
-// })
-//   console.log("about fn", data);
-//   return(
-
-// )}
-// )
+const Box = styled.div`
+  margin: 10px;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+`

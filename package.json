@@ -30,6 +30,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-static": "^5.9.7",
+    "react-transition-group": "^2.4.0",
     "recharts": "^1.0.1",
     "recompose": "^0.27.1",
     "reduce-reducers": "^0.3.0",
@@ -37,7 +38,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "reselect": "^3.0.1",
-    "styled-components": "^3.3.3"
+    "styled-components": "^3.3.3",
+    "validate.js": "^0.12.0"
   },
   "devDependencies": {
     "babel-helpers": "^6.24.1",

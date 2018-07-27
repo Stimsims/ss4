@@ -25,6 +25,7 @@ export default class Text extends React.Component{
 const Wrapper = styled.span`
     display: ${props => props.display?props.display:'inline-block'};
     margin: auto;
+    height: ${props => props.height? props.height: 'inherit'};
     h1, h2, h3, h4, h5, h6, p{
         display: ${props => props.display?props.display:'inline-block'};
         text-align: ${props => props.align?props.align:'center'};

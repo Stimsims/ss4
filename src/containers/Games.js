@@ -2,7 +2,7 @@
 import React from 'react'
 import { withRouteData, Link, withSiteData } from 'react-static'
 //import Dynamic from './../components/DynamicComponent.jsx';
-import Menu from './../components/layout/MainMenu.jsx';
+//import Menu from './../components/layout/MainMenu.jsx';
 import GameItem from './../components/layout/GameListItem.jsx';
 import Container from './../components/UI/elements/Container';
 //import Katex from './../components/UI/math/Katex.jsx';
@@ -29,18 +29,18 @@ class Games extends React.Component{
     render(){
         return (
             
-            <Container fixed={true}>
+            <Container fixed={false}>
                 {/* <Menu /> */}
                 <div>
-                    {this.props.games.map(post => {
+                    {/* {this.props.games.map(post => {
                         return(
                             <GameItem game={post} />
                         )
-                    })}
+                    })} */}
                 </div>
             </Container>
           )
     }
 }
-
+Games.displayName = 'Games';
 export default withSiteData(withRouteData(Games));

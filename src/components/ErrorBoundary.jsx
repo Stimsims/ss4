@@ -1,4 +1,5 @@
-import MyError from './../Error.js';
+//import MyError from './../Error.js';
+import LogError from 'LogError';
 import React from 'react';
 
 class ErrorBoundary extends React.Component {
@@ -13,7 +14,7 @@ class ErrorBoundary extends React.Component {
       this.setState({ hasError: true });
       // You can also log the error to an error reporting service
       //logErrorToMyService(error, info);
-      MyError(error, info); //if an error is thrown here, breaks app, no error boundary to catch
+      LogError(error, info); //if an error is thrown here, breaks app, no error boundary to catch
     }
   
     render() {

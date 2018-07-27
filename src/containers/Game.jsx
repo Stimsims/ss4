@@ -66,6 +66,6 @@ class Games extends React.Component{
         }
     }
 }
-
+Games.displayName = 'Game';
 export default withRouteData(Games);
 

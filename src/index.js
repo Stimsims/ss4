@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyError from './Error.js';
+//import MyError from './Error.js';
+import MyError from 'LogError';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
+import MyValid from './MyValid.js';
 
 // Your top level component
 import App from './App'

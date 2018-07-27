@@ -22,7 +22,8 @@ const themes = [
         spaceXS: '3',
         spaceS: '5',
         spaceM: '10',
-        spaceL: '20'
+        spaceL: '20',
+        menuHeight: '100px'
     },
     {
         main: '#FFA508',
@@ -46,7 +47,8 @@ const themes = [
         spaceXS: '3',
         spaceS: '5',
         spaceM: '10',
-        spaceL: '20'
+        spaceL: '20',
+        menuHeight: '100px'
     },
     {
         main: '#89C939',
@@ -70,7 +72,8 @@ const themes = [
         spaceXS: '3',
         spaceS: '5',
         spaceM: '10',
-        spaceL: '20'
+        spaceL: '20',
+        menuHeight: '100px'
     }
 ]
 

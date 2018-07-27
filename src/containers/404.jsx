@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-static'
+import { withRouteData, Link } from 'react-static'
 import {connect} from 'react-redux';
-import ReactGA from 'react-ga';
+import LogError from 'LogError';
+// import ReactGA from 'react-ga';
 //import My404 from './../components/layout/404.jsx';
 
 //undecorated - match, history, location
@@ -23,24 +24,41 @@ class Lost extends React.Component{
     this.sendError();
   }
   sendError(){
-    console.log("lost, componentDidUpdate, gapi? " + this.props.gapi.gapiReady + " state: ", this.state);
-    if(!this.state.errorSent && this.props.gapi.gapiReady){
-      ReactGA.event({
-          category: 'Error',
-          action: '404',
-          label: `${this.props.match.url}`
-      });
-      this.setState({
-        errorSent:true
-      })
+    console.log("lost, componentDidUpdate, gapi? " + this.props.gapi.gapiReady + " state: ", this.state
+     + " anim: " + this.props.animationState + " url " + this.props.history.location.pathname);
+    if(!this.state.errorSent && this.props.gapi.gapiReady && this.props.animationState === 1){
+      // ReactGA.event({
+      //     category: 'Error',
+      //     action: '404',
+      //     label: `${this.props.match.url}`
+      // });
+      try{
+        console.log("sending 404 error");
+        
+        throw new Error(`404 page not found, ${this.props.history.location.pathname}`);
+        console.log("sent");
+        this.setState({
+          errorSent:true
+        })
+      }catch(e){
+        console.log("404 page not found catch " + this.props.history.location.pathname, e);
+        LogError(e);
+       // throw e;
+      }
+      // finally{
+      //   console.log("sending 404 error finally triggered")
+      //   this.setState({
+      //     errorSent:true
+      //   })
+      // }
+
     }
   }
   render(){
     return (
       <div>
-          <p>That page doesn't exist. We have made a note of the problem.</p>
-          <p>In the meantime, here are some pages that definitely exist</p>
-          <Link to={`/`}>Home</Link>
+          <p>That page doesn't exist. The error has been logged.</p>
+          <Link to={`/`}>Go to Home page</Link>
       </div>
       
     )
@@ -53,4 +71,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Lost);
+
+Lost.displayName = '404page';
+const connected = connect(mapStateToProps)(Lost);
+//const routed = withRouteData(Lost);
+export default withRouteData(connected);

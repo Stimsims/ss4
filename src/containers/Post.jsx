@@ -1,18 +1,22 @@
 
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-import Menu from './../components/layout/MainMenu.jsx';
+//import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Talkit from './../components/UI/elements/TalkitGame.jsx';
 import Container from './../components/UI/elements/Container';
+
+import Center from './../components/UI/elements/CenterBox';
 import Loading from './../components/UI/animations/Loading.jsx';
+import MyLog from 'MyLog';
 //import katex from 'react-katex';
 class Games extends React.Component{
     constructor(props){
         super(props);
         //iterate through content, create talkit for each game node
-     //   console.log("Post constructor", props);
+       // console.log("Post constructor", props);
+        MyLog('log', "Post constructor", props);
         let games = {};
         if(props.post.content){
             props.post.content.map((c, i) => {
@@ -25,6 +29,12 @@ class Games extends React.Component{
         this.state = {
             games
         }
+    }
+    componentDidMount(){
+        MyLog('log', "Post componentDidMount");
+    }
+    componentDidUnmount(){
+        MyLog('log', "Post componentDidUnmount");
     }
     importKatex(){
         import(/* webpackChunkName: "mykatex" */ 'react-katex')
@@ -73,29 +83,58 @@ class Games extends React.Component{
       let bg = this.props.bg? this.props.bg:'grey';
       let bgHover = this.props.bgHover? this.props.bgHover: 'red';
    */
+    renderBody(){
+        //if exiting, don't bother with translate this.props.animationState === 1
+        //parent animations don't seem to restart child transitions
+        if(this.props.animationState === 1){
+            console.log("renderPosts called with state 1");
+            return (
+                <div>
+                    {/* <Menu /> */}
+                    <Title>{this.props.post.title}</Title>
+                    {this.renderTags()}
+                    {this.renderContent()}
+                    {this.renderContent()}
+                    {this.renderContent()}
+                    <Shareable>
+                        <Icon icon={"done"} />
+                        <Icon icon={"delete"} />
+                        <Icon icon={"cached"} />
+                        <Icon icon={"save"} />
+                    </Shareable>
+                                            {/* <Center>
+                            <Loading />
+                        </Center> */}
+                </div>
+
+            )
+        }else{
+            return <p>Not rendering that when leaving!!</p>
+        }
+    }
     render(){
         return (
-            <Container>
-            <div>
-              {/* <Menu /> */}
-              {/* <Title>{this.props.post.title}</Title>
-              {this.renderTags()}
-              {this.renderContent()}
-              <Shareable>
-                <Icon icon={"done"} />
-                <Icon icon={"delete"} />
-                <Icon icon={"cached"} />
-                <Icon icon={"save"} />
-              </Shareable> */}
-              <Loading />
-            </div>
+            <Container fixed={false}>
+                {this.renderBody()}
             </Container>
+            // <div style={{color: `${this.state.color}`}}>
+            //     <button onClick={()=>{this.setState({color: this.state.color === 'red'?'blue':'red'})}}>toggle</button>
+            //     <p>Not rendering that when leaving!! {this.state.whatever}</p>
+            // </div>
           )
     }
 }
-
+Games.displayName='Post';
 export default withRouteData(Games);
 
+const Box = styled.div`
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    margin: auto;
+    background-color: pink;
+    text-align: center;
+`
 const Shareable = styled.div`
     margin:auto;
 `

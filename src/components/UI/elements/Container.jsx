@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import colors from './../Colors.js';
 
 class UiBg extends React.Component{
     constructor(props){
@@ -12,58 +11,27 @@ class UiBg extends React.Component{
     }
     render(){
        // console.log("rendering game a");
-       if(this.props.fixed){
-        return (
-            <Bg z={this.props.z} colorKey={this.props.colorKey} color={this.props.color} width={this.props.width} height={this.props.height}
-                padding={this.props.padding} margin={this.props.margin} overflow={this.props.overflow}>
-                {this.props.children}
-            </Bg>
-        )  
-       }else{
-        return (
-            <Box z={this.props.z} colorKey={this.props.colorKey}  height={this.props.height} color={this.props.color} width={this.props.width} 
-                padding={this.props.padding} margin={this.props.margin} overflow={this.props.overflow}>
-                {this.props.children}
-            </Box>
-        )  
-       }
-                   
+       return (
+        <Box z={this.props.z} colorKey={this.props.colorKey}  height={this.props.height} 
+            color={this.props.color} width={this.props.width} 
+            padding={this.props.padding} flex={this.props.flex} margin={this.props.margin} 
+            overflow={this.props.overflow} display={this.props.display}>
+            {this.props.children}
+        </Box>
+        )       
 
     }
 }
 
 export default UiBg;
 
-
-const Bg = styled.div`
-    position:fixed;
-    top: 0;
-    left:0;
-    bottom:0;
-    right:0;
-    width: 100vw;
-    height: 100vh;
+const Box = styled.div`
+    position: ${props => props.position? props.position: 'relative'};
+    display: ${props => props.display? props.display: 'block'};
     width: ${props => props.width? props.width:'inherit'};
     margin: ${props => props.margin? props.margin:'0 0 0 0'};
-    padding: ${props => props.padding? props.padding:'0 0 0 0'};
-    z-index: ${props => props.z? props.z:1};
-    overflow: ${props => props.overflow? props.overflow:'scroll-y'}
-    background-color: ${props => {
-        if(props.color){
-            return props.color;
-        }else if(props.colorKey){
-            return props.theme[props.theme.theme][props.colorKey]
-        }else{
-            return props.theme[props.theme.theme].neutral
-        }
-        //props.color? props.color:props.theme[props.theme.theme].neutral
-    }}
-`
-const Box = styled.div`
-    position: relative;
-    width: ${props => props.width? props.width:'100%'};
-    margin: ${props => props.margin? props.margin:'0 0 0 0'};
-    height: ${props => props.height? props.height:'100%'};
+    height: ${props => props.height? props.height:'inherit'};
+    z-index:${props => props.z? props.z: '1'};
     padding: ${props => props.padding? props.padding:'0 0 0 0'};
     background-color: ${props => {
         if(props.color){

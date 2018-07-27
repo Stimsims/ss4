@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link, withSiteData, withRouteData, Switch, Route, withRouter } from 'react-static';
 import './menu.css';
-import styled, { StaticRouter } from 'styled-components';
+// //import StaticRouteimport, import { StaticRouter } from 'react-router';
+// import { StaticRouter } from 'react-router';
+// import { error } from 'util';
+// { throwErrorIfRouteIsMissingPath } from 'react-static/lib/static/getConfig';
+import styled from 'styled-components';
 import Animate from 'react-move/Animate';
 import { easeExpOut } from 'd3-ease';
 import { withContext, getContext } from 'recompose';
@@ -88,10 +92,32 @@ class Menu extends React.Component{
             return <PostTitle style={{fontSize: '1em'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
         }
     }
+    throwError(){
+       // throw new Error('simulated error cast');
+    //    try{
+    //        throw new Error('simulated error cast');
+    //    }catch(e){
+    //       // console.log("fuck fixing that");
+    //        throw e;
+    //       // return true;
+    //    }
+    //an error thrown in render seems to trigger component boundary error, throwing one in action triggers regular
+        this.setState({
+            triggerError: true
+        })
+    }
+    renderError(){
+        if(this.state.triggerError){
+            return this.state.error.trigger;
+        }
+        return null;
+    }
     renderCat(){
-        if(this.state.path[0]){
+        //this.state.path[0]
+        if(false){
             return(
                 <Outer>
+                    {this.renderError()}
                     <Container>
                         <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
                         <Mid key={"mid"} style={{flex: '0'}}/>
@@ -116,9 +142,11 @@ class Menu extends React.Component{
         }else{
             return(
                 <Outer>
+                    {this.renderError()}
                     <Container>
                         <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
                         <Mid key={"mid"} style={{flex: '1'}}/>
+                        <FlexChild key={"games"}><a onClick={()=>{this.throwError()}}><h4>Throw</h4></a></FlexChild>
                         <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
                         <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
                         <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild>
@@ -154,8 +182,11 @@ class Menu extends React.Component{
         )
 */
 
+Menu.displayName = 'Menu';
 const e = withRouter(Menu);
 export default withRouteData(e);
+
+
 const Drop = styled.div`
     position: absolute;
     z-index: 100; 
@@ -246,12 +277,18 @@ const Container = styled.div`
     height: 50px;
     display: flex;
     padding:0 0px;
-    margin:0 0 10px 0;
+    margin:0 0 0px 0;
    
 `
+
+// position: fixed;
+// height: ${props=>props.theme[props.theme.theme].menuHeight};
+// left: 0; top:0; right:0;
 const Outer = styled.div`
+
+    z-index: 1000;
     width:100%;
-    height: auto;
+   
     background: ${props=>props.theme[props.theme.theme].neutral};
     padding:0px;
     margin:0;

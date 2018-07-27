@@ -9,7 +9,7 @@ import styled from 'styled-components';
 export default class Translate extends React.Component{
     constructor(props){
         super(props);
-        console.log("renderPosts called Translate constructor", props);
+        console.log("Translate constructor", props);
     }
     render(){
         if(this.props.items){
@@ -36,7 +36,7 @@ export default class Translate extends React.Component{
                                 if(this.props.y) {s.y = this.props.y.start? [this.props.y.start]:[0]};
                                 if(this.props.x) {s.x = this.props.x.start? [this.props.x.start]:[0]};
                                 //if(this.props.x) {s.x = this.props.x.start? [this.props.x.start]:[0]};
-                                console.log("Translate start obj ", s);
+                               // console.log("Translate start obj ", s);
                                 return s;
                             }}
                             enter={(d, i) => {
@@ -45,7 +45,7 @@ export default class Translate extends React.Component{
                                 };
                                 if(this.props.y) {e.y = this.props.y.enter? [this.props.y.enter]:[0]};
                                 if(this.props.x) {e.x = this.props.x.enter? [this.props.x.enter]:[0]};
-                                console.log("Translate enter obj ", e);
+                                //console.log("Translate enter obj ", e);
                                 return e;
                             }}
                             update={(d, i) => {
@@ -54,7 +54,7 @@ export default class Translate extends React.Component{
                                 };
                                 if(this.props.y) {u.y = this.props.y.update? [this.props.y.update]:[0]};
                                 if(this.props.x) {u.x = this.props.x.update? [this.props.x.update]:[0]};
-                                console.log("Translate update obj ", u);
+                                //console.log("Translate update obj ", u);
                                 return u;
                             }}
                             leave={(d, i) => {
@@ -63,7 +63,7 @@ export default class Translate extends React.Component{
                                 };
                                 if(this.props.y) {l.y = this.props.y.leave? [this.props.y.leave]:[0]};
                                 if(this.props.x) {l.x = this.props.x.leave? [this.props.x.leave]:[0]};
-                                console.log("Translate update obj ", l);
+                               // console.log("Translate update obj ", l);
                                 return l;
                             }}
                         >
@@ -73,9 +73,9 @@ export default class Translate extends React.Component{
                                         let { key, data, state } = node;
                                     const { y, x, ...rest } = state;
                                     inject[this.props.itemKey] = data;
-                                    console.log(`translate data`, node);
+                                    console.log(`translate data`, key);
                                     return (
-                                        <div style={{display: 'block', translate: 'all 1s ease', 
+                                        <div key={key} style={{display: 'block', translate: 'all 1s ease', 
                                         transform: `translate(${x? x:0}${this.props.x && this.props.x.unit?this.props.x.unit:'px'}
                                                             , ${y? y:0}${this.props.y && this.props.y.unit?this.props.y.unit:'px'})`}}>
                                             <this.props.component {...inject} {...this.props.other} />
@@ -102,9 +102,17 @@ Translate.PropTypes = {
 
 
 const Wrapper = styled.div`
-    width:100%;
-    top:0; left: 0; right:0; bottom: 0;
-    padding: 10px;
-    position: absolute;
-    overflow-y: auto;
+
+
+  
 `
+//  overflow-y: auto;
+//    position: absolute;
+//top:0; left: 0; right:0; bottom: 0;
+
+//padding: 10px;
+/*
+    width:100%;
+    height: 100%;
+    
+*/

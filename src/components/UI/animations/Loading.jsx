@@ -50,7 +50,7 @@ export default class Loading extends React.PureComponent{
 
 const Load = styled.div`
     position: relative;
-    background-color: transparent;
+    background-color: grey;
     height: 168px;
     width: 168px;
     margin: auto;

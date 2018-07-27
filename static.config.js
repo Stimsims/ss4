@@ -4,6 +4,8 @@ import games from './data/games/index.js';
 import React from 'react';
 import { makePageRoutes } from 'react-static/node'
 import { ServerStyleSheet } from 'styled-components'
+
+const path = require('path');
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
@@ -134,23 +136,42 @@ export default {
       )
     }
   },
-  // webpack:[
-  //   (prev, 
-  //     {
-  //     stage, defaultLoaders
-  //     }
-  //   ) => {
-  //       console.log("webpack mod called")
-  //       console.log(prev);
-  //       prev.plugins = [
-  //         ...prev.plugins,
-  //         new workbox.GenerateSW()
-  //       ]
-  //       return {
-  //         ...prev
-  //       };
-  //   }
-  // ]
+  
+  webpack:[
+    (prev, 
+      {
+      stage, defaultLoaders
+      }
+    ) => {
+        //console.log("webpack mod called");
+      //  console.log(prev);
+        prev.resolve= {
+          ...prev.resolve,
+          alias:{
+            LogError: path.resolve(__dirname, 'src/Error.js'),
+            MyLog: path.resolve(__dirname, 'src/utilities/MyLog.js')
+          }
+        }
+        return {
+          ...prev
+        };
+    }
+    // (prev, 
+    //   {
+    //   stage, defaultLoaders
+    //   }
+    // ) => {
+    //     console.log("webpack mod called")
+    //     console.log(prev);
+    //     prev.plugins = [
+    //       ...prev.plugins,
+    //       new workbox.GenerateSW()
+    //     ]
+    //     return {
+    //       ...prev
+    //     };
+    // }
+  ]
 }
 
 

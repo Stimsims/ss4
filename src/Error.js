@@ -1,11 +1,24 @@
+import ReactGA from 'react-ga';
+
 var isListening = false;
 var errors = [];
-const catchError = (error) => {
-    //console.log("catchError", error);
+
+const logError = (message, source, lineNum, colNum, errorObj) => {
+    console.log("logError src", source);
+    console.log("logError obj ", errorObj);
+    console.log("logError msg", message);
     if(isListening){
-        //log error to google analytics
-        
-        //throw error;
+        //console.log(`logging error ${errors.message}`);
+        console.warn(`logging error: message ${message} source: ${source.componentStack} lineNum ${lineNum}`, source);
+        try{
+            // ReactGA.event({
+            //     category: 'error',
+            //     action: `${message}`,
+            //     value: `message ${message} source: ${source.componentStack} lineNum ${lineNum}`
+            // });
+        }catch(e){
+            console.warn('reactGa not available, not sending error');
+        }
     }else{
         if(errors.length < 10){
             errors.push(error);
@@ -17,7 +30,9 @@ if (typeof window !== 'undefined') {
     console.log("error, window is defined, adding listener");
     window.onerror = function(message, source, lineNum, colNum, errorObj){
         //can bubble up without explicit MyError call()
-        console.warn(`onerror details: message ${message} source: ${source} lineNum ${lineNum}`, errorObj);
+        //console.warn(`onerror details: message ${message} source: ${source} lineNum ${lineNum}`, errorObj);
+        logError(message, source, lineNum, colNum, errorObj)
+       
         // window.location.href = (
         //     `http://stackoverflow.com/search?q=[js]${message}`
         // )
@@ -31,14 +46,14 @@ if (typeof window !== 'undefined') {
     isListening = true;
     //catch any stored errors now that they will be caught
     errors.map(e =>{
-        catchError(e);
+        logError(e);
     })
     errors = [];
 }else{
     console.log("error, window is undefined, cannot listen");
 }
 
-export default catchError;
+export default logError;
 
 /*
     successfully bubbles up an error from inside a react component
