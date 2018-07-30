@@ -56,19 +56,16 @@ class FoldOut extends React.Component{
     }
     render(){
         return (
-            <div style={{width: '100%', padding: '10px', margin: '20px 0 0 0', overflow: 'hidden'}}>
+            <div style={{width: '100%', padding: '10px', margin: '10px 0 0 0', overflow: 'hidden'}}>
             <Pill >
                 <Panel>
-                    <FlexChild>{this.renderOpenButton()}</FlexChild>
-                    <FlexChild>
-                        <Stack>
+                    {this.renderOpenButton()}
+                    <Stack>
                             <h3>{this.props.title}</h3>
                             <p>{this.props.subtitle}</p>
-                        </Stack>
-                    </FlexChild>
+                    </Stack>
                     <Mid />
-                    {/* <FlexChild><Button onInput={()=>{this.handleClick(this.state.iSelect)}}>{this.props.callToAction()}</Button></FlexChild> */}
-                    <FlexChild>{this.props.callToAction()}</FlexChild>
+                    {this.props.callToAction()}
                 </Panel>
                 {this.renderFoldOut()}
             </Pill>
@@ -86,7 +83,7 @@ const Stack = styled.ul`
     display: inline-block;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     h3, p{
         margin: 3px;
     }
@@ -117,7 +114,7 @@ const Wrapper = styled.div`
     transition: transform ${props => {
         return props.theme[props.theme.theme].animM
     }} ease;
-    display: 'inline-block'; 
+    display: indline-block; 
 `
 const Pill = styled.div`
     border-radius: 50px;
@@ -129,7 +126,7 @@ const Pill = styled.div`
     margin: auto;
 `
 const Panel = styled.div`
-    align-items: baseline;  
+    align-items: center;  
     display: flex;
 `
 

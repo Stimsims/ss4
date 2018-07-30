@@ -55,8 +55,8 @@ const Slide = styled.div`
         opacity: 1;
     }
     span{
-        display: block;
-        position: relative;
+        display: inline-block;
+        width:100%;
     }
 
     span .slide-down-enter{

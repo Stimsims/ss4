@@ -21,283 +21,13 @@ import PageAnim from './components/UI/animations/Page.jsx';
 import PropTypes from 'prop-types';
 import animationState from './components/UI/animations/Page.jsx';
 import Menu from './components/layout/Ma.jsx';
+import Footer from './components/layout/Footer.jsx';
 
 import ReactCSSTransitionGroup from 'react-transition-group';
 import FadeIn from './components/UI/animations/FadeIn.jsx';
 import Container from './components/UI/elements/Container.jsx';
 
 const startTheme = theme();
-
-
-// const AnimatedRoutes = getContext({
-//   // We have to preserve the router context for each route
-//   // otherwise, a component may rerender with the wrong data
-//   // during animation
-//   router: PropTypes.object,
-//   // We'll also look for the staticURL, so we can disable the animation during static render
-//   staticURL: PropTypes.string,
-// })(({ getComponentForPath, router, staticURL }) => (
-//   <Route
-//     path="*"
-//     render={props => {
-//       // Get the component for this path
-//       let Comp = getComponentForPath(cleanPath(props.location.pathname))
-//       if (!Comp) {
-//         Comp = getComponentForPath('404')
-//       }
-//     //  console.log("App animated route " + props.location.pathname, props);
-//       // When we're rendering for static HTML, be sure to NOT animate in.
-//       if (staticURL) {
-//         return (
-//           // This relative wrapper is necessary for accurate rehydration :)
-//           <div style={{ position: 'relative' }}>
-//             <Comp {...props} />
-//           </div>
-//         )
-//       }
-
-//       // Use React-Move to animate the different components coming in and out
-//       return (
-//         // <PageAnim comp={Comp} router={router} props={props}/>
-//         <NodeGroup
-//         // React-move will handle the entry and exit of any items we pass in `data`
-//         data={[
-//           {
-//             // pass the current Comp, props, ID and router
-//             id: props.location.pathname,
-//             Comp,
-//             props,
-//             router,
-//           },
-//         ]}
-//         keyAccessor={d => d.id}
-//         start={() => ({
-//           opacity: [0],
-//           scale: [1.2],
-//           translateY: [20],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('start', 'start')}, 
-//             end: () => {animationState.update('start', 'end')} }
-//         })}
-//         enter={() => ({
-//           opacity: [1],
-//           translateY: [0],
-//           scale: [1],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('enter', 'start')}, 
-//             end: () => {animationState.update('enter', 'end')} 
-//           }
-//         })}
-//         update={() => ({
-//           opacity: [1],
-//           scale: [1],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('update', 'start')}, 
-//             end: () => {animationState.update('update', 'end')} }
-//         })}
-//         leave={() => ({
-//           opacity: [0],
-//           translateY: [-0],
-//           scale: [0.2],
-//           timing: { duration: 800, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('leave', 'start')}, 
-//             end: () => {animationState.update('leave', 'end')}
-//            }
-//         })}
-//       >
-//         {nodes => (
-//           <div style={{ position: 'relative' }}>
-//             {nodes.map((props) => {
-//               let { key, data, type, state: { opacity, translateY, scale } } = props;
-//               console.log("pageRendering props anim state " + animationState.state, props);
-//               // Here, we override the router context with the one that was
-//               // passed with each route scale(${scale}, ${scale}) 
-//               //console.log(`animating map ${key} with opacity ${opacity} and scaleY ${scale} and rotate ${rotate}`);
-//               //animationState={animationState.state} 
-//               const PreservedRouterContext = withContext(
-//                 {
-//                   router: PropTypes.object,
-//                 },
-//                 () => ({
-//                   router: data.router,
-//                 }),
-//               )(props => <div {...props} />)
-
-//               return (
-//                   // <data.Comp key={key}
-//                   // style={{
-//                   //   position: 'absolute',
-//                   //   top: 0,
-//                   //   right: 0,
-//                   //   bottom: 0,
-//                   //   left: 0,
-//                   //   transform: `translateY(${translateY}px) scale(${scale}, ${scale})`,
-//                   //   opacity,
-//                   // }}
-//                   // animationState={animationState.state}  />
-//                 <PreservedRouterContext
-//                   key={key}
-//                   style={{
-//                     position: 'absolute',
-//                     top: 0,
-//                     right: 0,
-//                     bottom: 0,
-//                     left: 0,
-//                     transform: `translateY(${translateY}px) scale(${scale}, ${scale})`,
-//                     opacity,
-//                   }}
-//                 >
-//                   <data.Comp  {...data.props} />
-//                 </PreservedRouterContext>
-//               )
-//             })}
-//           </div>
-//         )}
-//       </NodeGroup>
-//       )
-//     }}
-//   />
-// ))
-
-// const AnimatedRoutes = getContext({
-//   // We have to preserve the router context for each route
-//   // otherwise, a component may rerender with the wrong data
-//   // during animation
-//   router: PropTypes.object,
-//   // We'll also look for the staticURL, so we can disable the animation during static render
-//   staticURL: PropTypes.string,
-// })(({ getComponentForPath, router, staticURL }) => (
-//   <Route
-//     path="*"
-//     render={props => {
-//       // Get the component for this path
-//       let Comp = getComponentForPath(cleanPath(props.location.pathname))
-//       if (!Comp) {
-//         Comp = getComponentForPath('404')
-//       }
-//     //  console.log("App animated route " + props.location.pathname, props);
-//       // When we're rendering for static HTML, be sure to NOT animate in.
-//       if (staticURL) {
-//         return (
-//           // This relative wrapper is necessary for accurate rehydration :)
-//           <div style={{ position: 'relative' }}>
-//             <Comp {...props} />
-//           </div>
-//         )
-//       }
-
-//       // Use React-Move to animate the different components coming in and out
-//       return (
-//         // <PageAnim comp={Comp} router={router} props={props}/>
-//         <NodeGroup
-//         // React-move will handle the entry and exit of any items we pass in `data`
-//         data={[
-//           {
-//             // pass the current Comp, props, ID and router
-//             id: props.location.pathname,
-//             Comp,
-//             props,
-//             router,
-//           },
-//         ]}
-//         keyAccessor={d => d.id}
-//         start={() => ({
-//           opacity: [0],
-//           scale: [1.2],
-//           translateY: [20],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('start', 'start')}, 
-//             end: () => {animationState.update('start', 'end')} }
-//         })}
-//         enter={() => ({
-//           opacity: [1],
-//           translateY: [0],
-//           scale: [1],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('enter', 'start')}, 
-//             end: () => {animationState.update('enter', 'end')} 
-//           }
-//         })}
-//         update={() => ({
-//           opacity: [1],
-//           scale: [1],
-//           timing: { duration: 800, delay: 200, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('update', 'start')}, 
-//             end: () => {animationState.update('update', 'end')} }
-//         })}
-//         leave={() => ({
-//           opacity: [0],
-//           translateY: [-0],
-//           scale: [0.2],
-//           timing: { duration: 800, ease: easeQuadOut },
-//           events: { 
-//             start: () => {animationState.update('leave', 'start')}, 
-//             end: () => {animationState.update('leave', 'end')}
-//            }
-//         })}
-//       >
-//         {nodes => (
-//           <div style={{ position: 'relative' }}>
-//             {nodes.map((props) => {
-//               let { key, data, type, state: { opacity, translateY, scale } } = props;
-//               console.log("pageRendering props anim state " + animationState.state, props);
-//               // Here, we override the router context with the one that was
-//               // passed with each route scale(${scale}, ${scale}) 
-//               //console.log(`animating map ${key} with opacity ${opacity} and scaleY ${scale} and rotate ${rotate}`);
-//               //animationState={animationState.state} 
-//               const PreservedRouterContext = withContext(
-//                 {
-//                   router: PropTypes.object,
-//                 },
-//                 () => ({
-//                   router: data.router,
-//                 }),
-//               )(props => <div {...props} />)
-
-//               return (
-//                   // <data.Comp key={key}
-//                   // style={{
-//                   //   position: 'absolute',
-//                   //   top: 0,
-//                   //   right: 0,
-//                   //   bottom: 0,
-//                   //   left: 0,
-//                   //   transform: `translateY(${translateY}px) scale(${scale}, ${scale})`,
-//                   //   opacity,
-//                   // }}
-//                   // animationState={animationState.state}  />
-//                 <PreservedRouterContext
-//                   key={key}
-//                   style={{
-//                     position: 'absolute',
-//                     top: 0,
-//                     right: 0,
-//                     bottom: 0,
-//                     left: 0,
-//                     transform: `translateY(${translateY}px) scale(${scale}, ${scale})`,
-//                     opacity,
-//                   }}
-//                 >
-//                   <data.Comp  {...data.props} />
-//                 </PreservedRouterContext>
-//               )
-//             })}
-//           </div>
-//         )}
-//       </NodeGroup>
-//       )
-//     }}
-//   />
-// ))
-
-
 
 //${props=>props.theme[props.theme.theme].accent}
 const AnimatedRoutes = getContext({
@@ -432,16 +162,16 @@ class App extends React.Component{
                                     themeKey: nTheme.theme
                                 })}}>
                         <Top>
-                          <Menu />
+                          {/* <Menu /> */}
+                          <Switch>
+                            <Route path="/games/:game" exact component={() => {return null}} />
+                            <Route path="/" component={() => {return <Menu />}} />
+                          </Switch>
                         </Top>
-                        {/* <Switch>
-                          <Route path="/games/:game" exact component={() => {return null}} />
-                          <Route path="/" component={() => {return <Menu />}} />
-                        </Switch> */}
                         <Content>
                           <Routes component={AnimatedRoutes} />
-                          {/* <Routes  /> */}
                         </Content>
+                        <Footer />
                     </Root>
               </ThemeProvider>
             
@@ -463,7 +193,7 @@ const Content = styled.div`
     position: relative;
     padding: 0;
     margin: 0;
-    overflow-y: hidden;
+    overflow-y: auto;
 `
 const Root = styled.div`
   width: 100%;
@@ -472,6 +202,7 @@ const Root = styled.div`
   flex-direction: column;
   padding: 0;
   margin: 0;
+  overflow: hidden;
   background-color: ${props => props.theme[props.theme.theme].neutral};
 `
 // const Top = styled.div`

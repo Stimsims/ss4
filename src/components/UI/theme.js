@@ -23,6 +23,7 @@ const themes = [
         spaceS: '5',
         spaceM: '10',
         spaceL: '20',
+        roundCorners: '5px',
         menuHeight: '100px'
     },
     {
@@ -48,6 +49,7 @@ const themes = [
         spaceS: '5',
         spaceM: '10',
         spaceL: '20',
+        roundCorners: '5px',
         menuHeight: '100px'
     },
     {
@@ -73,6 +75,7 @@ const themes = [
         spaceS: '5',
         spaceM: '10',
         spaceL: '20',
+        roundCorners: '5px',
         menuHeight: '100px'
     }
 ]

@@ -82,5 +82,6 @@ const PostBox = styled.div`
     width: 100%;
     padding-bottom: 100px;
     background-color ${props => props.theme[props.theme.theme].neutral};
-    overflow-y: scroll;
+  
 `
+//   overflow-y: scroll;

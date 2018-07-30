@@ -71,7 +71,7 @@ export default Icon;
     height:36px;
     padding:0;
     margin: 0px;
-    background-color: ${props=>props.bg?props.bg:'grey'}; /* Blue background */
+    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].textInverted}; /* Blue background */
     border: none; /* Remove borders */
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
@@ -81,7 +81,7 @@ export default Icon;
     &:hover {
         background-color: ${props => {
             //console.log("icon btn props", props);
-            return props.hover? props.hover: props.theme[props.theme.theme].primaryL;
+            return props.hover? props.hover: props.theme[props.theme.theme].accent;
         }};
     };
     img{  

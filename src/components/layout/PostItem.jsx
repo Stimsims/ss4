@@ -5,21 +5,6 @@ import MyLog from 'MyLog';
 
 const key = 'post'
 
-// const component = (props) => {
-//    // return <p>post {props.post.id}</p>
-//    return(
-//         <Link to={`/posts/${props[key].id}`} key={props[key].id} >
-//             <Post key={props[key].id}>
-//                 <h2>{props[key].title}</h2>
-//                 <p>
-//                     {props[key].tags.map((t, i) => {
-//                     return i===0? ""+t:", "+t;
-//                     })}
-//                 </p>
-//             </Post>
-//         </Link>
-//    )
-// };
 class Item extends React.Component{
   constructor(props){
     super(props);
@@ -28,7 +13,8 @@ class Item extends React.Component{
 
   render(){
     return(
-      <Link to={`/posts/${this.props[key].id}`} key={this.props[key].id} >
+          <Wrapper>
+            <Link to={`/posts/${this.props[key].id}`} key={this.props[key].id} >
                 <Post key={this.props[key].id}>
                     <h2>{this.props[key].title}</h2>
                     <p>
@@ -38,6 +24,7 @@ class Item extends React.Component{
                     </p>
                 </Post>
             </Link>
+          </Wrapper>
       )
   }
 }
@@ -46,15 +33,26 @@ export default {
   key,
   component: Item
 }
+const Wrapper = styled.div`
+  width:100%;
+  max-width:400px;
+  margin: auto;
+  padding: 10px 10px 0px 10px;
+`
+/*
+  @media only screen and (min-width: 500px) {
+    width:400px;
+    max-width:400px;
+    margin: 10px auto 0px auto;
+  }
+*/
 const Post = styled.div`
   width:100%;
-  height: 240px;
   position: relative;
   display: block;
   opacity:1;
-  margin: 10px 0px 0px 0px;
-  padding:20px 20px 5px 20px;
-  border-radius: 5px;
+  padding:25px 25px 10px 25px;
+  border-radius: ${props=>props.theme[props.theme.theme].roundCorners};
   background-color:  ${props=>props.theme[props.theme.theme].primary};
   transition: all  ${props=>props.theme[props.theme.theme].animS} ease-in;
   &:hover{
@@ -67,7 +65,6 @@ const Post = styled.div`
     opacity:1;
     text-transform: capitalize;
     margin:0
-    line-height: 75px;
     vartical-align: bottom;
   }
   p{
@@ -78,14 +75,7 @@ const Post = styled.div`
     text-align: right;
     float: right;
     margin:0
-    line-height: 75px;
     vartical-align: bottom;
-  }
-  @media only screen and (min-width: 500px) {
-    width:100%;
-    max-width:400px;
-    background-color: ${props=>props.theme[props.theme.theme].primary};
-    margin: 10px auto 0px auto;
   }
 `
 
