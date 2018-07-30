@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 46);
@@ -720,12 +720,12 @@ exports.default = Icon;
 //${props => props.primary ? 'blue' : props.theme.main}
 
 var Btn = _styledComponents2.default.button(_templateObject, function (props) {
-    return props.bg ? props.bg : 'grey';
+    return props.bg ? props.bg : props.theme[props.theme.theme].textInverted;
 }, function (props) {
     return props.theme[props.theme.theme].animS;
 }, function (props) {
     //console.log("icon btn props", props);
-    return props.hover ? props.hover : props.theme[props.theme.theme].primaryL;
+    return props.hover ? props.hover : props.theme[props.theme.theme].accent;
 });
 
 /***/ }),
@@ -1601,7 +1601,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\container
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n'], ['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
+    _templateObject2 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n']);
 
 var _react = __webpack_require__(0);
 
@@ -1770,6 +1770,7 @@ var Space = _styledComponents2.default.div(_templateObject);
 var PostBox = _styledComponents2.default.div(_templateObject2, function (props) {
     return props.theme[props.theme.theme].neutral;
 });
+//   overflow-y: scroll;
 
 /***/ }),
 /* 30 */
@@ -2018,7 +2019,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n'], ['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: block;\n        position: relative;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: inline-block;\n        width:100%;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n'], ['\n    span div {\n        opacity: 1;\n    }\n    span{\n        display: inline-block;\n        width:100%;\n    }\n\n    span .slide-down-enter{\n        transform: translate(0px, -1000px);\n        background-color:green;\n    }\n    span .slide-down-enter-active{\n        transform: translate(0px, 0px);\n        background-color: orange !important;\n    }\n\n    span .slide-down-appear{\n        transform: translate(0px, -1000px);\n        opacity: 0;\n    }\n    span .slide-down-appear-active{\n        transform: translate(0px, 0px);\n        opacity: 1;\n        transition-property: all;\n        transition-timing-function: ease-out;\n        transition-duration: ', 'ms;\n        ', '\n    }\n\n    span .slide-down-leave{\n        transform: translate(0px, 0px);\n    }\n    span .slide-down-leave-active{\n        transform: translate(0px, -1000px);\n    }\n\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2190,7 +2191,8 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  height: 240px;\n  position: relative;\n  display: block;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n'], ['\n  width:100%;\n  height: 240px;\n  position: relative;\n  display: block;\n  opacity:1;\n  margin: 10px 0px 0px 0px;\n  padding:20px 20px 5px 20px;\n  border-radius: 5px;\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    line-height: 75px;\n    vartical-align: bottom;\n  }\n  @media only screen and (min-width: 500px) {\n    width:100%;\n    max-width:400px;\n    background-color: ', ';\n    margin: 10px auto 0px auto;\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  width:100%;\n  max-width:400px;\n  margin: auto;\n  padding: 10px 10px 0px 10px;\n'], ['\n  width:100%;\n  max-width:400px;\n  margin: auto;\n  padding: 10px 10px 0px 10px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  width:100%;\n  position: relative;\n  display: block;\n  opacity:1;\n  padding:20px 20px 5px 20px;\n  border-radius: ', ';\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    vartical-align: bottom;\n  }\n'], ['\n  width:100%;\n  position: relative;\n  display: block;\n  opacity:1;\n  padding:20px 20px 5px 20px;\n  border-radius: ', ';\n  background-color:  ', ';\n  transition: all  ', ' ease-in;\n  &:hover{\n    background-color: ', ';\n  }\n  h2{\n    font-size: 1.7em;\n    display: inline;\n    color: ', ';\n    opacity:1;\n    text-transform: capitalize;\n    margin:0\n    vartical-align: bottom;\n  }\n  p{\n    font-size: 1em;\n    color: ', ';\n    opacity:1;\n    display: inline;\n    text-align: right;\n    float: right;\n    margin:0\n    vartical-align: bottom;\n  }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2218,22 +2220,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var key = 'post';
 
-// const component = (props) => {
-//    // return <p>post {props.post.id}</p>
-//    return(
-//         <Link to={`/posts/${props[key].id}`} key={props[key].id} >
-//             <Post key={props[key].id}>
-//                 <h2>{props[key].title}</h2>
-//                 <p>
-//                     {props[key].tags.map((t, i) => {
-//                     return i===0? ""+t:", "+t;
-//                     })}
-//                 </p>
-//             </Post>
-//         </Link>
-//    )
-// };
-
 var Item = function (_React$Component) {
   _inherits(Item, _React$Component);
 
@@ -2250,40 +2236,49 @@ var Item = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        _reactStatic.Link,
-        { to: '/posts/' + this.props[key].id, key: this.props[key].id, __source: {
+        Wrapper,
+        {
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 16
           }
         },
         _react2.default.createElement(
-          Post,
-          { key: this.props[key].id, __source: {
+          _reactStatic.Link,
+          { to: '/posts/' + this.props[key].id, key: this.props[key].id, __source: {
               fileName: _jsxFileName,
-              lineNumber: 32
+              lineNumber: 17
             }
           },
           _react2.default.createElement(
-            'h2',
-            {
-              __source: {
+            Post,
+            { key: this.props[key].id, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 33
+                lineNumber: 18
               }
             },
-            this.props[key].title
-          ),
-          _react2.default.createElement(
-            'p',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 34
-              }
-            },
-            this.props[key].tags.map(function (t, i) {
-              return i === 0 ? "" + t : ", " + t;
-            })
+            _react2.default.createElement(
+              'h2',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 19
+                }
+              },
+              this.props[key].title
+            ),
+            _react2.default.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 20
+                }
+              },
+              this.props[key].tags.map(function (t, i) {
+                return i === 0 ? "" + t : ", " + t;
+              })
+            )
           )
         )
       );
@@ -2300,7 +2295,17 @@ exports.default = {
   component: Item
 };
 
-var Post = _styledComponents2.default.div(_templateObject, function (props) {
+var Wrapper = _styledComponents2.default.div(_templateObject);
+/*
+  @media only screen and (min-width: 500px) {
+    width:400px;
+    max-width:400px;
+    margin: 10px auto 0px auto;
+  }
+*/
+var Post = _styledComponents2.default.div(_templateObject2, function (props) {
+  return props.theme[props.theme.theme].roundCorners;
+}, function (props) {
   return props.theme[props.theme.theme].primary;
 }, function (props) {
   return props.theme[props.theme.theme].animS;
@@ -2310,8 +2315,6 @@ var Post = _styledComponents2.default.div(_templateObject, function (props) {
   return props.theme[props.theme.theme].text;
 }, function (props) {
   return props.theme[props.theme.theme].textInverted;
-}, function (props) {
-  return props.theme[props.theme.theme].primary;
 });
 
 // export default {
@@ -2706,7 +2709,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\container
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: auto;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2840,11 +2843,11 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    h3, p{\n        margin: 3px;\n    }\n']),
+var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: \'inline-block\'; \n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n']),
     _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    align-items: baseline;  \n    display: flex;\n'], ['\n    align-items: baseline;  \n    display: flex;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    align-items: center;  \n    display: flex;\n'], ['\n    align-items: center;  \n    display: flex;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
     _templateObject7 = _taggedTemplateLiteral(['\n    align-self: center  \n'], ['\n    align-self: center  \n']);
 
@@ -3004,7 +3007,7 @@ var FoldOut = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { style: { width: '100%', padding: '10px', margin: '20px 0 0 0', overflow: 'hidden' }, __source: {
+                { style: { width: '100%', padding: '10px', margin: '10px 0 0 0', overflow: 'hidden' }, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 59
                     }
@@ -3025,18 +3028,9 @@ var FoldOut = function (_React$Component) {
                                 lineNumber: 61
                             }
                         },
+                        this.renderOpenButton(),
                         _react2.default.createElement(
-                            FlexChild,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 62
-                                }
-                            },
-                            this.renderOpenButton()
-                        ),
-                        _react2.default.createElement(
-                            FlexChild,
+                            Stack,
                             {
                                 __source: {
                                     fileName: _jsxFileName,
@@ -3044,51 +3038,33 @@ var FoldOut = function (_React$Component) {
                                 }
                             },
                             _react2.default.createElement(
-                                Stack,
+                                'h3',
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 64
                                     }
                                 },
-                                _react2.default.createElement(
-                                    'h3',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 65
-                                        }
-                                    },
-                                    this.props.title
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 66
-                                        }
-                                    },
-                                    this.props.subtitle
-                                )
+                                this.props.title
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 65
+                                    }
+                                },
+                                this.props.subtitle
                             )
                         ),
                         _react2.default.createElement(Mid, {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 69
+                                lineNumber: 67
                             }
                         }),
-                        _react2.default.createElement(
-                            FlexChild,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 71
-                                }
-                            },
-                            this.props.callToAction()
-                        )
+                        this.props.callToAction()
                     ),
                     this.renderFoldOut()
                 )
@@ -3522,7 +3498,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\About.jsx';
 
-var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    overflow-y: scroll;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    \n'], ['\n    height: 100%;\n    width: 100%;\n    padding-bottom: 100px;\n    background-color ', ';\n    \n']);
 
 var _react = __webpack_require__(0);
 
@@ -4058,8 +4034,8 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\App.js';
 
 var _templateObject = _taggedTemplateLiteral(['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n      .fade-enter{\n        opacity: 0;\n        transition: all 300ms;\n      }\n      .fade-enter-active{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave-active{\n        opacity: 0;\n        transition: all 300ms;\n      }\n    '], ['\n      /* width */\n      ::-webkit-scrollbar {\n          width: 10px;\n      }\n\n      /* Track */\n      ::-webkit-scrollbar-track {\n          background:  ', '; \n      }\n\n      /* Handle */\n      ::-webkit-scrollbar-thumb {\n          background:  ', '; \n          border-radius: 5px;\n      }\n\n      /* Handle on hover */\n      ::-webkit-scrollbar-thumb:hover {\n          background: ', '; \n      }\n      ::-webkit-scrollbar-button{\n        background: ', '; \n        color: white;\n      }\n      .fade-enter{\n        opacity: 0;\n        transition: all 300ms;\n      }\n      .fade-enter-active{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave{\n        opacity: 1;\n        transition: all 300ms;\n      }\n      .fade-leave-active{\n        opacity: 0;\n        transition: all 300ms;\n      }\n    ']),
     _templateObject2 = _taggedTemplateLiteral([' \n    width:100%\n    padding: 0;\n    margin: 0;\n'], [' \n    width:100%\n    padding: 0;\n    margin: 0;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: hidden;\n'], ['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: hidden;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  background-color: ', ';\n'], ['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  background-color: ', ';\n']);
+    _templateObject3 = _taggedTemplateLiteral(['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: auto;\n'], ['\n    flex:1;\n    width:100%;\n    height: 100%;\n    position: relative;\n    padding: 0;\n    margin: 0;\n    overflow-y: auto;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  overflow: hidden;\n  background-color: ', ';\n'], ['\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  padding: 0;\n  margin: 0;\n  overflow: hidden;\n  background-color: ', ';\n']);
 
 var _react = __webpack_require__(0);
 
@@ -4601,24 +4577,46 @@ var App = function (_React$Component) {
                       lineNumber: 434
                     }
                   },
-                  _react2.default.createElement(_Ma2.default, {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 435
-                    }
-                  })
+                  _react2.default.createElement(
+                    _reactStatic.Switch,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 436
+                      }
+                    },
+                    _react2.default.createElement(_reactStatic.Route, { path: '/games/:game', exact: true, component: function component() {
+                        return null;
+                      }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 437
+                      }
+                    }),
+                    _react2.default.createElement(_reactStatic.Route, { path: '/', component: function component() {
+                        return _react2.default.createElement(_Ma2.default, {
+                          __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 438
+                          }
+                        });
+                      }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 438
+                      }
+                    })
+                  )
                 ),
                 _react2.default.createElement(
                   Content,
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 441
+                      lineNumber: 442
                     }
                   },
                   _react2.default.createElement(_reactStaticRoutes2.default, { component: AnimatedRoutes, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 442
+                      lineNumber: 443
                     }
                   })
                 )
@@ -7443,6 +7441,7 @@ var themes = [{
     spaceS: '5',
     spaceM: '10',
     spaceL: '20',
+    roundCorners: '5px',
     menuHeight: '100px'
 }, {
     main: '#FFA508',
@@ -7467,6 +7466,7 @@ var themes = [{
     spaceS: '5',
     spaceM: '10',
     spaceL: '20',
+    roundCorners: '5px',
     menuHeight: '100px'
 }, {
     main: '#89C939',
@@ -7491,6 +7491,7 @@ var themes = [{
     spaceS: '5',
     spaceM: '10',
     spaceL: '20',
+    roundCorners: '5px',
     menuHeight: '100px'
 }];
 
@@ -8675,4 +8676,4 @@ module.exports = require("react-transition-group");
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.b95bb67b.js.map
+//# sourceMappingURL=static.77e62da5.js.map
