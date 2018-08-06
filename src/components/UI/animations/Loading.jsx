@@ -50,7 +50,7 @@ export default class Loading extends React.PureComponent{
 
 const Load = styled.div`
     position: relative;
-    background-color: grey;
+    background-color: transparent;
     height: 168px;
     width: 168px;
     margin: auto;
@@ -58,6 +58,10 @@ const Load = styled.div`
     vertical-align: middle;
     position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
+  /*this to solve "the content will not be cut when the window is smaller than the content": */
+        max-width:100%;
+        max-height:100%;
+        overflow:auto;
     div{
         animation-name: example;
         animation-duration: 1.5s;

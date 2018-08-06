@@ -19,13 +19,15 @@ import { withContext, getContext } from 'recompose'
 import PageAnim from './components/UI/animations/Page.jsx';
 
 import PropTypes from 'prop-types';
-import animationState from './components/UI/animations/Page.jsx';
-import Menu from './components/layout/Ma.jsx';
+//import Menu from './components/layout/Ma.jsx';
+import Menu from './components/layout/WebMenu.jsx';
 import Footer from './components/layout/Footer.jsx';
 
 import ReactCSSTransitionGroup from 'react-transition-group';
 import FadeIn from './components/UI/animations/FadeIn.jsx';
-import Container from './components/UI/elements/Container.jsx';
+
+// import {MuiThemeProvider} from '@material-ui/core/styles';
+// import muiTheme from './components/MaterialUi.js';
 
 const startTheme = theme();
 
@@ -51,7 +53,7 @@ const AnimatedRoutes = getContext({
       if (staticURL) {
         return (
           // This relative wrapper is necessary for accurate rehydration :)
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'absolute', height: '100%', width: '100%'}}>
             <Comp {...props} />
           </div>
         )
@@ -70,6 +72,8 @@ const AnimatedRoutes = getContext({
         <PreservedRouterContext
                     style={{
                       position: 'absolute',
+                      height: '100%',
+                      width: '100%',
                       top: 0,
                       right: 0,
                       bottom: 0,
@@ -79,6 +83,10 @@ const AnimatedRoutes = getContext({
                       <FadeIn>
                           <Comp {...props} />
                       </FadeIn>
+                      {/* <SlideDown offset={100} duration={1500} childDelay={150}>
+                          <Comp {...props} />
+                      </SlideDown> */}
+                      {/* <Comp {...props} /> */}
                   </PreservedRouterContext>
       )
     }}
@@ -126,22 +134,7 @@ class App extends React.Component{
         background: ${this.state.myTheme[this.state.myTheme.theme].neutralL}; 
         color: white;
       }
-      .fade-enter{
-        opacity: 0;
-        transition: all 300ms;
-      }
-      .fade-enter-active{
-        opacity: 1;
-        transition: all 300ms;
-      }
-      .fade-leave{
-        opacity: 1;
-        transition: all 300ms;
-      }
-      .fade-leave-active{
-        opacity: 0;
-        transition: all 300ms;
-      }
+
     `
   }
 
@@ -150,9 +143,9 @@ class App extends React.Component{
       <Provider store={store}>
         <Router >
           <div  style={{position: 'relative'}}>
-          <Analytics />
-            <Gapi />
+
               <ThemeProvider theme={this.state.myTheme}>
+
                     <Root className="content" 
                               onDoubleClick={()=>{
                                   let nTheme = this.state.myTheme;
@@ -161,6 +154,8 @@ class App extends React.Component{
                                     myTheme: {...nTheme},
                                     themeKey: nTheme.theme
                                 })}}>
+                        <Analytics />
+                        <Gapi />
                         <Top>
                           {/* <Menu /> */}
                           <Switch>
@@ -171,7 +166,8 @@ class App extends React.Component{
                         <Content>
                           <Routes component={AnimatedRoutes} />
                         </Content>
-                        <Footer />
+                         {/* <Routes component={AnimatedRoutes} /> */}
+                        {/* <Footer /> */}
                     </Root>
               </ThemeProvider>
             
@@ -182,9 +178,10 @@ class App extends React.Component{
   }
 }
 const Top = styled.div` 
-    width:100%
+    width:100%;
     padding: 0;
     margin: 0;
+    display: table-row;
 `
 const Content = styled.div`
     flex:1;
@@ -205,46 +202,5 @@ const Root = styled.div`
   overflow: hidden;
   background-color: ${props => props.theme[props.theme.theme].neutral};
 `
-// const Top = styled.div`
-//     display:table-row; 
-//     width:100%
-//     background-color:red;
-// `
-// const Content = styled.div`
-// background-color:yellow;
-//     display:table-row;
-//     width:100%;
-//     max-height: 100%;
-// `
-// const Root = styled.div`
-//   width: 100%;
-//   height: 100vh;
-//   display: table;
-//   background-color: ${props => props.theme[props.theme.theme].neutral};
-// `
-
-/*overflow: hidden;
-    width: 100%;
-  height: 100vh;
-    top: 0; left: 0; right: 0; bottom: 0;
- <Analytics />
-            <Gapi />
-              <ThemeProvider theme={this.state.myTheme}>
-                      <Root className="content" style={{backgroundColor: this.state.myTheme[this.state.myTheme.theme].neutral}} onDoubleClick={()=>{
-                                let nTheme = this.state.myTheme;
-                                nTheme.setTheme(nTheme);
-                                this.setState({
-                                  myTheme: {...nTheme},
-                                  themeKey: nTheme.theme
-                              })
-                      }}>
-                      <Switch>
-                        <Route path="/games/:game" exact component={() => {return null}} />
-                        <Route path="/" component={() => {return <Menu />}} />
-                      </Switch>
-                      <Routes component={AnimatedRoutes} />
-                    </Root>
-              </ThemeProvider>
-*/
 
 export default hot(module)(App)

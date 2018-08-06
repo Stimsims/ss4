@@ -8,6 +8,7 @@ import iSave from './../../../assets/baseline-save-24px.svg';
 import iSettings from './../../../assets/baseline-settings-20px.svg';
 import iUpArrow from './../../../assets/baseline-keyboard_arrow_up-24px.svg';
 import iPlay from './../../../assets/baseline-play_arrow-24px.svg';
+import iMore from './../../../assets/baseline-more_vert-24px.svg';
 
 
 class Icon extends React.Component {
@@ -21,14 +22,6 @@ class Icon extends React.Component {
                 return 'black';
             case 'done':
                 return 'green';
-            case 'cached':
-                return 'blue';
-            case 'arrow':
-                return 'yellow';
-            case 'save':
-                return 'green';
-            case 'settings':
-                return 'pink';
             default:
                 return 'orange';
         }
@@ -51,12 +44,15 @@ class Icon extends React.Component {
                 return iUpArrow;
             case 'play':
                 return iPlay;
+            case 'more':
+                return iMore;
         }
     }
     render() {
         //themeprovider provides base theme, can be overridden
       return (
-            <Btn bg={this.props.bg} hover={this.props.hover? this.props.hover:this.getColor(this.props.icon)} onClick={this.props.onInput}>
+            <Btn padding={this.props.padding} bg={this.props.bg} hover={this.props.hover? this.props.hover:this.getColor(this.props.icon)} 
+                onClick={this.props.onInput} round={this.props.round}>
                 <img src={this.getImg(this.props.icon)}/>
             </Btn>
       );
@@ -69,13 +65,13 @@ export default Icon;
    const Btn = styled.button`
     width:36px;
     height:36px;
-    padding:0;
+    padding:${props=>props.padding?props.padding:'0'};
     margin: 0px;
-    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].textInverted}; /* Blue background */
+    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].neutralD}; /* Blue background */
     border: none; /* Remove borders */
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
-    border-radius:50%;
+    border-radius:${props=>props.round? '50%':props.theme[props.theme.theme].roundCorners};
     vertical-align: middle;
     transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
     &:hover {

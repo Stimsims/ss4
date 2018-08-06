@@ -16,6 +16,9 @@ const logError = (message, source, lineNum, colNum, errorObj) => {
             //     action: `${message}`,
             //     value: `message ${message} source: ${source.componentStack} lineNum ${lineNum}`
             // });
+            ReactGA.exception({
+                description: `message ${message} source: ${source.componentStack} lineNum ${lineNum}`
+            })
         }catch(e){
             console.warn('reactGa not available, not sending error');
         }

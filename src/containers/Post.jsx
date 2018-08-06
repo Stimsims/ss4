@@ -6,10 +6,15 @@ import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Talkit from './../components/UI/elements/TalkitGame.jsx';
 import Container from './../components/UI/elements/Container';
-
+import Tags from './../components/layout/Tags.jsx';
 import Center from './../components/UI/elements/CenterBox';
 import Loading from './../components/UI/animations/Loading.jsx';
 import MyLog from 'MyLog';
+import Sankey from './../components/UI/graphs/SanKey.jsx';
+import Video from './../components/UI/elements/Video.jsx';
+import TextBox from './../components/UI/elements/TextBox.jsx';
+import Sizer from './../components/UI/elements/Sizer.jsx';
+import Text from './../components/UI/elements/Text.jsx';
 //import katex from 'react-katex';
 class Games extends React.Component{
     constructor(props){
@@ -30,103 +35,65 @@ class Games extends React.Component{
             games
         }
     }
-    componentDidMount(){
-        MyLog('log', "Post componentDidMount");
-    }
-    componentDidUnmount(){
-        MyLog('log', "Post componentDidUnmount");
-    }
-    importKatex(){
-        import(/* webpackChunkName: "mykatex" */ 'react-katex')
-        .then(r=>{
 
-        })
-        .catch(e=>{
-
-        })
-    }
-    importGraph(){
-        import(/* webpackChunkName: "mygraph" */ 'recharts')
-        .then(r=>{
-
-        })
-        .catch(e=>{
-
-        })
-    }
-    renderTags(){
-    //    console.log("indi post render tags", this.props);
-        if(this.props.post.tags){
-            return (<p>
-                {this.props.post.tags.map(t => {
-                    return <span> {t} </span>
-                })}
-            </p>
-            )
-        }
-    }
     renderContent(){
         if(this.props.post.content){
             return this.props.post.content.map((c, i) => {
                 if(c.type == "text"){
-                    return <p>{c.content}</p>
+                    return <TextBox index={i}><Text tag={'p'} text={c.content} align={'left'}/></TextBox>
                 }else if(c.type == "game"){
                     return this.state.games[i];
                    // return <Game>{this.renderGame()}</Game>;
+                }else if(c.type === "tree"){
+                    return <TextBox index={i}><Sankey tree={c.content} /></TextBox>
+                }else if(c.type === "video"){
+                    return (
+                        <TextBox index={i}>
+                            <Sizer>
+                                <Video width={'100%'} vWidth={200} 
+                                    height={140} vHeight={120} 
+                                    position={'left'}
+                                    text={c.text}
+                                    url={`${c.url}`}/>
+                            </Sizer>
+                        </TextBox>
+                    )
                 }
             })
         }
     }
-   /*
-      let size = this.props.size? this.props.size:24;
-      let icon = this.props.iconColor? this.props.iconColor:'white';
-      let bg = this.props.bg? this.props.bg:'grey';
-      let bgHover = this.props.bgHover? this.props.bgHover: 'red';
-   */
-    renderBody(){
-        //if exiting, don't bother with translate this.props.animationState === 1
-        //parent animations don't seem to restart child transitions
-        if(this.props.animationState === 1){
-            console.log("renderPosts called with state 1");
-            return (
-                <div>
-                    {/* <Menu /> */}
-                    <Title>{this.props.post.title}</Title>
-                    {this.renderTags()}
-                    {this.renderContent()}
-                    {this.renderContent()}
-                    {this.renderContent()}
-                    <Shareable>
-                        <Icon icon={"done"} />
-                        <Icon icon={"delete"} />
-                        <Icon icon={"cached"} />
-                        <Icon icon={"save"} />
-                    </Shareable>
-                                            {/* <Center>
-                            <Loading />
-                        </Center> */}
-                </div>
 
-            )
-        }else{
-            return <p>Not rendering that when leaving!!</p>
-        }
-    }
     render(){
+        //return null;
         return (
-            <Container fixed={false}>
-                {this.renderBody()}
-            </Container>
-            // <div style={{color: `${this.state.color}`}}>
-            //     <button onClick={()=>{this.setState({color: this.state.color === 'red'?'blue':'red'})}}>toggle</button>
-            //     <p>Not rendering that when leaving!! {this.state.whatever}</p>
-            // </div>
+            <PostBox>
+                <Text tag={'h1'} text={this.props.post.title} />
+                <Tags tags={this.props.post.tags} />
+                {this.renderContent()}
+                <Shareable>
+                    <Icon icon={"done"} round={true} padding={'3px'}/>
+                    <Icon icon={"delete"} round={true} padding={'3px'}/>
+                    <Icon icon={"cached"} round={true} padding={'3px'}/>
+                    <Icon icon={"save"} round={true} padding={'3px'}/>
+                </Shareable>
+            </PostBox>
           )
     }
 }
 Games.displayName='Post';
 export default withRouteData(Games);
+const PostBox = styled.div`
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    position: relative;
+    padding-bottom: 100px;
+    background-color ${props => props.theme[props.theme.theme].neutral};
+    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+        padding: 10px;
+    }
 
+`
 const Box = styled.div`
     height: 100%;
     width: 100%;
@@ -137,8 +104,59 @@ const Box = styled.div`
 `
 const Shareable = styled.div`
     margin:auto;
+    width: 100%;
+    text-align: center;
 `
 const Title = styled.h2`
     text-transformation: capitalize;
     text-align: center;
 `
+
+
+/*
+
+
+const VideoBox = styled.div`
+    width: 100%;
+    height: 189px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p{
+        display: inline;
+        float: left;
+        height: 100%;
+        flex: 1;
+    }
+    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+        flex-direction: row;
+        div{
+            flex: 1;
+            display: inline;
+        }
+        p{
+            
+        }
+    }
+`
+
+
+
+
+
+
+
+
+
+
+
+    div{
+        height: 100%;
+        position: relative;
+        display: inline-block;
+        margin: auto;
+        min-width: 336px;
+        flex: 1;
+    }
+*/

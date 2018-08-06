@@ -24,7 +24,15 @@ const themes = [
         spaceM: '10',
         spaceL: '20',
         roundCorners: '5px',
-        menuHeight: '100px'
+        menuHeight: '50px',
+        mediaMinWidth: '500px',
+        bg1: '#E07831',
+        bg2: '#E0AA35',
+        bg3: '#E0CE31',
+        bg4: '#FF6D6D',
+        bg5: '#FFAB88',
+        bg6: '#FF8AC9',
+        bgCount:6
     },
     {
         main: '#FFA508',
@@ -50,7 +58,11 @@ const themes = [
         spaceM: '10',
         spaceL: '20',
         roundCorners: '5px',
-        menuHeight: '100px'
+        menuHeight: '50px',
+        mediaMinWidth: '500px',
+        bg1: '#C72D79',
+        bg2: '#C72B2D',
+        bgCount:2
     },
     {
         main: '#89C939',
@@ -76,7 +88,12 @@ const themes = [
         spaceM: '10',
         spaceL: '20',
         roundCorners: '5px',
-        menuHeight: '100px'
+        menuHeight: '50px',
+        mediaMinWidth: '500px',
+        bg1: '#89C939',
+        bg2: '#C9C938',
+        bg3: '#4CD156',
+        bgCount:3
     }
 ]
 

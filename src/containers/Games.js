@@ -6,7 +6,7 @@ import { withRouteData, Link, withSiteData } from 'react-static'
 import GameItem from './../components/layout/GameListItem.jsx';
 import Container from './../components/UI/elements/Container';
 import styled from 'styled-components';
-import Slide from './../components/UI/animations/SlideDown.jsx';
+import Slide from './../components/UI/animations/Slide.jsx';
 //import Katex from './../components/UI/math/Katex.jsx';
 //pulling katex out of games removed it from most modules and from sample game
 //referencing katex at top of file brings katex into 1 templates/Games

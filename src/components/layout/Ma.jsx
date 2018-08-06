@@ -1,22 +1,39 @@
 import React from 'react';
 import { Link, withSiteData, withRouteData, Switch, Route, withRouter } from 'react-static';
 import './menu.css';
-// //import StaticRouteimport, import { StaticRouter } from 'react-router';
-// import { StaticRouter } from 'react-router';
-// import { error } from 'util';
-// { throwErrorIfRouteIsMissingPath } from 'react-static/lib/static/getConfig';
 import styled from 'styled-components';
 import Animate from 'react-move/Animate';
 import { easeExpOut } from 'd3-ease';
 import { withContext, getContext } from 'recompose';
 import Icon from './../UI/elements/IconButton.jsx';
+import iMore from './../../assets/baseline-more_vert-24px.svg';
+//import Dropdown from 'react-simple-dropdown';
+import Dropdown, {
+    DropdownToggle,
+    DropdownMenu,
+    DropdownMenuWrapper,
+    MenuItem,
+    DropdownButton
+} from '@trendmicro/react-dropdown';
+
+// // Be sure to include styles at some point, probably during your bootstraping
+import '@trendmicro/react-buttons/dist/react-buttons.css';
+import '@trendmicro/react-dropdown/dist/react-dropdown.css';
 
 class Menu extends React.Component{
     constructor(props){
         super(props);
+        let path = this.setPath(props.location.pathname);
+        let categories = ['games', 'posts', 'about', 't1'];
+        categories.sort((x, y) => {
+            return x === path[0]?-1 : y===path[0]?1:0
+        })
+        console.log(`current pant ${path[0]} categories sorted: `, categories);
         this.state = {
-            path: this.setPath(props.location.pathname),
-            categories: ['games', 'posts', 'about', 't1'],
+            path,
+            categories,
+            options: ['settings', 'privacy', 'about'],
+            more: false,
             cat: false
         }
     }
@@ -28,8 +45,6 @@ class Menu extends React.Component{
         return path;
     }
     componentDidUpdate(prevProps, prevState){
-        // console.log(`MainMenu componentDidUpdate prev ${prevProps
-        //     .location.pathname} this ${this.props.location.pathname}`);
         if(this.props.location.pathname !== prevProps.location.pathname){
             this.setState({
                 path: this.setPath(this.props.location.pathname),
@@ -39,28 +54,23 @@ class Menu extends React.Component{
     }
 
     handleClick(key, value){
+        console.log('handle click key = ' + key + " value " + value, this.state);
+        // [key]: value
         this.setState({
-            [key]: value
+            more: key==='more'?value:false,
+            cat: key==='cat'?value:false
         })
     }
     renderOpenButton(){
-        if(this.state.cat){
-            return (
-                <Wrapper style={{transform: 'rotate(90deg)'}}>
-                    <Icon icon={"arrow"} bg={'transparent'} hover={'transparent'} onInput={()=>{this.handleClick('cat', false)}}/>
-                </Wrapper>
-             )
-        }else{
-            return (
-                <Wrapper style={{transform: 'rotate(0deg)'}}>
-                    <Icon icon={"arrow"} bg={'transparent'} hover={'transparent'} onInput={()=>{this.handleClick('cat', true)}}/>
-                </Wrapper>
-             )
-        }
+        return (
+            <Wrapper style={{transform: `${this.state.cat?'rotate(90deg)':'rotate(0deg)'}`}}>
+                <Icon icon={"arrow"} bg={'transparent'} hover={'transparent'} onInput={()=>{this.handleClick('cat', !this.state.cat)}}/>
+            </Wrapper>
+         )
     }
     renderDrop(){
         if(this.state.cat){
-            return <Drop>
+            return <Drop tabIndex={"1"} onBlur={()=>{this.handleClick('cat', false)}}>
                 {this.state.categories.map(c => {
                     return (<Link className={'drop-item'} to={`/${c}`}>
                     <h4>{c}</h4>
@@ -68,56 +78,68 @@ class Menu extends React.Component{
                 })}
             </Drop>
         }
-        return null;
     }
-    renderTags(){
-        if(this.props.tags){
-            return (<div>{this.props.tags.map(t => {
-              //  console.log(`tags rendering ${t} with target tag ${this.props.tag} does it match? ${t === this.props.tag}`);
-                if(this.props.tag && t === this.props.tag){
-                    return <Tag><Link to={`/${t}`} className={'active'}>{t}</Link></Tag>
-                }else{
-                    return <Tag><Link to={`/${t}`}>{t}</Link></Tag>
-                }
-            })
-        }</div>)
-        }
+    renderMore(){
+        console.log("renderMore ", Dropdown.Toggle); //style={{right:0}} 
+        /*
+                                    <Icon icon={"more"} bg={'transparent'} hover={'grey'}
+                            onInput={()=>{this.handleClick('more', !this.state.more)}}/>
+        */
+       return (
+        <Dropdown
+        rootCloseEvent={'mousedown'}
+            pullRight={true}
+            onSelect={(eventKey) => {
+            }}
+        >
+            <Dropdown.Toggle
+                btnStyle="flat"
+                noCaret={true}
+            >
+                <Icon icon={"more"} bg={'transparent'} hover={'grey'}
+                            onInput={()=>{this.handleClick('more', !this.state.more)}}/>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <CustomMenuItem
+                    eventKey={5}
+                    active
+                    onSelect={(eventKey) => {
+                        alert(`Alert from menu item.\neventKey: ${eventKey}`);
+                    }}
+                >
+                    link that alerts
+                </CustomMenuItem>
+            </Dropdown.Menu>
+        </Dropdown>
+       )
+        // if(this.state.more){
+        //     return <Drop tabIndex={2}  onBlur={()=>{this.handleClick('more', false)}}>
+        //         {this.state.options.map(m => {
+        //             return (
+        //                 <Link className={'drop-item'} to={`/${m}`}>
+        //                     <p>{m}</p>
+        //                 </Link>
+        //             )
+        //         })}</Drop>
+        //     }
+        // return null;
     }
+
     renderPostHeading(){
         if(this.state.path[1] && this.state.path[1] === 'page'){
             return (
                 <p style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''} {this.state.path[2]? ' ' + this.state.path[2]: ''}</p>
             )
         }else{
-            return <PostTitle style={{fontSize: '1em'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
+            return <PostTitle style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
         }
     }
-    throwError(){
-       // throw new Error('simulated error cast');
-    //    try{
-    //        throw new Error('simulated error cast');
-    //    }catch(e){
-    //       // console.log("fuck fixing that");
-    //        throw e;
-    //       // return true;
-    //    }
-    //an error thrown in render seems to trigger component boundary error, throwing one in action triggers regular
-        this.setState({
-            triggerError: true
-        })
-    }
-    renderError(){
-        if(this.state.triggerError){
-            return this.state.error.trigger;
-        }
-        return null;
-    }
+
     renderCat(){
         //this.state.path[0]
-        if(false){
+        if(this.state.path[0]){
             return(
                 <Outer>
-                    {this.renderError()}
                     <Container>
                         <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
                         <Mid key={"mid"} style={{flex: '0'}}/>
@@ -129,29 +151,35 @@ class Menu extends React.Component{
                                 {this.renderOpenButton()}
                             </Selected>
                             {this.renderDrop()}
-                            
                         </FlexChild>
                         <FlexChild >
                             {this.renderPostHeading()}
                         </FlexChild>
+                        <Options key={"more"}>
+                            <Icon icon={"more"} bg={'transparent'} hover={'grey'} 
+                            onInput={()=>{this.handleClick('more', !this.state.more)}}/>
+                            {this.renderMore()}   
+                        </Options>
                     </Container>
-                    {this.renderTags()}
                     <p style={{textAlign: 'center', margin: '0px', color: 'grey'}}>double tap screen to change theme colors</p>
                 </Outer>
             )
         }else{
             return(
                 <Outer>
-                    {this.renderError()}
                     <Container>
                         <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
                         <Mid key={"mid"} style={{flex: '1'}}/>
-                        <FlexChild key={"games"}><a onClick={()=>{this.throwError()}}><h4>Throw</h4></a></FlexChild>
                         <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
                         <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
                         <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild>
+                        <Options key={"more"} >
+                            {/* <Icon icon={"more"} bg={'transparent'} hover={'grey'}
+                            onInput={()=>{this.handleClick('more', !this.state.more)}}/> */}
+                            {this.renderMore()}   
+                        </Options>
                     </Container>
-                    {this.renderTags()}
+                  
                     <p style={{textAlign: 'center', margin: '0px', color: 'grey'}}>double tap screen to change theme colors</p>
                 </Outer>
             )
@@ -164,29 +192,27 @@ class Menu extends React.Component{
     }
 }
 
-/*
-                <Switch>
-                    <Route path="/games" exact component={() => {return <p>games route match</p>}} />
-                    <Route path="/posts" exact component={() => {return <p>posts route match</p>}} />
-                    <Route path="/" component={() => {return <p>no match</p>}} />
-                </Switch>
-
-                        return(
-            <Container>
-                <FlexChild><Link exact to="/" ><h1>Title</h1></Link></FlexChild>
-                <Mid />
-                <FlexChild><Link to="/games"><h4>Games</h4></Link></FlexChild>
-                <FlexChild><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
-                <FlexChild><Link to="/about"><h4>About</h4></Link></FlexChild>
-            </Container>
-        )
-*/
-
 Menu.displayName = 'Menu';
 const e = withRouter(Menu);
 export default withRouteData(e);
 
-
+const CustomMenuItem = styled(MenuItem)`
+&& {
+    a {
+        &:hover {
+            background: red;
+        }
+        padding: 0 6px;
+    }
+}
+`;
+CustomMenuItem.propTypes = MenuItem.propTypes;
+CustomMenuItem.defaultProps = MenuItem.defaultProps;
+const Options=styled.span`
+    position: absolute; 
+    float:right; right:7px; top:7px; height: 50px;
+    borders: none;
+`
 const Drop = styled.div`
     position: absolute;
     z-index: 100; 
@@ -277,8 +303,9 @@ const Container = styled.div`
     height: 50px;
     display: flex;
     padding:0 0px;
-    margin:0 0 0px 0;
-   
+    padding-right: 50px;
+    margin:0;
+    position: relative;
 `
 
 // position: fixed;

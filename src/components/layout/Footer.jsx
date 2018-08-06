@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-class Footer extends React.Component{
+export default class Footer extends React.Component{
     render(){
         return(
-            <Footer>Footer</Footer>
+            <Foot onMouseOver={()=>{console.log('footer ghover')}}>Footer</Foot>
         )
     }
 }
 
-const Footer = styled.div`
+const Foot = styled.div`
     position: fixed;
-    height: 30px;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: red;
     color: white;
     text-align: center;
+    z-index: 999;
 `

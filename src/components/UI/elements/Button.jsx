@@ -6,11 +6,11 @@ class Button extends React.Component{
         super(props);
         this.handleInput = this.handleInput.bind(this);
     }
-    handleInput(){
+    handleInput(e){
         //fire event if available
         //pass input up to parents
-        //this.props.onInput();
-        console.log("button clicked");
+        this.props.onInput(e);
+     //   console.log("button clicked");
     }
     render(){
         return(

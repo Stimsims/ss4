@@ -90,6 +90,12 @@ export default {
         }) //have to call get data to use is component
       },
       {
+        path: '/settings',
+        component: 'src/containers/Settings.jsx',
+        getData: () => ({
+        }) //have to call get data to use is component
+      },
+      {
         is404: true,
         component: 'src/containers/404.jsx'
       },
@@ -123,6 +129,8 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
+            <meta name="robots" content="noindex" />
+            
             <title>My Title</title>
             {renderMeta.styleTags}
             
@@ -131,6 +139,7 @@ export default {
          
           {children}
           <script type="text/javascript" dangerouslySetInnerHTML={{ __html: workboxScript }} />
+         
           </Body>
         </Html>
       )

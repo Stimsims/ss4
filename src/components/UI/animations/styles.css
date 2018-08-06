@@ -6,6 +6,14 @@
     opacity: 1;
     transition: opacity 500ms ease-in;
 }
+.fade-in-appear {
+    opacity: 1;
+}
+
+.fade-in-appear.fade-in-appear-active {
+opacity: 0;
+transition: opacity .5s ease-in;
+}
 
 .fade-in-leave {
     opacity: 1;
@@ -16,14 +24,6 @@
     transition: opacity 300ms ease-in;
 }
 
-.fade-in-appear {
-opacity: 0.01;
-}
-
-.fade-in-appear.fade-in-appear-active {
-opacity: 1;
-transition: opacity .5s ease-in;
-}
 
 
 

@@ -26,7 +26,7 @@ const Wrapper = styled.span`
     display: ${props => props.display?props.display:'inline-block'};
     margin: auto;
     height: ${props => props.height? props.height: 'auto'};
-    width: ${props => props.width? props.width: '100%'};
+    width: ${props => props.width? props.width: 'inherit'};
     text-align: ${props => props.align?props.align:'center'};
     h1, h2, h3, h4, h5, h6, p{
         display: ${props => props.display?props.display:'inline-block'};
@@ -40,6 +40,10 @@ const Wrapper = styled.span`
                 return props.theme[props.theme.theme].text;
             }
         }};
+        padding: 5px;
         font-size: ${props => props.size? props.size:'1em'};
+        @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+            padding: 10px;
+        }
     }
 `

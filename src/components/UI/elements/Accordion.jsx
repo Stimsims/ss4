@@ -36,13 +36,13 @@ class FoldOut extends React.Component{
         if(this.state.open){
             return (
                 <Wrapper style={{display: 'inline-block', transform: 'rotate(180deg)'}}>
-                    <Icon icon={"up"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                    <Icon icon={"up"} round={true} onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }else{
             return (
                 <Wrapper style={{display: 'inline-block', transform: 'rotate(0deg)'}}>
-                    <Icon icon={"up"}  onInput={()=>{this.handleClick(this.state.iOpen)}}/>
+                    <Icon icon={"up"} round={true} onInput={()=>{this.handleClick(this.state.iOpen)}}/>
                 </Wrapper>
              )
         }

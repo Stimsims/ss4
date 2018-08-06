@@ -8,7 +8,7 @@ import Text from './../components/UI/elements/Text.jsx';
 import styled from 'styled-components';
 import Translate from './../components/UI/animations/Translate.jsx';
 import PostItem from './../components/layout/PostItem.jsx';
-import Trends from './../components/Trends.jsx';
+import Trends from './../components/UI/graphs/Trends.jsx';
 import MyLog from 'MyLog';
 // import ReactCSSTransitionGroup from 'react-transition-group';
 import FadeIn from './../components/UI/animations/FadeIn.jsx';
@@ -27,7 +27,7 @@ class Home extends React.Component{
     }
     render(){
         return (
-         <div>
+         <div style={{height: '100%', width: '100%'}}>
           <Bg fixed={false} height={'100%'} z={1} width={'100%'} colorKey={'neutral'} margin={'0'} padding={'0px 0px 0px 0px'}>
               <Trends/>
           </Bg>
@@ -43,19 +43,6 @@ class Home extends React.Component{
           </PostBox>
         </div>
         )
-        // return(
-        //         <PostBox>
-        //           <Message>
-        //           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-        //           ut labore et dolore magna aliqua. 
-        //           </Message>
-        //           <PostWrapper>
-        //             <Translate items={this.props.posts} itemKey={PostItem.key} itemId={'id'} 
-        //                     component={PostItem.component}  y={{start: -800, enter: 0, unit: 'px'}}/>
-        //           </PostWrapper>
-        //         </PostBox>
-        // )
-       // return <p>Not rendering that when leaving!!</p>
     }
 }
 Home.displayName='Home';

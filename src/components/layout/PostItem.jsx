@@ -34,12 +34,12 @@ export default {
   component: Item
 }
 const Wrapper = styled.div`
-  width:100%;
-  max-width:400px;
+
   margin: auto;
   padding: 10px 10px 0px 10px;
 `
 /*
+
   @media only screen and (min-width: 500px) {
     width:400px;
     max-width:400px;
