@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { createStore,  applyMiddleware } from 'redux'
 import logger from 'redux-logger';
-import reducers from './../../games/g5/reducers.js';
+//import reducers from './../../games/g5/reducers.js';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
@@ -39,9 +39,10 @@ if (typeof window === 'undefined') {
 }
 
 
-class Index extends React.Component{
+class Persist extends React.Component{
     constructor(props){
         super(props);
+        console.log("PersistStore props", props);
       this.persistConfig = {
             key: props.savefile,
             storage: storage,
@@ -63,7 +64,7 @@ class Index extends React.Component{
                 ),
             ]
         };
-      this.pReducer = persistReducer(this.persistConfig, reducers);
+      this.pReducer = persistReducer(this.persistConfig, this.props.reducers);
       this.store = createStore(this.pReducer,{},applyMiddleware(logger))
       this.persistor = persistStore(this.store);
     }
@@ -83,4 +84,5 @@ class Index extends React.Component{
     }
 }
 
-export default Index;
+Persist.displayName ='PersistStore';
+export default Persist;

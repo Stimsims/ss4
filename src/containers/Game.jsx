@@ -1,31 +1,18 @@
 
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-import Game from './../components/game/Index.jsx';
-//import samplegame from 'samplegame';
-//import katex from 'react-katex';
-// import Dynamic from './../components/DynamicComponent.jsx';
-//<Dynamic payload="./UI/math/Katex.jsx" />
+import Index from './../components/game/Index.jsx';
+import MyLog from 'MyLog';
 
 class Games extends React.Component{
     constructor(props){
         super(props);
-     //   console.log("game post constructor props", props);
         this.loadGame = this.loadGame.bind(this);
         this.getImport = this.getImport.bind(this);
         this.state = {
             game: null
         }
     }
-    // importKatex(){
-    //     import(/* webpackChunkName: "mykatex" */ 'react-katex')
-    //     .then(r=>{
-
-    //     })
-    //     .catch(e=>{
-
-    //     })
-    // }
     getImport(game){
         switch(game){
             case 'samplegame':
@@ -38,14 +25,17 @@ class Games extends React.Component{
         }
     }
     componentDidMount(){
-        let getImport = this.getImport(this.props.game.import)
+        let getImport = this.getImport(this.props.item.import)
+        console.log('getting import props:', this.props);
         if(getImport){
             getImport.then(res => {
-              //  console.log("import of game files complete, promise:", res);
-                this.loadGame(res);
+                console.log("import of game files complete, promise:", MyLog);
+                MyLog('log', `import of game files successful ${res}`);
+                 this.loadGame(res);
             })
             .catch(e => {
-              //  console.log("error importing game", e);
+                console.log("error importing game " + getImport, MyLog);
+              MyLog('warn', `error importing game ${e}`);
             })
         }
     }
@@ -55,15 +45,23 @@ class Games extends React.Component{
         })
     }
     render(){
+        // return(
+        //     <div>Game Container
+        //     <Link to={'/games'} >home</Link>
+        //     </div>
+        // )
         if(this.state.game){
             return (
-                <Game game={this.state.game} />
+                <div>
+                    <Index game={this.state.game} />
+                </div>
               )
         }else if(this.state.error){
             return <p>error loading game: {this.state.error}</p>
         }else{
             return <p>loading game files...</p>
         }
+        // return <div>Game</div>
     }
 }
 Games.displayName = 'Game';

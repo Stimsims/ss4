@@ -6,12 +6,11 @@ import Bg from './../components/UI/elements/Background.jsx';
 import Flex from './../components/UI/elements/Flexbox.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import styled from 'styled-components';
-import Translate from './../components/UI/animations/Translate.jsx';
 import PostItem from './../components/layout/PostItem.jsx';
 import Trends from './../components/UI/graphs/Trends.jsx';
 import MyLog from 'MyLog';
-// import ReactCSSTransitionGroup from 'react-transition-group';
 import FadeIn from './../components/UI/animations/FadeIn.jsx';
+import Slide from './../components/UI/animations/Slide.jsx';
 
 class Home extends React.Component{
     constructor(props){
@@ -31,16 +30,17 @@ class Home extends React.Component{
           <Bg fixed={false} height={'100%'} z={1} width={'100%'} colorKey={'neutral'} margin={'0'} padding={'0px 0px 0px 0px'}>
               <Trends/>
           </Bg>
-          <PostBox>
+          {/* <PostBox>
                 <Message>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                 ut labore et dolore magna aliqua. 
                 </Message>
                 <PostWrapper>
-                  <Translate items={this.props.posts} itemKey={PostItem.key} itemId={'id'} 
-                          component={PostItem.component}  y={{start: -800, enter: 0, unit: 'px'}}/>
+                {this.props.items.map(p=>{
+                      return <PostItem.component post={p} />
+                    })}
                 </PostWrapper>
-          </PostBox>
+          </PostBox> */}
         </div>
         )
     }

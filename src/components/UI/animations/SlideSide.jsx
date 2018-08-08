@@ -52,10 +52,12 @@ SlideDown.PropTypes = {
 }
 
 const Slide = styled.div`
-
+    padding: 0;
+    margin: 0;
     span{
         display: inline-block;
         width:100%;
+        padding: 0; margin: 0;
     }
 
     span .slide-side-enter{
@@ -86,7 +88,7 @@ const Slide = styled.div`
                     transition-delay: ${props.childDelay*i}ms;
                 }`;
             }
-            console.log("nth child " + val);
+            //console.log("nth child " + val);
             return val;
         }}
     }

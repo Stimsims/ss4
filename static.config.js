@@ -41,48 +41,75 @@ export default {
    let tags = extractUniqueValues(posts, 'tags');
    let pages = getTagPages(posts, 'tags', tags);
    return [
-    ...posts.map(post => ({
-      path: `/posts/${post.id}`,
-      component: 'src/containers/Post',
-      getData: () => ({
-        post
-      }),
-    })),
-    ...pages,
-    ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
-      (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', {title: 'Posts', tag: null, tags, base: "posts"}),
+   // ...pages,
     {
       path: '/',
       component: 'src/containers/Home.jsx',
       getData: () => ({
-        posts: featured,
+        items: featured,
       }),
       children: featured.map(p => {
         return({
           path: `/posts/${p.id}`,
-          component: 'src/containers/Post',
+          component: 'src/containers/Post.jsx',
           getData: () => ({
-            post: p,
+            item: p,
           }),
         })
       })
     },
-      {
-        path: '/games',
-        component: 'src/containers/Games',
+    // ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
+    //   (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', 
+    //   {title: 'Posts', tag: null, tags, base: "posts",  pageToken: 'post', childKey: 'post', parentKey: 'posts'}),
+       {
+        path: '/posts',
+        component: 'src/containers/Posts.jsx',
         getData: () => ({
-          games,
+          items: posts,
         }),
-        children: games.map(g => {
+        children: posts.map(p => {
           return({
-            path: `/${g.id}`,
-            component: 'src/containers/Game',
+            path: `/posts/${p.id}`,
+            component: 'src/containers/Post.jsx',
             getData: () => ({
-              game: g,
+              item: p,
             }),
           })
         })
       },
+    ...posts.map(post => ({
+      path: `/posts/${post.id}`,
+      component: 'src/containers/Post.jsx',
+      getData: () => ({
+        item: post
+      }),
+    })),
+      {
+        path: '/games',
+        component: 'src/containers/Games.jsx',
+        getData: () => ({
+          items: games
+        }),
+        children: games.map(g => {
+          return({
+            path: `/games/${g.id}`,
+            component: 'src/containers/Game.jsx',
+            getData: () => ({
+              item: g,
+            }),
+          })
+        })
+      },
+      // ...makePages(games, 100, 'games', 'src/containers/Games.jsx', 
+      // (cid)=>{return `/games/${cid}`}, 'src/containers/Game.jsx', 
+      // {title: 'Games', tag: null, tags, base: "games", pageToken: 'games', childKey: 'game', parentKey: 'games'}),
+      ...games.map(game => ({
+        path: `/games/${game.id}`,
+        component: 'src/containers/Game.jsx',
+        getData: () => ({
+          item: game
+        }),
+      })),
       {
         path: '/about',
         component: 'src/containers/About.jsx',
@@ -236,7 +263,7 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
       return makePageRoutes({
         items,
         pageSize,
-        pageToken: "page", // use page for the prefix, eg. blog/page/3
+        pageToken: childProps.pageToken, // use page for the prefix, eg. blog/page/3
         route: {
           // Use this route as the base route
           path: parentPath, //"t1",
@@ -248,7 +275,7 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
             posts,
             currentPage: i,
             totalPages,
-            pageToken: 'page',
+            pageToken: childProps.pageToken,
             ...childProps
           }),
         }),
@@ -259,15 +286,15 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
       path: parentPath, //'/',
       component: parentComponent, //'src/containers/Home',
       getData: () => ({
-        posts: items,
-        ...childProps
+        ...childProps,
+        items: items,
       }),
       children: items.map(p => {
         return({
           path: childPath(p.id), //`/posts/${p.id}`,
           component: childComponent, //'src/containers/Post',
           getData: () => ({
-            post: p,
+           item: p,
           }),
         })
       })

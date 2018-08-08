@@ -66,9 +66,12 @@ class Analytics extends React.Component{
     render(){
         
         return (
+            <div style={{position: 'absolute'}}>
             <SlideSide offset={0} duration={1000} childDelay={150}>
                 {this.renderModal()}
+                {/* <span style={{width: '0', height: '0', padding:'0', margin: '0'}}></span> */}
             </SlideSide>
+            </div>
         )
     }
 }

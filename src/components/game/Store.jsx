@@ -9,7 +9,7 @@ if (typeof window === 'undefined') {
 }
 
 
-class Index extends React.Component{
+class Store extends React.Component{
     constructor(props){
         super(props);
 
@@ -24,4 +24,5 @@ class Index extends React.Component{
     }
 }
 
-export default Index;
+Store.displayName = "Store";
+export default Store;

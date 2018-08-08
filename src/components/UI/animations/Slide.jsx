@@ -57,7 +57,6 @@ const Slide = styled.div`
     }
     span{
         display: inline-block;
-        width:100%;
     }
 
     span .slide-down-enter{
@@ -86,7 +85,7 @@ const Slide = styled.div`
                     transition-delay: ${props.childDelay*i}ms;
                 }`;
             }
-            console.log("nth child " + val);
+           // console.log("nth child " + val);
             return val;
         }}
     }

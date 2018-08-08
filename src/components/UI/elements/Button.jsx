@@ -14,11 +14,12 @@ class Button extends React.Component{
     }
     render(){
         return(
-            <Btn onClick={this.handleInput}>{this.props.children}</Btn>
+            <Btn className={'button'} onClick={this.handleInput}>{this.props.children}</Btn>
+           // <button className={'button'} onClick={this.handleInput}>{this.props.children}</button>
         )
     }
 }
-
+//Button.displayName = 'Button';
 export default Button;
 
 const Btn = styled.button`

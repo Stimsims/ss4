@@ -5,28 +5,34 @@ export default class Text extends React.Component{
     render(){
         switch(this.props.tag){
             case 'h1':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h1>{this.props.text}</h1></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h1>{this.props.text}</h1></Wrapper>
             case 'h2':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h2>{this.props.text}</h2></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h2>{this.props.text}</h2></Wrapper>
             case 'h3':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h3>{this.props.text}</h3></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h3>{this.props.text}</h3></Wrapper>
             case 'h4':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h4>{this.props.text}</h4></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h4>{this.props.text}</h4></Wrapper>
             case 'h5':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h5>{this.props.text}</h5></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h5>{this.props.text}</h5></Wrapper>
             case 'h6':
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h6>{this.props.text}</h6></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><h6>{this.props.text}</h6></Wrapper>
             default:
-                return <Wrapper align={this.props.align} size={this.props.size} display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><p>{this.props.text}</p></Wrapper>
+                return <Wrapper padding={this.props.padding} align={this.props.align} size={this.props.size} 
+                display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}><p>{this.props.text}</p></Wrapper>
         }
     }
 }
 
 const Wrapper = styled.span`
     display: ${props => props.display?props.display:'inline-block'};
-    margin: auto;
     height: ${props => props.height? props.height: 'auto'};
-    width: ${props => props.width? props.width: 'inherit'};
+    width: ${props => props.width? props.width: 'auto'};
     text-align: ${props => props.align?props.align:'center'};
     h1, h2, h3, h4, h5, h6, p{
         display: ${props => props.display?props.display:'inline-block'};
@@ -40,7 +46,7 @@ const Wrapper = styled.span`
                 return props.theme[props.theme.theme].text;
             }
         }};
-        padding: 5px;
+        padding: ${props => props.padding? props.padding: '5px'};
         font-size: ${props => props.size? props.size:'1em'};
         @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
             padding: 10px;

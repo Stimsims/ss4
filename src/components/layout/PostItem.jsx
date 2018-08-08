@@ -3,7 +3,7 @@ import {Link} from 'react-static';
 import styled from 'styled-components';
 import MyLog from 'MyLog';
 
-const key = 'post'
+const key = 'item'
 
 class Item extends React.Component{
   constructor(props){

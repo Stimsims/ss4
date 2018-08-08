@@ -51,7 +51,8 @@ class Icon extends React.Component {
     render() {
         //themeprovider provides base theme, can be overridden
       return (
-            <Btn padding={this.props.padding} bg={this.props.bg} hover={this.props.hover? this.props.hover:this.getColor(this.props.icon)} 
+            <Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
+                hover={this.props.hover} 
                 onClick={this.props.onInput} round={this.props.round}>
                 <img src={this.getImg(this.props.icon)}/>
             </Btn>
@@ -67,17 +68,17 @@ export default Icon;
     height:36px;
     padding:${props=>props.padding?props.padding:'0'};
     margin: 0px;
-    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].neutralD}; /* Blue background */
+    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].neutral}; /* Blue background */
     border: none; /* Remove borders */
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
     border-radius:${props=>props.round? '50%':props.theme[props.theme.theme].roundCorners};
     vertical-align: middle;
     transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
-    &:hover {
+    &:hover, &:focus{
         background-color: ${props => {
             //console.log("icon btn props", props);
-            return props.hover? props.hover: props.theme[props.theme.theme].accent;
+            return props.hover? props.hover: 'orange';
         }};
     };
     img{  

@@ -1,14 +1,13 @@
 
 import React from 'react'
-import { withRouteData, Link, Head, Redirect  } from 'react-static'
+import { withRouteData, Link, Head, Redirect, withSiteData  } from 'react-static'
 import styled from 'styled-components';
 import Container from './../components/UI/elements/Container';
 import Tags from './../components/layout/Tags.jsx';
-import Translate from './../components/UI/animations/Translate.jsx';
 import Slide from './../components/UI/animations/Slide.jsx';
 import PostItem from './../components/layout/PostItem.jsx';
 
-class Games extends React.Component{
+class Posts extends React.Component{
     constructor(props){
         super(props);
         console.log("posts constructor", props);
@@ -50,22 +49,20 @@ class Games extends React.Component{
     }
 
     render(){
+        console.log('rendering POSTS props', this.props);
         return (
             <PostBox>
                 {this.redirect()}
-                <button onClick={() => {
-                    this.props.posts.pop();
-                    this.forceUpdate();
-                }}>bbb</button>
                 <Tags tags={this.props.tags} tag={this.props.tag} />
                 <div style={{width: '100%', display: 'flex', padding: '0px 10px', justifyContent: 'center'}}>
                     {this.renderPagination()}      
                 </div>    
                         <Slide offset={0} duration={1000} childDelay={150}>
-                            {this.props.posts.map(p =>{
+                            {this.props.items.map(p =>{
                                     return <span className='anim-child'>
-                                            <PostItem.component post={p} />
+                                            <PostItem.component item={p} />
                                         </span>;
+                                    // return <p>item</p>
                                 } 
                             )}
                         </Slide>
@@ -74,8 +71,8 @@ class Games extends React.Component{
     }
 }
 
-Games.displayName='Posts';
-export default withRouteData(Games);
+Posts.displayName='Posts';
+export default withSiteData(withRouteData(Posts));
 
 const A = styled.span`
     padding: 3px;

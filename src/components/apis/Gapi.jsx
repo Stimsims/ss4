@@ -32,7 +32,9 @@ class Gapi extends React.Component{
 
     loadApi(){
         const script = document.createElement("script");
-        script.src = 'https://apis.google.com/js/api.js';
+        //script.src = 'https://apis.google.com/js/api.js';
+        script.src = 'https://apis.google.com/js/platform.js';
+        //script.src = 'https://apis.google.com/js/client.js';
         script.onload = () => {
             gapi.load('client', () => {
                 this.initClient();
@@ -42,7 +44,7 @@ class Gapi extends React.Component{
     }
 
     updateSigninStatus(isSignedIn) {
-       // console.log("update sign in status, " + isSignedIn)
+        console.log("update sign in status, ", isSignedIn)
         this.props.setSignedIn(isSignedIn);
     }
     initClient(){

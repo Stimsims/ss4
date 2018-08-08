@@ -11,9 +11,7 @@ class Menu extends React.Component{
     render(){
         return(
             <Bar>
-                <Icon icon={"facebook"} />
-                <Icon icon={"twitter"} />
-                <Icon icon={"google"} />
+                <Icon icon={"save"} round={true} />
                 <SignInUi />
             </Bar>
         )

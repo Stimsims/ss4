@@ -16,15 +16,15 @@ import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 //import katex from 'react-katex';
-class Games extends React.Component{
+class Post extends React.Component{
     constructor(props){
         super(props);
         //iterate through content, create talkit for each game node
        // console.log("Post constructor", props);
         MyLog('log', "Post constructor", props);
         let games = {};
-        if(props.post.content){
-            props.post.content.map((c, i) => {
+        if(props.item.content){
+            props.item.content.map((c, i) => {
                 if(c.type=="game"){
                     games[i] = <Talkit tree={c.content}/>
                 }
@@ -37,8 +37,8 @@ class Games extends React.Component{
     }
 
     renderContent(){
-        if(this.props.post.content){
-            return this.props.post.content.map((c, i) => {
+        if(this.props.item.content){
+            return this.props.item.content.map((c, i) => {
                 if(c.type == "text"){
                     return <TextBox index={i}><Text tag={'p'} text={c.content} align={'left'}/></TextBox>
                 }else if(c.type == "game"){
@@ -67,8 +67,8 @@ class Games extends React.Component{
         //return null;
         return (
             <PostBox>
-                <Text tag={'h1'} text={this.props.post.title} />
-                <Tags tags={this.props.post.tags} />
+                <Text tag={'h1'} text={this.props.item.title} />
+                <Tags tags={this.props.item.tags} />
                 {this.renderContent()}
                 <Shareable>
                     <Icon icon={"done"} round={true} padding={'3px'}/>
@@ -79,9 +79,14 @@ class Games extends React.Component{
             </PostBox>
           )
     }
+    // render(){
+    //     return(
+    //         <p>Post</p>
+    //     )
+    // }
 }
-Games.displayName='Post';
-export default withRouteData(Games);
+Post.displayName='Post';
+export default withRouteData(Post);
 const PostBox = styled.div`
     height: 100%;
     width: 100%;

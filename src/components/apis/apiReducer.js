@@ -5,6 +5,7 @@ const initialState = {
 }
   
   export const reducer = (state = initialState, action = {}) => {
+    console.log('api reducer action ', action);
     switch (action.type) {
       case 'SET_GAPI':
         return {

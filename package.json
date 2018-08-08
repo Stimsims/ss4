@@ -25,6 +25,7 @@
     "react-d3-tree": "^1.10.6",
     "react-dom": "^16.4.1",
     "react-ga": "^2.5.3",
+    "react-google-button": "^0.5.3",
     "react-katex": "^2.0.2",
     "react-move": "^2.7.0",
     "react-redux": "^5.0.6",
@@ -38,6 +39,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "reselect": "^3.0.1",
+    "sinon": "^6.1.4",
     "styled-components": "^3.3.3",
     "typeface-roboto": "0.0.54",
     "validate.js": "^0.12.0"

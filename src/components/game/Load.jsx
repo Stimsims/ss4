@@ -1,29 +1,28 @@
 import React from 'react';
 import Store from './PersistStore.jsx';
-import {guid} from './../../utilities/ids.js';
+import {createFileWithJSONContent} from './../../utilities/fileUtils.js';
 import {connect} from 'react-redux';
-import Menu from './GameMenu.jsx';
+
 
 if (typeof window === 'undefined') {
     global.window = {}
 }
-function getFileName(game, id, name){
-    return `${game}:${id}:${name}`
-}
+
 function getStoreName(game, id){
     return `${game}-${id}`
 }
-function getDriveName(game, id){
-    return `${game}:${id}`
-}
+
 function getMetaName(meta, game, id){
     return `${meta}:${game}-${id}`
 }
 const DATE = 'date',
-      DESC = 'desc';
-class Index extends React.Component{
+      DESC = 'desc',
+      SAVE_NAME = 'A',
+      DRIVE_FILE_KEY = 'gamename';
+class Load extends React.Component{
     constructor(props){
         super(props);
+        console.log("Load constructor props", props);
         this.onNewGame = this.onNewGame.bind(this);
         this.onLoadGame = this.onLoadGame.bind(this);
         this.getLocalFiles = this.getLocalFiles.bind(this);
@@ -39,19 +38,13 @@ class Index extends React.Component{
     }
     componentDidMount(){
         this.getLocalFiles();
-        // console.log("set route leave hook, ", this.props);
-        // this.props.router.setRouteLeaveHook(this.props.route, () => {
-        //     // if (this.state.unsaved)
-        //     //   return 'You have unsaved information, are you sure you want to leave this page?'
-        //     console.log("router detects user is refreshing");
-        //   })
     }
     componentWillUnmount(){
-        console.log("unmounting, saving to drive");
         this.saveLocalMeta();
         this.saveGame();
     }
     componentDidUpdate(prevProps, prevState){
+        console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
         if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
                this.syncSaves();
         }
@@ -80,8 +73,8 @@ class Index extends React.Component{
             ids.map(id => {
                 if(!local[id]){
                     local[id] = {
-                        date: localStorage.getItem(getMetaName(DATE,this.props.gamename, 'A')),
-                        desc: localStorage.getItem(getMetaName(DESC,this.props.gamename, 'A'))
+                        date: localStorage.getItem(getMetaName(DATE,this.props.gamename, SAVE_NAME)),
+                        desc: localStorage.getItem(getMetaName(DESC,this.props.gamename, SAVE_NAME))
                     }
                 }
             })
@@ -92,121 +85,50 @@ class Index extends React.Component{
         }
 
     }
-    createFileWithJSONContent = function(isCreate, fileId, name, data, callback) {
-        //appData file: 1iUAS3YYiw95q-MbgLZrOXtJvgj_XywiG4_FxqSu_xGdsbfEQOw
-        const boundary = '-------314159265358979323846';
-        const delimiter = "\r\n--" + boundary + "\r\n";
-        const close_delim = "\r\n--" + boundary + "--";
-      
-        const contentType = 'application/json';
-      //getGameName(this.props.gamename, 1)
-      //'parents':  ['appDataFolder']
-      console.log("creating file with prop gamename val " + this.props.gamename);
-        var metadata = {
-            'name': name,
-            'mimeType': contentType,
-            "appProperties": {
-                "gamename": `${this.props.gamename}`,
-            }
-          };
-      
-          var multipartRequestBody =
-              delimiter +
-              'Content-Type: application/json\r\n\r\n' +
-              JSON.stringify(metadata) +
-              delimiter +
-              'Content-Type: ' + contentType + '\r\n\r\n' +
-              data +
-              close_delim;
-      
-              //'method': 'POST',
-              let path = '/upload/drive/v3/files';
-              let method =  'POST'
-              if(!isCreate){
-                  path = path + '/' + fileId;
-                  method = 'PATCH';
-              }
-              console.log("uploading content, method " + method + " path " + path);
-          var request = gapi.client.request({
-              'path': path,
-              'method': method,
-              'params': {'uploadType': 'multipart'},
-              'headers': {
-                'Content-Type': 'multipart/related; boundary="' + boundary + '"'
-              },
-              'body': multipartRequestBody});
-          if (!callback) {
-            callback = function(file) {
-              console.log(file)
-            };
-          }
-          request.execute(callback);
-      }
+    
       onNewGame(){
-        //create a new save id, and generate first save date and desc
-        //set game +id as filename
-      //  let id = guid(); getMetaName(meta, game, id){
-        // let name = 'A';
-        // let date = new Date();
-        // //let name = getStoreName(this.props.gamename, id);
-        // console.log("new game name: " + name + " date: " + date.getTime());
-        // let localStorage = window.localStorage;
-        // //save metadata locally
-        // localStorage.setItem(getMetaName(DATE, this.props.gamename, name), date.getTime());
-        // localStorage.setItem(getMetaName(DESC, this.props.gamename, name), 'a game description');
         this.saveLocalMeta();
         //game will be persisted to cloud on close
+        //new game and load game set the filename of the game to be played
         this.setState({
-            filename: getStoreName(this.props.gamename, name)
+            filename: getStoreName(this.props.gamename, SAVE_NAME)
         })
     }
     saveLocalMeta(){
-        let name = 'A';
         let date = new Date();
-        //let name = getStoreName(this.props.gamename, id);
-        console.log("new game name: " + name + " date: " + date.getTime());
+        console.log("new game name: " + SAVE_NAME + " date: " + date.getTime());
         let localStorage = window.localStorage;
         //save metadata locally
-        localStorage.setItem(getMetaName(DATE, this.props.gamename, name), date.getTime());
-        localStorage.setItem(getMetaName(DESC, this.props.gamename, name), 'a game description');
+        localStorage.setItem(getMetaName(DATE, this.props.gamename, SAVE_NAME), date.getTime());
+        localStorage.setItem(getMetaName(DESC, this.props.gamename, SAVE_NAME), 'a game description');
     }
     saveGame(){
         //get list of files with gamename: this.props.game
-        
-        let name = getStoreName(this.props.gamename, 'A');
-        console.log("saving game to drive name " + name);
-        let localStorage = window.localStorage;
-        
+        let filename = getStoreName(this.props.gamename, SAVE_NAME);
+        console.log("saving game to drive name " + filename);
         if(this.props.gapi.isSignedIn){
+            let localStorage = window.localStorage;
+            console.log("retrieved localStorage obj from window");
             let list = this.listSaveFiles().then(
                 function(response) {
                     let list = response.result.files;
                     console.log("saveGame response", response);
                     console.log("saving game, drive files found: " + list.length);
-                    
-                    
-                        if(list && list.length > 0){
-                            let id = list[0].id;
-                            //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
+                    if(list){
+                        let id = list[0]?list[0].id:null;
+                        //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
                         // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
-                            let updatedfile = localStorage.getItem('persist:' + name)
-                            console.log("updated file from local", updatedfile);
-                            this.createFileWithJSONContent(false, id, name, updatedfile, (res) => {console.log("create file with json callback", res)})
-                        }
-
-
-                    // else{
-                    //     //if not, create it
-                    //     //let newfile = localStorage.getItem('persist:g4-5379725d-ceec-8070-1176-612b1a9d5b06')
-                    //     let newfile = localStorage.getItem('persist:' + name)
-                    //     console.log("create file from local", newfile);
-                    //     this.createFileWithJSONContent(true, null, name, newfile, (res) => {console.log("create file with json callback", res)})
-                    // }
-                    
+                        let updatedfile = localStorage.getItem('persist:' + filename)
+                        console.log("saveGame updated file from local", updatedfile);
+                        createFileWithJSONContent(list.length <=0, id, filename, updatedfile, 
+                            (res) => {console.log("create file with json callback", res)}, 
+                            DRIVE_FILE_KEY)
+                        console.log("saveGame successfully updated file");
+                    }
                 }.bind(this)
             );
         }else{
-            console.log("ERROR, unable to upload to drive, not signed in");
+            console.log("saveGame ERROR, unable to upload to drive, not signed in");
         }
     }
     listSaveFiles(){
@@ -215,8 +137,9 @@ class Index extends React.Component{
             'fields': "files(id, name, mimeType, modifiedTime)"
             'q': "appProperties has { key='gamename' and value='witcher' }"
         */
+       console.log(`listing game files key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}'`);
         return gapi.client.drive.files.list({
-            'q': `appProperties has { key='gamename' and value='${this.props.gamename}' }`,
+            'q': `appProperties has { key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}' }`,
             'fields': "files(id, name, mimeType, modifiedTime)"
         })
     }
@@ -261,6 +184,12 @@ class Index extends React.Component{
                             saveConflict: list[0]
                         })
                     }
+                }else{
+                    console.log("no load games found");
+                    this.setState({
+                        syncing:false,
+                        synced: true
+                    })
                 }
             }.bind(this)
         ).catch(function(err){
@@ -276,15 +205,15 @@ class Index extends React.Component{
         console.log("downloading saving file ", file);
         let localStorage = window.localStorage;
         let id = file.id;
-        let name = file.name;
-        console.log("downloading save file id: " + id + " name: " + name);
+        let filename = file.name;
+        console.log("downloading save file id: " + id + " name: " + filename);
         this.getFile(id)
             .then((res)=>{
                 console.log("get file result", res);
                 console.log("file body", res.body);
                 console.log("file result", res.result);
-                let file = localStorage.setItem('persist:' + name, res.body);
-                console.log("saving drive file to local storage at " + ('persist:' + name));
+                let file = localStorage.setItem('persist:' + filename, res.body);
+                console.log("saving drive file to local storage at " + ('persist:' + filename));
                 this.setState({
                     syncing:false,
                     synced: true,
@@ -321,7 +250,7 @@ class Index extends React.Component{
         if(!this.state.syncing){
             return (<button onClick={() => {this.onNewGame();}}>New Game</button>)
         }else{
-            return (<button onClick={() => {this.onNewGame();}} disabled>New Game</button>)
+            return (<button onClick={() => {this.onNewGame();}} disabled>New Game D</button>)
         } 
     }
     renderSaves(){
@@ -332,7 +261,7 @@ class Index extends React.Component{
                 return (<button onClick={() => {
                     this.onLoadGame(k);
                     }}>
-                        save {i} date: {save.date}, desc: {save.desc}
+                        save {i} date: {save.date}, desc: {save.desc} id: {k}
                     </button>)
             })
                // return this.state.local[k].map((e, i) => {{}
@@ -340,10 +269,10 @@ class Index extends React.Component{
     }
     onLoadGame(id){
         //use game + id as filename, set as filename
-        let name = getStoreName(this.props.gamename, 'A');
-        console.log("load game name: " + name);
+        let filename = getStoreName(this.props.gamename, id);
+        console.log("load game name: " + filename);
         this.setState({
-            filename: name
+            filename
         })
     }
     renderSaveConflict(){
@@ -376,12 +305,15 @@ class Index extends React.Component{
         return <p>probelm displaying conflict...</p>
     }
     render(){
+        console.log(`load rendering game saveConflict ${this.state.saveConflict} synced ${this.state.synced}
+            syncing ${this.state.syncing} filename ${this.state.filename}`)
         if(this.state.saveConflict){
             return this.renderSaveConflict()
-        }else if(this.state.synced && this.state.filename){
+        }else if(this.state.filename){
             //savefile={this.state.filename}
+            
             return(
-                <Store savefile={this.state.filename}>
+                <Store savefile={this.state.filename} reducers={this.props.reducers}>
                     <button onClick={() => {
                         this.saveGame();
                         }}>
@@ -398,21 +330,12 @@ class Index extends React.Component{
         }else{
             return(
                 <div>
-                    <Menu />
-                    {this.state.synced? <p>synced</p>:<p>not synced</p>}
-                    {/* <button onClick={() => {
-                    this.saveGame();
-                    }}>
-                        save game to drive
-                    </button> */}
-                    {/* {this.renderLoadGame()} */}
+                   
+                    {this.state.synced? <p>synced</p>: this.state.syncing?<p>syncing...</p>:<p>not synced</p>}
                     <hr/>
                     {this.renderNewGame()}
                     <hr/>
                     {this.renderSaves()}
-                    <hr />
-                    {/* {this.renderDriveSave()} */}
-                    <hr />
                 </div>
             )
         }
@@ -427,4 +350,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Index);
+Load.displayName = 'Load';
+export default connect(mapStateToProps)(Load);

@@ -13,21 +13,11 @@ import theme from './components/UI/theme.js';
 import Analytics from './components/apis/Analytics.jsx';
 import Gapi from './components/apis/Gapi.jsx';
 
-import { easeQuadOut } from 'd3-ease'
-import { NodeGroup } from 'react-move'
 import { withContext, getContext } from 'recompose'
-import PageAnim from './components/UI/animations/Page.jsx';
 
 import PropTypes from 'prop-types';
-//import Menu from './components/layout/Ma.jsx';
-import Menu from './components/layout/WebMenu.jsx';
-import Footer from './components/layout/Footer.jsx';
-
-import ReactCSSTransitionGroup from 'react-transition-group';
+import Menu from './components/layout/Ma.jsx';
 import FadeIn from './components/UI/animations/FadeIn.jsx';
-
-// import {MuiThemeProvider} from '@material-ui/core/styles';
-// import muiTheme from './components/MaterialUi.js';
 
 const startTheme = theme();
 
@@ -156,12 +146,13 @@ class App extends React.Component{
                                 })}}>
                         <Analytics />
                         <Gapi />
+                        {/* <p style={{display: 'none'}}>App root</p> */}
                         <Top>
-                          {/* <Menu /> */}
-                          <Switch>
+                          <Menu />
+                          {/* <Switch>
                             <Route path="/games/:game" exact component={() => {return null}} />
                             <Route path="/" component={() => {return <Menu />}} />
-                          </Switch>
+                          </Switch> */}
                         </Top>
                         <Content>
                           <Routes component={AnimatedRoutes} />

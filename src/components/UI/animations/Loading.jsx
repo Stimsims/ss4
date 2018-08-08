@@ -16,7 +16,7 @@ function drawCircles(){
     let offset = 68;
     for(var i = 0; i<2*Math.PI; i+=Math.PI/6){
     //for(var i = 0; i<360; i+=30){
-        console.log(`creating circle i:${i} cos: ${Math.cos(i)*radius} sin: ${Math.sin(i)*radius}`)
+       // console.log(`creating circle i:${i} cos: ${Math.cos(i)*radius} sin: ${Math.sin(i)*radius}`)
         circles.push(new createCircle(i, Math.cos(i)*radius + offset, Math.sin(i)*radius + offset))
     }
 }
