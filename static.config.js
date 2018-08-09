@@ -41,7 +41,7 @@ export default {
    let tags = extractUniqueValues(posts, 'tags');
    let pages = getTagPages(posts, 'tags', tags);
    return [
-   // ...pages,
+    ...pages,
     {
       path: '/',
       component: 'src/containers/Home.jsx',
@@ -58,25 +58,26 @@ export default {
         })
       })
     },
-    // ...makePages(posts, 100, 'posts', 'src/containers/Posts.jsx', 
-    //   (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', 
-    //   {title: 'Posts', tag: null, tags, base: "posts",  pageToken: 'post', childKey: 'post', parentKey: 'posts'}),
-       {
-        path: '/posts',
-        component: 'src/containers/Posts.jsx',
-        getData: () => ({
-          items: posts,
-        }),
-        children: posts.map(p => {
-          return({
-            path: `/posts/${p.id}`,
-            component: 'src/containers/Post.jsx',
-            getData: () => ({
-              item: p,
-            }),
-          })
-        })
-      },
+    ...makePages(posts, 100, 'posts','src/containers/Posts.jsx', 
+    (cid)=>{return `/posts/${cid}`},'src/containers/Post.jsx', 
+    {title: 'Posts', tag: null, tags, base: "posts",  pageToken: 'post'}),
+      //items, pageSize, parentPath, parentComponent, childPath, childComponent, childProps
+      //  {
+      //   path: '/posts',
+      //   component: 'src/containers/Posts.jsx',
+      //   getData: () => ({
+      //     items: posts,
+      //   }),
+      //   children: posts.map(p => {
+      //     return({
+      //       path: `/posts/${p.id}`,
+      //       component: 'src/containers/Post.jsx',
+      //       getData: () => ({
+      //         item: p,
+      //       }),
+      //     })
+      //   })
+      // },
     ...posts.map(post => ({
       path: `/posts/${post.id}`,
       component: 'src/containers/Post.jsx',
@@ -119,6 +120,12 @@ export default {
       {
         path: '/settings',
         component: 'src/containers/Settings.jsx',
+        getData: () => ({
+        }) //have to call get data to use is component
+      },
+      {
+        path: '/privacy',
+        component: 'src/containers/Privacy.jsx',
         getData: () => ({
         }) //have to call get data to use is component
       },
@@ -212,30 +219,16 @@ export default {
 
 
 const getTagPages = (items, key, tags) => {
-  // let tags = extractTags(posts);
-  // console.log("extracted tags", tags);
-  // let pages = [];
-  // tags.map(t => {
-  //    let tagPosts = posts.filter(e => {
-  //      return e.tags.indexOf(t) > -1
-  //    })
-  //    pages = [
-  //      ...pages,
-  //      ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
-  //      (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {title: t ,tag: t, tags, base: t})
-  //    ]
-  // })
-  
- // console.log("extracted tags", tags);
   let pages = [];
   tags.map(t => {
-     let tagPosts = posts.filter(e => {
+     let tagPosts =items.filter(e => {
        return e[key].indexOf(t) > -1
      })
      pages = [
        ...pages,
        ...makePages(tagPosts, 2, t, 'src/containers/Posts.jsx', 
-       (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx', {title: t ,tag: t, tags, base: t})
+       (cid)=>{return `/posts/${cid}`}, 'src/containers/Post.jsx',
+       {title: t ,tag: t, tags, base: t, pageToken: 'page'})
      ]
   })
   return pages;
@@ -263,19 +256,19 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
       return makePageRoutes({
         items,
         pageSize,
-        pageToken: childProps.pageToken, // use page for the prefix, eg. blog/page/3
+        ...childProps,
         route: {
           // Use this route as the base route
           path: parentPath, //"t1",
           component: parentComponent //'src/containers/Posts',
         },
-        decorate: (posts, i, totalPages) => ({
+        decorate: (items, i, totalPages) => ({
           // For each page, supply the posts, page and totalPages
           getData: () => ({
-            posts,
+            items,
             currentPage: i,
             totalPages,
-            pageToken: childProps.pageToken,
+            brink: 'manhs',
             ...childProps
           }),
         }),

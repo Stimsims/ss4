@@ -3,7 +3,6 @@ import { Link, withSiteData, withRouteData, Switch, Route, withRouter } from 're
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from './../UI/elements/IconButton.jsx';
-import iMore from './../../assets/baseline-more_vert-24px.svg';
 import Dropdown from './../UI/elements/Dropdown/index.jsx';
 import iArrow from './../../assets/baseline-keyboard_arrow_right-24px.svg';
 
@@ -12,14 +11,14 @@ export class Menu extends React.Component{
     constructor(props){
         super(props);
         let path = this.setPath(props.location.pathname);
-        let categories = [{to: '/games', text:'games'}, {to: '/posts', text:'posts'}, {to: '/t1', text:'t1'}];
+        let categories = [{to: '/games', text:'games'}, {to: '/posts', text:'posts'}, 
+        {to: '/t1', text:'t1'}];
         categories.sort((x, y) => {
             return x.text === path[0]?-1 : y.text===path[0]?1:0
         })
         this.state = {
             path,
             categories,
-            options: ['settings', 'privacy', 'about'],
             minimize: this.setMinimize(path)
         }
     }
@@ -60,7 +59,7 @@ export class Menu extends React.Component{
     }
     renderMore(){
        return (
-        <Dropdown links={[ {text: 'about', to: '/about'}, {text: 'privacy', to: '/privacy'}, 
+        <Dropdown links={[  {text: 'privacy', to: '/privacy'}, {text: 'about', to: '/about'},
         {text: 'settings', to: '/settings'}]}>
             <Icon classes="dropbtn" tabIndex="1" icon={"more"} hover={'grey'}/>
         </Dropdown>
@@ -113,7 +112,7 @@ export class Menu extends React.Component{
                             <Mid key={"mid"} style={{flex: '1'}}/>
                             <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
                             <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
-                            <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild>
+                            {/* <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild> */}
                             <Options key={"more"} >
                                 {this.renderMore()}   
                             </Options>

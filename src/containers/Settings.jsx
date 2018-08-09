@@ -15,10 +15,10 @@ class Settings extends React.Component{
                             <Switch />
                         </span>
                     </TextBox>
-                    <TextBox id={'privacy'}>
+                    {/* <TextBox id={'privacy'}>
                         <Text tag={'p'} text={'Privacy'} display={'block'} colorKey={'textInverted'} />
                         <Text tag={'p'} text={'A statement about Privacy'} align={'left'} display={'block'} colorKey={'textInverted'} />
-                    </TextBox>
+                    </TextBox> */}
                 </div>
             </div>
         )

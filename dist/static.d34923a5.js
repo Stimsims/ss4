@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 46);
@@ -468,36 +468,128 @@ const PostBox = styled.div`
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("recharts");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\TextBox.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    transition: 0.3s;\n    border-radius: 5px;\n    background-color ', ';\n    padding: 0px;\n    width: ', ';\n    margin: 10px 0px;\n    padding: ', ';\n    @media only screen and (min-width: ', ') {\n        padding: ', ';\n    }\n'], ['\n    position: relative;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    transition: 0.3s;\n    border-radius: 5px;\n    background-color ', ';\n    padding: 0px;\n    width: ', ';\n    margin: 10px 0px;\n    padding: ', ';\n    @media only screen and (min-width: ', ') {\n        padding: ', ';\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Textbox = function (_React$Component) {
+    _inherits(Textbox, _React$Component);
+
+    function Textbox(props) {
+        _classCallCheck(this, Textbox);
+
+        return _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
+    }
+
+    _createClass(Textbox, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Box,
+                { width: this.props.width, padding: this.props.padding, index: this.props.index, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 11
+                    }
+                },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Textbox;
+}(_react2.default.Component);
+
+exports.default = Textbox;
+
+
+var Box = _styledComponents2.default.div(_templateObject, function (props) {
+    var i = props.index % props.theme[props.theme.theme].bgCount;
+    console.log('bg color index ' + props.index + ' count ' + props.theme[props.theme.theme].bgCount + ' i ' + i);
+    switch (i) {
+        case 1:
+            return props.theme[props.theme.theme].bg2;
+        case 2:
+            return props.theme[props.theme.theme].bg3;
+        case 3:
+            return props.theme[props.theme.theme].bg4;
+        case 4:
+            return props.theme[props.theme.theme].bg5;
+        case 5:
+            return props.theme[props.theme.theme].bg6;
+        case 0:
+        default:
+            return props.theme[props.theme.theme].bg1;
+    }
+}, function (props) {
+    return props.width ? props.width : '100%';
+}, function (props) {
+    return props.padding ? props.padding : '10px';
+}, function (props) {
+    return props.theme[props.theme.theme].mediaMinWidth;
+}, function (props) {
+    return props.padding ? props.padding : '10px 20px';
+});
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("recharts");
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("redux");
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-plugin-universal-import/importCss");
+module.exports = require("path");
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-plugin-universal-import/universalImport");
+module.exports = require("babel-plugin-universal-import/importCss");
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-plugin-universal-import/universalImport");
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -520,39 +612,39 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _baselineDelete24px = __webpack_require__(64);
+var _baselineDelete24px = __webpack_require__(57);
 
 var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
 
-var _baselineDone24px = __webpack_require__(65);
+var _baselineDone24px = __webpack_require__(58);
 
 var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
 
-var _baselineCached24px = __webpack_require__(66);
+var _baselineCached24px = __webpack_require__(59);
 
 var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(30);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(28);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
-var _baselineSave24px = __webpack_require__(67);
+var _baselineSave24px = __webpack_require__(60);
 
 var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
 
-var _baselineSettings20px = __webpack_require__(68);
+var _baselineSettings20px = __webpack_require__(61);
 
 var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
 
-var _baselineKeyboard_arrow_up24px = __webpack_require__(69);
+var _baselineKeyboard_arrow_up24px = __webpack_require__(62);
 
 var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
 
-var _baselinePlay_arrow24px = __webpack_require__(70);
+var _baselinePlay_arrow24px = __webpack_require__(63);
 
 var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
 
-var _baselineMore_vert24px = __webpack_require__(31);
+var _baselineMore_vert24px = __webpack_require__(64);
 
 var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
 
@@ -652,98 +744,6 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 }, function (props) {
     //console.log("icon btn props", props);
     return props.hover ? props.hover : 'orange';
-});
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\TextBox.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    transition: 0.3s;\n    border-radius: 5px;\n    background-color ', ';\n    padding: 0px;\n    width: ', ';\n    margin: 10px 0px;\n    padding: ', ';\n    @media only screen and (min-width: ', ') {\n        padding: ', ';\n    }\n'], ['\n    position: relative;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    transition: 0.3s;\n    border-radius: 5px;\n    background-color ', ';\n    padding: 0px;\n    width: ', ';\n    margin: 10px 0px;\n    padding: ', ';\n    @media only screen and (min-width: ', ') {\n        padding: ', ';\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Textbox = function (_React$Component) {
-    _inherits(Textbox, _React$Component);
-
-    function Textbox(props) {
-        _classCallCheck(this, Textbox);
-
-        return _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
-    }
-
-    _createClass(Textbox, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Box,
-                { width: this.props.width, padding: this.props.padding, index: this.props.index, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 11
-                    }
-                },
-                this.props.children
-            );
-        }
-    }]);
-
-    return Textbox;
-}(_react2.default.Component);
-
-exports.default = Textbox;
-
-
-var Box = _styledComponents2.default.div(_templateObject, function (props) {
-    var i = props.index % props.theme[props.theme.theme].bgCount;
-    console.log('bg color index ' + props.index + ' count ' + props.theme[props.theme.theme].bgCount + ' i ' + i);
-    switch (i) {
-        case 1:
-            return props.theme[props.theme.theme].bg2;
-        case 2:
-            return props.theme[props.theme.theme].bg3;
-        case 3:
-            return props.theme[props.theme.theme].bg4;
-        case 4:
-            return props.theme[props.theme.theme].bg5;
-        case 5:
-            return props.theme[props.theme.theme].bg6;
-        case 0:
-        default:
-            return props.theme[props.theme.theme].bg1;
-    }
-}, function (props) {
-    return props.width ? props.width : '100%';
-}, function (props) {
-    return props.padding ? props.padding : '10px';
-}, function (props) {
-    return props.theme[props.theme.theme].mediaMinWidth;
-}, function (props) {
-    return props.padding ? props.padding : '10px 20px';
 });
 
 /***/ }),
@@ -874,12 +874,6 @@ module.exports = function(module) {
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-addons-css-transition-group");
-
-/***/ }),
-/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -902,7 +896,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(18);
+var _reactAddonsCssTransitionGroup = __webpack_require__(19);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
@@ -1020,6 +1014,12 @@ var Slide = _styledComponents2.default.div(_templateObject, function (props) {
 }, function (props) {
     return props.up ? '1000px' : '-1000px';
 });
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
 /* 20 */
@@ -1164,15 +1164,15 @@ var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, pro
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Home.jsx';
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Posts.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  position: relative;\n  width: 100%;\n'], ['\n  position: relative;\n  width: 100%;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  position: absolute;\n  z-index: 10;\n  top: 100px;\n  width: 50%;\n  height: 50vh;\n  background-color: rgb(255,255,255,0.5);\n  margin-left: 55px;\n\n'], ['\n  position: absolute;\n  z-index: 10;\n  top: 100px;\n  width: 50%;\n  height: 50vh;\n  background-color: rgb(255,255,255,0.5);\n  margin-left: 55px;\n\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    padding: 3px;\n    color: cyan;\n    a{\n        color: yellow;\n    }\n'], ['\n    padding: 3px;\n    color: cyan;\n    a{\n        color: yellow;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n'], ['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width:100%;\n    margin: auto;\n    max-width:400px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n'], ['\n    height: 100%;\n    width:100%;\n    margin: auto;\n    max-width:400px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n']);
 
 var _react = __webpack_require__(0);
 
@@ -1180,45 +1180,25 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Container = __webpack_require__(7);
-
-var _Container2 = _interopRequireDefault(_Container);
-
-var _Background = __webpack_require__(57);
-
-var _Background2 = _interopRequireDefault(_Background);
-
-var _Flexbox = __webpack_require__(58);
-
-var _Flexbox2 = _interopRequireDefault(_Flexbox);
-
-var _Text = __webpack_require__(5);
-
-var _Text2 = _interopRequireDefault(_Text);
-
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _PostItem = __webpack_require__(25);
+var _Container = __webpack_require__(7);
 
-var _PostItem2 = _interopRequireDefault(_PostItem);
+var _Container2 = _interopRequireDefault(_Container);
 
-var _Trends = __webpack_require__(59);
+var _Tags = __webpack_require__(25);
 
-var _Trends2 = _interopRequireDefault(_Trends);
+var _Tags2 = _interopRequireDefault(_Tags);
 
-var _MyLog = __webpack_require__(6);
-
-var _MyLog2 = _interopRequireDefault(_MyLog);
-
-var _FadeIn = __webpack_require__(28);
-
-var _FadeIn2 = _interopRequireDefault(_FadeIn);
-
-var _Slide = __webpack_require__(19);
+var _Slide = __webpack_require__(18);
 
 var _Slide2 = _interopRequireDefault(_Slide);
+
+var _PostItem = __webpack_require__(26);
+
+var _PostItem2 = _interopRequireDefault(_PostItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1230,72 +1210,314 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
+var Posts = function (_React$Component) {
+    _inherits(Posts, _React$Component);
 
-  function Home(props) {
-    _classCallCheck(this, Home);
+    function Posts(props) {
+        _classCallCheck(this, Posts);
 
-    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).call(this, props));
 
-    (0, _MyLog2.default)('log', 'Home constructor');
-    return _this;
-  }
-
-  _createClass(Home, [{
-    key: 'renderGraph',
-    value: function renderGraph() {
-      //console.log("home component renderGraph animationState " + this.props.animationState);
-      if (this.props.animationState === 1) {
-        return _react2.default.createElement(_Trends2.default, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 23
-          }
-        });
-      }
-      return null;
+        console.log("posts constructor", props);
+        _this.state = {
+            render: false
+        };
+        return _this;
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { style: { height: '100%', width: '100%' }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 29
-          }
-        },
-        _react2.default.createElement(
-          _Background2.default,
-          { fixed: false, height: '100%', z: 1, width: '100%', colorKey: 'neutral', margin: '0', padding: '0px 0px 0px 0px', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 30
-            }
-          },
-          _react2.default.createElement(_Trends2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 31
-            }
-          })
-        )
-      );
-    }
-  }]);
 
-  return Home;
+    _createClass(Posts, [{
+        key: 'renderPagination',
+        value: function renderPagination() {
+            if (this.props.totalPages > 1) {
+                var pagination = [];
+                if (this.props.currentPage > 1) {
+                    //there is a previous page, add a link to it
+                    pagination.push(_react2.default.createElement(
+                        A,
+                        { style: { flex: '1' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 24
+                            }
+                        },
+                        _react2.default.createElement(
+                            _reactStatic.Link,
+                            { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage - 1), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 24
+                                }
+                            },
+                            'Previous'
+                        )
+                    ));
+                } else {
+                    pagination.push(_react2.default.createElement(A, { style: { flex: '1' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 26
+                        }
+                    }));
+                }
+                for (var i = 1; i <= this.props.totalPages; i++) {
+                    if (i === this.props.currentPage) {
+                        pagination.push(_react2.default.createElement(
+                            A,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 30
+                                }
+                            },
+                            i
+                        ));
+                    } else {
+                        pagination.push(_react2.default.createElement(
+                            A,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 32
+                                }
+                            },
+                            _react2.default.createElement(
+                                _reactStatic.Link,
+                                { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + i, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 32
+                                    }
+                                },
+                                i
+                            )
+                        ));
+                    }
+                }
+                if (this.props.currentPage < this.props.totalPages) {
+                    pagination.push(_react2.default.createElement(
+                        A,
+                        { style: { flex: '1', textAlign: 'right' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 36
+                            }
+                        },
+                        _react2.default.createElement(
+                            _reactStatic.Link,
+                            { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage + 1), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 36
+                                }
+                            },
+                            'Next'
+                        )
+                    ));
+                } else {
+                    pagination.push(_react2.default.createElement(A, { style: { flex: '1', textAlign: 'right' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 38
+                        }
+                    }));
+                }
+                return pagination;
+            }
+            return null;
+        }
+    }, {
+        key: 'redirect',
+        value: function redirect() {
+            if (this.props.totalPages > 1 && this.props.match.url == '/' + this.props.base) {
+                return _react2.default.createElement(_reactStatic.Redirect, { to: this.props.base + '/' + this.props.pageToken + '/1', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 47
+                    }
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            console.log('rendering POSTS props', this.props);
+            return _react2.default.createElement(
+                PostBox,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 54
+                    }
+                },
+                this.redirect(),
+                _react2.default.createElement(_Tags2.default, { tags: this.props.tags, tag: this.props.tag, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 56
+                    }
+                }),
+                _react2.default.createElement(
+                    'div',
+                    { style: { width: '100%', display: 'flex', padding: '0px 10px', justifyContent: 'center' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 57
+                        }
+                    },
+                    this.renderPagination()
+                ),
+                _react2.default.createElement(
+                    _Slide2.default,
+                    { offset: 0, duration: 1000, childDelay: 150, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 60
+                        }
+                    },
+                    this.props.items.map(function (p) {
+                        return _react2.default.createElement(
+                            'span',
+                            { className: 'anim-child', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 62
+                                }
+                            },
+                            _react2.default.createElement(_PostItem2.default.component, { item: p, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 63
+                                }
+                            })
+                        );
+                        // return <p>item</p>
+                    })
+                )
+            );
+        }
+    }]);
+
+    return Posts;
 }(_react2.default.Component);
 
-Home.displayName = 'Home';
-exports.default = (0, _reactStatic.withRouteData)(Home);
+Posts.displayName = 'Posts';
+exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Posts));
 
-var Message = _styledComponents2.default.h4(_templateObject);
-var PostWrapper = _styledComponents2.default.div(_templateObject2);
-var PostBox = _styledComponents2.default.div(_templateObject3);
+
+var A = _styledComponents2.default.span(_templateObject);
+var Space = _styledComponents2.default.div(_templateObject2);
+
+var PostBox = _styledComponents2.default.div(_templateObject3, function (props) {
+    return props.theme[props.theme.theme].neutral;
+});
+//   overflow-y: scroll;
 
 /***/ }),
 /* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\Tags.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: inline;\n    padding: 0px 10px;\n    margin: 0;\n    a{\n        color: grey;\n    }\n    a.active{\n        color: red;\n    }\n'], ['\n    display: inline;\n    padding: 0px 10px;\n    margin: 0;\n    a{\n        color: grey;\n    }\n    a.active{\n        color: red;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    width:100%;\n    padding: 10px;\n    display: flex;\n    justify-content: center;\n'], ['\n    width:100%;\n    padding: 10px;\n    display: flex;\n    justify-content: center;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _reactStatic = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tags = function (_React$Component) {
+    _inherits(Tags, _React$Component);
+
+    function Tags() {
+        _classCallCheck(this, Tags);
+
+        return _possibleConstructorReturn(this, (Tags.__proto__ || Object.getPrototypeOf(Tags)).apply(this, arguments));
+    }
+
+    _createClass(Tags, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            if (this.props.tags) {
+                return _react2.default.createElement(
+                    Container,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 10
+                        }
+                    },
+                    this.props.tags.map(function (t) {
+                        //console.log(`tags rendering ${t} with target tag ${this.props.tag} does it match? ${t === this.props.tag}`);
+                        if (_this2.props.tag && t === _this2.props.tag) {
+                            return _react2.default.createElement(
+                                Tag,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 14
+                                    }
+                                },
+                                _react2.default.createElement(
+                                    _reactStatic.Link,
+                                    { to: '/' + t, className: 'active', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 14
+                                        }
+                                    },
+                                    t
+                                )
+                            );
+                        } else {
+                            return _react2.default.createElement(
+                                Tag,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 16
+                                    }
+                                },
+                                _react2.default.createElement(
+                                    _reactStatic.Link,
+                                    { to: '/' + t, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 16
+                                        }
+                                    },
+                                    t
+                                )
+                            );
+                        }
+                    })
+                );
+            }
+            return null;
+        }
+    }]);
+
+    return Tags;
+}(_react2.default.Component);
+
+exports.default = Tags;
+
+
+var Tag = _styledComponents2.default.h4(_templateObject);
+var Container = _styledComponents2.default.div(_templateObject2);
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1441,507 +1663,7 @@ var Post = _styledComponents2.default.div(_templateObject2, function (props) {
 // }
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\Loading.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n  /*this to solve "the content will not be cut when the window is smaller than the content": */\n        max-width:100%;\n        max-height:100%;\n        overflow:auto;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n'], ['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n  /*this to solve "the content will not be cut when the window is smaller than the content": */\n        max-width:100%;\n        max-height:100%;\n        overflow:auto;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Animate = __webpack_require__(61);
-
-var _Animate2 = _interopRequireDefault(_Animate);
-
-var _NodeGroup = __webpack_require__(62);
-
-var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
-
-var _d3Ease = __webpack_require__(63);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function createCircle(id, x, y) {
-    this.id = id;
-    this.x = x;
-    this.y = y;
-    this.r = 16;
-}
-var circles = [];
-function drawCircles() {
-    var radius = 50;
-    var offset = 68;
-    for (var i = 0; i < 2 * Math.PI; i += Math.PI / 6) {
-        //for(var i = 0; i<360; i+=30){
-        // console.log(`creating circle i:${i} cos: ${Math.cos(i)*radius} sin: ${Math.sin(i)*radius}`)
-        circles.push(new createCircle(i, Math.cos(i) * radius + offset, Math.sin(i) * radius + offset));
-    }
-}
-drawCircles();
-
-var Loading = function (_React$PureComponent) {
-    _inherits(Loading, _React$PureComponent);
-
-    function Loading(props) {
-        _classCallCheck(this, Loading);
-
-        //let c = new createCircle(50, 50);
-        var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, props));
-
-        _this.state = {
-            // animation: this.getAnimation(),
-            forward: true
-        };
-        return _this;
-    }
-
-    _createClass(Loading, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Load,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 36
-                    }
-                },
-                circles.map(function (c) {
-                    return _react2.default.createElement('div', { className: 'load-circle', style: { position: 'absolute', width: c.r * 2 + 'px', height: c.r * 2 + 'px',
-                            left: c.x + 'px', top: c.y + 'px', backgroundColor: 'transparent'
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 40
-                        }
-                    });
-                })
-            );
-        }
-    }]);
-
-    return Loading;
-}(_react2.default.PureComponent);
-
-exports.default = Loading;
-
-
-var Load = _styledComponents2.default.div(_templateObject, circles.map(function (c, i) {
-    return '\n            div:nth-child(' + i + '){\n                animation-delay: ' + i * 0.25 + 's;\n            }\n            ';
-}));
-
-/*
-
-
-div:nth-child(1){
-        animation-delay: 1s;
-    }
-    div:nth-child(2){
-        animation-delay: 2s;
-    }
-    div:nth-child(3){
-        animation-delay: 3s;
-    }
-
-return <div style={{position: 'relative', backgroundColor: 'yellow', height: '300px', width: '300px'}}>
-                <button onClick={()=>{this.setState({forward:!this.state.forward, 
-                    circles: [...this.state.circles, new createCircle(this.state.circles.length, 
-                    Math.random()*200, Math.random()*200)]}
-                )}}>scale</button>
-                <NodeGroup
-                        data={this.state.circles}
-                        keyAccessor={(p) => p.id}
-                        start={() => ({
-                            scale: [1],
-                            events: { 
-                                end: () => {this.restartAnimation('enter', e)}
-                            }
-                        })}
-
-                        enter={(e, i) => ({
-                            scale: [2],
-                            timing: { duration: 1000, delay: i*350 },
-                            events: { 
-                                end: () => {this.restartAnimation('enter', e)}
-                            }
-                        })}
-                        update={(c, i) => ({
-                            scale: () => {
-                               // console.log('loading restartAnimation  update scale called, ' + this.state.forward);
-                                return this.state.forward? [1]:[2]
-                            },
-                            timing: {duration: 1000, delay: i*350 },
-                            events: { 
-                                end: () => {this.restartAnimation('update', c)}
-                            }
-                        })}
-                        >
-                        {(nodes) => {
-                            console.log("loading nodes", nodes);
-                            return(
-                                <div>
-                                    {   
-                                        nodes.map((node) => {
-                                            const { state, data } = node;
-                                            const {scale} = state;
-                                            console.log(`loading animation circles scale: ${scale}`, node);
-                                            data.scale = scale;
-                                            return <div style={{position: 'absolute', width: `${data.r*2}px`, height: `${data.r*2}px`, 
-                                            left: `${data.x}px`, top: `${data.y}px`, backgroundColor: 'transparent', 
-                                            transform: `scale(${scale})`,
-                                            borderRadius: '50%', border: '5px solid red'}} ></div>
-                                        })
-                                    }
-                                </div>
-                            )
-                        }}
-                </NodeGroup>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-return <div>
-                <Animate
-                        start={() => ({
-                            rotate: [0]
-                        })}
-
-                        enter={() => ({
-                            rotate: [360],
-                            timing: { duration: 2000, ease: easeExpOut },
-                            events: { 
-                                start: () => {this.restartAnimation('enter', 0)}
-                            }
-                        })}
-                        update={() => ({
-                            rotate: [this.state.angle],
-                            timing: {duration: 2000, ease: easeExpOut },
-                            events: { 
-                                end: () => {this.restartAnimation('update', this.state.angle === 360? 0: 360)}
-                            }
-                        })}
-                        >
-                        {(state) => {
-                            const { rotate } = state;
-                            console.log(`loading animation rotate: ${rotate}`);
-                            return (
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        width: 50,
-                                        height: 50,
-                                        borderRadius: '50%',
-                                        backgroundColor: '#00cf77',
-                                        WebkitTransform: `rotate(${rotate}deg)`,
-                                        transform: `rotate(${rotate}deg)`,
-                                    }}
-                            >
-                            loading 
-                            </div>
-                            );
-                        }}
-                </Animate>
-            </div>
-*/
-
-/***/ }),
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Table.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: table;\n    width: 100%;\n    height: 100%;\n'], ['\n    display: table;\n    width: 100%;\n    height: 100%;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    display: table-row;\n'], ['\n    display: table-row;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _propTypes = __webpack_require__(4);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/*
-        <Table heights={[null, null, '50%','50%']}>
-          <p>RealA </p>
-          <p>RealB </p>
-          <p>RealC</p>
-          <p>RealD</p>
-        </Table>
-*/
-
-var Table = function (_React$Component) {
-    _inherits(Table, _React$Component);
-
-    function Table() {
-        _classCallCheck(this, Table);
-
-        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
-    }
-
-    _createClass(Table, [{
-        key: 'renderRows',
-        value: function renderRows() {
-            var _this2 = this;
-
-            return _react2.default.Children.map(this.props.children, function (child, i) {
-                var height = _this2.props.heights[i];
-                console.log("table wrapping child of height " + height, child);
-                if (_this2.props.heights[i]) {
-                    return _react2.default.createElement(
-                        Row,
-                        { style: { height: _this2.props.heights[i] }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 20
-                            }
-                        },
-                        _react2.default.cloneElement(child)
-                    );
-                } else {
-                    return _react2.default.createElement(
-                        Row,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 22
-                            }
-                        },
-                        _react2.default.cloneElement(child)
-                    );
-                }
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Tab,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 28
-                    }
-                },
-                this.renderRows()
-            );
-        }
-    }]);
-
-    return Table;
-}(_react2.default.Component);
-
-exports.default = Table;
-
-Table.displayName = 'TableComponent';
-
-Table.PropTypes = {
-    heights: _propTypes2.default.array
-};
-
-var Tab = _styledComponents2.default.div(_templateObject);
-var Row = _styledComponents2.default.div(_templateObject2);
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\FadeIn.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    span{\n    }\n    span div{\n    }\n\n    span .fade-in-enter{\n        opacity: 0;\n    }\n    span .fade-in-enter.fade-in-enter-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n\n    span .fade-in-appear{\n        opacity: 0;\n    }\n    span .fade-in-appear.fade-in-appear-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n    span .fade-in-leave{\n        opacity: 1s;\n    }\n    span .fade-in-leave-active{\n        opacity: 0;\n        transition: all 1s;\n    }\n\n'], ['\n    span{\n    }\n    span div{\n    }\n\n    span .fade-in-enter{\n        opacity: 0;\n    }\n    span .fade-in-enter.fade-in-enter-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n\n    span .fade-in-appear{\n        opacity: 0;\n    }\n    span .fade-in-appear.fade-in-appear-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n    span .fade-in-leave{\n        opacity: 1s;\n    }\n    span .fade-in-leave-active{\n        opacity: 0;\n        transition: all 1s;\n    }\n\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactAddonsCssTransitionGroup = __webpack_require__(18);
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import './styles.css';
-
-var Trans = function (_React$Component) {
-    _inherits(Trans, _React$Component);
-
-    function Trans(props) {
-        _classCallCheck(this, Trans);
-
-        return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
-    }
-
-    _createClass(Trans, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Fade,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 13
-                    }
-                },
-                _react2.default.createElement(
-                    _reactAddonsCssTransitionGroup2.default,
-                    {
-                        transitionName: 'fade-in',
-                        transitionAppear: true,
-                        transitionEnter: true,
-                        transitionAppearTimeout: 500,
-                        transitionEnterTimeout: 500,
-                        transitionLeaveTimeout: 300, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 14
-                        }
-                    },
-                    this.props.children
-                )
-            );
-        }
-    }]);
-
-    return Trans;
-}(_react2.default.Component);
-
-exports.default = Trans;
-
-//enter controls page transitions
-
-var Fade = _styledComponents2.default.div(_templateObject);
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-    span .fade-in-appear{
-        opacity: 0;
-    }
-    span .fade-in-appear-active{
-        opacity: 1;
-        
-    }
-
-
-
-    span .fade-in-leave{
-        opacity: 1s;
-    }
-    span .fade-in-leave-active{
-        opacity: 0;
-    }
-
-
-      .fade-enter{
-        opacity: 0;
-        transition: all 300ms;
-      }
-      .fade-enter-active{
-        opacity: 1;
-        transition: all 300ms;
-      }
-      .fade-leave{
-        opacity: 1;
-        transition: all 300ms;
-      }
-      .fade-leave-active{
-        opacity: 0;
-        transition: all 300ms;
-      }
-*/
-
-/***/ }),
-/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1965,7 +1687,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _IconButton = __webpack_require__(13);
+var _IconButton = __webpack_require__(14);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -1973,7 +1695,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(71);
+var _TalkitGame = __webpack_require__(65);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
@@ -1981,15 +1703,15 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(32);
+var _Tags = __webpack_require__(25);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _CenterBox = __webpack_require__(33);
+var _CenterBox = __webpack_require__(29);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
-var _Loading = __webpack_require__(26);
+var _Loading = __webpack_require__(30);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -1997,19 +1719,19 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _SanKey = __webpack_require__(72);
+var _SanKey = __webpack_require__(69);
 
 var _SanKey2 = _interopRequireDefault(_SanKey);
 
-var _Video = __webpack_require__(74);
+var _Video = __webpack_require__(71);
 
 var _Video2 = _interopRequireDefault(_Video);
 
-var _TextBox = __webpack_require__(14);
+var _TextBox = __webpack_require__(8);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
-var _Sizer = __webpack_require__(75);
+var _Sizer = __webpack_require__(72);
 
 var _Sizer2 = _interopRequireDefault(_Sizer);
 
@@ -2255,136 +1977,13 @@ const VideoBox = styled.div`
 */
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik04LjU5LDE2LjU5TDEzLjE3LDEyTDguNTksNy40MUwxMCw2bDYsNmwtNiw2TDguNTksMTYuNTl6Ii8+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+DQogICAgPHBhdGggc3Ryb2tlPSJub25lIiBmaWxsPSJ3aGl0ZSIgZD0iTTEyIDhjMS4xIDAgMi0uOSAyLTJzLS45LTItMi0yLTIgLjktMiAyIC45IDIgMiAyem0wIDJjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yem0wIDZjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yeiIvPg0KPC9zdmc+DQo="
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\Tags.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: inline;\n    padding: 0px 10px;\n    margin: 0;\n    a{\n        color: grey;\n    }\n    a.active{\n        color: red;\n    }\n'], ['\n    display: inline;\n    padding: 0px 10px;\n    margin: 0;\n    a{\n        color: grey;\n    }\n    a.active{\n        color: red;\n    }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    width:100%;\n    padding: 10px;\n    display: flex;\n    justify-content: center;\n'], ['\n    width:100%;\n    padding: 10px;\n    display: flex;\n    justify-content: center;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _reactStatic = __webpack_require__(2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Tags = function (_React$Component) {
-    _inherits(Tags, _React$Component);
-
-    function Tags() {
-        _classCallCheck(this, Tags);
-
-        return _possibleConstructorReturn(this, (Tags.__proto__ || Object.getPrototypeOf(Tags)).apply(this, arguments));
-    }
-
-    _createClass(Tags, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            if (this.props.tags) {
-                return _react2.default.createElement(
-                    Container,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 10
-                        }
-                    },
-                    this.props.tags.map(function (t) {
-                        //console.log(`tags rendering ${t} with target tag ${this.props.tag} does it match? ${t === this.props.tag}`);
-                        if (_this2.props.tag && t === _this2.props.tag) {
-                            return _react2.default.createElement(
-                                Tag,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 14
-                                    }
-                                },
-                                _react2.default.createElement(
-                                    _reactStatic.Link,
-                                    { to: '/' + t, className: 'active', __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 14
-                                        }
-                                    },
-                                    t
-                                )
-                            );
-                        } else {
-                            return _react2.default.createElement(
-                                Tag,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 16
-                                    }
-                                },
-                                _react2.default.createElement(
-                                    _reactStatic.Link,
-                                    { to: '/' + t, __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 16
-                                        }
-                                    },
-                                    t
-                                )
-                            );
-                        }
-                    })
-                );
-            }
-            return null;
-        }
-    }]);
-
-    return Tags;
-}(_react2.default.Component);
-
-exports.default = Tags;
-
-
-var Tag = _styledComponents2.default.h4(_templateObject);
-var Container = _styledComponents2.default.div(_templateObject2);
-
-/***/ }),
-/* 33 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2476,7 +2075,7 @@ var Center = _styledComponents2.default.div(_templateObject2);
 var Child = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 34 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2485,39 +2084,29 @@ var Child = _styledComponents2.default.div(_templateObject3);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Posts.jsx';
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\Loading.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    padding: 3px;\n    color: cyan;\n    a{\n        color: yellow;\n    }\n'], ['\n    padding: 3px;\n    color: cyan;\n    a{\n        color: yellow;\n    }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n'], ['\n    width:90%;\n    height: 100px;\n    margin: 10px auto;\n    position: relative;\n    display: block;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width:100%;\n    margin: auto;\n    max-width:400px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n'], ['\n    height: 100%;\n    width:100%;\n    margin: auto;\n    max-width:400px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n  \n']);
+var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n  /*this to solve "the content will not be cut when the window is smaller than the content": */\n        max-width:100%;\n        max-height:100%;\n        overflow:auto;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n'], ['\n    position: relative;\n    background-color: transparent;\n    height: 168px;\n    width: 168px;\n    margin: auto;\n    display: block;\n    vertical-align: middle;\n    position: absolute;\n  top: 0; left: 0; bottom: 0; right: 0;\n  /*this to solve "the content will not be cut when the window is smaller than the content": */\n        max-width:100%;\n        max-height:100%;\n        overflow:auto;\n    div{\n        animation-name: example;\n        animation-duration: 1.5s;\n        animation-iteration-count: infinite;\n        animation-direction: alternate;\n        animation-timing-function: ease-in-out;\n        border-radius: 50%; \n        border: 2px solid #7A17A880;\n        background-color: transparent;\n    }\n    ', '\n    @keyframes example {\n        from {\n            transform: scale(1, 1);\n            border: 2px solid #7A17A880;\n        }\n        to {\n            transform: scale(2, 2);\n            border: 2px solid #7A17A8FF;\n        }\n    }\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactStatic = __webpack_require__(2);
+var _Animate = __webpack_require__(66);
+
+var _Animate2 = _interopRequireDefault(_Animate);
+
+var _NodeGroup = __webpack_require__(67);
+
+var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
+
+var _d3Ease = __webpack_require__(68);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Container = __webpack_require__(7);
-
-var _Container2 = _interopRequireDefault(_Container);
-
-var _Tags = __webpack_require__(32);
-
-var _Tags2 = _interopRequireDefault(_Tags);
-
-var _Slide = __webpack_require__(19);
-
-var _Slide2 = _interopRequireDefault(_Slide);
-
-var _PostItem = __webpack_require__(25);
-
-var _PostItem2 = _interopRequireDefault(_PostItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2529,197 +2118,602 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Posts = function (_React$Component) {
-    _inherits(Posts, _React$Component);
+function createCircle(id, x, y) {
+    this.id = id;
+    this.x = x;
+    this.y = y;
+    this.r = 16;
+}
+var circles = [];
+function drawCircles() {
+    var radius = 50;
+    var offset = 68;
+    for (var i = 0; i < 2 * Math.PI; i += Math.PI / 6) {
+        //for(var i = 0; i<360; i+=30){
+        // console.log(`creating circle i:${i} cos: ${Math.cos(i)*radius} sin: ${Math.sin(i)*radius}`)
+        circles.push(new createCircle(i, Math.cos(i) * radius + offset, Math.sin(i) * radius + offset));
+    }
+}
+drawCircles();
 
-    function Posts(props) {
-        _classCallCheck(this, Posts);
+var Loading = function (_React$PureComponent) {
+    _inherits(Loading, _React$PureComponent);
 
-        var _this = _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).call(this, props));
+    function Loading(props) {
+        _classCallCheck(this, Loading);
 
-        console.log("posts constructor", props);
+        //let c = new createCircle(50, 50);
+        var _this = _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).call(this, props));
+
         _this.state = {
-            render: false
+            // animation: this.getAnimation(),
+            forward: true
         };
         return _this;
     }
 
-    _createClass(Posts, [{
-        key: 'renderPagination',
-        value: function renderPagination() {
-            if (this.props.totalPages > 1) {
-                var pagination = [];
-                if (this.props.currentPage > 1) {
-                    //there is a previous page, add a link to it
-                    pagination.push(_react2.default.createElement(
-                        A,
-                        { style: { flex: '1' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 24
-                            }
-                        },
-                        _react2.default.createElement(
-                            _reactStatic.Link,
-                            { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage - 1), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 24
-                                }
-                            },
-                            'Previous'
-                        )
-                    ));
-                } else {
-                    pagination.push(_react2.default.createElement(A, { style: { flex: '1' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 26
-                        }
-                    }));
-                }
-                for (var i = 1; i <= this.props.totalPages; i++) {
-                    if (i === this.props.currentPage) {
-                        pagination.push(_react2.default.createElement(
-                            A,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 30
-                                }
-                            },
-                            i
-                        ));
-                    } else {
-                        pagination.push(_react2.default.createElement(
-                            A,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 32
-                                }
-                            },
-                            _react2.default.createElement(
-                                _reactStatic.Link,
-                                { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + i, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 32
-                                    }
-                                },
-                                i
-                            )
-                        ));
-                    }
-                }
-                if (this.props.currentPage < this.props.totalPages) {
-                    pagination.push(_react2.default.createElement(
-                        A,
-                        { style: { flex: '1', textAlign: 'right' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 36
-                            }
-                        },
-                        _react2.default.createElement(
-                            _reactStatic.Link,
-                            { to: '/' + this.props.base + '/' + this.props.pageToken + '/' + (this.props.currentPage + 1), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 36
-                                }
-                            },
-                            'Next'
-                        )
-                    ));
-                } else {
-                    pagination.push(_react2.default.createElement(A, { style: { flex: '1', textAlign: 'right' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 38
-                        }
-                    }));
-                }
-                return pagination;
-            }
-            return null;
-        }
-    }, {
-        key: 'redirect',
-        value: function redirect() {
-            if (this.props.totalPages > 1 && this.props.match.url == '/' + this.props.base) {
-                return _react2.default.createElement(_reactStatic.Redirect, { to: this.props.base + '/' + this.props.pageToken + '/1', __source: {
+    _createClass(Loading, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Load,
+                {
+                    __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 47
+                        lineNumber: 36
                     }
-                });
+                },
+                circles.map(function (c) {
+                    return _react2.default.createElement('div', { className: 'load-circle', style: { position: 'absolute', width: c.r * 2 + 'px', height: c.r * 2 + 'px',
+                            left: c.x + 'px', top: c.y + 'px', backgroundColor: 'transparent'
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 40
+                        }
+                    });
+                })
+            );
+        }
+    }]);
+
+    return Loading;
+}(_react2.default.PureComponent);
+
+exports.default = Loading;
+
+
+var Load = _styledComponents2.default.div(_templateObject, circles.map(function (c, i) {
+    return '\n            div:nth-child(' + i + '){\n                animation-delay: ' + i * 0.25 + 's;\n            }\n            ';
+}));
+
+/*
+
+
+div:nth-child(1){
+        animation-delay: 1s;
+    }
+    div:nth-child(2){
+        animation-delay: 2s;
+    }
+    div:nth-child(3){
+        animation-delay: 3s;
+    }
+
+return <div style={{position: 'relative', backgroundColor: 'yellow', height: '300px', width: '300px'}}>
+                <button onClick={()=>{this.setState({forward:!this.state.forward, 
+                    circles: [...this.state.circles, new createCircle(this.state.circles.length, 
+                    Math.random()*200, Math.random()*200)]}
+                )}}>scale</button>
+                <NodeGroup
+                        data={this.state.circles}
+                        keyAccessor={(p) => p.id}
+                        start={() => ({
+                            scale: [1],
+                            events: { 
+                                end: () => {this.restartAnimation('enter', e)}
+                            }
+                        })}
+
+                        enter={(e, i) => ({
+                            scale: [2],
+                            timing: { duration: 1000, delay: i*350 },
+                            events: { 
+                                end: () => {this.restartAnimation('enter', e)}
+                            }
+                        })}
+                        update={(c, i) => ({
+                            scale: () => {
+                               // console.log('loading restartAnimation  update scale called, ' + this.state.forward);
+                                return this.state.forward? [1]:[2]
+                            },
+                            timing: {duration: 1000, delay: i*350 },
+                            events: { 
+                                end: () => {this.restartAnimation('update', c)}
+                            }
+                        })}
+                        >
+                        {(nodes) => {
+                            console.log("loading nodes", nodes);
+                            return(
+                                <div>
+                                    {   
+                                        nodes.map((node) => {
+                                            const { state, data } = node;
+                                            const {scale} = state;
+                                            console.log(`loading animation circles scale: ${scale}`, node);
+                                            data.scale = scale;
+                                            return <div style={{position: 'absolute', width: `${data.r*2}px`, height: `${data.r*2}px`, 
+                                            left: `${data.x}px`, top: `${data.y}px`, backgroundColor: 'transparent', 
+                                            transform: `scale(${scale})`,
+                                            borderRadius: '50%', border: '5px solid red'}} ></div>
+                                        })
+                                    }
+                                </div>
+                            )
+                        }}
+                </NodeGroup>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+return <div>
+                <Animate
+                        start={() => ({
+                            rotate: [0]
+                        })}
+
+                        enter={() => ({
+                            rotate: [360],
+                            timing: { duration: 2000, ease: easeExpOut },
+                            events: { 
+                                start: () => {this.restartAnimation('enter', 0)}
+                            }
+                        })}
+                        update={() => ({
+                            rotate: [this.state.angle],
+                            timing: {duration: 2000, ease: easeExpOut },
+                            events: { 
+                                end: () => {this.restartAnimation('update', this.state.angle === 360? 0: 360)}
+                            }
+                        })}
+                        >
+                        {(state) => {
+                            const { rotate } = state;
+                            console.log(`loading animation rotate: ${rotate}`);
+                            return (
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        width: 50,
+                                        height: 50,
+                                        borderRadius: '50%',
+                                        backgroundColor: '#00cf77',
+                                        WebkitTransform: `rotate(${rotate}deg)`,
+                                        transform: `rotate(${rotate}deg)`,
+                                    }}
+                            >
+                            loading 
+                            </div>
+                            );
+                        }}
+                </Animate>
+            </div>
+*/
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Home.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n'], ['\n  font-size:1em;\n  color: rgb(255,255,255,1);\n  width:100%;\n  padding: 10px;\n  padding-bottom:0px;\n\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  position: relative;\n  width: 100%;\n'], ['\n  position: relative;\n  width: 100%;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  position: absolute;\n  z-index: 10;\n  top: 100px;\n  width: 50%;\n  height: 50vh;\n  background-color: rgb(255,255,255,0.5);\n  margin-left: 55px;\n\n'], ['\n  position: absolute;\n  z-index: 10;\n  top: 100px;\n  width: 50%;\n  height: 50vh;\n  background-color: rgb(255,255,255,0.5);\n  margin-left: 55px;\n\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactStatic = __webpack_require__(2);
+
+var _Container = __webpack_require__(7);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _Background = __webpack_require__(73);
+
+var _Background2 = _interopRequireDefault(_Background);
+
+var _Flexbox = __webpack_require__(74);
+
+var _Flexbox2 = _interopRequireDefault(_Flexbox);
+
+var _Text = __webpack_require__(5);
+
+var _Text2 = _interopRequireDefault(_Text);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _PostItem = __webpack_require__(26);
+
+var _PostItem2 = _interopRequireDefault(_PostItem);
+
+var _Trends = __webpack_require__(75);
+
+var _Trends2 = _interopRequireDefault(_Trends);
+
+var _MyLog = __webpack_require__(6);
+
+var _MyLog2 = _interopRequireDefault(_MyLog);
+
+var _FadeIn = __webpack_require__(33);
+
+var _FadeIn2 = _interopRequireDefault(_FadeIn);
+
+var _Slide = __webpack_require__(18);
+
+var _Slide2 = _interopRequireDefault(_Slide);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_React$Component) {
+  _inherits(Home, _React$Component);
+
+  function Home(props) {
+    _classCallCheck(this, Home);
+
+    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+    (0, _MyLog2.default)('log', 'Home constructor');
+    return _this;
+  }
+
+  _createClass(Home, [{
+    key: 'renderGraph',
+    value: function renderGraph() {
+      //console.log("home component renderGraph animationState " + this.props.animationState);
+      if (this.props.animationState === 1) {
+        return _react2.default.createElement(_Trends2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          }
+        });
+      }
+      return null;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { height: '100%', width: '100%' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          }
+        },
+        _react2.default.createElement(
+          _Background2.default,
+          { fixed: false, height: '100%', z: 1, width: '100%', colorKey: 'neutral', margin: '0', padding: '0px 0px 0px 0px', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 30
             }
+          },
+          _react2.default.createElement(_Trends2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          })
+        )
+      );
+    }
+  }]);
+
+  return Home;
+}(_react2.default.Component);
+
+Home.displayName = 'Home';
+exports.default = (0, _reactStatic.withRouteData)(Home);
+
+var Message = _styledComponents2.default.h4(_templateObject);
+var PostWrapper = _styledComponents2.default.div(_templateObject2);
+var PostBox = _styledComponents2.default.div(_templateObject3);
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Table.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: table;\n    width: 100%;\n    height: 100%;\n'], ['\n    display: table;\n    width: 100%;\n    height: 100%;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    display: table-row;\n'], ['\n    display: table-row;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _propTypes = __webpack_require__(4);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/*
+        <Table heights={[null, null, '50%','50%']}>
+          <p>RealA </p>
+          <p>RealB </p>
+          <p>RealC</p>
+          <p>RealD</p>
+        </Table>
+*/
+
+var Table = function (_React$Component) {
+    _inherits(Table, _React$Component);
+
+    function Table() {
+        _classCallCheck(this, Table);
+
+        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
+    }
+
+    _createClass(Table, [{
+        key: 'renderRows',
+        value: function renderRows() {
+            var _this2 = this;
+
+            return _react2.default.Children.map(this.props.children, function (child, i) {
+                var height = _this2.props.heights[i];
+                console.log("table wrapping child of height " + height, child);
+                if (_this2.props.heights[i]) {
+                    return _react2.default.createElement(
+                        Row,
+                        { style: { height: _this2.props.heights[i] }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 20
+                            }
+                        },
+                        _react2.default.cloneElement(child)
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        Row,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 22
+                            }
+                        },
+                        _react2.default.cloneElement(child)
+                    );
+                }
+            });
         }
     }, {
         key: 'render',
         value: function render() {
-            console.log('rendering POSTS props', this.props);
             return _react2.default.createElement(
-                PostBox,
+                Tab,
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 54
+                        lineNumber: 28
                     }
                 },
-                this.redirect(),
-                _react2.default.createElement(_Tags2.default, { tags: this.props.tags, tag: this.props.tag, __source: {
+                this.renderRows()
+            );
+        }
+    }]);
+
+    return Table;
+}(_react2.default.Component);
+
+exports.default = Table;
+
+Table.displayName = 'TableComponent';
+
+Table.PropTypes = {
+    heights: _propTypes2.default.array
+};
+
+var Tab = _styledComponents2.default.div(_templateObject);
+var Row = _styledComponents2.default.div(_templateObject2);
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\animations\\FadeIn.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    span{\n    }\n    span div{\n    }\n\n    span .fade-in-enter{\n        opacity: 0;\n    }\n    span .fade-in-enter.fade-in-enter-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n\n    span .fade-in-appear{\n        opacity: 0;\n    }\n    span .fade-in-appear.fade-in-appear-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n    span .fade-in-leave{\n        opacity: 1s;\n    }\n    span .fade-in-leave-active{\n        opacity: 0;\n        transition: all 1s;\n    }\n\n'], ['\n    span{\n    }\n    span div{\n    }\n\n    span .fade-in-enter{\n        opacity: 0;\n    }\n    span .fade-in-enter.fade-in-enter-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n\n    span .fade-in-appear{\n        opacity: 0;\n    }\n    span .fade-in-appear.fade-in-appear-active{\n        opacity: 1;\n        transition: all 1s;\n    }\n    span .fade-in-leave{\n        opacity: 1s;\n    }\n    span .fade-in-leave-active{\n        opacity: 0;\n        transition: all 1s;\n    }\n\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsCssTransitionGroup = __webpack_require__(19);
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import './styles.css';
+
+var Trans = function (_React$Component) {
+    _inherits(Trans, _React$Component);
+
+    function Trans(props) {
+        _classCallCheck(this, Trans);
+
+        return _possibleConstructorReturn(this, (Trans.__proto__ || Object.getPrototypeOf(Trans)).call(this, props));
+    }
+
+    _createClass(Trans, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Fade,
+                {
+                    __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 56
+                        lineNumber: 13
                     }
-                }),
+                },
                 _react2.default.createElement(
-                    'div',
-                    { style: { width: '100%', display: 'flex', padding: '0px 10px', justifyContent: 'center' }, __source: {
+                    _reactAddonsCssTransitionGroup2.default,
+                    {
+                        transitionName: 'fade-in',
+                        transitionAppear: true,
+                        transitionEnter: true,
+                        transitionAppearTimeout: 500,
+                        transitionEnterTimeout: 500,
+                        transitionLeaveTimeout: 300, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 57
+                            lineNumber: 14
                         }
                     },
-                    this.renderPagination()
-                ),
-                _react2.default.createElement(
-                    _Slide2.default,
-                    { offset: 0, duration: 1000, childDelay: 150, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 60
-                        }
-                    },
-                    this.props.items.map(function (p) {
-                        return _react2.default.createElement(
-                            'span',
-                            { className: 'anim-child', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 62
-                                }
-                            },
-                            _react2.default.createElement(_PostItem2.default.component, { item: p, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 63
-                                }
-                            })
-                        );
-                        // return <p>item</p>
-                    })
+                    this.props.children
                 )
             );
         }
     }]);
 
-    return Posts;
+    return Trans;
 }(_react2.default.Component);
 
-Posts.displayName = 'Posts';
-exports.default = (0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Posts));
+exports.default = Trans;
+
+//enter controls page transitions
+
+var Fade = _styledComponents2.default.div(_templateObject);
+/*
 
 
-var A = _styledComponents2.default.span(_templateObject);
-var Space = _styledComponents2.default.div(_templateObject2);
 
-var PostBox = _styledComponents2.default.div(_templateObject3, function (props) {
-    return props.theme[props.theme.theme].neutral;
-});
-//   overflow-y: scroll;
+
+
+
+
+
+
+
+
+
+    span .fade-in-appear{
+        opacity: 0;
+    }
+    span .fade-in-appear-active{
+        opacity: 1;
+        
+    }
+
+
+
+    span .fade-in-leave{
+        opacity: 1s;
+    }
+    span .fade-in-leave-active{
+        opacity: 0;
+    }
+
+
+      .fade-enter{
+        opacity: 0;
+        transition: all 300ms;
+      }
+      .fade-enter-active{
+        opacity: 1;
+        transition: all 300ms;
+      }
+      .fade-leave{
+        opacity: 1;
+        transition: all 300ms;
+      }
+      .fade-leave-active{
+        opacity: 0;
+        transition: all 300ms;
+      }
+*/
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2741,7 +2735,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _TextBox = __webpack_require__(14);
+var _TextBox = __webpack_require__(8);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
@@ -2753,7 +2747,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Slide = __webpack_require__(19);
+var _Slide = __webpack_require__(18);
 
 var _Slide2 = _interopRequireDefault(_Slide);
 
@@ -2905,7 +2899,7 @@ var GamesBox = _styledComponents2.default.div(_templateObject2, function (props)
 */
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2915,15 +2909,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(10);
+var _path2 = __webpack_require__(11);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(11);
+var _importCss2 = __webpack_require__(12);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(12);
+var _universalImport2 = __webpack_require__(13);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -2937,7 +2931,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(76);
+var _Index = __webpack_require__(77);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -2978,7 +2972,7 @@ var Games = function (_React$Component) {
                         id: 'samplegame',
                         file: 'D:/websites/react-static/static-site-2/4/src/containers/Game.jsx',
                         load: function load() {
-                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('samplegame', {
+                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 38)), (0, _importCss3.default)('samplegame', {
                                 disableWarnings: true
                             })]).then(function (proms) {
                                 return proms[0];
@@ -2988,7 +2982,7 @@ var Games = function (_React$Component) {
                             return _path3.default.join(__dirname, 'samplegame');
                         },
                         resolve: function resolve() {
-                            return /*require.resolve*/(39);
+                            return /*require.resolve*/(38);
                         },
                         chunkName: function chunkName() {
                             return 'samplegame';
@@ -3085,7 +3079,7 @@ exports.default = (0, _reactStatic.withRouteData)(Games);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3170,7 +3164,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3187,9 +3181,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(89);
+__webpack_require__(90);
 
-var _reactKatex = __webpack_require__(90);
+var _reactKatex = __webpack_require__(91);
 
 var _reactDom = __webpack_require__(21);
 
@@ -3378,13 +3372,13 @@ exports.default = Katex;
 // // `
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("samplegame");
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3408,7 +3402,7 @@ var _reactRedux = __webpack_require__(3);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Table = __webpack_require__(27);
+var _Table = __webpack_require__(32);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -3489,7 +3483,7 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3508,7 +3502,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _index = __webpack_require__(93);
+var _index = __webpack_require__(94);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3516,7 +3510,7 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _TextBox = __webpack_require__(14);
+var _TextBox = __webpack_require__(8);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
@@ -3581,24 +3575,6 @@ var Settings = function (_React$Component) {
                                 }
                             })
                         )
-                    ),
-                    _react2.default.createElement(
-                        _TextBox2.default,
-                        { id: 'privacy', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 18
-                            }
-                        },
-                        _react2.default.createElement(_Text2.default, { tag: 'p', text: 'Privacy', display: 'block', colorKey: 'textInverted', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 19
-                            }
-                        }),
-                        _react2.default.createElement(_Text2.default, { tag: 'p', text: 'A statement about Privacy', align: 'left', display: 'block', colorKey: 'textInverted', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 20
-                            }
-                        })
                     )
                 )
             );
@@ -3612,7 +3588,7 @@ Settings.displayName = 'Settings';
 exports.default = Settings;
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports) {
 
 /*
@@ -3692,6 +3668,87 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\containers\\Privacy.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Text = __webpack_require__(5);
+
+var _Text2 = _interopRequireDefault(_Text);
+
+var _TextBox = __webpack_require__(8);
+
+var _TextBox2 = _interopRequireDefault(_TextBox);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Privacy = function (_React$Component) {
+    _inherits(Privacy, _React$Component);
+
+    function Privacy() {
+        _classCallCheck(this, Privacy);
+
+        return _possibleConstructorReturn(this, (Privacy.__proto__ || Object.getPrototypeOf(Privacy)).apply(this, arguments));
+    }
+
+    _createClass(Privacy, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'hello', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 8
+                    }
+                },
+                _react2.default.createElement(
+                    _TextBox2.default,
+                    { id: 'privacy', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 9
+                        }
+                    },
+                    _react2.default.createElement(_Text2.default, { tag: 'p', text: 'Privacy', display: 'block', colorKey: 'textInverted', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 10
+                        }
+                    }),
+                    _react2.default.createElement(_Text2.default, { tag: 'p', text: 'A statement about Privacy', align: 'left', display: 'block', colorKey: 'textInverted', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 11
+                        }
+                    })
+                )
+            );
+        }
+    }]);
+
+    return Privacy;
+}(_react2.default.Component);
+
+Privacy.displayName = 'Privacy';
+exports.default = Privacy;
 
 /***/ }),
 /* 43 */
@@ -3932,7 +3989,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(18);
+var _reactAddonsCssTransitionGroup = __webpack_require__(19);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
@@ -4296,39 +4353,39 @@ var _reactStaticRoutes = __webpack_require__(51);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(95);
+var _redux = __webpack_require__(96);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(97);
+__webpack_require__(98);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(98);
+var _theme = __webpack_require__(99);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(99);
+var _Analytics = __webpack_require__(100);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(103);
+var _Gapi = __webpack_require__(104);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
-var _recompose = __webpack_require__(104);
+var _recompose = __webpack_require__(105);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Menu = __webpack_require__(105);
+var _Menu = __webpack_require__(106);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-var _FadeIn = __webpack_require__(28);
+var _FadeIn = __webpack_require__(33);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -4597,15 +4654,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(10);
+var _path2 = __webpack_require__(11);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(11);
+var _importCss2 = __webpack_require__(12);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(12);
+var _universalImport2 = __webpack_require__(13);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4657,50 +4714,10 @@ var universalOptions = {
 };
 
 var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
-  id: '../src/containers/Home.jsx',
-  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
-  load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 24)), (0, _importCss3.default)('src/containers/Home.jsx', {
-      disableWarnings: true
-    })]).then(function (proms) {
-      return proms[0];
-    });
-  },
-  path: function path() {
-    return _path3.default.join(__dirname, '../src/containers/Home.jsx');
-  },
-  resolve: function resolve() {
-    return /*require.resolve*/(24);
-  },
-  chunkName: function chunkName() {
-    return 'src/containers/Home.jsx';
-  }
-}), universalOptions);
-var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
-  id: '../src/containers/Post.jsx',
-  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
-  load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 29)), (0, _importCss3.default)('src/containers/Post.jsx', {
-      disableWarnings: true
-    })]).then(function (proms) {
-      return proms[0];
-    });
-  },
-  path: function path() {
-    return _path3.default.join(__dirname, '../src/containers/Post.jsx');
-  },
-  resolve: function resolve() {
-    return /*require.resolve*/(29);
-  },
-  chunkName: function chunkName() {
-    return 'src/containers/Post.jsx';
-  }
-}), universalOptions);
-var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Posts.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 34)), (0, _importCss3.default)('src/containers/Posts.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 24)), (0, _importCss3.default)('src/containers/Posts.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4710,17 +4727,57 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Posts.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(34);
+    return /*require.resolve*/(24);
   },
   chunkName: function chunkName() {
     return 'src/containers/Posts.jsx';
+  }
+}), universalOptions);
+var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
+  id: '../src/containers/Post.jsx',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
+  load: function load() {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 27)), (0, _importCss3.default)('src/containers/Post.jsx', {
+      disableWarnings: true
+    })]).then(function (proms) {
+      return proms[0];
+    });
+  },
+  path: function path() {
+    return _path3.default.join(__dirname, '../src/containers/Post.jsx');
+  },
+  resolve: function resolve() {
+    return /*require.resolve*/(27);
+  },
+  chunkName: function chunkName() {
+    return 'src/containers/Post.jsx';
+  }
+}), universalOptions);
+var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
+  id: '../src/containers/Home.jsx',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
+  load: function load() {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 31)), (0, _importCss3.default)('src/containers/Home.jsx', {
+      disableWarnings: true
+    })]).then(function (proms) {
+      return proms[0];
+    });
+  },
+  path: function path() {
+    return _path3.default.join(__dirname, '../src/containers/Home.jsx');
+  },
+  resolve: function resolve() {
+    return /*require.resolve*/(31);
+  },
+  chunkName: function chunkName() {
+    return 'src/containers/Home.jsx';
   }
 }), universalOptions);
 var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Games.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 35)), (0, _importCss3.default)('src/containers/Games.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 34)), (0, _importCss3.default)('src/containers/Games.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4730,7 +4787,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(35);
+    return /*require.resolve*/(34);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games.jsx';
@@ -4740,7 +4797,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 36)), (0, _importCss3.default)('src/containers/Game.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 35)), (0, _importCss3.default)('src/containers/Game.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4750,7 +4807,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(36);
+    return /*require.resolve*/(35);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game.jsx';
@@ -4760,7 +4817,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('src/containers/About.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('src/containers/About.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4770,7 +4827,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(40);
+    return /*require.resolve*/(39);
   },
   chunkName: function chunkName() {
     return 'src/containers/About.jsx';
@@ -4780,7 +4837,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Settings.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('src/containers/Settings.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('src/containers/Settings.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4790,13 +4847,33 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Settings.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(41);
+    return /*require.resolve*/(40);
   },
   chunkName: function chunkName() {
     return 'src/containers/Settings.jsx';
   }
 }), universalOptions);
 var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
+  id: '../src/containers/Privacy.jsx',
+  file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
+  load: function load() {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('src/containers/Privacy.jsx', {
+      disableWarnings: true
+    })]).then(function (proms) {
+      return proms[0];
+    });
+  },
+  path: function path() {
+    return _path3.default.join(__dirname, '../src/containers/Privacy.jsx');
+  },
+  resolve: function resolve() {
+    return /*require.resolve*/(42);
+  },
+  chunkName: function chunkName() {
+    return 'src/containers/Privacy.jsx';
+  }
+}), universalOptions);
+var t_8 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/404.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
@@ -4818,11 +4895,11 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
 }), universalOptions);
 
 // Template Map
-global.componentsByTemplateID = global.componentsByTemplateID || [t_0, t_1, t_2, t_3, t_4, t_5, t_6, t_7];
+global.componentsByTemplateID = global.componentsByTemplateID || [t_0, t_1, t_2, t_3, t_4, t_5, t_6, t_7, t_8];
 
 // Template Tree
 global.templateIDsByPath = global.templateIDsByPath || {
-  '404': 7
+  '404': 8
 
   // Get template for given path
 };var getComponentForPath = function getComponentForPath(path) {
@@ -4864,7 +4941,7 @@ var Routes = function (_Component) {
           return Comp ? _react2.default.createElement(Comp, _extends({}, newProps, is404 ? { is404: true } : {}, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 75
             }
           })) : null;
         };
@@ -4880,7 +4957,7 @@ var Routes = function (_Component) {
         return _react2.default.createElement(Comp, _extends({}, renderProps, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 88
           }
         }));
       }
@@ -4898,7 +4975,7 @@ var Routes = function (_Component) {
           return Comp && Comp(_extends({}, props, { key: props.location.pathname }));
         }, __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 100
         }
       });
     }
@@ -5516,495 +5593,54 @@ module.exports = require("hoist-non-react-statics");
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Background.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    position: ', ';\n    display: ', ';\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    margin: 0;\n    width: ', ';\n    height: ', ';\n    padding: ', ';\n    z-index: ', ';\n    background-color: ', '\n'], ['\n    position: ', ';\n    display: ', ';\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    margin: 0;\n    width: ', ';\n    height: ', ';\n    padding: ', ';\n    z-index: ', ';\n    background-color: ', '\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UiBg = function (_React$Component) {
-    _inherits(UiBg, _React$Component);
-
-    function UiBg(props) {
-        _classCallCheck(this, UiBg);
-
-        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
-        //if fill is true, fills 100% of space
-        //takes zindex as a prop, defaults to 1
-        //overflow property as prop, defaults to scroll
-        //  console.log("Container UI constructor props", props);
-    }
-
-    _createClass(UiBg, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Bg,
-                { z: this.props.z, colorKey: this.props.colorKey, color: this.props.color, fixed: this.props.fixed,
-                    padding: this.props.padding, overflow: this.props.overflow, display: this.props.display,
-                    top: this.props.top, bottom: this.props.bottom, left: this.props.left, right: this.props.right, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 14
-                    }
-                },
-                this.props.children
-            );
-        }
-    }]);
-
-    return UiBg;
-}(_react2.default.Component);
-
-exports.default = UiBg;
-
-
-var Bg = _styledComponents2.default.div(_templateObject, function (props) {
-    return props.fixed ? 'fixed' : 'absolute';
-}, function (props) {
-    return props.display ? props.display : 'block';
-}, function (props) {
-    return props.width ? props.width : 'inherit';
-}, function (props) {
-    return props.height ? props.height : 'inherit';
-}, function (props) {
-    return props.padding ? props.padding : '0 0 0 0';
-}, function (props) {
-    return props.z ? props.z : -999;
-}, function (props) {
-    if (props.color) {
-        return props.color;
-    } else if (props.colorKey) {
-        return props.theme[props.theme.theme][props.colorKey];
-    } else {
-        return props.theme[props.theme.theme].neutral;
-    }
-});
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Flexbox.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    width: ', '\n    height: ', '\n    display: flex;\n    flex-direction: ', '\n'], ['\n    width: ', '\n    height: ', '\n    display: flex;\n    flex-direction: ', '\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Flex = function (_React$Component) {
-    _inherits(Flex, _React$Component);
-
-    function Flex() {
-        _classCallCheck(this, Flex);
-
-        return _possibleConstructorReturn(this, (Flex.__proto__ || Object.getPrototypeOf(Flex)).apply(this, arguments));
-    }
-
-    _createClass(Flex, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Box,
-                { height: this.props.height, width: this.props.width,
-                    direction: this.props.direction, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 6
-                    }
-                },
-                this.props.children
-            );
-        }
-    }]);
-
-    return Flex;
-}(_react2.default.Component);
-
-exports.default = Flex;
-
-
-var Box = _styledComponents2.default.div(_templateObject, function (props) {
-    return props.width ? props.width : 'inherit';
-}, function (props) {
-    return props.height ? props.height : 'inherit';
-}, function (props) {
-    return props.direction ? props.direction : 'row';
-});
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _path2 = __webpack_require__(10);
-
-var _path3 = _interopRequireDefault(_path2);
-
-var _importCss2 = __webpack_require__(11);
-
-var _importCss3 = _interopRequireDefault(_importCss2);
-
-var _universalImport2 = __webpack_require__(12);
-
-var _universalImport3 = _interopRequireDefault(_universalImport2);
-
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\graphs\\Trends.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _trends = __webpack_require__(60);
-
-var _trends2 = _interopRequireDefault(_trends);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Loading = __webpack_require__(26);
-
-var _Loading2 = _interopRequireDefault(_Loading);
-
-var _Container = __webpack_require__(7);
-
-var _Container2 = _interopRequireDefault(_Container);
-
-var _Text = __webpack_require__(5);
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Table = __webpack_require__(27);
-
-var _Table2 = _interopRequireDefault(_Table);
-
-var _recharts = __webpack_require__(8);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/*
-      "Month": "2004-01",
-      "math: (Worldwide)": 35,
-      "physics: (Worldwide)": 20,
-      "chemistry: (Worldwide)": 21,
-      import { error } from 'util';
-"biology: (Worldwide)": 18,
-      "science: (Worldwide)": 100
-
-      tick={{ fill: 'red' }}
-*/
-var Graph = function (_React$Component) {
-    _inherits(Graph, _React$Component);
-
-    function Graph(props) {
-        _classCallCheck(this, Graph);
-
-        var _this = _possibleConstructorReturn(this, (Graph.__proto__ || Object.getPrototypeOf(Graph)).call(this, props));
-
-        _this.state = {
-            recharts: null,
-            error: null
-        };
-        return _this;
-    }
-
-    _createClass(Graph, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            (0, _universalImport3.default)({
-                id: 'recharts',
-                file: 'D:/websites/react-static/static-site-2/4/src/components/UI/graphs/Trends.jsx',
-                load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 8)), (0, _importCss3.default)('recharts', {
-                        disableWarnings: true
-                    })]).then(function (proms) {
-                        return proms[0];
-                    });
-                },
-                path: function path() {
-                    return _path3.default.join(__dirname, 'recharts');
-                },
-                resolve: function resolve() {
-                    return /*require.resolve*/(8);
-                },
-                chunkName: function chunkName() {
-                    return 'mygraph';
-                }
-            }).then(function (r) {
-                _this2.setState({
-                    recharts: r
-                });
-            }).catch(function (e) {
-                _this2.setState({
-                    error: 'unable to load graph'
-                });
-            });
-        }
-    }, {
-        key: 'renderGraph',
-        value: function renderGraph() {
-            return _react2.default.createElement(
-                _Table2.default,
-                { heights: [null, '100%'], __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 43
-                    }
-                },
-                _react2.default.createElement(
-                    'p',
-                    { style: { textAlign: 'center' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 44
-                        }
-                    },
-                    'Google Search Trends for Subjects'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { style: { height: '97%', width: '95%', margin: 'auto' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 45
-                        }
-                    },
-                    _react2.default.createElement(
-                        _recharts.ResponsiveContainer,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 46
-                            }
-                        },
-                        _react2.default.createElement(
-                            _recharts.LineChart,
-                            { data: _trends2.default,
-                                padding: { top: 0, right: 0, left: 0, bottom: 0 },
-                                margin: { top: 20, right: 20, left: -20, bottom: 50 }, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 47
-                                }
-                            },
-                            _react2.default.createElement(_recharts.XAxis, { dataKey: 'Month', label: { value: "Year-Month", offset: 25, angle: 0, position: 'bottom' },
-                                tickFormatter: function tickFormatter(t) {
-                                    return t.slice(2);
-                                }, angle: -45, textAnchor: 'end', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 50
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.YAxis, {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 52
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.CartesianGrid, { strokeDasharray: '1 6', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 53
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.Tooltip, {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 54
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.Legend, { verticalAlign: 'top', height: 36, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 55
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.Line, { type: 'monotone', dot: false, dataKey: 'math: (Worldwide)', fill: '#8884d8', stroke: '#8884d8', strokeWidth: 3, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 56
-                                }
-                            }),
-                            _react2.default.createElement(_recharts.Line, { type: 'monotone', dot: false, dataKey: 'physics: (Worldwide)', stroke: '#82ca9d', strokeWidth: 3, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 57
-                                }
-                            })
-                        )
-                    )
-                )
-            );
-        }
-        //runs a loading animation until data and graph are imported
-
-    }, {
-        key: 'render',
-        value: function render() {
-            //return this.renderGraph();
-            if (this.state.recharts) {
-                return this.renderGraph();
-            } else if (this.state.error) {
-                return _react2.default.createElement(
-                    'p',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 70
-                        }
-                    },
-                    this.state.error
-                );
-            } else {
-                return _react2.default.createElement(
-                    _Container2.default,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 72
-                        }
-                    },
-                    _react2.default.createElement(_Loading2.default, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 73
-                        }
-                    })
-                );
-            }
-        }
-    }]);
-
-    return Graph;
-}(_react2.default.Component);
-
-exports.default = Graph;
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports) {
-
-module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-move/Animate");
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-move/NodeGroup");
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-module.exports = require("d3-ease");
-
-/***/ }),
-/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAxOWMwIDEuMS45IDIgMiAyaDhjMS4xIDAgMi0uOSAyLTJWN0g2djEyek0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNFY0eiIvPgogICAgPHBhdGggIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 65 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPgo8L3N2Zz4K"
 
 /***/ }),
-/* 66 */
+/* 59 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgOGwtNCA0aDNjMCAzLjMxLTIuNjkgNi02IDYtMS4wMSAwLTEuOTctLjI1LTIuOC0uN2wtMS40NiAxLjQ2QzguOTcgMTkuNTQgMTAuNDMgMjAgMTIgMjBjNC40MiAwIDgtMy41OCA4LThoM2wtNC00ek02IDEyYzAtMy4zMSAyLjY5LTYgNi02IDEuMDEgMCAxLjk3LjI1IDIuOC43bDEuNDYtMS40NkMxNS4wMyA0LjQ2IDEzLjU3IDQgMTIgNGMtNC40MiAwLTggMy41OC04IDhIMWw0IDQgNC00SDZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 67 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTcgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xIDAgMi0uOSAyLTJWN2wtNC00em0tNSAxNmMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtMyAzIDEuMzQgMyAzLTEuMzQgMy0zIDN6bTMtMTBINVY1aDEwdjR6Ii8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 68 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjB2MjBIMFYweiIvPgogICAgPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNS45NSAxMC43OGMuMDMtLjI1LjA1LS41MS4wNS0uNzhzLS4wMi0uNTMtLjA2LS43OGwxLjY5LTEuMzJjLjE1LS4xMi4xOS0uMzQuMS0uNTFsLTEuNi0yLjc3Yy0uMS0uMTgtLjMxLS4yNC0uNDktLjE4bC0xLjk5LjhjLS40Mi0uMzItLjg2LS41OC0xLjM1LS43OEwxMiAyLjM0Yy0uMDMtLjItLjItLjM0LS40LS4zNEg4LjRjLS4yIDAtLjM2LjE0LS4zOS4zNGwtLjMgMi4xMmMtLjQ5LjItLjk0LjQ3LTEuMzUuNzhsLTEuOTktLjhjLS4xOC0uMDctLjM5IDAtLjQ5LjE4bC0xLjYgMi43N2MtLjEuMTgtLjA2LjM5LjEuNTFsMS42OSAxLjMyYy0uMDQuMjUtLjA3LjUyLS4wNy43OHMuMDIuNTMuMDYuNzhMMi4zNyAxMi4xYy0uMTUuMTItLjE5LjM0LS4xLjUxbDEuNiAyLjc3Yy4xLjE4LjMxLjI0LjQ5LjE4bDEuOTktLjhjLjQyLjMyLjg2LjU4IDEuMzUuNzhsLjMgMi4xMmMuMDQuMi4yLjM0LjQuMzRoMy4yYy4yIDAgLjM3LS4xNC4zOS0uMzRsLjMtMi4xMmMuNDktLjIuOTQtLjQ3IDEuMzUtLjc4bDEuOTkuOGMuMTguMDcuMzkgMCAuNDktLjE4bDEuNi0yLjc3Yy4xLS4xOC4wNi0uMzktLjEtLjUxbC0xLjY3LTEuMzJ6TTEwIDEzYy0xLjY1IDAtMy0xLjM1LTMtM3MxLjM1LTMgMy0zIDMgMS4zNSAzIDMtMS4zNSAzLTMgM3oiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 69 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNNy40MSAxNS40MUwxMiAxMC44M2w0LjU5IDQuNThMMTggMTRsLTYtNi02IDZ6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 70 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNOCA1djE0bDExLTd6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 71 */
+/* 64 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+DQogICAgPHBhdGggc3Ryb2tlPSJub25lIiBmaWxsPSJ3aGl0ZSIgZD0iTTEyIDhjMS4xIDAgMi0uOSAyLTJzLS45LTItMi0yLTIgLjktMiAyIC45IDIgMiAyem0wIDJjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yem0wIDZjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yeiIvPg0KPC9zdmc+DQo="
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6304,7 +5940,25 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 72 */
+/* 66 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-move/Animate");
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-move/NodeGroup");
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports) {
+
+module.exports = require("d3-ease");
+
+/***/ }),
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6321,7 +5975,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactD3Tree = __webpack_require__(73);
+var _reactD3Tree = __webpack_require__(70);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6442,13 +6096,13 @@ var Sankey = function (_React$Component) {
 exports.default = Sankey;
 
 /***/ }),
-/* 73 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-d3-tree");
 
 /***/ }),
-/* 74 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6481,11 +6135,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _CenterBox = __webpack_require__(33);
+var _CenterBox = __webpack_require__(29);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
-var _TextBox = __webpack_require__(14);
+var _TextBox = __webpack_require__(8);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
@@ -6677,7 +6331,7 @@ const Video = styled.div`
 */
 
 /***/ }),
-/* 75 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6752,7 +6406,436 @@ var Sizer = function (_React$Component) {
 exports.default = Sizer;
 
 /***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Background.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    position: ', ';\n    display: ', ';\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    margin: 0;\n    width: ', ';\n    height: ', ';\n    padding: ', ';\n    z-index: ', ';\n    background-color: ', '\n'], ['\n    position: ', ';\n    display: ', ';\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n    margin: 0;\n    width: ', ';\n    height: ', ';\n    padding: ', ';\n    z-index: ', ';\n    background-color: ', '\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UiBg = function (_React$Component) {
+    _inherits(UiBg, _React$Component);
+
+    function UiBg(props) {
+        _classCallCheck(this, UiBg);
+
+        return _possibleConstructorReturn(this, (UiBg.__proto__ || Object.getPrototypeOf(UiBg)).call(this, props));
+        //if fill is true, fills 100% of space
+        //takes zindex as a prop, defaults to 1
+        //overflow property as prop, defaults to scroll
+        //  console.log("Container UI constructor props", props);
+    }
+
+    _createClass(UiBg, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Bg,
+                { z: this.props.z, colorKey: this.props.colorKey, color: this.props.color, fixed: this.props.fixed,
+                    padding: this.props.padding, overflow: this.props.overflow, display: this.props.display,
+                    top: this.props.top, bottom: this.props.bottom, left: this.props.left, right: this.props.right, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 14
+                    }
+                },
+                this.props.children
+            );
+        }
+    }]);
+
+    return UiBg;
+}(_react2.default.Component);
+
+exports.default = UiBg;
+
+
+var Bg = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.fixed ? 'fixed' : 'absolute';
+}, function (props) {
+    return props.display ? props.display : 'block';
+}, function (props) {
+    return props.width ? props.width : 'inherit';
+}, function (props) {
+    return props.height ? props.height : 'inherit';
+}, function (props) {
+    return props.padding ? props.padding : '0 0 0 0';
+}, function (props) {
+    return props.z ? props.z : -999;
+}, function (props) {
+    if (props.color) {
+        return props.color;
+    } else if (props.colorKey) {
+        return props.theme[props.theme.theme][props.colorKey];
+    } else {
+        return props.theme[props.theme.theme].neutral;
+    }
+});
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Flexbox.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    width: ', '\n    height: ', '\n    display: flex;\n    flex-direction: ', '\n'], ['\n    width: ', '\n    height: ', '\n    display: flex;\n    flex-direction: ', '\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Flex = function (_React$Component) {
+    _inherits(Flex, _React$Component);
+
+    function Flex() {
+        _classCallCheck(this, Flex);
+
+        return _possibleConstructorReturn(this, (Flex.__proto__ || Object.getPrototypeOf(Flex)).apply(this, arguments));
+    }
+
+    _createClass(Flex, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Box,
+                { height: this.props.height, width: this.props.width,
+                    direction: this.props.direction, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 6
+                    }
+                },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Flex;
+}(_react2.default.Component);
+
+exports.default = Flex;
+
+
+var Box = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.width ? props.width : 'inherit';
+}, function (props) {
+    return props.height ? props.height : 'inherit';
+}, function (props) {
+    return props.direction ? props.direction : 'row';
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _path2 = __webpack_require__(11);
+
+var _path3 = _interopRequireDefault(_path2);
+
+var _importCss2 = __webpack_require__(12);
+
+var _importCss3 = _interopRequireDefault(_importCss2);
+
+var _universalImport2 = __webpack_require__(13);
+
+var _universalImport3 = _interopRequireDefault(_universalImport2);
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\graphs\\Trends.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _trends = __webpack_require__(76);
+
+var _trends2 = _interopRequireDefault(_trends);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Loading = __webpack_require__(30);
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
+var _Container = __webpack_require__(7);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _Text = __webpack_require__(5);
+
+var _Text2 = _interopRequireDefault(_Text);
+
+var _Table = __webpack_require__(32);
+
+var _Table2 = _interopRequireDefault(_Table);
+
+var _recharts = __webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/*
+      "Month": "2004-01",
+      "math: (Worldwide)": 35,
+      "physics: (Worldwide)": 20,
+      "chemistry: (Worldwide)": 21,
+      import { error } from 'util';
+"biology: (Worldwide)": 18,
+      "science: (Worldwide)": 100
+
+      tick={{ fill: 'red' }}
+*/
+var Graph = function (_React$Component) {
+    _inherits(Graph, _React$Component);
+
+    function Graph(props) {
+        _classCallCheck(this, Graph);
+
+        var _this = _possibleConstructorReturn(this, (Graph.__proto__ || Object.getPrototypeOf(Graph)).call(this, props));
+
+        _this.state = {
+            recharts: null,
+            error: null
+        };
+        return _this;
+    }
+
+    _createClass(Graph, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            (0, _universalImport3.default)({
+                id: 'recharts',
+                file: 'D:/websites/react-static/static-site-2/4/src/components/UI/graphs/Trends.jsx',
+                load: function load() {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('recharts', {
+                        disableWarnings: true
+                    })]).then(function (proms) {
+                        return proms[0];
+                    });
+                },
+                path: function path() {
+                    return _path3.default.join(__dirname, 'recharts');
+                },
+                resolve: function resolve() {
+                    return /*require.resolve*/(9);
+                },
+                chunkName: function chunkName() {
+                    return 'mygraph';
+                }
+            }).then(function (r) {
+                _this2.setState({
+                    recharts: r
+                });
+            }).catch(function (e) {
+                _this2.setState({
+                    error: 'unable to load graph'
+                });
+            });
+        }
+    }, {
+        key: 'renderGraph',
+        value: function renderGraph() {
+            return _react2.default.createElement(
+                _Table2.default,
+                { heights: [null, '100%'], __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 43
+                    }
+                },
+                _react2.default.createElement(
+                    'p',
+                    { style: { textAlign: 'center' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 44
+                        }
+                    },
+                    'Google Search Trends for Subjects'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { style: { height: '97%', width: '95%', margin: 'auto' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 45
+                        }
+                    },
+                    _react2.default.createElement(
+                        _recharts.ResponsiveContainer,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 46
+                            }
+                        },
+                        _react2.default.createElement(
+                            _recharts.LineChart,
+                            { data: _trends2.default,
+                                padding: { top: 0, right: 0, left: 0, bottom: 0 },
+                                margin: { top: 20, right: 20, left: -20, bottom: 50 }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 47
+                                }
+                            },
+                            _react2.default.createElement(_recharts.XAxis, { dataKey: 'Month', label: { value: "Year-Month", offset: 25, angle: 0, position: 'bottom' },
+                                tickFormatter: function tickFormatter(t) {
+                                    return t.slice(2);
+                                }, angle: -45, textAnchor: 'end', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 50
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.YAxis, {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 52
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.CartesianGrid, { strokeDasharray: '1 6', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 53
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.Tooltip, {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 54
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.Legend, { verticalAlign: 'top', height: 36, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 55
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.Line, { type: 'monotone', dot: false, dataKey: 'math: (Worldwide)', fill: '#8884d8', stroke: '#8884d8', strokeWidth: 3, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 56
+                                }
+                            }),
+                            _react2.default.createElement(_recharts.Line, { type: 'monotone', dot: false, dataKey: 'physics: (Worldwide)', stroke: '#82ca9d', strokeWidth: 3, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 57
+                                }
+                            })
+                        )
+                    )
+                )
+            );
+        }
+        //runs a loading animation until data and graph are imported
+
+    }, {
+        key: 'render',
+        value: function render() {
+            //return this.renderGraph();
+            if (this.state.recharts) {
+                return this.renderGraph();
+            } else if (this.state.error) {
+                return _react2.default.createElement(
+                    'p',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 70
+                        }
+                    },
+                    this.state.error
+                );
+            } else {
+                return _react2.default.createElement(
+                    _Container2.default,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 72
+                        }
+                    },
+                    _react2.default.createElement(_Loading2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 73
+                        }
+                    })
+                );
+            }
+        }
+    }]);
+
+    return Graph;
+}(_react2.default.Component);
+
+exports.default = Graph;
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+
+/***/ }),
 /* 76 */
+/***/ (function(module, exports) {
+
+module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
+
+/***/ }),
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6771,19 +6854,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Load = __webpack_require__(77);
+var _Load = __webpack_require__(78);
 
 var _Load2 = _interopRequireDefault(_Load);
 
-var _Store = __webpack_require__(84);
+var _Store = __webpack_require__(85);
 
 var _Store2 = _interopRequireDefault(_Store);
 
-var _Game = __webpack_require__(85);
+var _Game = __webpack_require__(86);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _GameMenu = __webpack_require__(91);
+var _GameMenu = __webpack_require__(92);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
@@ -6926,7 +7009,7 @@ exports.default = Index;
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6943,11 +7026,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PersistStore = __webpack_require__(78);
+var _PersistStore = __webpack_require__(79);
 
 var _PersistStore2 = _interopRequireDefault(_PersistStore);
 
-var _fileUtils = __webpack_require__(83);
+var _fileUtils = __webpack_require__(84);
 
 var _reactRedux = __webpack_require__(3);
 
@@ -7482,7 +7565,7 @@ Load.displayName = 'Load';
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Load);
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7503,23 +7586,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _reduxLogger = __webpack_require__(20);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxPersist = __webpack_require__(79);
+var _reduxPersist = __webpack_require__(80);
 
-var _storage = __webpack_require__(80);
+var _storage = __webpack_require__(81);
 
 var _storage2 = _interopRequireDefault(_storage);
 
-var _autoMergeLevel = __webpack_require__(81);
+var _autoMergeLevel = __webpack_require__(82);
 
 var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
 
-var _react3 = __webpack_require__(82);
+var _react3 = __webpack_require__(83);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7631,31 +7714,31 @@ Persist.displayName = 'PersistStore';
 exports.default = Persist;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/integration/react");
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7713,7 +7796,7 @@ var createFileWithJSONContent = exports.createFileWithJSONContent = function cre
 };
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7732,7 +7815,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _reduxLogger = __webpack_require__(20);
 
@@ -7786,7 +7869,7 @@ Store.displayName = "Store";
 exports.default = Store;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7796,15 +7879,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(10);
+var _path2 = __webpack_require__(11);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(11);
+var _importCss2 = __webpack_require__(12);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(12);
+var _universalImport2 = __webpack_require__(13);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -7818,7 +7901,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _all = __webpack_require__(86);
+var _all = __webpack_require__(87);
 
 var _all2 = _interopRequireDefault(_all);
 
@@ -7826,7 +7909,7 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Accordion = __webpack_require__(87);
+var _Accordion = __webpack_require__(88);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
@@ -7834,7 +7917,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(88);
+var _mygamelibs = __webpack_require__(89);
 
 var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
 
@@ -7922,7 +8005,7 @@ var Game = function (_React$Component) {
                 id: './../UI/math/Katex.jsx',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 38)), (0, _importCss3.default)('UI/math/Katex.jsx', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 37)), (0, _importCss3.default)('UI/math/Katex.jsx', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -7932,7 +8015,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(38);
+                    return /*require.resolve*/(37);
                 },
                 chunkName: function chunkName() {
                     return 'UI/math/Katex.jsx';
@@ -7965,7 +8048,7 @@ var Game = function (_React$Component) {
                 id: 'recharts',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 8)), (0, _importCss3.default)('recharts', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('recharts', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -7975,7 +8058,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, 'recharts');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(8);
+                    return /*require.resolve*/(9);
                 },
                 chunkName: function chunkName() {
                     return 'recharts';
@@ -8069,13 +8152,13 @@ exports.default = Game;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = require("nerdamer/all");
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8104,7 +8187,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(13);
+var _IconButton = __webpack_require__(14);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -8114,7 +8197,7 @@ var _reactGa2 = _interopRequireDefault(_reactGa);
 
 var _reactRedux = __webpack_require__(3);
 
-var _Button = __webpack_require__(37);
+var _Button = __webpack_require__(36);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -8341,25 +8424,25 @@ var Mid = _styledComponents2.default.span(_templateObject6);
 var FlexChild = _styledComponents2.default.span(_templateObject7);
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8384,11 +8467,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(13);
+var _IconButton = __webpack_require__(14);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _SignInUi = __webpack_require__(92);
+var _SignInUi = __webpack_require__(93);
 
 var _SignInUi2 = _interopRequireDefault(_SignInUi);
 
@@ -8446,7 +8529,7 @@ exports.default = (0, _reactStatic.withSiteData)(Menu);
 var Bar = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8654,7 +8737,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignIn);
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8673,7 +8756,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(94);
+__webpack_require__(95);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -8801,10 +8884,10 @@ var View = _styledComponents2.default.span(_templateObject, function (props) {
 // React.render( <Switch isChecked={ true } />, document.getElementById( "page" ) );
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)(false);
+exports = module.exports = __webpack_require__(41)(false);
 // imports
 
 
@@ -8815,7 +8898,7 @@ exports.push([module.i, ".switch-container{position:relative}input[type=checkbox
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8825,13 +8908,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _reduxLogger = __webpack_require__(20);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(96);
+var _reducers = __webpack_require__(97);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -8856,7 +8939,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8866,7 +8949,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _apiReducer = __webpack_require__(44);
 
@@ -8877,10 +8960,10 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)(false);
+exports = module.exports = __webpack_require__(41)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
@@ -8891,7 +8974,7 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9063,7 +9146,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9084,11 +9167,11 @@ var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _cookies = __webpack_require__(100);
+var _cookies = __webpack_require__(101);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Modal = __webpack_require__(101);
+var _Modal = __webpack_require__(102);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
@@ -9096,7 +9179,7 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(37);
+var _Button = __webpack_require__(36);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -9243,7 +9326,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9288,7 +9371,7 @@ function getCookie(cname) {
 // }
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9312,7 +9395,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Wiggle = __webpack_require__(102);
+var _Wiggle = __webpack_require__(103);
 
 var _Wiggle2 = _interopRequireDefault(_Wiggle);
 
@@ -9390,7 +9473,7 @@ var Mod = _styledComponents2.default.div(_templateObject);
 var Discrete = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9465,7 +9548,7 @@ Wig.displayName = 'Wiggle';
 var Wiggle = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9483,7 +9566,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _apiReducer = __webpack_require__(44);
 
@@ -9592,13 +9675,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports) {
 
 module.exports = require("recompose");
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9636,19 +9719,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(13);
+var _IconButton = __webpack_require__(14);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _baselineMore_vert24px = __webpack_require__(31);
-
-var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
-
-var _index = __webpack_require__(106);
+var _index = __webpack_require__(107);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(30);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(28);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
@@ -9678,7 +9757,6 @@ var Menu = exports.Menu = function (_React$Component) {
         _this.state = {
             path: path,
             categories: categories,
-            options: ['settings', 'privacy', 'about'],
             minimize: _this.setMinimize(path)
         };
         return _this;
@@ -9723,21 +9801,21 @@ var Menu = exports.Menu = function (_React$Component) {
                 _index2.default,
                 { links: this.state.categories, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 54
+                        lineNumber: 53
                     }
                 },
                 _react2.default.createElement(
                     _reactStatic.Link,
                     { className: 'dropbtn', tabIndex: '1', style: { verticalAlign: 'middle', height: '50px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 55
+                            lineNumber: 54
                         }
                     },
                     _react2.default.createElement(
                         'h4',
                         { style: { verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 56
+                                lineNumber: 55
                             }
                         },
                         this.state.path[0] ? this.state.path[0] : ''
@@ -9745,7 +9823,7 @@ var Menu = exports.Menu = function (_React$Component) {
                     _react2.default.createElement(DropArrow, {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 57
+                            lineNumber: 56
                         }
                     })
                 )
@@ -9756,14 +9834,14 @@ var Menu = exports.Menu = function (_React$Component) {
         value: function renderMore() {
             return _react2.default.createElement(
                 _index2.default,
-                { links: [{ text: 'about', to: '/about' }, { text: 'privacy', to: '/privacy' }, { text: 'settings', to: '/settings' }], __source: {
+                { links: [{ text: 'privacy', to: '/privacy' }, { text: 'about', to: '/about' }, { text: 'settings', to: '/settings' }], __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 63
+                        lineNumber: 62
                     }
                 },
                 _react2.default.createElement(_IconButton2.default, { classes: 'dropbtn', tabIndex: '1', icon: "more", hover: 'grey', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 65
+                        lineNumber: 64
                     }
                 })
             );
@@ -9776,7 +9854,7 @@ var Menu = exports.Menu = function (_React$Component) {
                     'p',
                     { style: { fontSize: '1em', paddingLeft: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 73
+                            lineNumber: 72
                         }
                     },
                     this.state.path[1] ? this.state.path[1] : '',
@@ -9788,7 +9866,7 @@ var Menu = exports.Menu = function (_React$Component) {
                     PostTitle,
                     { style: { fontSize: '1em', paddingLeft: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 76
+                            lineNumber: 75
                         }
                     },
                     this.state.path[1] ? this.state.path[1] : ''
@@ -9813,14 +9891,14 @@ var Menu = exports.Menu = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 89
+                            lineNumber: 88
                         }
                     },
                     _react2.default.createElement(
                         Outer,
                         { className: this.getClassName(), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 90
+                                lineNumber: 89
                             }
                         },
                         _react2.default.createElement(
@@ -9828,7 +9906,7 @@ var Menu = exports.Menu = function (_React$Component) {
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 91
+                                    lineNumber: 90
                                 }
                             },
                             _react2.default.createElement(
@@ -9836,14 +9914,14 @@ var Menu = exports.Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 92
+                                        lineNumber: 91
                                     }
                                 },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
                                     { exact: true, to: '/', className: 'title', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 92
+                                            lineNumber: 91
                                         }
                                     },
                                     _react2.default.createElement(
@@ -9851,7 +9929,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 92
+                                                lineNumber: 91
                                             }
                                         },
                                         'Title'
@@ -9860,14 +9938,14 @@ var Menu = exports.Menu = function (_React$Component) {
                             ),
                             _react2.default.createElement(Mid, { key: "mid", style: { flex: '0' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 93
+                                    lineNumber: 92
                                 }
                             }),
                             _react2.default.createElement(
                                 FlexChild,
                                 { key: this.state.path[0] ? this.state.path[0] : '', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 94
+                                        lineNumber: 93
                                     }
                                 },
                                 this.renderDrop()
@@ -9877,7 +9955,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 97
+                                        lineNumber: 96
                                     }
                                 },
                                 this.renderPostHeading()
@@ -9886,7 +9964,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                 Options,
                                 { key: "more", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 100
+                                        lineNumber: 99
                                     }
                                 },
                                 this.renderMore()
@@ -9900,14 +9978,14 @@ var Menu = exports.Menu = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 109
+                            lineNumber: 108
                         }
                     },
                     _react2.default.createElement(
                         Outer,
                         { className: this.getClassName(), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 110
+                                lineNumber: 109
                             }
                         },
                         _react2.default.createElement(
@@ -9915,7 +9993,7 @@ var Menu = exports.Menu = function (_React$Component) {
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 111
+                                    lineNumber: 110
                                 }
                             },
                             _react2.default.createElement(
@@ -9923,14 +10001,14 @@ var Menu = exports.Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 112
+                                        lineNumber: 111
                                     }
                                 },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
                                     { exact: true, to: '/', className: 'title', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 112
+                                            lineNumber: 111
                                         }
                                     },
                                     _react2.default.createElement(
@@ -9938,7 +10016,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 112
+                                                lineNumber: 111
                                             }
                                         },
                                         'Title'
@@ -9947,19 +10025,45 @@ var Menu = exports.Menu = function (_React$Component) {
                             ),
                             _react2.default.createElement(Mid, { key: "mid", style: { flex: '1' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 113
+                                    lineNumber: 112
                                 }
                             }),
                             _react2.default.createElement(
                                 FlexChild,
                                 { key: "games", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 114
+                                        lineNumber: 113
                                     }
                                 },
                                 _react2.default.createElement(
                                     _reactStatic.Link,
                                     { to: '/games', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 113
+                                        }
+                                    },
+                                    _react2.default.createElement(
+                                        'h4',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 113
+                                            }
+                                        },
+                                        'Games'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                FlexChild,
+                                { key: "posts", __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 114
+                                    }
+                                },
+                                _react2.default.createElement(
+                                    _reactStatic.Link,
+                                    { to: '/posts', __source: {
                                             fileName: _jsxFileName,
                                             lineNumber: 114
                                         }
@@ -9972,59 +10076,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                                 lineNumber: 114
                                             }
                                         },
-                                        'Games'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                FlexChild,
-                                { key: "posts", __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 115
-                                    }
-                                },
-                                _react2.default.createElement(
-                                    _reactStatic.Link,
-                                    { to: '/posts', __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 115
-                                        }
-                                    },
-                                    _react2.default.createElement(
-                                        'h4',
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 115
-                                            }
-                                        },
                                         'Posts'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                FlexChild,
-                                { key: "about", __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 116
-                                    }
-                                },
-                                _react2.default.createElement(
-                                    _reactStatic.Link,
-                                    { to: '/about', __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 116
-                                        }
-                                    },
-                                    _react2.default.createElement(
-                                        'h4',
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 116
-                                            }
-                                        },
-                                        'About'
                                     )
                                 )
                             ),
@@ -10032,7 +10084,7 @@ var Menu = exports.Menu = function (_React$Component) {
                                 Options,
                                 { key: "more", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 117
+                                        lineNumber: 116
                                     }
                                 },
                                 this.renderMore()
@@ -10118,7 +10170,7 @@ var DropArrow = _styledComponents2.default.div(_templateObject9, function (props
 }, _baselineKeyboard_arrow_right24px2.default);
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10238,4 +10290,4 @@ var Dropdown = _styledComponents2.default.div(_templateObject, function (props) 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.3fdc4ba6.js.map
+//# sourceMappingURL=static.d34923a5.js.map
