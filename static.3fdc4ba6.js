@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -474,6 +474,30 @@ module.exports = require("recharts");
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-plugin-universal-import/importCss");
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-plugin-universal-import/universalImport");
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -496,39 +520,39 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _baselineDelete24px = __webpack_require__(66);
+var _baselineDelete24px = __webpack_require__(64);
 
 var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
 
-var _baselineDone24px = __webpack_require__(67);
+var _baselineDone24px = __webpack_require__(65);
 
 var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
 
-var _baselineCached24px = __webpack_require__(68);
+var _baselineCached24px = __webpack_require__(66);
 
 var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(32);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(30);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
-var _baselineSave24px = __webpack_require__(69);
+var _baselineSave24px = __webpack_require__(67);
 
 var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
 
-var _baselineSettings20px = __webpack_require__(70);
+var _baselineSettings20px = __webpack_require__(68);
 
 var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
 
-var _baselineKeyboard_arrow_up24px = __webpack_require__(71);
+var _baselineKeyboard_arrow_up24px = __webpack_require__(69);
 
 var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
 
-var _baselinePlay_arrow24px = __webpack_require__(72);
+var _baselinePlay_arrow24px = __webpack_require__(70);
 
 var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
 
-var _baselineMore_vert24px = __webpack_require__(33);
+var _baselineMore_vert24px = __webpack_require__(31);
 
 var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
 
@@ -629,30 +653,6 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
     //console.log("icon btn props", props);
     return props.hover ? props.hover : 'orange';
 });
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-plugin-universal-import/importCss");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-plugin-universal-import/universalImport");
 
 /***/ }),
 /* 14 */
@@ -1184,11 +1184,11 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Background = __webpack_require__(61);
+var _Background = __webpack_require__(57);
 
 var _Background2 = _interopRequireDefault(_Background);
 
-var _Flexbox = __webpack_require__(62);
+var _Flexbox = __webpack_require__(58);
 
 var _Flexbox2 = _interopRequireDefault(_Flexbox);
 
@@ -1204,7 +1204,7 @@ var _PostItem = __webpack_require__(25);
 
 var _PostItem2 = _interopRequireDefault(_PostItem);
 
-var _Trends = __webpack_require__(63);
+var _Trends = __webpack_require__(59);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
@@ -1212,7 +1212,7 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _FadeIn = __webpack_require__(30);
+var _FadeIn = __webpack_require__(28);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -1460,15 +1460,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Animate = __webpack_require__(27);
+var _Animate = __webpack_require__(61);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _NodeGroup = __webpack_require__(65);
+var _NodeGroup = __webpack_require__(62);
 
 var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
-var _d3Ease = __webpack_require__(28);
+var _d3Ease = __webpack_require__(63);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -1687,18 +1687,6 @@ return <div>
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-move/Animate");
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-module.exports = require("d3-ease");
-
-/***/ }),
-/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1817,7 +1805,7 @@ var Tab = _styledComponents2.default.div(_templateObject);
 var Row = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1953,7 +1941,7 @@ var Fade = _styledComponents2.default.div(_templateObject);
 */
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1977,7 +1965,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _IconButton = __webpack_require__(9);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -1985,7 +1973,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(73);
+var _TalkitGame = __webpack_require__(71);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
@@ -1993,11 +1981,11 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(34);
+var _Tags = __webpack_require__(32);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _CenterBox = __webpack_require__(35);
+var _CenterBox = __webpack_require__(33);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
@@ -2009,11 +1997,11 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _SanKey = __webpack_require__(74);
+var _SanKey = __webpack_require__(72);
 
 var _SanKey2 = _interopRequireDefault(_SanKey);
 
-var _Video = __webpack_require__(76);
+var _Video = __webpack_require__(74);
 
 var _Video2 = _interopRequireDefault(_Video);
 
@@ -2021,7 +2009,7 @@ var _TextBox = __webpack_require__(14);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
-var _Sizer = __webpack_require__(77);
+var _Sizer = __webpack_require__(75);
 
 var _Sizer2 = _interopRequireDefault(_Sizer);
 
@@ -2267,19 +2255,19 @@ const VideoBox = styled.div`
 */
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik04LjU5LDE2LjU5TDEzLjE3LDEyTDguNTksNy40MUwxMCw2bDYsNmwtNiw2TDguNTksMTYuNTl6Ii8+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+DQogICAgPHBhdGggc3Ryb2tlPSJub25lIiBmaWxsPSJ3aGl0ZSIgZD0iTTEyIDhjMS4xIDAgMi0uOSAyLTJzLS45LTItMi0yLTIgLjktMiAyIC45IDIgMiAyem0wIDJjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yem0wIDZjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yeiIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2396,7 +2384,7 @@ var Tag = _styledComponents2.default.h4(_templateObject);
 var Container = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2488,7 +2476,7 @@ var Center = _styledComponents2.default.div(_templateObject2);
 var Child = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2519,7 +2507,7 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(34);
+var _Tags = __webpack_require__(32);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
@@ -2731,7 +2719,7 @@ var PostBox = _styledComponents2.default.div(_templateObject3, function (props) 
 //   overflow-y: scroll;
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2752,14 +2740,6 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
-
-var _GameListItem = __webpack_require__(78);
-
-var _GameListItem2 = _interopRequireDefault(_GameListItem);
-
-var _Container = __webpack_require__(7);
-
-var _Container2 = _interopRequireDefault(_Container);
 
 var _TextBox = __webpack_require__(14);
 
@@ -2786,9 +2766,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import Dynamic from './../components/DynamicComponent.jsx';
-//import Menu from './../components/layout/MainMenu.jsx';
-
 
 //import Katex from './../components/UI/math/Katex.jsx';
 //pulling katex out of games removed it from most modules and from sample game
@@ -2832,14 +2809,14 @@ var Games = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 42
+                            lineNumber: 38
                         }
                     },
                     _react2.default.createElement(
                         _Slide2.default,
                         { offset: 100, duration: 1500, childDelay: 150, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 43
+                                lineNumber: 39
                             }
                         },
                         this.props.items.map(function (p) {
@@ -2847,19 +2824,19 @@ var Games = function (_React$Component) {
                                 'span',
                                 { key: p.id, className: 'anim-child', style: { padding: '10px' }, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 46
+                                        lineNumber: 42
                                     }
                                 },
                                 _react2.default.createElement(
                                     _TextBox2.default,
                                     { width: '200px', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 47
+                                            lineNumber: 43
                                         }
                                     },
                                     _react2.default.createElement('div', { style: { width: '100%', height: '200px', background: 'grey' }, __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 48
+                                            lineNumber: 44
                                         }
                                     }),
                                     _react2.default.createElement(
@@ -2867,7 +2844,7 @@ var Games = function (_React$Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 49
+                                                lineNumber: 45
                                             }
                                         },
                                         'game tags'
@@ -2877,12 +2854,12 @@ var Games = function (_React$Component) {
                                         {
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 50
+                                                lineNumber: 46
                                             }
                                         },
                                         _react2.default.createElement(_Text2.default, { tag: 'h2', text: 'Game Title', display: 'inline', __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 51
+                                                lineNumber: 47
                                             }
                                         }),
                                         _react2.default.createElement(
@@ -2890,7 +2867,7 @@ var Games = function (_React$Component) {
                                             { style: { float: 'right' }, key: p.id,
                                                 to: '/games/' + p.id, __source: {
                                                     fileName: _jsxFileName,
-                                                    lineNumber: 52
+                                                    lineNumber: 48
                                                 }
                                             },
                                             'Play'
@@ -2928,358 +2905,7 @@ var GamesBox = _styledComponents2.default.div(_templateObject2, function (props)
 */
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Accordion.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    align-items: center;  \n    display: flex;\n'], ['\n    align-items: center;  \n    display: flex;\n']),
-    _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n    align-self: center  \n'], ['\n    align-self: center  \n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _IconButton = __webpack_require__(9);
-
-var _IconButton2 = _interopRequireDefault(_IconButton);
-
-var _reactGa = __webpack_require__(16);
-
-var _reactGa2 = _interopRequireDefault(_reactGa);
-
-var _reactRedux = __webpack_require__(3);
-
-var _Button = __webpack_require__(39);
-
-var _Button2 = _interopRequireDefault(_Button);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import themes from './../theme.js';
-
-var FoldOut = function (_React$Component) {
-    _inherits(FoldOut, _React$Component);
-
-    function FoldOut(props) {
-        _classCallCheck(this, FoldOut);
-
-        //console.log("Accordion constructor", props);
-        var _this = _possibleConstructorReturn(this, (FoldOut.__proto__ || Object.getPrototypeOf(FoldOut)).call(this, props));
-
-        _this.handleClick = _this.handleClick.bind(_this);
-        _this.state = {
-            open: false,
-            iOpen: 'open',
-            iSelect: 'select'
-        };
-        return _this;
-    }
-
-    _createClass(FoldOut, [{
-        key: 'handleClick',
-        value: function handleClick(type) {
-            //console.log("handleClick type ", type);
-            if (type == this.state.iOpen) {
-                //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
-                this.setState({
-                    open: !this.state.open
-                });
-                //console.log("accordion gapi? " + this.props.gapi.gapiReady + " event? ", this.props.event);
-                if (this.props.gapi.gapiReady && this.props.event) {
-                    //ReactGa.event({...this.props.event, action: 'accordion'});
-                }
-            } else if (type == this.state.iSelect) {
-                //open the game save/load page
-            }
-        }
-    }, {
-        key: 'renderOpenButton',
-        value: function renderOpenButton() {
-            var _this2 = this;
-
-            if (this.state.open) {
-                return _react2.default.createElement(
-                    Wrapper,
-                    { style: { display: 'inline-block', transform: 'rotate(180deg)' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 38
-                        }
-                    },
-                    _react2.default.createElement(_IconButton2.default, { icon: "up", round: true, onInput: function onInput() {
-                            _this2.handleClick(_this2.state.iOpen);
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 39
-                        }
-                    })
-                );
-            } else {
-                return _react2.default.createElement(
-                    Wrapper,
-                    { style: { display: 'inline-block', transform: 'rotate(0deg)' }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 44
-                        }
-                    },
-                    _react2.default.createElement(_IconButton2.default, { icon: "up", round: true, onInput: function onInput() {
-                            _this2.handleClick(_this2.state.iOpen);
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 45
-                        }
-                    })
-                );
-            }
-        }
-    }, {
-        key: 'renderFoldOut',
-        value: function renderFoldOut() {
-            if (this.state.open) {
-                return _react2.default.createElement(
-                    Accordion,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 52
-                        }
-                    },
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'open', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 52
-                            }
-                        },
-                        this.props.children
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    Accordion,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 54
-                        }
-                    },
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'closed', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 54
-                            }
-                        },
-                        this.props.children
-                    )
-                );
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { style: { width: '100%', padding: '10px', margin: '10px 0 0 0', overflow: 'hidden' }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 59
-                    }
-                },
-                _react2.default.createElement(
-                    Pill,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 60
-                        }
-                    },
-                    _react2.default.createElement(
-                        Panel,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 61
-                            }
-                        },
-                        this.renderOpenButton(),
-                        _react2.default.createElement(
-                            Stack,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 63
-                                }
-                            },
-                            _react2.default.createElement(
-                                'h3',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 64
-                                    }
-                                },
-                                this.props.title
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 65
-                                    }
-                                },
-                                this.props.subtitle
-                            )
-                        ),
-                        _react2.default.createElement(Mid, {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 67
-                            }
-                        }),
-                        this.props.callToAction()
-                    ),
-                    this.renderFoldOut()
-                )
-            );
-        }
-    }]);
-
-    return FoldOut;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return { gapi: state.gapi };
-};
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(FoldOut);
-
-var Stack = _styledComponents2.default.ul(_templateObject);
-var Accordion = _styledComponents2.default.div(_templateObject2);
-var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) {
-    return props.theme[props.theme.theme].animM;
-});
-var Pill = _styledComponents2.default.div(_templateObject4, function (props) {
-    //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
-    return props.theme[props.theme.theme].main;
-});
-var Panel = _styledComponents2.default.div(_templateObject5);
-
-var Mid = _styledComponents2.default.span(_templateObject6);
-
-var FlexChild = _styledComponents2.default.span(_templateObject7);
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Button.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n'], ['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Button = function (_React$Component) {
-    _inherits(Button, _React$Component);
-
-    function Button(props) {
-        _classCallCheck(this, Button);
-
-        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
-
-        _this.handleInput = _this.handleInput.bind(_this);
-        return _this;
-    }
-
-    _createClass(Button, [{
-        key: 'handleInput',
-        value: function handleInput(e) {
-            //fire event if available
-            //pass input up to parents
-            this.props.onInput(e);
-            //   console.log("button clicked");
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Btn,
-                { className: 'button', onClick: this.handleInput, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 17
-                    }
-                },
-                this.props.children
-            )
-            // <button className={'button'} onClick={this.handleInput}>{this.props.children}</button>
-            ;
-        }
-    }]);
-
-    return Button;
-}(_react2.default.Component);
-//Button.displayName = 'Button';
-
-
-exports.default = Button;
-
-
-var Btn = _styledComponents2.default.button(_templateObject, function (props) {
-    return props.theme[props.theme.theme].accent;
-}, function (props) {
-    return props.theme[props.theme.theme].accentD;
-});
-
-/***/ }),
-/* 40 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3289,15 +2915,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(10);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(11);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(12);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -3311,7 +2937,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(79);
+var _Index = __webpack_require__(76);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -3352,7 +2978,7 @@ var Games = function (_React$Component) {
                         id: 'samplegame',
                         file: 'D:/websites/react-static/static-site-2/4/src/containers/Game.jsx',
                         load: function load() {
-                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('samplegame', {
+                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('samplegame', {
                                 disableWarnings: true
                             })]).then(function (proms) {
                                 return proms[0];
@@ -3362,7 +2988,7 @@ var Games = function (_React$Component) {
                             return _path3.default.join(__dirname, 'samplegame');
                         },
                         resolve: function resolve() {
-                            return /*require.resolve*/(42);
+                            return /*require.resolve*/(39);
                         },
                         chunkName: function chunkName() {
                             return 'samplegame';
@@ -3459,7 +3085,92 @@ exports.default = (0, _reactStatic.withRouteData)(Games);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 41 */
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Button.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n'], ['\n    padding: 10px;\n    color: white;\n    background-color: ', ';\n    border-radius: 5px;\n    outline: 0;\n    border: 0;\n    text-decoration: none;\n    display: inline-block;\n    transition: all 0.3s ease;\n    a{\n        color: white !important;\n    }\n    &:hover{\n        background-color: ', ';\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$Component) {
+    _inherits(Button, _React$Component);
+
+    function Button(props) {
+        _classCallCheck(this, Button);
+
+        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+        _this.handleInput = _this.handleInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Button, [{
+        key: 'handleInput',
+        value: function handleInput(e) {
+            //fire event if available
+            //pass input up to parents
+            this.props.onInput(e);
+            //   console.log("button clicked");
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Btn,
+                { className: 'button', onClick: this.handleInput, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 17
+                    }
+                },
+                this.props.children
+            )
+            // <button className={'button'} onClick={this.handleInput}>{this.props.children}</button>
+            ;
+        }
+    }]);
+
+    return Button;
+}(_react2.default.Component);
+//Button.displayName = 'Button';
+
+
+exports.default = Button;
+
+
+var Btn = _styledComponents2.default.button(_templateObject, function (props) {
+    return props.theme[props.theme.theme].accent;
+}, function (props) {
+    return props.theme[props.theme.theme].accentD;
+});
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3476,9 +3187,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(91);
+__webpack_require__(89);
 
-var _reactKatex = __webpack_require__(92);
+var _reactKatex = __webpack_require__(90);
 
 var _reactDom = __webpack_require__(21);
 
@@ -3667,13 +3378,13 @@ exports.default = Katex;
 // // `
 
 /***/ }),
-/* 42 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = require("samplegame");
 
 /***/ }),
-/* 43 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3697,7 +3408,7 @@ var _reactRedux = __webpack_require__(3);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Table = __webpack_require__(29);
+var _Table = __webpack_require__(27);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -3778,7 +3489,7 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 44 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3797,7 +3508,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _index = __webpack_require__(95);
+var _index = __webpack_require__(93);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3901,7 +3612,7 @@ Settings.displayName = 'Settings';
 exports.default = Settings;
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, exports) {
 
 /*
@@ -3983,7 +3694,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4128,7 +3839,7 @@ var connected = (0, _reactRedux.connect)(mapStateToProps)(Lost);
 exports.default = (0, _reactStatic.withRouteData)(connected);
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4198,7 +3909,7 @@ function setSignedIn(signedIn) {
 }
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4343,13 +4054,7 @@ var Slide = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-module.exports = require("recompose");
-
-/***/ }),
-/* 50 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4376,15 +4081,15 @@ var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
-var _ErrorBoundary = __webpack_require__(51);
+var _ErrorBoundary = __webpack_require__(47);
 
 var _ErrorBoundary2 = _interopRequireDefault(_ErrorBoundary);
 
-var _MyValid = __webpack_require__(52);
+var _MyValid = __webpack_require__(48);
 
 var _MyValid2 = _interopRequireDefault(_MyValid);
 
-var _App = __webpack_require__(53);
+var _App = __webpack_require__(49);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4420,7 +4125,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 51 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4499,7 +4204,7 @@ ErrorBoundary.displayName = 'errorboundary';
 exports.default = ErrorBoundary;
 
 /***/ }),
-/* 52 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4555,7 +4260,7 @@ var constraints = {
 //=> {"creditCardZip": ["Credit card zip is required when using AMEX"]}
 
 /***/ }),
-/* 53 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4585,45 +4290,45 @@ var _reactStatic = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(3);
 
-var _reactHotLoader = __webpack_require__(54);
+var _reactHotLoader = __webpack_require__(50);
 
-var _reactStaticRoutes = __webpack_require__(55);
+var _reactStaticRoutes = __webpack_require__(51);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(97);
+var _redux = __webpack_require__(95);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(99);
+__webpack_require__(97);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(100);
+var _theme = __webpack_require__(98);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(101);
+var _Analytics = __webpack_require__(99);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(105);
+var _Gapi = __webpack_require__(103);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
-var _recompose = __webpack_require__(49);
+var _recompose = __webpack_require__(104);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Ma = __webpack_require__(106);
+var _Menu = __webpack_require__(105);
 
-var _Ma2 = _interopRequireDefault(_Ma);
+var _Menu2 = _interopRequireDefault(_Menu);
 
-var _FadeIn = __webpack_require__(30);
+var _FadeIn = __webpack_require__(28);
 
 var _FadeIn2 = _interopRequireDefault(_FadeIn);
 
@@ -4834,7 +4539,7 @@ var App = function (_React$Component) {
                       lineNumber: 150
                     }
                   },
-                  _react2.default.createElement(_Ma2.default, {
+                  _react2.default.createElement(_Menu2.default, {
                     __source: {
                       fileName: _jsxFileName,
                       lineNumber: 151
@@ -4876,13 +4581,13 @@ exports.default = (0, _reactHotLoader.hot)(module)(App);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 54 */
+/* 50 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 55 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4892,15 +4597,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(10);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(11);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(12);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4914,9 +4619,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(56);
+var _reactRouterDom = __webpack_require__(52);
 
-var _reactUniversalComponent = __webpack_require__(57);
+var _reactUniversalComponent = __webpack_require__(53);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4975,7 +4680,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 31)), (0, _importCss3.default)('src/containers/Post.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 29)), (0, _importCss3.default)('src/containers/Post.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4985,7 +4690,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(31);
+    return /*require.resolve*/(29);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post.jsx';
@@ -4995,7 +4700,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Posts.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 36)), (0, _importCss3.default)('src/containers/Posts.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 34)), (0, _importCss3.default)('src/containers/Posts.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5005,7 +4710,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Posts.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(36);
+    return /*require.resolve*/(34);
   },
   chunkName: function chunkName() {
     return 'src/containers/Posts.jsx';
@@ -5015,7 +4720,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Games.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 37)), (0, _importCss3.default)('src/containers/Games.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 35)), (0, _importCss3.default)('src/containers/Games.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5025,7 +4730,7 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Games.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(37);
+    return /*require.resolve*/(35);
   },
   chunkName: function chunkName() {
     return 'src/containers/Games.jsx';
@@ -5035,7 +4740,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Game.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('src/containers/Game.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 36)), (0, _importCss3.default)('src/containers/Game.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5045,7 +4750,7 @@ var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Game.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(40);
+    return /*require.resolve*/(36);
   },
   chunkName: function chunkName() {
     return 'src/containers/Game.jsx';
@@ -5055,7 +4760,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 43)), (0, _importCss3.default)('src/containers/About.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('src/containers/About.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5065,7 +4770,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(43);
+    return /*require.resolve*/(40);
   },
   chunkName: function chunkName() {
     return 'src/containers/About.jsx';
@@ -5075,7 +4780,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Settings.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 44)), (0, _importCss3.default)('src/containers/Settings.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('src/containers/Settings.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5085,7 +4790,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Settings.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(44);
+    return /*require.resolve*/(41);
   },
   chunkName: function chunkName() {
     return 'src/containers/Settings.jsx';
@@ -5095,7 +4800,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 46)), (0, _importCss3.default)('src/containers/404.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 43)), (0, _importCss3.default)('src/containers/404.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -5105,7 +4810,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(46);
+    return /*require.resolve*/(43);
   },
   chunkName: function chunkName() {
     return 'src/containers/404.jsx';
@@ -5206,13 +4911,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 56 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 57 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5227,7 +4932,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(58);
+var _requireUniversalModule = __webpack_require__(54);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -5242,7 +4947,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(59);
+var _reportChunks = __webpack_require__(55);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -5259,7 +4964,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(60);
+var _hoistNonReactStatics = __webpack_require__(56);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
@@ -5559,7 +5264,7 @@ exports.default = universal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 58 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5741,7 +5446,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 59 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5804,13 +5509,13 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 60 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 61 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5902,7 +5607,7 @@ var Bg = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 62 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5975,7 +5680,7 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 63 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5985,15 +5690,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(10);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(11);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(12);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -6005,7 +5710,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _trends = __webpack_require__(64);
+var _trends = __webpack_require__(60);
 
 var _trends2 = _interopRequireDefault(_trends);
 
@@ -6025,7 +5730,7 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Table = __webpack_require__(29);
+var _Table = __webpack_require__(27);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -6233,61 +5938,73 @@ exports.default = Graph;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 64 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
 
 /***/ }),
-/* 65 */
+/* 61 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-move/Animate");
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move/NodeGroup");
 
 /***/ }),
-/* 66 */
+/* 63 */
+/***/ (function(module, exports) {
+
+module.exports = require("d3-ease");
+
+/***/ }),
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAxOWMwIDEuMS45IDIgMiAyaDhjMS4xIDAgMi0uOSAyLTJWN0g2djEyek0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNFY0eiIvPgogICAgPHBhdGggIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPgo8L3N2Zz4K"
 
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgOGwtNCA0aDNjMCAzLjMxLTIuNjkgNi02IDYtMS4wMSAwLTEuOTctLjI1LTIuOC0uN2wtMS40NiAxLjQ2QzguOTcgMTkuNTQgMTAuNDMgMjAgMTIgMjBjNC40MiAwIDgtMy41OCA4LThoM2wtNC00ek02IDEyYzAtMy4zMSAyLjY5LTYgNi02IDEuMDEgMCAxLjk3LjI1IDIuOC43bDEuNDYtMS40NkMxNS4wMyA0LjQ2IDEzLjU3IDQgMTIgNGMtNC40MiAwLTggMy41OC04IDhIMWw0IDQgNC00SDZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 69 */
+/* 67 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTcgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xIDAgMi0uOSAyLTJWN2wtNC00em0tNSAxNmMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtMyAzIDEuMzQgMyAzLTEuMzQgMy0zIDN6bTMtMTBINVY1aDEwdjR6Ii8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 70 */
+/* 68 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjB2MjBIMFYweiIvPgogICAgPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNS45NSAxMC43OGMuMDMtLjI1LjA1LS41MS4wNS0uNzhzLS4wMi0uNTMtLjA2LS43OGwxLjY5LTEuMzJjLjE1LS4xMi4xOS0uMzQuMS0uNTFsLTEuNi0yLjc3Yy0uMS0uMTgtLjMxLS4yNC0uNDktLjE4bC0xLjk5LjhjLS40Mi0uMzItLjg2LS41OC0xLjM1LS43OEwxMiAyLjM0Yy0uMDMtLjItLjItLjM0LS40LS4zNEg4LjRjLS4yIDAtLjM2LjE0LS4zOS4zNGwtLjMgMi4xMmMtLjQ5LjItLjk0LjQ3LTEuMzUuNzhsLTEuOTktLjhjLS4xOC0uMDctLjM5IDAtLjQ5LjE4bC0xLjYgMi43N2MtLjEuMTgtLjA2LjM5LjEuNTFsMS42OSAxLjMyYy0uMDQuMjUtLjA3LjUyLS4wNy43OHMuMDIuNTMuMDYuNzhMMi4zNyAxMi4xYy0uMTUuMTItLjE5LjM0LS4xLjUxbDEuNiAyLjc3Yy4xLjE4LjMxLjI0LjQ5LjE4bDEuOTktLjhjLjQyLjMyLjg2LjU4IDEuMzUuNzhsLjMgMi4xMmMuMDQuMi4yLjM0LjQuMzRoMy4yYy4yIDAgLjM3LS4xNC4zOS0uMzRsLjMtMi4xMmMuNDktLjIuOTQtLjQ3IDEuMzUtLjc4bDEuOTkuOGMuMTguMDcuMzkgMCAuNDktLjE4bDEuNi0yLjc3Yy4xLS4xOC4wNi0uMzktLjEtLjUxbC0xLjY3LTEuMzJ6TTEwIDEzYy0xLjY1IDAtMy0xLjM1LTMtM3MxLjM1LTMgMy0zIDMgMS4zNSAzIDMtMS4zNSAzLTMgM3oiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 71 */
+/* 69 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNNy40MSAxNS40MUwxMiAxMC44M2w0LjU5IDQuNThMMTggMTRsLTYtNi02IDZ6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 72 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNOCA1djE0bDExLTd6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 73 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6587,7 +6304,7 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 74 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6604,7 +6321,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactD3Tree = __webpack_require__(75);
+var _reactD3Tree = __webpack_require__(73);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6725,13 +6442,13 @@ var Sankey = function (_React$Component) {
 exports.default = Sankey;
 
 /***/ }),
-/* 75 */
+/* 73 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-d3-tree");
 
 /***/ }),
-/* 76 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6764,7 +6481,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _CenterBox = __webpack_require__(35);
+var _CenterBox = __webpack_require__(33);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
@@ -6960,7 +6677,7 @@ const Video = styled.div`
 */
 
 /***/ }),
-/* 77 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7035,102 +6752,7 @@ var Sizer = function (_React$Component) {
 exports.default = Sizer;
 
 /***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\GameListItem.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactStatic = __webpack_require__(2);
-
-var _Accordion = __webpack_require__(38);
-
-var _Accordion2 = _interopRequireDefault(_Accordion);
-
-var _IconButton = __webpack_require__(9);
-
-var _IconButton2 = _interopRequireDefault(_IconButton);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var GameItem = function (_React$Component) {
-    _inherits(GameItem, _React$Component);
-
-    function GameItem(props) {
-        _classCallCheck(this, GameItem);
-
-        var _this = _possibleConstructorReturn(this, (GameItem.__proto__ || Object.getPrototypeOf(GameItem)).call(this, props));
-
-        var subtitle = _this.props.game.tags.map(function (t, i) {
-            return i <= 0 ? '' + t : ', ' + t;
-        });
-        _this.state = {
-            subtitle: subtitle
-        };
-        return _this;
-    }
-
-    _createClass(GameItem, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                _Accordion2.default,
-                {
-                    key: this.props.game.id,
-                    event: { category: 'GamesPage', label: this.props.game.id },
-                    title: this.props.game.title,
-                    subtitle: this.state.subtitle,
-                    callToAction: function callToAction() {
-                        return _react2.default.createElement(
-                            _reactStatic.Link,
-                            { key: _this2.props.game.id,
-                                to: '/games/' + _this2.props.game.id, __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 25
-                                }
-                            },
-                            _react2.default.createElement(_IconButton2.default, { icon: "play", __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 27
-                                }
-                            })
-                        );
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 18
-                    }
-                },
-                this.props.game.desc
-            );
-        }
-    }]);
-
-    return GameItem;
-}(_react2.default.Component);
-
-exports.default = GameItem;
-
-/***/ }),
-/* 79 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7149,19 +6771,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Load = __webpack_require__(80);
+var _Load = __webpack_require__(77);
 
 var _Load2 = _interopRequireDefault(_Load);
 
-var _Store = __webpack_require__(87);
+var _Store = __webpack_require__(84);
 
 var _Store2 = _interopRequireDefault(_Store);
 
-var _Game = __webpack_require__(88);
+var _Game = __webpack_require__(85);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _GameMenu = __webpack_require__(93);
+var _GameMenu = __webpack_require__(91);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
@@ -7304,7 +6926,7 @@ exports.default = Index;
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 80 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7321,11 +6943,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PersistStore = __webpack_require__(81);
+var _PersistStore = __webpack_require__(78);
 
 var _PersistStore2 = _interopRequireDefault(_PersistStore);
 
-var _fileUtils = __webpack_require__(86);
+var _fileUtils = __webpack_require__(83);
 
 var _reactRedux = __webpack_require__(3);
 
@@ -7860,7 +7482,7 @@ Load.displayName = 'Load';
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Load);
 
 /***/ }),
-/* 81 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7881,23 +7503,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(9);
 
 var _reduxLogger = __webpack_require__(20);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxPersist = __webpack_require__(82);
+var _reduxPersist = __webpack_require__(79);
 
-var _storage = __webpack_require__(83);
+var _storage = __webpack_require__(80);
 
 var _storage2 = _interopRequireDefault(_storage);
 
-var _autoMergeLevel = __webpack_require__(84);
+var _autoMergeLevel = __webpack_require__(81);
 
 var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
 
-var _react3 = __webpack_require__(85);
+var _react3 = __webpack_require__(82);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8009,31 +7631,31 @@ Persist.displayName = 'PersistStore';
 exports.default = Persist;
 
 /***/ }),
-/* 82 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 83 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 84 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
 
 /***/ }),
-/* 85 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/integration/react");
 
 /***/ }),
-/* 86 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8091,7 +7713,7 @@ var createFileWithJSONContent = exports.createFileWithJSONContent = function cre
 };
 
 /***/ }),
-/* 87 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8110,7 +7732,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(9);
 
 var _reduxLogger = __webpack_require__(20);
 
@@ -8164,7 +7786,7 @@ Store.displayName = "Store";
 exports.default = Store;
 
 /***/ }),
-/* 88 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8174,15 +7796,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(10);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(11);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(12);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -8196,7 +7818,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _all = __webpack_require__(89);
+var _all = __webpack_require__(86);
 
 var _all2 = _interopRequireDefault(_all);
 
@@ -8204,7 +7826,7 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Accordion = __webpack_require__(38);
+var _Accordion = __webpack_require__(87);
 
 var _Accordion2 = _interopRequireDefault(_Accordion);
 
@@ -8212,7 +7834,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(90);
+var _mygamelibs = __webpack_require__(88);
 
 var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
 
@@ -8300,7 +7922,7 @@ var Game = function (_React$Component) {
                 id: './../UI/math/Katex.jsx',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('UI/math/Katex.jsx', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 38)), (0, _importCss3.default)('UI/math/Katex.jsx', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -8310,7 +7932,7 @@ var Game = function (_React$Component) {
                     return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(41);
+                    return /*require.resolve*/(38);
                 },
                 chunkName: function chunkName() {
                     return 'UI/math/Katex.jsx';
@@ -8447,31 +8069,297 @@ exports.default = Game;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 89 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = require("nerdamer/all");
 
 /***/ }),
-/* 90 */
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Accordion.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n'], ['\n    display: inline-block;\n    list-style-type: none;\n    margin: 0;\n    padding: 0 10px;\n    h3, p{\n        margin: 3px;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n'], ['\n    margin: 0;\n    padding: 0px;\n    .open{\n        max-height: 400px;\n        opacity: 1;\n        padding: 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n    .closed{\n        max-height: 0;\n        overflow: hidden;\n        opacity: 0;\n        padding: 0px 10px 0px 10px;\n        margin: 0px;\n        transition: all 1s ease;\n    }\n\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n'], ['\n    padding: 0;\n    margin: 0;\n    transition: transform ', ' ease;\n    display: indline-block; \n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n'], ['\n    border-radius: 50px;\n    background-color: ', ';\n    padding: 10px;\n    margin: auto;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    align-items: center;  \n    display: flex;\n'], ['\n    align-items: center;  \n    display: flex;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n'], ['\n    display: inline-block;\n    flex: 1;\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    align-self: center  \n'], ['\n    align-self: center  \n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _IconButton = __webpack_require__(13);
+
+var _IconButton2 = _interopRequireDefault(_IconButton);
+
+var _reactGa = __webpack_require__(16);
+
+var _reactGa2 = _interopRequireDefault(_reactGa);
+
+var _reactRedux = __webpack_require__(3);
+
+var _Button = __webpack_require__(37);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import themes from './../theme.js';
+
+var FoldOut = function (_React$Component) {
+    _inherits(FoldOut, _React$Component);
+
+    function FoldOut(props) {
+        _classCallCheck(this, FoldOut);
+
+        //console.log("Accordion constructor", props);
+        var _this = _possibleConstructorReturn(this, (FoldOut.__proto__ || Object.getPrototypeOf(FoldOut)).call(this, props));
+
+        _this.handleClick = _this.handleClick.bind(_this);
+        _this.state = {
+            open: false,
+            iOpen: 'open',
+            iSelect: 'select'
+        };
+        return _this;
+    }
+
+    _createClass(FoldOut, [{
+        key: 'handleClick',
+        value: function handleClick(type) {
+            //console.log("handleClick type ", type);
+            if (type == this.state.iOpen) {
+                //aTheme.theme = aTheme.theme == 'a'? 'b':'a';
+                this.setState({
+                    open: !this.state.open
+                });
+                //console.log("accordion gapi? " + this.props.gapi.gapiReady + " event? ", this.props.event);
+                if (this.props.gapi.gapiReady && this.props.event) {
+                    //ReactGa.event({...this.props.event, action: 'accordion'});
+                }
+            } else if (type == this.state.iSelect) {
+                //open the game save/load page
+            }
+        }
+    }, {
+        key: 'renderOpenButton',
+        value: function renderOpenButton() {
+            var _this2 = this;
+
+            if (this.state.open) {
+                return _react2.default.createElement(
+                    Wrapper,
+                    { style: { display: 'inline-block', transform: 'rotate(180deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 38
+                        }
+                    },
+                    _react2.default.createElement(_IconButton2.default, { icon: "up", round: true, onInput: function onInput() {
+                            _this2.handleClick(_this2.state.iOpen);
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 39
+                        }
+                    })
+                );
+            } else {
+                return _react2.default.createElement(
+                    Wrapper,
+                    { style: { display: 'inline-block', transform: 'rotate(0deg)' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 44
+                        }
+                    },
+                    _react2.default.createElement(_IconButton2.default, { icon: "up", round: true, onInput: function onInput() {
+                            _this2.handleClick(_this2.state.iOpen);
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 45
+                        }
+                    })
+                );
+            }
+        }
+    }, {
+        key: 'renderFoldOut',
+        value: function renderFoldOut() {
+            if (this.state.open) {
+                return _react2.default.createElement(
+                    Accordion,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 52
+                        }
+                    },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'open', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 52
+                            }
+                        },
+                        this.props.children
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    Accordion,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 54
+                        }
+                    },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'closed', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 54
+                            }
+                        },
+                        this.props.children
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { style: { width: '100%', padding: '10px', margin: '10px 0 0 0', overflow: 'hidden' }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 59
+                    }
+                },
+                _react2.default.createElement(
+                    Pill,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 60
+                        }
+                    },
+                    _react2.default.createElement(
+                        Panel,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 61
+                            }
+                        },
+                        this.renderOpenButton(),
+                        _react2.default.createElement(
+                            Stack,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 63
+                                }
+                            },
+                            _react2.default.createElement(
+                                'h3',
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 64
+                                    }
+                                },
+                                this.props.title
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 65
+                                    }
+                                },
+                                this.props.subtitle
+                            )
+                        ),
+                        _react2.default.createElement(Mid, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 67
+                            }
+                        }),
+                        this.props.callToAction()
+                    ),
+                    this.renderFoldOut()
+                )
+            );
+        }
+    }]);
+
+    return FoldOut;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return { gapi: state.gapi };
+};
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(FoldOut);
+
+var Stack = _styledComponents2.default.ul(_templateObject);
+var Accordion = _styledComponents2.default.div(_templateObject2);
+var Wrapper = _styledComponents2.default.div(_templateObject3, function (props) {
+    return props.theme[props.theme.theme].animM;
+});
+var Pill = _styledComponents2.default.div(_templateObject4, function (props) {
+    //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
+    return props.theme[props.theme.theme].main;
+});
+var Panel = _styledComponents2.default.div(_templateObject5);
+
+var Mid = _styledComponents2.default.span(_templateObject6);
+
+var FlexChild = _styledComponents2.default.span(_templateObject7);
+
+/***/ }),
+/* 88 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 91 */
+/* 89 */
 /***/ (function(module, exports) {
 
 module.exports = require("katex/dist/katex.min.css");
 
 /***/ }),
-/* 92 */
+/* 90 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-katex");
 
 /***/ }),
-/* 93 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8496,11 +8384,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(9);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _SignInUi = __webpack_require__(94);
+var _SignInUi = __webpack_require__(92);
 
 var _SignInUi2 = _interopRequireDefault(_SignInUi);
 
@@ -8558,7 +8446,7 @@ exports.default = (0, _reactStatic.withSiteData)(Menu);
 var Bar = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 94 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8766,7 +8654,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignIn);
 
 /***/ }),
-/* 95 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8785,7 +8673,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(96);
+__webpack_require__(94);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -8913,10 +8801,10 @@ var View = _styledComponents2.default.span(_templateObject, function (props) {
 // React.render( <Switch isChecked={ true } />, document.getElementById( "page" ) );
 
 /***/ }),
-/* 96 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(45)(false);
+exports = module.exports = __webpack_require__(42)(false);
 // imports
 
 
@@ -8927,7 +8815,7 @@ exports.push([module.i, ".switch-container{position:relative}input[type=checkbox
 
 
 /***/ }),
-/* 97 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8937,13 +8825,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(9);
 
 var _reduxLogger = __webpack_require__(20);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(98);
+var _reducers = __webpack_require__(96);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -8968,7 +8856,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 98 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8978,9 +8866,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(9);
 
-var _apiReducer = __webpack_require__(47);
+var _apiReducer = __webpack_require__(44);
 
 var reducer = (0, _redux.combineReducers)({
   gapi: _apiReducer.reducer
@@ -8989,10 +8877,10 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 99 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(45)(false);
+exports = module.exports = __webpack_require__(42)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
@@ -9003,7 +8891,7 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 
 
 /***/ }),
-/* 100 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9175,7 +9063,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 101 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9196,11 +9084,11 @@ var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _cookies = __webpack_require__(102);
+var _cookies = __webpack_require__(100);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Modal = __webpack_require__(103);
+var _Modal = __webpack_require__(101);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
@@ -9208,11 +9096,11 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(39);
+var _Button = __webpack_require__(37);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _SlideSide = __webpack_require__(48);
+var _SlideSide = __webpack_require__(45);
 
 var _SlideSide2 = _interopRequireDefault(_SlideSide);
 
@@ -9355,7 +9243,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 102 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9400,7 +9288,7 @@ function getCookie(cname) {
 // }
 
 /***/ }),
-/* 103 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9424,11 +9312,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Wiggle = __webpack_require__(104);
+var _Wiggle = __webpack_require__(102);
 
 var _Wiggle2 = _interopRequireDefault(_Wiggle);
 
-var _SlideSide = __webpack_require__(48);
+var _SlideSide = __webpack_require__(45);
 
 var _SlideSide2 = _interopRequireDefault(_SlideSide);
 
@@ -9502,7 +9390,7 @@ var Mod = _styledComponents2.default.div(_templateObject);
 var Discrete = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 104 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9577,7 +9465,7 @@ Wig.displayName = 'Wiggle';
 var Wiggle = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 105 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9595,9 +9483,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(9);
 
-var _apiReducer = __webpack_require__(47);
+var _apiReducer = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9704,7 +9592,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 106 */
+/* 104 */
+/***/ (function(module, exports) {
+
+module.exports = require("recompose");
+
+/***/ }),
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9713,21 +9607,20 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\Ma.jsx';
+exports.Menu = undefined;
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\layout\\Menu.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    position: absolute; \n    float:right; right:7px; top:7px; height: 50px;\n    borders: none;\n'], ['\n    position: absolute; \n    float:right; right:7px; top:7px; height: 50px;\n    borders: none;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    position: absolute;\n    z-index: 100; \n    padding: 10px; \n    background-color: white;\n    .active {\n        h4 {\n            color: ', ' !important;\n        }\n    }\n    .drop-item{\n        display:block;\n        h4 {\n            color: ', ';\n        }\n        &:hover{\n            background-color: grey;\n        }\n    }\n\n'], ['\n    position: absolute;\n    z-index: 100; \n    padding: 10px; \n    background-color: white;\n    .active {\n        h4 {\n            color: ', ' !important;\n        }\n    }\n    .drop-item{\n        display:block;\n        h4 {\n            color: ', ';\n        }\n        &:hover{\n            background-color: grey;\n        }\n    }\n\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    font-size: ', ';\n    color: ', ';\n    padding-left: ', 'px;\n    display: inline-block;\n'], ['\n    font-size: ', ';\n    color: ', ';\n    padding-left: ', 'px;\n    display: inline-block;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    display: inline;\n    padding: 0px 10px;\n    a{\n        color: ', ';\n    }\n    a.active{\n        color: ', ';\n    }\n'], ['\n    display: inline;\n    padding: 0px 10px;\n    a{\n        color: ', ';\n    }\n    a.active{\n        color: ', ';\n    }\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n'], ['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n']),
-    _templateObject6 = _taggedTemplateLiteral(['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n'], ['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n    background-color: ', ';\n'], ['\n    background-color: ', ';\n']),
-    _templateObject8 = _taggedTemplateLiteral(['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 0px;\n    padding-right: 50px;\n    margin:0;\n    position: relative;\n'], ['\n    width:100%;\n    height: 50px;\n    display: flex;\n    padding:0 0px;\n    padding-right: 50px;\n    margin:0;\n    position: relative;\n']),
-    _templateObject9 = _taggedTemplateLiteral(['\n\n    z-index: 1000;\n    width:100%;\n   \n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n'], ['\n\n    z-index: 1000;\n    width:100%;\n   \n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n']),
-    _templateObject10 = _taggedTemplateLiteral(['\n    verticalAlign: middle; \n    transform-origin: 50%;\n    transition: transform ', ' ease;\n    display: inline-block; \n'], ['\n    verticalAlign: middle; \n    transform-origin: 50%;\n    transition: transform ', ' ease;\n    display: inline-block; \n']),
-    _templateObject11 = _taggedTemplateLiteral(['\n    height: ', ';\n    width: 36px;\n    float: right;\n    display: inline-block;\n    background-image: url(', ');\n    background-repeat: no-repeat;\n    background-position: center; \n    transform: rotate(90deg);\n'], ['\n    height: ', ';\n    width: 36px;\n    float: right;\n    display: inline-block;\n    background-image: url(', ');\n    background-repeat: no-repeat;\n    background-position: center; \n    transform: rotate(90deg);\n']);
+    _templateObject4 = _taggedTemplateLiteral(['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n'], ['\n    display: inline-block;\n    flex: 1;\n    transition: all ', ' ease;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n'], ['\n    display: inline-block;\n    align-self: center;\n    height:100%;\n    vertical-align: bottom;\n    transition: all ', ' ease;\n    h1, h2, p, h4, a{\n        line-height:50px;\n        height: 100%;\n        margin:0px auto;\n        padding:0px;\n        display: inline-block;\n        vertical-align: middle;\n        color: ', ';\n    }\n    .title{\n        h2:{\n            color: ', '\n        }\n        &:hover{\n            background-color: white;\n        }\n    }\n    a{\n        padding:0 10px;\n        color: ', ';\n        transition: all ', ' ease;\n        &:hover{\n            background-color: ', ';\n        }\n    }\n    a.active{\n        background-color: ', ';\n        color: ', '\n        &:hover{\n            background-color: ', ';\n        }\n    }  \n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    width:100%;\n    height: ', ';\n    display: flex;\n    padding:0 0px;\n    padding-right: 50px;\n    margin:0;\n    position: relative;\n\n'], ['\n    width:100%;\n    height: ', ';\n    display: flex;\n    padding:0 0px;\n    padding-right: 50px;\n    margin:0;\n    position: relative;\n\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    z-index: 1000;\n    width:100%;\n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n    transition: transform 1s ease 0s, height 0.5s linear 2s;\n'], ['\n    z-index: 1000;\n    width:100%;\n    background: ', ';\n    padding:0px;\n    margin:0;\n    border-bottom: 2px solid ', ';\n    transition: transform 1s ease 0s, height 0.5s linear 2s;\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n    .minimize{\n        transform: translateY(-', ');\n        height: 0px;\n        border-bottom: 0px:\n    }\n'], ['\n    .minimize{\n        transform: translateY(-', ');\n        height: 0px;\n        border-bottom: 0px:\n    }\n']),
+    _templateObject9 = _taggedTemplateLiteral(['\n    height: ', ';\n    width: 36px;\n    float: right;\n    display: inline-block;\n    background-image: url(', ');\n    background-repeat: no-repeat;\n    background-position: center; \n    transform: rotate(90deg);\n'], ['\n    height: ', ';\n    width: 36px;\n    float: right;\n    display: inline-block;\n    background-image: url(', ');\n    background-repeat: no-repeat;\n    background-position: center; \n    transform: rotate(90deg);\n']);
 
 var _react = __webpack_require__(0);
 
@@ -9735,31 +9628,27 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
+var _propTypes = __webpack_require__(4);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Animate = __webpack_require__(27);
-
-var _Animate2 = _interopRequireDefault(_Animate);
-
-var _d3Ease = __webpack_require__(28);
-
-var _recompose = __webpack_require__(49);
-
-var _IconButton = __webpack_require__(9);
+var _IconButton = __webpack_require__(13);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _baselineMore_vert24px = __webpack_require__(33);
+var _baselineMore_vert24px = __webpack_require__(31);
 
 var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
 
-var _index = __webpack_require__(107);
+var _index = __webpack_require__(106);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(32);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(30);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
@@ -9772,10 +9661,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import './menu.css';
 
-
-var Menu = function (_React$Component) {
+var Menu = exports.Menu = function (_React$Component) {
     _inherits(Menu, _React$Component);
 
     function Menu(props) {
@@ -9788,90 +9675,69 @@ var Menu = function (_React$Component) {
         categories.sort(function (x, y) {
             return x.text === path[0] ? -1 : y.text === path[0] ? 1 : 0;
         });
-        console.log('current pant ' + path[0] + ' categories sorted: ', categories);
         _this.state = {
             path: path,
             categories: categories,
             options: ['settings', 'privacy', 'about'],
-            more: false,
-            cat: false
+            minimize: _this.setMinimize(path)
         };
         return _this;
     }
 
     _createClass(Menu, [{
+        key: 'setMinimize',
+        value: function setMinimize(path) {
+            if (path) {
+                return path.length >= 2 && path[0] === 'games';
+            }
+            return true;
+        }
+    }, {
         key: 'setPath',
         value: function setPath(pathname) {
-            var path = pathname.split('/');
-            path = path.filter(function (p) {
-                return p !== '';
-            });
-            return path;
+            if (pathname) {
+                var path = pathname.split('/');
+                path = path.filter(function (p) {
+                    return p !== '';
+                });
+                return path;
+            }
+            return null;
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
             if (this.props.location.pathname !== prevProps.location.pathname) {
+                var path = this.setPath(this.props.location.pathname);
                 this.setState({
-                    path: this.setPath(this.props.location.pathname),
-                    cat: false
+                    path: path,
+                    minimize: this.setMinimize(path)
                 });
             }
         }
     }, {
-        key: 'handleClick',
-        value: function handleClick(key, value) {
-            console.log('handle click key = ' + key + " value " + value, this.state);
-            // [key]: value
-            this.setState({
-                more: key === 'more' ? value : false,
-                cat: key === 'cat' ? value : false
-            });
-        }
-    }, {
-        key: 'renderOpenButton',
-        value: function renderOpenButton() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                Wrapper,
-                { style: { transform: '' + (this.state.cat ? 'rotate(90deg)' : 'rotate(0deg)') }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 57
-                    }
-                },
-                _react2.default.createElement(_IconButton2.default, { icon: "arrow", bg: 'transparent', hover: 'transparent', onInput: function onInput() {
-                        _this2.handleClick('cat', !_this2.state.cat);
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 58
-                    }
-                })
-            );
-        }
-    }, {
         key: 'renderDrop',
         value: function renderDrop() {
+            //to={`/${this.state.path[0]? this.state.path[0]: ''}`} 
             return _react2.default.createElement(
                 _index2.default,
                 { links: this.state.categories, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 63
+                        lineNumber: 54
                     }
                 },
                 _react2.default.createElement(
                     _reactStatic.Link,
-                    { className: 'dropbtn', tabIndex: '1', to: '/' + (this.state.path[0] ? this.state.path[0] : ''),
-                        style: { verticalAlign: 'middle', height: '50px' }, __source: {
+                    { className: 'dropbtn', tabIndex: '1', style: { verticalAlign: 'middle', height: '50px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 64
+                            lineNumber: 55
                         }
                     },
                     _react2.default.createElement(
                         'h4',
                         { style: { verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 66
+                                lineNumber: 56
                             }
                         },
                         this.state.path[0] ? this.state.path[0] : ''
@@ -9879,7 +9745,7 @@ var Menu = function (_React$Component) {
                     _react2.default.createElement(DropArrow, {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 67
+                            lineNumber: 57
                         }
                     })
                 )
@@ -9888,21 +9754,16 @@ var Menu = function (_React$Component) {
     }, {
         key: 'renderMore',
         value: function renderMore() {
-            var _this3 = this;
-
             return _react2.default.createElement(
                 _index2.default,
                 { links: [{ text: 'about', to: '/about' }, { text: 'privacy', to: '/privacy' }, { text: 'settings', to: '/settings' }], __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 73
+                        lineNumber: 63
                     }
                 },
-                _react2.default.createElement(_IconButton2.default, { classes: 'dropbtn', tabIndex: '1', icon: "more", hover: 'grey',
-                    onInput: function onInput() {
-                        _this3.handleClick('more', !_this3.state.more);
-                    }, __source: {
+                _react2.default.createElement(_IconButton2.default, { classes: 'dropbtn', tabIndex: '1', icon: "more", hover: 'grey', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 75
+                        lineNumber: 65
                     }
                 })
             );
@@ -9915,7 +9776,7 @@ var Menu = function (_React$Component) {
                     'p',
                     { style: { fontSize: '1em', paddingLeft: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 84
+                            lineNumber: 73
                         }
                     },
                     this.state.path[1] ? this.state.path[1] : '',
@@ -9927,7 +9788,7 @@ var Menu = function (_React$Component) {
                     PostTitle,
                     { style: { fontSize: '1em', paddingLeft: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 87
+                            lineNumber: 76
                         }
                     },
                     this.state.path[1] ? this.state.path[1] : ''
@@ -9935,242 +9796,248 @@ var Menu = function (_React$Component) {
             }
         }
     }, {
+        key: 'getClassName',
+        value: function getClassName() {
+            if (this.state.minimize) {
+                return 'minimize';
+            }
+            return null;
+        }
+    }, {
         key: 'renderCat',
         value: function renderCat() {
             //this.state.path[0]
             if (this.state.path[0]) {
                 return _react2.default.createElement(
-                    Outer,
+                    Wrapper,
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 95
+                            lineNumber: 89
                         }
                     },
                     _react2.default.createElement(
-                        Container,
-                        {
-                            __source: {
+                        Outer,
+                        { className: this.getClassName(), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 96
+                                lineNumber: 90
                             }
                         },
                         _react2.default.createElement(
-                            FlexChild,
+                            Container,
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 97
+                                    lineNumber: 91
                                 }
                             },
                             _react2.default.createElement(
-                                _reactStatic.Link,
-                                { exact: true, to: '/', className: 'title', __source: {
+                                FlexChild,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 92
+                                    }
+                                },
+                                _react2.default.createElement(
+                                    _reactStatic.Link,
+                                    { exact: true, to: '/', className: 'title', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 92
+                                        }
+                                    },
+                                    _react2.default.createElement(
+                                        'h2',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 92
+                                            }
+                                        },
+                                        'Title'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(Mid, { key: "mid", style: { flex: '0' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 93
+                                }
+                            }),
+                            _react2.default.createElement(
+                                FlexChild,
+                                { key: this.state.path[0] ? this.state.path[0] : '', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 94
+                                    }
+                                },
+                                this.renderDrop()
+                            ),
+                            _react2.default.createElement(
+                                FlexChild,
+                                {
+                                    __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 97
                                     }
                                 },
-                                _react2.default.createElement(
-                                    'h2',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 97
-                                        }
-                                    },
-                                    'Title'
-                                )
+                                this.renderPostHeading()
+                            ),
+                            _react2.default.createElement(
+                                Options,
+                                { key: "more", __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 100
+                                    }
+                                },
+                                this.renderMore()
                             )
-                        ),
-                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '0' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 98
-                            }
-                        }),
-                        _react2.default.createElement(
-                            FlexChild,
-                            { key: this.state.path[0] ? this.state.path[0] : '', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 99
-                                }
-                            },
-                            this.renderDrop()
-                        ),
-                        _react2.default.createElement(
-                            FlexChild,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 108
-                                }
-                            },
-                            this.renderPostHeading()
-                        ),
-                        _react2.default.createElement(
-                            Options,
-                            { key: "more", __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 111
-                                }
-                            },
-                            this.renderMore()
                         )
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        { style: { textAlign: 'center', margin: '0px', color: 'grey' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 117
-                            }
-                        },
-                        'double tap screen to change theme colors'
                     )
                 );
             } else {
                 return _react2.default.createElement(
-                    Outer,
+                    Wrapper,
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 122
+                            lineNumber: 109
                         }
                     },
                     _react2.default.createElement(
-                        Container,
-                        {
-                            __source: {
+                        Outer,
+                        { className: this.getClassName(), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 123
+                                lineNumber: 110
                             }
                         },
                         _react2.default.createElement(
-                            FlexChild,
+                            Container,
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 124
+                                    lineNumber: 111
                                 }
                             },
                             _react2.default.createElement(
-                                _reactStatic.Link,
-                                { exact: true, to: '/', className: 'title', __source: {
+                                FlexChild,
+                                {
+                                    __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 124
+                                        lineNumber: 112
                                     }
                                 },
                                 _react2.default.createElement(
-                                    'h2',
-                                    {
-                                        __source: {
+                                    _reactStatic.Link,
+                                    { exact: true, to: '/', className: 'title', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 124
+                                            lineNumber: 112
                                         }
                                     },
-                                    'Title'
+                                    _react2.default.createElement(
+                                        'h2',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 112
+                                            }
+                                        },
+                                        'Title'
+                                    )
                                 )
-                            )
-                        ),
-                        _react2.default.createElement(Mid, { key: "mid", style: { flex: '1' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 125
-                            }
-                        }),
-                        _react2.default.createElement(
-                            FlexChild,
-                            { key: "games", __source: {
+                            ),
+                            _react2.default.createElement(Mid, { key: "mid", style: { flex: '1' }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 126
+                                    lineNumber: 113
                                 }
-                            },
+                            }),
                             _react2.default.createElement(
-                                _reactStatic.Link,
-                                { to: '/games', __source: {
+                                FlexChild,
+                                { key: "games", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 126
+                                        lineNumber: 114
                                     }
                                 },
                                 _react2.default.createElement(
-                                    'h4',
-                                    {
-                                        __source: {
+                                    _reactStatic.Link,
+                                    { to: '/games', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 126
+                                            lineNumber: 114
                                         }
                                     },
-                                    'Games'
+                                    _react2.default.createElement(
+                                        'h4',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 114
+                                            }
+                                        },
+                                        'Games'
+                                    )
                                 )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            FlexChild,
-                            { key: "posts", __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 127
-                                }
-                            },
+                            ),
                             _react2.default.createElement(
-                                _reactStatic.Link,
-                                { to: '/posts', __source: {
+                                FlexChild,
+                                { key: "posts", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 127
+                                        lineNumber: 115
                                     }
                                 },
                                 _react2.default.createElement(
-                                    'h4',
-                                    {
-                                        __source: {
+                                    _reactStatic.Link,
+                                    { to: '/posts', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 127
+                                            lineNumber: 115
                                         }
                                     },
-                                    'Posts'
+                                    _react2.default.createElement(
+                                        'h4',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 115
+                                            }
+                                        },
+                                        'Posts'
+                                    )
                                 )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            FlexChild,
-                            { key: "about", __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 128
-                                }
-                            },
+                            ),
                             _react2.default.createElement(
-                                _reactStatic.Link,
-                                { to: '/about', __source: {
+                                FlexChild,
+                                { key: "about", __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 128
+                                        lineNumber: 116
                                     }
                                 },
                                 _react2.default.createElement(
-                                    'h4',
-                                    {
-                                        __source: {
+                                    _reactStatic.Link,
+                                    { to: '/about', __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 128
+                                            lineNumber: 116
                                         }
                                     },
-                                    'About'
+                                    _react2.default.createElement(
+                                        'h4',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 116
+                                            }
+                                        },
+                                        'About'
+                                    )
                                 )
+                            ),
+                            _react2.default.createElement(
+                                Options,
+                                { key: "more", __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 117
+                                    }
+                                },
+                                this.renderMore()
                             )
-                        ),
-                        _react2.default.createElement(
-                            Options,
-                            { key: "more", __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 129
-                                }
-                            },
-                            this.renderMore()
                         )
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        { style: { textAlign: 'center', margin: '0px', color: 'grey' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 136
-                            }
-                        },
-                        'double tap screen to change theme colors'
                     )
                 );
             }
@@ -10186,9 +10053,13 @@ var Menu = function (_React$Component) {
 }(_react2.default.Component);
 
 Menu.displayName = 'Menu';
-var e = (0, _reactStatic.withRouter)(Menu);
-exports.default = (0, _reactStatic.withRouteData)(e);
+//const e = withRouter(Menu);
+exports.default = (0, _reactStatic.withRouteData)((0, _reactStatic.withRouter)(Menu));
 
+
+Menu.PropTypes = {
+    location: _propTypes2.default.object
+};
 
 var Options = _styledComponents2.default.span(_templateObject);
 var Drop = _styledComponents2.default.div(_templateObject2, function (props) {
@@ -10203,16 +10074,12 @@ var PostTitle = _styledComponents2.default.h1(_templateObject3, function (props)
 }, function (props) {
     return props.theme[props.theme.theme].spaceM;
 });
-var Tag = _styledComponents2.default.h4(_templateObject4, function (props) {
-    return props.theme[props.theme.theme].neutralL;
-}, function (props) {
-    return props.theme[props.theme.theme].accent;
-});
-var Mid = _styledComponents2.default.span(_templateObject5, function (props) {
+
+var Mid = _styledComponents2.default.span(_templateObject4, function (props) {
     return props.theme[props.theme.theme].animS;
 });
 
-var FlexChild = _styledComponents2.default.span(_templateObject6, function (props) {
+var FlexChild = _styledComponents2.default.span(_templateObject5, function (props) {
     return props.theme[props.theme.theme].animS;
 }, function (props) {
     return props.theme[props.theme.theme].textInverted;
@@ -10231,30 +10098,27 @@ var FlexChild = _styledComponents2.default.span(_templateObject6, function (prop
 }, function (props) {
     return props.theme[props.theme.theme].accentL;
 });
-var Selected = _styledComponents2.default.a(_templateObject7, function (props) {
-    return props.theme[props.theme.theme].accent;
-});
-var Container = _styledComponents2.default.div(_templateObject8);
 
-// position: fixed;
-// height: ${props=>props.theme[props.theme.theme].menuHeight};
-// left: 0; top:0; right:0;
-var Outer = _styledComponents2.default.div(_templateObject9, function (props) {
+var Container = _styledComponents2.default.div(_templateObject6, function (props) {
+    return props.theme[props.theme.theme].menuHeight;
+});
+
+var Outer = _styledComponents2.default.div(_templateObject7, function (props) {
     return props.theme[props.theme.theme].neutral;
 }, function (props) {
     return props.theme[props.theme.theme].neutralL;
 });
-
-var Wrapper = _styledComponents2.default.div(_templateObject10, function (props) {
-    return props.theme[props.theme.theme].animM;
+Outer.displayName = 'Outer';
+var Wrapper = _styledComponents2.default.span(_templateObject8, function (props) {
+    return props.theme[props.theme.theme].menuHeight;
 });
 
-var DropArrow = _styledComponents2.default.div(_templateObject11, function (props) {
+var DropArrow = _styledComponents2.default.div(_templateObject9, function (props) {
     return props.theme[props.theme.theme].menuHeight;
 }, _baselineKeyboard_arrow_right24px2.default);
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10374,4 +10238,4 @@ var Dropdown = _styledComponents2.default.div(_templateObject, function (props) 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.6f6d4cf9.js.map
+//# sourceMappingURL=static.3fdc4ba6.js.map
