@@ -16,7 +16,7 @@ import Gapi from './components/apis/Gapi.jsx';
 import { withContext, getContext } from 'recompose'
 
 import PropTypes from 'prop-types';
-import Menu from './components/layout/Ma.jsx';
+import Menu from './components/layout/Menu.jsx';
 import FadeIn from './components/UI/animations/FadeIn.jsx';
 
 const startTheme = theme();

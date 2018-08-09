@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link, withSiteData, withRouteData, Switch, Route, withRouter } from 'react-static';
-//import './menu.css';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Animate from 'react-move/Animate';
-import { easeExpOut } from 'd3-ease';
-import { withContext, getContext } from 'recompose';
 import Icon from './../UI/elements/IconButton.jsx';
 import iMore from './../../assets/baseline-more_vert-24px.svg';
 import Dropdown from './../UI/elements/Dropdown/index.jsx';
 import iArrow from './../../assets/baseline-keyboard_arrow_right-24px.svg';
 
 
-class Menu extends React.Component{
+export class Menu extends React.Component{
     constructor(props){
         super(props);
         let path = this.setPath(props.location.pathname);
@@ -19,50 +16,43 @@ class Menu extends React.Component{
         categories.sort((x, y) => {
             return x.text === path[0]?-1 : y.text===path[0]?1:0
         })
-        console.log(`current pant ${path[0]} categories sorted: `, categories);
         this.state = {
             path,
             categories,
             options: ['settings', 'privacy', 'about'],
-            more: false,
-            cat: false
+            minimize: this.setMinimize(path)
         }
     }
+    setMinimize(path){
+        if(path){
+            return (path.length >= 2 && path[0] === 'games');
+        }
+        return true;
+    }
     setPath(pathname){
-        let path = pathname.split('/');
-        path = path.filter(p => {
-            return p !== '';
-        })
-        return path;
+        if(pathname){
+            let path = pathname.split('/');
+            path = path.filter(p => {
+                return p !== '';
+            })
+            return path;
+        }
+        return null;
     }
     componentDidUpdate(prevProps, prevState){
         if(this.props.location.pathname !== prevProps.location.pathname){
+            let path = this.setPath(this.props.location.pathname);
             this.setState({
-                path: this.setPath(this.props.location.pathname),
-                cat: false
+                path,
+                minimize: this.setMinimize(path)
             })
         }
     }
 
-    handleClick(key, value){
-        console.log('handle click key = ' + key + " value " + value, this.state);
-        // [key]: value
-        this.setState({
-            more: key==='more'?value:false,
-            cat: key==='cat'?value:false
-        })
-    }
-    renderOpenButton(){
-        return (
-            <Wrapper style={{transform: `${this.state.cat?'rotate(90deg)':'rotate(0deg)'}`}}>
-                <Icon icon={"arrow"} bg={'transparent'} hover={'transparent'} onInput={()=>{this.handleClick('cat', !this.state.cat)}}/>
-            </Wrapper>
-         )
-    }
     renderDrop(){
+        //to={`/${this.state.path[0]? this.state.path[0]: ''}`} 
         return (<Dropdown links={this.state.categories}>
-                        <Link className="dropbtn" tabIndex="1" to={`/${this.state.path[0]? this.state.path[0]: ''}`} 
-                            style={{verticalAlign: 'middle', height: '50px'}}>
+                        <Link className="dropbtn" tabIndex="1" style={{verticalAlign: 'middle', height: '50px'}}>
                             <h4 style={{verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block'}}>{this.state.path[0]? this.state.path[0]: ''}</h4>
                             <DropArrow />
                         </Link>
@@ -72,8 +62,7 @@ class Menu extends React.Component{
        return (
         <Dropdown links={[ {text: 'about', to: '/about'}, {text: 'privacy', to: '/privacy'}, 
         {text: 'settings', to: '/settings'}]}>
-            <Icon classes="dropbtn" tabIndex="1" icon={"more"} hover={'grey'}
-                            onInput={()=>{this.handleClick('more', !this.state.more)}}/>
+            <Icon classes="dropbtn" tabIndex="1" icon={"more"} hover={'grey'}/>
         </Dropdown>
        )
     }
@@ -87,54 +76,50 @@ class Menu extends React.Component{
             return <PostTitle style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
         }
     }
-
+    getClassName(){
+        if(this.state.minimize){
+            return 'minimize'
+        }
+        return null;
+    }
     renderCat(){
         //this.state.path[0]
         if(this.state.path[0]){
             return(
-                <Outer>
-                    <Container>
-                        <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
-                        <Mid key={"mid"} style={{flex: '0'}}/>
-                        <FlexChild key={this.state.path[0]? this.state.path[0]: ''}>
-                            {/* <Selected style={{height: '50px', margin: 'auto'}}>
-                                <Link to={`/${this.state.path[0]? this.state.path[0]: ''}`}>
-                                <h4>{this.state.path[0]? this.state.path[0]: ''}</h4>
-                                </Link>
-                                {this.renderOpenButton()}
-                            </Selected> */}
-                            {this.renderDrop()}
-                        </FlexChild>
-                        <FlexChild >
-                            {this.renderPostHeading()}
-                        </FlexChild>
-                        <Options key={"more"}>
-                            {/* <Icon icon={"more"} bg={'transparent'} hover={'grey'} 
-                            onInput={()=>{this.handleClick('more', !this.state.more)}}/> */}
-                            {this.renderMore()}   
-                        </Options>
-                    </Container>
-                    <p style={{textAlign: 'center', margin: '0px', color: 'grey'}}>double tap screen to change theme colors</p>
-                </Outer>
+                <Wrapper>
+                    <Outer className={this.getClassName()}>
+                        <Container>
+                            <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
+                            <Mid key={"mid"} style={{flex: '0'}}/>
+                            <FlexChild key={this.state.path[0]? this.state.path[0]: ''}>
+                                {this.renderDrop()}
+                            </FlexChild>
+                            <FlexChild >
+                                {this.renderPostHeading()}
+                            </FlexChild>
+                            <Options key={"more"}>
+                                {this.renderMore()}   
+                            </Options>
+                        </Container>
+                    </Outer>
+                </Wrapper>
             )
         }else{
             return(
-                <Outer>
-                    <Container>
-                        <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
-                        <Mid key={"mid"} style={{flex: '1'}}/>
-                        <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
-                        <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
-                        <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild>
-                        <Options key={"more"} >
-                            {/* <Icon icon={"more"} bg={'transparent'} hover={'grey'}
-                            onInput={()=>{this.handleClick('more', !this.state.more)}}/> */}
-                            {this.renderMore()}   
-                        </Options>
-                    </Container>
-                  
-                    <p style={{textAlign: 'center', margin: '0px', color: 'grey'}}>double tap screen to change theme colors</p>
-                </Outer>
+                <Wrapper>
+                    <Outer className={this.getClassName()}>
+                        <Container>
+                            <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
+                            <Mid key={"mid"} style={{flex: '1'}}/>
+                            <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
+                            <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
+                            <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild>
+                            <Options key={"more"} >
+                                {this.renderMore()}   
+                            </Options>
+                        </Container>
+                    </Outer>
+                </Wrapper>
             )
         }
     }
@@ -146,8 +131,12 @@ class Menu extends React.Component{
 }
 
 Menu.displayName = 'Menu';
-const e = withRouter(Menu);
-export default withRouteData(e);
+//const e = withRouter(Menu);
+export default withRouteData(withRouter(Menu));
+
+Menu.PropTypes = {
+    location: PropTypes.object
+}
 
 const Options=styled.span`
     position: absolute; 
@@ -181,16 +170,7 @@ const PostTitle = styled.h1`
     padding-left: ${props=>props.theme[props.theme.theme].spaceM}px;
     display: inline-block;
 `
-const Tag = styled.h4`
-    display: inline;
-    padding: 0px 10px;
-    a{
-        color: ${props=>props.theme[props.theme.theme].neutralL};
-    }
-    a.active{
-        color: ${props=>props.theme[props.theme.theme].accent};
-    }
-`
+
 const Mid = styled.span`
     display: inline-block;
     flex: 1;
@@ -236,40 +216,34 @@ const FlexChild = styled.span`
         }
     }  
 `
-const Selected = styled.a`
-    background-color: ${props=>props.theme[props.theme.theme].accent};
-`
+
 const Container = styled.div`
     width:100%;
-    height: 50px;
+    height: ${props=>props.theme[props.theme.theme].menuHeight};
     display: flex;
     padding:0 0px;
     padding-right: 50px;
     margin:0;
     position: relative;
+
 `
 
-// position: fixed;
-// height: ${props=>props.theme[props.theme.theme].menuHeight};
-// left: 0; top:0; right:0;
 const Outer = styled.div`
-
     z-index: 1000;
     width:100%;
-   
     background: ${props=>props.theme[props.theme.theme].neutral};
     padding:0px;
     margin:0;
     border-bottom: 2px solid ${props=>props.theme[props.theme.theme].neutralL};
+    transition: transform 1s ease 0s, height 0.5s linear 2s;
 `
-
-const Wrapper = styled.div`
-    verticalAlign: middle; 
-    transform-origin: 50%;
-    transition: transform ${props => {
-        return props.theme[props.theme.theme].animM
-    }} ease;
-    display: inline-block; 
+Outer.displayName = 'Outer';
+const Wrapper = styled.span`
+    .minimize{
+        transform: translateY(-${props=>props.theme[props.theme.theme].menuHeight});
+        height: 0px;
+        border-bottom: 0px:
+    }
 `
 
 const DropArrow = styled.div`

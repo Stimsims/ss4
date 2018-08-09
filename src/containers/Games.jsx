@@ -1,10 +1,6 @@
 
 import React from 'react'
 import { withRouteData, Link, withSiteData } from 'react-static'
-//import Dynamic from './../components/DynamicComponent.jsx';
-//import Menu from './../components/layout/MainMenu.jsx';
-import GameItem from './../components/layout/GameListItem.jsx';
-import Container from './../components/UI/elements/Container';
 import TextBox from './../components/UI/elements/TextBox.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import styled from 'styled-components';

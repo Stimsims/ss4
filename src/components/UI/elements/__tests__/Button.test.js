@@ -18,7 +18,7 @@ describe('<Button />', ()=>{
         clickHolder = sinon.spy();
         //if shallow, only styled wrapper gets built
         wrapper = mount(<ThemeProvider theme={startTheme}><Button onInput={clickHolder}>hello</Button></ThemeProvider>);
-        console.log(wrapper.debug());
+      //  console.log(wrapper.debug());
       });
     it('it makes a button', ()=>{
         expect(wrapper.find('button').length).toEqual(1); //finds by displayName apparently, or styled component
