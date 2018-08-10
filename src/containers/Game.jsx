@@ -52,9 +52,7 @@ class Games extends React.Component{
         // )
         if(this.state.game){
             return (
-                <div>
-                    <Index game={this.state.game} />
-                </div>
+                <Index game={this.state.game} />
               )
         }else if(this.state.error){
             return <p>error loading game: {this.state.error}</p>

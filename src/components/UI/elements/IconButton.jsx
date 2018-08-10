@@ -9,6 +9,9 @@ import iSettings from './../../../assets/baseline-settings-20px.svg';
 import iUpArrow from './../../../assets/baseline-keyboard_arrow_up-24px.svg';
 import iPlay from './../../../assets/baseline-play_arrow-24px.svg';
 import iMore from './../../../assets/baseline-more_vert-24px.svg';
+import iBack from './../../../assets/round-arrow_back-24px.svg';
+import iSync from './../../../assets/round-autorenew-24px.svg';
+import iCloud from './../../../assets/round-cloud_upload-24px.svg';
 
 
 class Icon extends React.Component {
@@ -46,17 +49,32 @@ class Icon extends React.Component {
                 return iPlay;
             case 'more':
                 return iMore;
+            case 'back':
+                return iBack;
+            case 'cloud':
+                return iCloud;
+            case 'sync':
+                return iSync;
         }
     }
     render() {
         //themeprovider provides base theme, can be overridden
-      return (
-            <Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
-                hover={this.props.hover} 
-                onClick={this.props.onInput} round={this.props.round}>
-                <img src={this.getImg(this.props.icon)}/>
-            </Btn>
-      );
+        if(this.props.disabled){
+            return (
+                <Btn disabled className={this.props.classes} padding={this.props.padding} bg={'grey'} 
+                    hover={'black'}  onClick={this.props.onInput} round={this.props.round}>
+                    <img src={this.getImg(this.props.icon)}/>
+                </Btn>
+            )
+        }else{
+            return (
+                <Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
+                    hover={this.props.hover} 
+                    onClick={this.props.onInput} round={this.props.round}>
+                    <img src={this.getImg(this.props.icon)}/>
+                </Btn>
+            )
+        }
     }
 }
 

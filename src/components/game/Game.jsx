@@ -6,11 +6,12 @@ import container from './../UI/elements/Container.jsx';
 import accordion from './../UI/elements/Accordion.jsx';
 import styled from 'styled-components';
 import GameLibs from 'mygamelibs';
+import GameMenu from './GameMenu.jsx';
 
 class Game extends React.Component{
     constructor(props){
         super(props);
-        console.log("game constructor, sample game: ", this.props.game);
+     //   console.log("game constructor, sample game: ", this.props.game);
         this.state = {
             checkIn:{
                 katex: null,
@@ -24,23 +25,6 @@ class Game extends React.Component{
                     accordion,
                     nerdamer
                 }
-                //katex: Katex,
-                // recharts: {
-                //     ResponsiveContainer,
-                //     LineChart,
-                //     ScatterChart,
-                //     Scatter,
-                //     ComposedChart,
-                //     Line,
-                //     Area,
-                //     Bar,
-                //     XAxis,
-                //     YAxis,
-                //     CartesianGrid,
-                //     Tooltip,
-                //     Legend
-                // },
- 
             }
         }
     }
@@ -49,7 +33,7 @@ class Game extends React.Component{
         this.importGraph();
     }
     areToolsReady(){
-        console.log("game tools ready? ");
+       // console.log("game tools ready? ");
         let ready = true;
         let keys = Object.keys(this.state.checkIn);
         keys.map(k => {
@@ -57,7 +41,7 @@ class Game extends React.Component{
                 ready = false;
             }
         })
-        console.log("game tools ready? " + ready, this.state);
+      //  console.log("game tools ready? " + ready, this.state);
         return ready;
     }
     importKatex(){
@@ -128,7 +112,7 @@ class Game extends React.Component{
     }
 
     render(){
-        console.log('rendering game with tools: ', this.state);
+       // console.log('rendering game with tools: ', this.state);
         if(this.areToolsReady()){
             return(
                 <div>

@@ -4,6 +4,7 @@ import Store from './Store.jsx';
 import Game from './Game';
 import Menu from './GameMenu.jsx';
 import styled from 'styled-components';
+import Table from './../UI/elements/Table.jsx';
 //import SampleGame from './SampleGame.jsx';
 // import samplegame from 'samplegame';
 
@@ -14,11 +15,13 @@ if (typeof window === 'undefined') {
 class Index extends React.Component{
   constructor(props){
     super(props);
+    this.registerMenuItem = this.registerMenuItem.bind(this);
     this.state = {
-      game: null
+      game: null,
+      menuItems: [],
+      menuKeys: new Map(),
+      menuRenderId: 1
     }
-    // console.log("Game Index props ", props);
-    // console.log("Game Index reducers: ", props.game.getReducers());
   }
   componentDidMount(){
     //  console.log("index mounted", samplegame);
@@ -27,21 +30,47 @@ class Index extends React.Component{
             reducers: this.props.game.getReducers()
         })
     }
+    registerMenuItem(items){
+      //is a component and the function to call onClick
+      console.log("registerMenyItem item ", items);
+      let menuItems = this.state.menuItems;
+      items.map(item => {
+        if(!this.state.menuKeys.has(item.key)){
+          //delete old one, update object, keep key indexes the same
+          menuItems = [
+            ...menuItems,
+            item.key
+          ]
+        }
+        this.state.menuKeys.set(item.key, item);
+      })
+      this.setState({
+        menuItems,
+        menuRenderId: this.state.menuRenderId+1
+      })
+      console.log("registerMenyItem count ", this.state.menuItems);
+    }
+    buildMenuItems(){
+      return this.state.menuItems.map(m => {
+        return this.state.menuKeys.get(m);
+      })
+      //menuItems={this.state.menuItems}
+    }
     renderPersistStore(){
       return(
-        <Container>
-           <Menu />
-            <Load gamename={'g4'} reducers={this.state.reducers}>
+        <Table heights={['36px', null]}>
+           <Menu title={'Game Title'} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
+            <Load gamename={'g4'} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
               <Game game={this.state.game}/>
             </Load>
-        </Container>
+        </Table>
       )
     }
 
     renderStore(){
       return (
         <Container>
-          <Menu />
+          <Menu title={'Game Title'} />
           <Store reducers={this.state.reducers} >
             <Game game={this.state.game}/>
           </Store>
@@ -50,9 +79,9 @@ class Index extends React.Component{
     }
     render(){
       if(this.state.game){
-        return this.renderPersistStore();
+        return <Container>{this.renderPersistStore()}</Container>
       }else{
-        return <p>loading game...</p>
+        return <Container><p>loading game...</p></Container>
       }
     }
 
@@ -60,6 +89,6 @@ class Index extends React.Component{
 export default Index;
 
 const Container = styled.div`
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top:0;right:0;left:0;bottom:0;
 `

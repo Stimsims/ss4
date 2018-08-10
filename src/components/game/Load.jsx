@@ -1,8 +1,13 @@
 import React from 'react';
 import Store from './PersistStore.jsx';
 import {createFileWithJSONContent} from './../../utilities/fileUtils.js';
+import {Link} from 'react-static';
+import {buildFiles, getSavedGameIds, getLocalhostIterator} from './../../utilities/localStorageUtils.js';
 import {connect} from 'react-redux';
-
+import {listFilesByAppProp, getFile} from './../apis/DriveInterface.js';
+import IconButton from './../UI/elements/IconButton.jsx';
+import LoadGameView from './LoadGameView.jsx';
+import Game from './Game';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -17,310 +22,326 @@ function getMetaName(meta, game, id){
 }
 const DATE = 'date',
       DESC = 'desc',
-      SAVE_NAME = 'A',
-      DRIVE_FILE_KEY = 'gamename';
+      DRIVE_FILE_KEY = 'gamename',
+      DRIVE_FILE_PROP_ID = 'gameId',
+      SAVE_NAMES = ['rose','violet','lilly'];
 class Load extends React.Component{
     constructor(props){
         super(props);
         console.log("Load constructor props", props);
         this.onNewGame = this.onNewGame.bind(this);
         this.onLoadGame = this.onLoadGame.bind(this);
-        this.getLocalFiles = this.getLocalFiles.bind(this);
-        //this.getDriveFiles = this.getDriveFiles.bind(this);
-        //this.uploadFile = this.uploadFile.bind(this);
-        this.listSaveFiles = this.listSaveFiles.bind(this);
+        this.syncSaves = this.syncSaves.bind(this);
+
         this.state = {
             id: null,
-            local: {},
+            local: [],
             synced: false,
-            syncing: false
+            syncing: false,
+            log:[]
         }
     }
+
     componentDidMount(){
-        this.getLocalFiles();
-    }
-    componentWillUnmount(){
-        this.saveLocalMeta();
-        this.saveGame();
-    }
-    componentDidUpdate(prevProps, prevState){
-        console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
-        if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
-               this.syncSaves();
-        }
-    }
-    getLocalFiles(){
-        let localStorage = window.localStorage;
-
-        let query = new RegExp("(" + this.props.gamename + "-A)");
-        let results = [];
-        for (var i in localStorage) {
-            if (localStorage.hasOwnProperty(i)) {
-            if (i.match(query)) {
-                results.push({key:i,val:localStorage.getItem(i)});
-            }
-            }
-        }
-        //extract id from file string
-        let ids = results.map(f => {
-            let parts = f.key.split("-");
-            return parts[1];
-        });
-        console.log("local ids", ids);
-        if(ids){
-            //put ids into state.local, pointing to obj with keys for date and desc getMetaName(meta, game, id)
-            let local = {};
-            ids.map(id => {
-                if(!local[id]){
-                    local[id] = {
-                        date: localStorage.getItem(getMetaName(DATE,this.props.gamename, SAVE_NAME)),
-                        desc: localStorage.getItem(getMetaName(DESC,this.props.gamename, SAVE_NAME))
-                    }
-                }
-            })
-            this.setState({
-                local
-            })
-            console.log("local meta", local);
-        }
-
-    }
-    
-      onNewGame(){
-        this.saveLocalMeta();
-        //game will be persisted to cloud on close
-        //new game and load game set the filename of the game to be played
+        this.registerMenuButtons(this.state.fileId);
         this.setState({
-            filename: getStoreName(this.props.gamename, SAVE_NAME)
+            local: this.getLocalSaves()
         })
     }
-    saveLocalMeta(){
-        let date = new Date();
-        console.log("new game name: " + SAVE_NAME + " date: " + date.getTime());
-        let localStorage = window.localStorage;
-        //save metadata locally
-        localStorage.setItem(getMetaName(DATE, this.props.gamename, SAVE_NAME), date.getTime());
-        localStorage.setItem(getMetaName(DESC, this.props.gamename, SAVE_NAME), 'a game description');
+    getLocalSaves(){
+        let regexp = `${this.props.gamename}-(${SAVE_NAMES.join('|')})$`;
+        console.log('getLocalSaves regex ' + regexp);
+        let ids = getSavedGameIds(getLocalhostIterator(), new RegExp(regexp), (file)=>{
+            let parts = file.split("-");
+            return parts[1];
+        })
+        console.log("Load getSavedGameIds ", ids);
+        let files = buildFiles(ids, [
+            {
+                key: 'date',
+                getName: (id) => {getMetaName(DATE,this.props.gamename, id)}
+            },
+            {
+                key: 'desc',
+                getName: (id) => {getMetaName(DESC,this.props.gamename, id)}
+            }
+        ], {hello: 'world'});
+        console.log("Load getLocalFiles ", files);
+        return files;
+
     }
-    saveGame(){
+    componentWillUnmount(){
+        if(this.props.fileId){
+            this.saveLocalMeta();
+            this.saveGame(this.props.fileId);
+        }
+    }
+    componentDidUpdate(prevProps, prevState){
+       // console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
+        if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
+               //this.syncSaves();
+        }
+        if(prevState.fileId !== this.state.fileId){
+            this.registerMenuButtons(this.state.fileId)
+        }
+    }
+
+    
+
+    saveGame(fileId, driveId /* if null, must retrieve*/){
         //get list of files with gamename: this.props.game
-        let filename = getStoreName(this.props.gamename, SAVE_NAME);
-        console.log("saving game to drive name " + filename);
-        if(this.props.gapi.isSignedIn){
-            let localStorage = window.localStorage;
-            console.log("retrieved localStorage obj from window");
-            let list = this.listSaveFiles().then(
-                function(response) {
+        //let filename = getStoreName(this.props.gamename, SAVE_NAME);
+        if(driveId){
+            this.uploadFile(driveId, fileId);
+        }else{
+            let filename = getStoreName(this.props.gamename, fileId);
+            //console.log("saving game to drive name " + filename);           
+            listFilesByAppProp(DRIVE_FILE_KEY, [filename])
+            .then((response) => {
                     let list = response.result.files;
-                    console.log("saveGame response", response);
-                    console.log("saving game, drive files found: " + list.length);
+                    //console.log("saving game, drive files found: " + list.length);
                     if(list){
                         let id = list[0]?list[0].id:null;
                         //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
                         // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
-                        let updatedfile = localStorage.getItem('persist:' + filename)
-                        console.log("saveGame updated file from local", updatedfile);
-                        createFileWithJSONContent(list.length <=0, id, filename, updatedfile, 
-                            (res) => {console.log("create file with json callback", res)}, 
-                            DRIVE_FILE_KEY)
-                        console.log("saveGame successfully updated file");
+                        this.uploadFile(id, fileId);
+                        this.syncFinished();
                     }
-                }.bind(this)
-            );
-        }else{
-            console.log("saveGame ERROR, unable to upload to drive, not signed in");
+                }
+            )
+            .catch(e => {
+                this.state.log.push(`failed to upload to cloud`);
+                console.error('failed to upload save game', e);
+                this.syncFinished();
+            })
         }
     }
-    listSaveFiles(){
-        /*
-            'q': "mimeType contains 'application/json'",
-            'fields': "files(id, name, mimeType, modifiedTime)"
-            'q': "appProperties has { key='gamename' and value='witcher' }"
-        */
-       console.log(`listing game files key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}'`);
-        return gapi.client.drive.files.list({
-            'q': `appProperties has { key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}' }`,
-            'fields': "files(id, name, mimeType, modifiedTime)"
-        })
-    }
-    getFile(id){
-        return gapi.client.drive.files.get({
-            fileId: id,
-            alt: 'media',
-            fields: "id, name, mimeType, modifiedTime"
-          })
-    }
-    syncSaves(){
-        //list files, compare modifiedDates, use id to download google drive file, place in localstorage
-        this.setState({
-            syncing:true
-        })
+    uploadFile(driveId, fileId){
         let localStorage = window.localStorage;
-        this.listSaveFiles().then(
-            function(response) {
-                let list = response.result.files;
-                console.log("loadGame response", response);
-                console.log("loadinggame, drive files found: " + list.length);
-                if(list && list.length > 0){
-                    let driveTime = list[0].modifiedTime;
-                    //let localTime = localStorage.getItem('g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date');
-                    let localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, 'A'));
-                  //  let localDate = new Date(localTime);
-                    let driveDate = new Date(driveTime);
-                    console.log("driveTime " + driveTime, driveDate)
-                    //console.log("localTime " + localTime, localDate)
-                    console.log("is drive.getTime " + driveDate.getTime() +" less than local time? " + localTime 
-                    + " -> " + (driveDate.getTime()<localTime))
-                    //if file exists, check if cloud modifiedTime is later than local modified time, if so overwrite, if not ask user
-                    //driveDate.getTime()>localTime
-                    if(driveDate.getTime()>localTime){
-                        console.log("drive file modified later than local file, downloading");
-                        //user picks drive, download from drive and store in local
-                        this.downloadSave(list[0]);
-                    }else{
-                        console.log("local file is later than drive file, which save file do you want?");
-                        //user picks local, save to cloud?
-                        this.setState({
-                            saveConflict: list[0]
-                        })
-                    }
-                }else{
-                    console.log("no load games found");
-                    this.setState({
-                        syncing:false,
-                        synced: true
-                    })
-                }
-            }.bind(this)
-        ).catch(function(err){
-            console.log("syncSaves failed", err);
-            this.setState({
-                syncing:false,
-                synced: true
-            })
-        })
-    }
-    downloadSave(file){
-        // a save file has been downloaded and should replace the file at game-nameid
-        console.log("downloading saving file ", file);
-        let localStorage = window.localStorage;
-        let id = file.id;
-        let filename = file.name;
-        console.log("downloading save file id: " + id + " name: " + filename);
-        this.getFile(id)
-            .then((res)=>{
-                console.log("get file result", res);
-                console.log("file body", res.body);
-                console.log("file result", res.result);
-                let file = localStorage.setItem('persist:' + filename, res.body);
-                console.log("saving drive file to local storage at " + ('persist:' + filename));
-                this.setState({
-                    syncing:false,
-                    synced: true,
-                    saveConflict: null,
-                    error: null
-                })
-                //load from local
-               
-            }).catch((err)=> {
-                console.log("fet file error", err);
-                this.setState({
-                    syncing:false,
-                    synced: true,
-                    error: err,
-                    saveConflict: null
-                })
-            })
-    }
-    getAppData(){
-        console.log("getting app data from drive");
-        console.log("drive", gapi.client.drive);
-        var request = gapi.client.drive.files.list({
-            spaces: 'appDataFolder',
-            fields: 'nextPageToken, files(id, name)',
-            pageSize: 100
-          }).then((res)=>{
-            console.log("app data result", res);
-        }).catch((err)=> {
-            console.log("app data error", err);
-        })
+        let filename = getStoreName(this.props.gamename, fileId);
+        let updatedfile = localStorage.getItem('persist:' + filename)
+      //  console.log("saving game updated file from local", updatedfile);
+        //TODO break into json file maker, and http request builder
+        this.state.log.push(`building file request for cloud upload`);
+        try{
+            createFileWithJSONContent(driveId, filename, 
+            [{key: DRIVE_FILE_KEY, value: filename}, {key: DRIVE_FILE_PROP_ID, value: fileId}],
+            updatedfile);
+        //    console.log("uploadFile successfully");
+        }catch(e){
+            console.error("uploadFile failed",e);
+        }
+        
     }
 
-    renderNewGame(){
-        if(!this.state.syncing){
-            return (<button onClick={() => {this.onNewGame();}}>New Game</button>)
-        }else{
-            return (<button onClick={() => {this.onNewGame();}} disabled>New Game D</button>)
-        } 
-    }
-    renderSaves(){
-        if(!this.state.syncing && this.state.local){
-            console.log("rendering save files, local:", this.state.local);
-            return Object.keys(this.state.local).map((k, i) => {
-                let save = this.state.local[k];
-                return (<button onClick={() => {
-                    this.onLoadGame(k);
-                    }}>
-                        save {i} date: {save.date}, desc: {save.desc} id: {k}
-                    </button>)
+    syncSaves(id, overwriteLocal /* optional */){
+        //this method initiates interaction with drive, check if is online before performing
+        //list files, compare modifiedDates, use id to download google drive file, place in localstorage
+        console.log('syncSaves for id ' + id, this);
+        if(id){
+            this.state.log.push('beginning sync with google drive to fetch save files');
+            this.setState({
+                syncing:true
             })
-               // return this.state.local[k].map((e, i) => {{}
-        }
+                //let localStorage = window.localStorage;
+            let names = Array.isArray(id)? id.map(n => {
+                return getStoreName(this.props.gamename, n);
+            }): [id];
+            console.log('syncsaves names', names);
+            listFilesByAppProp(DRIVE_FILE_KEY, names)
+            .then((response) => {
+                    console.log("load syncSaves response", response);
+                    let list = response.result.files;
+                    
+                    //console.log("loadinggame, drive files found: " + list.length);
+                    this.state.log.push(`recieved ${list.length} files`);
+                    if(list){
+                        if(list.length === 0){
+                            //first time uploading to cloud
+                            this.state.log.push(`0 files found on drive, uploading new game ${this.state.fileId} to cloud for first time`);
+                            this.saveGame(this.state.fileId);
+                        }
+                        list.map(item =>{
+                            console.log('syncSave: comparing file ', item);
+                            //extract driveId, and gameId
+                            let driveId = item.id;
+                            let gameId = item.appProperties[DRIVE_FILE_PROP_ID];
+                            let gameName = item.appProperties[DRIVE_FILE_KEY];
+                            this.state.log.push(`comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
+                           // console.log(`syncSave comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
+                            //let file = this.downloadSave(item);
+                        
+                            if(overwriteLocal && this.isLocalLater(item)){
+                            //  console.log("drive file modified later than local file, downloading");
+                                this.state.log.push(`most recent file is ahead of local file, overwriting local file`);
+                                getFile(item.id).then(res => {
+                                //  console.log('syncSave test downloaded file  for ' +gameName, res);
+                                    this.overwriteLocalSave(gameId, gameName, res.result);
+                                }).catch(e => {
+                                    //console.log('syncSaves getFile catch block error', e);
+                                    this.state.log.push(`failed to retrieve file ` + driveId);
+                                    throw new Error('error during getFile call to google drive', e);
+                                })
+                            }else{
+                            // console.log("local file is later than drive file, uploading to cloud");
+                                this.state.log.push(`most recent file is behind local file, overwriting cloud file`);
+                                this.saveGame(gameId, driveId);    
+                            }
+                        })
+                    }else{
+                        throw new Error('syncing failed, no load games found');
+                    }
+            })
+            .catch((err) => {
+                console.log("syncSaves catch block called, throwing error", err);
+                this.syncFinished();
+            })
+        }else{
+            console.warn('will not sync when fileId is undefined');
+        }   
+    }
+    syncFinished(){
+        this.state.log.push(`syncing finished`);
+        this.setState({
+            syncing:false,
+            synced: true,
+            log: [
+                ...this.state.log
+            ]
+        })
+    }
+    isLocalLater(driveFile){
+        let localStorage = window.localStorage;
+        //console.log("isLocalLater? driveFile: ", driveFile);
+        //get value for property gamename on driveFile
+        let id = driveFile.appProperties[DRIVE_FILE_PROP_ID];
+       // console.log("isLocalLater? driveFile id ", id);
+        let driveDate = new Date(driveFile.modifiedTime);
+        let localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, id));
+       // console.log(`isLocalLater driveTime ${this.displayDate(driveFile.modifiedTime)} localTime ${this.displayDate(localTime)}`)
+        console.log("is drive.getTime " + driveDate.getTime() +" less than local time? " + localTime 
+        + " -> " + (driveDate.getTime()<localTime))
+        return driveDate.getTime()>localTime;
+    }
+    displayDate(time){
+        return new Date(time).toUTCString();
+    }
+
+    overwriteLocalSave(id, gameName, body){
+        let localStorage = window.localStorage;
+        let stringed = JSON.stringify(body);
+        localStorage.setItem('persist:' + gameName, stringed);
+        this.saveLocalMeta(id);
+        console.log(`local save ${gameName} successfully overwritten`, stringed);
+        this.setState({
+            syncing:false,
+            synced: true,
+            saveConflict: null,
+            error: null
+        })
+    }
+    onNewGame(id){
+        //this.saveLocalMeta();
+        //game will be persisted to cloud on close
+        //new game and load game set the filename of the game to be played
+        let filename = getStoreName(this.props.gamename, id);
+        console.log("load new game id: "+id+" name: " + filename);
+        this.saveLocalMeta(id);
+        this.setState({
+            //filename: getStoreName(this.props.gamename, SAVE_NAME)
+            filename,
+            fileId: id,
+            local: this.getLocalSaves()
+        })
+        this.registerMenuButtons(id);
+        // this.props.registerMenuItem({
+        //     key: 'sync',
+        //     component: <IconButton icon={'sync'} round={true}  onInput={()=>{this.syncSaves(id)}}/>
+        // })
+        //this.saveGame(id);
+    }
+    
+    saveLocalMeta(id){
+        let date = new Date();
+        console.log("saveLocalMeta new game name: " + id + " date: " + date.getTime());
+        let localStorage = window.localStorage;
+        //save metadata locally
+        localStorage.setItem(getMetaName(DATE, this.props.gamename, id), date.getTime());
+        localStorage.setItem(getMetaName(DESC, this.props.gamename, id), 'a game description');
     }
     onLoadGame(id){
         //use game + id as filename, set as filename
         let filename = getStoreName(this.props.gamename, id);
-        console.log("load game name: " + filename);
+        console.log("load load game "+id+" name: " + filename);
         this.setState({
-            filename
+            filename,
+            fileId: id
         })
+        this.registerMenuButtons(id);
     }
-    renderSaveConflict(){
-        if(this.state.saveConflict){
-            // downloadSave(file)
-            //if they choose the drive file, download it with fiel id
-            //if not, save local to drive
-            return(
-                <div>
-                    <p>Your local file is ahead of your drive file, which would you like to continue with? (the other will be deleted)</p>
-                    <button onClick={() => {
-                        this.downloadSave(this.state.saveConflict);
-                        //this.saveGame();
-                        this.saveLocalMeta();
-                    }}>Choose drive</button>
-                    <button onClick={() => {
-                       // this.saveLocalMeta();
-                        this.saveGame();
-                        console.log("saving local game", this.state);
+    registerMenuButtons(fileId){
+        if(fileId){
+            this.props.registerMenuItem([
+                {
+                    key: 'sync',
+                    id: 'none',
+                    position: 'right',
+                    component: <IconButton className={'no-fileId'} key={'none'} round={true} icon="sync" disabled />
+                },
+                {
+                    key: 'cloud',
+                    position: 'right',
+                    component: <IconButton key={'cloud'} round={true} icon="cloud" onInput={()=>{
+                        //console.log('load sync save button clicked! ' + fileId);
+                        this.syncSaves(fileId, false)
+                    }}/>
+                },
+                {
+                    key: 'back',
+                    position: 'left',
+                    component: <IconButton key={'back'} round={true} icon="back" onInput={()=>{
                         this.setState({
-                            syncing:false,
-                            synced: true,
-                            saveConflict: null,
-                            error: null
+                            fileId: null, filename: null
                         })
-                    }}>Choose local</button>
-                </div>
-            )
+                    }}/>
+                }
+            ])
+        }else{
+            this.props.registerMenuItem([
+                {
+                    key: 'sync',
+                    id: fileId,
+                    position: 'right',
+                    component: <IconButton className={'fileId'} key={fileId} round={true} icon="sync" onInput={()=>{
+                        //console.log('load sync save button clicked! ' + fileId);
+                        this.syncSaves(SAVE_NAMES, true)
+                    }}/>
+                },
+                {
+                    key: 'cloud',
+                    position: 'right',
+                    component: <IconButton key={'cloud'} round={true} icon="cloud" disabled/>
+                },
+                {
+                    key: 'back',
+                    position: 'left',
+                    component: <Link to={'/games'}><IconButton key={'back'} round={true} icon="back" /></Link>
+                }
+            ])
         }
-        return <p>probelm displaying conflict...</p>
     }
     render(){
-        console.log(`load rendering game saveConflict ${this.state.saveConflict} synced ${this.state.synced}
-            syncing ${this.state.syncing} filename ${this.state.filename}`)
-        if(this.state.saveConflict){
-            return this.renderSaveConflict()
-        }else if(this.state.filename){
+        if(this.state.filename){
             //savefile={this.state.filename}
-            
             return(
                 <Store savefile={this.state.filename} reducers={this.props.reducers}>
                     <button onClick={() => {
-                        this.saveGame();
+                        this.saveGame(this.state.fileId);
                         }}>
                             save game to drive
                         </button>
                         <button onClick={() => {
-                        this.saveLocalMeta();
+                        this.saveLocalMeta(this.state.fileId);
                         }}>
                             save local metadata
                         </button>
@@ -329,14 +350,8 @@ class Load extends React.Component{
               )
         }else{
             return(
-                <div>
-                   
-                    {this.state.synced? <p>synced</p>: this.state.syncing?<p>syncing...</p>:<p>not synced</p>}
-                    <hr/>
-                    {this.renderNewGame()}
-                    <hr/>
-                    {this.renderSaves()}
-                </div>
+                <LoadGameView syncing={this.state.syncing} saves={this.state.local} log={this.state.log} 
+                        onNewGame={(id)=>{this.onNewGame(id)}} onLoadGame={(id)=>{this.onLoadGame(id)}} names={SAVE_NAMES} />
             )
         }
 
