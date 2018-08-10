@@ -67,10 +67,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -93,18 +93,6 @@ module.exports = require("react-static");
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("prop-types");
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -117,7 +105,7 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        padding: ', ';\n        font-size: ', ';\n        @media only screen and (min-width: ', ') {\n            padding: 10px;\n        }\n    }\n'], ['\n    display: ', ';\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        padding: ', ';\n        font-size: ', ';\n        @media only screen and (min-width: ', ') {\n            padding: 10px;\n        }\n    }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    position: ', ';\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    margin: 0;\n    z-index: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        margin: 0;\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        padding: ', ';\n        font-size: ', ';\n        @media only screen and (min-width: ', ') {\n            padding: 10px;\n        }\n    }\n'], ['\n    display: ', ';\n    position: ', ';\n    height: ', ';\n    width: ', ';\n    text-align: ', ';\n    margin: 0;\n    z-index: ', ';\n    h1, h2, h3, h4, h5, h6, p{\n        margin: 0;\n        display: ', ';\n        text-align: ', ';\n        color: ', ';\n        padding: ', ';\n        font-size: ', ';\n        @media only screen and (min-width: ', ') {\n            padding: 10px;\n        }\n    }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -147,149 +135,101 @@ var Text = function (_React$Component) {
     }
 
     _createClass(Text, [{
+        key: 'wrapText',
+        value: function wrapText(text) {
+            return _react2.default.createElement(
+                Wrapper,
+                { position: this.props.position, padding: this.props.padding, margin: this.props.margin, zIndex: this.props.zIndex,
+                    align: this.props.align, size: this.props.size, height: this.props.height, width: this.props.width,
+                    display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 6
+                    }
+                },
+                text
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
             switch (this.props.tag) {
                 case 'h1':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                    return this.wrapText(_react2.default.createElement(
+                        'h1',
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 8
+                                lineNumber: 15
                             }
                         },
-                        _react2.default.createElement(
-                            'h1',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 9
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
+                        this.props.text
+                    ));
                 case 'h2':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 11
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h2',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 12
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h3':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 14
-                            }
-                        },
-                        _react2.default.createElement(
-                            'h3',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 15
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h4':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                    return this.wrapText(_react2.default.createElement(
+                        'h2',
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 17
                             }
                         },
-                        _react2.default.createElement(
-                            'h4',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 18
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h5':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                        this.props.text
+                    ));
+                case 'h3':
+                    return this.wrapText(_react2.default.createElement(
+                        'h3',
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 20
+                                lineNumber: 19
                             }
                         },
-                        _react2.default.createElement(
-                            'h5',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 21
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                case 'h6':
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                        this.props.text
+                    ));
+                case 'h4':
+                    return this.wrapText(_react2.default.createElement(
+                        'h4',
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 21
+                            }
+                        },
+                        this.props.text
+                    ));
+                case 'h5':
+                    return this.wrapText(_react2.default.createElement(
+                        'h5',
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 23
                             }
                         },
-                        _react2.default.createElement(
-                            'h6',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 24
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
-                default:
-                    return _react2.default.createElement(
-                        Wrapper,
-                        { padding: this.props.padding, align: this.props.align, size: this.props.size,
-                            display: this.props.display, color: this.props.color, colorKey: this.props.colorKey, __source: {
+                        this.props.text
+                    ));
+                case 'h6':
+                    return this.wrapText(_react2.default.createElement(
+                        'h6',
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 26
+                                lineNumber: 25
                             }
                         },
-                        _react2.default.createElement(
-                            'p',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 27
-                                }
-                            },
-                            this.props.text
-                        )
-                    );
+                        this.props.text
+                    ));
+                default:
+                    return this.wrapText(_react2.default.createElement(
+                        'p',
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 27
+                            }
+                        },
+                        this.props.text
+                    ));
             }
         }
     }]);
@@ -303,11 +243,15 @@ exports.default = Text;
 var Wrapper = _styledComponents2.default.span(_templateObject, function (props) {
     return props.display ? props.display : 'inline-block';
 }, function (props) {
+    return props.position ? props.position : 'static';
+}, function (props) {
     return props.height ? props.height : 'auto';
 }, function (props) {
     return props.width ? props.width : 'auto';
 }, function (props) {
     return props.align ? props.align : 'center';
+}, function (props) {
+    return props.zIndex ? props.zIndex : '1';
 }, function (props) {
     return props.display ? props.display : 'inline-block';
 }, function (props) {
@@ -329,6 +273,18 @@ var Wrapper = _styledComponents2.default.span(_templateObject, function (props) 
 });
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -339,7 +295,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _validate = __webpack_require__(22);
+var _validate = __webpack_require__(23);
 
 var _validate2 = _interopRequireDefault(_validate);
 
@@ -476,6 +432,199 @@ const PostBox = styled.div`
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\IconButton.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    width:36px;\n    height:36px;\n    padding:', ';\n    margin: 0px;\n    background-color: ', '; /* Blue background */\n    border: none; /* Remove borders */\n    cursor: pointer; /* Mouse pointer on hover */\n    outline: none;\n    border-radius:', ';\n    vertical-align: middle;\n    transition: background-color ', ' ease-in;\n    &:hover, &:focus{\n        background-color: ', ';\n    };\n    img{  \n        margin: 0;\n        padding: 0;\n        border: none;\n        vertical-align: middle;\n    }\n'], ['\n    width:36px;\n    height:36px;\n    padding:', ';\n    margin: 0px;\n    background-color: ', '; /* Blue background */\n    border: none; /* Remove borders */\n    cursor: pointer; /* Mouse pointer on hover */\n    outline: none;\n    border-radius:', ';\n    vertical-align: middle;\n    transition: background-color ', ' ease-in;\n    &:hover, &:focus{\n        background-color: ', ';\n    };\n    img{  \n        margin: 0;\n        padding: 0;\n        border: none;\n        vertical-align: middle;\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _baselineDelete24px = __webpack_require__(59);
+
+var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
+
+var _baselineDone24px = __webpack_require__(60);
+
+var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
+
+var _baselineCached24px = __webpack_require__(61);
+
+var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
+
+var _baselineKeyboard_arrow_right24px = __webpack_require__(29);
+
+var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
+
+var _baselineSave24px = __webpack_require__(62);
+
+var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
+
+var _baselineSettings20px = __webpack_require__(63);
+
+var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
+
+var _baselineKeyboard_arrow_up24px = __webpack_require__(64);
+
+var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
+
+var _baselinePlay_arrow24px = __webpack_require__(65);
+
+var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
+
+var _baselineMore_vert24px = __webpack_require__(66);
+
+var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
+
+var _roundArrow_back24px = __webpack_require__(67);
+
+var _roundArrow_back24px2 = _interopRequireDefault(_roundArrow_back24px);
+
+var _roundAutorenew24px = __webpack_require__(68);
+
+var _roundAutorenew24px2 = _interopRequireDefault(_roundAutorenew24px);
+
+var _roundCloud_upload24px = __webpack_require__(69);
+
+var _roundCloud_upload24px2 = _interopRequireDefault(_roundCloud_upload24px);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Icon = function (_React$Component) {
+    _inherits(Icon, _React$Component);
+
+    function Icon(props) {
+        _classCallCheck(this, Icon);
+
+        return _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
+        //console.log("IconButton constructor props", props)
+    }
+
+    _createClass(Icon, [{
+        key: 'getColor',
+        value: function getColor(img) {
+            switch (img) {
+                case 'delete':
+                    return 'black';
+                case 'done':
+                    return 'green';
+                default:
+                    return 'orange';
+            }
+        }
+    }, {
+        key: 'getImg',
+        value: function getImg(img) {
+            switch (img) {
+                case 'delete':
+                    return _baselineDelete24px2.default;
+                case 'done':
+                    return _baselineDone24px2.default;
+                case 'cached':
+                    return _baselineCached24px2.default;
+                case 'arrow':
+                    return _baselineKeyboard_arrow_right24px2.default;
+                case 'save':
+                    return _baselineSave24px2.default;
+                case 'settings':
+                    return _baselineSettings20px2.default;
+                case 'up':
+                    return _baselineKeyboard_arrow_up24px2.default;
+                case 'play':
+                    return _baselinePlay_arrow24px2.default;
+                case 'more':
+                    return _baselineMore_vert24px2.default;
+                case 'back':
+                    return _roundArrow_back24px2.default;
+                case 'cloud':
+                    return _roundCloud_upload24px2.default;
+                case 'sync':
+                    return _roundAutorenew24px2.default;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            //themeprovider provides base theme, can be overridden
+            if (this.props.disabled) {
+                return _react2.default.createElement(
+                    Btn,
+                    { disabled: true, className: this.props.classes, padding: this.props.padding, bg: 'grey',
+                        hover: 'black', onClick: this.props.onInput, round: this.props.round, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 64
+                        }
+                    },
+                    _react2.default.createElement('img', { src: this.getImg(this.props.icon), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 66
+                        }
+                    })
+                );
+            } else {
+                return _react2.default.createElement(
+                    Btn,
+                    { className: this.props.classes, padding: this.props.padding, bg: this.props.bg,
+                        hover: this.props.hover,
+                        onClick: this.props.onInput, round: this.props.round, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 71
+                        }
+                    },
+                    _react2.default.createElement('img', { src: this.getImg(this.props.icon), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 74
+                        }
+                    })
+                );
+            }
+        }
+    }]);
+
+    return Icon;
+}(_react2.default.Component);
+
+exports.default = Icon;
+
+//${props => props.primary ? 'blue' : props.theme.main}
+
+var Btn = _styledComponents2.default.button(_templateObject, function (props) {
+    return props.padding ? props.padding : '0';
+}, function (props) {
+    return props.bg ? props.bg : props.theme[props.theme.theme].neutral;
+}, function (props) {
+    return props.round ? '50%' : props.theme[props.theme.theme].roundCorners;
+}, function (props) {
+    return props.theme[props.theme.theme].animS;
+}, function (props) {
+    //console.log("icon btn props", props);
+    return props.hover ? props.hover : 'orange';
+});
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\TextBox.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -559,192 +708,34 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("recharts");
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/importCss");
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-plugin-universal-import/universalImport");
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\IconButton.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    width:36px;\n    height:36px;\n    padding:', ';\n    margin: 0px;\n    background-color: ', '; /* Blue background */\n    border: none; /* Remove borders */\n    cursor: pointer; /* Mouse pointer on hover */\n    outline: none;\n    border-radius:', ';\n    vertical-align: middle;\n    transition: background-color ', ' ease-in;\n    &:hover, &:focus{\n        background-color: ', ';\n    };\n    img{  \n        margin: 0;\n        padding: 0;\n        border: none;\n        vertical-align: middle;\n    }\n'], ['\n    width:36px;\n    height:36px;\n    padding:', ';\n    margin: 0px;\n    background-color: ', '; /* Blue background */\n    border: none; /* Remove borders */\n    cursor: pointer; /* Mouse pointer on hover */\n    outline: none;\n    border-radius:', ';\n    vertical-align: middle;\n    transition: background-color ', ' ease-in;\n    &:hover, &:focus{\n        background-color: ', ';\n    };\n    img{  \n        margin: 0;\n        padding: 0;\n        border: none;\n        vertical-align: middle;\n    }\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _baselineDelete24px = __webpack_require__(57);
-
-var _baselineDelete24px2 = _interopRequireDefault(_baselineDelete24px);
-
-var _baselineDone24px = __webpack_require__(58);
-
-var _baselineDone24px2 = _interopRequireDefault(_baselineDone24px);
-
-var _baselineCached24px = __webpack_require__(59);
-
-var _baselineCached24px2 = _interopRequireDefault(_baselineCached24px);
-
-var _baselineKeyboard_arrow_right24px = __webpack_require__(28);
-
-var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
-
-var _baselineSave24px = __webpack_require__(60);
-
-var _baselineSave24px2 = _interopRequireDefault(_baselineSave24px);
-
-var _baselineSettings20px = __webpack_require__(61);
-
-var _baselineSettings20px2 = _interopRequireDefault(_baselineSettings20px);
-
-var _baselineKeyboard_arrow_up24px = __webpack_require__(62);
-
-var _baselineKeyboard_arrow_up24px2 = _interopRequireDefault(_baselineKeyboard_arrow_up24px);
-
-var _baselinePlay_arrow24px = __webpack_require__(63);
-
-var _baselinePlay_arrow24px2 = _interopRequireDefault(_baselinePlay_arrow24px);
-
-var _baselineMore_vert24px = __webpack_require__(64);
-
-var _baselineMore_vert24px2 = _interopRequireDefault(_baselineMore_vert24px);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Icon = function (_React$Component) {
-    _inherits(Icon, _React$Component);
-
-    function Icon(props) {
-        _classCallCheck(this, Icon);
-
-        return _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
-        //console.log("IconButton constructor props", props)
-    }
-
-    _createClass(Icon, [{
-        key: 'getColor',
-        value: function getColor(img) {
-            switch (img) {
-                case 'delete':
-                    return 'black';
-                case 'done':
-                    return 'green';
-                default:
-                    return 'orange';
-            }
-        }
-    }, {
-        key: 'getImg',
-        value: function getImg(img) {
-            switch (img) {
-                case 'delete':
-                    return _baselineDelete24px2.default;
-                case 'done':
-                    return _baselineDone24px2.default;
-                case 'cached':
-                    return _baselineCached24px2.default;
-                case 'arrow':
-                    return _baselineKeyboard_arrow_right24px2.default;
-                case 'save':
-                    return _baselineSave24px2.default;
-                case 'settings':
-                    return _baselineSettings20px2.default;
-                case 'up':
-                    return _baselineKeyboard_arrow_up24px2.default;
-                case 'play':
-                    return _baselinePlay_arrow24px2.default;
-                case 'more':
-                    return _baselineMore_vert24px2.default;
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            //themeprovider provides base theme, can be overridden
-            return _react2.default.createElement(
-                Btn,
-                { className: this.props.classes, padding: this.props.padding, bg: this.props.bg,
-                    hover: this.props.hover,
-                    onClick: this.props.onInput, round: this.props.round, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 54
-                    }
-                },
-                _react2.default.createElement('img', { src: this.getImg(this.props.icon), __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 57
-                    }
-                })
-            );
-        }
-    }]);
-
-    return Icon;
-}(_react2.default.Component);
-
-exports.default = Icon;
-
-//${props => props.primary ? 'blue' : props.theme.main}
-
-var Btn = _styledComponents2.default.button(_templateObject, function (props) {
-    return props.padding ? props.padding : '0';
-}, function (props) {
-    return props.bg ? props.bg : props.theme[props.theme.theme].neutral;
-}, function (props) {
-    return props.round ? '50%' : props.theme[props.theme.theme].roundCorners;
-}, function (props) {
-    return props.theme[props.theme.theme].animS;
-}, function (props) {
-    //console.log("icon btn props", props);
-    return props.hover ? props.hover : 'orange';
-});
 
 /***/ }),
 /* 15 */
@@ -904,7 +895,7 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -1023,24 +1014,143 @@ module.exports = require("react-addons-css-transition-group");
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("redux-logger");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Table.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: table;\n    width: 100%;\n    height: 100%;\n'], ['\n    display: table;\n    width: 100%;\n    height: 100%;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    display: table-row;\n'], ['\n    display: table-row;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _propTypes = __webpack_require__(5);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/*
+        <Table heights={[null, null, '50%','50%']}>
+          <p>RealA </p>
+          <p>RealB </p>
+          <p>RealC</p>
+          <p>RealD</p>
+        </Table>
+*/
+
+var Table = function (_React$Component) {
+    _inherits(Table, _React$Component);
+
+    function Table() {
+        _classCallCheck(this, Table);
+
+        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
+    }
+
+    _createClass(Table, [{
+        key: 'renderRows',
+        value: function renderRows() {
+            var _this2 = this;
+
+            return _react2.default.Children.map(this.props.children, function (child, i) {
+                var height = _this2.props.heights[i];
+                console.log("table wrapping child of height " + height, child);
+                if (_this2.props.heights[i]) {
+                    return _react2.default.createElement(
+                        Row,
+                        { style: { height: _this2.props.heights[i] }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 20
+                            }
+                        },
+                        _react2.default.cloneElement(child)
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        Row,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 22
+                            }
+                        },
+                        _react2.default.cloneElement(child)
+                    );
+                }
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                Tab,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 28
+                    }
+                },
+                this.renderRows()
+            );
+        }
+    }]);
+
+    return Table;
+}(_react2.default.Component);
+
+exports.default = Table;
+
+Table.displayName = 'TableComponent';
+
+Table.PropTypes = {
+    heights: _propTypes2.default.array
+};
+
+var Tab = _styledComponents2.default.div(_templateObject);
+var Row = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-dom");
+module.exports = require("redux-logger");
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports) {
 
-module.exports = require("validate.js");
+module.exports = require("react-dom");
 
 /***/ }),
 /* 23 */
+/***/ (function(module, exports) {
+
+module.exports = require("validate.js");
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1157,7 +1267,7 @@ var cacheProm = exports.cacheProm = function cacheProm(pr, chunkName, props, pro
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1188,7 +1298,7 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(25);
+var _Tags = __webpack_require__(26);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
@@ -1196,7 +1306,7 @@ var _Slide = __webpack_require__(18);
 
 var _Slide2 = _interopRequireDefault(_Slide);
 
-var _PostItem = __webpack_require__(26);
+var _PostItem = __webpack_require__(27);
 
 var _PostItem2 = _interopRequireDefault(_PostItem);
 
@@ -1400,7 +1510,7 @@ var PostBox = _styledComponents2.default.div(_templateObject3, function (props) 
 //   overflow-y: scroll;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1517,7 +1627,7 @@ var Tag = _styledComponents2.default.h4(_templateObject);
 var Container = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1663,7 +1773,7 @@ var Post = _styledComponents2.default.div(_templateObject2, function (props) {
 // }
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1687,7 +1797,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _IconButton = __webpack_require__(14);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -1695,7 +1805,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _TalkitGame = __webpack_require__(65);
+var _TalkitGame = __webpack_require__(70);
 
 var _TalkitGame2 = _interopRequireDefault(_TalkitGame);
 
@@ -1703,15 +1813,15 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Tags = __webpack_require__(25);
+var _Tags = __webpack_require__(26);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _CenterBox = __webpack_require__(29);
+var _CenterBox = __webpack_require__(30);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
-var _Loading = __webpack_require__(30);
+var _Loading = __webpack_require__(31);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -1719,23 +1829,23 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _SanKey = __webpack_require__(69);
+var _SanKey = __webpack_require__(74);
 
 var _SanKey2 = _interopRequireDefault(_SanKey);
 
-var _Video = __webpack_require__(71);
+var _Video = __webpack_require__(76);
 
 var _Video2 = _interopRequireDefault(_Video);
 
-var _TextBox = __webpack_require__(8);
+var _TextBox = __webpack_require__(9);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
-var _Sizer = __webpack_require__(72);
+var _Sizer = __webpack_require__(77);
 
 var _Sizer2 = _interopRequireDefault(_Sizer);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -1977,13 +2087,13 @@ const VideoBox = styled.div`
 */
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik04LjU5LDE2LjU5TDEzLjE3LDEyTDguNTksNy40MUwxMCw2bDYsNmwtNiw2TDguNTksMTYuNTl6Ii8+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2075,7 +2185,7 @@ var Center = _styledComponents2.default.div(_templateObject2);
 var Child = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2094,15 +2204,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Animate = __webpack_require__(66);
+var _Animate = __webpack_require__(71);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _NodeGroup = __webpack_require__(67);
+var _NodeGroup = __webpack_require__(72);
 
 var _NodeGroup2 = _interopRequireDefault(_NodeGroup);
 
-var _d3Ease = __webpack_require__(68);
+var _d3Ease = __webpack_require__(73);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -2320,7 +2430,7 @@ return <div>
 */
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2347,15 +2457,15 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Background = __webpack_require__(73);
+var _Background = __webpack_require__(78);
 
 var _Background2 = _interopRequireDefault(_Background);
 
-var _Flexbox = __webpack_require__(74);
+var _Flexbox = __webpack_require__(79);
 
 var _Flexbox2 = _interopRequireDefault(_Flexbox);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -2363,11 +2473,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _PostItem = __webpack_require__(26);
+var _PostItem = __webpack_require__(27);
 
 var _PostItem2 = _interopRequireDefault(_PostItem);
 
-var _Trends = __webpack_require__(75);
+var _Trends = __webpack_require__(80);
 
 var _Trends2 = _interopRequireDefault(_Trends);
 
@@ -2456,125 +2566,6 @@ exports.default = (0, _reactStatic.withRouteData)(Home);
 var Message = _styledComponents2.default.h4(_templateObject);
 var PostWrapper = _styledComponents2.default.div(_templateObject2);
 var PostBox = _styledComponents2.default.div(_templateObject3);
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\Table.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: table;\n    width: 100%;\n    height: 100%;\n'], ['\n    display: table;\n    width: 100%;\n    height: 100%;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    display: table-row;\n'], ['\n    display: table-row;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _propTypes = __webpack_require__(4);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/*
-        <Table heights={[null, null, '50%','50%']}>
-          <p>RealA </p>
-          <p>RealB </p>
-          <p>RealC</p>
-          <p>RealD</p>
-        </Table>
-*/
-
-var Table = function (_React$Component) {
-    _inherits(Table, _React$Component);
-
-    function Table() {
-        _classCallCheck(this, Table);
-
-        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
-    }
-
-    _createClass(Table, [{
-        key: 'renderRows',
-        value: function renderRows() {
-            var _this2 = this;
-
-            return _react2.default.Children.map(this.props.children, function (child, i) {
-                var height = _this2.props.heights[i];
-                console.log("table wrapping child of height " + height, child);
-                if (_this2.props.heights[i]) {
-                    return _react2.default.createElement(
-                        Row,
-                        { style: { height: _this2.props.heights[i] }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 20
-                            }
-                        },
-                        _react2.default.cloneElement(child)
-                    );
-                } else {
-                    return _react2.default.createElement(
-                        Row,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 22
-                            }
-                        },
-                        _react2.default.cloneElement(child)
-                    );
-                }
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Tab,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 28
-                    }
-                },
-                this.renderRows()
-            );
-        }
-    }]);
-
-    return Table;
-}(_react2.default.Component);
-
-exports.default = Table;
-
-Table.displayName = 'TableComponent';
-
-Table.PropTypes = {
-    heights: _propTypes2.default.array
-};
-
-var Tab = _styledComponents2.default.div(_templateObject);
-var Row = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
 /* 33 */
@@ -2735,11 +2726,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _TextBox = __webpack_require__(8);
+var _TextBox = __webpack_require__(9);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -2909,15 +2900,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(12);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(13);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(14);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -2931,7 +2922,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(77);
+var _Index = __webpack_require__(82);
 
 var _Index2 = _interopRequireDefault(_Index);
 
@@ -2972,7 +2963,7 @@ var Games = function (_React$Component) {
                         id: 'samplegame',
                         file: 'D:/websites/react-static/static-site-2/4/src/containers/Game.jsx',
                         load: function load() {
-                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 38)), (0, _importCss3.default)('samplegame', {
+                            return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('samplegame', {
                                 disableWarnings: true
                             })]).then(function (proms) {
                                 return proms[0];
@@ -2982,7 +2973,7 @@ var Games = function (_React$Component) {
                             return _path3.default.join(__dirname, 'samplegame');
                         },
                         resolve: function resolve() {
-                            return /*require.resolve*/(38);
+                            return /*require.resolve*/(40);
                         },
                         chunkName: function chunkName() {
                             return 'samplegame';
@@ -3029,27 +3020,18 @@ var Games = function (_React$Component) {
             //     </div>
             // )
             if (this.state.game) {
-                return _react2.default.createElement(
-                    'div',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 55
-                        }
-                    },
-                    _react2.default.createElement(_Index2.default, { game: this.state.game, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 56
-                        }
-                    })
-                );
+                return _react2.default.createElement(_Index2.default, { game: this.state.game, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 55
+                    }
+                });
             } else if (this.state.error) {
                 return _react2.default.createElement(
                     'p',
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 60
+                            lineNumber: 58
                         }
                     },
                     'error loading game: ',
@@ -3061,7 +3043,7 @@ var Games = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 62
+                            lineNumber: 60
                         }
                     },
                     'loading game files...'
@@ -3080,6 +3062,277 @@ exports.default = (0, _reactStatic.withRouteData)(Games);
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _path2 = __webpack_require__(12);
+
+var _path3 = _interopRequireDefault(_path2);
+
+var _importCss2 = __webpack_require__(13);
+
+var _importCss3 = _interopRequireDefault(_importCss2);
+
+var _universalImport2 = __webpack_require__(14);
+
+var _universalImport3 = _interopRequireDefault(_universalImport2);
+
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Game.jsx';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _all = __webpack_require__(93);
+
+var _all2 = _interopRequireDefault(_all);
+
+var _Container = __webpack_require__(7);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _Accordion = __webpack_require__(94);
+
+var _Accordion2 = _interopRequireDefault(_Accordion);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _mygamelibs = __webpack_require__(95);
+
+var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
+
+var _GameMenu = __webpack_require__(38);
+
+var _GameMenu2 = _interopRequireDefault(_GameMenu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import Katex from './../UI/math/Katex.jsx';
+//import {ResponsiveContainer, LineChart, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+
+
+var Game = function (_React$Component) {
+    _inherits(Game, _React$Component);
+
+    function Game(props) {
+        _classCallCheck(this, Game);
+
+        //   console.log("game constructor, sample game: ", this.props.game);
+        var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+
+        _this.state = {
+            checkIn: {
+                katex: null,
+                recharts: null
+            },
+            tools: {
+                views: _extends({}, _mygamelibs2.default.views, {
+                    container: _Container2.default,
+                    styled: _styledComponents2.default,
+                    accordion: _Accordion2.default,
+                    nerdamer: _all2.default
+                })
+            }
+        };
+        return _this;
+    }
+
+    _createClass(Game, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.importKatex();
+            this.importGraph();
+        }
+    }, {
+        key: 'areToolsReady',
+        value: function areToolsReady() {
+            var _this2 = this;
+
+            // console.log("game tools ready? ");
+            var ready = true;
+            var keys = Object.keys(this.state.checkIn);
+            keys.map(function (k) {
+                if (!_this2.state.checkIn[k]) {
+                    ready = false;
+                }
+            });
+            //  console.log("game tools ready? " + ready, this.state);
+            return ready;
+        }
+    }, {
+        key: 'importKatex',
+        value: function importKatex() {
+            var _this3 = this;
+
+            (0, _universalImport3.default)({
+                id: './../UI/math/Katex.jsx',
+                file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
+                load: function load() {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('UI/math/Katex.jsx', {
+                        disableWarnings: true
+                    })]).then(function (proms) {
+                        return proms[0];
+                    });
+                },
+                path: function path() {
+                    return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
+                },
+                resolve: function resolve() {
+                    return /*require.resolve*/(39);
+                },
+                chunkName: function chunkName() {
+                    return 'UI/math/Katex.jsx';
+                }
+            }).then(function (r) {
+                console.log("game tools katex checking in", r);
+                _this3.setState({
+                    checkIn: _extends({}, _this3.state.checkIn, {
+                        katex: true
+                    }),
+                    tools: _extends({}, _this3.state.tools, {
+                        views: _extends({}, _this3.state.tools.views, {
+                            katex: r.default
+                        })
+                    })
+                });
+            }).catch(function (e) {
+                console.log("game tools error");
+                _this3.setState({
+                    error: 'failed to fetch katex'
+                });
+            });
+        }
+    }, {
+        key: 'importGraph',
+        value: function importGraph() {
+            var _this4 = this;
+
+            (0, _universalImport3.default)({
+                id: 'recharts',
+                file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
+                load: function load() {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 10)), (0, _importCss3.default)('recharts', {
+                        disableWarnings: true
+                    })]).then(function (proms) {
+                        return proms[0];
+                    });
+                },
+                path: function path() {
+                    return _path3.default.join(__dirname, 'recharts');
+                },
+                resolve: function resolve() {
+                    return /*require.resolve*/(10);
+                },
+                chunkName: function chunkName() {
+                    return 'recharts';
+                }
+            }).then(function (r) {
+                console.log("game tools graph checking in, ", r);
+                var ResponsiveContainer = r.ResponsiveContainer,
+                    LineChart = r.LineChart,
+                    ScatterChart = r.ScatterChart,
+                    Scatter = r.Scatter,
+                    ComposedChart = r.ComposedChart,
+                    Line = r.Line,
+                    Area = r.Area,
+                    Bar = r.Bar,
+                    XAxis = r.XAxis,
+                    YAxis = r.YAxis,
+                    CartesianGrid = r.CartesianGrid,
+                    Tooltip = r.Tooltip,
+                    Legend = r.Legend;
+
+                _this4.setState({
+                    //katex: Katex,
+                    checkIn: _extends({}, _this4.state.checkIn, {
+                        recharts: true
+                    }),
+                    tools: _extends({}, _this4.state.tools, {
+                        views: _extends({}, _this4.state.tools.views, {
+                            recharts: {
+                                ResponsiveContainer: ResponsiveContainer,
+                                LineChart: LineChart,
+                                ScatterChart: ScatterChart,
+                                Scatter: Scatter,
+                                ComposedChart: ComposedChart,
+                                Line: Line,
+                                Area: Area,
+                                Bar: Bar,
+                                XAxis: XAxis,
+                                YAxis: YAxis,
+                                CartesianGrid: CartesianGrid,
+                                Tooltip: Tooltip,
+                                Legend: Legend
+                            }
+                        })
+                    })
+                });
+            }).catch(function (e) {
+                console.log("game tools error");
+                _this4.setState({
+                    error: 'failed to fetch graph'
+                });
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            // console.log('rendering game with tools: ', this.state);
+            if (this.areToolsReady()) {
+                return _react2.default.createElement(
+                    'div',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 118
+                        }
+                    },
+                    _react2.default.createElement(this.props.game, { tools: this.state.tools, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 119
+                        }
+                    })
+                );
+            } else {
+                return _react2.default.createElement(
+                    'p',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 123
+                        }
+                    },
+                    'loading tools...'
+                );
+            }
+        }
+    }]);
+
+    return Game;
+}(_react2.default.Component);
+
+exports.default = Game;
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3164,7 +3417,156 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 37 */
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\GameMenu.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: flex;\n    background-color:red;\n    height: 36px;\n    position: relative;\n'], ['\n    display: flex;\n    background-color:red;\n    height: 36px;\n    position: relative;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    align-self: flex-start;\n    display: inline-block;\n    flex:1;\n    height: 100%;\n    z-index=2;\n'], ['\n    align-self: flex-start;\n    display: inline-block;\n    flex:1;\n    height: 100%;\n    z-index=2;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    align-self: flex-end;\n    display: block;\n    width: auto;\n    position: relative;\n    height: 100%;\n    z-index=2;\n'], ['\n    align-self: flex-end;\n    display: block;\n    width: auto;\n    position: relative;\n    height: 100%;\n    z-index=2;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    align-self: center:\n    flex:1;\n    span h1{\n        font-size: 1em\n    }\n    @media only screen and (min-width: ', ') {\n        span h1{\n            font-size: 1.5em\n        }\n    }\n'], ['\n    align-self: center:\n    flex:1;\n    span h1{\n        font-size: 1em\n    }\n    @media only screen and (min-width: ', ') {\n        span h1{\n            font-size: 1.5em\n        }\n    }\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactStatic = __webpack_require__(2);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _IconButton = __webpack_require__(8);
+
+var _IconButton2 = _interopRequireDefault(_IconButton);
+
+var _SignInUi = __webpack_require__(96);
+
+var _SignInUi2 = _interopRequireDefault(_SignInUi);
+
+var _Text = __webpack_require__(3);
+
+var _Text2 = _interopRequireDefault(_Text);
+
+var _reactRedux = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = function (_React$Component) {
+    _inherits(Menu, _React$Component);
+
+    function Menu(props) {
+        _classCallCheck(this, Menu);
+
+        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+    }
+
+    _createClass(Menu, [{
+        key: 'renderAdditionalMenuItems',
+        value: function renderAdditionalMenuItems(position) {
+            console.log('rendering ' + this.props.menuItems.length + ' menu items', this.props.menuItems);
+            return this.props.menuItems.filter(function (f) {
+                return position === f.position;
+            }).map(function (m) {
+                console.log("rendering menu item", m);
+                return m.component;
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            //TODO game menu: make right div flexible width
+            return _react2.default.createElement(
+                Bar,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 27
+                    }
+                },
+                _react2.default.createElement(
+                    Left,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 29
+                        }
+                    },
+                    this.renderAdditionalMenuItems('left')
+                ),
+                _react2.default.createElement(
+                    Right,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 33
+                        }
+                    },
+                    this.renderAdditionalMenuItems('right'),
+                    _react2.default.createElement(_IconButton2.default, { icon: "settings", round: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 35
+                        }
+                    }),
+                    _react2.default.createElement(
+                        'span',
+                        { style: { display: 'inline-block', position: 'relative', float: 'right' }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 38
+                            }
+                        },
+                        _react2.default.createElement(_SignInUi2.default, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 39
+                            }
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react2.default.Component);
+
+exports.default = (0, _reactStatic.withSiteData)(Menu);
+// const mapStateToProps = (state) => {
+//     return {
+//         gapi: state.gapi
+//     }
+// }
+
+// Menu.displayName = 'GameMenu';
+// export default connect(mapStateToProps)(Menu);
+
+
+var Bar = _styledComponents2.default.div(_templateObject);
+var Left = _styledComponents2.default.div(_templateObject2);
+var Right = _styledComponents2.default.div(_templateObject3);
+var Mid = _styledComponents2.default.div(_templateObject4, function (props) {
+    return props.theme[props.theme.theme].mediaMinWidth;
+});
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3181,11 +3583,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(90);
+__webpack_require__(97);
 
-var _reactKatex = __webpack_require__(91);
+var _reactKatex = __webpack_require__(98);
 
-var _reactDom = __webpack_require__(21);
+var _reactDom = __webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3372,13 +3774,13 @@ exports.default = Katex;
 // // `
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = require("samplegame");
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3398,15 +3800,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Table = __webpack_require__(32);
+var _Table = __webpack_require__(20);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -3483,7 +3885,7 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3502,15 +3904,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _index = __webpack_require__(94);
+var _index = __webpack_require__(100);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _TextBox = __webpack_require__(8);
+var _TextBox = __webpack_require__(9);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
@@ -3588,7 +3990,7 @@ Settings.displayName = 'Settings';
 exports.default = Settings;
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /*
@@ -3670,7 +4072,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3687,11 +4089,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _TextBox = __webpack_require__(8);
+var _TextBox = __webpack_require__(9);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
@@ -3751,7 +4153,7 @@ Privacy.displayName = 'Privacy';
 exports.default = Privacy;
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3770,7 +4172,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 var _LogError = __webpack_require__(15);
 
@@ -3896,7 +4298,7 @@ var connected = (0, _reactRedux.connect)(mapStateToProps)(Lost);
 exports.default = (0, _reactStatic.withRouteData)(connected);
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3966,7 +4368,7 @@ function setSignedIn(signedIn) {
 }
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3997,7 +4399,7 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4111,7 +4513,7 @@ var Slide = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4130,7 +4532,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(21);
+var _reactDom = __webpack_require__(22);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -4138,15 +4540,15 @@ var _LogError = __webpack_require__(15);
 
 var _LogError2 = _interopRequireDefault(_LogError);
 
-var _ErrorBoundary = __webpack_require__(47);
+var _ErrorBoundary = __webpack_require__(49);
 
 var _ErrorBoundary2 = _interopRequireDefault(_ErrorBoundary);
 
-var _MyValid = __webpack_require__(48);
+var _MyValid = __webpack_require__(50);
 
 var _MyValid2 = _interopRequireDefault(_MyValid);
 
-var _App = __webpack_require__(49);
+var _App = __webpack_require__(51);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4182,7 +4584,7 @@ if (typeof document !== 'undefined') {
 }
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4261,13 +4663,13 @@ ErrorBoundary.displayName = 'errorboundary';
 exports.default = ErrorBoundary;
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _validate = __webpack_require__(22);
+var _validate = __webpack_require__(23);
 
 var _validate2 = _interopRequireDefault(_validate);
 
@@ -4317,7 +4719,7 @@ var constraints = {
 //=> {"creditCardZip": ["Credit card zip is required when using AMEX"]}
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4345,43 +4747,43 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
-var _reactHotLoader = __webpack_require__(50);
+var _reactHotLoader = __webpack_require__(52);
 
-var _reactStaticRoutes = __webpack_require__(51);
+var _reactStaticRoutes = __webpack_require__(53);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _redux = __webpack_require__(96);
+var _redux = __webpack_require__(102);
 
 var _redux2 = _interopRequireDefault(_redux);
 
-__webpack_require__(98);
+__webpack_require__(104);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _theme = __webpack_require__(99);
+var _theme = __webpack_require__(105);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Analytics = __webpack_require__(100);
+var _Analytics = __webpack_require__(106);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(104);
+var _Gapi = __webpack_require__(110);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
-var _recompose = __webpack_require__(105);
+var _recompose = __webpack_require__(111);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Menu = __webpack_require__(106);
+var _Menu = __webpack_require__(112);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -4638,13 +5040,13 @@ exports.default = (0, _reactHotLoader.hot)(module)(App);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-hot-loader");
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4654,15 +5056,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(12);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(13);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(14);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -4676,9 +5078,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(52);
+var _reactRouterDom = __webpack_require__(54);
 
-var _reactUniversalComponent = __webpack_require__(53);
+var _reactUniversalComponent = __webpack_require__(55);
 
 var _reactUniversalComponent2 = _interopRequireDefault(_reactUniversalComponent);
 
@@ -4717,7 +5119,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Posts.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 24)), (0, _importCss3.default)('src/containers/Posts.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 25)), (0, _importCss3.default)('src/containers/Posts.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4727,7 +5129,7 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Posts.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(24);
+    return /*require.resolve*/(25);
   },
   chunkName: function chunkName() {
     return 'src/containers/Posts.jsx';
@@ -4737,7 +5139,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Post.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 27)), (0, _importCss3.default)('src/containers/Post.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 28)), (0, _importCss3.default)('src/containers/Post.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4747,7 +5149,7 @@ var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Post.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(27);
+    return /*require.resolve*/(28);
   },
   chunkName: function chunkName() {
     return 'src/containers/Post.jsx';
@@ -4757,7 +5159,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Home.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 31)), (0, _importCss3.default)('src/containers/Home.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 32)), (0, _importCss3.default)('src/containers/Home.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4767,7 +5169,7 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Home.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(31);
+    return /*require.resolve*/(32);
   },
   chunkName: function chunkName() {
     return 'src/containers/Home.jsx';
@@ -4817,7 +5219,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/About.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 39)), (0, _importCss3.default)('src/containers/About.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 41)), (0, _importCss3.default)('src/containers/About.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4827,7 +5229,7 @@ var t_5 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/About.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(39);
+    return /*require.resolve*/(41);
   },
   chunkName: function chunkName() {
     return 'src/containers/About.jsx';
@@ -4837,7 +5239,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Settings.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 40)), (0, _importCss3.default)('src/containers/Settings.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('src/containers/Settings.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4847,7 +5249,7 @@ var t_6 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Settings.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(40);
+    return /*require.resolve*/(42);
   },
   chunkName: function chunkName() {
     return 'src/containers/Settings.jsx';
@@ -4857,7 +5259,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/Privacy.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 42)), (0, _importCss3.default)('src/containers/Privacy.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 44)), (0, _importCss3.default)('src/containers/Privacy.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4867,7 +5269,7 @@ var t_7 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Privacy.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(42);
+    return /*require.resolve*/(44);
   },
   chunkName: function chunkName() {
     return 'src/containers/Privacy.jsx';
@@ -4877,7 +5279,7 @@ var t_8 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   id: '../src/containers/404.jsx',
   file: 'D:/websites/react-static/static-site-2/4/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 43)), (0, _importCss3.default)('src/containers/404.jsx', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 45)), (0, _importCss3.default)('src/containers/404.jsx', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -4887,7 +5289,7 @@ var t_8 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/404.jsx');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(43);
+    return /*require.resolve*/(45);
   },
   chunkName: function chunkName() {
     return 'src/containers/404.jsx';
@@ -4988,13 +5390,13 @@ exports.default = Routes;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5009,7 +5411,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _requireUniversalModule = __webpack_require__(54);
+var _requireUniversalModule = __webpack_require__(56);
 
 Object.defineProperty(exports, 'CHUNK_NAMES', {
   enumerable: true,
@@ -5024,7 +5426,7 @@ Object.defineProperty(exports, 'MODULE_IDS', {
   }
 });
 
-var _reportChunks = __webpack_require__(55);
+var _reportChunks = __webpack_require__(57);
 
 Object.defineProperty(exports, 'ReportChunks', {
   enumerable: true,
@@ -5037,17 +5439,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _hoistNonReactStatics = __webpack_require__(56);
+var _hoistNonReactStatics = __webpack_require__(58);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 var _requireUniversalModule2 = _interopRequireDefault(_requireUniversalModule);
 
-var _utils = __webpack_require__(23);
+var _utils = __webpack_require__(24);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5341,7 +5743,7 @@ exports.default = universal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5353,7 +5755,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.clearChunks = exports.flushModuleIds = exports.flushChunkNames = exports.MODULE_IDS = exports.CHUNK_NAMES = undefined;
 exports.default = requireUniversalModule;
 
-var _utils = __webpack_require__(23);
+var _utils = __webpack_require__(24);
 
 var CHUNK_NAMES = exports.CHUNK_NAMES = new Set();
 var MODULE_IDS = exports.MODULE_IDS = new Set();
@@ -5523,7 +5925,7 @@ var getConfig = function getConfig(isDynamic, universalConfig, options, props) {
 };
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5539,7 +5941,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5586,61 +5988,79 @@ ReportChunks.childContextTypes = {
 exports.default = ReportChunks;
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = require("hoist-non-react-statics");
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAxOWMwIDEuMS45IDIgMiAyaDhjMS4xIDAgMi0uOSAyLTJWN0g2djEyek0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNFY0eiIvPgogICAgPHBhdGggIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPgo8L3N2Zz4K"
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgOGwtNCA0aDNjMCAzLjMxLTIuNjkgNi02IDYtMS4wMSAwLTEuOTctLjI1LTIuOC0uN2wtMS40NiAxLjQ2QzguOTcgMTkuNTQgMTAuNDMgMjAgMTIgMjBjNC40MiAwIDgtMy41OCA4LThoM2wtNC00ek02IDEyYzAtMy4zMSAyLjY5LTYgNi02IDEuMDEgMCAxLjk3LjI1IDIuOC43bDEuNDYtMS40NkMxNS4wMyA0LjQ2IDEzLjU3IDQgMTIgNGMtNC40MiAwLTggMy41OC04IDhIMWw0IDQgNC00SDZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTcgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xIDAgMi0uOSAyLTJWN2wtNC00em0tNSAxNmMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtMyAzIDEuMzQgMyAzLTEuMzQgMy0zIDN6bTMtMTBINVY1aDEwdjR6Ii8+Cjwvc3ZnPgo="
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjB2MjBIMFYweiIvPgogICAgPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNS45NSAxMC43OGMuMDMtLjI1LjA1LS41MS4wNS0uNzhzLS4wMi0uNTMtLjA2LS43OGwxLjY5LTEuMzJjLjE1LS4xMi4xOS0uMzQuMS0uNTFsLTEuNi0yLjc3Yy0uMS0uMTgtLjMxLS4yNC0uNDktLjE4bC0xLjk5LjhjLS40Mi0uMzItLjg2LS41OC0xLjM1LS43OEwxMiAyLjM0Yy0uMDMtLjItLjItLjM0LS40LS4zNEg4LjRjLS4yIDAtLjM2LjE0LS4zOS4zNGwtLjMgMi4xMmMtLjQ5LjItLjk0LjQ3LTEuMzUuNzhsLTEuOTktLjhjLS4xOC0uMDctLjM5IDAtLjQ5LjE4bC0xLjYgMi43N2MtLjEuMTgtLjA2LjM5LjEuNTFsMS42OSAxLjMyYy0uMDQuMjUtLjA3LjUyLS4wNy43OHMuMDIuNTMuMDYuNzhMMi4zNyAxMi4xYy0uMTUuMTItLjE5LjM0LS4xLjUxbDEuNiAyLjc3Yy4xLjE4LjMxLjI0LjQ5LjE4bDEuOTktLjhjLjQyLjMyLjg2LjU4IDEuMzUuNzhsLjMgMi4xMmMuMDQuMi4yLjM0LjQuMzRoMy4yYy4yIDAgLjM3LS4xNC4zOS0uMzRsLjMtMi4xMmMuNDktLjIuOTQtLjQ3IDEuMzUtLjc4bDEuOTkuOGMuMTguMDcuMzkgMCAuNDktLjE4bDEuNi0yLjc3Yy4xLS4xOC4wNi0uMzktLjEtLjUxbC0xLjY3LTEuMzJ6TTEwIDEzYy0xLjY1IDAtMy0xLjM1LTMtM3MxLjM1LTMgMy0zIDMgMS4zNSAzIDMtMS4zNSAzLTMgM3oiLz4KPC9zdmc+Cg=="
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNNy40MSAxNS40MUwxMiAxMC44M2w0LjU5IDQuNThMMTggMTRsLTYtNi02IDZ6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNOCA1djE0bDExLTd6Ii8+DQogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+DQogICAgPHBhdGggc3Ryb2tlPSJub25lIiBmaWxsPSJ3aGl0ZSIgZD0iTTEyIDhjMS4xIDAgMi0uOSAyLTJzLS45LTItMi0yLTIgLjktMiAyIC45IDIgMiAyem0wIDJjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yem0wIDZjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yeiIvPg0KPC9zdmc+DQo="
 
 /***/ }),
-/* 65 */
+/* 67 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNHB4IgoJIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNCAyNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnIGlkPSJCb3VuZGluZ19Cb3hlcyI+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9nPgo8ZyBpZD0iUm91bmRlZCI+Cgk8cGF0aCBkPSJNMTksMTFINy44M2w0Ljg4LTQuODhjMC4zOS0wLjM5LDAuMzktMS4wMywwLTEuNDJsMCwwYy0wLjM5LTAuMzktMS4wMi0wLjM5LTEuNDEsMGwtNi41OSw2LjU5CgkJYy0wLjM5LDAuMzktMC4zOSwxLjAyLDAsMS40MWw2LjU5LDYuNTljMC4zOSwwLjM5LDEuMDIsMC4zOSwxLjQxLDBsMCwwYzAuMzktMC4zOSwwLjM5LTEuMDIsMC0xLjQxTDcuODMsMTNIMTljMC41NSwwLDEtMC40NSwxLTEKCQl2MEMyMCwxMS40NSwxOS41NSwxMSwxOSwxMXoiLz4KPC9nPgo8L3N2Zz4K"
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNHB4IgoJIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNCAyNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnIGlkPSJIZWFkZXJfeDJGX0JHIiBkaXNwbGF5PSJub25lIj4KCTxyZWN0IHg9Ii0zNTgiIHk9Ii0xMzgiIGRpc3BsYXk9ImlubGluZSIgZmlsbD0iI0YxRjFGMiIgd2lkdGg9IjUyMCIgaGVpZ2h0PSI1MjAiLz4KPC9nPgo8ZyBpZD0iQm91bmRpbmdfQm94ZXMiPgoJPGcgaWQ9InVpX3g1Rl9zcGVjX3g1Rl9oZWFkZXJfY29weV8zIj4KCTwvZz4KCTxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wLDBoMjR2MjRIMFYweiIvPgo8L2c+CjxnIGlkPSJSb3VuZGVkIj4KCTxnIGlkPSJ1aV94NUZfc3BlY194NUZfaGVhZGVyX2NvcHlfNSI+Cgk8L2c+Cgk8cGF0aCBkPSJNMTIsNnYxLjc5YzAsMC40NSwwLjU0LDAuNjcsMC44NSwwLjM1bDIuNzktMi43OWMwLjItMC4yLDAuMi0wLjUxLDAtMC43MWwtMi43OS0yLjc5QzEyLjU0LDEuNTQsMTIsMS43NiwxMiwyLjIxVjQKCQljLTQuNDIsMC04LDMuNTgtOCw4YzAsMS4wNCwwLjIsMi4wNCwwLjU3LDIuOTVjMC4yNywwLjY3LDEuMTMsMC44NSwxLjY0LDAuMzRsMCwwYzAuMjctMC4yNywwLjM4LTAuNjgsMC4yMy0xLjA0CgkJQzYuMTUsMTMuNTYsNiwxMi43OSw2LDEyQzYsOC42OSw4LjY5LDYsMTIsNnogTTE3Ljc5LDguNzFMMTcuNzksOC43MWMtMC4yNywwLjI3LTAuMzgsMC42OS0wLjIzLDEuMDRDMTcuODQsMTAuNDUsMTgsMTEuMjEsMTgsMTIKCQljMCwzLjMxLTIuNjksNi02LDZ2LTEuNzljMC0wLjQ1LTAuNTQtMC42Ny0wLjg1LTAuMzVsLTIuNzksMi43OWMtMC4yLDAuMi0wLjIsMC41MSwwLDAuNzFsMi43OSwyLjc5CgkJYzAuMzEsMC4zMSwwLjg1LDAuMDksMC44NS0wLjM1VjIwYzQuNDIsMCw4LTMuNTgsOC04YzAtMS4wNC0wLjItMi4wNC0wLjU3LTIuOTVDMTkuMTYsOC4zOCwxOC4zLDguMiwxNy43OSw4LjcxeiIvPgo8L2c+CjxnIGlkPSJTaGFycCIgZGlzcGxheT0ibm9uZSI+Cgk8ZyBpZD0idWlfeDVGX3NwZWNfeDVGX2hlYWRlcl9jb3B5XzQiIGRpc3BsYXk9ImlubGluZSI+Cgk8L2c+Cgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGQ9Ik0xMiw2djNsNC00bC00LTR2M2MtNC40MiwwLTgsMy41OC04LDhjMCwxLjU3LDAuNDYsMy4wMywxLjI0LDQuMjZMNi43LDE0LjhDNi4yNSwxMy45Nyw2LDEzLjAxLDYsMTIKCQlDNiw4LjY5LDguNjksNiwxMiw2eiBNMTguNzYsNy43NEwxNy4zLDkuMmMwLjQ0LDAuODQsMC43LDEuNzksMC43LDIuOGMwLDMuMzEtMi42OSw2LTYsNnYtM2wtNCw0bDQsNHYtM2M0LjQyLDAsOC0zLjU4LDgtOAoJCUMyMCwxMC40MywxOS41NCw4Ljk3LDE4Ljc2LDcuNzR6Ii8+CjwvZz4KPGcgaWQ9Ik91dGxpbmUiIGRpc3BsYXk9Im5vbmUiPgoJPGcgaWQ9InVpX3g1Rl9zcGVjX3g1Rl9oZWFkZXIiIGRpc3BsYXk9ImlubGluZSI+Cgk8L2c+Cgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGQ9Ik0xMiw2djNsNC00bC00LTR2M2MtNC40MiwwLTgsMy41OC04LDhjMCwxLjU3LDAuNDYsMy4wMywxLjI0LDQuMjZMNi43LDE0LjhDNi4yNSwxMy45Nyw2LDEzLjAxLDYsMTIKCQlDNiw4LjY5LDguNjksNiwxMiw2eiBNMTguNzYsNy43NEwxNy4zLDkuMmMwLjQ0LDAuODQsMC43LDEuNzksMC43LDIuOGMwLDMuMzEtMi42OSw2LTYsNnYtM2wtNCw0bDQsNHYtM2M0LjQyLDAsOC0zLjU4LDgtOAoJCUMyMCwxMC40MywxOS41NCw4Ljk3LDE4Ljc2LDcuNzR6Ii8+CjwvZz4KPGcgaWQ9IkR1b3RvbmUiIGRpc3BsYXk9Im5vbmUiPgoJPGcgaWQ9InVpX3g1Rl9zcGVjX3g1Rl9oZWFkZXJfY29weV8yIiBkaXNwbGF5PSJpbmxpbmUiPgoJPC9nPgoJPHBhdGggZGlzcGxheT0iaW5saW5lIiBkPSJNMTIsNnYzbDQtNGwtNC00djNjLTQuNDIsMC04LDMuNTgtOCw4YzAsMS41NywwLjQ2LDMuMDMsMS4yNCw0LjI2TDYuNywxNC44QzYuMjUsMTMuOTcsNiwxMy4wMSw2LDEyCgkJQzYsOC42OSw4LjY5LDYsMTIsNnogTTE4Ljc2LDcuNzRMMTcuMyw5LjJjMC40NCwwLjg0LDAuNywxLjc5LDAuNywyLjhjMCwzLjMxLTIuNjksNi02LDZ2LTNsLTQsNGw0LDR2LTNjNC40MiwwLDgtMy41OCw4LTgKCQlDMjAsMTAuNDMsMTkuNTQsOC45NywxOC43Niw3Ljc0eiIvPgo8L2c+CjxnIGlkPSJGaWxsIiBkaXNwbGF5PSJub25lIj4KCTxnIGlkPSJ1aV94NUZfc3BlY194NUZfaGVhZGVyX2NvcHkiIGRpc3BsYXk9ImlubGluZSI+Cgk8L2c+Cgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGQ9Ik0xMiw2djNsNC00bC00LTR2M2MtNC40MiwwLTgsMy41OC04LDhjMCwxLjU3LDAuNDYsMy4wMywxLjI0LDQuMjZMNi43LDE0LjhDNi4yNSwxMy45Nyw2LDEzLjAxLDYsMTIKCQlDNiw4LjY5LDguNjksNiwxMiw2eiBNMTguNzYsNy43NEwxNy4zLDkuMmMwLjQ0LDAuODQsMC43LDEuNzksMC43LDIuOGMwLDMuMzEtMi42OSw2LTYsNnYtM2wtNCw0bDQsNHYtM2M0LjQyLDAsOC0zLjU4LDgtOAoJCUMyMCwxMC40MywxOS41NCw4Ljk3LDE4Ljc2LDcuNzR6Ii8+CjwvZz4KPGcgaWQ9Im55dF94NUZfZXhwb3J0ZXJfeDVGX2luZm8iIGRpc3BsYXk9Im5vbmUiPgo8L2c+Cjwvc3ZnPgo="
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNHB4IgoJIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNCAyNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnIGlkPSJCb3VuZGluZ19Cb3hlcyI+Cgk8cGF0aCBmaWxsPSJub25lIiBkPSJNMCwwaDI0djI0SDBWMHoiLz4KPC9nPgo8ZyBpZD0iUm91bmRlZCI+Cgk8cGF0aCBkPSJNMTkuMzUsMTAuMDRDMTguNjcsNi41OSwxNS42NCw0LDEyLDRDOS4xMSw0LDYuNiw1LjY0LDUuMzUsOC4wNEMyLjM0LDguMzYsMCwxMC45MSwwLDE0YzAsMy4zMSwyLjY5LDYsNiw2aDEzCgkJYzIuNzYsMCw1LTIuMjQsNS01QzI0LDEyLjM2LDIxLjk1LDEwLjIyLDE5LjM1LDEwLjA0eiBNMTQsMTN2NGgtNHYtNEg3bDQuNjUtNC42NWMwLjItMC4yLDAuNTEtMC4yLDAuNzEsMEwxNywxM0gxNHoiLz4KPC9nPgo8L3N2Zz4K"
+
+/***/ }),
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5940,25 +6360,25 @@ exports.default = Talkit;
 var Game = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move/Animate");
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-move/NodeGroup");
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, exports) {
 
 module.exports = require("d3-ease");
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5975,7 +6395,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactD3Tree = __webpack_require__(70);
+var _reactD3Tree = __webpack_require__(75);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6096,13 +6516,13 @@ var Sankey = function (_React$Component) {
 exports.default = Sankey;
 
 /***/ }),
-/* 70 */
+/* 75 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-d3-tree");
 
 /***/ }),
-/* 71 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6127,7 +6547,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -6135,15 +6555,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _CenterBox = __webpack_require__(29);
+var _CenterBox = __webpack_require__(30);
 
 var _CenterBox2 = _interopRequireDefault(_CenterBox);
 
-var _TextBox = __webpack_require__(8);
+var _TextBox = __webpack_require__(9);
 
 var _TextBox2 = _interopRequireDefault(_TextBox);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
@@ -6331,7 +6751,7 @@ const Video = styled.div`
 */
 
 /***/ }),
-/* 72 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6406,7 +6826,7 @@ var Sizer = function (_React$Component) {
 exports.default = Sizer;
 
 /***/ }),
-/* 73 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6498,7 +6918,7 @@ var Bg = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 74 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6571,7 +6991,7 @@ var Box = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 75 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6581,15 +7001,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path2 = __webpack_require__(11);
+var _path2 = __webpack_require__(12);
 
 var _path3 = _interopRequireDefault(_path2);
 
-var _importCss2 = __webpack_require__(12);
+var _importCss2 = __webpack_require__(13);
 
 var _importCss3 = _interopRequireDefault(_importCss2);
 
-var _universalImport2 = __webpack_require__(13);
+var _universalImport2 = __webpack_require__(14);
 
 var _universalImport3 = _interopRequireDefault(_universalImport2);
 
@@ -6601,7 +7021,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _trends = __webpack_require__(76);
+var _trends = __webpack_require__(81);
 
 var _trends2 = _interopRequireDefault(_trends);
 
@@ -6609,7 +7029,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Loading = __webpack_require__(30);
+var _Loading = __webpack_require__(31);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -6617,15 +7037,15 @@ var _Container = __webpack_require__(7);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Table = __webpack_require__(32);
+var _Table = __webpack_require__(20);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _recharts = __webpack_require__(9);
+var _recharts = __webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6670,7 +7090,7 @@ var Graph = function (_React$Component) {
                 id: 'recharts',
                 file: 'D:/websites/react-static/static-site-2/4/src/components/UI/graphs/Trends.jsx',
                 load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('recharts', {
+                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 10)), (0, _importCss3.default)('recharts', {
                         disableWarnings: true
                     })]).then(function (proms) {
                         return proms[0];
@@ -6680,7 +7100,7 @@ var Graph = function (_React$Component) {
                     return _path3.default.join(__dirname, 'recharts');
                 },
                 resolve: function resolve() {
-                    return /*require.resolve*/(9);
+                    return /*require.resolve*/(10);
                 },
                 chunkName: function chunkName() {
                     return 'mygraph';
@@ -6829,13 +7249,13 @@ exports.default = Graph;
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
-/* 76 */
+/* 81 */
 /***/ (function(module, exports) {
 
 module.exports = [{"Month":"2004-01","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":100},{"Month":"2004-02","math: (Worldwide)":37,"physics: (Worldwide)":22,"chemistry: (Worldwide)":22,"biology: (Worldwide)":18,"science: (Worldwide)":98},{"Month":"2004-03","math: (Worldwide)":35,"physics: (Worldwide)":20,"chemistry: (Worldwide)":20,"biology: (Worldwide)":17,"science: (Worldwide)":90},{"Month":"2004-04","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":20,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-05","math: (Worldwide)":33,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":15,"science: (Worldwide)":77},{"Month":"2004-06","math: (Worldwide)":27,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":68},{"Month":"2004-07","math: (Worldwide)":21,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2004-08","math: (Worldwide)":24,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":68},{"Month":"2004-09","math: (Worldwide)":37,"physics: (Worldwide)":19,"chemistry: (Worldwide)":21,"biology: (Worldwide)":18,"science: (Worldwide)":87},{"Month":"2004-10","math: (Worldwide)":37,"physics: (Worldwide)":20,"chemistry: (Worldwide)":21,"biology: (Worldwide)":17,"science: (Worldwide)":86},{"Month":"2004-11","math: (Worldwide)":35,"physics: (Worldwide)":19,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":82},{"Month":"2004-12","math: (Worldwide)":30,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":13,"science: (Worldwide)":72},{"Month":"2005-01","math: (Worldwide)":34,"physics: (Worldwide)":18,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":87},{"Month":"2005-02","math: (Worldwide)":35,"physics: (Worldwide)":18,"chemistry: (Worldwide)":19,"biology: (Worldwide)":16,"science: (Worldwide)":88},{"Month":"2005-03","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":79},{"Month":"2005-04","math: (Worldwide)":33,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-05","math: (Worldwide)":32,"physics: (Worldwide)":17,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":71},{"Month":"2005-06","math: (Worldwide)":28,"physics: (Worldwide)":15,"chemistry: (Worldwide)":16,"biology: (Worldwide)":12,"science: (Worldwide)":63},{"Month":"2005-07","math: (Worldwide)":20,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2005-08","math: (Worldwide)":24,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":62},{"Month":"2005-09","math: (Worldwide)":36,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":74},{"Month":"2005-10","math: (Worldwide)":35,"physics: (Worldwide)":17,"chemistry: (Worldwide)":18,"biology: (Worldwide)":15,"science: (Worldwide)":76},{"Month":"2005-11","math: (Worldwide)":33,"physics: (Worldwide)":16,"chemistry: (Worldwide)":17,"biology: (Worldwide)":14,"science: (Worldwide)":75},{"Month":"2005-12","math: (Worldwide)":27,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":63},{"Month":"2006-01","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":13,"science: (Worldwide)":76},{"Month":"2006-02","math: (Worldwide)":33,"physics: (Worldwide)":15,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":74},{"Month":"2006-03","math: (Worldwide)":32,"physics: (Worldwide)":14,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":70},{"Month":"2006-04","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":64},{"Month":"2006-05","math: (Worldwide)":30,"physics: (Worldwide)":14,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":61},{"Month":"2006-06","math: (Worldwide)":26,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2006-07","math: (Worldwide)":18,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2006-08","math: (Worldwide)":23,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":55},{"Month":"2006-09","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":15,"biology: (Worldwide)":12,"science: (Worldwide)":69},{"Month":"2006-10","math: (Worldwide)":33,"physics: (Worldwide)":13,"chemistry: (Worldwide)":14,"biology: (Worldwide)":11,"science: (Worldwide)":65},{"Month":"2006-11","math: (Worldwide)":30,"physics: (Worldwide)":13,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":61},{"Month":"2006-12","math: (Worldwide)":26,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2007-01","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":65},{"Month":"2007-02","math: (Worldwide)":30,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":62},{"Month":"2007-03","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":62},{"Month":"2007-04","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2007-05","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":54},{"Month":"2007-06","math: (Worldwide)":24,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2007-07","math: (Worldwide)":18,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":44},{"Month":"2007-08","math: (Worldwide)":21,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2007-09","math: (Worldwide)":31,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":11,"science: (Worldwide)":57},{"Month":"2007-10","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":60},{"Month":"2007-11","math: (Worldwide)":29,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":56},{"Month":"2007-12","math: (Worldwide)":25,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-01","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-02","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":57},{"Month":"2008-03","math: (Worldwide)":27,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2008-04","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2008-05","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2008-06","math: (Worldwide)":24,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2008-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2008-08","math: (Worldwide)":21,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2008-09","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":54},{"Month":"2008-10","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":51},{"Month":"2008-11","math: (Worldwide)":29,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2008-12","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2009-01","math: (Worldwide)":28,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":53},{"Month":"2009-02","math: (Worldwide)":32,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2009-03","math: (Worldwide)":32,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":51},{"Month":"2009-04","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2009-05","math: (Worldwide)":30,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2009-06","math: (Worldwide)":26,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":44},{"Month":"2009-07","math: (Worldwide)":17,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":38},{"Month":"2009-08","math: (Worldwide)":22,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2009-09","math: (Worldwide)":32,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":52},{"Month":"2009-10","math: (Worldwide)":34,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-11","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":50},{"Month":"2009-12","math: (Worldwide)":29,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2010-01","math: (Worldwide)":33,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":52},{"Month":"2010-02","math: (Worldwide)":35,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-03","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":49},{"Month":"2010-04","math: (Worldwide)":35,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2010-05","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2010-06","math: (Worldwide)":30,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2010-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":39},{"Month":"2010-08","math: (Worldwide)":23,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2010-09","math: (Worldwide)":37,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2010-10","math: (Worldwide)":38,"physics: (Worldwide)":13,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-11","math: (Worldwide)":39,"physics: (Worldwide)":13,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":46},{"Month":"2010-12","math: (Worldwide)":34,"physics: (Worldwide)":11,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2011-01","math: (Worldwide)":38,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":48},{"Month":"2011-02","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":47},{"Month":"2011-03","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":45},{"Month":"2011-04","math: (Worldwide)":41,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":43},{"Month":"2011-05","math: (Worldwide)":42,"physics: (Worldwide)":12,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2011-06","math: (Worldwide)":33,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":7,"science: (Worldwide)":42},{"Month":"2011-07","math: (Worldwide)":20,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":36},{"Month":"2011-08","math: (Worldwide)":26,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":40},{"Month":"2011-09","math: (Worldwide)":40,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":48},{"Month":"2011-10","math: (Worldwide)":43,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2011-11","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2011-12","math: (Worldwide)":41,"physics: (Worldwide)":10,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2012-01","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":47},{"Month":"2012-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":45},{"Month":"2012-03","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-05","math: (Worldwide)":59,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2012-06","math: (Worldwide)":40,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2012-07","math: (Worldwide)":26,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2012-08","math: (Worldwide)":31,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2012-09","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":47},{"Month":"2012-10","math: (Worldwide)":50,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2012-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2012-12","math: (Worldwide)":48,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":35},{"Month":"2013-01","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-02","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2013-03","math: (Worldwide)":48,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":41},{"Month":"2013-04","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2013-05","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":40},{"Month":"2013-06","math: (Worldwide)":37,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2013-07","math: (Worldwide)":23,"physics: (Worldwide)":7,"chemistry: (Worldwide)":8,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2013-08","math: (Worldwide)":28,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2013-09","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2013-10","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2013-11","math: (Worldwide)":49,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":41},{"Month":"2013-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":36},{"Month":"2014-01","math: (Worldwide)":45,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2014-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":42},{"Month":"2014-04","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-05","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2014-06","math: (Worldwide)":37,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2014-07","math: (Worldwide)":22,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":34},{"Month":"2014-08","math: (Worldwide)":29,"physics: (Worldwide)":9,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":38},{"Month":"2014-09","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2014-10","math: (Worldwide)":56,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2014-11","math: (Worldwide)":51,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":44},{"Month":"2014-12","math: (Worldwide)":47,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2015-01","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-02","math: (Worldwide)":53,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2015-04","math: (Worldwide)":51,"physics: (Worldwide)":12,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":41},{"Month":"2015-05","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2015-06","math: (Worldwide)":36,"physics: (Worldwide)":10,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2015-07","math: (Worldwide)":21,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":35},{"Month":"2015-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":6,"science: (Worldwide)":39},{"Month":"2015-09","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2015-10","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2015-11","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":8,"science: (Worldwide)":43},{"Month":"2015-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-01","math: (Worldwide)":43,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2016-02","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2016-03","math: (Worldwide)":46,"physics: (Worldwide)":11,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-04","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-05","math: (Worldwide)":49,"physics: (Worldwide)":12,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":41},{"Month":"2016-06","math: (Worldwide)":31,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":37},{"Month":"2016-07","math: (Worldwide)":18,"physics: (Worldwide)":7,"chemistry: (Worldwide)":7,"biology: (Worldwide)":5,"science: (Worldwide)":33},{"Month":"2016-08","math: (Worldwide)":30,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":38},{"Month":"2016-09","math: (Worldwide)":55,"physics: (Worldwide)":11,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2016-10","math: (Worldwide)":50,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":42},{"Month":"2016-11","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":44},{"Month":"2016-12","math: (Worldwide)":43,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2017-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2017-02","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2017-03","math: (Worldwide)":52,"physics: (Worldwide)":12,"chemistry: (Worldwide)":13,"biology: (Worldwide)":10,"science: (Worldwide)":46},{"Month":"2017-04","math: (Worldwide)":45,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2017-05","math: (Worldwide)":54,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-06","math: (Worldwide)":30,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":39},{"Month":"2017-07","math: (Worldwide)":19,"physics: (Worldwide)":8,"chemistry: (Worldwide)":8,"biology: (Worldwide)":6,"science: (Worldwide)":37},{"Month":"2017-08","math: (Worldwide)":32,"physics: (Worldwide)":8,"chemistry: (Worldwide)":9,"biology: (Worldwide)":7,"science: (Worldwide)":40},{"Month":"2017-09","math: (Worldwide)":53,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":45},{"Month":"2017-10","math: (Worldwide)":55,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":43},{"Month":"2017-11","math: (Worldwide)":51,"physics: (Worldwide)":10,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":43},{"Month":"2017-12","math: (Worldwide)":46,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":8,"science: (Worldwide)":38},{"Month":"2018-01","math: (Worldwide)":47,"physics: (Worldwide)":10,"chemistry: (Worldwide)":11,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-02","math: (Worldwide)":53,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":46},{"Month":"2018-03","math: (Worldwide)":48,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":9,"science: (Worldwide)":45},{"Month":"2018-04","math: (Worldwide)":49,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":42},{"Month":"2018-05","math: (Worldwide)":52,"physics: (Worldwide)":11,"chemistry: (Worldwide)":12,"biology: (Worldwide)":10,"science: (Worldwide)":44},{"Month":"2018-06","math: (Worldwide)":33,"physics: (Worldwide)":9,"chemistry: (Worldwide)":10,"biology: (Worldwide)":7,"science: (Worldwide)":38}]
 
 /***/ }),
-/* 77 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6848,25 +7268,25 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  width: 100%;\n  height: 100%;\n'], ['\n  width: 100%;\n  height: 100%;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  position: fixed;\n  top:0;right:0;left:0;bottom:0;\n'], ['\n  position: fixed;\n  top:0;right:0;left:0;bottom:0;\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Load = __webpack_require__(78);
+var _Load = __webpack_require__(83);
 
 var _Load2 = _interopRequireDefault(_Load);
 
-var _Store = __webpack_require__(85);
+var _Store = __webpack_require__(99);
 
 var _Store2 = _interopRequireDefault(_Store);
 
-var _Game = __webpack_require__(86);
+var _Game = __webpack_require__(36);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _GameMenu = __webpack_require__(92);
+var _GameMenu = __webpack_require__(38);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
@@ -6874,9 +7294,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+var _Table = __webpack_require__(20);
+
+var _Table2 = _interopRequireDefault(_Table);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6900,11 +7326,14 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
+    _this.registerMenuItem = _this.registerMenuItem.bind(_this);
     _this.state = {
-      game: null
-      // console.log("Game Index props ", props);
-      // console.log("Game Index reducers: ", props.game.getReducers());
-    };return _this;
+      game: null,
+      menuItems: [],
+      menuKeys: new Map(),
+      menuRenderId: 1
+    };
+    return _this;
   }
 
   _createClass(Index, [{
@@ -6917,32 +7346,61 @@ var Index = function (_React$Component) {
       });
     }
   }, {
+    key: 'registerMenuItem',
+    value: function registerMenuItem(items) {
+      var _this2 = this;
+
+      //is a component and the function to call onClick
+      console.log("registerMenyItem item ", items);
+      var menuItems = this.state.menuItems;
+      items.map(function (item) {
+        if (!_this2.state.menuKeys.has(item.key)) {
+          //delete old one, update object, keep key indexes the same
+          menuItems = [].concat(_toConsumableArray(menuItems), [item.key]);
+        }
+        _this2.state.menuKeys.set(item.key, item);
+      });
+      this.setState({
+        menuItems: menuItems,
+        menuRenderId: this.state.menuRenderId + 1
+      });
+      console.log("registerMenyItem count ", this.state.menuItems);
+    }
+  }, {
+    key: 'buildMenuItems',
+    value: function buildMenuItems() {
+      var _this3 = this;
+
+      return this.state.menuItems.map(function (m) {
+        return _this3.state.menuKeys.get(m);
+      });
+      //menuItems={this.state.menuItems}
+    }
+  }, {
     key: 'renderPersistStore',
     value: function renderPersistStore() {
       return _react2.default.createElement(
-        Container,
-        {
-          __source: {
+        _Table2.default,
+        { heights: ['36px', null], __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 61
           }
         },
-        _react2.default.createElement(_GameMenu2.default, {
-          __source: {
+        _react2.default.createElement(_GameMenu2.default, { title: 'Game Title', menuItems: this.buildMenuItems(), renderId: this.state.menuRenderId, __source: {
             fileName: _jsxFileName,
-            lineNumber: 33
+            lineNumber: 62
           }
         }),
         _react2.default.createElement(
           _Load2.default,
-          { gamename: 'g4', reducers: this.state.reducers, __source: {
+          { gamename: 'g4', reducers: this.state.reducers, registerMenuItem: this.registerMenuItem, __source: {
               fileName: _jsxFileName,
-              lineNumber: 34
+              lineNumber: 63
             }
           },
           _react2.default.createElement(_Game2.default, { game: this.state.game, __source: {
               fileName: _jsxFileName,
-              lineNumber: 35
+              lineNumber: 64
             }
           })
         )
@@ -6956,25 +7414,24 @@ var Index = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 72
           }
         },
-        _react2.default.createElement(_GameMenu2.default, {
-          __source: {
+        _react2.default.createElement(_GameMenu2.default, { title: 'Game Title', __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 73
           }
         }),
         _react2.default.createElement(
           _Store2.default,
           { reducers: this.state.reducers, __source: {
               fileName: _jsxFileName,
-              lineNumber: 45
+              lineNumber: 74
             }
           },
           _react2.default.createElement(_Game2.default, { game: this.state.game, __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 75
             }
           })
         )
@@ -6984,17 +7441,35 @@ var Index = function (_React$Component) {
     key: 'render',
     value: function render() {
       if (this.state.game) {
-        return this.renderPersistStore();
-      } else {
         return _react2.default.createElement(
-          'p',
+          Container,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 55
+              lineNumber: 82
             }
           },
-          'loading game...'
+          this.renderPersistStore()
+        );
+      } else {
+        return _react2.default.createElement(
+          Container,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 84
+            }
+          },
+          _react2.default.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 84
+              }
+            },
+            'loading game...'
+          )
         );
       }
     }
@@ -7009,7 +7484,7 @@ exports.default = Index;
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 78 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7026,15 +7501,35 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PersistStore = __webpack_require__(79);
+var _PersistStore = __webpack_require__(84);
 
 var _PersistStore2 = _interopRequireDefault(_PersistStore);
 
-var _fileUtils = __webpack_require__(84);
+var _fileUtils = __webpack_require__(89);
 
-var _reactRedux = __webpack_require__(3);
+var _reactStatic = __webpack_require__(2);
+
+var _localStorageUtils = __webpack_require__(90);
+
+var _reactRedux = __webpack_require__(4);
+
+var _DriveInterface = __webpack_require__(91);
+
+var _IconButton = __webpack_require__(8);
+
+var _IconButton2 = _interopRequireDefault(_IconButton);
+
+var _LoadGameView = __webpack_require__(92);
+
+var _LoadGameView2 = _interopRequireDefault(_LoadGameView);
+
+var _Game = __webpack_require__(36);
+
+var _Game2 = _interopRequireDefault(_Game);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -7055,8 +7550,9 @@ function getMetaName(meta, game, id) {
 }
 var DATE = 'date',
     DESC = 'desc',
-    SAVE_NAME = 'A',
-    DRIVE_FILE_KEY = 'gamename';
+    DRIVE_FILE_KEY = 'gamename',
+    DRIVE_FILE_PROP_ID = 'gameId',
+    SAVE_NAMES = ['rose', 'violet', 'lilly'];
 
 var Load = function (_React$Component) {
     _inherits(Load, _React$Component);
@@ -7069,15 +7565,14 @@ var Load = function (_React$Component) {
         console.log("Load constructor props", props);
         _this.onNewGame = _this.onNewGame.bind(_this);
         _this.onLoadGame = _this.onLoadGame.bind(_this);
-        _this.getLocalFiles = _this.getLocalFiles.bind(_this);
-        //this.getDriveFiles = this.getDriveFiles.bind(this);
-        //this.uploadFile = this.uploadFile.bind(this);
-        _this.listSaveFiles = _this.listSaveFiles.bind(_this);
+        _this.syncSaves = _this.syncSaves.bind(_this);
+
         _this.state = {
             id: null,
-            local: {},
+            local: [],
             synced: false,
-            syncing: false
+            syncing: false,
+            log: []
         };
         return _this;
     }
@@ -7085,400 +7580,357 @@ var Load = function (_React$Component) {
     _createClass(Load, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.getLocalFiles();
+            this.registerMenuButtons(this.state.fileId);
+            this.setState({
+                local: this.getLocalSaves()
+            });
+        }
+    }, {
+        key: 'getLocalSaves',
+        value: function getLocalSaves() {
+            var _this2 = this;
+
+            var regexp = this.props.gamename + '-(' + SAVE_NAMES.join('|') + ')$';
+            console.log('getLocalSaves regex ' + regexp);
+            var ids = (0, _localStorageUtils.getSavedGameIds)((0, _localStorageUtils.getLocalhostIterator)(), new RegExp(regexp), function (file) {
+                var parts = file.split("-");
+                return parts[1];
+            });
+            console.log("Load getSavedGameIds ", ids);
+            var files = (0, _localStorageUtils.buildFiles)(ids, [{
+                key: 'date',
+                getName: function getName(id) {
+                    getMetaName(DATE, _this2.props.gamename, id);
+                }
+            }, {
+                key: 'desc',
+                getName: function getName(id) {
+                    getMetaName(DESC, _this2.props.gamename, id);
+                }
+            }], { hello: 'world' });
+            console.log("Load getLocalFiles ", files);
+            return files;
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            this.saveLocalMeta();
-            this.saveGame();
+            if (this.props.fileId) {
+                this.saveLocalMeta();
+                this.saveGame(this.props.fileId);
+            }
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
+            // console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
             if (this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing) {
-                this.syncSaves();
+                //this.syncSaves();
             }
-        }
-    }, {
-        key: 'getLocalFiles',
-        value: function getLocalFiles() {
-            var _this2 = this;
-
-            var localStorage = window.localStorage;
-
-            var query = new RegExp("(" + this.props.gamename + "-A)");
-            var results = [];
-            for (var i in localStorage) {
-                if (localStorage.hasOwnProperty(i)) {
-                    if (i.match(query)) {
-                        results.push({ key: i, val: localStorage.getItem(i) });
-                    }
-                }
+            if (prevState.fileId !== this.state.fileId) {
+                this.registerMenuButtons(this.state.fileId);
             }
-            //extract id from file string
-            var ids = results.map(function (f) {
-                var parts = f.key.split("-");
-                return parts[1];
-            });
-            console.log("local ids", ids);
-            if (ids) {
-                //put ids into state.local, pointing to obj with keys for date and desc getMetaName(meta, game, id)
-                var local = {};
-                ids.map(function (id) {
-                    if (!local[id]) {
-                        local[id] = {
-                            date: localStorage.getItem(getMetaName(DATE, _this2.props.gamename, SAVE_NAME)),
-                            desc: localStorage.getItem(getMetaName(DESC, _this2.props.gamename, SAVE_NAME))
-                        };
-                    }
-                });
-                this.setState({
-                    local: local
-                });
-                console.log("local meta", local);
-            }
-        }
-    }, {
-        key: 'onNewGame',
-        value: function onNewGame() {
-            this.saveLocalMeta();
-            //game will be persisted to cloud on close
-            //new game and load game set the filename of the game to be played
-            this.setState({
-                filename: getStoreName(this.props.gamename, SAVE_NAME)
-            });
-        }
-    }, {
-        key: 'saveLocalMeta',
-        value: function saveLocalMeta() {
-            var date = new Date();
-            console.log("new game name: " + SAVE_NAME + " date: " + date.getTime());
-            var localStorage = window.localStorage;
-            //save metadata locally
-            localStorage.setItem(getMetaName(DATE, this.props.gamename, SAVE_NAME), date.getTime());
-            localStorage.setItem(getMetaName(DESC, this.props.gamename, SAVE_NAME), 'a game description');
         }
     }, {
         key: 'saveGame',
-        value: function saveGame() {
+        value: function saveGame(fileId, driveId /* if null, must retrieve*/) {
+            var _this3 = this;
+
             //get list of files with gamename: this.props.game
-            var filename = getStoreName(this.props.gamename, SAVE_NAME);
-            console.log("saving game to drive name " + filename);
-            if (this.props.gapi.isSignedIn) {
-                var localStorage = window.localStorage;
-                console.log("retrieved localStorage obj from window");
-                var list = this.listSaveFiles().then(function (response) {
+            //let filename = getStoreName(this.props.gamename, SAVE_NAME);
+            if (driveId) {
+                this.uploadFile(driveId, fileId);
+            } else {
+                var filename = getStoreName(this.props.gamename, fileId);
+                //console.log("saving game to drive name " + filename);           
+                (0, _DriveInterface.listFilesByAppProp)(DRIVE_FILE_KEY, [filename]).then(function (response) {
                     var list = response.result.files;
-                    console.log("saveGame response", response);
-                    console.log("saving game, drive files found: " + list.length);
+                    //console.log("saving game, drive files found: " + list.length);
                     if (list) {
                         var id = list[0] ? list[0].id : null;
                         //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
                         // let updatedfile = localStorage.getItem('persist:g4-35d7c7bc-8d4d-0686-55f7-29e91a41175e')
-                        var updatedfile = localStorage.getItem('persist:' + filename);
-                        console.log("saveGame updated file from local", updatedfile);
-                        (0, _fileUtils.createFileWithJSONContent)(list.length <= 0, id, filename, updatedfile, function (res) {
-                            console.log("create file with json callback", res);
-                        }, DRIVE_FILE_KEY);
-                        console.log("saveGame successfully updated file");
+                        _this3.uploadFile(id, fileId);
+                        _this3.syncFinished();
                     }
-                }.bind(this));
-            } else {
-                console.log("saveGame ERROR, unable to upload to drive, not signed in");
+                }).catch(function (e) {
+                    _this3.state.log.push('failed to upload to cloud');
+                    console.error('failed to upload save game', e);
+                    _this3.syncFinished();
+                });
             }
         }
     }, {
-        key: 'listSaveFiles',
-        value: function listSaveFiles() {
-            /*
-                'q': "mimeType contains 'application/json'",
-                'fields': "files(id, name, mimeType, modifiedTime)"
-                'q': "appProperties has { key='gamename' and value='witcher' }"
-            */
-            console.log('listing game files key=\'' + DRIVE_FILE_KEY + '\' and value=\'' + this.props.gamename + '\'');
-            return gapi.client.drive.files.list({
-                'q': 'appProperties has { key=\'' + DRIVE_FILE_KEY + '\' and value=\'' + this.props.gamename + '\' }',
-                'fields': "files(id, name, mimeType, modifiedTime)"
-            });
-        }
-    }, {
-        key: 'getFile',
-        value: function getFile(id) {
-            return gapi.client.drive.files.get({
-                fileId: id,
-                alt: 'media',
-                fields: "id, name, mimeType, modifiedTime"
-            });
+        key: 'uploadFile',
+        value: function uploadFile(driveId, fileId) {
+            var localStorage = window.localStorage;
+            var filename = getStoreName(this.props.gamename, fileId);
+            var updatedfile = localStorage.getItem('persist:' + filename);
+            //  console.log("saving game updated file from local", updatedfile);
+            //TODO break into json file maker, and http request builder
+            this.state.log.push('building file request for cloud upload');
+            try {
+                (0, _fileUtils.createFileWithJSONContent)(driveId, filename, [{ key: DRIVE_FILE_KEY, value: filename }, { key: DRIVE_FILE_PROP_ID, value: fileId }], updatedfile);
+                //    console.log("uploadFile successfully");
+            } catch (e) {
+                console.error("uploadFile failed", e);
+            }
         }
     }, {
         key: 'syncSaves',
-        value: function syncSaves() {
-            //list files, compare modifiedDates, use id to download google drive file, place in localstorage
-            this.setState({
-                syncing: true
-            });
-            var localStorage = window.localStorage;
-            this.listSaveFiles().then(function (response) {
-                var list = response.result.files;
-                console.log("loadGame response", response);
-                console.log("loadinggame, drive files found: " + list.length);
-                if (list && list.length > 0) {
-                    var driveTime = list[0].modifiedTime;
-                    //let localTime = localStorage.getItem('g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date');
-                    var localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, 'A'));
-                    //  let localDate = new Date(localTime);
-                    var driveDate = new Date(driveTime);
-                    console.log("driveTime " + driveTime, driveDate);
-                    //console.log("localTime " + localTime, localDate)
-                    console.log("is drive.getTime " + driveDate.getTime() + " less than local time? " + localTime + " -> " + (driveDate.getTime() < localTime));
-                    //if file exists, check if cloud modifiedTime is later than local modified time, if so overwrite, if not ask user
-                    //driveDate.getTime()>localTime
-                    if (driveDate.getTime() > localTime) {
-                        console.log("drive file modified later than local file, downloading");
-                        //user picks drive, download from drive and store in local
-                        this.downloadSave(list[0]);
-                    } else {
-                        console.log("local file is later than drive file, which save file do you want?");
-                        //user picks local, save to cloud?
-                        this.setState({
-                            saveConflict: list[0]
-                        });
-                    }
-                } else {
-                    console.log("no load games found");
-                    this.setState({
-                        syncing: false,
-                        synced: true
-                    });
-                }
-            }.bind(this)).catch(function (err) {
-                console.log("syncSaves failed", err);
-                this.setState({
-                    syncing: false,
-                    synced: true
-                });
-            });
-        }
-    }, {
-        key: 'downloadSave',
-        value: function downloadSave(file) {
-            var _this3 = this;
-
-            // a save file has been downloaded and should replace the file at game-nameid
-            console.log("downloading saving file ", file);
-            var localStorage = window.localStorage;
-            var id = file.id;
-            var filename = file.name;
-            console.log("downloading save file id: " + id + " name: " + filename);
-            this.getFile(id).then(function (res) {
-                console.log("get file result", res);
-                console.log("file body", res.body);
-                console.log("file result", res.result);
-                var file = localStorage.setItem('persist:' + filename, res.body);
-                console.log("saving drive file to local storage at " + ('persist:' + filename));
-                _this3.setState({
-                    syncing: false,
-                    synced: true,
-                    saveConflict: null,
-                    error: null
-                });
-                //load from local
-            }).catch(function (err) {
-                console.log("fet file error", err);
-                _this3.setState({
-                    syncing: false,
-                    synced: true,
-                    error: err,
-                    saveConflict: null
-                });
-            });
-        }
-    }, {
-        key: 'getAppData',
-        value: function getAppData() {
-            console.log("getting app data from drive");
-            console.log("drive", gapi.client.drive);
-            var request = gapi.client.drive.files.list({
-                spaces: 'appDataFolder',
-                fields: 'nextPageToken, files(id, name)',
-                pageSize: 100
-            }).then(function (res) {
-                console.log("app data result", res);
-            }).catch(function (err) {
-                console.log("app data error", err);
-            });
-        }
-    }, {
-        key: 'renderNewGame',
-        value: function renderNewGame() {
+        value: function syncSaves(id, overwriteLocal /* optional */) {
             var _this4 = this;
 
-            if (!this.state.syncing) {
-                return _react2.default.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            _this4.onNewGame();
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 251
+            //this method initiates interaction with drive, check if is online before performing
+            //list files, compare modifiedDates, use id to download google drive file, place in localstorage
+            console.log('syncSaves for id ' + id, this);
+            if (id) {
+                this.state.log.push('beginning sync with google drive to fetch save files');
+                this.setState({
+                    syncing: true
+                });
+                //let localStorage = window.localStorage;
+                var names = Array.isArray(id) ? id.map(function (n) {
+                    return getStoreName(_this4.props.gamename, n);
+                }) : [id];
+                console.log('syncsaves names', names);
+                (0, _DriveInterface.listFilesByAppProp)(DRIVE_FILE_KEY, names).then(function (response) {
+                    console.log("load syncSaves response", response);
+                    var list = response.result.files;
+
+                    //console.log("loadinggame, drive files found: " + list.length);
+                    _this4.state.log.push('recieved ' + list.length + ' files');
+                    if (list) {
+                        if (list.length === 0) {
+                            //first time uploading to cloud
+                            _this4.state.log.push('0 files found on drive, uploading new game ' + _this4.state.fileId + ' to cloud for first time');
+                            _this4.saveGame(_this4.state.fileId);
                         }
-                    },
-                    'New Game'
-                );
+                        list.map(function (item) {
+                            console.log('syncSave: comparing file ', item);
+                            //extract driveId, and gameId
+                            var driveId = item.id;
+                            var gameId = item.appProperties[DRIVE_FILE_PROP_ID];
+                            var gameName = item.appProperties[DRIVE_FILE_KEY];
+                            _this4.state.log.push('comparing file driveId: ' + driveId + ' gameId: ' + gameId + ' gameName: ' + gameName);
+                            // console.log(`syncSave comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
+                            //let file = this.downloadSave(item);
+
+                            if (overwriteLocal && _this4.isLocalLater(item)) {
+                                //  console.log("drive file modified later than local file, downloading");
+                                _this4.state.log.push('most recent file is ahead of local file, overwriting local file');
+                                (0, _DriveInterface.getFile)(item.id).then(function (res) {
+                                    //  console.log('syncSave test downloaded file  for ' +gameName, res);
+                                    _this4.overwriteLocalSave(gameId, gameName, res.result);
+                                }).catch(function (e) {
+                                    //console.log('syncSaves getFile catch block error', e);
+                                    _this4.state.log.push('failed to retrieve file ' + driveId);
+                                    throw new Error('error during getFile call to google drive', e);
+                                });
+                            } else {
+                                // console.log("local file is later than drive file, uploading to cloud");
+                                _this4.state.log.push('most recent file is behind local file, overwriting cloud file');
+                                _this4.saveGame(gameId, driveId);
+                            }
+                        });
+                    } else {
+                        throw new Error('syncing failed, no load games found');
+                    }
+                }).catch(function (err) {
+                    console.log("syncSaves catch block called, throwing error", err);
+                    _this4.syncFinished();
+                });
             } else {
-                return _react2.default.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            _this4.onNewGame();
-                        }, disabled: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 253
-                        }
-                    },
-                    'New Game D'
-                );
+                console.warn('will not sync when fileId is undefined');
             }
         }
     }, {
-        key: 'renderSaves',
-        value: function renderSaves() {
-            var _this5 = this;
-
-            if (!this.state.syncing && this.state.local) {
-                console.log("rendering save files, local:", this.state.local);
-                return Object.keys(this.state.local).map(function (k, i) {
-                    var save = _this5.state.local[k];
-                    return _react2.default.createElement(
-                        'button',
-                        { onClick: function onClick() {
-                                _this5.onLoadGame(k);
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 261
-                            }
-                        },
-                        'save ',
-                        i,
-                        ' date: ',
-                        save.date,
-                        ', desc: ',
-                        save.desc,
-                        ' id: ',
-                        k
-                    );
-                });
-                // return this.state.local[k].map((e, i) => {{}
-            }
+        key: 'syncFinished',
+        value: function syncFinished() {
+            this.state.log.push('syncing finished');
+            this.setState({
+                syncing: false,
+                synced: true,
+                log: [].concat(_toConsumableArray(this.state.log))
+            });
+        }
+    }, {
+        key: 'isLocalLater',
+        value: function isLocalLater(driveFile) {
+            var localStorage = window.localStorage;
+            //console.log("isLocalLater? driveFile: ", driveFile);
+            //get value for property gamename on driveFile
+            var id = driveFile.appProperties[DRIVE_FILE_PROP_ID];
+            // console.log("isLocalLater? driveFile id ", id);
+            var driveDate = new Date(driveFile.modifiedTime);
+            var localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, id));
+            // console.log(`isLocalLater driveTime ${this.displayDate(driveFile.modifiedTime)} localTime ${this.displayDate(localTime)}`)
+            console.log("is drive.getTime " + driveDate.getTime() + " less than local time? " + localTime + " -> " + (driveDate.getTime() < localTime));
+            return driveDate.getTime() > localTime;
+        }
+    }, {
+        key: 'displayDate',
+        value: function displayDate(time) {
+            return new Date(time).toUTCString();
+        }
+    }, {
+        key: 'overwriteLocalSave',
+        value: function overwriteLocalSave(id, gameName, body) {
+            var localStorage = window.localStorage;
+            var stringed = JSON.stringify(body);
+            localStorage.setItem('persist:' + gameName, stringed);
+            this.saveLocalMeta(id);
+            console.log('local save ' + gameName + ' successfully overwritten', stringed);
+            this.setState({
+                syncing: false,
+                synced: true,
+                saveConflict: null,
+                error: null
+            });
+        }
+    }, {
+        key: 'onNewGame',
+        value: function onNewGame(id) {
+            //this.saveLocalMeta();
+            //game will be persisted to cloud on close
+            //new game and load game set the filename of the game to be played
+            var filename = getStoreName(this.props.gamename, id);
+            console.log("load new game id: " + id + " name: " + filename);
+            this.saveLocalMeta(id);
+            this.setState({
+                //filename: getStoreName(this.props.gamename, SAVE_NAME)
+                filename: filename,
+                fileId: id,
+                local: this.getLocalSaves()
+            });
+            this.registerMenuButtons(id);
+            // this.props.registerMenuItem({
+            //     key: 'sync',
+            //     component: <IconButton icon={'sync'} round={true}  onInput={()=>{this.syncSaves(id)}}/>
+            // })
+            //this.saveGame(id);
+        }
+    }, {
+        key: 'saveLocalMeta',
+        value: function saveLocalMeta(id) {
+            var date = new Date();
+            console.log("saveLocalMeta new game name: " + id + " date: " + date.getTime());
+            var localStorage = window.localStorage;
+            //save metadata locally
+            localStorage.setItem(getMetaName(DATE, this.props.gamename, id), date.getTime());
+            localStorage.setItem(getMetaName(DESC, this.props.gamename, id), 'a game description');
         }
     }, {
         key: 'onLoadGame',
         value: function onLoadGame(id) {
             //use game + id as filename, set as filename
             var filename = getStoreName(this.props.gamename, id);
-            console.log("load game name: " + filename);
+            console.log("load load game " + id + " name: " + filename);
             this.setState({
-                filename: filename
+                filename: filename,
+                fileId: id
             });
+            this.registerMenuButtons(id);
         }
     }, {
-        key: 'renderSaveConflict',
-        value: function renderSaveConflict() {
-            var _this6 = this;
+        key: 'registerMenuButtons',
+        value: function registerMenuButtons(fileId) {
+            var _this5 = this;
 
-            if (this.state.saveConflict) {
-                // downloadSave(file)
-                //if they choose the drive file, download it with fiel id
-                //if not, save local to drive
-                return _react2.default.createElement(
-                    'div',
-                    {
-                        __source: {
+            if (fileId) {
+                this.props.registerMenuItem([{
+                    key: 'sync',
+                    id: 'none',
+                    position: 'right',
+                    component: _react2.default.createElement(_IconButton2.default, { className: 'no-fileId', key: 'none', round: true, icon: 'sync', disabled: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 284
+                            lineNumber: 289
                         }
-                    },
-                    _react2.default.createElement(
-                        'p',
-                        {
-                            __source: {
+                    })
+                }, {
+                    key: 'cloud',
+                    position: 'right',
+                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, icon: 'cloud', onInput: function onInput() {
+                            //console.log('load sync save button clicked! ' + fileId);
+                            _this5.syncSaves(fileId, false);
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 294
+                        }
+                    })
+                }, {
+                    key: 'back',
+                    position: 'left',
+                    component: _react2.default.createElement(_IconButton2.default, { key: 'back', round: true, icon: 'back', onInput: function onInput() {
+                            _this5.setState({
+                                fileId: null, filename: null
+                            });
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 302
+                        }
+                    })
+                }]);
+            } else {
+                this.props.registerMenuItem([{
+                    key: 'sync',
+                    id: fileId,
+                    position: 'right',
+                    component: _react2.default.createElement(_IconButton2.default, { className: 'fileId', key: fileId, round: true, icon: 'sync', onInput: function onInput() {
+                            //console.log('load sync save button clicked! ' + fileId);
+                            _this5.syncSaves(SAVE_NAMES, true);
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 315
+                        }
+                    })
+                }, {
+                    key: 'cloud',
+                    position: 'right',
+                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, icon: 'cloud', disabled: true, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 323
+                        }
+                    })
+                }, {
+                    key: 'back',
+                    position: 'left',
+                    component: _react2.default.createElement(
+                        _reactStatic.Link,
+                        { to: '/games', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 285
+                                lineNumber: 328
                             }
                         },
-                        'Your local file is ahead of your drive file, which would you like to continue with? (the other will be deleted)'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: function onClick() {
-                                _this6.downloadSave(_this6.state.saveConflict);
-                                //this.saveGame();
-                                _this6.saveLocalMeta();
-                            }, __source: {
+                        _react2.default.createElement(_IconButton2.default, { key: 'back', round: true, icon: 'back', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 286
+                                lineNumber: 328
                             }
-                        },
-                        'Choose drive'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: function onClick() {
-                                // this.saveLocalMeta();
-                                _this6.saveGame();
-                                console.log("saving local game", _this6.state);
-                                _this6.setState({
-                                    syncing: false,
-                                    synced: true,
-                                    saveConflict: null,
-                                    error: null
-                                });
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 291
-                            }
-                        },
-                        'Choose local'
+                        })
                     )
-                );
+                }]);
             }
-            return _react2.default.createElement(
-                'p',
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 305
-                    }
-                },
-                'probelm displaying conflict...'
-            );
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this7 = this;
+            var _this6 = this;
 
-            console.log('load rendering game saveConflict ' + this.state.saveConflict + ' synced ' + this.state.synced + '\n            syncing ' + this.state.syncing + ' filename ' + this.state.filename);
-            if (this.state.saveConflict) {
-                return this.renderSaveConflict();
-            } else if (this.state.filename) {
+            if (this.state.filename) {
                 //savefile={this.state.filename}
-
                 return _react2.default.createElement(
                     _PersistStore2.default,
                     { savefile: this.state.filename, reducers: this.props.reducers, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 316
+                            lineNumber: 337
                         }
                     },
                     _react2.default.createElement(
                         'button',
                         { onClick: function onClick() {
-                                _this7.saveGame();
+                                _this6.saveGame(_this6.state.fileId);
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 317
+                                lineNumber: 338
                             }
                         },
                         'save game to drive'
@@ -7486,10 +7938,10 @@ var Load = function (_React$Component) {
                     _react2.default.createElement(
                         'button',
                         { onClick: function onClick() {
-                                _this7.saveLocalMeta();
+                                _this6.saveLocalMeta(_this6.state.fileId);
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 322
+                                lineNumber: 343
                             }
                         },
                         'save local metadata'
@@ -7497,57 +7949,16 @@ var Load = function (_React$Component) {
                     this.props.children
                 );
             } else {
-                return _react2.default.createElement(
-                    'div',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 332
-                        }
-                    },
-                    this.state.synced ? _react2.default.createElement(
-                        'p',
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 334
-                            }
-                        },
-                        'synced'
-                    ) : this.state.syncing ? _react2.default.createElement(
-                        'p',
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 334
-                            }
-                        },
-                        'syncing...'
-                    ) : _react2.default.createElement(
-                        'p',
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 334
-                            }
-                        },
-                        'not synced'
-                    ),
-                    _react2.default.createElement('hr', {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 335
-                        }
-                    }),
-                    this.renderNewGame(),
-                    _react2.default.createElement('hr', {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 337
-                        }
-                    }),
-                    this.renderSaves()
-                );
+                return _react2.default.createElement(_LoadGameView2.default, { syncing: this.state.syncing, saves: this.state.local, log: this.state.log,
+                    onNewGame: function onNewGame(id) {
+                        _this6.onNewGame(id);
+                    }, onLoadGame: function onLoadGame(id) {
+                        _this6.onLoadGame(id);
+                    }, names: SAVE_NAMES, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 353
+                    }
+                });
             }
         }
     }]);
@@ -7565,7 +7976,7 @@ Load.displayName = 'Load';
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Load);
 
 /***/ }),
-/* 79 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7584,25 +7995,25 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(11);
 
-var _reduxLogger = __webpack_require__(20);
+var _reduxLogger = __webpack_require__(21);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxPersist = __webpack_require__(80);
+var _reduxPersist = __webpack_require__(85);
 
-var _storage = __webpack_require__(81);
+var _storage = __webpack_require__(86);
 
 var _storage2 = _interopRequireDefault(_storage);
 
-var _autoMergeLevel = __webpack_require__(82);
+var _autoMergeLevel = __webpack_require__(87);
 
 var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
 
-var _react3 = __webpack_require__(83);
+var _react3 = __webpack_require__(88);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7714,89 +8125,158 @@ Persist.displayName = 'PersistStore';
 exports.default = Persist;
 
 /***/ }),
-/* 80 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 81 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 82 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
 
 /***/ }),
-/* 83 */
+/* 88 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/integration/react");
 
 /***/ }),
-/* 84 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
+// //TODO: break into JSON file creation and request sender
+
+
 //TODO: break into JSON file creation and request sender
-var createFileWithJSONContent = exports.createFileWithJSONContent = function createFileWithJSONContent(isCreate, fileId, name, data, callback, driveKey) {
-    //appData file: 1iUAS3YYiw95q-MbgLZrOXtJvgj_XywiG4_FxqSu_xGdsbfEQOw
-    console.log("beginning create file with JSON content");
-    var boundary = '-------314159265358979323846';
-    var delimiter = "\r\n--" + boundary + "\r\n";
-    var close_delim = "\r\n--" + boundary + "--";
-
-    var contentType = 'application/json';
-    //getGameName(this.props.gamename, 1)
-    //'parents':  ['appDataFolder']
-    console.log("creating json file create? " + isCreate + " id: " + fileId + " name: " + name + " key: " + driveKey);
-    var metadata = {
-        name: name,
-        mimeType: contentType,
-        appProperties: {
-            //[DRIVE_FILE_KEY]: `${this.props.gamename}`,
-            gamename: "" + name
-        }
+function mapAppProperties(appProps) {
+  var appProperties = {};
+  if (appProps) {
+    appProps.map(function (a) {
+      appProperties[a.key] = a.value;
+    });
+  }
+  console.log("mapAppProperties", appProperties);
+  return appProperties;
+}
+var createFileWithJSONContent = exports.createFileWithJSONContent = function createFileWithJSONContent(fileId, name, appProps /*array of key val pairs */, data, callback) {
+  //appData file: 1iUAS3YYiw95q-MbgLZrOXtJvgj_XywiG4_FxqSu_xGdsbfEQOw
+  console.log("beginning create file with JSON content");
+  console.log("creating json file method " + method + " id: " + fileId + " props:", appProps);
+  var boundary = '-------314159265358979323846';
+  var delimiter = "\r\n--" + boundary + "\r\n";
+  var close_delim = "\r\n--" + boundary + "--";
+  var contentType = 'application/json';
+  console.log('===starting metadata----');
+  var props = mapAppProperties(appProps);
+  console.log('AppPropeties', 'AppPropeties result', props);
+  var metadata = {
+    name: name,
+    mimeType: contentType,
+    appProperties: props
+    //appProperties: mapAppProperties(appProps)
+    // appProperties: {
+    //     'gamename': 'hello'
+    // }
+  };
+  /* Build the body of the request */
+  console.log('===multipartrequestbody----');
+  var multipartRequestBody = delimiter + 'Content-Type: application/json\r\n\r\n' + JSON.stringify(metadata) + delimiter + 'Content-Type: ' + contentType + '\r\n\r\n' + data + close_delim;
+  console.log('===path----');
+  //'method': 'POST',
+  var method = fileId ? 'PATCH' : 'POST';
+  var path = '/upload/drive/v3/files';
+  if (fileId) {
+    path = path + '/' + fileId;
+  }
+  console.log("uploading content, method " + method + " path " + path);
+  /* Build the request to google */
+  var request = gapi.client.request({
+    'path': "" + path,
+    'method': "" + method,
+    'params': { 'uploadType': 'multipart' },
+    'headers': {
+      'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+    },
+    'body': multipartRequestBody });
+  if (!callback) {
+    var callback = function callback(file) {
+      console.log(file);
     };
-    /* Build the body of the request */
-    var multipartRequestBody = delimiter + 'Content-Type: application/json\r\n\r\n' + JSON.stringify(metadata) + delimiter + 'Content-Type: ' + contentType + '\r\n\r\n' + data + close_delim;
-
-    //'method': 'POST',
-    var path = '/upload/drive/v3/files';
-    var method = 'POST';
-    if (!isCreate) {
-        path = path + '/' + fileId;
-        method = 'PATCH';
-    }
-    console.log("uploading content, method " + method + " path " + path);
-    /* Build the request to google */
-    var request = gapi.client.request({
-        'path': path,
-        'method': method,
-        'params': { 'uploadType': 'multipart' },
-        'headers': {
-            'Content-Type': 'multipart/related; boundary="' + boundary + '"'
-        },
-        'body': multipartRequestBody });
-    if (!callback) {
-        callback = function callback(file) {
-            console.log(file);
-        };
-    }
-    request.execute(callback);
+  }
+  console.log('===executing----', request);
+  request.execute(callback);
 };
 
+// export const createFileWithJSONContent = (isCreate, fileId, name, data, callback, driveKey) => {
+//     //appData file: 1iUAS3YYiw95q-MbgLZrOXtJvgj_XywiG4_FxqSu_xGdsbfEQOw
+//     console.log("beginning create file with JSON content");
+//     const boundary = '-------314159265358979323846';
+//     const delimiter = "\r\n--" + boundary + "\r\n";
+//     const close_delim = "\r\n--" + boundary + "--";
+
+//     const contentType = 'application/json';
+//   //getGameName(this.props.gamename, 1)
+//   //'parents':  ['appDataFolder']
+//   console.log(`creating json file create? ${isCreate} id: ${fileId} name: ${name} key: ${driveKey}`);
+//     var metadata = {
+//         name,
+//         mimeType: contentType,
+//         appProperties: {
+//             //[DRIVE_FILE_KEY]: `${this.props.gamename}`,
+//             gamename: `${name}`,
+//         }
+//       };
+//       /* Build the body of the request */
+//       var multipartRequestBody =
+//           delimiter +
+//           'Content-Type: application/json\r\n\r\n' +
+//           JSON.stringify(metadata) +
+//           delimiter +
+//           'Content-Type: ' + contentType + '\r\n\r\n' +
+//           data +
+//           close_delim;
+
+//           //'method': 'POST',
+//           let path = '/upload/drive/v3/files';
+//           let method =  'POST'
+//           if(!isCreate){
+//               path = path + '/' + fileId;
+//               method = 'PATCH';
+//           }
+//           console.log("uploading content, method " + method + " path " + path);
+//           /* Build the request to google */
+//       var request = gapi.client.request({
+//           'path': path,
+//           'method': method,
+//           'params': {'uploadType': 'multipart'},
+//           'headers': {
+//             'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+//           },
+//           'body': multipartRequestBody});
+//       if (!callback) {
+//         callback = function(file) {
+//           console.log(file)
+//         };
+//       }
+//       request.execute(callback);
+//   }
+
 /***/ }),
-/* 85 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7805,360 +8285,363 @@ var createFileWithJSONContent = exports.createFileWithJSONContent = function cre
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Store.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(3);
-
-var _redux = __webpack_require__(10);
-
-var _reduxLogger = __webpack_require__(20);
-
-var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import reducers from './../../games/g5/reducers.js';
-
-if (typeof window === 'undefined') {
-    global.window = {};
-}
-
-var Store = function (_React$Component) {
-    _inherits(Store, _React$Component);
-
-    function Store(props) {
-        _classCallCheck(this, Store);
-
-        var _this = _possibleConstructorReturn(this, (Store.__proto__ || Object.getPrototypeOf(Store)).call(this, props));
-
-        _this.store = (0, _redux.createStore)(props.reducers, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
-        return _this;
-    }
-
-    _createClass(Store, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactRedux.Provider,
-                { store: this.store, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 20
-                    }
-                },
-                this.props.children
-            );
-        }
-    }]);
-
-    return Store;
-}(_react2.default.Component);
-
-Store.displayName = "Store";
-exports.default = Store;
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _path2 = __webpack_require__(11);
-
-var _path3 = _interopRequireDefault(_path2);
-
-var _importCss2 = __webpack_require__(12);
-
-var _importCss3 = _interopRequireDefault(_importCss2);
-
-var _universalImport2 = __webpack_require__(13);
-
-var _universalImport3 = _interopRequireDefault(_universalImport2);
-
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Game.jsx';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//get all files from storage matching a pattern
+
+//extract information from those files
+
+//group and return
+var getLocalhostIterator = exports.getLocalhostIterator = function getLocalhostIterator() {
+    var localStorage = window.localStorage;
+    var keys = Object.keys(localStorage);
+    var index = -1;
+    var iterator = {
+        next: function next() {
+            index++;
+            if (index <= keys.length) {
+                return { value: keys[index], done: false };
+            } else {
+                return { value: undefined, done: true };
+            }
+        }
+    };
+    return iterator;
+};
+
+//iterator has reference to local storage, next until done
+var getSavedGameIds = exports.getSavedGameIds = function getSavedGameIds(iterator, regexp, modifier /* optional */) {
+    var results = [];
+    var next = null;
+    do {
+        next = iterator.next();
+        if (regexp.test(next.value)) {
+            //results.push({key:next.value.key, value:next.value.value});
+            results.push(next.value);
+        }
+    } while (!next.done);
+
+    var ids = results;
+    if (modifier) {
+        ids = results.map(function (r) {
+            return modifier(r);
+        });
+    }
+    var unique = [];
+    ids = ids.map(function (id) {
+        if (unique.indexOf(id) === -1) unique.push(id);
+    });
+
+    console.log("local ids", unique);
+    return unique;
+};
+//takes array of objects - props, fn to get name and returns array of objects with props
+var buildFiles = exports.buildFiles = function buildFiles(ids, props, extra) {
+    var local = {};
+    var ray = [];
+    var localStorage = window.localStorage;
+    ids.map(function (id) {
+        if (!local[id]) {
+            local[id] = true;
+            var o = _extends({
+                id: id
+            }, extra);
+            props.map(function (p) {
+                o[p.key] = localStorage.getItem(p.getName(id));
+            });
+            ray.push(o);
+            // ray.push({
+            //     id,
+            //     date: localStorage.getItem(getMetaName(DATE,this.props.gamename, id)),
+            //     desc: localStorage.getItem(getMetaName(DESC,this.props.gamename, id))
+            // })
+        }
+    });
+    console.log('build files result', ray);
+    return ray;
+};
+
+/*
+    getLocalFiles(){
+        let localStorage = window.localStorage;
+
+        let query = new RegExp("(" + this.props.gamename + "-A)");
+        let results = [];
+        for (var i in localStorage) {
+            if (localStorage.hasOwnProperty(i)) {
+            if (i.match(query)) {
+                results.push({key:i,val:localStorage.getItem(i)});
+            }
+            }
+        }
+        //extract id from file string
+        let ids = results.map(f => {
+            let parts = f.key.split("-");
+            return parts[1];
+        });
+        console.log("local ids", ids);
+        if(ids){
+            //put ids into state.local, pointing to obj with keys for date and desc getMetaName(meta, game, id)
+            let local = {};
+            ids.map(id => {
+                if(!local[id]){
+                    local[id] = {
+                        date: localStorage.getItem(getMetaName(DATE,this.props.gamename, SAVE_NAME)),
+                        desc: localStorage.getItem(getMetaName(DESC,this.props.gamename, SAVE_NAME))
+                    }
+                }
+            })
+            this.setState({
+                local
+            })
+            console.log("local meta", local);
+        }
+
+    }
+*/
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var listFilesByAppProp = exports.listFilesByAppProp = function listFilesByAppProp(key, values) {
+    //an array of objs with prop, and relevant values
+    /*
+        'q': "mimeType contains 'application/json'",
+        'fields': "files(id, name, mimeType, modifiedTime)"
+        'q': "appProperties has { key='gamename' and value='witcher' }"
+              return gapi.client.drive.files.list({
+        'q': `appProperties has { key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}' }`,
+        'fields': "files(id, name, mimeType, modifiedTime)"
+    })
+        return gapi.client.drive.files.list({
+        'q': `appProperties has { key='${DRIVE_FILE_KEY}' and value='${this.props.gamename}' }`,
+        'fields': "files(id, name, mimeType, modifiedTime)"
+    })
+    */
+    var query = '';
+    console.log("listFileByAppProp values " + values);
+    values.map(function (v, i) {
+        //a key cant be 2 props at once, if there's more than one value, must be an or
+        console.log("listFileByAppProp key " + key + " v " + v);
+        query += (i > 0 ? ' or ' : '') + "appProperties has { key='" + key + "' and value='" + v + "' }";
+    });
+    console.log('AppPropeties', "listFilesByAppProp query " + query);
+    var request = {
+        'q': query,
+        'fields': "files(id, name, mimeType, modifiedTime, appProperties)"
+    };
+    return gapi.client.drive.files.list(request);
+};
+var getFile = exports.getFile = function getFile(id) {
+    console.log('getFile drive interface method ' + id);
+    return gapi.client.drive.files.get({
+        fileId: id,
+        alt: 'media',
+        fields: "id, name, mimeType, modifiedTime"
+    });
+};
+
+var getAppData = exports.getAppData = function getAppData() {
+    console.log("getting app data from drive");
+    console.log("drive", gapi.client.drive);
+    var request = gapi.client.drive.files.list({
+        spaces: 'appDataFolder',
+        fields: 'nextPageToken, files(id, name)',
+        pageSize: 100
+    }).then(function (res) {
+        console.log("app data result", res);
+    }).catch(function (err) {
+        console.log("app data error", err);
+    });
+};
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\LoadGameView.jsx';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    width: 90%;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    height: 150px;\n    background: white;\n'], ['\n    width: 90%;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);\n    height: 150px;\n    background: white;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    background-color: grey;\n    width: 100%;\n    height: 300px;\n    @media only screen and (min-width: ', ') {\n        height: 150px;\n    }\n'], ['\n    background-color: grey;\n    width: 100%;\n    height: 300px;\n    @media only screen and (min-width: ', ') {\n        height: 150px;\n    }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    background: pink;\n    display: flex;\n    width: 100%;\n    height: 100%;\n    flex-direction: column;\n    @media only screen and (min-width: ', ') {\n        flex-direction: row;\n    }\n'], ['\n    background: pink;\n    display: flex;\n    width: 100%;\n    height: 100%;\n    flex-direction: column;\n    @media only screen and (min-width: ', ') {\n        flex-direction: row;\n    }\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    flex:1;\n    background: blue;\n    padding: 10px;\n'], ['\n    flex:1;\n    background: blue;\n    padding: 10px;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    flex:1;\n    background: orange;\n    display: relative;\n    padding: 10px;\n'], ['\n    flex:1;\n    background: orange;\n    display: relative;\n    padding: 10px;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    height: 100px;\n    width: 100%;\n    line-height: 140px;\n    margin: auto;\n    padding: 20px;\n    background: red;\n    text-align: left;\n    vertical-align: middle;\n    button:{\n        width: 50%;\n        height: 40px;\n    }\n'], ['\n    height: 100px;\n    width: 100%;\n    line-height: 140px;\n    margin: auto;\n    padding: 20px;\n    background: red;\n    text-align: left;\n    vertical-align: middle;\n    button:{\n        width: 50%;\n        height: 40px;\n    }\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    height: 80%;\n    width: 100%;\n    background:magenta;\n'], ['\n    height: 80%;\n    width: 100%;\n    background:magenta;\n']);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _all = __webpack_require__(87);
-
-var _all2 = _interopRequireDefault(_all);
-
-var _Container = __webpack_require__(7);
-
-var _Container2 = _interopRequireDefault(_Container);
-
-var _Accordion = __webpack_require__(88);
-
-var _Accordion2 = _interopRequireDefault(_Accordion);
 
 var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(89);
+var _propTypes = __webpack_require__(5);
 
-var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Text = __webpack_require__(3);
+
+var _Text2 = _interopRequireDefault(_Text);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import Katex from './../UI/math/Katex.jsx';
-//import {ResponsiveContainer, LineChart, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
+//renders new game, the saved games, the game img, title and description
+var LoadView = function (_React$Component) {
+    _inherits(LoadView, _React$Component);
 
-var Game = function (_React$Component) {
-    _inherits(Game, _React$Component);
+    function LoadView(props) {
+        _classCallCheck(this, LoadView);
 
-    function Game(props) {
-        _classCallCheck(this, Game);
+        var _this = _possibleConstructorReturn(this, (LoadView.__proto__ || Object.getPrototypeOf(LoadView)).call(this, props));
 
-        var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
-
-        console.log("game constructor, sample game: ", _this.props.game);
         _this.state = {
-            checkIn: {
-                katex: null,
-                recharts: null
-            },
-            tools: {
-                views: _extends({}, _mygamelibs2.default.views, {
-                    container: _Container2.default,
-                    styled: _styledComponents2.default,
-                    accordion: _Accordion2.default,
-                    nerdamer: _all2.default
-                    //katex: Katex,
-                    // recharts: {
-                    //     ResponsiveContainer,
-                    //     LineChart,
-                    //     ScatterChart,
-                    //     Scatter,
-                    //     ComposedChart,
-                    //     Line,
-                    //     Area,
-                    //     Bar,
-                    //     XAxis,
-                    //     YAxis,
-                    //     CartesianGrid,
-                    //     Tooltip,
-                    //     Legend
-                    // },
-
-                }) }
+            //files: this.getSaves(props.syncing, props.saves)
         };
         return _this;
     }
 
-    _createClass(Game, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.importKatex();
-            this.importGraph();
-        }
-    }, {
-        key: 'areToolsReady',
-        value: function areToolsReady() {
+    _createClass(LoadView, [{
+        key: 'renderFiles',
+        value: function renderFiles() {
             var _this2 = this;
 
-            console.log("game tools ready? ");
-            var ready = true;
-            var keys = Object.keys(this.state.checkIn);
-            keys.map(function (k) {
-                if (!_this2.state.checkIn[k]) {
-                    ready = false;
-                }
-            });
-            console.log("game tools ready? " + ready, this.state);
-            return ready;
-        }
-    }, {
-        key: 'importKatex',
-        value: function importKatex() {
-            var _this3 = this;
-
-            (0, _universalImport3.default)({
-                id: './../UI/math/Katex.jsx',
-                file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
-                load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 37)), (0, _importCss3.default)('UI/math/Katex.jsx', {
-                        disableWarnings: true
-                    })]).then(function (proms) {
-                        return proms[0];
-                    });
-                },
-                path: function path() {
-                    return _path3.default.join(__dirname, './../UI/math/Katex.jsx');
-                },
-                resolve: function resolve() {
-                    return /*require.resolve*/(37);
-                },
-                chunkName: function chunkName() {
-                    return 'UI/math/Katex.jsx';
-                }
-            }).then(function (r) {
-                console.log("game tools katex checking in", r);
-                _this3.setState({
-                    checkIn: _extends({}, _this3.state.checkIn, {
-                        katex: true
-                    }),
-                    tools: _extends({}, _this3.state.tools, {
-                        views: _extends({}, _this3.state.tools.views, {
-                            katex: r.default
-                        })
-                    })
+            return this.props.names.map(function (n, i) {
+                // console.log('load view saves count ' + this.props.saves);
+                var saveId = _this2.props.saves.filter(function (s) {
+                    // console.log("load view matchin save " + s.id + " wtih " + n);
+                    return s.id === n;
                 });
-            }).catch(function (e) {
-                console.log("game tools error");
-                _this3.setState({
-                    error: 'failed to fetch katex'
-                });
-            });
-        }
-    }, {
-        key: 'importGraph',
-        value: function importGraph() {
-            var _this4 = this;
-
-            (0, _universalImport3.default)({
-                id: 'recharts',
-                file: 'D:/websites/react-static/static-site-2/4/src/components/game/Game.jsx',
-                load: function load() {
-                    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('recharts', {
-                        disableWarnings: true
-                    })]).then(function (proms) {
-                        return proms[0];
-                    });
-                },
-                path: function path() {
-                    return _path3.default.join(__dirname, 'recharts');
-                },
-                resolve: function resolve() {
-                    return /*require.resolve*/(9);
-                },
-                chunkName: function chunkName() {
-                    return 'recharts';
-                }
-            }).then(function (r) {
-                console.log("game tools graph checking in, ", r);
-                var ResponsiveContainer = r.ResponsiveContainer,
-                    LineChart = r.LineChart,
-                    ScatterChart = r.ScatterChart,
-                    Scatter = r.Scatter,
-                    ComposedChart = r.ComposedChart,
-                    Line = r.Line,
-                    Area = r.Area,
-                    Bar = r.Bar,
-                    XAxis = r.XAxis,
-                    YAxis = r.YAxis,
-                    CartesianGrid = r.CartesianGrid,
-                    Tooltip = r.Tooltip,
-                    Legend = r.Legend;
-
-                _this4.setState({
-                    //katex: Katex,
-                    checkIn: _extends({}, _this4.state.checkIn, {
-                        recharts: true
-                    }),
-                    tools: _extends({}, _this4.state.tools, {
-                        views: _extends({}, _this4.state.tools.views, {
-                            recharts: {
-                                ResponsiveContainer: ResponsiveContainer,
-                                LineChart: LineChart,
-                                ScatterChart: ScatterChart,
-                                Scatter: Scatter,
-                                ComposedChart: ComposedChart,
-                                Line: Line,
-                                Area: Area,
-                                Bar: Bar,
-                                XAxis: XAxis,
-                                YAxis: YAxis,
-                                CartesianGrid: CartesianGrid,
-                                Tooltip: Tooltip,
-                                Legend: Legend
+                // console.log('load view found save file', saveId);
+                if (saveId.length > 0) {
+                    return _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this2.props.onLoadGame(saveId[0].id);
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 24
                             }
-                        })
-                    })
-                });
-            }).catch(function (e) {
-                console.log("game tools error");
-                _this4.setState({
-                    error: 'failed to fetch graph'
-                });
+                        },
+                        'save file ',
+                        saveId[0].id
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this2.props.onNewGame(_this2.props.names[i]);
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 26
+                            }
+                        },
+                        'New Game ',
+                        _this2.props.names[i]
+                    );
+                }
             });
         }
     }, {
         key: 'render',
         value: function render() {
-            console.log('rendering game with tools: ', this.state);
-            if (this.areToolsReady()) {
-                return _react2.default.createElement(
-                    'div',
+            return _react2.default.createElement(
+                Container,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 34
+                    }
+                },
+                _react2.default.createElement(
+                    Game,
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 134
+                            lineNumber: 35
                         }
                     },
-                    _react2.default.createElement(this.props.game, { tools: this.state.tools, __source: {
+                    _react2.default.createElement(Img, {
+                        __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 135
+                            lineNumber: 36
                         }
-                    })
-                );
-            } else {
-                return _react2.default.createElement(
-                    'p',
+                    }),
+                    _react2.default.createElement(
+                        'p',
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 37
+                            }
+                        },
+                        'Game description game description game description Game description game description game description Game description game description game description Game description game description game description Game description game description game description Game description game description game description'
+                    )
+                ),
+                _react2.default.createElement(
+                    Files,
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 139
+                            lineNumber: 42
                         }
                     },
-                    'loading tools...'
-                );
-            }
+                    this.renderFiles()
+                )
+            );
         }
     }]);
 
-    return Game;
+    return LoadView;
 }(_react2.default.Component);
 
-exports.default = Game;
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+exports.default = LoadView;
+
+var File = _styledComponents2.default.button(_templateObject);
+var Img = _styledComponents2.default.div(_templateObject2, function (props) {
+    return props.theme[props.theme.theme].mediaMinWidth;
+});
+var Container = _styledComponents2.default.div(_templateObject3, function (props) {
+    return props.theme[props.theme.theme].mediaMinWidth;
+});
+var Game = _styledComponents2.default.div(_templateObject4);
+var Files = _styledComponents2.default.div(_templateObject5);
+var New = _styledComponents2.default.div(_templateObject6);
+var Save = _styledComponents2.default.div(_templateObject7);
 
 /***/ }),
-/* 87 */
+/* 93 */
 /***/ (function(module, exports) {
 
 module.exports = require("nerdamer/all");
 
 /***/ }),
-/* 88 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8187,7 +8670,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(14);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -8195,9 +8678,9 @@ var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
-var _Button = __webpack_require__(36);
+var _Button = __webpack_require__(37);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -8424,112 +8907,13 @@ var Mid = _styledComponents2.default.span(_templateObject6);
 var FlexChild = _styledComponents2.default.span(_templateObject7);
 
 /***/ }),
-/* 89 */
+/* 95 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 90 */
-/***/ (function(module, exports) {
-
-module.exports = require("katex/dist/katex.min.css");
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-katex");
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\GameMenu.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _templateObject = _taggedTemplateLiteral(['\n    display: flex;\n    justify-content: flex-end;\n    background-color:red;\n'], ['\n    display: flex;\n    justify-content: flex-end;\n    background-color:red;\n']);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactStatic = __webpack_require__(2);
-
-var _styledComponents = __webpack_require__(1);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _IconButton = __webpack_require__(14);
-
-var _IconButton2 = _interopRequireDefault(_IconButton);
-
-var _SignInUi = __webpack_require__(93);
-
-var _SignInUi2 = _interopRequireDefault(_SignInUi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Menu = function (_React$Component) {
-    _inherits(Menu, _React$Component);
-
-    function Menu(props) {
-        _classCallCheck(this, Menu);
-
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
-    }
-
-    _createClass(Menu, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                Bar,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 13
-                    }
-                },
-                _react2.default.createElement(_IconButton2.default, { icon: "save", round: true, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 14
-                    }
-                }),
-                _react2.default.createElement(_SignInUi2.default, {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 15
-                    }
-                })
-            );
-        }
-    }]);
-
-    return Menu;
-}(_react2.default.Component);
-
-exports.default = (0, _reactStatic.withSiteData)(Menu);
-
-
-var Bar = _styledComponents2.default.div(_templateObject);
-
-/***/ }),
-/* 93 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8546,7 +8930,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8587,8 +8971,6 @@ var SignIn = function (_React$Component) {
         _this.onSuccess = _this.onSuccess.bind(_this);
         _this.onFailure = _this.onFailure.bind(_this);
         _this.getSignInBtn = _this.getSignInBtn.bind(_this);
-        // this.handleClick = this.handleClick.bind(this);
-        _this.signInChange = _this.signInChange.bind(_this);
         _this.state = {
             rendered: false,
             width: 90,
@@ -8610,14 +8992,20 @@ var SignIn = function (_React$Component) {
     }, {
         key: 'getSignInBtn',
         value: function getSignInBtn() {
-            console.log('sign in status', this.props.gapi);
             if (!this.state.rendered && this.props.gapi.gapiReady) {
-                console.log("rendering sign in button");
                 this.setState({
                     rendered: true,
                     signedIn: this.props.gapi.isSignedIn
                 });
-                this.renderSignIn();
+                gapi.signin2.render('g-signin2', {
+                    'scope': SCOPES,
+                    'width': this.state.width,
+                    'height': this.state.height,
+                    'longtitle': false,
+                    'theme': 'light',
+                    'onsuccess': this.onSuccess,
+                    'onfailure': this.onFailure
+                });
             }
         }
     }, {
@@ -8629,25 +9017,6 @@ var SignIn = function (_React$Component) {
             // })
         }
     }, {
-        key: 'signInChange',
-        value: function signInChange(e) {
-            console.log("sign in change", e);
-            console.log('sign in status ', this.props.gapi);
-        }
-    }, {
-        key: 'renderSignIn',
-        value: function renderSignIn() {
-            gapi.signin2.render('g-signin2', {
-                'scope': SCOPES,
-                'width': this.state.width,
-                'height': this.state.height,
-                'longtitle': false,
-                'theme': 'light',
-                'onsuccess': this.onSuccess,
-                'onfailure': this.onFailure
-            });
-        }
-    }, {
         key: 'renderSignOutBtn',
         value: function renderSignOutBtn() {
             if (this.props.gapi.isSignedIn) {
@@ -8657,7 +9026,7 @@ var SignIn = function (_React$Component) {
                         style: { width: this.state.width + 'px', height: this.state.height + 'px',
                             position: 'absolute', top: '0', zIndex: '9999' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 76
+                            lineNumber: 67
                         }
                     },
                     'sign out'
@@ -8670,51 +9039,18 @@ var SignIn = function (_React$Component) {
             //if gapi is ready, show sign in/out btns
             return _react2.default.createElement(
                 'div',
-                {
-                    __source: {
+                { style: { width: this.state.width + 'px', height: this.state.height + 'px' }, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 87
+                        lineNumber: 78
                     }
                 },
                 _react2.default.createElement('div', { id: "g-signin2", style: { display: 'inline' }, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 88
+                        lineNumber: 79
                     }
                 }),
                 this.renderSignOutBtn()
             );
-            // console.log("rendering sign in ui signedIn " + this.props.gapi.isSignedIn 
-            //     + " gapi read? " + this.props.gapi.gapiReady);
-            // if(!this.props.gapi.gapiReady){
-            //     return <div>
-            //         <p>google apis loading...</p>
-            //         {/* <div id={"g-signin2"} style={{display: 'inline'}}></div> */}
-            //     </div>
-            // }else{
-            //     //
-            //     if(this.state.signedIn){
-            //         console.log("rendering sign out button");
-            //         return (
-            //             <div style={{height: '200px', backgroundColor: 'orange'}}>
-            //             {/* <div style={{opacity: '0', zIndex: '1', translate: 'transformX(100px)', transition: 'all 2s'}}>
-            //             <div id={"g-signin2"} ></div>
-            //             </div> */}
-            //             <button onClick={this.signOut} style={{width: `${this.state.width}px`, height: `${this.state.height}px`,
-            //             position: 'absolute', top: '0', zIndex: '9999'}}>
-            //             sign out</button>
-            //             </div>
-            //         )
-            //     }else{
-
-            //         return <div id={"g-signin2"} style={{display: 'inline'}}></div>;
-            //     }
-            //     //return <Clickable />
-            //     // return <GoogleButton
-            //     //             type="light" // can also be written as disabled={true} for clarity
-            //     //             onClick={this.handleClick}
-            //     //         />
-            //     //return <div id={"g-signin2"}></div>;
-            // }
         }
     }]);
 
@@ -8737,7 +9073,92 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignIn);
 
 /***/ }),
-/* 94 */
+/* 97 */
+/***/ (function(module, exports) {
+
+module.exports = require("katex/dist/katex.min.css");
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-katex");
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\game\\Store.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(4);
+
+var _redux = __webpack_require__(11);
+
+var _reduxLogger = __webpack_require__(21);
+
+var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import reducers from './../../games/g5/reducers.js';
+
+if (typeof window === 'undefined') {
+    global.window = {};
+}
+
+var Store = function (_React$Component) {
+    _inherits(Store, _React$Component);
+
+    function Store(props) {
+        _classCallCheck(this, Store);
+
+        var _this = _possibleConstructorReturn(this, (Store.__proto__ || Object.getPrototypeOf(Store)).call(this, props));
+
+        _this.store = (0, _redux.createStore)(props.reducers, {}, (0, _redux.applyMiddleware)(_reduxLogger2.default));
+        return _this;
+    }
+
+    _createClass(Store, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactRedux.Provider,
+                { store: this.store, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 20
+                    }
+                },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Store;
+}(_react2.default.Component);
+
+Store.displayName = "Store";
+exports.default = Store;
+
+/***/ }),
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8756,7 +9177,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(95);
+__webpack_require__(101);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -8884,10 +9305,10 @@ var View = _styledComponents2.default.span(_templateObject, function (props) {
 // React.render( <Switch isChecked={ true } />, document.getElementById( "page" ) );
 
 /***/ }),
-/* 95 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)(false);
+exports = module.exports = __webpack_require__(43)(false);
 // imports
 
 
@@ -8898,7 +9319,7 @@ exports.push([module.i, ".switch-container{position:relative}input[type=checkbox
 
 
 /***/ }),
-/* 96 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8908,13 +9329,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(11);
 
-var _reduxLogger = __webpack_require__(20);
+var _reduxLogger = __webpack_require__(21);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reducers = __webpack_require__(97);
+var _reducers = __webpack_require__(103);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -8939,7 +9360,7 @@ var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMidd
 exports.default = store;
 
 /***/ }),
-/* 97 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8949,9 +9370,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(11);
 
-var _apiReducer = __webpack_require__(44);
+var _apiReducer = __webpack_require__(46);
 
 var reducer = (0, _redux.combineReducers)({
   gapi: _apiReducer.reducer
@@ -8960,10 +9381,10 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 /***/ }),
-/* 98 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)(false);
+exports = module.exports = __webpack_require__(43)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Raleway);", ""]);
 
@@ -8974,7 +9395,7 @@ exports.push([module.i, "*{-webkit-box-sizing:border-box;box-sizing:border-box}b
 
 
 /***/ }),
-/* 99 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9146,7 +9567,7 @@ orange: E07831 L FFA638
 */
 
 /***/ }),
-/* 100 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9167,23 +9588,23 @@ var _reactGa = __webpack_require__(16);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _cookies = __webpack_require__(101);
+var _cookies = __webpack_require__(107);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Modal = __webpack_require__(102);
+var _Modal = __webpack_require__(108);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-var _Text = __webpack_require__(5);
+var _Text = __webpack_require__(3);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(36);
+var _Button = __webpack_require__(37);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _SlideSide = __webpack_require__(45);
+var _SlideSide = __webpack_require__(47);
 
 var _SlideSide2 = _interopRequireDefault(_SlideSide);
 
@@ -9326,7 +9747,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 101 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9371,7 +9792,7 @@ function getCookie(cname) {
 // }
 
 /***/ }),
-/* 102 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9395,11 +9816,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Wiggle = __webpack_require__(103);
+var _Wiggle = __webpack_require__(109);
 
 var _Wiggle2 = _interopRequireDefault(_Wiggle);
 
-var _SlideSide = __webpack_require__(45);
+var _SlideSide = __webpack_require__(47);
 
 var _SlideSide2 = _interopRequireDefault(_SlideSide);
 
@@ -9473,7 +9894,7 @@ var Mod = _styledComponents2.default.div(_templateObject);
 var Discrete = _styledComponents2.default.div(_templateObject2);
 
 /***/ }),
-/* 103 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9500,7 +9921,7 @@ var _MyLog = __webpack_require__(6);
 
 var _MyLog2 = _interopRequireDefault(_MyLog);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -9548,7 +9969,7 @@ Wig.displayName = 'Wiggle';
 var Wiggle = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 104 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9564,11 +9985,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(4);
 
-var _redux = __webpack_require__(10);
+var _redux = __webpack_require__(11);
 
-var _apiReducer = __webpack_require__(44);
+var _apiReducer = __webpack_require__(46);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9675,13 +10096,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 105 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports = require("recompose");
 
 /***/ }),
-/* 106 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9711,7 +10132,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(4);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -9719,15 +10140,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _IconButton = __webpack_require__(14);
+var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _index = __webpack_require__(107);
+var _index = __webpack_require__(113);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _baselineKeyboard_arrow_right24px = __webpack_require__(28);
+var _baselineKeyboard_arrow_right24px = __webpack_require__(29);
 
 var _baselineKeyboard_arrow_right24px2 = _interopRequireDefault(_baselineKeyboard_arrow_right24px);
 
@@ -10170,7 +10591,7 @@ var DropArrow = _styledComponents2.default.div(_templateObject9, function (props
 }, _baselineKeyboard_arrow_right24px2.default);
 
 /***/ }),
-/* 107 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10290,4 +10711,4 @@ var Dropdown = _styledComponents2.default.div(_templateObject, function (props) 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.d34923a5.js.map
+//# sourceMappingURL=static.c80e5536.js.map
