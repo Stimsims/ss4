@@ -26,7 +26,7 @@ export default class SlideDown extends React.Component{
     }
     render(){
         return (
-            <Slide up={this.props.up} offset={this.props.offset} duration={this.props.duration} childDelay={this.props.childDelay} 
+            <Slide up={this.props.up} width={this.props.width} offset={this.props.offset} duration={this.props.duration} childDelay={this.props.childDelay} 
                     childLength={this.props.children.length+1}>
                 <ReactCSSTransitionGroup
                     transitionName="slide-down"
@@ -57,6 +57,7 @@ const Slide = styled.div`
     }
     span{
         display: inline-block;
+        width: ${props=>props.width? props.width:'auto'};
     }
 
     span .slide-down-enter{

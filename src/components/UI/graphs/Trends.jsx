@@ -5,7 +5,7 @@ import Loading from './../animations/Loading.jsx';
 import Container from './../elements/Container.jsx';
 import Text from './../elements/Text.jsx';
 import Table from './../elements/Table.jsx';
-import {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+//import {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 /*
       "Month": "2004-01",
       "math: (Worldwide)": 35,
@@ -26,7 +26,7 @@ export default class Graph extends React.Component{
         }
     }
     componentDidMount(){
-        import(/* webpackChunkName: "mygraph" */ 'recharts')
+        import('recharts' /* webpackChunkName: "myRecharts" */ )
             .then(r=>{
                 this.setState({
                     recharts: r
@@ -39,6 +39,7 @@ export default class Graph extends React.Component{
         })
     }
     renderGraph(){
+        let {ResponsiveContainer, LineChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} = this.state.recharts;
         return (
             <Table heights={[null, '100%']} >
                 <p style={{ textAlign: 'center'}}>Google Search Trends for Subjects</p>

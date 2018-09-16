@@ -17,6 +17,10 @@ class Games extends React.Component{
         switch(game){
             case 'samplegame':
                 return import('samplegame');
+            case 'fairyjoules':
+                return import('fairyjoules');
+            case 'labgame':
+                return import('labgame');
             default:
                 console.warn(`game ${game} unknown, cannot import`);
                 this.setState({
@@ -29,13 +33,13 @@ class Games extends React.Component{
         console.log('getting import props:', this.props);
         if(getImport){
             getImport.then(res => {
-                console.log("import of game files complete, promise:", MyLog);
+                console.log("import of game files complete, promise:", res);
                 MyLog('log', `import of game files successful ${res}`);
                  this.loadGame(res);
             })
             .catch(e => {
-                console.log("error importing game " + getImport, MyLog);
-              MyLog('warn', `error importing game ${e}`);
+                console.log("error importing game " + getImport, e);
+                MyLog('warn', `error importing game ${e}`);
             })
         }
     }
@@ -45,14 +49,9 @@ class Games extends React.Component{
         })
     }
     render(){
-        // return(
-        //     <div>Game Container
-        //     <Link to={'/games'} >home</Link>
-        //     </div>
-        // )
         if(this.state.game){
             return (
-                <Index game={this.state.game} />
+                <Index game={this.state.game} id={this.props.item.id} title={this.props.item.title} />
               )
         }else if(this.state.error){
             return <p>error loading game: {this.state.error}</p>

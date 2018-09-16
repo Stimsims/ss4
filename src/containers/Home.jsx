@@ -1,16 +1,10 @@
 
 import React from 'react'
-import { withRouteData, Link, withSiteData } from 'react-static'
-import Container from './../components/UI/elements/Container.jsx';
+import { withRouteData, Link, withSiteData } from 'react-static';
 import Bg from './../components/UI/elements/Background.jsx';
-import Flex from './../components/UI/elements/Flexbox.jsx';
-import Text from './../components/UI/elements/Text.jsx';
 import styled from 'styled-components';
-import PostItem from './../components/layout/PostItem.jsx';
 import Trends from './../components/UI/graphs/Trends.jsx';
 import MyLog from 'MyLog';
-import FadeIn from './../components/UI/animations/FadeIn.jsx';
-import Slide from './../components/UI/animations/Slide.jsx';
 
 class Home extends React.Component{
     constructor(props){
@@ -47,6 +41,7 @@ class Home extends React.Component{
 }
 Home.displayName='Home';
 export default withRouteData(Home);
+
 const Message = styled.h4`
   font-size:1em;
   color: rgb(255,255,255,1);

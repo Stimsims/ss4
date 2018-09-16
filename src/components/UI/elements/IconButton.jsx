@@ -57,22 +57,32 @@ class Icon extends React.Component {
                 return iSync;
         }
     }
+    wrapButton(icon){
+        if(this.props.text){
+            return <TextBtn  onClick={this.props.onInput}>
+                {icon}
+                <Label>{this.props.text}</Label>
+            </TextBtn> 
+        }else{
+            return <span style={{display:'inline-block', padding: '5px'}}>{icon}</span>;
+        }
+    }
     render() {
         //themeprovider provides base theme, can be overridden
         if(this.props.disabled){
             return (
-                <Btn disabled className={this.props.classes} padding={this.props.padding} bg={'grey'} 
-                    hover={'black'}  onClick={this.props.onInput} round={this.props.round}>
+                this.wrapButton(<Btn disabled className={this.props.classes} padding={this.props.padding}
+                    disabled={true}  onClick={this.props.onInput} round={this.props.round}>
                     <img src={this.getImg(this.props.icon)}/>
-                </Btn>
+                </Btn>)
             )
         }else{
             return (
-                <Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
+                this.wrapButton(<Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
                     hover={this.props.hover} 
                     onClick={this.props.onInput} round={this.props.round}>
                     <img src={this.getImg(this.props.icon)}/>
-                </Btn>
+                </Btn>)
             )
         }
     }
@@ -80,13 +90,55 @@ class Icon extends React.Component {
 
 export default Icon;
 
+const Label=styled.p`
+    padding: 5px;
+    display: inline-block;
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+    transition: all 1s ease;
+    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+        visibility: visible;
+        opacity:1;
+    }
+`
+const TextBtn = styled.button`
+    height:100%;
+    display: inline-block;
+    background-color: ${props => props.theme[props.theme.theme].neutral};
+    border: none;
+    outline: 0;
+    padding: 0px 5px;
+    transition: background-color 1s ease;
+    &:hover{
+        background-color: ${props => props.theme[props.theme.theme].neutralL};
+    }
+    p{
+        padding: 0px 10px;
+        display: inline-block;
+    }
+`
    //${props => props.primary ? 'blue' : props.theme.main}
    const Btn = styled.button`
     width:36px;
     height:36px;
     padding:${props=>props.padding?props.padding:'0'};
     margin: 0px;
-    background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].neutral}; /* Blue background */
+    color: red;
+    opacity: ${props =>{
+        if(props.disabled){
+            return '0.2';
+        }else{
+            return '1'
+        }
+    }};
+    background-color: ${props =>{
+        if(props.disabled){
+            return props.theme[props.theme.theme].neutral
+        }else{
+            return props.theme[props.theme.theme].neutralL
+        }
+    }}; /* Blue background */
     border: none; /* Remove borders */
     cursor: pointer; /* Mouse pointer on hover */
     outline: none;
@@ -95,8 +147,11 @@ export default Icon;
     transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
     &:hover, &:focus{
         background-color: ${props => {
-            //console.log("icon btn props", props);
-            return props.hover? props.hover: 'orange';
+            if(props.disabled){
+                return props.theme[props.theme.theme].neutral
+            }else{
+                return 'orange'
+            }
         }};
     };
     img{  

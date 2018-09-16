@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export default class Text extends React.Component{
     wrapText(text){
-        return <Wrapper position={this.props.position} padding={this.props.padding} margin={this.props.margin} zIndex={this.props.zIndex}
+        return <Wrapper lineHeight={this.props.lineHeight} position={this.props.position} padding={this.props.padding} 
+                    margin={this.props.margin} zIndex={this.props.zIndex}
                     align={this.props.align} size={this.props.size} height={this.props.height} width={this.props.width}
                     display={this.props.display} color={this.props.color} colorKey={this.props.colorKey}>
                         {text}
@@ -39,6 +40,7 @@ const Wrapper = styled.span`
     z-index: ${props => props.zIndex?props.zIndex: '1'};
     h1, h2, h3, h4, h5, h6, p{
         margin: 0;
+        line-height: ${props=>props.lineHeight?props.lineHeight:'normal'};
         display: ${props => props.display?props.display:'inline-block'};
         text-align: ${props => props.align?props.align:'center'};
         color: ${props => {

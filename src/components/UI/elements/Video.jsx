@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CenterBox from './CenterBox.jsx';
-import TextBox from './TextBox.jsx';
 import Text from './Text.jsx';
 
 export default class Youtube extends React.PureComponent{

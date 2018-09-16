@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import iVideoGame from './../../assets/baseline-videogame_asset-24px.svg';
+import TextBox from './../UI/elements/TextBox.jsx';
 import Text from './../UI/elements/Text.jsx';
 
 //renders new game, the saved games, the game img, title and description
@@ -21,9 +23,13 @@ class LoadView extends React.Component{
             })
            // console.log('load view found save file', saveId);
             if(saveId.length > 0){
-                return <button onClick={()=>{this.props.onLoadGame(saveId[0].id)}}>save file {saveId[0].id}</button>
+                return <TextBox padding={'0px'}>
+                    <Slots onClick={()=>{this.props.onLoadGame(saveId[0].id)}}>save file {saveId[0].id}</Slots>
+                </TextBox>
             }else{
-                return <button onClick={()=>{this.props.onNewGame(this.props.names[i])}}>New Game {this.props.names[i]}</button>
+                return <TextBox padding={'0px'}>
+                    <Slots onClick={()=>{this.props.onNewGame(this.props.names[i])}}>New Game {this.props.names[i]}</Slots>
+                </TextBox>
             }
             
         })
@@ -33,73 +39,60 @@ class LoadView extends React.Component{
         return(
             <Container>
                 <Game>
-                    <Img />
-                    <p>
-                        Game description game description game description Game description game description game description Game description game description game description
-                    Game description game description game description Game description game description game description Game description game description game description
-                    </p>
+                    <Img  />
+                    <Text tag={'p'} colorKey={'textInverted'} text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`} />
                 </Game>
-                <Files>
+                <Lower>
                     {this.renderFiles()}
-                </Files>
+                </Lower>
             </Container>
         )
     }
 }
 
 export default LoadView;
-const File = styled.button`
-    width: 90%;
-    margin: auto;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
-    height: 150px;
-    background: white;
-`
+
 const Img = styled.div`
-    background-color: grey;
     width: 100%;
-    height: 300px;
-    @media only screen and (min-width: ${props=>props.theme[props.theme.theme].mediaMinWidth}) {
-        height: 150px;
-    }
+    height: 200px;
+    z-index: 999;
+    background-image: url(${iVideoGame});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 `
 const Container = styled.div`
-    background: pink;
+    background: ${props => props.theme[props.theme.theme].neutralD};
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: column;
-    @media only screen and (min-width: ${props=>props.theme[props.theme.theme].mediaMinWidth}) {
-        flex-direction: row;
-    }
+    padding: ${props => props.theme[props.theme.theme].spaceM + 'px;'}
 `
 const Game = styled.div`
     flex:1;
-    background: blue;
     padding: 10px;
 ` 
-const Files = styled.div`
-    flex:1;
-    background: orange;
-    display: relative;
-    padding: 10px;
-`
-const New = styled.div`
-    height: 100px;
+
+const Slots = styled.button`
     width: 100%;
-    line-height: 140px;
-    margin: auto;
-    padding: 20px;
-    background: red;
+    height: 100%;
+    padding: 30px 20px 10px 20px;
+    outline: 0;
+    border: none;
     text-align: left;
-    vertical-align: middle;
-    button:{
-        width: 50%;
-        height: 40px;
+    background-color: ${props => props.theme[props.theme.theme].primary};
+    margin: 0px;
+    transirion: all 1s ease;
+    border-radius: 5px; 
+    &:hover{
+        background-color:${props => props.theme[props.theme.theme].primaryL};
     }
 `
-const Save = styled.div`
-    height: 80%;
-    width: 100%;
-    background:magenta;
+
+const Lower = styled.div`
+    flex:1;
 `

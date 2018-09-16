@@ -22,13 +22,13 @@ function getMetaName(meta, game, id){
 }
 const DATE = 'date',
       DESC = 'desc',
-      DRIVE_FILE_KEY = 'gamename',
+      DRIVE_FILE_KEY = 'game',
       DRIVE_FILE_PROP_ID = 'gameId',
       SAVE_NAMES = ['rose','violet','lilly'];
 class Load extends React.Component{
     constructor(props){
         super(props);
-        console.log("Load constructor props", props);
+        console.log("website game Load constructor props", props);
         this.onNewGame = this.onNewGame.bind(this);
         this.onLoadGame = this.onLoadGame.bind(this);
         this.syncSaves = this.syncSaves.bind(this);
@@ -49,7 +49,7 @@ class Load extends React.Component{
         })
     }
     getLocalSaves(){
-        let regexp = `${this.props.gamename}-(${SAVE_NAMES.join('|')})$`;
+        let regexp = `${this.props.id}-(${SAVE_NAMES.join('|')})$`;
         console.log('getLocalSaves regex ' + regexp);
         let ids = getSavedGameIds(getLocalhostIterator(), new RegExp(regexp), (file)=>{
             let parts = file.split("-");
@@ -59,11 +59,11 @@ class Load extends React.Component{
         let files = buildFiles(ids, [
             {
                 key: 'date',
-                getName: (id) => {getMetaName(DATE,this.props.gamename, id)}
+                getName: (id) => {getMetaName(DATE,this.props.id, id)}
             },
             {
                 key: 'desc',
-                getName: (id) => {getMetaName(DESC,this.props.gamename, id)}
+                getName: (id) => {getMetaName(DESC,this.props.id, id)}
             }
         ], {hello: 'world'});
         console.log("Load getLocalFiles ", files);
@@ -94,7 +94,7 @@ class Load extends React.Component{
         if(driveId){
             this.uploadFile(driveId, fileId);
         }else{
-            let filename = getStoreName(this.props.gamename, fileId);
+            let filename = getStoreName(this.props.id, fileId);
             //console.log("saving game to drive name " + filename);           
             listFilesByAppProp(DRIVE_FILE_KEY, [filename])
             .then((response) => {
@@ -118,7 +118,7 @@ class Load extends React.Component{
     }
     uploadFile(driveId, fileId){
         let localStorage = window.localStorage;
-        let filename = getStoreName(this.props.gamename, fileId);
+        let filename = getStoreName(this.props, fileId);
         let updatedfile = localStorage.getItem('persist:' + filename)
       //  console.log("saving game updated file from local", updatedfile);
         //TODO break into json file maker, and http request builder
@@ -145,7 +145,7 @@ class Load extends React.Component{
             })
                 //let localStorage = window.localStorage;
             let names = Array.isArray(id)? id.map(n => {
-                return getStoreName(this.props.gamename, n);
+                return getStoreName(this.props.id, n);
             }): [id];
             console.log('syncsaves names', names);
             listFilesByAppProp(DRIVE_FILE_KEY, names)
@@ -217,7 +217,7 @@ class Load extends React.Component{
         let id = driveFile.appProperties[DRIVE_FILE_PROP_ID];
        // console.log("isLocalLater? driveFile id ", id);
         let driveDate = new Date(driveFile.modifiedTime);
-        let localTime = localStorage.getItem(getMetaName(DATE, this.props.gamename, id));
+        let localTime = localStorage.getItem(getMetaName(DATE, this.props.id, id));
        // console.log(`isLocalLater driveTime ${this.displayDate(driveFile.modifiedTime)} localTime ${this.displayDate(localTime)}`)
         console.log("is drive.getTime " + driveDate.getTime() +" less than local time? " + localTime 
         + " -> " + (driveDate.getTime()<localTime))
@@ -244,7 +244,7 @@ class Load extends React.Component{
         //this.saveLocalMeta();
         //game will be persisted to cloud on close
         //new game and load game set the filename of the game to be played
-        let filename = getStoreName(this.props.gamename, id);
+        let filename = getStoreName(this.props.id, id);
         console.log("load new game id: "+id+" name: " + filename);
         this.saveLocalMeta(id);
         this.setState({
@@ -266,12 +266,12 @@ class Load extends React.Component{
         console.log("saveLocalMeta new game name: " + id + " date: " + date.getTime());
         let localStorage = window.localStorage;
         //save metadata locally
-        localStorage.setItem(getMetaName(DATE, this.props.gamename, id), date.getTime());
-        localStorage.setItem(getMetaName(DESC, this.props.gamename, id), 'a game description');
+        localStorage.setItem(getMetaName(DATE, this.props.id, id), date.getTime());
+        localStorage.setItem(getMetaName(DESC, this.props.id, id), 'a game description');
     }
     onLoadGame(id){
         //use game + id as filename, set as filename
-        let filename = getStoreName(this.props.gamename, id);
+        let filename = getStoreName(this.props.id, id);
         console.log("load load game "+id+" name: " + filename);
         this.setState({
             filename,
@@ -286,12 +286,12 @@ class Load extends React.Component{
                     key: 'sync',
                     id: 'none',
                     position: 'right',
-                    component: <IconButton className={'no-fileId'} key={'none'} round={true} icon="sync" disabled />
+                    component: <IconButton className={'no-fileId'} key={'none'} text="sync" round={true} icon="sync" disabled />
                 },
                 {
                     key: 'cloud',
                     position: 'right',
-                    component: <IconButton key={'cloud'} round={true} icon="cloud" onInput={()=>{
+                    component: <IconButton key={'cloud'} round={true} icon="cloud" text="upload" onInput={()=>{
                         //console.log('load sync save button clicked! ' + fileId);
                         this.syncSaves(fileId, false)
                     }}/>
@@ -300,6 +300,7 @@ class Load extends React.Component{
                     key: 'back',
                     position: 'left',
                     component: <IconButton key={'back'} round={true} icon="back" onInput={()=>{
+                        console.log(`website game menu back button pressed`);
                         this.setState({
                             fileId: null, filename: null
                         })
@@ -312,7 +313,7 @@ class Load extends React.Component{
                     key: 'sync',
                     id: fileId,
                     position: 'right',
-                    component: <IconButton className={'fileId'} key={fileId} round={true} icon="sync" onInput={()=>{
+                    component: <IconButton className={'fileId'} key={fileId} round={true} text="sync" icon="sync" onInput={()=>{
                         //console.log('load sync save button clicked! ' + fileId);
                         this.syncSaves(SAVE_NAMES, true)
                     }}/>
@@ -320,7 +321,7 @@ class Load extends React.Component{
                 {
                     key: 'cloud',
                     position: 'right',
-                    component: <IconButton key={'cloud'} round={true} icon="cloud" disabled/>
+                    component: <IconButton key={'cloud'} round={true} icon="cloud" text="upload" disabled/>
                 },
                 {
                     key: 'back',
@@ -331,11 +332,12 @@ class Load extends React.Component{
         }
     }
     render(){
+        console.log(`website game load filename ${this.state.filename}`, this.state);
         if(this.state.filename){
             //savefile={this.state.filename}
             return(
                 <Store savefile={this.state.filename} reducers={this.props.reducers}>
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         this.saveGame(this.state.fileId);
                         }}>
                             save game to drive
@@ -344,7 +346,7 @@ class Load extends React.Component{
                         this.saveLocalMeta(this.state.fileId);
                         }}>
                             save local metadata
-                        </button>
+                        </button> */}
                     {this.props.children}
                 </Store>
               )

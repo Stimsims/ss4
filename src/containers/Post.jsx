@@ -4,62 +4,28 @@ import { withRouteData, Link } from 'react-static'
 //import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
-import Talkit from './../components/UI/elements/TalkitGame.jsx';
-import Container from './../components/UI/elements/Container';
 import Tags from './../components/layout/Tags.jsx';
-import Center from './../components/UI/elements/CenterBox';
-import Loading from './../components/UI/animations/Loading.jsx';
 import MyLog from 'MyLog';
-import Sankey from './../components/UI/graphs/SanKey.jsx';
 import Video from './../components/UI/elements/Video.jsx';
 import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';
 import Text from './../components/UI/elements/Text.jsx';
-//import katex from 'react-katex';
+
 class Post extends React.Component{
     constructor(props){
         super(props);
-        //iterate through content, create talkit for each game node
-       // console.log("Post constructor", props);
         MyLog('log', "Post constructor", props);
         let games = {};
-        if(props.item.content){
-            props.item.content.map((c, i) => {
-                if(c.type=="game"){
-                    games[i] = <Talkit tree={c.content}/>
-                }
-            })
-        }
+        // if(props.item.content){
+        //     props.item.content.map((c, i) => {
+        //         if(c.type=="game"){
+        //             games[i] = <Talkit tree={c.content}/>
+        //         }
+        //     })
+        // }
 
         this.state = {
             games
-        }
-    }
-
-    renderContent(){
-        if(this.props.item.content){
-            return this.props.item.content.map((c, i) => {
-                if(c.type == "text"){
-                    return <TextBox index={i}><Text tag={'p'} text={c.content} align={'left'}/></TextBox>
-                }else if(c.type == "game"){
-                    return this.state.games[i];
-                   // return <Game>{this.renderGame()}</Game>;
-                }else if(c.type === "tree"){
-                    return <TextBox index={i}><Sankey tree={c.content} /></TextBox>
-                }else if(c.type === "video"){
-                    return (
-                        <TextBox index={i}>
-                            <Sizer>
-                                <Video width={'100%'} vWidth={200} 
-                                    height={140} vHeight={120} 
-                                    position={'left'}
-                                    text={c.text}
-                                    url={`${c.url}`}/>
-                            </Sizer>
-                        </TextBox>
-                    )
-                }
-            })
         }
     }
 
@@ -69,7 +35,7 @@ class Post extends React.Component{
             <PostBox>
                 <Text tag={'h1'} text={this.props.item.title} />
                 <Tags tags={this.props.item.tags} />
-                {this.renderContent()}
+             
                 <Shareable>
                     <Icon icon={"done"} round={true} padding={'3px'}/>
                     <Icon icon={"delete"} round={true} padding={'3px'}/>
@@ -79,11 +45,6 @@ class Post extends React.Component{
             </PostBox>
           )
     }
-    // render(){
-    //     return(
-    //         <p>Post</p>
-    //     )
-    // }
 }
 Post.displayName='Post';
 export default withRouteData(Post);

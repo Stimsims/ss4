@@ -13,7 +13,7 @@ class SignIn extends React.Component{
         this.state = {
             rendered: false,
             width: 90,
-            height: 36
+            height: 48
         }
     }
     componentDidMount(){

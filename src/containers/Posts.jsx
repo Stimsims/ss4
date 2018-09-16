@@ -10,7 +10,7 @@ import PostItem from './../components/layout/PostItem.jsx';
 class Posts extends React.Component{
     constructor(props){
         super(props);
-        console.log("posts constructor", props);
+      //  console.log("posts constructor", props);
         this.state = {
             render: false
         }

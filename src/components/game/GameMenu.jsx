@@ -9,6 +9,12 @@ import {connect} from 'react-redux';
 class Menu extends React.Component{
     constructor(props){
         super(props);
+        console.log('GameMenu constructor props',props);
+    }
+    componentDidUpdate(prevProps){
+        if(prevProps.renderId !== this.props.renderId){
+            this.forceUpdate();
+        }
     }
     renderAdditionalMenuItems(position){
         console.log(`rendering ${this.props.menuItems.length} menu items`, this.props.menuItems);
@@ -32,7 +38,7 @@ class Menu extends React.Component{
                 </Left>
                 <Right>
                     {this.renderAdditionalMenuItems('right')} 
-                    <Icon icon={"settings"} round={true} />
+                    {/* <Icon icon={"settings"} round={true} /> */}
                     {/* <Icon icon={"save"} round={true} />
                     <Icon icon={"cloud"} round={true} /> */}
                     <span style={{display: 'inline-block', position: 'relative', float: 'right'}}>
@@ -43,7 +49,7 @@ class Menu extends React.Component{
         )
     }
 }
-
+Menu.displayName = 'GameMenu';
 export default withSiteData(Menu);
 // const mapStateToProps = (state) => {
 //     return {
@@ -57,9 +63,9 @@ export default withSiteData(Menu);
 
 const Bar = styled.div`
     display: flex;
-    background-color:red;
-    height: 36px;
+    height: ${props => props.theme[props.theme.theme].gameMenuHeight};
     position: relative;
+    border-bottom: 2px solid grey;
 `
 const Left = styled.div`
     align-self: flex-start;

@@ -28,7 +28,7 @@ bundleAnalyzer: true,
 
 export default {
   siteRoot: 'https://illulli-1e5a.com/',
- // bundleAnalyzer: true,
+  //bundleAnalyzer: true,
   getSiteData: () => ({
     siteTitle: 'Q Games',
     hello: 'world'
@@ -61,23 +61,6 @@ export default {
     ...makePages(posts, 100, 'posts','src/containers/Posts.jsx', 
     (cid)=>{return `/posts/${cid}`},'src/containers/Post.jsx', 
     {title: 'Posts', tag: null, tags, base: "posts",  pageToken: 'post'}),
-      //items, pageSize, parentPath, parentComponent, childPath, childComponent, childProps
-      //  {
-      //   path: '/posts',
-      //   component: 'src/containers/Posts.jsx',
-      //   getData: () => ({
-      //     items: posts,
-      //   }),
-      //   children: posts.map(p => {
-      //     return({
-      //       path: `/posts/${p.id}`,
-      //       component: 'src/containers/Post.jsx',
-      //       getData: () => ({
-      //         item: p,
-      //       }),
-      //     })
-      //   })
-      // },
     ...posts.map(post => ({
       path: `/posts/${post.id}`,
       component: 'src/containers/Post.jsx',
@@ -249,8 +232,8 @@ const extractUniqueValues = (p, key) => {
 
 //let t1 = makePages(t1, 100, 't1', 'src/containers/Posts', (cid)=>{return `/post/${cid}`}, 'src/containers/Post', {tag: "t1", tags, base: "t1"})
 const makePages = (items, pageSize, parentPath, parentComponent, childPath, childComponent, childProps) => {
-  console.log("making " + items.length + " pages for route " + parentPath);
-  console.log("make pages items: " + items.length + " page size " + pageSize);
+ // console.log("making " + items.length + " pages for route " + parentPath);
+ // console.log("make pages items: " + items.length + " page size " + pageSize);
   if(items.length > pageSize){
       //make paginated pages
       return makePageRoutes({

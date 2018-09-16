@@ -7,9 +7,9 @@ export default class Switch extends React.Component {
 
     constructor ( props ) {
         super( props );
-		
+		this.handleChange = this.handleChange.bind(this)
 		this.state = {
-			isChecked: null
+			isChecked: props.isChecked
 		}
     }
 	
@@ -17,6 +17,11 @@ export default class Switch extends React.Component {
 		this.setState( { isChecked: this.props.isChecked } );
 	}
 
+	handleChange(e){
+		//console.log('switch handleChange ' + e.target.value, e);
+		this.props.onInput(this.props.id, !this.state.isChecked);
+		this.setState( { isChecked: !this.state.isChecked } );
+	}
 
     render () {
 
@@ -24,7 +29,7 @@ export default class Switch extends React.Component {
             <View width={'94px'} height={20}>
                 <div className="switch-container">
                     <label>
-                        <input checked={ this.state.isChecked } onChange={ this._handleChange } className="switch" type="checkbox" />
+                        <input checked={ this.state.isChecked } onChange={ this.handleChange } className="switch" type="checkbox" />
                         <div>
                             {/* <span><g className="icon icon-toolbar grid-view"></g></span>
                             <span><g className="icon icon-toolbar ticket-view"></g></span> */}
@@ -34,11 +39,6 @@ export default class Switch extends React.Component {
                 </div>
             </View>
         );
-    }
-
-
-    _handleChange () {
-		this.setState( { isChecked: !this.state.isChecked } );
     }
 
 }

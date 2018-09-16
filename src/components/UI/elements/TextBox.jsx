@@ -39,7 +39,6 @@ const Box = styled.div`
                 return props.theme[props.theme.theme].bg1;
         }
     }};
-    padding: 0px;
     width: ${props=>props.width?props.width:'100%'};
     margin: 10px 0px;
     padding: ${props=>props.padding?props.padding:'10px'};

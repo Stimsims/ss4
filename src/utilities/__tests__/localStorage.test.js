@@ -68,8 +68,7 @@ describe('local storage utils', () => {
         
         query = new RegExp(`${variable}-h`);
         result = getSavedGameIds(iterable.iterator(), query);
-        expect(result).toEqual(['omg-hello'])
-
+        expect(result).toEqual(['omg-hello']);
         
         query = new RegExp(`${variable}-o`);
         result = getSavedGameIds(iterable.iterator(), query);
