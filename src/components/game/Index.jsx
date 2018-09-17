@@ -78,15 +78,15 @@ class Index extends React.Component{
     renderPersistStore(){
       return(
         <Table heights={['36px', null]}>
-          {/* <Settings game={this.state.game} registerMenuItem={this.registerMenuItem} setSettings={this.setSettings}>
+          <Settings game={this.state.game} registerMenuItem={this.registerMenuItem} setSettings={this.setSettings}>
               <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
               <Load id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
                   <Game game={this.state.game} {...this.state.settings} />
               </Load>
-          </Settings> */}
-          <Load id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
+          </Settings>
+          {/* <Load id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
                   <Game game={this.state.game} {...this.state.settings} />
-              </Load>
+              </Load> */}
         </Table>
       )
     }

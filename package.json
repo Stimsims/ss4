@@ -10,14 +10,13 @@
     "serve": "serve dist -p 3000",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "link": "npm link ./../../../Games/SampleGame && npm link ./../../../Games/FairyJoules && npm link ./../../../Games/MyGameLibs && npm link ./../../../Games/LabGame"
+    "link": "npm link ./../../../Games/SampleGame && npm link ./../../../Games/FairyJoules && npm link ./../../../Games/MyGameLibs && npm link ./../../../Games/MathLibs && npm link ./../../../Games/LabGame"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "d3-ease": "^1.0.3",
     "json-loader": "^0.5.7",
     "material-ui-icons": "^1.0.0-beta.36",
-    "nerdamer": "^0.7.16",
     "rc-slider": "^8.6.1",
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",

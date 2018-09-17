@@ -1,13 +1,6 @@
 import React from 'react'
-//import nerdamer from 'nerdamer/all';
-//import Katex from './../UI/math/Katex.jsx';
-//import {ResponsiveContainer, LineChart, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
-//import container from './../UI/elements/Container.jsx';
-//import accordion from './../UI/elements/Accordion.jsx';
 import styled from 'styled-components';
 import GameLibs from 'mygamelibs';
-//import ReactGA from 'react-ga';
-//import GameMenu from './GameMenu.jsx';
 
 class Game extends React.Component{
     constructor(props){
@@ -17,7 +10,7 @@ class Game extends React.Component{
             checkIn:{
                // katex: false,
                 recharts: false,
-                nerdamer: false
+                mathlibs: false
             },
             tools: {
                 //ReactGA,
@@ -39,7 +32,7 @@ class Game extends React.Component{
     componentWillMount(){
        //  this.importKatex();
          this.importGraph();
-         this.importNerdamer();
+         this.importMath();
     }
     areToolsReady(){
        // console.log("game tools ready? ");
@@ -53,50 +46,26 @@ class Game extends React.Component{
       //  console.log("game tools ready? " + ready, this.state);
         return ready;
     }
-    importNerdamer(){
-        import('nerdamer/all' /* webpackChunkName: 'myNerdamer' */)
+    importMath(){
+        import('MathLibs' /* webpackChunkName: 'MathLibs' */)
         .then(res => {
-            console.log('imported myNerdamer', res);
+            console.log('imported MathLibs', res);
             this.setState({
                     checkIn:{
                         ...this.state.checkIn,
-                        nerdamer: true
+                        mathlibs: true
                     },
                     tools:{
                         ...this.state.tools,
-                        nerdamer: res
+                        math: res.default
                     }
                 })
             })
         .catch(e => {
-            console.log('error importing myNerdamer', e);
+            console.log('error importing MathLibs', e);
         })
     }
-    // importKatex(){
-    //     import('./../UI/math/Katex.jsx' /* webpackChunkName: "mykatex" */ )
-    //     .then(r=>{
-    //         console.log("game tools katex checking in", r);
-    //         this.setState({
-    //             checkIn:{
-    //                 ...this.state.checkIn,
-    //                 katex: true
-    //             },
-    //             tools:{
-    //                 ...this.state.tools,
-    //                 views:{
-    //                     ...this.state.tools.views,
-    //                     katex: r.default
-    //                 }
-    //             }
-    //         })
-    //     })
-    //     .catch(e=>{
-    //         console.e("game tools error");
-    //         this.setState({
-    //             error: 'failed to fetch katex'
-    //         })
-    //     })
-    // }
+
     importGraph(){
         import('recharts' /* webpackChunkName: "myRecharts" */ )
         .then(r=>{
