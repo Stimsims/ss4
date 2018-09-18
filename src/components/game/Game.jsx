@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import GameLibs from 'mygamelibs';
+import {connect} from 'react-redux';
 
 class Game extends React.Component{
     constructor(props){
@@ -16,9 +17,7 @@ class Game extends React.Component{
                 //ReactGA,
                 views:{
                     ...GameLibs.views,
-                    //container,
                     styled,
-                    //accordion
                 },
                 utils:{
                     ...GameLibs.utilities
@@ -30,12 +29,10 @@ class Game extends React.Component{
         }
     }
     componentWillMount(){
-       //  this.importKatex();
          this.importGraph();
          this.importMath();
     }
     areToolsReady(){
-       // console.log("game tools ready? ");
         let ready = true;
         let keys = Object.keys(this.state.checkIn);
         keys.map(k => {
@@ -43,7 +40,6 @@ class Game extends React.Component{
                 ready = false;
             }
         })
-      //  console.log("game tools ready? " + ready, this.state);
         return ready;
     }
     importMath(){
@@ -109,12 +105,9 @@ class Game extends React.Component{
     }
 
     render(){
-       // console.log('rendering game with tools: ', this.state);
         if(this.areToolsReady()){
             return(
-                <div>
-                    <this.props.game tools={this.state.tools} />
-                </div>
+                <this.props.game tools={this.state.tools} />
             )
         }else{
             return <p>loading tools...</p>
@@ -122,4 +115,11 @@ class Game extends React.Component{
 
     }
 }
-export default Game;
+//export default Game;
+
+const mapStateToProps = (state, props) => {
+    return {
+        init: state.sim.initialized
+    }
+}
+export default connect(mapStateToProps)(Game);

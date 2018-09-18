@@ -1,19 +1,20 @@
 import React from 'react';
 import Store from './PersistStore.jsx';
-import {createFileWithJSONContent} from './../../utilities/fileUtils.js';
+import Game from './Game.jsx';
+import {createFileWithJSONContent, createFileWithHTML} from './../../utilities/fileUtils.js';
 import {Link} from 'react-static';
 import {buildFiles, getSavedGameIds, getLocalhostIterator} from './../../utilities/localStorageUtils.js';
 import {connect} from 'react-redux';
-import {listFilesByAppProp, getFile} from './../apis/DriveInterface.js';
+import {listFilesByAppProp, getFile, listFilesByName, exportFile, createDocument, createAFile, editFile} from './../apis/DriveInterface.js';
 import IconButton from './../UI/elements/IconButton.jsx';
 import LoadGameView from './LoadGameView.jsx';
-import Game from './Game';
 
 if (typeof window === 'undefined') {
     global.window = {}
 }
 
 function getStoreName(game, id){
+    console.log(`getStoreName id ${id}`, game);
     return `${game}-${id}`
 }
 
@@ -47,6 +48,8 @@ class Load extends React.Component{
         this.setState({
             local: this.getLocalSaves()
         })
+        
+
     }
     getLocalSaves(){
         let regexp = `${this.props.id}-(${SAVE_NAMES.join('|')})$`;
@@ -80,26 +83,43 @@ class Load extends React.Component{
        // console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
         if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
                //this.syncSaves();
+               console.log(`listFilesByName calling`);
+               //createAFile();
+               editFile('1860xM3H6oJa2juElgM2ccpdNKaG4812x',
+                `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type">
+                </head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">
+                <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;
+                line-height:1.15;orphans:2;widows:2;text-align:center">
+                <span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;
+                font-family:&quot;Arial&quot;;font-style:normal">OMG
+                </span></p>
+                <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;
+                widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;
+                font-size:17pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer! Commentab;e</span></p></body></html>`)
+               .then(r =>{
+                    console.log(`edit file result`, r);
+               })
+               .catch(e => {
+                   console.error(`edit file error `, e);
+               });
         }
         if(prevState.fileId !== this.state.fileId){
             this.registerMenuButtons(this.state.fileId)
         }
     }
-
+//"<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt"><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:center"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;font-family:&quot;Arial&quot;;font-style:normal">OMG</span></p><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer!</span></p></body></html>"
     
 
-    saveGame(fileId, driveId /* if null, must retrieve*/){
-        //get list of files with gamename: this.props.game
-        //let filename = getStoreName(this.props.gamename, SAVE_NAME);
+    saveGame(fileId, driveId /* if null, must retrieve*/){ //props.id->labgame, fileId->this.state.fileId->rose
         if(driveId){
             this.uploadFile(driveId, fileId);
         }else{
             let filename = getStoreName(this.props.id, fileId);
-            //console.log("saving game to drive name " + filename);           
+            console.log("saving game to drive name " + filename);           
             listFilesByAppProp(DRIVE_FILE_KEY, [filename])
             .then((response) => {
                     let list = response.result.files;
-                    //console.log("saving game, drive files found: " + list.length);
+                    console.log("saving game, drive files found: " + list.length);
                     if(list){
                         let id = list[0]?list[0].id:null;
                         //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
@@ -118,90 +138,99 @@ class Load extends React.Component{
     }
     uploadFile(driveId, fileId){
         let localStorage = window.localStorage;
-        let filename = getStoreName(this.props, fileId);
+        let filename = getStoreName(this.props.id, fileId);
         let updatedfile = localStorage.getItem('persist:' + filename)
-      //  console.log("saving game updated file from local", updatedfile);
+        console.log("creating json uploadFile filename " + filename, updatedfile);
         //TODO break into json file maker, and http request builder
         this.state.log.push(`building file request for cloud upload`);
         try{
-            createFileWithJSONContent(driveId, filename, 
-            [{key: DRIVE_FILE_KEY, value: filename}, {key: DRIVE_FILE_PROP_ID, value: fileId}],
-            updatedfile);
+            editFile(driveId, updatedfile, {DRIVE_FILE_KEY: filename, DRIVE_FILE_PROP_ID: fileId})
+            .then(r => {
+                console.log(`upload file response ${driveId}`, r);
+            })
+            .catch(e => {
+                console.log(`upload file error ${driveId}`, e);
+            })
+            // createFileWithJSONContent(driveId, filename, 
+            // [{key: DRIVE_FILE_KEY, value: filename}, {key: DRIVE_FILE_PROP_ID, value: fileId}],
+            // updatedfile);
         //    console.log("uploadFile successfully");
         }catch(e){
             console.error("uploadFile failed",e);
         }
         
     }
-
+//{"sim":"{\"view\":\"intro\",\"step\":0,\"measurement\":{},\"simulation\":{},\"flags\":{\"measureRadiation\":null},\"data\":{},\"log\":[],\"math\":{}}","ecs":"{\"named\":{},\"hasLocation\":{},\"hasPassagesTo\":{},\"math\":{}}","questions":"{}","_persist":"{\"version\":-1,\"rehydrated\":true}"}
     syncSaves(id, overwriteLocal /* optional */){
-        //this method initiates interaction with drive, check if is online before performing
-        //list files, compare modifiedDates, use id to download google drive file, place in localstorage
-        console.log('syncSaves for id ' + id, this);
-        if(id){
-            this.state.log.push('beginning sync with google drive to fetch save files');
-            this.setState({
-                syncing:true
-            })
-                //let localStorage = window.localStorage;
-            let names = Array.isArray(id)? id.map(n => {
-                return getStoreName(this.props.id, n);
-            }): [id];
-            console.log('syncsaves names', names);
-            listFilesByAppProp(DRIVE_FILE_KEY, names)
-            .then((response) => {
-                    console.log("load syncSaves response", response);
-                    let list = response.result.files;
-                    
-                    //console.log("loadinggame, drive files found: " + list.length);
-                    this.state.log.push(`recieved ${list.length} files`);
-                    if(list){
-                        if(list.length === 0){
-                            //first time uploading to cloud
-                            this.state.log.push(`0 files found on drive, uploading new game ${this.state.fileId} to cloud for first time`);
-                            this.saveGame(this.state.fileId);
-                        }
-                        list.map(item =>{
-                            console.log('syncSave: comparing file ', item);
-                            //extract driveId, and gameId
-                            let driveId = item.id;
-                            let gameId = item.appProperties[DRIVE_FILE_PROP_ID];
-                            let gameName = item.appProperties[DRIVE_FILE_KEY];
-                            this.state.log.push(`comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
-                           // console.log(`syncSave comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
-                            //let file = this.downloadSave(item);
+        console.log('syncSaves for id ' + id + " gapi " + this.props.gapi, this);
+        if(this.props.gapi){
+            if(id){
+                this.state.log.push('beginning sync with google drive to fetch save files');
+                this.setState({
+                    syncing:true
+                })
+                    //let localStorage = window.localStorage;
+                let names = Array.isArray(id)? id.map(n => {
+                    return getStoreName(this.props.id, n);
+                }): [id];
+                console.log('syncsaves names', names);
+                listFilesByAppProp(DRIVE_FILE_KEY, names)
+                .then((response) => {
+                        console.log("load syncSaves response", response);
+                        let list = response.result.files;
                         
-                            if(overwriteLocal && this.isLocalLater(item)){
-                            //  console.log("drive file modified later than local file, downloading");
-                                this.state.log.push(`most recent file is ahead of local file, overwriting local file`);
-                                getFile(item.id).then(res => {
-                                //  console.log('syncSave test downloaded file  for ' +gameName, res);
-                                    this.overwriteLocalSave(gameId, gameName, res.result);
-                                }).catch(e => {
-                                    //console.log('syncSaves getFile catch block error', e);
-                                    this.state.log.push(`failed to retrieve file ` + driveId);
-                                    throw new Error('error during getFile call to google drive', e);
-                                })
-                            }else{
-                            // console.log("local file is later than drive file, uploading to cloud");
-                                this.state.log.push(`most recent file is behind local file, overwriting cloud file`);
-                                this.saveGame(gameId, driveId);    
+                        //console.log("loadinggame, drive files found: " + list.length);
+                        this.state.log.push(`recieved ${list.length} files`);
+                        if(list){
+                            if(list.length === 0){
+                                //first time uploading to cloud
+                                this.state.log.push(`0 files found on drive, uploading new game ${this.state.fileId} to cloud for first time`);
+                                this.saveGame(this.state.fileId);
                             }
-                        })
-                    }else{
-                        throw new Error('syncing failed, no load games found');
-                    }
-            })
-            .catch((err) => {
-                console.log("syncSaves catch block called, throwing error", err);
-                this.syncFinished();
-            })
+                            list.map(item =>{
+                                console.log('syncSave: comparing file ', item);
+                                //extract driveId, and gameId
+                                let driveId = item.id;
+                                let gameId = item.appProperties[DRIVE_FILE_PROP_ID];
+                                let gameName = item.appProperties[DRIVE_FILE_KEY];
+                                this.state.log.push(`syncSave comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
+                            // console.log(`syncSave comparing file driveId: ${driveId} gameId: ${gameId} gameName: ${gameName}`);
+                                //let file = this.downloadSave(item);
+                            
+                                if(overwriteLocal && this.isLocalLater(item)){
+                                //  console.log("drive file modified later than local file, downloading");
+                                    this.state.log.push(`most recent file is ahead of local file, overwriting local file`);
+                                    getFile(item.id).then(res => {
+                                    //  console.log('syncSave test downloaded file  for ' +gameName, res);
+                                        this.overwriteLocalSave(gameId, gameName, res.result);
+                                    }).catch(e => {
+                                        //console.log('syncSaves getFile catch block error', e);
+                                        this.state.log.push(`failed to retrieve file ` + driveId);
+                                        throw new Error('error during getFile call to google drive', e);
+                                    })
+                                }else{
+                                // console.log("local file is later than drive file, uploading to cloud");
+                                    this.state.log.push(`most recent file is behind local file, overwriting cloud file`);
+                                    this.saveGame(gameId, driveId);    
+                                }
+                            })
+                        }else{
+                            throw new Error('syncing failed, no load games found');
+                        }
+                })
+                .catch((err) => {
+                    console.log("syncSaves catch block called, throwing error", err);
+                    this.syncFinished();
+                })
+            }else{
+                console.warn('will not sync when fileId is undefined');
+            }
         }else{
-            console.warn('will not sync when fileId is undefined');
+            console.warn(`not signed in, cannot upload`);
         }   
     }
     syncFinished(){
-        this.state.log.push(`syncing finished`);
+        // this.state.log.push(`syncing finished`);
         this.setState({
             syncing:false,
             synced: true,
@@ -292,8 +321,10 @@ class Load extends React.Component{
                     key: 'cloud',
                     position: 'right',
                     component: <IconButton key={'cloud'} round={true} icon="cloud" text="upload" onInput={()=>{
-                        //console.log('load sync save button clicked! ' + fileId);
-                        this.syncSaves(fileId, false)
+                        console.log('load sync save button clicked! props' + fileId, this.props);
+                        console.log('load sync save button clicked! state' + fileId, this.state);
+                        this.saveGame(this.state.fileId); //TODO decide whose responsibility it is to pick fileId
+                        //this.syncSaves(fileId, false)
                     }}/>
                 },
                 {
@@ -336,7 +367,7 @@ class Load extends React.Component{
         if(this.state.filename){
             //savefile={this.state.filename}
             return(
-                <Store savefile={this.state.filename} reducers={this.props.reducers}>
+                <Store game={this.props.game} savefile={this.state.filename} reducers={this.props.reducers}>
                     {/* <button onClick={() => {
                         this.saveGame(this.state.fileId);
                         }}>
@@ -347,7 +378,8 @@ class Load extends React.Component{
                         }}>
                             save local metadata
                         </button> */}
-                    {this.props.children}
+                    {/* {this.props.children} */}
+                    {/* <Game game={this.props.game} /> */}
                 </Store>
               )
         }else{
@@ -364,6 +396,7 @@ class Load extends React.Component{
 const mapStateToProps = (state) => {
     return {
         gapi: state.gapi
+        //gapi: false
     }
 }
 

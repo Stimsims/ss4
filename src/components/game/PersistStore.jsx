@@ -8,6 +8,7 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { createTransform } from 'redux-persist';
+import Game from './Game.jsx';
 
 // const SetTransform = createTransform(
 //   // transform state on its way to being serialized and persisted.
@@ -34,9 +35,9 @@ import { createTransform } from 'redux-persist';
 
  //const pReducer = persistReducer(persistConfig, reducers);
 
-if (typeof window === 'undefined') {
-    global.window = {}
-}
+// if (typeof window === 'undefined') {
+//     global.window = {}
+// }
 
 
 class Persist extends React.Component{
@@ -47,37 +48,37 @@ class Persist extends React.Component{
             key: props.savefile,
             storage: storage,
             stateReconciler: autoMergeLevel2,
-            transforms: [
-                createTransform(
-                    (inboundState, key) => {
-                        // convert mySet to an Array.
-                        console.log('persist create transform inbound ' + key);
-                        return { ...inboundState};
-                    },
-                    // transform state being rehydrated
-                    (outboundState, key) => {
-                            // convert mySet back to a Set.
-                            console.log('persist create transform outbound ' + key);
-                            return { ...outboundState};
-                    },
-                    { whitelist: null}
-                ),
-            ]
+            // transforms: [
+            //     createTransform(
+            //         (inboundState, key) => {
+            //             // convert mySet to an Array.
+            //             console.log('persist create transform inbound ' + key);
+            //             return { ...inboundState};
+            //         },
+            //         // transform state being rehydrated
+            //         (outboundState, key) => {
+            //                 // convert mySet back to a Set.
+            //                 console.log('persist create transform outbound ' + key);
+            //                 return { ...outboundState};
+            //         },
+            //         { whitelist: null}
+            //     ),
+            // ]
         };
       this.pReducer = persistReducer(this.persistConfig, this.props.reducers);
-      this.store = createStore(this.pReducer,{},applyMiddleware(logger))
+      this.store = createStore(this.pReducer, {},applyMiddleware(logger))
       this.persistor = persistStore(this.store);
+      console.log(`persistor `, this.persistor);
     }
     render(){
+        //loading={<p>persisting!</p>} 
+        //need to make store accessible to game components
         return(
-          <Provider store={this.store}>
-            <PersistGate loading={<p>persisting!</p>} 
-                persistor={this.persistor}>
+          <Provider store={this.store}> 
+            <PersistGate persistor={this.persistor}>
 
-                    {this.props.children}
-                {/* <div>
+                  {/* {this.props.children} */}
                     <Game game={this.props.game}/>
-                </div> */}
                 </PersistGate>
           </Provider>
         )

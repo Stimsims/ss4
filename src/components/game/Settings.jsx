@@ -121,17 +121,17 @@ class Settings extends React.Component{
     }
     render(){
         if(this.state.open){
-            return <div>
+            return <Wrapper>
                 <Bar>
-                    <IconButton icon={'back'} round onInput={this.onClose}/>
+                    <IconButton icon={'up'} round onInput={this.onClose}/>
                     <h3 style={{display: 'inline'}}>Settings</h3>
                 </Bar>
                 <div style={{padding: '10px'}}>
                     {this.renderSettings()}
                 </div>
-            </div>
+            </Wrapper>
         }else{
-            return this.props.children
+            return null;
         }
     }
 
@@ -152,7 +152,12 @@ Settings.displayName = 'Settings';
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);
 
 
-
+const Wrapper = styled.div`
+    position: fixed;
+    left:0; right:0; top:0; bottom: 0;
+    z-index: 100;
+    background-color: ${props => props.theme[props.theme.theme].neutral};
+`
 
 const Bar = styled.div`
     background-color:red;

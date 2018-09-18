@@ -6,8 +6,6 @@ import Menu from './GameMenu.jsx';
 import styled from 'styled-components';
 import Table from './../UI/elements/Table.jsx';
 import Settings from './Settings.jsx';
-//import SampleGame from './SampleGame.jsx';
-// import samplegame from 'samplegame';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -39,8 +37,6 @@ class Index extends React.Component{
         })
     }
     registerMenuItem(items){
-      //is a component and the function to call onClick
-      //console.log("registerMenuItem starting menu items:", this.state.menuItems);
       items.map(item => {
         if(!this.menuKeys.has(item.key)){
           //delete old one, update object, keep key indexes the same
@@ -61,10 +57,6 @@ class Index extends React.Component{
      // console.log("registerMenuItem count ", this.menuItems);
     }
     buildMenuItems(){
-      // console.log('registerMenuItem buildMenuItems state items', this.state.menuItems);
-      // console.log('registerMenuItem buildMenuItems state keys', this.state.menuKeys);
-      // console.log('registerMenuItem buildMenuItems items', this.menuItems);
-      // console.log('registerMenuItem buildMenuItems keys', this.menuKeys);
       return this.state.menuItems.map(m => {
         return this.state.menuKeys.get(m);
       })
@@ -77,17 +69,18 @@ class Index extends React.Component{
     }
     renderPersistStore(){
       return(
-        <Table heights={['36px', null]}>
-          <Settings game={this.state.game} registerMenuItem={this.registerMenuItem} setSettings={this.setSettings}>
-              <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
-              <Load id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
-                  <Game game={this.state.game} {...this.state.settings} />
-              </Load>
-          </Settings>
-          {/* <Load id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
-                  <Game game={this.state.game} {...this.state.settings} />
-              </Load> */}
-        </Table>
+        <div style={{width: '100%', height: '100%'}}>
+          <Settings game={this.state.game} registerMenuItem={this.registerMenuItem} setSettings={this.setSettings} />
+          <Table heights={['36px', null]}>
+            
+            <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
+            <Load  game={this.state.game} id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
+                {/* <Game game={this.state.game} {...this.state.settings} /> */}
+            </Load>
+            
+          </Table>
+        </div>
+
       )
     }
 
