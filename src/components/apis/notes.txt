@@ -1,0 +1,43 @@
+google doc with a drawing and a graph
+
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head>
+<body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">
+<p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.149999976158142;text-align:center">
+<span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;font-family:&quot;Arial&quot;;
+    font-style:normal">OMG</span></p>
+<p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.149999976158142;text-align:left">
+<span style="color:#741b47;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Arial&quot;;
+    font-style:normal">Daily moisturizer! hello fucking world!!!!</span></p>
+<p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.149999976158142;text-align:left">
+<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) 
+    translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 212.70px; height: 189.50px;">
+<img alt="" src="https://docs.google.com/drawings/d/ssi0HLcAqRycGWAlwsuPvUg/image?parent=1ZedvnfNTjfF9_kF-sp0h42ZpBXY3jjYryS-LfxEKSKc&amp;
+    rev=5&amp;h=189&amp;w=212&amp;ac=1" style="width: 212.70px; height: 189.50px; margin-left: 0.00px; margin-top: 0.00px; 
+    transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+<p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.149999976158142;text-align:left">
+<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) 
+    translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 392.50px; height: 243.04px;">
+<img alt="" src="https://lh3.googleusercontent.com/dq2nGGs-k5wackvmnK_NAeR0f9qiOIzjxWvS2EU2R-ittj8yRna9q1R_3IrHKf0P2dyqfz_
+    498Su1RPMGUAoKvjqNYEEoHVC3UEolr1PNRhkkYfFJEgu0xjfNc5RUDReyOw4A0t_" style="width: 392.50px; height: 243.04px; margin-left: 0.00px; 
+    margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" 
+    title="Points scored"></span></p>
+<p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.149999976158142;height:11pt;
+text-align:left">
+<span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Arial&quot;;
+font-style:normal">
+</span></p></body></html>
+
+
+
+spreadsheet text/csv
+readReport body 
+,rose,tulip
+sweet,13,35
+savory,8,33
+umami,32,6
+salty,22,12
+        createAFile('application/vnd.google-apps.spreadsheet', 'text/csv', name + "2", `,rose,tulip
+        sweet,13,35
+        savory,8,33
+        umami,32,6
+        salty,22,12`)

@@ -5,7 +5,7 @@ import {createFileWithJSONContent, createFileWithHTML} from './../../utilities/f
 import {Link} from 'react-static';
 import {buildFiles, getSavedGameIds, getLocalhostIterator} from './../../utilities/localStorageUtils.js';
 import {connect} from 'react-redux';
-import {listFilesByAppProp, getFile, listFilesByName, exportFile, createDocument, createAFile, editFile} from './../apis/DriveInterface.js';
+import {listFilesByAppProp, getFile, listFilesByName, exportFile, createAFile, editFile} from './../apis/DriveInterface.js';
 import IconButton from './../UI/elements/IconButton.jsx';
 import LoadGameView from './LoadGameView.jsx';
 
@@ -110,7 +110,7 @@ class Load extends React.Component{
 //"<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt"><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:center"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;font-family:&quot;Arial&quot;;font-style:normal">OMG</span></p><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer!</span></p></body></html>"
     
 
-    saveGame(fileId, driveId /* if null, must retrieve*/){ //props.id->labgame, fileId->this.state.fileId->rose
+    saveGame(fileId, driveId /* if null, must retrieve*/, attemptCount = 0){ //props.id->labgame, fileId->this.state.fileId->rose
         if(driveId){
             this.uploadFile(driveId, fileId);
         }else{
@@ -130,9 +130,23 @@ class Load extends React.Component{
                 }
             )
             .catch(e => {
-                this.state.log.push(`failed to upload to cloud`);
+                //make file if doesn't exist?
+                this.state.log.push(`failed to upload to cloud, status ${e.status}`);
                 console.error('failed to upload save game', e);
-                this.syncFinished();
+                if(e.status === 404){
+                    //make a new file, call this function again with its id
+                    createAFile('application/vnd.google-apps.document', 'text/html', filename, 'body text', )
+                    .then(r => {
+                        console.log(`create file result`, r);
+                        let id = r.result.id;
+                    })
+                    .catch( e => {
+                        console.log(`create file error`, e);
+                    })
+                }else{
+                    this.syncFinished();
+                }
+                
             })
         }
     }
@@ -315,14 +329,14 @@ class Load extends React.Component{
                     key: 'sync',
                     id: 'none',
                     position: 'right',
-                    component: <IconButton className={'no-fileId'} key={'none'} text="sync" round={true} icon="sync" disabled />
+                    text: 'sync',
+                    component: <IconButton className={'no-fileId'} key={'none'} width={'100%'} round={true} icon="sync" disabled />
                 },
                 {
                     key: 'cloud',
                     position: 'right',
-                    component: <IconButton key={'cloud'} round={true} icon="cloud" text="upload" onInput={()=>{
-                        console.log('load sync save button clicked! props' + fileId, this.props);
-                        console.log('load sync save button clicked! state' + fileId, this.state);
+                    text: 'upload',
+                    component: <IconButton key={'cloud'} round={true} width={'100%'} bgColor="orange" icon="cloud"  onInput={()=>{
                         this.saveGame(this.state.fileId); //TODO decide whose responsibility it is to pick fileId
                         //this.syncSaves(fileId, false)
                     }}/>
@@ -344,7 +358,8 @@ class Load extends React.Component{
                     key: 'sync',
                     id: fileId,
                     position: 'right',
-                    component: <IconButton className={'fileId'} key={fileId} round={true} text="sync" icon="sync" onInput={()=>{
+                    text: 'sync',
+                    component: <IconButton className={'fileId'} key={fileId} width={'100%'} round={true} icon="sync" onInput={()=>{
                         //console.log('load sync save button clicked! ' + fileId);
                         this.syncSaves(SAVE_NAMES, true)
                     }}/>
@@ -352,7 +367,8 @@ class Load extends React.Component{
                 {
                     key: 'cloud',
                     position: 'right',
-                    component: <IconButton key={'cloud'} round={true} icon="cloud" text="upload" disabled/>
+                    text: 'upload',
+                    component: <IconButton key={'cloud'} round={true} width={'100%'} bgColor="orange" icon="cloud" disabled/>
                 },
                 {
                     key: 'back',
@@ -367,19 +383,9 @@ class Load extends React.Component{
         if(this.state.filename){
             //savefile={this.state.filename}
             return(
-                <Store game={this.props.game} savefile={this.state.filename} reducers={this.props.reducers}>
-                    {/* <button onClick={() => {
-                        this.saveGame(this.state.fileId);
-                        }}>
-                            save game to drive
-                        </button>
-                        <button onClick={() => {
-                        this.saveLocalMeta(this.state.fileId);
-                        }}>
-                            save local metadata
-                        </button> */}
+                <Store savefile={this.state.filename} reducers={this.props.reducers}>
                     {/* {this.props.children} */}
-                    {/* <Game game={this.props.game} /> */}
+                    <Game filename={this.state.filename} gamename={this.props.id} game={this.props.game} settings={this.props.settings} />
                 </Store>
               )
         }else{

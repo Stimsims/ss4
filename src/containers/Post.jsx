@@ -15,7 +15,6 @@ class Post extends React.Component{
     constructor(props){
         super(props);
         MyLog('log', "Post constructor", props);
-        let games = {};
         // if(props.item.content){
         //     props.item.content.map((c, i) => {
         //         if(c.type=="game"){
@@ -24,18 +23,24 @@ class Post extends React.Component{
         //     })
         // }
 
-        this.state = {
-            games
-        }
+        // this.state = {
+        //     games
+        // }
     }
-
+    renderText(){
+        return this.props.item.content.map(e => {
+            return <p style={{color:'green'}}>{e}</p>
+        })
+    }
     render(){
         //return null;
         return (
             <PostBox>
-                <Text tag={'h1'} text={this.props.item.title} />
+                <Text tag={'h1'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 <Tags tags={this.props.item.tags} />
-             
+                <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
+                <Video url={this.props.item.youtube} />
+                {this.renderText()}
                 <Shareable>
                     <Icon icon={"done"} round={true} padding={'3px'}/>
                     <Icon icon={"delete"} round={true} padding={'3px'}/>

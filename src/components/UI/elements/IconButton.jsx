@@ -1,20 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import iDel from './../../../assets/baseline-delete-24px.svg';
-import iDone from './../../../assets/baseline-done-24px.svg';
-import iCached from './../../../assets/baseline-cached-24px.svg';
-import iArrow from './../../../assets/baseline-keyboard_arrow_right-24px.svg';
-import iSave from './../../../assets/baseline-save-24px.svg';
-import iSettings from './../../../assets/baseline-settings-20px.svg';
-import iUpArrow from './../../../assets/baseline-keyboard_arrow_up-24px.svg';
-import iPlay from './../../../assets/baseline-play_arrow-24px.svg';
-import iMore from './../../../assets/baseline-more_vert-24px.svg';
-import iBack from './../../../assets/round-arrow_back-24px.svg';
-import iSync from './../../../assets/round-autorenew-24px.svg';
-import iCloud from './../../../assets/round-cloud_upload-24px.svg';
+import Icon from './Icon.jsx';
 
-
-class Icon extends React.Component {
+const WIDTH = '44';
+class IconBtn extends React.Component {
     constructor(props) {
       super(props);
       //console.log("IconButton constructor props", props)
@@ -29,135 +18,98 @@ class Icon extends React.Component {
                 return 'orange';
         }
     }
-    getImg(img){
-        switch(img){
-            case 'delete':
-                return iDel;
-            case 'done':
-                return iDone;
-            case 'cached':
-                return iCached;
-            case 'arrow':
-                return iArrow;
-            case 'save':
-                return iSave;
-            case 'settings':
-                return iSettings;
-            case 'up':
-                return iUpArrow;
-            case 'play':
-                return iPlay;
-            case 'more':
-                return iMore;
-            case 'back':
-                return iBack;
-            case 'cloud':
-                return iCloud;
-            case 'sync':
-                return iSync;
-        }
-    }
     wrapButton(icon){
+        let disabled = {};
+        if(this.props.disabled) disabled.disabled=true;
         if(this.props.text){
-            return <TextBtn  onClick={this.props.onInput}>
-                {icon}
-                <Label>{this.props.text}</Label>
-            </TextBtn> 
+            return (
+                <TextBtn round={this.props.round} 
+                className={this.props.classes} {...disabled} onClick={this.props.onInput}>
+                    <Overlay/>
+                        {icon}
+                        <Label>{this.props.text}</Label>
+                </TextBtn>
+            )
         }else{
-            return <span style={{display:'inline-block', padding: '5px'}}>{icon}</span>;
+            return (
+                <Btn round={this.props.round} className={this.props.classes} {...disabled} 
+                onClick={this.props.onInput} >
+                        <Overlay width={`${WIDTH}px`} round={'50%'} />
+                        {icon}
+                </Btn>
+            )
+
         }
     }
     render() {
-        //themeprovider provides base theme, can be overridden
-        if(this.props.disabled){
-            return (
-                this.wrapButton(<Btn disabled className={this.props.classes} padding={this.props.padding}
-                    disabled={true}  onClick={this.props.onInput} round={this.props.round}>
-                    <img src={this.getImg(this.props.icon)}/>
-                </Btn>)
-            )
-        }else{
-            return (
-                this.wrapButton(<Btn className={this.props.classes} padding={this.props.padding} bg={this.props.bg} 
-                    hover={this.props.hover} 
-                    onClick={this.props.onInput} round={this.props.round}>
-                    <img src={this.getImg(this.props.icon)}/>
-                </Btn>)
-            )
-        }
+        return (
+            this.wrapButton(<Icon width={`${WIDTH}px`} height={`${WIDTH}px`} icon={this.props.icon} />)
+        )
     }
 }
 
-export default Icon;
-
+export default IconBtn;
+const Overlay = styled.span`
+    
+    text-align: center;
+    vertical-align: middle;
+    z-index: 999; 
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+    margin: auto;
+    transition: all 1s ease;
+    background-color: rgba(255,255,255,0);
+    &:hover{
+        background-color: rgba(255,255,255,0.1);
+    }
+`
 const Label=styled.p`
-    padding: 5px;
-    display: inline-block;
-    visibility:hidden;
-    opacity:0;
+    display: block;
+    position: relative;
+    height: ${props => props.height?props.height+'px':props.theme[props.theme.theme].menuHeight};
+`
+/*
+border-radius: ${props => props.round?props.round:'0'}
+
     transition:visibility 0.3s linear,opacity 0.3s linear;
     transition: all 1s ease;
     @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
         visibility: visible;
         opacity:1;
     }
-`
-const TextBtn = styled.button`
-    height:100%;
-    display: inline-block;
-    background-color: ${props => props.theme[props.theme.theme].neutral};
-    border: none;
-    outline: 0;
-    padding: 0px 5px;
-    transition: background-color 1s ease;
-    &:hover{
+        &:hover{
         background-color: ${props => props.theme[props.theme.theme].neutralL};
     }
+    background-color: ${props=>props.theme[props.theme.theme].neutral}
+*/
+const TextBtn = styled.button`
+    height: 100%;
+    width: ${props => props.width?props.width:'auto'};
+    display:table-cell;
+    position: relative;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    background-color: ${props=>props.bgColor? props.bgColor:props.theme[props.theme.theme].neutral}
     p{
         padding: 0px 10px;
-        display: inline-block;
+        display: inline;
     }
 `
    //${props => props.primary ? 'blue' : props.theme.main}
-   const Btn = styled.button`
-    width:36px;
-    height:36px;
-    padding:${props=>props.padding?props.padding:'0'};
-    margin: 0px;
-    color: red;
-    opacity: ${props =>{
-        if(props.disabled){
-            return '0.2';
-        }else{
-            return '1'
-        }
-    }};
-    background-color: ${props =>{
-        if(props.disabled){
-            return props.theme[props.theme.theme].neutral
-        }else{
-            return props.theme[props.theme.theme].neutralL
-        }
-    }}; /* Blue background */
-    border: none; /* Remove borders */
-    cursor: pointer; /* Mouse pointer on hover */
-    outline: none;
-    border-radius:${props=>props.round? '50%':props.theme[props.theme.theme].roundCorners};
-    vertical-align: middle;
-    transition: background-color ${props=>props.theme[props.theme.theme].animS} ease-in;
-    &:hover, &:focus{
-        background-color: ${props => {
-            if(props.disabled){
-                return props.theme[props.theme.theme].neutral
-            }else{
-                return 'orange'
-            }
-        }};
-    };
-    img{  
-        margin: 0;
-        padding: 0;
-        border: none;
-        vertical-align: middle;
-    }
+const Btn = styled.button`
+    height: 100%;
+    position: relative;
+    display:table-cell;
+    background-color: ${props=>props.bgColor? props.bgColor:props.theme[props.theme.theme].neutral}
+    border: none;
+    outline: 0;
+    padding: 0 5px;
+    margin: 0;
 `

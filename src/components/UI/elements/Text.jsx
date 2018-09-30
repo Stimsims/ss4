@@ -53,9 +53,10 @@ const Wrapper = styled.span`
             }
         }};
         padding: ${props => props.padding? props.padding: '5px'};
-        font-size: ${props => props.size? props.size:'1em'};
+        
         @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
             padding: 10px;
         }
     }
 `
+//font-size: ${props => props.size? props.size:'1em'};

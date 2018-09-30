@@ -5,6 +5,7 @@ import Game from './Game';
 import Menu from './GameMenu.jsx';
 import styled from 'styled-components';
 import Table from './../UI/elements/Table.jsx';
+import Sizer from './../UI/elements/Sizer.jsx';
 import Settings from './Settings.jsx';
 
 if (typeof window === 'undefined') {
@@ -73,8 +74,10 @@ class Index extends React.Component{
           <Settings game={this.state.game} registerMenuItem={this.registerMenuItem} setSettings={this.setSettings} />
           <Table heights={['36px', null]}>
             
-            <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
-            <Load  game={this.state.game} id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
+            <Sizer>
+              <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
+            </Sizer>
+            <Load  settings={this.state.settings} game={this.state.game} id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
                 {/* <Game game={this.state.game} {...this.state.settings} /> */}
             </Load>
             

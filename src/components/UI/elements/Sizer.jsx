@@ -26,7 +26,7 @@ export default class Sizer extends React.Component{
       }
       render(){
         return React.Children.map(this.props.children, (child, i) => {
-            return React.cloneElement(child, {scale: this.state.scale});
+            return React.cloneElement(child, {width: this.state.width, height: this.state.height, scale: this.state.scale});
         })
       }
 }

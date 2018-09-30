@@ -68,7 +68,7 @@ class Persist extends React.Component{
       this.pReducer = persistReducer(this.persistConfig, this.props.reducers);
       this.store = createStore(this.pReducer, {},applyMiddleware(logger))
       this.persistor = persistStore(this.store);
-      console.log(`persistor `, this.persistor);
+    //  console.log(`persistor `, this.persistor);
     }
     render(){
         //loading={<p>persisting!</p>} 
@@ -77,8 +77,8 @@ class Persist extends React.Component{
           <Provider store={this.store}> 
             <PersistGate persistor={this.persistor}>
 
-                  {/* {this.props.children} */}
-                    <Game game={this.props.game}/>
+                  {this.props.children}
+                    {/* <Game game={this.props.game}/> */}
                 </PersistGate>
           </Provider>
         )

@@ -45,10 +45,7 @@ const defaultSettings = [
         ]
     }
 ]
-//types of input - switch on/off
-//range - min/max
-//discrete options - small, medium, large
-//will get description of settings from game
+
 class Settings extends React.Component{
     constructor(props){
         super(props);
@@ -70,7 +67,7 @@ class Settings extends React.Component{
             {
                 key: 'settings',
                 position: 'right',
-                component: <IconButton round={true} icon="settings" text="settings" onInput={()=>{
+                component: <IconButton round={true} icon="settings" onInput={()=>{
                     this.setState({
                         open: true
                     })

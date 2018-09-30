@@ -52,6 +52,7 @@ export default class Youtube extends React.PureComponent{
                     height={`${this.state.height}`}
                     src={`${this.props.url}`} 
                     frameborder="0" allow="autoplay; encrypted-media" 
+                    encryptedMedia
                     allowfullscreen></iframe>
                 </Centered>
                 {this.renderText(this.props.text, this.state.position === 'right')}

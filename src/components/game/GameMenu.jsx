@@ -1,22 +1,25 @@
 import React from 'react';
-import { Link, withSiteData } from 'react-static'
+import { withSiteData } from 'react-static'
 import styled from 'styled-components';
-import Icon from './../UI/elements/IconButton.jsx';
 import SignInUi from './../apis/SignInUi.jsx';
-import Text from './../UI/elements/Text.jsx';
-import {connect} from 'react-redux';
+import ClassShare from './../apis/ClassShare.jsx';
+import IconButton from './../UI/elements/IconButton.jsx';
+import Dropdown from './../UI/elements/Dropdown/index.jsx';
 
 class Menu extends React.Component{
     constructor(props){
         super(props);
         console.log('GameMenu constructor props',props);
+        this.state = {
+            open: false
+        }
     }
     componentDidUpdate(prevProps){
         if(prevProps.renderId !== this.props.renderId){
             this.forceUpdate();
         }
     }
-    renderAdditionalMenuItems(position){
+    renderAdditionalMenuItems(position, wrapper){
         console.log(`rendering ${this.props.menuItems.length} menu items`, this.props.menuItems);
         return this.props.menuItems
         .filter(f => {
@@ -24,60 +27,103 @@ class Menu extends React.Component{
         })
         .map(m => {
             console.log("rendering menu item", m);
-            return m.component;
+            return wrapper(m);
         })
     }
     render(){
+        console.log(`gamemenu render `, this.props);
         //TODO game menu: make right div flexible width
-        return(
-            <Bar>
-                {/* <Text tag={'h1'} position={'absolute'} zIndex={'1'} margin={'0'} width={'100%'} text={this.props.title}/> */}
-                <Left>
-                    {/* <Link to={'/games'}><Icon icon={"back"} round={true} /></Link> */}
-                    {this.renderAdditionalMenuItems('left')} 
-                </Left>
-                <Right>
-                    {this.renderAdditionalMenuItems('right')} 
-                    {/* <Icon icon={"settings"} round={true} /> */}
-                    {/* <Icon icon={"save"} round={true} />
-                    <Icon icon={"cloud"} round={true} /> */}
-                    <span style={{display: 'inline-block', position: 'relative', float: 'right'}}>
-                    <SignInUi />
-                    </span>
-                </Right>
-            </Bar>
-        )
+        if(this.props.width < 500){
+            return (
+                <Bar>
+                    <Left>
+                        {this.renderAdditionalMenuItems('left', (item) => {return <span>{item.component}</span>})} 
+                    </Left>
+                    <Options>
+                        <Dropdown alignRight icon="more">
+                            {this.renderAdditionalMenuItems('right', (item) => {
+                                console.log(`rendering item in wrapper `, item)
+                                return (
+                                <div style={{textAlign: 'center'}}>
+                                        {item.component}
+                                        <p style={{display: 'inline'}}>{item.text}</p>
+                                </div>
+                            )})} 
+                            <div style={{textAlign: 'center'}}>
+                                <ClassShare />
+                            </div>
+                            <div style={{textAlign: 'center'}}>
+                                <SignInUi />
+                            </div>
+                        </Dropdown>
+                    </Options>
+                </Bar>
+            )
+        }else{
+            return(
+                <Bar>
+                    <Left>
+                        {this.renderAdditionalMenuItems('left', (item) => {return <span>{item}</span>})} 
+                    </Left>
+                        <span style={{display: 'block', position: 'relative', height:'100%', float: 'right', right: '168px'}}>
+                            {this.renderAdditionalMenuItems('right', (item) => {return <span>{item}</span>})} 
+                        </span>
+                        {/* {this.renderAdditionalMenuItems('right')}  */}
+                        <span style={{display: 'block', width: '48px', height:'100%', height: '48px', position: 'absolute', right: '120px'}}>
+                            <ClassShare />
+                        </span>
+                        <span style={{display: 'block', width: '120px', height:'100%', position: 'absolute', right: '0'}}>
+                            <SignInUi />
+                        </span>
+                </Bar>
+            )
+        }
+
     }
 }
 Menu.displayName = 'GameMenu';
 export default withSiteData(Menu);
-// const mapStateToProps = (state) => {
-//     return {
-//         gapi: state.gapi
-//     }
-// }
-
-// Menu.displayName = 'GameMenu';
-// export default connect(mapStateToProps)(Menu);
-
-
+const Pop = styled.div`
+    position: fixed;
+    right:0;
+    top:${props => props.theme[props.theme.theme].gameMenuHeight};
+    background-color: white;
+    text-align: center;
+`
+const Options=styled.span`
+    position: absolute; 
+    float:right; 
+    right:0px; top:0px;
+    borders: none;
+    height: 100%;
+    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+`
+/*
+    visibility: ${props=> {
+        console.log(`styled Pop propns`, props);
+        return props.open?'visible':'gone'
+    }};
+*/
 const Bar = styled.div`
-    display: flex;
     height: ${props => props.theme[props.theme.theme].gameMenuHeight};
     position: relative;
     border-bottom: 2px solid grey;
+    background-color: ${props=>props.theme[props.theme.theme].neutral};
 `
 const Left = styled.div`
+    float:left;
     align-self: flex-start;
     display: inline-block;
-    flex:1;
     height: 100%;
     z-index=2;
 `
 const Right = styled.div`
+    display: flex;
+    float:right;
+    justify-content: flex-end;
+    align-items: flex-end;
     align-self: flex-end;
     display: block;
-    width: auto;
     position: relative;
     height: 100%;
     z-index=2;

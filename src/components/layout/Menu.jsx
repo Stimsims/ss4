@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from './../UI/elements/IconButton.jsx';
 import Dropdown from './../UI/elements/Dropdown/index.jsx';
-import iArrow from './../../assets/baseline-keyboard_arrow_right-24px.svg';
+
 
 
 export class Menu extends React.Component{
@@ -50,18 +50,24 @@ export class Menu extends React.Component{
 
     renderDrop(){
         //to={`/${this.state.path[0]? this.state.path[0]: ''}`} 
-        return (<Dropdown links={this.state.categories}>
-                        <Link className="dropbtn" tabIndex="1" style={{verticalAlign: 'middle', height: '50px'}}>
-                            <h4 style={{verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block'}}>{this.state.path[0]? this.state.path[0]: ''}</h4>
-                            <DropArrow />
-                        </Link>
+        return (<Dropdown alignLeft alignRight icon={'arrow'} text={this.state.path[0]? this.state.path[0]: ''} rotate={'90'}>
+                        {this.state.categories.map(e=>{
+                            return <Link to={e.to} style={{display: 'block'}}>{e.text}</Link>
+                        })}
             </Dropdown>)
     }
     renderMore(){
+        let items = [{text: '', to: null}, {text: 'privacy', to: '/privacy'}, {text: 'about', to: '/about'},{text: 'settings', to: '/settings'}];
        return (
-        <Dropdown links={[  {text: 'privacy', to: '/privacy'}, {text: 'about', to: '/about'},
-        {text: 'settings', to: '/settings'}]}>
-            <Icon classes="dropbtn" tabIndex="1" icon={"more"} hover={'grey'}/>
+        <Dropdown alignRight icon={'more'} round={'50%'}>
+            {items.map(e => {
+                if(e.to){
+                    return <Link to={e.to} style={{display: 'block'}}>{e.text}</Link>
+                }else{
+                    return <span />
+                }
+                
+            })}
         </Dropdown>
        )
     }
@@ -139,33 +145,16 @@ Menu.PropTypes = {
 
 const Options=styled.span`
     position: absolute; 
-    float:right; right:7px; top:7px; height: 50px;
+    float:right; 
+    right:0px; top:0px;
     borders: none;
-`
-const Drop = styled.div`
-    position: absolute;
-    z-index: 100; 
-    padding: 10px; 
-    background-color: white;
-    .active {
-        h4 {
-            color: ${props=>props.theme[props.theme.theme].textInverted} !important;
-        }
-    }
-    .drop-item{
-        display:block;
-        h4 {
-            color: ${props=>props.theme[props.theme.theme].text};
-        }
-        &:hover{
-            background-color: grey;
-        }
-    }
-
+    outline: 0;
+    height: 100%;
+    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
 `
 const PostTitle = styled.h1`
     font-size: ${props=>props.theme[props.theme.theme].textSizeM};
-    color: ${props=>props.theme[props.theme.theme].primaryL};
+    color: yellow;
     padding-left: ${props=>props.theme[props.theme.theme].spaceM}px;
     display: inline-block;
 `
@@ -193,26 +182,22 @@ const FlexChild = styled.span`
     }
     .title{
         h2:{
-            color: ${props=>props.theme[props.theme.theme].primaryL}
-        }
-        &:hover{
-            background-color: white;
+            color: magenta
         }
     }
     a{
-        padding:0 10px;
+        padding:0px 10px;
         color: ${props=>props.theme[props.theme.theme].text};
         transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+        height: 100%;
+        margin:0;
         &:hover{
-            background-color: ${props=>props.theme[props.theme.theme].neutral};
+            color: ${props=>props.theme[props.theme.theme].primary};
         }
     }
     a.active{
-        background-color: ${props=>props.theme[props.theme.theme].accent};
-        color: ${props=>props.theme[props.theme.theme].textInverted}
-        &:hover{
-            background-color: ${props=>props.theme[props.theme.theme].accentL};
-        }
+        color: ${props=>props.theme[props.theme.theme].primary};
+        background-color: ${props=>props.theme[props.theme.theme].neutralD};
     }  
 `
 
@@ -245,13 +230,3 @@ const Wrapper = styled.span`
     }
 `
 
-const DropArrow = styled.div`
-    height: ${props=>props.theme[props.theme.theme].menuHeight};
-    width: 36px;
-    float: right;
-    display: inline-block;
-    background-image: url(${iArrow});
-    background-repeat: no-repeat;
-    background-position: center; 
-    transform: rotate(90deg);
-`

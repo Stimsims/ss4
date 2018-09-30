@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
-var SCOPES = 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appfolder';
+import keys from './keys';
+import styled from 'styled-components';
+//var SCOPES = 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appfolder https://www.googleapis.com/auth/spreadsheets';
 class SignIn extends React.Component{
     constructor(props){
         super(props);
@@ -12,7 +13,7 @@ class SignIn extends React.Component{
         this.getSignInBtn = this.getSignInBtn.bind(this);
         this.state = {
             rendered: false,
-            width: 90,
+            width: 120,
             height: 48
         }
     }
@@ -29,7 +30,7 @@ class SignIn extends React.Component{
                 signedIn: this.props.gapi.isSignedIn
             })
             gapi.signin2.render('g-signin2', {
-                'scope': SCOPES,
+                'scope': keys.SCOPES,
                 'width': this.state.width,
                 'height': this.state.height,
                 'longtitle': false,
@@ -76,7 +77,7 @@ class SignIn extends React.Component{
         //if gapi is ready, show sign in/out btns
         return (
             <div style={{width: `${this.state.width}px`, height: `${this.state.height}px`}}>
-                <div id={"g-signin2"} style={{display: 'inline'}}></div>
+                <Btn id={"g-signin2"} />
                 {this.renderSignOutBtn()}
             </div>
         )
@@ -95,3 +96,10 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(SignIn)
+
+const Btn = styled.div`
+    display: inline;
+    .abcRioButton{
+        box-shadow: none;
+    }
+`
