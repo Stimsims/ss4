@@ -2157,9 +2157,9 @@ var Post = function (_React$Component) {
         //     })
         // }
 
-        // this.state = {
-        //     games
-        // }
+        _this.state = {
+            counter: 0
+        };
         return _this;
     }
 
@@ -2181,6 +2181,8 @@ var Post = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             //return null;
             return _react2.default.createElement(
                 PostBox,
@@ -2212,31 +2214,76 @@ var Post = function (_React$Component) {
                 }),
                 this.renderText(),
                 _react2.default.createElement(
-                    Shareable,
-                    {
-                        __source: {
+                    'body',
+                    { itemscope: true, itemtype: 'http://schema.org/Product', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 44
                         }
                     },
+                    _react2.default.createElement(
+                        'h1',
+                        { itemprop: 'name', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 45
+                            }
+                        },
+                        'Shiny Trinket'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { itemprop: 'description', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 46
+                            }
+                        },
+                        'Shiny trinkets are shiny. Count: ',
+                        this.state.counter
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this2.setState({
+                                    counter: _this2.state.counter + 1
+                                });
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 47
+                            }
+                        },
+                        'count'
+                    )
+                ),
+                _react2.default.createElement(
+                    Shareable,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 53
+                        }
+                    },
                     _react2.default.createElement(_IconButton2.default, { icon: "done", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 45
+                            lineNumber: 54
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "delete", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 46
+                            lineNumber: 55
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "cached", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 47
+                            lineNumber: 56
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "save", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 48
+                            lineNumber: 57
+                        }
+                    }),
+                    _react2.default.createElement('div', { 'class': 'g-plus', 'data-action': 'share', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 59
                         }
                     })
                 )
@@ -3632,7 +3679,8 @@ var Drop = function (_React$PureComponent) {
                     },
                     this.props.text ? _react2.default.createElement(
                         'h4',
-                        { style: { verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block', paddingLeft: '15px' }, __source: {
+                        { style: { verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block',
+                                paddingLeft: '15px' }, __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 33
                             }
@@ -3641,7 +3689,7 @@ var Drop = function (_React$PureComponent) {
                     ) : null,
                     _react2.default.createElement(DropArrow, { icon: this.props.icon, rotate: this.props.rotate, round: this.props.round, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 34
+                            lineNumber: 35
                         }
                     })
                 ),
@@ -3649,7 +3697,7 @@ var Drop = function (_React$PureComponent) {
                     'div',
                     { 'class': 'dropdown-content', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 38
+                            lineNumber: 39
                         }
                     },
                     this.props.children
@@ -11781,4 +11829,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.e9c62ecb.js.map
+//# sourceMappingURL=static.61d9f83e.js.map
