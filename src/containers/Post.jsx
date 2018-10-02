@@ -53,8 +53,8 @@ class Post extends React.Component{
         //   // Call the render method when appropriate within your app to display
         //   // the button.
         //   gapi.interactivepost.render('sharePost', options);
-          gapi.plus.render('gplus', {"href": "https://illulli-1e5a.com/posts/hello/", "width": "300", "height": "60", "theme": "light"});
-         // gapi.plus.go('gplus');
+         // gapi.plus.render('gplus', {"href": "https://illulli-1e5a.com/posts/hello/", "width": "300", "height": "60", "theme": "light"});
+          gapi.plus.go('gplus');
     }
     renderText(){
         return this.props.item.content.map(e => {
