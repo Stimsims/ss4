@@ -2351,7 +2351,7 @@ var Post = function (_React$Component) {
                     }),
                     _react2.default.createElement(
                         'div',
-                        { id: 'gplus', __source: {
+                        { id: 'gplus', className: 'gplus', __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 101
                             }
@@ -11915,4 +11915,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.9b11499c.js.map
+//# sourceMappingURL=static.08efb052.js.map
