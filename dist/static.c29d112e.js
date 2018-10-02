@@ -2190,7 +2190,7 @@ var Post = function (_React$Component) {
             //   // Call the render method when appropriate within your app to display
             //   // the button.
             //   gapi.interactivepost.render('sharePost', options);
-            gapi.plus.render('gplus', { "contenturl": "http://illulli-1e5a.com/posts/hello/", "href": "https://illulli-1e5a.com/posts/hello/",
+            gapi.plus.render('gplus', { "contenturl": "http://illulli-1e5a.com/posts/hello/", "href": "http://illulli-1e5a.com/posts/hello/",
                 "width": "200", "height": "20", "theme": "light" });
             // gapi.plus.go('gplus');
         }
@@ -11930,4 +11930,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.a5e13142.js.map
+//# sourceMappingURL=static.c29d112e.js.map
