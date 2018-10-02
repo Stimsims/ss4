@@ -41,7 +41,7 @@ class Post extends React.Component{
                 <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
                 <Video url={this.props.item.youtube} />
                 {this.renderText()}
-                <body itemscope itemtype="http://schema.org/Product">
+                <div itemscope={'true'} itemtype="http://schema.org/Product">
                     <h1 itemprop="name">Shiny Trinket</h1>
                     <p itemprop="description">Shiny trinkets are shiny. Count: {this.state.counter}</p>
                     <button onClick={()=>{
@@ -49,7 +49,7 @@ class Post extends React.Component{
                             counter: this.state.counter + 1
                         })
                     }}>count</button>
-                </body>
+                </div>
                 <Shareable>
                     <Icon icon={"done"} round={true} padding={'3px'}/>
                     <Icon icon={"delete"} round={true} padding={'3px'}/>
