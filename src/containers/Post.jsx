@@ -23,9 +23,9 @@ class Post extends React.Component{
         //     })
         // }
 
-        // this.state = {
-        //     games
-        // }
+        this.state = {
+            counter: 0
+        }
     }
     renderText(){
         return this.props.item.content.map(e => {
@@ -41,11 +41,22 @@ class Post extends React.Component{
                 <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
                 <Video url={this.props.item.youtube} />
                 {this.renderText()}
+                <body itemscope itemtype="http://schema.org/Product">
+                    <h1 itemprop="name">Shiny Trinket</h1>
+                    <p itemprop="description">Shiny trinkets are shiny. Count: {this.state.counter}</p>
+                    <button onClick={()=>{
+                        this.setState({
+                            counter: this.state.counter + 1
+                        })
+                    }}>count</button>
+                </body>
                 <Shareable>
                     <Icon icon={"done"} round={true} padding={'3px'}/>
                     <Icon icon={"delete"} round={true} padding={'3px'}/>
                     <Icon icon={"cached"} round={true} padding={'3px'}/>
                     <Icon icon={"save"} round={true} padding={'3px'}/>
+                    {/* <!-- Place this tag where you want the share button to render. --> */}
+                    <div class="g-plus" data-action="share"></div>
                 </Shareable>
             </PostBox>
           )

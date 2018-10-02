@@ -30,7 +30,8 @@ export default class Drop extends React.PureComponent{
         return(
             <Dropdown alignLeft={this.props.alignLeft} alignRight={this.props.alignRight} class="dropdown" >
                         <Link className="dropbtn" tabIndex="1">
-                            {this.props.text? <h4 style={{verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block', paddingLeft: '15px'}}>{this.props.text}</h4>:null}
+                            {this.props.text? <h4 style={{verticalAlign: 'middle', lineHeight: '50px', display: 'inline-block', 
+                            paddingLeft: '15px'}}>{this.props.text}</h4>:null}
                             <DropArrow icon={this.props.icon} rotate={this.props.rotate} round={this.props.round}/>
                             {/* <Icon icon={this.props.icon} rotate={this.props.rotate} round={this.props.round} colorKey={'neutral'} hoverKey={'primary'}/> */}
                         </Link>
