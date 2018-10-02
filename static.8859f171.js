@@ -2214,8 +2214,8 @@ var Post = function (_React$Component) {
                 }),
                 this.renderText(),
                 _react2.default.createElement(
-                    'body',
-                    { itemscope: true, itemtype: 'http://schema.org/Product', __source: {
+                    'div',
+                    { itemscope: 'true', itemtype: 'http://schema.org/Product', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 44
                         }
@@ -11829,4 +11829,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.61d9f83e.js.map
+//# sourceMappingURL=static.8859f171.js.map
