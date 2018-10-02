@@ -53,8 +53,9 @@ class Post extends React.Component{
         //   // Call the render method when appropriate within your app to display
         //   // the button.
         //   gapi.interactivepost.render('sharePost', options);
-         // gapi.plus.render('gplus', {"href": "https://illulli-1e5a.com/posts/hello/", "width": "300", "height": "60", "theme": "light"});
-          gapi.plus.go('gplus');
+          gapi.plus.render('gplus', {"contenturl": "https://illulli-1e5a.com/posts/hello/", "href": "https://illulli-1e5a.com/posts/hello/", 
+          "width": "200", "height": "20", "theme": "light"});
+         // gapi.plus.go('gplus');
     }
     renderText(){
         return this.props.item.content.map(e => {
@@ -99,6 +100,9 @@ class Post extends React.Component{
                     <Icon icon={"save"} round={true} padding={'3px'}/>
                     {/* <!-- Place this tag where you want the share button to render. --> */}
                     <div id="gplus" className={'gplus'}>shar</div>
+                    <a href="https://plus.google.com/share?url={https://illulli-1e5a.com/posts/hello/}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+  src="https://www.gstatic.com/images/icons/gplus-64.png" alt="Share on Google+"/></a>
                 </Shareable>
             </PostBox>
           )

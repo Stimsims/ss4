@@ -2190,8 +2190,9 @@ var Post = function (_React$Component) {
             //   // Call the render method when appropriate within your app to display
             //   // the button.
             //   gapi.interactivepost.render('sharePost', options);
-            // gapi.plus.render('gplus', {"href": "https://illulli-1e5a.com/posts/hello/", "width": "300", "height": "60", "theme": "light"});
-            gapi.plus.go('gplus');
+            gapi.plus.render('gplus', { "contenturl": "https://illulli-1e5a.com/posts/hello/", "href": "https://illulli-1e5a.com/posts/hello/",
+                "width": "200", "height": "20", "theme": "light" });
+            // gapi.plus.go('gplus');
         }
     }, {
         key: 'renderText',
@@ -2200,7 +2201,7 @@ var Post = function (_React$Component) {
                 //  return <p style={{color:'green', margin: 'auto'}}>{e}</p>
                 return _react2.default.createElement(_Text2.default, { tag: 'p', text: e, align: 'center', colorKey: 'text', width: '100%', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 62
+                        lineNumber: 63
                     }
                 });
             });
@@ -2214,7 +2215,7 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 67
+                            lineNumber: 68
                         }
                     },
                     'gapi?'
@@ -2225,7 +2226,7 @@ var Post = function (_React$Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 69
+                        lineNumber: 70
                     }
                 },
                 'no gapi'
@@ -2242,22 +2243,22 @@ var Post = function (_React$Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 74
+                        lineNumber: 75
                     }
                 },
                 _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 75
+                        lineNumber: 76
                     }
                 }),
                 _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 76
+                        lineNumber: 77
                     }
                 }),
                 _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 77
+                        lineNumber: 78
                     }
                 }),
                 _react2.default.createElement(
@@ -2266,7 +2267,7 @@ var Post = function (_React$Component) {
                             _this2.renderShare();
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 80
+                            lineNumber: 81
                         }
                     },
                     'rebder'
@@ -2275,14 +2276,14 @@ var Post = function (_React$Component) {
                     'div',
                     { style: { margin: 'auto', textAlign: 'center' }, itemscope: 'true', itemtype: 'http://schema.org/Product', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 81
+                            lineNumber: 82
                         }
                     },
                     _react2.default.createElement(
                         'h1',
                         { itemprop: 'name', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 82
+                                lineNumber: 83
                             }
                         },
                         'Shiny Trinket'
@@ -2291,7 +2292,7 @@ var Post = function (_React$Component) {
                         'p',
                         { itemprop: 'description', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 83
+                                lineNumber: 84
                             }
                         },
                         'Shiny trinkets are shiny. Count: ',
@@ -2305,7 +2306,7 @@ var Post = function (_React$Component) {
                                 });
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 84
+                                lineNumber: 85
                             }
                         },
                         'count'
@@ -2315,7 +2316,7 @@ var Post = function (_React$Component) {
                     'div',
                     { id: 'sharePost', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 90
+                            lineNumber: 91
                         }
                     },
                     'sharePost'
@@ -2326,37 +2327,51 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 94
+                            lineNumber: 95
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "done", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 96
+                            lineNumber: 97
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "delete", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 97
+                            lineNumber: 98
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "cached", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 98
+                            lineNumber: 99
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "save", round: true, padding: '3px', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 99
+                            lineNumber: 100
                         }
                     }),
                     _react2.default.createElement(
                         'div',
                         { id: 'gplus', className: 'gplus', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 101
+                                lineNumber: 102
                             }
                         },
                         'shar'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://plus.google.com/share?url={https://illulli-1e5a.com/posts/hello/}', onclick: 'javascript:window.open(this.href,\r \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 103
+                            }
+                        },
+                        _react2.default.createElement('img', {
+                            src: 'https://www.gstatic.com/images/icons/gplus-64.png', alt: 'Share on Google+', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 104
+                            }
+                        })
                     )
                 )
             );
@@ -11915,4 +11930,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.08efb052.js.map
+//# sourceMappingURL=static.a6852ea0.js.map

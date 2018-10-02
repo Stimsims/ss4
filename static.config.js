@@ -147,7 +147,8 @@ export default {
               content="width=device-width, initial-scale=1"
             />
             <meta name="robots" content="noindex" />
-            
+            <meta property="og:title" content="my og title" />
+            <meta property="og:description" content="my og description" />
             <title>My Title</title>
             {renderMeta.styleTags}
             
