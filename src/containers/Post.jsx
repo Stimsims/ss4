@@ -98,7 +98,7 @@ class Post extends React.Component{
                     <Icon icon={"cached"} round={true} padding={'3px'}/>
                     <Icon icon={"save"} round={true} padding={'3px'}/>
                     {/* <!-- Place this tag where you want the share button to render. --> */}
-                    <div id="gplus" >shar</div>
+                    <div id="gplus" className={'gplus'}>shar</div>
                 </Shareable>
             </PostBox>
           )
