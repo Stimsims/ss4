@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://illulli-1e5a.com/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 54);
@@ -2190,7 +2190,7 @@ var Post = function (_React$Component) {
             //   // Call the render method when appropriate within your app to display
             //   // the button.
             //   gapi.interactivepost.render('sharePost', options);
-            gapi.plus.render('gplus', { "href": "https://www.google.com", "width": "300", "height": "60", "theme": "light" });
+            gapi.plus.render('gplus', { "href": "https://illulli-1e5a.com/posts/hello/", "width": "300", "height": "60", "theme": "light" });
             // gapi.plus.go('gplus');
         }
     }, {
@@ -11915,4 +11915,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.b5310d30.js.map
+//# sourceMappingURL=static.fc7af809.js.map
