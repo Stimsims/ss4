@@ -13,37 +13,40 @@ export default class Text extends React.Component{
     render(){
         switch(this.props.tag){
             case 'h1':
-                return this.wrapText(<h1>{this.props.text}</h1>);
+                return this.wrapText(<h1 className={'my-text'}>{this.props.text}</h1>);
             case 'h2':
-                return this.wrapText(<h2>{this.props.text}</h2>);
+                return this.wrapText(<h2 className={'my-text'}>{this.props.text}</h2>);
             case 'h3':
-                return this.wrapText(<h3>{this.props.text}</h3>);
+                return this.wrapText(<h3 className={'my-text'}>{this.props.text}</h3>);
             case 'h4':
-                return this.wrapText(<h4>{this.props.text}</h4>);
+                return this.wrapText(<h4 className={'my-text'}>{this.props.text}</h4>);
             case 'h5':
-                return this.wrapText(<h5>{this.props.text}</h5>);
+                return this.wrapText(<h5 className={'my-text'}>{this.props.text}</h5>);
             case 'h6':
-                return this.wrapText(<h6>{this.props.text}</h6>);
+                return this.wrapText(<h6 className={'my-text'}>{this.props.text}</h6>);
             default:
-                return this.wrapText(<p>{this.props.text}</p>);
+                return this.wrapText(<p className={'my-text'}>{this.props.text}</p>);
         }
     }
 }
 
 const Wrapper = styled.span`
-    display: ${props => props.display?props.display:'inline-block'};
-    position: ${props => props.position? props.position: 'static'};
-    height: ${props => props.height? props.height: 'auto'};
-    width: ${props => props.width? props.width: 'auto'};
-    text-align: ${props => props.align?props.align:'center'};
-    margin: 0;
-    z-index: ${props => props.zIndex?props.zIndex: '1'};
-    h1, h2, h3, h4, h5, h6, p{
+
+    .my-text{
         margin: 0;
+        display: ${props => props.display?props.display:'inline-block'};
+        position: ${props => props.position? props.position: 'static'};
+    
+        margin: 0;
+        z-index: ${props => props.zIndex?props.zIndex: '1'};
+        height: ${props => props.height? props.height: 'auto'};
+        width: ${props => props.width? props.width: 'auto'};
+        text-align: ${props => props.align?props.align:'center'};
         line-height: ${props=>props.lineHeight?props.lineHeight:'normal'};
         display: ${props => props.display?props.display:'inline-block'};
         text-align: ${props => props.align?props.align:'center'};
         color: ${props => {
+           // return 'pink';
             if(props.color){
                 return props.color;
             }else if(props.colorKey){

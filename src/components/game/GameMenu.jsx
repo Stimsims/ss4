@@ -33,6 +33,7 @@ class Menu extends React.Component{
     render(){
         console.log(`gamemenu render `, this.props);
         //TODO game menu: make right div flexible width
+       // return <p>menu</p> // && this.props.width < 500
         if(this.props.width < 500){
             return (
                 <Bar>
@@ -63,12 +64,11 @@ class Menu extends React.Component{
             return(
                 <Bar>
                     <Left>
-                        {this.renderAdditionalMenuItems('left', (item) => {return <span>{item}</span>})} 
+                        {this.renderAdditionalMenuItems('left', (item) => {return <span>{item.component}</span>})} 
                     </Left>
                         <span style={{display: 'block', position: 'relative', height:'100%', float: 'right', right: '168px'}}>
-                            {this.renderAdditionalMenuItems('right', (item) => {return <span>{item}</span>})} 
+                            {this.renderAdditionalMenuItems('right', (item) => {return <span>{item.component}</span>})} 
                         </span>
-                        {/* {this.renderAdditionalMenuItems('right')}  */}
                         <span style={{display: 'block', width: '48px', height:'100%', height: '48px', position: 'absolute', right: '120px'}}>
                             <ClassShare />
                         </span>
@@ -105,11 +105,21 @@ const Options=styled.span`
     }};
 */
 const Bar = styled.div`
-    height: ${props => props.theme[props.theme.theme].gameMenuHeight};
+    height: ${props => {
+        console.log(`gamemenu styled bar props`, props);
+        return props.theme[props.theme.theme].gameMenuHeight
+    }};
     position: relative;
     border-bottom: 2px solid grey;
-    background-color: ${props=>props.theme[props.theme.theme].neutral};
+    background-color: ${props=>{
+        console.log(`gamemenu styled bar props`, props);
+        return props.theme[props.theme.theme].neutral
+    }};
 `
+// const Bar = styled.div`
+//     position: relative;
+//     border-bottom: 2px solid grey;
+// `
 const Left = styled.div`
     float:left;
     align-self: flex-start;

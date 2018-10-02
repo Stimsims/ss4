@@ -248,7 +248,7 @@ class Game extends React.Component{
     }
     //handles saving a report to the cloud
     render(){
-        if(false && this.areToolsReady()){
+        if(this.areToolsReady()){
             return(
                 <div style={{width: '100%', height: '100%'}}>
                     <this.props.game tools={this.state.tools} />

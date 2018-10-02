@@ -1,6 +1,7 @@
 
 import React from 'react'
-import { withRouteData, Link } from 'react-static'
+import { withRouteData, withSiteData, Link } from 'react-static'
+import {connect} from 'react-redux';
 //import Menu from './../components/layout/MainMenu.jsx';
 import Icon from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
@@ -27,21 +28,57 @@ class Post extends React.Component{
             counter: 0
         }
     }
+    componentDidMount(){
+        if(this.props.gapiReady){
+            //this.renderShare();
+        }
+    }
+    componentDidUpdate(prevProps){
+        if(this.props.gapiReady && !prevProps.gapiReady){
+           // this.renderShare();
+        }
+    }
+    renderShare(){
+        console.log(`post page rendering gapi share post `, this.props);
+        // var options = {
+        //     contenturl: 'https://plus.google.com/pages/',
+        //     contentdeeplinkid: '/pages',
+        //     clientid: '640363567361-na8ad159n3hsoa0tugsves1o8n6crsti.apps.googleusercontent.com',
+        //     cookiepolicy: 'single_host_origin',
+        //     prefilltext: 'omg share this!',
+        //     calltoactionlabel: 'CREATE',
+        //     calltoactionurl: 'http://plus.google.com/pages/create',
+        //     calltoactiondeeplinkid: '/pages/create'
+        //   };
+        //   // Call the render method when appropriate within your app to display
+        //   // the button.
+        //   gapi.interactivepost.render('sharePost', options);
+          gapi.plus.render('gplus', {"href": "https://www.google.com", "width": "300", "height": "60", "theme": "light"});
+         // gapi.plus.go('gplus');
+    }
     renderText(){
         return this.props.item.content.map(e => {
-            return <p style={{color:'green'}}>{e}</p>
+          //  return <p style={{color:'green', margin: 'auto'}}>{e}</p>
+            return <Text tag={'p'} text={e} align={'center'} colorKey={'text'} width={'100%'}/>
         })
+    }
+    renderGoogleShare(){
+        if(this.props.gapiReady){
+            return <p>gapi?</p>
+        }
+        return <p>no gapi</p>
     }
     render(){
         //return null;
         return (
             <PostBox>
-                <Text tag={'h1'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
+                <Text tag={'p'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 <Tags tags={this.props.item.tags} />
                 <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-                <Video url={this.props.item.youtube} />
-                {this.renderText()}
-                <div itemscope={'true'} itemtype="http://schema.org/Product">
+                {/* <Video url={this.props.item.youtube} /> */}
+                {/* {this.renderText()} */}
+                <button onClick={()=>{this.renderShare()}}>rebder</button>
+                <div style={{margin:'auto', textAlign: 'center'}} itemscope={'true'} itemtype="http://schema.org/Product">
                     <h1 itemprop="name">Shiny Trinket</h1>
                     <p itemprop="description">Shiny trinkets are shiny. Count: {this.state.counter}</p>
                     <button onClick={()=>{
@@ -50,20 +87,33 @@ class Post extends React.Component{
                         })
                     }}>count</button>
                 </div>
+                <div id="sharePost">
+                    sharePost
+                </div>
+                {this.renderGoogleShare()}
                 <Shareable>
+                    
                     <Icon icon={"done"} round={true} padding={'3px'}/>
                     <Icon icon={"delete"} round={true} padding={'3px'}/>
                     <Icon icon={"cached"} round={true} padding={'3px'}/>
                     <Icon icon={"save"} round={true} padding={'3px'}/>
                     {/* <!-- Place this tag where you want the share button to render. --> */}
-                    <div class="g-plus" data-action="share"></div>
+                    <div id="gplus" >shar</div>
                 </Shareable>
             </PostBox>
           )
     }
 }
 Post.displayName='Post';
-export default withRouteData(Post);
+const mapStateToProps = (state) =>{
+    console.log(`post mapStateToProps `, state);
+    return {
+        gapiReady: state.gapi.gapiReady
+    }
+}
+export default connect(mapStateToProps)(withSiteData(withRouteData(Post)));
+
+
 const PostBox = styled.div`
     height: 100%;
     width: 100%;
