@@ -2190,9 +2190,9 @@ var Post = function (_React$Component) {
             //   // Call the render method when appropriate within your app to display
             //   // the button.
             //   gapi.interactivepost.render('sharePost', options);
-            gapi.plus.render('gplus', { "contenturl": "https://illulli-1e5a.com/posts/hello/", "href": "https://illulli-1e5a.com/posts/hello/",
-                "width": "200", "height": "20", "theme": "light" });
-            // gapi.plus.go('gplus');
+            //gapi.plus.render('gplus', {"contenturl": "http://illulli-1e5a.com/posts/hello/", "href": "https://illulli-1e5a.com/posts/hello/", 
+            //"width": "200", "height": "20", "theme": "light"});
+            gapi.plus.go('gplus');
         }
     }, {
         key: 'renderText',
@@ -2352,7 +2352,7 @@ var Post = function (_React$Component) {
                     }),
                     _react2.default.createElement(
                         'div',
-                        { id: 'gplus', className: 'gplus', __source: {
+                        { id: 'gplus', className: 'gplus', 'data-action': 'share', __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 102
                             }
@@ -2361,7 +2361,7 @@ var Post = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'a',
-                        { href: 'https://plus.google.com/share?url={https://illulli-1e5a.com/posts/hello/}', onclick: 'javascript:window.open(this.href,\r \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;', __source: {
+                        { href: 'https://plus.google.com/share?url={http://illulli-1e5a.com/posts/hello/}', onclick: 'javascript:window.open(this.href,\r \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;', __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 103
                             }
@@ -11930,4 +11930,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.a6852ea0.js.map
+//# sourceMappingURL=static.248c990e.js.map
