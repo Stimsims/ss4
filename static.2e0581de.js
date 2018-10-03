@@ -2341,31 +2341,40 @@ var Post = function (_React$Component) {
                     },
                     this.props.item.tags.join()
                 ),
-                _react2.default.createElement(_Text2.default, { tag: 'p', itemprop: 'description', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 103
-                    }
-                }),
+                _react2.default.createElement(
+                    'span',
+                    { itemprop: 'description', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 103
+                        }
+                    },
+                    _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 104
+                        }
+                    })
+                ),
+                this.renderVideo(),
                 this.renderText(),
                 _react2.default.createElement(
                     Shareable,
                     { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 120
+                            lineNumber: 109
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                             window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 121
+                            lineNumber: 110
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                             window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 124
+                            lineNumber: 113
                         }
                     })
                 )
@@ -11990,4 +11999,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.d9f5b5b1.js.map
+//# sourceMappingURL=static.2e0581de.js.map
