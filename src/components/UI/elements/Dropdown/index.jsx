@@ -84,29 +84,27 @@ const Dropdown = styled.div`
         transition: all 1s ease;
         transition-delay: 0.2s;
         transform: translateY(50%) scaleY(0);
-        background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].neutral};
+        background-color: ${props=>props.theme[props.theme.theme].neutral};
         a{
-            color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].textInverted} !important;
+            color: green;
         }
     }
 
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
+    .dropdown-content a{
+        color: ${props=>props.theme[props.theme.theme].textInverted};
         padding: 12px 16px;
         text-decoration: none;
         display: inline-block;
+        &:hover{
+            background-color: red;
+        }
+        &:active, &:focus, &:selected{
+            background-color: blue;
+        }
     }
 
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:selected, .dropdown-content a:focus {background-color: #ddd;}
-    .dropdown-content a:hover {background-color: #ddd;}
-    .dropdown-content a:active {background-color: #ddd;}
-
     &:focus, &:hover, .dropdown:focus, .dropdown:hover{
-        background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].primary};
-        color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].primary};
+        background-color: red;
     }
 
     /* Show the dropdown menu on hover */

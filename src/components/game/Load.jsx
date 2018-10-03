@@ -85,28 +85,48 @@ class Load extends React.Component{
                //this.syncSaves();
                console.log(`listFilesByName calling`);
                //createAFile();
-               editFile('1860xM3H6oJa2juElgM2ccpdNKaG4812x',
-                `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type">
-                </head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">
-                <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;
-                line-height:1.15;orphans:2;widows:2;text-align:center">
-                <span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;
-                font-family:&quot;Arial&quot;;font-style:normal">OMG
-                </span></p>
-                <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;
-                widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;
-                font-size:17pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer! Commentab;e</span></p></body></html>`)
-               .then(r =>{
-                    console.log(`edit file result`, r);
-               })
-               .catch(e => {
-                   console.error(`edit file error `, e);
-               });
+            //    editFile('1860xM3H6oJa2juElgM2ccpdNKaG4812x',
+            //     `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            //     </head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">
+            //     <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;
+            //     line-height:1.15;orphans:2;widows:2;text-align:center">
+            //     <span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;
+            //     font-family:&quot;Arial&quot;;font-style:normal">OMG
+            //     </span></p>
+            //     <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;
+            //     widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;
+            //     font-size:17pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer! Commentab;e</span></p></body></html>`)
+            //    .then(r =>{
+            //         console.log(`edit file result`, r);
+            //    })
+            //    .catch(e => {
+            //        console.error(`edit file error `, e);
+            //    });
+            //exportFile();
         }
         if(prevState.fileId !== this.state.fileId){
             this.registerMenuButtons(this.state.fileId)
         }
     }
+    //listFilesByName = (names, mimeType)   exportFile = (id, mimeType) 
+    exportFile(){
+        console.log(`exporting charisma beginning`);
+        listFilesByName(['Charisma'], 'application/vnd.google-apps.document')
+        .then(r => {
+            console.log(`exporting charisma result`, r);
+            let id = r.result.files[0].id;
+            return exportFile(id, 'text/html');
+        })
+        .then(f => {
+            console.log(`exporting charisma export result`, f);
+
+        })
+        .catch(e => {
+            console.log('exporting charisma error',e);
+        })
+    }
+
+
 //"<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head><body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt"><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:center"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:24pt;font-family:&quot;Arial&quot;;font-style:normal">OMG</span></p><p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;widows:2;text-align:left"><span style="color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:&quot;Arial&quot;;font-style:normal">Daily moisturizer!</span></p></body></html>"
     
 
@@ -390,8 +410,13 @@ class Load extends React.Component{
               )
         }else{
             return(
-                <LoadGameView syncing={this.state.syncing} saves={this.state.local} log={this.state.log} 
+                <div>
+                    <button onClick={()=>{
+                        this.exportFile();
+                    }}>go</button>
+                    <LoadGameView syncing={this.state.syncing} saves={this.state.local} log={this.state.log} 
                         onNewGame={(id)=>{this.onNewGame(id)}} onLoadGame={(id)=>{this.onLoadGame(id)}} names={SAVE_NAMES} />
+                </div>
             )
         }
 

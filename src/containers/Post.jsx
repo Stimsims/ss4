@@ -11,33 +11,19 @@ import Video from './../components/UI/elements/Video.jsx';
 import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';
 import Text from './../components/UI/elements/Text.jsx';
-//import fb from './../assets/facebook-icon-white-logo-svg-vector.svg';
-import fb from './../assets/fbsmall.png';
 import {Helmet} from "react-helmet";
 
 class Post extends React.Component{
     constructor(props){
         super(props);
-        MyLog('log', "Post constructor", props);
+     //   MyLog('log', "Post constructor", props);
 
         this.state = {
             counter: 0,
             url: props.siteRoot + props.history.location.pathname
         }
-        //console.log(`post url ${this.state.url}`);
-        console.log(`post url ${this.state.url} root ${props.siteRoot}`, props); 
     }
-    componentDidMount(){
-       // console.log(`mypost href = ` + props.history.createHref());
-        if(this.props.gapiReady){
-            //this.renderShare();
-        }
-    }
-    componentDidUpdate(prevProps){
-        if(this.props.gapiReady && !prevProps.gapiReady){
-           // this.renderShare();
-        }
-    }
+
     renderShare(){
         console.log(`post page rendering gapi share post `, this.props);
         // var options = {
@@ -55,16 +41,14 @@ class Post extends React.Component{
         //   gapi.interactivepost.render('sharePost', options);
         //   gapi.plus.render('gplus', {"href": "https://www.youtube.com", 
         //   "width": "200", "height": "20", "theme": "light"});
-         // gapi.plus.go();
-          gapi.plusone.go();
-        //   gapi.plusone.render('shareable', {
-        //       height: "60", href: this.state.url, size: "standard"
-        //   })
+        //  gapi.plusone.go();
     }
     renderText(){
         return this.props.item.content.map(e => {
           //  return <p style={{color:'green', margin: 'auto'}}>{e}</p>
-            return <Text tag={'p'} text={e} align={'center'} width={'100%'}/>
+            return <TextBox>
+                <Text tag={'p'} text={e} align={'center'} width={'100%'}/>
+            </TextBox>
         })
     }
     renderGoogleShare(){
@@ -86,7 +70,7 @@ class Post extends React.Component{
     render(){
         //return null;
         return (
-            <PostBox >
+            <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
                 <Helmet>
                     <meta property="og:title" content={`${this.props.item.title}`} />
                     <meta property="og:description" content={`${this.props.item.description}`} />
@@ -95,19 +79,31 @@ class Post extends React.Component{
                     {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
-                <p>omg</p>
-                <span>
-                    <Text tag={'h1'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
+                <span itemprop="name">
+                    <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 </span>
                 <Tags tags={this.props.item.tags} />
-                <Hidden>{this.props.item.tags.join()}</Hidden>
-                {/* <span itemprop="description" itemprop="articleBody" itemprop="text">
-                    <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-                </span> */}
-                <p>hello world2</p>
+                {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
+
+                <VidBox>
+                    <TextBox style={{flex: '1'}} margin={'5px 0px'}>
+                        <span itemprop="description" >
+                            <Text tag={'p'} text={this.props.item.description} align={'center'} width={'100%'}/>
+                        </span>
+                    </TextBox>
+                    <div style={{width: '10px', height: '10px'}}></div>
+                    <div>
+                        {this.renderVideo()}
+                    </div>
+                </VidBox>
                 
-                {this.renderVideo()}
-                {this.renderText()}
+
+               
+                    <span itemprop="articleBody">
+                        {this.renderText()}
+                    </span>
+          
+                
                 <Shareable id="shareable">
                     <IconBtn icon={"gp"} round={true} padding={'3px'} color={'red'} onInput={()=>{
                         window.open(`https://plus.google.com/share?url=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
@@ -120,18 +116,7 @@ class Post extends React.Component{
           )
     }
 }
-/*
-<!-- Place this tag in your head or just before your close body tag. -->
-<script src="https://apis.google.com/js/platform.js" async defer>
-  {parsetags: 'explicit'}
-</script>
 
-<!-- Place this tag where you want the share button to render. -->
-<div class="g-plus" data-action="share" data-href="http://illulli-1e5a.com/posts/hello/"></div>
-
-<!-- Place this render call where appropriate. -->
-<script type="text/javascript">gapi.plus.go();</script>
-*/
 Post.displayName='Post';
 const mapStateToProps = (state) =>{
     console.log(`post mapStateToProps `, state);
@@ -141,48 +126,18 @@ const mapStateToProps = (state) =>{
 }
 export default connect(mapStateToProps)(withSiteData(withRouteData(Post)));
 const Hidden = styled.p`
-    visibility: none;
+    visibility: hidden;
+    height: 0; width: 0;
 `
-const FbLink = styled.span`
-.fb-share {
-    vertical-align: top;
-    display: inline-block;
-    position: relative;
-    height: 18px;
-    border: 1px solid #cad4e7;
-    border-radius: 3px;
-    background-color: #45619dff;
-    color: #3b5998;
 
-    text-decoration: none;
-    white-space: nowrap;
-    /* IE7 */
-    *display: inline;
-    *zoom: 1;
-  }
-  .fb-share:hover {
-    border-color: #9dacce;
-  }
-  .fb-share .fb-share-icon {
-    position: relative;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    top: 4px;
-    margin-right: 1px;
-    background-image: url(${fb});
-    /* IE7 */
-    *display: inline;
-    *zoom: 1;
-  }
-  .fb-share .fb-share-text {
-    line-height: 18px;
-    height: 18px;
-    color: white;
-    top: -4px;
-    font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
-    font-size: 11px;
-  }
+const VidBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding:0;
+    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+        flex-direction: row;
+    }
 `
 
 const PostBox = styled.div`
@@ -197,69 +152,9 @@ const PostBox = styled.div`
     }
 
 `
-const Box = styled.div`
-    height: 100%;
-    width: 100%;
-    vertical-align: middle;
-    margin: auto;
-    background-color: pink;
-    text-align: center;
-`
+
 const Shareable = styled.div`
     margin:auto;
     width: 100%;
     text-align: center;
 `
-const Title = styled.h2`
-    text-transformation: capitalize;
-    text-align: center;
-`
-
-
-/*
-
-
-const VideoBox = styled.div`
-    width: 100%;
-    height: 189px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    p{
-        display: inline;
-        float: left;
-        height: 100%;
-        flex: 1;
-    }
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
-        flex-direction: row;
-        div{
-            flex: 1;
-            display: inline;
-        }
-        p{
-            
-        }
-    }
-`
-
-
-
-
-
-
-
-
-
-
-
-    div{
-        height: 100%;
-        position: relative;
-        display: inline-block;
-        margin: auto;
-        min-width: 336px;
-        flex: 1;
-    }
-*/

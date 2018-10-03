@@ -2,6 +2,8 @@
 import React from 'react'
 import { withRouteData, Link, withSiteData } from 'react-static';
 import Bg from './../components/UI/elements/Background.jsx';
+import Text from './../components/UI/elements/Text.jsx';
+import Score from './../components/UI/elements/Score/index.jsx';
 import styled from 'styled-components';
 import Trends from './../components/UI/graphs/Trends.jsx';
 import MyLog from 'MyLog';
@@ -20,47 +22,42 @@ class Home extends React.Component{
     }
     render(){
         return (
-         <div style={{height: '100%', width: '100%'}}>
-          <Bg fixed={false} height={'100%'} z={1} width={'100%'} colorKey={'neutral'} margin={'0'} padding={'0px 0px 0px 0px'}>
-              <Trends/>
-          </Bg>
-          {/* <PostBox>
-                <Message>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua. 
-                </Message>
-                <PostWrapper>
-                {this.props.items.map(p=>{
-                      return <PostItem.component post={p} />
-                    })}
-                </PostWrapper>
-          </PostBox> */}
-        </div>
+         <Box>
+            <Text tag={'h2'} itemprop="name" text={'You?'} align={'center'} colorKey={'accent'} width={'100%'}/>
+            <Score score={'0.7'} title={'Probability'} desc={'success at estimating chance branching factor.'}/>
+            <Score score={0.2} title={'Charisma'} desc={'Knowing what to say and when to say it.'}/>
+        </Box>
         )
     }
 }
 Home.displayName='Home';
 export default withRouteData(Home);
-
-const Message = styled.h4`
-  font-size:1em;
-  color: rgb(255,255,255,1);
-  width:100%;
-  padding: 10px;
-  padding-bottom:0px;
-
+const Box = styled.div`
+    height: 100%;
+    width:100%;
+    margin: auto;
+    background-color ${props => props.theme[props.theme.theme].neutral};
+  
 `
-const PostWrapper = styled.div`
-  position: relative;
-  width: 100%;
-`
-const PostBox = styled.div`
-  position: absolute;
-  z-index: 10;
-  top: 100px;
-  width: 50%;
-  height: 50vh;
-  background-color: rgb(255,255,255,0.5);
-  margin-left: 55px;
+// const Message = styled.h4`
+//   font-size:1em;
+//   color: rgb(255,255,255,1);
+//   width:100%;
+//   padding: 10px;
+//   padding-bottom:0px;
 
-`
+// `
+// const PostWrapper = styled.div`
+//   position: relative;
+//   width: 100%;
+// `
+// const PostBox = styled.div`
+//   position: absolute;
+//   z-index: 10;
+//   top: 100px;
+//   width: 50%;
+//   height: 50vh;
+//   background-color: rgb(255,255,255,0.5);
+//   margin-left: 55px;
+
+// `

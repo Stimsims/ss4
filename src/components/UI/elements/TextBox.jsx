@@ -8,7 +8,7 @@ export default class Textbox extends React.Component{
 
     render(){
         return (
-            <Box width={this.props.width} padding={this.props.padding} index={this.props.index}>
+            <Box width={this.props.width} padding={this.props.padding} margin={this.props.margin} index={this.props.index}>
                 {this.props.children}
             </Box>
         )
@@ -40,7 +40,7 @@ const Box = styled.div`
         }
     }};
     width: ${props=>props.width?props.width:'100%'};
-    margin: 10px 0px;
+    margin: ${props => props.margin?props.margin: '10px 0px'};
     padding: ${props=>props.padding?props.padding:'10px'};
     @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
         padding: ${props=>props.padding?props.padding:'10px 20px'};

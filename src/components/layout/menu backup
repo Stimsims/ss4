@@ -10,24 +10,52 @@ import Dropdown from './../UI/elements/Dropdown/index.jsx';
 export class Menu extends React.Component{
     constructor(props){
         super(props);
+        let path = this.setPath(props.location.pathname);
+        let categories = [{to: '/games', text:'games'}, {to: '/posts', text:'posts'}, 
+        {to: '/t1', text:'t1'}];
+        categories.sort((x, y) => {
+            return x.text === path[0]?-1 : y.text===path[0]?1:0
+        })
         this.state = {
-            minimize: this.setMinimize(props.location.pathname)
+            path,
+            categories,
+            minimize: this.setMinimize(path)
         }
     }
     setMinimize(path){
-        let min = path.includes('/games/');
-        console.log(`Menu setMinimize path ${path} minimize? ${min}`)
-        return path.includes('/games/');
+        if(path){
+            return (path.length >= 2 && path[0] === 'games');
+        }
+        return true;
+    }
+    setPath(pathname){
+        if(pathname){
+            let path = pathname.split('/');
+            path = path.filter(p => {
+                return p !== '';
+            })
+            return path;
+        }
+        return null;
     }
     componentDidUpdate(prevProps, prevState){
         if(this.props.location.pathname !== prevProps.location.pathname){
-           // let path = this.setPath(this.props.location.pathname);
+            let path = this.setPath(this.props.location.pathname);
             this.setState({
-                minimize: this.setMinimize(this.props.location.pathname)
+                path,
+                minimize: this.setMinimize(path)
             })
         }
     }
 
+    renderDrop(){
+        //to={`/${this.state.path[0]? this.state.path[0]: ''}`} 
+        return (<Dropdown alignLeft alignRight icon={'arrow'} text={this.state.path[0]? this.state.path[0]: ''} rotate={'90'}>
+                        {this.state.categories.map(e=>{
+                            return <Link to={e.to} style={{display: 'block'}}>{e.text}</Link>
+                        })}
+            </Dropdown>)
+    }
     renderMore(){
         let items = [{text: '', to: null}, {text: 'privacy', to: '/privacy'}, {text: 'about', to: '/about'},{text: 'settings', to: '/settings'}];
        return (
@@ -44,22 +72,52 @@ export class Menu extends React.Component{
        )
     }
 
-    // getClassName(){
-    //     if(this.state.minimize){
-    //         return 'minimize'
-    //     }
-    //     return null;
-    // }
-
-    render(){
-        return(
-            <Wrapper>
-                    <Outer className={this.state.minimize?'minimize':''}>
+    renderPostHeading(){
+        if(this.state.path[1] && this.state.path[1] === 'page'){
+            return (
+                <p style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''} {this.state.path[2]? ' ' + this.state.path[2]: ''}</p>
+            )
+        }else{
+            return <PostTitle style={{fontSize: '1em', paddingLeft: '10px'}}>{this.state.path[1]? this.state.path[1]: ''}</PostTitle>
+        }
+    }
+    getClassName(){
+        if(this.state.minimize){
+            return 'minimize'
+        }
+        return null;
+    }
+    renderCat(){
+        //this.state.path[0]
+        if(this.state.path[0]){
+            return(
+                <Wrapper>
+                    <Outer className={this.getClassName()}>
                         <Container>
-                            <PostTitle><Link exact to="/" className={'title'}><h2>Title</h2></Link></PostTitle>
+                            <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
+                            <Mid key={"mid"} style={{flex: '0'}}/>
+                            <FlexChild key={this.state.path[0]? this.state.path[0]: ''}>
+                                {this.renderDrop()}
+                            </FlexChild>
+                            <FlexChild >
+                                {this.renderPostHeading()}
+                            </FlexChild>
+                            <Options key={"more"}>
+                                {this.renderMore()}   
+                            </Options>
+                        </Container>
+                    </Outer>
+                </Wrapper>
+            )
+        }else{
+            return(
+                <Wrapper>
+                    <Outer className={this.getClassName()}>
+                        <Container>
+                            <FlexChild ><Link exact to="/" className={'title'}><h2>Title</h2></Link></FlexChild>
                             <Mid key={"mid"} style={{flex: '1'}}/>
-                            <MenuItem key={"games"}><Link to="/games"><h4>Games</h4></Link></MenuItem>
-                            <MenuItem key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></MenuItem>
+                            <FlexChild key={"games"}><Link to="/games"><h4>Games</h4></Link></FlexChild>
+                            <FlexChild key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></FlexChild>
                             {/* <FlexChild key={"about"}><Link to="/about"><h4>About</h4></Link></FlexChild> */}
                             <Options key={"more"} >
                                 {this.renderMore()}   
@@ -67,6 +125,12 @@ export class Menu extends React.Component{
                         </Container>
                     </Outer>
                 </Wrapper>
+            )
+        }
+    }
+    render(){
+        return(
+            this.renderCat()
         )
     }
 }
@@ -93,17 +157,6 @@ const PostTitle = styled.h1`
     color: yellow;
     padding-left: ${props=>props.theme[props.theme.theme].spaceM}px;
     display: inline-block;
-    align-self: center;
-    height:100%;
-    h1, h2, p, h4, a{
-        line-height:50px;
-        height: 100%;
-        margin:0px auto;
-        padding:0px;
-        display: inline-block;
-        vertical-align: middle;
-        color: ${props=>props.theme[props.theme.theme].textInverted};
-    }
 `
 
 const Mid = styled.span`
@@ -112,7 +165,7 @@ const Mid = styled.span`
     transition: all ${props=>props.theme[props.theme.theme].animS} ease;
 `
 
-const MenuItem = styled.span`
+const FlexChild = styled.span`
     display: inline-block;
     align-self: center;
     height:100%;
@@ -127,6 +180,11 @@ const MenuItem = styled.span`
         vertical-align: middle;
         color: ${props=>props.theme[props.theme.theme].textInverted};
     }
+    .title{
+        h2:{
+            color: magenta
+        }
+    }
     a{
         padding:0px 10px;
         color: ${props=>props.theme[props.theme.theme].text};
@@ -138,7 +196,8 @@ const MenuItem = styled.span`
         }
     }
     a.active{
-        background-color: ${props=>props.theme[props.theme.theme].primary};
+        color: ${props=>props.theme[props.theme.theme].primary};
+        background-color: ${props=>props.theme[props.theme.theme].neutralD};
     }  
 `
 
@@ -170,9 +229,4 @@ const Wrapper = styled.span`
         border-bottom: 0px:
     }
 `
-
-
-
-
-
 

@@ -58,7 +58,7 @@ const Wrapper = styled.span`
         padding: ${props => props.padding? props.padding: '5px'};
         
         @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
-            padding: 10px;
+            padding: ${props => props.padding? props.padding: '10px'};
         }
     }
 `
