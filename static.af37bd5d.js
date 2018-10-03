@@ -2136,8 +2136,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -2267,13 +2265,13 @@ var Post = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _React$createElement,
-                _this2 = this;
+            var _this2 = this;
 
             //return null;
             return _react2.default.createElement(
                 PostBox,
-                { itemscope: true, itemtype: 'https://schema.org/Article', __source: {
+                {
+                    __source: {
                         fileName: _jsxFileName,
                         lineNumber: 89
                     }
@@ -2329,12 +2327,13 @@ var Post = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'span',
-                    { itemprop: 'name', __source: {
+                    {
+                        __source: {
                             fileName: _jsxFileName,
                             lineNumber: 99
                         }
                     },
-                    _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                    _react2.default.createElement(_Text2.default, { tag: 'h1', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 100
                         }
@@ -2347,7 +2346,8 @@ var Post = function (_React$Component) {
                 }),
                 _react2.default.createElement(
                     Hidden,
-                    { itemprop: 'keywords', __source: {
+                    {
+                        __source: {
                             fileName: _jsxFileName,
                             lineNumber: 103
                         }
@@ -2356,11 +2356,13 @@ var Post = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'p',
-                    (_React$createElement = { itemprop: 'description' }, _defineProperty(_React$createElement, 'itemprop', 'articleBody'), _defineProperty(_React$createElement, 'itemprop', 'text'), _defineProperty(_React$createElement, '__source', {
-                        fileName: _jsxFileName,
-                        lineNumber: 107
-                    }), _React$createElement),
-                    'hello world'
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 107
+                        }
+                    },
+                    'hello world2'
                 ),
                 this.renderVideo(),
                 this.renderText(),
@@ -12007,4 +12009,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.79ddfba9.js.map
+//# sourceMappingURL=static.af37bd5d.js.map
