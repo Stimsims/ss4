@@ -100,23 +100,12 @@ class Post extends React.Component{
                 </span>
                 <Tags tags={this.props.item.tags} />
                 <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>
-                <Text tag={'p'} itemprop="description" text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-
+                <span itemprop="description" >
+                    <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
+                </span>
+                
+                {this.renderVideo()}
                 {this.renderText()}
-                {/* <button onClick={()=>{this.renderShare()}}>rebder</button> */}
-                {/* <div style={{margin:'auto', textAlign: 'center'}} itemscope={'true'} itemtype="http://schema.org/Product">
-                    <h1 itemprop="name">Shiny Trinket</h1>
-                    <p itemprop="description">Shiny trinkets are shiny. Count: {this.state.counter}</p>
-                    <button onClick={()=>{
-                        this.setState({
-                            counter: this.state.counter + 1
-                        })
-                    }}>count</button>
-                </div>
-                <div id="sharePost">
-                    sharePost
-                </div> */}
-                {/* {this.renderGoogleShare()} */}
                 <Shareable id="shareable">
                     <IconBtn icon={"gp"} round={true} padding={'3px'} color={'red'} onInput={()=>{
                         window.open(`https://plus.google.com/share?url=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
@@ -124,36 +113,6 @@ class Post extends React.Component{
                     <IconBtn icon={"fb"} round={true} padding={'3px'} color={'blue'} onInput={()=>{
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
                     }}/>
-                    {/* <Icon icon={"done"} round={true} padding={'3px'}/>
-                    <Icon icon={"delete"} round={true} padding={'3px'}/>
-                    <Icon icon={"cached"} round={true} padding={'3px'}/>
-                    <Icon icon={"save"} round={true} padding={'3px'}/> */}
-                    {/* <div class="g-plusone" data-size="standard" data-href={this.state.url}></div> */}
-                    {/* <button onClick={()=>{
-                        window.open("https://www.facebook.com/sharer/sharer.php?u=http://illulli-1e5a.com/posts/hello/", "pop", "width=600, height=400, scrollbars=no");
-                    }}>fb share</button> */}
-                    {/* <FbLink>
-                        <a className="fb-share" onClick={()=>{
-                            window.open("https://www.facebook.com/sharer/sharer.php?u=http://illulli-1e5a.com/posts/hello/", "pop", "width=600, height=400, scrollbars=no");
-                        }}>
-                            {/* <span className="fb-share-icon"></span> 
-                            <img src={fb} style={{width:'14px', height:'14px'}} />
-                            <span className="fb-share-text">Share</span>
-                        </a>
-                    </FbLink> */}
-                    {/* <a onClick={()=>{
-                        window.open(`https://plus.google.com/share?url=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
-                    }}><img
-                    src={gp32} alt="Share on Google+"/></a>
-
-                    <a onClick={()=>{
-                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
-                    }}><img
-                    src={fb32} alt="Share on Facebook"/></a> */}
-
-                    {/* <a href="https://plus.google.com/share?url=this.state.url" onclick="javascript:window.open(this.href,
-                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
-                    src={fb32} alt="Share on Google+"/></a> */}
                 </Shareable>
             </PostBox>
           )
