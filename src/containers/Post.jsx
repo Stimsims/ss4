@@ -79,15 +79,16 @@ class Post extends React.Component{
             <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
                 <Helmet>
                     <meta property="og:title" content={`${this.props.item.title}`} />
-                    <meta property="og:description" content="my og description" />
+                    <meta property="og:description" content={`${this.props.item.description}`} />
                 </Helmet>
-                <span itemprop="name">
-                    <Text tag={'h1'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
-                </span>
-                
+                {/* <span itemprop="name">
+                    <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
+                </span> */}
+                <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 <Tags tags={this.props.item.tags} />
-                <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-                <div style={{height: '200px'}}>
+                <p itemprop="keywords">{this.props.item.tags.join()}</p>
+                <Text tag={'p'} itemprop="description" text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
+                <div style={{height: '200px'}} itemprop="video">
                     <Video url={this.props.item.youtube} />
                 </div>
                 {this.renderText()}
@@ -167,7 +168,9 @@ const mapStateToProps = (state) =>{
     }
 }
 export default connect(mapStateToProps)(withSiteData(withRouteData(Post)));
-
+const Hidden = styled.p`
+    visibility: none;
+`
 const FbLink = styled.span`
 .fb-share {
     vertical-align: top;

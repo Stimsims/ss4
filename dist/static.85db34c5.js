@@ -2079,11 +2079,12 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\container
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n.fb-share {\n    vertical-align: top;\n    display: inline-block;\n    position: relative;\n    height: 18px;\n    border: 1px solid #cad4e7;\n    border-radius: 3px;\n    background-color: #45619dff;\n    color: #3b5998;\n\n    text-decoration: none;\n    white-space: nowrap;\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share:hover {\n    border-color: #9dacce;\n  }\n  .fb-share .fb-share-icon {\n    position: relative;\n    display: inline-block;\n    width: 14px;\n    height: 14px;\n    top: 4px;\n    margin-right: 1px;\n    background-image: url(', ');\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share .fb-share-text {\n    line-height: 18px;\n    height: 18px;\n    color: white;\n    top: -4px;\n    font-family: \'Lucida Grande\', Tahoma, Verdana, Arial, sans-serif;\n    font-size: 11px;\n  }\n'], ['\n.fb-share {\n    vertical-align: top;\n    display: inline-block;\n    position: relative;\n    height: 18px;\n    border: 1px solid #cad4e7;\n    border-radius: 3px;\n    background-color: #45619dff;\n    color: #3b5998;\n\n    text-decoration: none;\n    white-space: nowrap;\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share:hover {\n    border-color: #9dacce;\n  }\n  .fb-share .fb-share-icon {\n    position: relative;\n    display: inline-block;\n    width: 14px;\n    height: 14px;\n    top: 4px;\n    margin-right: 1px;\n    background-image: url(', ');\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share .fb-share-text {\n    line-height: 18px;\n    height: 18px;\n    color: white;\n    top: -4px;\n    font-family: \'Lucida Grande\', Tahoma, Verdana, Arial, sans-serif;\n    font-size: 11px;\n  }\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding: 0px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n    @media only screen and (min-width: ', ') {\n        padding: 10px;\n    }\n\n'], ['\n    height: 100%;\n    width: 100%;\n    padding: 0px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n    @media only screen and (min-width: ', ') {\n        padding: 10px;\n    }\n\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    vertical-align: middle;\n    margin: auto;\n    background-color: pink;\n    text-align: center;\n'], ['\n    height: 100%;\n    width: 100%;\n    vertical-align: middle;\n    margin: auto;\n    background-color: pink;\n    text-align: center;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    margin:auto;\n    width: 100%;\n    text-align: center;\n'], ['\n    margin:auto;\n    width: 100%;\n    text-align: center;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    text-transformation: capitalize;\n    text-align: center;\n'], ['\n    text-transformation: capitalize;\n    text-align: center;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    visibility: none;\n'], ['\n    visibility: none;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n.fb-share {\n    vertical-align: top;\n    display: inline-block;\n    position: relative;\n    height: 18px;\n    border: 1px solid #cad4e7;\n    border-radius: 3px;\n    background-color: #45619dff;\n    color: #3b5998;\n\n    text-decoration: none;\n    white-space: nowrap;\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share:hover {\n    border-color: #9dacce;\n  }\n  .fb-share .fb-share-icon {\n    position: relative;\n    display: inline-block;\n    width: 14px;\n    height: 14px;\n    top: 4px;\n    margin-right: 1px;\n    background-image: url(', ');\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share .fb-share-text {\n    line-height: 18px;\n    height: 18px;\n    color: white;\n    top: -4px;\n    font-family: \'Lucida Grande\', Tahoma, Verdana, Arial, sans-serif;\n    font-size: 11px;\n  }\n'], ['\n.fb-share {\n    vertical-align: top;\n    display: inline-block;\n    position: relative;\n    height: 18px;\n    border: 1px solid #cad4e7;\n    border-radius: 3px;\n    background-color: #45619dff;\n    color: #3b5998;\n\n    text-decoration: none;\n    white-space: nowrap;\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share:hover {\n    border-color: #9dacce;\n  }\n  .fb-share .fb-share-icon {\n    position: relative;\n    display: inline-block;\n    width: 14px;\n    height: 14px;\n    top: 4px;\n    margin-right: 1px;\n    background-image: url(', ');\n    /* IE7 */\n    *display: inline;\n    *zoom: 1;\n  }\n  .fb-share .fb-share-text {\n    line-height: 18px;\n    height: 18px;\n    color: white;\n    top: -4px;\n    font-family: \'Lucida Grande\', Tahoma, Verdana, Arial, sans-serif;\n    font-size: 11px;\n  }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    padding: 0px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n    @media only screen and (min-width: ', ') {\n        padding: 10px;\n    }\n\n'], ['\n    height: 100%;\n    width: 100%;\n    padding: 0px;\n    position: relative;\n    padding-bottom: 100px;\n    background-color ', ';\n    @media only screen and (min-width: ', ') {\n        padding: 10px;\n    }\n\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: 100%;\n    vertical-align: middle;\n    margin: auto;\n    background-color: pink;\n    text-align: center;\n'], ['\n    height: 100%;\n    width: 100%;\n    vertical-align: middle;\n    margin: auto;\n    background-color: pink;\n    text-align: center;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    margin:auto;\n    width: 100%;\n    text-align: center;\n'], ['\n    margin:auto;\n    width: 100%;\n    text-align: center;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    text-transformation: capitalize;\n    text-align: center;\n'], ['\n    text-transformation: capitalize;\n    text-align: center;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -2267,45 +2268,46 @@ var Post = function (_React$Component) {
                             lineNumber: 81
                         }
                     }),
-                    _react2.default.createElement('meta', { property: 'og:description', content: 'my og description', __source: {
+                    _react2.default.createElement('meta', { property: 'og:description', content: '' + this.props.item.description, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 82
                         }
                     })
                 ),
-                _react2.default.createElement(
-                    'span',
-                    { itemprop: 'name', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 84
-                        }
-                    },
-                    _react2.default.createElement(_Text2.default, { tag: 'h1', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 85
-                        }
-                    })
-                ),
+                _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 87
+                    }
+                }),
                 _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 88
                     }
                 }),
-                _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
+                _react2.default.createElement(
+                    'p',
+                    { itemprop: 'keywords', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 89
+                        }
+                    },
+                    this.props.item.tags.join()
+                ),
+                _react2.default.createElement(_Text2.default, { tag: 'p', itemprop: 'description', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 89
+                        lineNumber: 90
                     }
                 }),
                 _react2.default.createElement(
                     'div',
-                    { style: { height: '200px' }, __source: {
+                    { style: { height: '200px' }, itemprop: 'video', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 90
+                            lineNumber: 91
                         }
                     },
                     _react2.default.createElement(_Video2.default, { url: this.props.item.youtube, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 91
+                            lineNumber: 92
                         }
                     })
                 ),
@@ -2314,21 +2316,21 @@ var Post = function (_React$Component) {
                     Shareable,
                     { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 108
+                            lineNumber: 109
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                             window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 109
+                            lineNumber: 110
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                             window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 112
+                            lineNumber: 113
                         }
                     })
                 )
@@ -2361,17 +2363,17 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 exports.default = (0, _reactRedux.connect)(mapStateToProps)((0, _reactStatic.withSiteData)((0, _reactStatic.withRouteData)(Post)));
 
+var Hidden = _styledComponents2.default.p(_templateObject);
+var FbLink = _styledComponents2.default.span(_templateObject2, _fbsmall2.default);
 
-var FbLink = _styledComponents2.default.span(_templateObject, _fbsmall2.default);
-
-var PostBox = _styledComponents2.default.div(_templateObject2, function (props) {
+var PostBox = _styledComponents2.default.div(_templateObject3, function (props) {
     return props.theme[props.theme.theme].neutral;
 }, function (props) {
     return props.theme[props.theme.theme].mediaMinWidth;
 });
-var Box = _styledComponents2.default.div(_templateObject3);
-var Shareable = _styledComponents2.default.div(_templateObject4);
-var Title = _styledComponents2.default.h2(_templateObject5);
+var Box = _styledComponents2.default.div(_templateObject4);
+var Shareable = _styledComponents2.default.div(_templateObject5);
+var Title = _styledComponents2.default.h2(_templateObject6);
 
 /*
 
@@ -11953,4 +11955,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.9f3e2e63.js.map
+//# sourceMappingURL=static.85db34c5.js.map
