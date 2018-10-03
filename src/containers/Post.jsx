@@ -100,7 +100,7 @@ class Post extends React.Component{
                 </span>
                 <Tags tags={this.props.item.tags} />
                 <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>
-                <span itemprop="description" >
+                <span itemprop="description" itemprop="articleBody" itemprop="text">
                     <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
                 </span>
                 
