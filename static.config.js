@@ -31,7 +31,8 @@ export default {
   //bundleAnalyzer: true,
   getSiteData: () => ({
     siteTitle: 'Q Games',
-    hello: 'world'
+    hello: 'world',
+    siteRoot: 'http://illulli-1e5a.com'
   }),
   getRoutes: async () => {
    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -147,8 +148,6 @@ export default {
               content="width=device-width, initial-scale=1"
             />
             <meta name="robots" content="noindex" />
-            <meta property="og:title" content="my og title" />
-            <meta property="og:description" content="my og description" />
             <title>My Title</title>
             {renderMeta.styleTags}
             

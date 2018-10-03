@@ -71,7 +71,7 @@ Youtube.propTypes = {
 */
 const Flex = styled.div`
     display: flex;
-    margin: auto;
+    margin-left: auto; margin-right: auto;
     width: ${props=>props.width}; 
     height: 100%;
     justify-content: center;

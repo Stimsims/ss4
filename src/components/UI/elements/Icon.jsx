@@ -12,6 +12,8 @@ import iMore from './../../../assets/baseline-more_vert-24px.svg';
 import iBack from './../../../assets/round-arrow_back-24px.svg';
 import iSync from './../../../assets/round-autorenew-24px.svg';
 import iCloud from './../../../assets/round-cloud_upload-24px.svg';
+import iFacebook from './../../../assets/iconmonstr-facebook-4.svg';
+import iGooglePlus from './../../../assets/iconmonstr-google-plus-4.svg';
 
 
 class Icon extends React.Component {
@@ -62,6 +64,10 @@ const Container = styled.div`
                     return iCloud;
                 case 'sync':
                     return iSync;
+                case 'fb':
+                    return iFacebook;
+                case 'gp':
+                    return iGooglePlus;
                 default:
                     return iSync;
             }
@@ -82,15 +88,16 @@ const Container = styled.div`
             }
         }
     };
+    color: yellow;
     background-color: ${props=>{
-        // if(props.colorKey){
-        //     return props.theme[props.theme.theme][props.colorKey]
-        // }else if(props.color){
-        //     return props.color;
-        // }else{
-        //     return props.theme[props.theme.theme].neutral;
-        // }
-        return props.theme[props.theme.theme].neutral;
+        if(props.colorKey){
+            return props.theme[props.theme.theme][props.colorKey]
+        }else if(props.color){
+            return props.color;
+        }else{
+            return props.theme[props.theme.theme].neutral;
+        }
+        //return props.theme[props.theme.theme].neutral;
         //props.colorKey?props.color:props.theme[props.theme.theme].neutralL
     }};
     transform: rotate(${props=>props.rotate?props.rotate:'0'}deg);

@@ -29,13 +29,24 @@ class Gapi extends React.Component{
     }
     componentDidMount() {
         this.loadApi();
+       // this.loadFb();
         window.___gcfg = {
             parsetags: 'onload'
         };
     }
-
+    loadFb(){
+        const script = document.createElement("script");
+        script.id="facebook-jssdk";
+        script.src = 'https://connect.facebook.net/en_US/sdk.js';
+        script.onload = () => {
+            console.log(`fb script loaded`);
+        };
+        document.body.appendChild(script);
+    }
     loadApi(){
         const script = document.createElement("script");
+        //const script = document.createElement("<script>{parsetags: 'explicit'}</script>");
+        //script.innerText = "{parsetags: 'explicit'}";
         //script.src = 'https://apis.google.com/js/api.js';
         script.src = 'https://apis.google.com/js/platform.js';
         //script.src = 'https://apis.google.com/js/client.js';
