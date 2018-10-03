@@ -2243,6 +2243,26 @@ var Post = function (_React$Component) {
             );
         }
     }, {
+        key: 'renderVideo',
+        value: function renderVideo() {
+            if (this.props.item.youtube) {
+                return _react2.default.createElement(
+                    'div',
+                    { style: { height: '200px' }, itemprop: 'video', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 79
+                        }
+                    },
+                    _react2.default.createElement(_Video2.default, { url: this.props.item.youtube, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 80
+                        }
+                    })
+                );
+            }
+            return null;
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -2252,7 +2272,7 @@ var Post = function (_React$Component) {
                 PostBox,
                 { itemscope: true, itemtype: 'https://schema.org/Article', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 79
+                        lineNumber: 89
                     }
                 },
                 _react2.default.createElement(
@@ -2260,77 +2280,92 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 80
+                            lineNumber: 90
                         }
                     },
                     _react2.default.createElement('meta', { property: 'og:title', content: '' + this.props.item.title, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 81
+                            lineNumber: 91
                         }
                     }),
                     _react2.default.createElement('meta', { property: 'og:description', content: '' + this.props.item.description, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 82
+                            lineNumber: 92
+                        }
+                    }),
+                    _react2.default.createElement('meta', { property: 'og:site_name', content: '' + this.props.siteTitle, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 93
+                        }
+                    }),
+                    _react2.default.createElement('meta', { property: 'og:type', content: 'http://ogp.me/ns/article#', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 94
+                        }
+                    }),
+                    this.props.item.youtube ? _react2.default.createElement('meta', { property: 'og:video', content: '' + this.props.item.youtube, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 95
+                        }
+                    }) : null,
+                    this.props.item.tags ? _react2.default.createElement('meta', { property: 'og:article:tag', content: '' + this.props.item.tags.join(), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 96
+                        }
+                    }) : null
+                ),
+                _react2.default.createElement(
+                    'span',
+                    { itemprop: 'name', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 98
+                        }
+                    },
+                    _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 99
                         }
                     })
                 ),
-                _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 87
-                    }
-                }),
                 _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 88
+                        lineNumber: 101
                     }
                 }),
                 _react2.default.createElement(
-                    'p',
+                    Hidden,
                     { itemprop: 'keywords', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 89
+                            lineNumber: 102
                         }
                     },
                     this.props.item.tags.join()
                 ),
                 _react2.default.createElement(_Text2.default, { tag: 'p', itemprop: 'description', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 90
+                        lineNumber: 103
                     }
                 }),
-                _react2.default.createElement(
-                    'div',
-                    { style: { height: '200px' }, itemprop: 'video', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 91
-                        }
-                    },
-                    _react2.default.createElement(_Video2.default, { url: this.props.item.youtube, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 92
-                        }
-                    })
-                ),
                 this.renderText(),
                 _react2.default.createElement(
                     Shareable,
                     { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 109
+                            lineNumber: 120
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                             window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 110
+                            lineNumber: 121
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                             window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 113
+                            lineNumber: 124
                         }
                     })
                 )
@@ -11955,4 +11990,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.85db34c5.js.map
+//# sourceMappingURL=static.d9f5b5b1.js.map

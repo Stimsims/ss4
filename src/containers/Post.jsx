@@ -73,6 +73,16 @@ class Post extends React.Component{
         }
         return <p>no gapi</p>
     }
+    renderVideo(){
+        if(this.props.item.youtube){
+            return (
+                <div style={{height: '200px'}} itemprop="video">
+                <Video url={this.props.item.youtube} />
+            </div>
+            )
+        }
+        return null;
+    }
     render(){
         //return null;
         return (
@@ -80,17 +90,18 @@ class Post extends React.Component{
                 <Helmet>
                     <meta property="og:title" content={`${this.props.item.title}`} />
                     <meta property="og:description" content={`${this.props.item.description}`} />
+                    <meta property="og:site_name" content={`${this.props.siteTitle}`} />
+                    <meta property="og:type" content={`http://ogp.me/ns/article#`} />
+                    {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
+                    {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
-                {/* <span itemprop="name">
+                <span itemprop="name">
                     <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
-                </span> */}
-                <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
+                </span>
                 <Tags tags={this.props.item.tags} />
-                <p itemprop="keywords">{this.props.item.tags.join()}</p>
+                <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>
                 <Text tag={'p'} itemprop="description" text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-                <div style={{height: '200px'}} itemprop="video">
-                    <Video url={this.props.item.youtube} />
-                </div>
+
                 {this.renderText()}
                 {/* <button onClick={()=>{this.renderShare()}}>rebder</button> */}
                 {/* <div style={{margin:'auto', textAlign: 'center'}} itemscope={'true'} itemtype="http://schema.org/Product">
