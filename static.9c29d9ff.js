@@ -2136,6 +2136,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -2265,7 +2267,8 @@ var Post = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _React$createElement,
+                _this2 = this;
 
             //return null;
             return _react2.default.createElement(
@@ -2343,11 +2346,10 @@ var Post = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'span',
-                    { itemprop: 'description', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 103
-                        }
-                    },
+                    (_React$createElement = { itemprop: 'description' }, _defineProperty(_React$createElement, 'itemprop', 'articleBody'), _defineProperty(_React$createElement, 'itemprop', 'text'), _defineProperty(_React$createElement, '__source', {
+                        fileName: _jsxFileName,
+                        lineNumber: 103
+                    }), _React$createElement),
                     _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 104
@@ -11999,4 +12001,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.2e0581de.js.map
+//# sourceMappingURL=static.9c29d9ff.js.map
