@@ -95,14 +95,16 @@ class Post extends React.Component{
                     {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
+                <p>omg</p>
                 <span itemprop="name">
                     <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 </span>
                 <Tags tags={this.props.item.tags} />
                 <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>
-                <span itemprop="description" itemprop="articleBody" itemprop="text">
+                {/* <span itemprop="description" itemprop="articleBody" itemprop="text">
                     <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
-                </span>
+                </span> */}
+                <p itemprop="description" itemprop="articleBody" itemprop="text">hello world</p>
                 
                 {this.renderVideo()}
                 {this.renderText()}

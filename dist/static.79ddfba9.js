@@ -2318,43 +2318,49 @@ var Post = function (_React$Component) {
                     }) : null
                 ),
                 _react2.default.createElement(
-                    'span',
-                    { itemprop: 'name', __source: {
+                    'p',
+                    {
+                        __source: {
                             fileName: _jsxFileName,
                             lineNumber: 98
                         }
                     },
-                    _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                    'omg'
+                ),
+                _react2.default.createElement(
+                    'span',
+                    { itemprop: 'name', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 99
+                        }
+                    },
+                    _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 100
                         }
                     })
                 ),
                 _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 101
+                        lineNumber: 102
                     }
                 }),
                 _react2.default.createElement(
                     Hidden,
                     { itemprop: 'keywords', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 102
+                            lineNumber: 103
                         }
                     },
                     this.props.item.tags.join()
                 ),
                 _react2.default.createElement(
-                    'span',
+                    'p',
                     (_React$createElement = { itemprop: 'description' }, _defineProperty(_React$createElement, 'itemprop', 'articleBody'), _defineProperty(_React$createElement, 'itemprop', 'text'), _defineProperty(_React$createElement, '__source', {
                         fileName: _jsxFileName,
-                        lineNumber: 103
+                        lineNumber: 107
                     }), _React$createElement),
-                    _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', colorKey: 'primary', width: '100%', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 104
-                        }
-                    })
+                    'hello world'
                 ),
                 this.renderVideo(),
                 this.renderText(),
@@ -2362,21 +2368,21 @@ var Post = function (_React$Component) {
                     Shareable,
                     { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 109
+                            lineNumber: 111
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                             window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 110
+                            lineNumber: 112
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                             window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 113
+                            lineNumber: 115
                         }
                     })
                 )
@@ -12001,4 +12007,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.9c29d9ff.js.map
+//# sourceMappingURL=static.79ddfba9.js.map
