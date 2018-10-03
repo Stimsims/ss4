@@ -86,7 +86,7 @@ class Post extends React.Component{
     render(){
         //return null;
         return (
-            <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
+            <PostBox >
                 <Helmet>
                     <meta property="og:title" content={`${this.props.item.title}`} />
                     <meta property="og:description" content={`${this.props.item.description}`} />
@@ -96,15 +96,15 @@ class Post extends React.Component{
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
                 <p>omg</p>
-                <span itemprop="name">
-                    <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
+                <span>
+                    <Text tag={'h1'} text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 </span>
                 <Tags tags={this.props.item.tags} />
-                <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>
+                <Hidden>{this.props.item.tags.join()}</Hidden>
                 {/* <span itemprop="description" itemprop="articleBody" itemprop="text">
                     <Text tag={'p'} text={this.props.item.description} align={'center'} colorKey={'primary'} width={'100%'}/>
                 </span> */}
-                <p itemprop="description" itemprop="articleBody" itemprop="text">hello world</p>
+                <p>hello world2</p>
                 
                 {this.renderVideo()}
                 {this.renderText()}
