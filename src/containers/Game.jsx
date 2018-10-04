@@ -21,6 +21,8 @@ class Games extends React.Component{
                 return import('fairyjoules');
             case 'labgame':
                 return import('labgame');
+            case 'demo':
+                return import('demo')
             default:
                 console.warn(`game ${game} unknown, cannot import`);
                 this.setState({

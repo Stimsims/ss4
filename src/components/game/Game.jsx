@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import GameLibs from 'mygamelibs';
 import {connect} from 'react-redux';
-import {listFilesByAppProp, getFile, listFilesByName, exportFile, createAFile, editFile, structureBody} from './../apis/DriveInterface.js';
+import {listFilesByAppProp, getFile, listFilesByName, exportFile, 
+    createReport, createAFile, editFile, structureBody} from './../apis/DriveInterface.js';
 import {submitAssignment, gradeAssignment, turnInAssignment, createAssignment, createCourse, listCourses, listCourseWork, listSubmissions} from './../apis/ClassInterface.js';
 import {writeToSheet, addChart, getSheet} from './../apis/Sheets.js';
 import Toast from './../UI/elements/Toast.jsx';
@@ -11,7 +12,8 @@ class Game extends React.Component{
     constructor(props){
         super(props);
         console.log("game constructor props", props);
-        this.createReport = this.createReport.bind(this);
+      //  this.createReport = this.createReport.bind(this);
+        this.testReport = this.testReport.bind(this);
         this.submitAssignment = this.submitAssignment.bind(this);
         this.state = {
             checkIn:{
@@ -38,7 +40,7 @@ class Game extends React.Component{
                 settings: {
                     ...this.props.settings
                 },
-                createReport: this.submitAssignment,
+                createReport: createReport,
                 createAssignment: this.createAssignment,
                 submitAssignment: this.submitAssignment
             }
@@ -81,7 +83,7 @@ class Game extends React.Component{
                 })
             }else if(courseId && courseWorkId && submissionId){
                 results.courseWorkId = courseWorkId;
-                this.createReport('submit1', 'submitname', [
+                createReport('submit1', 'submitname', [
                     {tag: 'h1', text: 'Defered promise', textDecoration: 'underline', textAlign: 'center', fontStyle: 'bold'}
                 ])
                 .then(r => {
@@ -89,6 +91,9 @@ class Game extends React.Component{
                     results = {...results, ...r};
                     //attach to submission, turn in
 
+                })
+                .catch(e => {
+                    console.warn(`failed to create report and submit assignment`, e);
                 })
             }else{
                 console.warn(`submitAssignment some weird combo of params happened with submit assignment courseId: ${courseId} courseWorkId: ${courseWorkId}`)
@@ -98,42 +103,26 @@ class Game extends React.Component{
         }
         
     }
-    //chartId:1216131842
-    createReport(game, name, elements){
-        //Goal: create document and get the weblink
-        console.log(`createReport game ${game} filename ${name}`, elements);
-        return new Promise((resolve, reject) => {
-           // let body = structureBody(elements);
-            let results = {
-                reportId: null, reportLink: null
-            }
-            createAFile('application/vnd.google-apps.document', 'text/html', name + "rand1", 
-                'webViewLink, webContentLink', {gamegrade: '80'})
-            .then(r => {
-                console.log(`create file result`, r);
-                results.reportId = r.result.id;
-                results.reportLink = r.result.webViewLink;
-                return editFile(r.result.id, structureBody(elements));
+    testReport(){
+        console.log(`testReport starting`);
+        createReport('testgame', 'testname', [])
+        .then(r => {
+            console.log(`testReport result`, r);
+            this.setState({
+                toast: <Toast message={`report created`} id={`${Math.random()}`} />
             })
-            .then(ef => {
-                console.log(`edit file result`, ef);
+        })
+        .catch(e => {
+            console.log(`testReport error`, e);
+            if(e && e.status === 401 && e.result.error){
+                //login required
                 this.setState({
-                    toast: <Toast message={`report created`} id={this.state.tools.utils.ids.guid()} />
+                    toast: <Toast message={`error: ${e.result.error.message}`} id={`${Math.random()}`} />
                 })
-                resolve(results);
-            })
-            .catch(e => {
-                console.log(`createReport error`, e);
-                if(e.status === 401 && e.result.error){
-                    //login required
-                    this.setState({
-                        toast: <Toast message={`error: ${e.result.error.message}`} id={this.state.tools.utils.ids.guid()} />
-                    })
-                }
-                reject(e);
-            })
-        });
+            }
+        })
     }
+
     componentWillMount(){
          this.importGraph();
          this.importMath();
@@ -251,6 +240,7 @@ class Game extends React.Component{
         if(this.areToolsReady()){
             return(
                 <div style={{width: '100%', height: '100%'}}>
+
                     <this.props.game tools={this.state.tools} />
                     {this.state.toast}
                 </div>
@@ -282,8 +272,9 @@ class Game extends React.Component{
 //export default Game;
 
 const mapStateToProps = (state, props) => {
+    console.log(`website game mapStateToProps state`, state);
     return {
-        init: state.sim.initialized
+        //init: state.sim.initialized
     }
 }
 export default connect(mapStateToProps)(Game);

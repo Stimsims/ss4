@@ -10,7 +10,7 @@
     "serve": "serve dist -p 3000",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "link": "npm link ./../../../Games/SampleGame && npm link ./../../../Games/FairyJoules && npm link ./../../../Games/MyGameLibs && npm link ./../../../Games/MathLibs && npm link ./../../../Games/LabGame"
+    "link": "npm link ./../../../Games/Demo && npm link ./../../../Games/SampleGame && npm link ./../../../Games/FairyJoules && npm link ./../../../Games/MyGameLibs && npm link ./../../../Games/MathLibs && npm link ./../../../Games/LabGame"
   },
   "dependencies": {
     "axios": "^0.16.2",

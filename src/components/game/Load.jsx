@@ -411,9 +411,9 @@ class Load extends React.Component{
         }else{
             return(
                 <div>
-                    <button onClick={()=>{
+                    {/* <button onClick={()=>{
                         this.exportFile();
-                    }}>go</button>
+                    }}>go</button> */}
                     <LoadGameView syncing={this.state.syncing} saves={this.state.local} log={this.state.log} 
                         onNewGame={(id)=>{this.onNewGame(id)}} onLoadGame={(id)=>{this.onLoadGame(id)}} names={SAVE_NAMES} />
                 </div>

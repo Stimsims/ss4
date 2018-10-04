@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Table from './../UI/elements/Table.jsx';
 import Sizer from './../UI/elements/Sizer.jsx';
 import Settings from './Settings.jsx';
+import {connect} from 'react-redux';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -36,7 +37,29 @@ class Index extends React.Component{
             //game: this.props.game.getComponent(),
             reducers: this.props.game.getReducers()
         })
+        this.getBtn();
     }
+    componentDidUpdate(){
+      this.getBtn();
+  }
+  getBtn(){
+      console.log(`game getBtn rendered? ${this.state.rendered} gapi? ${this.props.gapi.gapiReady}`);
+      if(!this.state.rendered && this.props.gapi.gapiReady){
+          console.log(`classroom share rendering `)
+          this.setState({
+              rendered: true
+          })
+          //https://docs.google.com/document/d/1kTN7Xm7WU7Del-VDEa7KfT2_crWnKwcOd9zLzxnxjLk/edit?usp=drivesdk
+          //https://docs.google.com/document/d/1hUXdSyEBf9d6aDbQOHEnTsMYdDUXLsNROjcKu-kzxHY/edit?usp=sharing
+          gapi.sharetoclassroom.render(
+              "g-sharetoclassroom",
+              {
+                  size: "48", theme: "light",  url: "https://docs.google.com/document/d/1kTN7Xm7WU7Del-VDEa7KfT2_crWnKwcOd9zLzxnxjLk/edit?usp=drivesdk", 
+                  title: "my title", body: "my assignment"
+              }
+          )
+      }
+  }
     registerMenuItem(items){
       items.map(item => {
         if(!this.menuKeys.has(item.key)){
@@ -78,9 +101,8 @@ class Index extends React.Component{
               <Menu title={this.props.title} menuItems={this.buildMenuItems()} renderId={this.state.menuRenderId}/>
             </Sizer>
             <Load  settings={this.state.settings} game={this.state.game} id={this.props.id} reducers={this.state.reducers} registerMenuItem={this.registerMenuItem}>
-                {/* <Game game={this.state.game} {...this.state.settings} /> */}
+              
             </Load>
-            
           </Table>
         </div>
 
@@ -92,6 +114,7 @@ class Index extends React.Component{
         <Container>
           <Settings game={this.state.game}>
             <Menu title={this.props.title} />
+
             <Store reducers={this.state.reducers} >
               <Game game={this.state.game}/>
             </Store>
@@ -109,7 +132,15 @@ class Index extends React.Component{
     }
 
 }
-export default Index;
+
+const mapStateToProps = (state, props) => {
+  console.log(`website game mapStateToProps state`, state);
+  return {
+      //init: state.sim.initialized
+      gapi: state.gapi
+  }
+}
+export default connect(mapStateToProps)(Index);
 
 const Container = styled.div`
   position: fixed;

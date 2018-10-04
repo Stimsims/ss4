@@ -153,45 +153,122 @@ export const structureBody = (elements) => {
         //     {tag: 'p', text: ' '},
         //     {tag: 'p', text: 'Set different text decorations for...... never include an angle bracket!'}
         // ]);
-    let body = `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head>
-    <body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">`;
-    elements.map(e => {
-        console.log(`doc structure body element`, elements);
-        let fontSize = '12';
-        let color = e.color?e.color:'#2E2E2E';
-        let fontWeight = '400';
-        let textDecoration = e.textDecoration?e.textDecoration:'none';
-        let tag = e.tag?e.tag:'p';
-        let textAlign = e.textAlign?e.textAlign:'left';
-        let fontStyle = e.fontStyle?e.fontStyle:'normal';
-        switch(e.tag){
-            case 'h1':
-                fontSize = '48';
-                fontWeight = '800';
-            case 'h2':
-                fontSize = '24';
-                fontWeight = '600';
-            case 'h3':
-            case 'h4':
-            case 'h5':
-                fontSize = '16';
-        }
+    console.log(`structureBody elements`, elements);
+    if(elements){
+        let body = `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head>
+        <body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">`;
+        elements.map(e => {
+            console.log(`doc structure body element`, elements);
+            let fontSize = '12';
+            let color = e.color?e.color:'#2E2E2E';
+            let fontWeight = '400';
+            let textDecoration = e.textDecoration?e.textDecoration:'none';
+            let tag = e.tag?e.tag:'p';
+            let textAlign = e.textAlign?e.textAlign:'left';
+            let fontStyle = e.fontStyle?e.fontStyle:'normal';
+            if(e.score){
+                //let charCount = 173;
+                let charCount = 189;
+                let score = e.score;
+                let ratio = Math.abs(score*charCount);
+                let filled = '';
+                let empty = '';
+                tag = 'div';
+                console.log(`structureBody score ${score} ratio ${ratio} `)
+                for(let i = 0; i<=charCount; i++){
+                    if(i<=ratio){
+                        filled += 'i';
+                    }else{
+                        empty += 'i';
+                    }
+                }
+                body += `
+                <p style="font-size:11pt;color:#000000;">----------------</p>
+                <p style="color:#000000;font-size:16pt;font-style:normal">${e.title}</p>
+                <p style="color:#000000;font-size:${fontSize}pt;font-style:normal">${e.desc}</p>
+                <p style="color:#000000;font-size:${fontSize}pt;font-style:normal;padding:0; margin:0">
+                    <span style="font-size:11pt;background-color:#e69138;color:#e69138;padding:0;margin:0;">${filled}</span>
+                    <span style="font-size:11pt;background-color:#000000;color:#000000;padding:0;margin:0;">${empty}</span>
+                </p>
+                <p style="font-size:11pt;color:#000000;">----------------</p>
+                `;
+            }else{
+                switch(e.tag){
+                    case 'h1':
+                        fontSize = '48';
+                        fontWeight = '800';
+                        break;
+                    case 'h2':
+                        fontSize = '24';
+                        fontWeight = '600';
+                        break;
+                    case 'h3':
+                    case 'h4':
+                    case 'h5':
+                        fontSize = '16';
+                        break;
+                }
+                body += `
+                <${tag} style="padding:0;margin:0;color:#000000;font-size:${fontSize}pt;font-family:&quot;Roboto&quot;;line-height:1.149999976158142;text-align:${textAlign}">
+                <span style="color:${color};font-weight:${fontWeight};text-decoration:${textDecoration};vertical-align:baseline;font-size:${fontSize}pt;font-family:&quot;Roboto&quot;;
+                font-style:${fontStyle}">${e.text}
+                </span>
+                </${tag}>
+                `
+            }
+           
+        });
         body += `
-        <${tag} style="padding:0;margin:0;color:#000000;font-size:${fontSize}pt;font-family:&quot;Roboto&quot;;line-height:1.149999976158142;text-align:${textAlign}">
-        <span style="color:${color};font-weight:${fontWeight};text-decoration:${textDecoration};vertical-align:baseline;font-size:${fontSize}pt;font-family:&quot;Roboto&quot;;
-        font-style:${fontStyle}">${e.text}
-        </span>
-        </${tag}>
+        </body></html>
         `
-    });
-    body += `
-    </body></html>
-    `
-    console.log(`doc structured body result`, body);
-    return body;
+       // console.log(`doc structured body result`, body);
+        return body;
+    }
+    return null;
 }
 
-/*
+    //chartId:1216131842
+export const createReport = (game, name, elements) => {
+        //Goal: create document and get the weblink
+        console.log(`createReport game ${game} filename ${name}`, elements);
+        return new Promise((resolve, reject) => {
+           // let body = structureBody(elements);
+            let results = {
+                reportId: null, reportLink: null
+            }
+            if(name && elements){
+                createAFile('application/vnd.google-apps.document', 'text/html', name, 
+                'webViewLink, webContentLink', {gamegrade: '80'})
+                .then(r => {
+                    console.log(`create file result`, r);
+                    results.reportId = r.result.id;
+                    results.reportLink = r.result.webViewLink;
+                    return editFile(r.result.id, structureBody(elements));
+                })
+                .then(ef => {
+                    console.log(`edit file result`, ef);
+                    // this.setState({
+                    //     toast: <Toast message={`report created`} id={`${Math.random()}`} />
+                    // })
+                    resolve(results);
+                })
+                .catch(e => {
+                    console.log(`createReport error`, e);
+                    // if(e.status === 401 && e.result.error){
+                    //     //login required
+                    //     this.setState({
+                    //         toast: <Toast message={`error: ${e.result.error.message}`} id={`${Math.random()}`} />
+                    //     })
+                    // }
+                    reject(e);
+                })
+            }else{
+                reject(`refused to create document, must have name ${name} and body elements ${elements}`)
+            }
+        });
+    }
+
+/* <span style="background-color:#000000;color:#000000">${empty}</span>
 export const editFile = (fileId) => {
     return gapi.client
       .request({
@@ -311,4 +388,33 @@ export const editFile = (fileId) => {
             console.log(`create file error`, e);
         })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"></head>
+        <body style="background-color:#ffffff;padding:72pt 72pt 72pt 72pt;max-width:468pt">
+        <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;
+        widows:2;text-align:left">
+        <span style="background-color:#ffffff;color:#434343;font-weight:400;text-decoration:none;vertical-align:baseline;
+        font-size:11pt;font-family:&quot;Arial&quot;;font-style:normal"
+        >Charisma
+        </span></p>
+        <p style="padding:0;margin:0;color:#000000;font-size:11pt;font-family:&quot;Arial&quot;;line-height:1.15;orphans:2;
+        widows:2;text-align:left">
+        <span style="background-color:#e69138;color:#e69138">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span>
+        <span style="background-color:#d9d9d9;color:#d9d9d9;font-weight:400;text-decoration:none;vertical-align:baseline;
+        font-size:11pt;font-family:&quot;Arial&quot;;font-style:normal">
+        ssssssssssssssssssssssss</span>
+        </p></body></html>"
     */
