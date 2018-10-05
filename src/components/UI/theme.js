@@ -125,7 +125,7 @@ const theme = () => {
             console.log("theme counter " + counter + " name " + name);
             theme.theme = name;
         },
-        theme: 'default',
+        theme: 'day',
         default: themes[0],
         day: themes[1],
         night: themes[2],

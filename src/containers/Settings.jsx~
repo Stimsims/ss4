@@ -3,10 +3,6 @@ import { withRouteData, Link, withSiteData } from 'react-static'
 import Switch from './../components/UI/elements/Switch/index.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import TextBox from './../components/UI/elements/TextBox.jsx';
-import {setSettings} from './../components/game/SettingsReducer.js';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux'
-import theme from './../components/UI/theme.js';
 
 class Settings extends React.Component{
 	constructor(props){
@@ -14,12 +10,7 @@ class Settings extends React.Component{
 		this.onInput = this.onInput.bind(this);
 	}
 	 onInput(id, value){
-         console.log(`Settings onInput id ${id} value ${value}`, value);
-         //this.props.setSettings()
-         if(id === 'daynight'){
-             this.props.setSettings(id, value?'day':'night');
-             //theme.setTheme(value?'day':'night');
-         }
+	 	console.log(`Settings onInput id ${id} value ${value}`, value);
 	 }
     render(){
         return (
@@ -44,15 +35,4 @@ class Settings extends React.Component{
 }
 
 Settings.displayName='Settings';
-//export default Settings;
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setSettings
-    }, dispatch)
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Settings)
+export default Settings;
