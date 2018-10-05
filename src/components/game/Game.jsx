@@ -4,9 +4,10 @@ import GameLibs from 'mygamelibs';
 import {connect} from 'react-redux';
 import {listFilesByAppProp, getFile, listFilesByName, exportFile, 
     createReport, createAFile, editFile, structureBody} from './../apis/DriveInterface.js';
-import {submitAssignment, gradeAssignment, turnInAssignment, createAssignment, createCourse, listCourses, listCourseWork, listSubmissions} from './../apis/ClassInterface.js';
+import {listCourses, listCourseWork, listSubmissions} from './../apis/ClassInterface.js';
 import {writeToSheet, addChart, getSheet} from './../apis/Sheets.js';
 import Toast from './../UI/elements/Toast.jsx';
+import Submit from './Submit.jsx';
 
 class Game extends React.Component{
     constructor(props){
@@ -40,68 +41,17 @@ class Game extends React.Component{
                 settings: {
                     ...this.props.settings
                 },
-                createReport: createReport,
-                createAssignment: this.createAssignment,
+                createReport: this.submitAssignment,
+                createAssignment: this.submitAssignment,
                 submitAssignment: this.submitAssignment
             }
         }
     }
-    submitAssignment(courseId, courseWorkId, submissionId){
-        let results = {}
-        console.log(`submitAssignment called, courseId ${courseId} workId ${courseWorkId} submission ${submissionId}`);
-        try{
-            if(!courseId){
-                listCourses()
-                .then(r => {
-                    console.log(`submitAssignment course list result`, r);
-                    this.setState({
-                        courses: r.result.courses
-                    })
-                })
-            }else if(!courseWorkId){
-                results.courseId = courseId;
-                listCourseWork(courseId)
-                .then(r => {
-                    console.log(`submitAssignment coursework list result`, r);
-                    this.setState({
-                        courses: null,
-                        courseWorks: r.result.courseWork
-                    })
-                })
-            }else if(!submissionId){
-                results.courseWorkId = courseWorkId;
-                listSubmissions(courseId, courseWorkId)
-                .then(s => {
-                    console.log(`submitAssignment submissions list result`, s);
-                    //returns none on teacher account, available on student account
-                    //has assignedGrade, courseId, courseWorkId, id, userId, state: TURNED_IN
-                    let sub = s.result.studentSubmissions[0].id;
-                    this.setState({
-                        courseWorks: null
-                    })
-                    this.submitAssignment(courseId, courseWorkId, sub);
-                })
-            }else if(courseId && courseWorkId && submissionId){
-                results.courseWorkId = courseWorkId;
-                createReport('submit1', 'submitname', [
-                    {tag: 'h1', text: 'Defered promise', textDecoration: 'underline', textAlign: 'center', fontStyle: 'bold'}
-                ])
-                .then(r => {
-                    console.log(`defere promise resolved, report results`, r);
-                    results = {...results, ...r};
-                    //attach to submission, turn in
-
-                })
-                .catch(e => {
-                    console.warn(`failed to create report and submit assignment`, e);
-                })
-            }else{
-                console.warn(`submitAssignment some weird combo of params happened with submit assignment courseId: ${courseId} courseWorkId: ${courseWorkId}`)
-            }
-        }catch(e){
-            console.log(`submitAssignment failed, error `, e);
-        }
-        
+    submitAssignment(document){
+        console.log(`game submitAssignemnt called with document`, document);
+        this.setState({
+            document
+        })
     }
     testReport(){
         console.log(`testReport starting`);
@@ -198,43 +148,7 @@ class Game extends React.Component{
             })
         })
     }
-    renderCourseWork(){
-        if(this.state.courseWorks){
-            return this.state.courseWorks.map(c => {
-                return <button onClick={() => {
-                    this.submitAssignment(c.courseId, c.id);
-            }}>Coursework {c.title}</button>
-            })
-        }
-        return null;
-    }
-    renderCourses(){
-        //can only create coursework from teacher account, not student account
-        if(this.state.courses){
-            return this.state.courses.map(c => {
-                return <button onClick={() => {
-                    this.submitAssignment(c.id);
-                    // createAssignment(c.id, this.props.gamename + " assignment2")
-                    // .then(r => {
-                    //     console.log(`createAssignment create coursework result`, r);
-                    //     this.setState({
-                    //         courseWorkId: r.result.courseWorkId, courses: null
-                    //     })
-                    // })
-                    // .catch(e => {
-                    //     console.log(`createAssignment create coursework error`, e);
-                    //     this.setState({
-                    //         courses: null
-                    //     })
-                    // })
-            }}>Course {c.name}: {c.description}</button>
-            })
-        }
-        return null;
-    }
-    renderSubmissions(){
-        //TODO render submissions, get submission ID, set grade and attachments
-    }
+    
     //handles saving a report to the cloud
     render(){
         if(this.areToolsReady()){
@@ -243,17 +157,13 @@ class Game extends React.Component{
 
                     <this.props.game tools={this.state.tools} />
                     {this.state.toast}
+                    <Submit document={this.state.document} />
                 </div>
             )
         }else{
             return <div>
                 <p>loading tools...</p>
-                <button onClick={()=>{this.submitAssignment()}}>submit assignment</button>
-                <div>
-                    {this.renderCourses()}
-                    -------------------------
-                    {this.renderCourseWork()}
-                </div>
+
                 {this.state.toast}
                 {/* <button onClick={()=>{
                     console.log(`Toast parent state`, this.state);

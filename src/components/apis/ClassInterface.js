@@ -41,6 +41,7 @@ export const createCourse = () => {
 }
 export const createAssignment = (courseId, title) => {
     //course id 17021267121 enrollment code l8z9gj4
+    //a teacher can create an assignment for a course
     if(courseId){
         console.log(`classroom creating coursework for course ${courseId}`)
         return  gapi.client.classroom.courses.courseWork.create({
@@ -74,6 +75,7 @@ export const turnInAssignment = () => {
 export const gradeAssignment = () => {
     ////course id 17021267121 enrollment code l8z9gj4 courseworkId 17020506164 
      //grades can be assigned by teacher account
+     //I0_1538696432802
     gapi.client.classroom.courses.courseWork.studentSubmissions.patch({
         courseId: '17021267121',
         courseWorkId: '17020506164',
