@@ -137,7 +137,7 @@ const VidBox = styled.div`
     flex-direction: column;
     margin: 0;
     padding:0;
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         flex-direction: row;
     }
 `

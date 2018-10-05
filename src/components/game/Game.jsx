@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import GameLibs from 'mygamelibs';
+//import GameLibs from 'mygamelibs';
 import {connect} from 'react-redux';
 import {listFilesByAppProp, getFile, listFilesByName, exportFile, 
     createReport, createAFile, editFile, structureBody} from './../apis/DriveInterface.js';
@@ -20,7 +20,7 @@ class Game extends React.Component{
             checkIn:{
                // katex: false,
                 recharts: false,
-                mathlibs: false
+               // mathlibs: false
             },
             tools: {
                 //ReactGA,
@@ -88,23 +88,23 @@ class Game extends React.Component{
         return ready;
     }
     importMath(){
-        import('MathLibs' /* webpackChunkName: 'MathLibs' */)
-        .then(res => {
-            console.log('imported MathLibs', res);
-            this.setState({
-                    checkIn:{
-                        ...this.state.checkIn,
-                        mathlibs: true
-                    },
-                    tools:{
-                        ...this.state.tools,
-                        math: res.default
-                    }
-                })
-            })
-        .catch(e => {
-            console.log('error importing MathLibs', e);
-        })
+        // import('MathLibs' /* webpackChunkName: 'MathLibs' */)
+        // .then(res => {
+        //     console.log('imported MathLibs', res);
+        //     this.setState({
+        //             checkIn:{
+        //                 ...this.state.checkIn,
+        //                 mathlibs: true
+        //             },
+        //             tools:{
+        //                 ...this.state.tools,
+        //                 math: res.default
+        //             }
+        //         })
+        //     })
+        // .catch(e => {
+        //     console.log('error importing MathLibs', e);
+        // })
     }
 
     importGraph(){

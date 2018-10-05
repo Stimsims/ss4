@@ -15,14 +15,14 @@ class Games extends React.Component{
     }
     getImport(game){
         switch(game){
-            case 'samplegame':
-                return import('samplegame');
-            case 'fairyjoules':
-                return import('fairyjoules');
-            case 'labgame':
-                return import('labgame');
-            case 'demo':
-                return import('demo')
+            // case 'samplegame':
+            //     return import('samplegame');
+            // case 'fairyjoules':
+            //     return import('fairyjoules');
+            // case 'labgame':
+            //     return import('labgame');
+            // case 'demo':
+            //     return import('demo')
             default:
                 console.warn(`game ${game} unknown, cannot import`);
                 this.setState({
