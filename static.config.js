@@ -6,6 +6,8 @@ import { makePageRoutes } from 'react-static/node'
 import { ServerStyleSheet } from 'styled-components'
 
 const path = require('path');
+const siteRoot = 'https://illulli-1e5a.com/';
+const siteTitle = 'IoH'
 /*
   siteRoot: 'https://illulli.github.io/',
   basePath:'staticSite1',
@@ -27,11 +29,11 @@ bundleAnalyzer: true,
 
 
 export default {
-  siteRoot: 'https://illulli-1e5a.com/',
+  siteRoot,
   //bundleAnalyzer: true,
   getSiteData: () => ({
-    siteTitle: 'Instance of Humanity',
-    siteRoot: 'http://illulli-1e5a.com'
+    siteTitle,
+    siteRoot
   }),
   getRoutes: async () => {
    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -147,7 +149,8 @@ export default {
               content="width=device-width, initial-scale=1"
             />
             <meta name="robots" content="noindex" />
-            <title>My Title</title>
+            <title>{siteTitle}</title>
+            <link rel="shortcut icon" type="image/png" href="/favicon.png" />
             {renderMeta.styleTags}
             
           </Head>

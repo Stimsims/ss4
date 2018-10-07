@@ -49,7 +49,7 @@ class Posts extends React.Component{
     }
 
     render(){
-        console.log('rendering POSTS props', this.props);
+      //  console.log('rendering POSTS props', this.props);
         return (
             <PostBox>
                 {this.redirect()}
@@ -61,10 +61,13 @@ class Posts extends React.Component{
                             {this.props.items.map(p =>{
                                     return <span className='anim-child' style={{width: '100%'}}>
                                             {/* <PostItem.component item={p} /> */}
-                                            <Post>
-                                                <h2>Title</h2>
-                                                <p>tags, tags, tags</p>
-                                            </Post>
+                                            <Link to={`/posts/${p.id}`} key={p.id}>
+                                                <Post>
+                                                    <h2>{p.title}</h2>
+                                                    {p.tags? <p>{p.tags.join()}</p>: null}
+                                                </Post>
+                                            </Link>
+
                                         </span>;
                                     // return <p>item</p>
                                 } 
@@ -77,31 +80,32 @@ class Posts extends React.Component{
 
 Posts.displayName='Posts';
 export default withSiteData(withRouteData(Posts));
-
 const Post = styled.div`
     width: 100%;
     padding: 20px 20px 5px 20px;
     margin: 10px 0px;
-    background-color: white;
     border-bottom: 5px solid red;
     position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     flex-direction: row;
+    transition: background-color ${props => props.theme.animS} ease-out;
+    &:hover{
+        background-color: ${props=> props.theme.neutralD};
+    }
     h2{
         display: inline-block;
         margin: 0;
-        background-color: yellow;
         flex: 1;
-        
+        color: ${props=>props.theme.text} !important;
     }
     p{
         display: inline-block;
         flex:1;
         text-align: right;
         margin: 0;
-        background-color: yellow;
+        color: ${props=>props.theme.text} !important;
     }
 `
 

@@ -8,6 +8,7 @@ import Table from './../UI/elements/Table.jsx';
 import Sizer from './../UI/elements/Sizer.jsx';
 import Settings from './Settings.jsx';
 import {connect} from 'react-redux';
+import { withRouteData, withSiteData} from 'react-static'
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -43,9 +44,10 @@ class Index extends React.Component{
       this.getBtn();
   }
   getBtn(){
-      console.log(`game getBtn rendered? ${this.state.rendered} gapi? ${this.props.gapi.gapiReady}`);
+      console.log(`game getBtn rendered? ${this.state.rendered} gapi? ${this.props.gapi.gapiReady}`, this.props);
       if(!this.state.rendered && this.props.gapi.gapiReady){
-          console.log(`classroom share rendering `)
+          let url = this.props.siteRoot + this.props.history.location.pathname;
+          console.log(`game index getShareToClassBtn url ${url} title ${this.props.title} assignment ${this.props.assignment}`);
           this.setState({
               rendered: true
           })
@@ -54,8 +56,7 @@ class Index extends React.Component{
           gapi.sharetoclassroom.render(
               "g-sharetoclassroom",
               {
-                  size: "48", theme: "light",  url: "https://docs.google.com/document/d/1kTN7Xm7WU7Del-VDEa7KfT2_crWnKwcOd9zLzxnxjLk/edit?usp=drivesdk", 
-                  title: "my title", body: "my assignment"
+                  size: "48", theme: "light",  url, title: this.props.item.title, body: this.props.item.assignment
               }
           )
       }
@@ -140,7 +141,7 @@ const mapStateToProps = (state, props) => {
       gapi: state.gapi
   }
 }
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps)(withRouteData(withSiteData(Index)));
 
 const Container = styled.div`
   position: fixed;

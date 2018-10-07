@@ -15,16 +15,16 @@ class Games extends React.Component{
     }
     getImport(game){
         switch(game){
-            // case 'samplegame':
-            //     return import('samplegame');
-            // case 'fairyjoules':
-            //     return import('fairyjoules');
-            // case 'labgame':
-            //     return import('labgame');
-            // case 'demo':
-            //     return import('demo')
+            case 'samplegame':
+                return import('samplegame');
+            case 'fairyjoules':
+                return import('fairyjoules');
+            case 'labgame':
+                return import('labgame');
+            case 'demo':
+                return import('demo')
             default:
-                console.warn(`game ${game} unknown, cannot import`);
+               // console.warn(`game ${game} unknown, cannot import`);
                 this.setState({
                     error: 'unknown game'
                 })
@@ -32,7 +32,7 @@ class Games extends React.Component{
     }
     componentDidMount(){
         let getImport = this.getImport(this.props.item.import)
-        console.log('getting import props:', this.props);
+       // console.log('getting import props:', this.props);
         if(getImport){
             getImport.then(res => {
                 console.log("import of game files complete, promise:", res);

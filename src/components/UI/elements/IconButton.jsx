@@ -23,7 +23,7 @@ class IconBtn extends React.Component {
         if(this.props.disabled) disabled.disabled=true;
         if(this.props.text){
             return (
-                <TextBtn round={this.props.round} 
+                <TextBtn round={this.props.round} bgColor={this.props.bgColor} 
                 className={this.props.classes} {...disabled} onClick={this.props.onInput}>
                     <Overlay/>
                         {icon}
@@ -32,7 +32,7 @@ class IconBtn extends React.Component {
             )
         }else{
             return (
-                <Btn round={this.props.round} className={this.props.classes} {...disabled} 
+                <Btn round={this.props.round} hover={this.props.hover} className={this.props.classes} {...disabled} 
                 onClick={this.props.onInput} >
                         <Overlay width={`${WIDTH}px`} round={'50%'} />
                         {icon}
@@ -43,7 +43,9 @@ class IconBtn extends React.Component {
     }
     render() {
         return (
-            this.wrapButton(<Icon width={`${WIDTH}px`} height={`${WIDTH}px`} icon={this.props.icon} />)
+            this.wrapButton(<Icon width={`${WIDTH}px`} height={`${WIDTH}px`} icon={this.props.icon}  
+            colorKey={this.props.colorKey} 
+            color={this.props.color} />)
         )
     }
 }
@@ -63,9 +65,10 @@ const Overlay = styled.span`
     height: 100%;
     margin: auto;
     transition: all 1s ease;
-    background-color: rgba(255,255,255,0);
+    background-color: ${props => props.hover};
+    opacity: 0;
     &:hover{
-        background-color: rgba(255,255,255,0.1);
+        opacity: 0.3;
     }
 `
 const Label=styled.p`
@@ -96,7 +99,7 @@ const TextBtn = styled.button`
     outline: 0;
     padding: 0;
     margin: 0;
-    background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}
+    background-color: transparent;
     p{
         padding: 0px 10px;
         display: inline;
@@ -107,9 +110,10 @@ const Btn = styled.button`
     height: 100%;
     position: relative;
     display:table-cell;
-    background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}
+    background-color:transparent;
     border: none;
     outline: 0;
     padding: 0 5px;
     margin: 0;
 `
+//background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}

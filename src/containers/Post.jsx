@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { withRouteData, withSiteData, Link } from 'react-static'
+import { withRouteData, withSiteData, Link } from 'react-static';
 import {connect} from 'react-redux';
 //import Menu from './../components/layout/MainMenu.jsx';
 import IconBtn from './../components/UI/elements/IconButton.jsx';
@@ -121,7 +121,7 @@ class Post extends React.Component{
 
 Post.displayName='Post';
 const mapStateToProps = (state) =>{
-    console.log(`post mapStateToProps `, state);
+   // console.log(`post mapStateToProps `, state);
     return {
         gapiReady: state.gapi.gapiReady
     }

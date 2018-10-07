@@ -15,7 +15,7 @@ class Settings extends React.Component{
 		this.onInput = this.onInput.bind(this);
 	}
 	 onInput(id, value){
-         console.log(`Settings onInput id ${id} value ${value}`, value);
+        // console.log(`Settings onInput id ${id} value ${value}`, value);
          //this.props.setSettings()
          if(id === DAYNIGHT){
              this.props.setSettings(id, value);

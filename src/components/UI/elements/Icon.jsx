@@ -24,7 +24,7 @@ class Icon extends React.Component {
     render() {
        // return <Container><ImgWrapper><Img src={this.getImg(this.props.icon)}/></ImgWrapper></Container>
         return <Container icon={this.props.icon} rotate={this.props.rotate} round={this.props.round} 
-            colorKey={this.props.colorKey} hoverKey={this.props.hover}/>
+            colorKey={this.props.colorKey} color={this.props.color} hoverKey={this.props.hoverKey} hover={this.props.hover}/>
     }
 }
 
@@ -88,7 +88,26 @@ const Container = styled.div`
             }
         }
     };
-    color: yellow;
+    background-color: transparent;
+    transition: all 1s ease;
+    &:hover{
+        background-color: background-color: ${props=>{
+            if(props.colorKey){
+                return props.theme[props.hoverKey]
+            }else if(props.color){
+                return props.hover;
+            }else{
+                return props.theme.primary;
+            }
+            //return 'transparent';
+            //return props.theme.neutral;
+            //props.colorKey?props.color:props.theme.neutralL
+        }};;
+    }
+    transform: rotate(${props=>props.rotate?props.rotate:'0'}deg);
+
+`
+/*
     background-color: ${props=>{
         if(props.colorKey){
             return props.theme[props.colorKey]
@@ -97,13 +116,12 @@ const Container = styled.div`
         }else{
             return props.theme.neutral;
         }
+        //return 'transparent';
         //return props.theme.neutral;
         //props.colorKey?props.color:props.theme.neutralL
     }};
-    transform: rotate(${props=>props.rotate?props.rotate:'0'}deg);
 
-`
-/*
+
     &:hover{
         ${props=>{
             if(props.hoverKey){

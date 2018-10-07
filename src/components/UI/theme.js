@@ -39,9 +39,9 @@ export const night =     {
 
 export const day = {
     ...base,
-    neutral: '#F9FFBF',
+    neutral: '#FFFCF4',
     neutralL: 'white',
-    neutralD: '#FFDCA8',
+    neutralD: '#E5E2DB',
     text: '#525252',
     textInverted: '#525252',
 }
