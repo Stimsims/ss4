@@ -44,13 +44,6 @@ export class Menu extends React.Component{
        )
     }
 
-    // getClassName(){
-    //     if(this.state.minimize){
-    //         return 'minimize'
-    //     }
-    //     return null;
-    // }
-
     render(){
         return(
             <Wrapper>
