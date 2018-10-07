@@ -37,9 +37,9 @@ const Box = styled.div`
         if(props.color){
             return props.color;
         }else if(props.colorKey){
-            return props.theme[props.theme.theme][props.colorKey]
+            return props.theme[props.colorKey]
         }else{
-            return props.theme[props.theme.theme].neutral
+            return props.theme.neutral
         }
     }}
 `

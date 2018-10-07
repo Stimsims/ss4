@@ -30,8 +30,7 @@ export default {
   siteRoot: 'https://illulli-1e5a.com/',
   //bundleAnalyzer: true,
   getSiteData: () => ({
-    siteTitle: 'Q Games',
-    hello: 'world',
+    siteTitle: 'Instance of Humanity',
     siteRoot: 'http://illulli-1e5a.com'
   }),
   getRoutes: async () => {

@@ -51,7 +51,7 @@ const Dropdown = styled.div`
     z-index: 999;
     height: 100%;
     transition: all 1s ease;
-    background-color: ${props=>props.theme[props.theme.theme].neutral};
+    background-color: ${props=>props.theme.neutral};
     /* The container <div> - needed to position the dropdown content */
 
     .dropBtn{
@@ -84,27 +84,30 @@ const Dropdown = styled.div`
         transition: all 1s ease;
         transition-delay: 0.2s;
         transform: translateY(50%) scaleY(0);
-        background-color: ${props=>props.theme[props.theme.theme].neutral};
+        background-color: ${props=>props.theme.neutral};
         a{
             color: green;
         }
     }
 
     .dropdown-content a{
-        color: ${props=>props.theme[props.theme.theme].textInverted};
+        color: ${props=>props.theme.text};
         padding: 12px 16px;
         text-decoration: none;
         display: inline-block;
         &:hover{
-            background-color: red;
+            background-color: ${props=>props.theme.primaryL};
         }
         &:active, &:focus, &:selected{
-            background-color: blue;
+            background-color: ${props=>props.theme.primary};
         }
     }
 
-    &:focus, &:hover, .dropdown:focus, .dropdown:hover{
-        background-color: red;
+    &:hover, .dropdown:hover{
+        background-color: ${props=>props.theme.primaryL};
+    }
+    .dropdown:focus, .dropdown:active, .dropdown:selected, &:focus, &:active, &:selected{
+        background-color: ${props=>props.theme.primary};
     }
 
     /* Show the dropdown menu on hover */
@@ -114,8 +117,8 @@ const Dropdown = styled.div`
 
 `
 const DropArrow = styled.div`
-    height: ${props=>props.theme[props.theme.theme].menuHeight};
-    width: ${props=>props.theme[props.theme.theme].menuHeight};
+    height: ${props=>props.theme.menuHeight};
+    width: ${props=>props.theme.menuHeight};
     padding: 0; margin: 0;
     display: inline-block;
     float: right;
@@ -134,8 +137,8 @@ const DropArrow = styled.div`
 `
 /*
 
-        background-color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].primary};
-        color: ${props=>props.bg?props.bg:props.theme[props.theme.theme].primary};
+        background-color: ${props=>props.bg?props.bg:props.theme.primary};
+        color: ${props=>props.bg?props.bg:props.theme.primary};
         
     &:hover .dropdown-content{
         transform: translateY(0%) scaleY(1);

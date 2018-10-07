@@ -36,6 +36,6 @@ const Box = styled.div`
     height: 100%;
     width: 100%;
     padding-bottom: 100px;
-    background-color ${props => props.theme[props.theme.theme].neutral};
+    background-color ${props => props.theme.neutral};
     
 `

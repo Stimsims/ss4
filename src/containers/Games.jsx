@@ -57,7 +57,7 @@ const GamesBox = styled.div`
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: ${props => props.theme[props.theme.theme].neutral};
+    background-color: ${props => props.theme.neutral};
     overflow-y: auto;
-    padding: ${props => props.theme[props.theme.theme].spaceM}px;
+    padding: ${props => props.theme.spaceM}px;
 `

@@ -1,5 +1,7 @@
 
-  export const reducer = (state = {}, action = {}) => {
+  export const reducer = (state = {
+    daynight: 'day'
+  }, action = {}) => {
     switch (action.type) {
       case 'SET_SETTINGS':
         return {

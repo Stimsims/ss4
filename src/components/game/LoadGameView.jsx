@@ -65,12 +65,12 @@ const Img = styled.div`
     background-position: center;
 `
 const Container = styled.div`
-    background: ${props => props.theme[props.theme.theme].neutralD};
+    background: ${props => props.theme.neutralD};
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: column;
-    padding: ${props => props.theme[props.theme.theme].spaceM + 'px;'}
+    padding: ${props => props.theme.spaceM + 'px;'}
 `
 const Game = styled.div`
     flex:1;
@@ -84,12 +84,12 @@ const Slots = styled.button`
     outline: 0;
     border: none;
     text-align: left;
-    background-color: ${props => props.theme[props.theme.theme].primary};
+    background-color: ${props => props.theme.primary};
     margin: 0px;
     transirion: all 1s ease;
     border-radius: 5px; 
     &:hover{
-        background-color:${props => props.theme[props.theme.theme].primaryL};
+        background-color:${props => props.theme.primaryL};
     }
 `
 
