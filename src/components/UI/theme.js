@@ -1,159 +1,17 @@
-
-const themes = [
-    {
-        main: 'orange',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: '#383838',
-        neutralD: '#141414',
-        neutralL: '#C4C4C4',
-        text: '#141414',
-        textInverted: '#DEDEDE',
-        textSizeS: '0.8em',
-        textSizeM: '1.2em',
-        textSizeL: '1.8em',
-        transparent: 'transparent',
-        primary: '#E07831',
-        primaryL: '#FFA638',
-        primaryD: '#A64E20',
-        accent: '#24C2C7',
-        accentD: '#157275',
-        accentL: '#7ACFDB',
-        spaceXS: '3',
-        spaceS: '5',
-        spaceM: '10',
-        spaceL: '20',
-        roundCorners: '5px',
-        menuHeight: '50px',
-        gameMenuHeight: '48px',
-        mediaMinWidth: '500px',
-        bg1: '#E07831',
-        bg2: '#E0AA35',
-        bg3: '#E0CE31',
-        bg4: '#FF6D6D',
-        bg5: '#FFAB88',
-        bg6: '#FF8AC9',
-        bgCount:6
-    },
-    {
-        main: '#FFA508',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: '#2E2547',
-        neutralD: '#1C162B',
-        neutralL: '#392E59',
-        text: '#150E19',
-        textInverted: '#C39BE3',
-        transparent: 'transparent',
-        textSizeS: '0.8em',
-        textSizeM: '1.2em',
-        textSizeL: '1.8em',
-        primary: '#FFA508',
-        primaryL: '#FFD377',
-        primaryD: '#9C2E0F',
-        accent: '#E3658B',
-        accentD: '#9E3A50',
-        accentL: '#F791B2',
-        spaceXS: '3',
-        spaceS: '5',
-        spaceM: '10',
-        spaceL: '20',
-        roundCorners: '5px',
-        menuHeight: '50px',
-        gameMenuHeight: '48px',
-        mediaMinWidth: '500px',
-        bg1: '#C72D79',
-        bg2: '#C72B2D',
-        bgCount:2
-    },
-    {
-        main: '#89C939',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: '#061333',
-        neutralD: '#030A19',
-        neutralL: '#081C4A',
-        text: '#303030',
-        textInverted: '#D1D1D1',
-        transparent: 'transparent',
-        textSizeS: '0.8em',
-        textSizeM: '1.2em',
-        textSizeL: '1.8em',
-        primary: '#89C939',
-        primaryL: '#C3ED92',
-        primaryD: '#3B611B',
-        accent: '#F2E451',
-        accentD: '#978623',
-        accentL: '#F2E291',
-        spaceXS: '3',
-        spaceS: '5',
-        spaceM: '10',
-        spaceL: '20',
-        roundCorners: '5px',
-        menuHeight: '50px',
-        gameMenuHeight: '48px',
-        mediaMinWidth: '500px',
-        bg1: '#89C939',
-        bg2: '#C9C938',
-        bg3: '#4CD156',
-        bgCount:3
-    }
-]
-
-// const pick = () => {
-//     let r = Math.random();
-//     console.log("pick theme, r = " + r);
-//         switch(true){
-//             case (r < 0.25):
-//                 return 'day'
-//             case (r < 0.5):
-//                 return 'night'
-//             case (r < 0.75):
-//                 return 'other'
-//             default: 
-//                 return 'default'
-//         }
-// }
-const themeNames = ['default', 'day', 'night', 'other'];
-const theme = () => {
-    let counter = 0;
-    return {
-        setTheme: (theme) => {
-            //caller passes in the theme object, this method sets a prop theme with name on it
-            counter++;
-            let name = themeNames[counter % (themeNames.length-1)];
-            console.log("theme counter " + counter + " name " + name);
-            theme.theme = name;
-        },
-        theme: 'day',
-        default: themes[0],
-        day: themes[1],
-        night: themes[2],
-        other: themes[3]
-    }
-}
-
-export default theme
-
-export const night =     {
+const base = {
     main: '#FFA508',
     animS: '0.3s',
     animM: '0.5s',
-    neutral: '#2E2547',
-    neutralD: '#1C162B',
-    neutralL: '#392E59',
-    text: '#150E19',
-    textInverted: '#C39BE3',
     transparent: 'transparent',
     textSizeS: '0.8em',
     textSizeM: '1.2em',
     textSizeL: '1.8em',
-    primary: '#FFA508',
-    primaryL: '#FFD377',
-    primaryD: '#9C2E0F',
-    accent: '#E3658B',
-    accentD: '#9E3A50',
-    accentL: '#F791B2',
+    primary: '#FF343A',
+    primaryL: '#FF5351',
+    primaryD: '#C2282C',
+    accent: '#98E837',
+    accentD: '#98E837',
+    accentL: '#98E837',
     spaceXS: '3',
     spaceS: '5',
     spaceM: '10',
@@ -163,77 +21,27 @@ export const night =     {
     gameMenuHeight: '48px',
     mediaMinWidth: '500px',
     bg1: '#C72D79',
-    bg2: '#C72B2D',
-    bgCount:2
+    bg2: '#C72B2D'
+}
+
+/*
+    neutral: '#121212',
+    neutralL: '#212121',
+*/
+export const night =     {
+    ...base,
+    neutral: '#121212',
+    neutralL: '#212121',
+    neutralD: 'black',
+    text: '#CCCCCC',
+    textInverted: '#CCCCCC',
 }
 
 export const day = {
-        main: '#89C939',
-        animS: '0.3s',
-        animM: '0.5s',
-        neutral: '#061333',
-        neutralD: '#030A19',
-        neutralL: '#081C4A',
-        text: '#303030',
-        textInverted: '#D1D1D1',
-        transparent: 'transparent',
-        textSizeS: '0.8em',
-        textSizeM: '1.2em',
-        textSizeL: '1.8em',
-        primary: '#89C939',
-        primaryL: '#C3ED92',
-        primaryD: '#3B611B',
-        accent: '#F2E451',
-        accentD: '#978623',
-        accentL: '#F2E291',
-        spaceXS: '3',
-        spaceS: '5',
-        spaceM: '10',
-        spaceL: '20',
-        roundCorners: '5px',
-        menuHeight: '50px',
-        gameMenuHeight: '48px',
-        mediaMinWidth: '500px',
-        bg1: '#89C939',
-        bg2: '#C9C938',
-        bg3: '#4CD156',
-        bgCount:3
-    }
-
-// export default {
-//     main: 'orange',
-//     animS: '0.3s',
-//     animM: '0.5s',
-//     neutral: '#303030',
-//     neutralD: '#C4C4C4',
-//     neutralL: '#C4C4C4',
-//     text: '#303030',
-//     textInverted: '#D1D1D1',
-//     transparent: 'transparent',
-//     primary: '#E07831',
-//     primaryL: '#FFA638',
-//     primaryD: '#A64E20',
-//     accent: '#24C2C7',
-//     accentD: '#157275',
-//     accentL: '#7ACFDB'
-// };
-
-
-
-
-
-
-
-
-/*
-neutral: '#CFC4A9',
-F7E9A8
-153F4C
-black and grey: 2B284C   F7EBA8
-limey green: 86BF33 L B0FC43 D 608A25
-dull yellow: D4AF2C
-aqua blue: 38B1C7
-purple looks good for info
-pink C75DB7 L EB8CE9
-orange: E07831 L FFA638
-*/
+    ...base,
+    neutral: '#F9FFBF',
+    neutralL: 'white',
+    neutralD: '#FFDCA8',
+    text: '#525252',
+    textInverted: '#525252',
+}

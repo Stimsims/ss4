@@ -76,7 +76,7 @@ const Flex = styled.div`
     height: 100%;
     justify-content: center;
     flex-direction: column;
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         flex-direction: row;
     }
 `

@@ -50,14 +50,14 @@ const Wrapper = styled.span`
             if(props.color){
                 return props.color;
             }else if(props.colorKey){
-                return props.theme[props.theme.theme][props.colorKey];
+                return props.theme[props.colorKey];
             }else{
-                return props.theme[props.theme.theme].text;
+                return props.theme.text;
             }
         }};
         padding: ${props => props.padding? props.padding: '5px'};
         
-        @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+        @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
             padding: ${props => props.padding? props.padding: '10px'};
         }
     }

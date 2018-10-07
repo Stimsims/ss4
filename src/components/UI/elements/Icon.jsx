@@ -91,14 +91,14 @@ const Container = styled.div`
     color: yellow;
     background-color: ${props=>{
         if(props.colorKey){
-            return props.theme[props.theme.theme][props.colorKey]
+            return props.theme[props.colorKey]
         }else if(props.color){
             return props.color;
         }else{
-            return props.theme[props.theme.theme].neutral;
+            return props.theme.neutral;
         }
-        //return props.theme[props.theme.theme].neutral;
-        //props.colorKey?props.color:props.theme[props.theme.theme].neutralL
+        //return props.theme.neutral;
+        //props.colorKey?props.color:props.theme.neutralL
     }};
     transform: rotate(${props=>props.rotate?props.rotate:'0'}deg);
 
@@ -107,7 +107,7 @@ const Container = styled.div`
     &:hover{
         ${props=>{
             if(props.hoverKey){
-                return 'background-color: ' + props.theme[props.theme.theme][props.hoverKey] + ";"
+                return 'background-color: ' + props.theme[props.hoverKey] + ";"
             }
         }};
     }

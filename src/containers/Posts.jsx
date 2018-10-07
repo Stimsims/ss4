@@ -59,8 +59,12 @@ class Posts extends React.Component{
                 </div>    
                         <Slide offset={0} duration={1000} childDelay={150}>
                             {this.props.items.map(p =>{
-                                    return <span className='anim-child'>
-                                            <PostItem.component item={p} />
+                                    return <span className='anim-child' style={{width: '100%'}}>
+                                            {/* <PostItem.component item={p} /> */}
+                                            <Post>
+                                                <h2>Title</h2>
+                                                <p>tags, tags, tags</p>
+                                            </Post>
                                         </span>;
                                     // return <p>item</p>
                                 } 
@@ -74,6 +78,33 @@ class Posts extends React.Component{
 Posts.displayName='Posts';
 export default withSiteData(withRouteData(Posts));
 
+const Post = styled.div`
+    width: 100%;
+    padding: 20px 20px 5px 20px;
+    margin: 10px 0px;
+    background-color: white;
+    border-bottom: 5px solid red;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+    h2{
+        display: inline-block;
+        margin: 0;
+        background-color: yellow;
+        flex: 1;
+        
+    }
+    p{
+        display: inline-block;
+        flex:1;
+        text-align: right;
+        margin: 0;
+        background-color: yellow;
+    }
+`
+
 const A = styled.span`
     padding: 3px;
     color: cyan;
@@ -81,19 +112,12 @@ const A = styled.span`
         color: yellow;
     }
 `
-const Space = styled.div`
-    width:90%;
-    height: 100px;
-    margin: 10px auto;
-    position: relative;
-    display: block;
-`
 
 const PostBox = styled.div`
     height: 100%;
     width:100%;
     margin: auto;
-    max-width:400px;
+    max-width:500px;
     position: relative;
     padding-bottom: 100px;
     background-color ${props => props.theme.neutral};

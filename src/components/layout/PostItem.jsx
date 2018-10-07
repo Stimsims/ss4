@@ -52,16 +52,16 @@ const Post = styled.div`
   display: block;
   opacity:1;
   padding:25px 25px 10px 25px;
-  border-radius: ${props=>props.theme[props.theme.theme].roundCorners};
-  background-color:  ${props=>props.theme[props.theme.theme].primary};
-  transition: all  ${props=>props.theme[props.theme.theme].animS} ease-in;
+  border-radius: ${props=>props.theme.roundCorners};
+  background-color:  ${props=>props.theme.primary};
+  transition: all  ${props=>props.theme.animS} ease-in;
   &:hover{
-    background-color: ${props=>props.theme[props.theme.theme].primaryL};
+    background-color: ${props=>props.theme.primaryL};
   }
   h2{
     font-size: 1.7em;
     display: inline;
-    color: ${props=>props.theme[props.theme.theme].text};
+    color: ${props=>props.theme.text};
     opacity:1;
     text-transform: capitalize;
     margin:0
@@ -69,7 +69,7 @@ const Post = styled.div`
   }
   p{
     font-size: 1em;
-    color: ${props=>props.theme[props.theme.theme].textInverted};
+    color: ${props=>props.theme.textInverted};
     opacity:1;
     display: inline;
     text-align: right;

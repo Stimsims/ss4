@@ -112,15 +112,15 @@ const Wrapper = styled.div`
     padding: 0;
     margin: 0;
     transition: transform ${props => {
-        return props.theme[props.theme.theme].animM
+        return props.theme.animM
     }} ease;
     display: indline-block; 
 `
 const Pill = styled.div`
     border-radius: 50px;
     background-color: ${props=>{
-      //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme[props.theme.theme].main, props.theme);
-        return props.theme[props.theme.theme].main
+      //  console.log("accordion props theme " + props.theme.theme + " main = " + props.theme.main, props.theme);
+        return props.theme.main
     }};
     padding: 10px;
     margin: auto;

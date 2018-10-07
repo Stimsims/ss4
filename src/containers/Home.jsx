@@ -5,7 +5,6 @@ import Bg from './../components/UI/elements/Background.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import Score from './../components/UI/elements/Score/index.jsx';
 import styled from 'styled-components';
-import Trends from './../components/UI/graphs/Trends.jsx';
 import MyLog from 'MyLog';
 
 class Home extends React.Component{
@@ -13,17 +12,15 @@ class Home extends React.Component{
         super(props);
         MyLog('log', 'Home constructor');
     }
-    renderGraph(){
-      //console.log("home component renderGraph animationState " + this.props.animationState);
-      if(this.props.animationState === 1){
-            return <Trends/>
-      }
-      return null;
-    }
+
     render(){
         return (
          <Box>
-            <Text tag={'h2'} itemprop="name" text={'You?'} align={'center'} colorKey={'accent'} width={'100%'}/>
+            <Text tag={'p'} itemprop="name" text={`
+                Choices made indicate the qualities of the person making them. 
+                Problems can be split into dimensions, and performance can be measured.
+                These measurements are insights into difficult to measure aspects of you.
+            `} align={'center'} width={'100%'}/>
             <Score score={'0.7'} title={'Probability'} desc={'success at estimating chance branching factor.'}/>
             <Score score={0.2} title={'Charisma'} desc={'Knowing what to say and when to say it.'}/>
         </Box>
@@ -36,28 +33,6 @@ const Box = styled.div`
     height: 100%;
     width:100%;
     margin: auto;
-    background-color ${props => props.theme[props.theme.theme].neutral};
+    background-color ${props => props.theme.neutral};
   
 `
-// const Message = styled.h4`
-//   font-size:1em;
-//   color: rgb(255,255,255,1);
-//   width:100%;
-//   padding: 10px;
-//   padding-bottom:0px;
-
-// `
-// const PostWrapper = styled.div`
-//   position: relative;
-//   width: 100%;
-// `
-// const PostBox = styled.div`
-//   position: absolute;
-//   z-index: 10;
-//   top: 100px;
-//   width: 50%;
-//   height: 50vh;
-//   background-color: rgb(255,255,255,0.5);
-//   margin-left: 55px;
-
-// `

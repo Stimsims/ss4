@@ -27,8 +27,8 @@ export default class Score extends React.PureComponent{
     render(){
         return(
             <div style={{width: '100%', padding: '10px'}}>
-                <Text tag={'h3'} text={this.props.title} align={'left'} colorKey={'accent'} padding={'0'} width={'100%'}/>
-                {this.props.desc? <Text tag={'p'} text={this.props.desc} align={'left'}  padding={'5px 0px'} colorKey={'accent'} width={'100%'}/>:null}
+                <Text tag={'h3'} text={this.props.title} align={'left'} colorKey={'primaryD'} padding={'0'} width={'100%'}/>
+                {this.props.desc? <Text tag={'p'} text={this.props.desc} align={'left'}  padding={'5px 0px'} width={'100%'}/>:null}
                 <ScoreBar >
                     <Bar score={this.getScore(this.props.score)}/>
                 </ScoreBar>
@@ -47,7 +47,7 @@ Score.propTypes = {
 const Bar = styled.div`
     width: 0%;
     height: 100%;
-    background-color: pink;
+    background-color: ${props => props.theme.accent};
     animation-name: fill${props=>props.score?props.score:''};
     animation-duration: ${props=>props.score?props.score*0.05:'1'}s;
     animation-timing-function: ease-out;
@@ -63,7 +63,7 @@ const Bar = styled.div`
 `
 const ScoreBar = styled.div`
     width: 100%;
-    background-color: grey;
+    background-color: ${props => props.theme.neutralL};
     height: 20px;
     padding: 2px 0px;
 `

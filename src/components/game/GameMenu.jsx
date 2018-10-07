@@ -86,7 +86,7 @@ export default withSiteData(Menu);
 const Pop = styled.div`
     position: fixed;
     right:0;
-    top:${props => props.theme[props.theme.theme].gameMenuHeight};
+    top:${props => props.theme.gameMenuHeight};
     background-color: white;
     text-align: center;
 `
@@ -96,7 +96,7 @@ const Options=styled.span`
     right:0px; top:0px;
     borders: none;
     height: 100%;
-    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+    transition: all ${props=>props.theme.animS} ease;
 `
 /*
     visibility: ${props=> {
@@ -107,13 +107,13 @@ const Options=styled.span`
 const Bar = styled.div`
     height: ${props => {
         console.log(`gamemenu styled bar props`, props);
-        return props.theme[props.theme.theme].gameMenuHeight
+        return props.theme.gameMenuHeight
     }};
     position: relative;
     border-bottom: 2px solid grey;
     background-color: ${props=>{
         console.log(`gamemenu styled bar props`, props);
-        return props.theme[props.theme.theme].neutral
+        return props.theme.neutral
     }};
 `
 // const Bar = styled.div`
@@ -144,7 +144,7 @@ const Mid = styled.div`
     span h1{
         font-size: 1em
     }
-    @media only screen and (min-width: ${props=>props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props=>props.theme.mediaMinWidth}) {
         span h1{
             font-size: 1.5em
         }

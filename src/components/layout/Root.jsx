@@ -5,45 +5,46 @@ import Routes from 'react-static-routes'
 import Analytics from './../apis/Analytics.jsx';
 import Gapi from './../apis/Gapi.jsx';
 import { Router, Route, Switch, Link, cleanPath } from 'react-static'
+import {connect} from 'react-redux';
 
-import { withContext, getContext } from 'recompose'
+import { withContext, getContext } from 'recompose';
 
 import PropTypes from 'prop-types';
 import Menu from './Menu.jsx';
 import FadeIn from './../UI/animations/FadeIn.jsx';
+import Slide from './../UI/animations/Slide.jsx';
 
 class Root extends React.Component{
 
     render(){
         return (
             <div  style={{position: 'relative'}}>
-
-                <ThemeProvider theme={day}>
-                    <Base className="content" 
-                                onDoubleClick={()=>{
-                                    let nTheme = this.state.myTheme;
-                                    nTheme.setTheme(nTheme);
-                                    this.setState({
-                                    myTheme: {...nTheme},
-                                    themeKey: nTheme.theme
-                                })}}>
-                        <Analytics />
-                        <Gapi />
-                        <Top>
-                            <Menu />
-                        </Top>
-                        <Content>
-                            <Routes component={AnimatedRoutes} />
-                        </Content>
-                    </Base>
-                </ThemeProvider>
-
-                </div>
+                <Router >
+                    <ThemeProvider theme={this.props.isDay? day:night}>
+                        <Base className="content" >
+                            <Analytics />
+                            <Gapi />
+                            <Top>
+                                <Menu />
+                            </Top>
+                            <Content>
+                                <Routes component={AnimatedRoutes} />
+                            </Content>
+                        </Base>
+                    </ThemeProvider>
+                </Router>
+            </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    console.log(`root mapStateToProps`,state);
+    return {
+        isDay: state.settings.daynight
+    }
+}
 
-export default Root;
+export default connect(mapStateToProps)(Root);
 {/* <div  style={{position: 'relative'}}>
 
 <ThemeProvider theme={this.state.myTheme}>
@@ -91,7 +92,7 @@ const Base = styled.div`
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: ${props => props.theme[props.theme.theme].neutral};
+  background-color: ${props => props.theme.neutral};
 `
 
 
@@ -143,13 +144,9 @@ const AnimatedRoutes = getContext({
                         left: 0,
                       }}
                     >
-                        <FadeIn>
+                        <FadeIn offset={100} duration={3000} childDelay={150}>
                             <Comp {...props} />
                         </FadeIn>
-                        {/* <SlideDown offset={100} duration={1500} childDelay={150}>
-                            <Comp {...props} />
-                        </SlideDown> */}
-                        {/* <Comp {...props} /> */}
                     </PreservedRouterContext>
         )
       }}

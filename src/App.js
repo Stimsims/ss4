@@ -61,9 +61,8 @@ class App extends React.Component{
   render(){
     return(
       <Provider store={store}>
-        <Router >
+        
             <Root />
-        </Router>
       </Provider>
     )
   }

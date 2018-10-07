@@ -153,12 +153,12 @@ const Wrapper = styled.div`
     position: fixed;
     left:0; right:0; top:0; bottom: 0;
     z-index: 100;
-    background-color: ${props => props.theme[props.theme.theme].neutral};
+    background-color: ${props => props.theme.neutral};
 `
 
 const Bar = styled.div`
     background-color:red;
-    height: ${props => props.theme[props.theme.theme].gameMenuHeight};
+    height: ${props => props.theme.gameMenuHeight};
     position: relative;
 `
 const Container = styled.div`

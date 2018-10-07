@@ -71,21 +71,21 @@ const Overlay = styled.span`
 const Label=styled.p`
     display: block;
     position: relative;
-    height: ${props => props.height?props.height+'px':props.theme[props.theme.theme].menuHeight};
+    height: ${props => props.height?props.height+'px':props.theme.menuHeight};
 `
 /*
 border-radius: ${props => props.round?props.round:'0'}
 
     transition:visibility 0.3s linear,opacity 0.3s linear;
     transition: all 1s ease;
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         visibility: visible;
         opacity:1;
     }
         &:hover{
-        background-color: ${props => props.theme[props.theme.theme].neutralL};
+        background-color: ${props => props.theme.neutralL};
     }
-    background-color: ${props=>props.theme[props.theme.theme].neutral}
+    background-color: ${props=>props.theme.neutral}
 */
 const TextBtn = styled.button`
     height: 100%;
@@ -96,7 +96,7 @@ const TextBtn = styled.button`
     outline: 0;
     padding: 0;
     margin: 0;
-    background-color: ${props=>props.bgColor? props.bgColor:props.theme[props.theme.theme].neutral}
+    background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}
     p{
         padding: 0px 10px;
         display: inline;
@@ -107,7 +107,7 @@ const Btn = styled.button`
     height: 100%;
     position: relative;
     display:table-cell;
-    background-color: ${props=>props.bgColor? props.bgColor:props.theme[props.theme.theme].neutral}
+    background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}
     border: none;
     outline: 0;
     padding: 0 5px;

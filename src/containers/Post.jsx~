@@ -137,7 +137,7 @@ const VidBox = styled.div`
     flex-direction: column;
     margin: 0;
     padding:0;
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         flex-direction: row;
     }
 `
@@ -148,8 +148,8 @@ const PostBox = styled.div`
     padding: 0px;
     position: relative;
     padding-bottom: 100px;
-    background-color ${props => props.theme[props.theme.theme].neutral};
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    background-color ${props => props.theme.neutral};
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         padding: 10px;
     }
 

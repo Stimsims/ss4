@@ -56,7 +56,7 @@ export class Menu extends React.Component{
             <Wrapper>
                     <Outer className={this.state.minimize?'minimize':''}>
                         <Container>
-                            <PostTitle><Link exact to="/" className={'title'}><h2>Title</h2></Link></PostTitle>
+                            <PostTitle><Link exact to="/" className={'title'}><h2>{this.props.siteTitle}</h2></Link></PostTitle>
                             <Mid key={"mid"} style={{flex: '1'}}/>
                             <MenuItem key={"games"}><Link to="/games"><h4>Games</h4></Link></MenuItem>
                             <MenuItem key={"posts"}><Link to="/posts"><h4>Posts</h4></Link></MenuItem>
@@ -73,7 +73,7 @@ export class Menu extends React.Component{
 
 Menu.displayName = 'Menu';
 //const e = withRouter(Menu);
-export default withRouteData(withRouter(Menu));
+export default withSiteData(withRouteData(withRouter(Menu)));
 
 Menu.PropTypes = {
     location: PropTypes.object
@@ -86,12 +86,12 @@ const Options=styled.span`
     borders: none;
     outline: 0;
     height: 100%;
-    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+    transition: all ${props=>props.theme.animS} ease;
 `
 const PostTitle = styled.h1`
-    font-size: ${props=>props.theme[props.theme.theme].textSizeM};
+    font-size: ${props=>props.theme.textSizeM};
     color: yellow;
-    padding-left: ${props=>props.theme[props.theme.theme].spaceM}px;
+    padding-left: ${props=>props.theme.spaceM}px;
     display: inline-block;
     align-self: center;
     height:100%;
@@ -102,14 +102,14 @@ const PostTitle = styled.h1`
         padding:0px;
         display: inline-block;
         vertical-align: middle;
-        color: ${props=>props.theme[props.theme.theme].textInverted};
+        color: ${props=>props.theme.text};
     }
 `
 
 const Mid = styled.span`
     display: inline-block;
     flex: 1;
-    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+    transition: all ${props=>props.theme.animS} ease;
 `
 
 const MenuItem = styled.span`
@@ -117,7 +117,7 @@ const MenuItem = styled.span`
     align-self: center;
     height:100%;
     vertical-align: bottom;
-    transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+    transition: all ${props=>props.theme.animS} ease;
     h1, h2, p, h4, a{
         line-height:50px;
         height: 100%;
@@ -125,26 +125,26 @@ const MenuItem = styled.span`
         padding:0px;
         display: inline-block;
         vertical-align: middle;
-        color: ${props=>props.theme[props.theme.theme].textInverted};
+        color: ${props=>props.theme.text};
     }
     a{
         padding:0px 10px;
-        color: ${props=>props.theme[props.theme.theme].text};
-        transition: all ${props=>props.theme[props.theme.theme].animS} ease;
+        color: ${props=>props.theme.text};
+        transition: all ${props=>props.theme.animS} ease;
         height: 100%;
         margin:0;
         &:hover{
-            color: ${props=>props.theme[props.theme.theme].primary};
+            background-color: ${props=>props.theme.primaryL};
         }
     }
     a.active{
-        background-color: ${props=>props.theme[props.theme.theme].primary};
+        background-color: ${props=>props.theme.primary};
     }  
 `
 
 const Container = styled.div`
     width:100%;
-    height: ${props=>props.theme[props.theme.theme].menuHeight};
+    height: ${props=>props.theme.menuHeight};
     display: flex;
     padding:0 0px;
     padding-right: 50px;
@@ -156,16 +156,16 @@ const Container = styled.div`
 const Outer = styled.div`
     z-index: 1000;
     width:100%;
-    background: ${props=>props.theme[props.theme.theme].neutral};
+    background: ${props=>props.theme.neutral};
     padding:0px;
     margin:0;
-    border-bottom: 2px solid ${props=>props.theme[props.theme.theme].neutralL};
+    border-bottom: 2px solid ${props=>props.theme.neutralD};
     transition: transform 1s ease 0s, height 0.5s linear 2s;
 `
 Outer.displayName = 'Outer';
 const Wrapper = styled.span`
     .minimize{
-        transform: translateY(-${props=>props.theme[props.theme.theme].menuHeight});
+        transform: translateY(-${props=>props.theme.menuHeight});
         height: 0px;
         border-bottom: 0px:
     }

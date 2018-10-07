@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import theme from './../components/UI/theme.js';
 
+const DAYNIGHT = 'daynight';
 class Settings extends React.Component{
 	constructor(props){
 		super(props);
@@ -16,8 +17,8 @@ class Settings extends React.Component{
 	 onInput(id, value){
          console.log(`Settings onInput id ${id} value ${value}`, value);
          //this.props.setSettings()
-         if(id === 'daynight'){
-             this.props.setSettings(id, value?'day':'night');
+         if(id === DAYNIGHT){
+             this.props.setSettings(id, value);
              //theme.setTheme(value?'day':'night');
          }
 	 }
@@ -25,16 +26,10 @@ class Settings extends React.Component{
         return (
             <div className="hello">
                 <div className="hi" style={{padding: '10px'}}>
-                    <TextBox>
-                        <Text tag={'p'} text={'Font size:'} display={'inline-block'} padding={'5px 0px'} colorKey={'textInverted'} />
-                        <span style={{position: 'absolute', top: '50%', right:'10px', transform: 'translateY(-50%)'}}>
-                            <Switch id={'textsize'} onInput={this.onInput}/>
-                        </span>
-                    </TextBox>
                      <TextBox>
                         <Text tag={'p'} text={'Day/Night mode:'} display={'inline-block'} padding={'5px 0px'} colorKey={'textInverted'} />
                         <span style={{position: 'absolute', top: '50%', right:'10px', transform: 'translateY(-50%)'}}>
-                            <Switch id={'daynight'} onInput={this.onInput} />
+                            <Switch id={DAYNIGHT} isChecked={this.props.daynight} onInput={this.onInput} />
                         </span>
                     </TextBox>
                 </div>
@@ -47,7 +42,7 @@ Settings.displayName='Settings';
 //export default Settings;
 const mapStateToProps = (state) => {
     return {
-
+        daynight: state.settings[DAYNIGHT]
     }
 }
 const mapDispatchToProps = (dispatch) => {

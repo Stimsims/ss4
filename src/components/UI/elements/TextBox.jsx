@@ -21,28 +21,28 @@ const Box = styled.div`
     transition: 0.3s;
     border-radius: 5px;
     background-color ${props=> {
-        let i = props.index % props.theme[props.theme.theme].bgCount;
-        console.log(`bg color index ${props.index} count ${props.theme[props.theme.theme].bgCount} i ${i}`);
+        let i = props.index % props.theme.bgCount;
+        console.log(`bg color index ${props.index} count ${props.theme.bgCount} i ${i}`);
         switch(i){
             case 1:
-                return props.theme[props.theme.theme].bg2;
+                return props.theme.bg2;
             case 2:
-                return props.theme[props.theme.theme].bg3;
+                return props.theme.bg3;
             case 3:
-                return props.theme[props.theme.theme].bg4;
+                return props.theme.bg4;
             case 4:
-                return props.theme[props.theme.theme].bg5;
+                return props.theme.bg5;
             case 5:
-                return props.theme[props.theme.theme].bg6;
+                return props.theme.bg6;
             case 0:
             default:
-                return props.theme[props.theme.theme].bg1;
+                return props.theme.bg1;
         }
     }};
     width: ${props=>props.width?props.width:'100%'};
     margin: ${props => props.margin?props.margin: '10px 0px'};
     padding: ${props=>props.padding?props.padding:'10px'};
-    @media only screen and (min-width: ${props => props.theme[props.theme.theme].mediaMinWidth}) {
+    @media only screen and (min-width: ${props => props.theme.mediaMinWidth}) {
         padding: ${props=>props.padding?props.padding:'10px 20px'};
     }
 `

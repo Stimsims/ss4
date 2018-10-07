@@ -16,6 +16,13 @@ export default class Switch extends React.Component {
 	componentWillMount () {
 		this.setState( { isChecked: this.props.isChecked } );
 	}
+	componentDidUpdate(prevProps){
+		if(prevProps.isChecked !== this.props.isChecked && this.props.isChecked !== this.state.isChecked){
+			this.setState({
+				isChecked: this.props.isChecked
+			})
+		}
+	}
 
 	handleChange(e){
 		//console.log('switch handleChange ' + e.target.value, e);
@@ -24,7 +31,7 @@ export default class Switch extends React.Component {
 	}
 
     render () {
-
+		console.log(`switch id ${this.props.id} isChecked ${this.state.isChecked}`);
         return(
             <View width={'94px'} height={20}>
                 <div className="switch-container">

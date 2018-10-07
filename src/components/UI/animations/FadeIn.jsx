@@ -6,18 +6,21 @@ import styled from 'styled-components';
 class Trans extends React.Component {
     constructor(props) {
       super(props);
+      this.state = {
+          duration: props.duration? props.duration: '1000'
+      }
     }
   
     render() {
       return (
-          <Fade>
+          <Fade duration={this.state.duration}>
             <ReactCSSTransitionGroup
                 transitionName="fade-in"
                 transitionAppear={true}
                 transitionEnter={true}
-                transitionAppearTimeout={500}
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}>
+                transitionAppearTimeout={this.state.duration}
+                transitionEnterTimeout={this.state.duration}
+                transitionLeaveTimeout={this.state.duration}>
                 {this.props.children}
             </ReactCSSTransitionGroup>
         </Fade>
@@ -39,7 +42,7 @@ const Fade = styled.div`
     }
     span .fade-in-enter.fade-in-enter-active{
         opacity: 1;
-        transition: all 1s;
+        transition: all ${props => props.duration}ms;
     }
 
     span .fade-in-appear{
@@ -47,14 +50,14 @@ const Fade = styled.div`
     }
     span .fade-in-appear.fade-in-appear-active{
         opacity: 1;
-        transition: all 1s;
+        transition: all ${props => props.duration}ms;
     }
     span .fade-in-leave{
-        opacity: 1s;
+        opacity: 1;
     }
     span .fade-in-leave-active{
         opacity: 0;
-        transition: all 1s;
+        transition: all ${props => props.duration}ms;
     }
 
 `
