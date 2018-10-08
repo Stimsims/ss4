@@ -2789,13 +2789,13 @@ var Post = function (_React$Component) {
         key: 'renderJson',
         value: function renderJson() {
             return {
-                "@context": "https://schema.org/Article",
+                "@context": "http://schema.org/",
                 "@type": "Recipe",
                 "url": '' + this.props.siteRoot,
                 "name": "Grandma's Holiday Apple Pie",
                 "author": "Elaine Smith",
                 "description": "A classic apple pie.",
-                "image": this.props.siteRoot + '/webpackicons/android-chrome-256x256.png',
+                "image": 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg',
                 "nutrition": {
                     "@type": "NutritionInformation",
                     "servingSize": "1 medium slice",
@@ -7496,71 +7496,28 @@ var MetaComponent = function (_React$Component) {
   _createClass(MetaComponent, [{
     key: "render",
     value: function render() {
+      console.log("MetaComponent props", this.props);
       return _react2.default.createElement(
         "div",
         { className: "wrapper", __source: {
             fileName: _jsxFileName,
-            lineNumber: 7
+            lineNumber: 8
           }
         },
-        _react2.default.createElement(
-          _reactHelmet.Helmet,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            }
-          },
-          _react2.default.createElement(
-            "title",
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 9
-              }
-            },
-            "the site title"
-          ),
-          _react2.default.createElement("meta", { property: "og:type", content: "website", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 10
-            }
-          }),
-          _react2.default.createElement("meta", { name: "description", content: 'the meta desc', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 11
-            }
-          }),
-          _react2.default.createElement("meta", { name: "og:description", content: 'the meta desc', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 12
-            }
-          }),
-          _react2.default.createElement("meta", { property: "og:title", content: 'the meta title', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 13
-            }
-          }),
-          _react2.default.createElement("meta", { property: "og:url", content: 'http://illulli-1e5a.com/posts/pjsmoothie/', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 14
-            }
-          }),
-          _react2.default.createElement("meta", { property: "og:site_name", content: 'the meta site name',
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 15
-            }
-          }),
-          this.props.jsonLd && _react2.default.createElement("script", {
-            type: "application/ld+json",
-            dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          })
-        )
+        _react2.default.createElement(_reactHelmet.Helmet, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        _react2.default.createElement("script", {
+          type: "application/ld+json",
+          dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+          }
+        })
       );
     }
   }]);
@@ -12011,4 +11968,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.351d46eb.js.map
+//# sourceMappingURL=static.c7a2e7b1.js.map
