@@ -2822,7 +2822,7 @@ var Post = function (_React$Component) {
                             lineNumber: 78
                         }
                     }),
-                    _react2.default.createElement('meta', { property: 'og:image', content: '/webpackicons/android-chrome-256x256.png', __source: {
+                    _react2.default.createElement('meta', { property: 'og:image', content: this.props.siteRoot + '/webpackicons/android-chrome-256x256.png', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 79
                         }
@@ -2851,41 +2851,16 @@ var Post = function (_React$Component) {
                         }
                     })
                 ),
-                _react2.default.createElement(
-                    'h2',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 86
-                        }
-                    },
-                    'Laotip 2'
-                ),
-                _react2.default.createElement(
-                    'h2',
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 87
-                        }
-                    },
-                    'computer'
-                ),
-                _react2.default.createElement('img', { itemprop: 'image', src: '/webpackicons/android-chrome-256x256.png', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 88
-                    }
-                }),
                 _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 89
+                        lineNumber: 87
                     }
                 }),
                 this.props.item.tags ? _react2.default.createElement(
                     Hidden,
                     { itemprop: 'keywords', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 90
+                            lineNumber: 88
                         }
                     },
                     this.props.item.tags.join()
@@ -2895,33 +2870,33 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 92
+                            lineNumber: 90
                         }
                     },
                     _react2.default.createElement(
                         _TextBox2.default,
                         { style: { flex: '1' }, margin: '5px 0px', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 93
+                                lineNumber: 91
                             }
                         },
                         _react2.default.createElement(
                             'span',
                             { itemprop: 'description', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 94
+                                    lineNumber: 92
                                 }
                             },
                             _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 }
                             })
                         )
                     ),
                     _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 98
+                            lineNumber: 96
                         }
                     }),
                     _react2.default.createElement(
@@ -2929,7 +2904,7 @@ var Post = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 99
+                                lineNumber: 97
                             }
                         },
                         this.renderVideo()
@@ -2939,7 +2914,7 @@ var Post = function (_React$Component) {
                     'span',
                     { itemprop: 'articleBody', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 106
+                            lineNumber: 104
                         }
                     },
                     this.renderText()
@@ -2948,21 +2923,21 @@ var Post = function (_React$Component) {
                     Shareable,
                     { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 111
+                            lineNumber: 109
                         }
                     },
                     _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                             window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 112
+                            lineNumber: 110
                         }
                     }),
                     _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                             window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 115
+                            lineNumber: 113
                         }
                     })
                 )
@@ -11933,4 +11908,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.85229f51.js.map
+//# sourceMappingURL=static.05c01fb6.js.map
