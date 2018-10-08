@@ -12,6 +12,7 @@ import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import {Helmet} from "react-helmet";
+import Meta from './../components/UI/elements/MetaComponent.jsx';
 
 class Post extends React.Component{
     constructor(props){
@@ -67,11 +68,30 @@ class Post extends React.Component{
         }
         return null;
     }
+    renderJson(){
+        return {
+            "@context": "https://schema.org/Article",
+            "@type": "Recipe",
+            "url": `${this.props.siteRoot}`,
+            "name": "Grandma's Holiday Apple Pie",
+            "author": "Elaine Smith",
+            "description": "A classic apple pie.",
+            "image":`${this.props.siteRoot}/webpackicons/android-chrome-256x256.png`,
+            "nutrition": {
+                "@type": "NutritionInformation",
+                "servingSize": "1 medium slice",
+                "calories": "230 calories",
+                "fatContent": "1 g",
+                "carbohydrateContent": "43 g",
+              }
+        }
+    }
     render(){
         //return null; /webpackicons/android-chrome-256x256.png
         return (
-            <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
-                <Helmet>
+            // <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
+            <PostBox>
+                {/* <Helmet>
                     <meta property="og:title" content={`${this.props.item.title}`} />
                     <meta property="og:description" content={`${this.props.item.description}`} />
                     <meta property="og:site_name" content={`${this.props.siteTitle}`} />
@@ -79,7 +99,7 @@ class Post extends React.Component{
                     <meta property="og:image" content={`${this.props.siteRoot}/webpackicons/android-chrome-256x256.png`} />
                     {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
-                </Helmet>
+                </Helmet> */}
                 <span itemprop="name">
                     <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 </span>
@@ -114,6 +134,7 @@ class Post extends React.Component{
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
                     }}/>
                 </Shareable>
+                <Meta data={this.renderJson()} />
             </PostBox>
           )
     }
