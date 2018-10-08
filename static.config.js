@@ -9,7 +9,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const path = require('path');
-const siteRoot = 'https://illulli-1e5a.com/';
+const siteRoot = 'https://illulli-1e5a.com';
 const siteTitle = 'IoH'
 /*
   siteRoot: 'https://illulli.github.io/',
@@ -155,10 +155,11 @@ export default {
             />
             <meta name="robots" content="noindex" />
             <title>{siteTitle}</title>
+            <meta property="og:image" content="/webpackicons/android-chrome-256x256.png" />
             {/* {renderMeta.faviconsElements} */}
             {renderMeta.styleTags}
-            <link rel="manifest" href="webpackicons/manifest.json"/>
-            <link rel="shortcut icon"  href="webpackicons/favicon.ico" />
+            <link rel="manifest" href="/webpackicons/manifest.json"/>
+            <link rel="shortcut icon"  href="/webpackicons/favicon.ico" />
           </Head>
           <Body>
          
@@ -195,7 +196,7 @@ export default {
       stage, defaultLoaders
       }
     ) => {
-      let favPath = path.join(__dirname, 'fav.png');
+      let favPath = path.join(__dirname, 'favicon.png');
         console.log("webpack mod called, favPath " + favPath)
         //console.log(prev);
         prev.plugins = [
@@ -203,8 +204,10 @@ export default {
           new FaviconsWebpackPlugin({
             logo: favPath,
             inject: true,
-            title: 'my static pwa',
-            background: '#c3af33',
+            title: 'Instance of Humanity',
+            background: '#ff2a2a',
+            theme: '#ff2a2a',
+            theme_color: "#ff2a2a",
             prefix: 'webpackicons/'
           })
         ]

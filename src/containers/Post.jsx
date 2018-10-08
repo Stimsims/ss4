@@ -68,7 +68,7 @@ class Post extends React.Component{
         return null;
     }
     render(){
-        //return null;
+        //return null; /webpackicons/android-chrome-256x256.png
         return (
             <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
                 <Helmet>
@@ -76,6 +76,7 @@ class Post extends React.Component{
                     <meta property="og:description" content={`${this.props.item.description}`} />
                     <meta property="og:site_name" content={`${this.props.siteTitle}`} />
                     <meta property="og:type" content={`http://ogp.me/ns/article#`} />
+                    <meta property="og:image" content="/webpackicons/android-chrome-256x256.png" />
                     {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
@@ -84,6 +85,7 @@ class Post extends React.Component{
                 </span>
                 <h2>Laotip 2</h2>
                 <h2>computer</h2>
+                <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/>
                 <Tags tags={this.props.item.tags} />
                 {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
 

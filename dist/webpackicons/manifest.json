@@ -1,13 +1,13 @@
 {
-  "name": "my static pwa",
-  "short_name": "my static pwa",
+  "name": "Instance of Humanity",
+  "short_name": "Instance of Humanity",
   "description": null,
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
   "orientation": "any",
   "start_url": "/?homescreen=1",
-  "background_color": "#c3af33",
+  "background_color": "#ff2a2a",
   "icons": [
     {
       "src": "android-chrome-36x36.png",
