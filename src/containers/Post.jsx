@@ -76,16 +76,14 @@ class Post extends React.Component{
                     <meta property="og:description" content={`${this.props.item.description}`} />
                     <meta property="og:site_name" content={`${this.props.siteTitle}`} />
                     <meta property="og:type" content={`http://ogp.me/ns/article#`} />
-                    <meta property="og:image" content="/webpackicons/android-chrome-256x256.png" />
+                    <meta property="og:image" content={`${this.props.siteRoot}/webpackicons/android-chrome-256x256.png`} />
                     {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
                     {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
                 </Helmet>
                 <span itemprop="name">
                     <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 </span>
-                <h2>Laotip 2</h2>
-                <h2>computer</h2>
-                <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/>
+                {/* <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/> */}
                 <Tags tags={this.props.item.tags} />
                 {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
 
