@@ -70,13 +70,13 @@ class Post extends React.Component{
     }
     renderJson(){
         return {
-            "@context": "https://schema.org/Article",
+            "@context": "http://schema.org/",
             "@type": "Recipe",
             "url": `${this.props.siteRoot}`,
             "name": "Grandma's Holiday Apple Pie",
             "author": "Elaine Smith",
             "description": "A classic apple pie.",
-            "image":`${this.props.siteRoot}/webpackicons/android-chrome-256x256.png`,
+            "image":`http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg`,
             "nutrition": {
                 "@type": "NutritionInformation",
                 "servingSize": "1 medium slice",
