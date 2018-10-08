@@ -45,7 +45,7 @@ export default class SlideDown extends React.Component{
 }
 SlideDown.displayName='SlideDown';
 
-SlideDown.PropTypes = {
+SlideDown.propTypes = {
     offset: PropTypes.number,
     duration: PropTypes.number,
     childDelay: PropTypes.number

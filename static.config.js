@@ -4,6 +4,9 @@ import games from './data/games/index.js';
 import React from 'react';
 import { makePageRoutes } from 'react-static/node'
 import { ServerStyleSheet } from 'styled-components'
+import ReactStaticFavicons from 'react-static-favicons';
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const path = require('path');
 const siteRoot = 'https://illulli-1e5a.com/';
@@ -120,10 +123,12 @@ export default {
       },
     ]
   },
-  renderToHtml: (render, Comp, meta) => {
+  renderToHtml:(render, C, meta) => {
+   // meta.faviconsElements = await reactStaticFavicons.render();  async 
     const sheet = new ServerStyleSheet()
-    const html = render(sheet.collectStyles(<Comp />))
-    meta.styleTags = sheet.getStyleElement()
+    const html = render(sheet.collectStyles(<C />));
+    meta.styleTags = sheet.getStyleElement();
+    
     return html
   },
   Document: class CustomHtml extends React.Component {
@@ -137,7 +142,7 @@ export default {
       if ('serviceWorker' in navigator) {
         // Use the window load event to keep the page load performant
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
+          navigator.serviceWorker.register('/service-worker.js');
         });
       }`;
       return (
@@ -150,15 +155,16 @@ export default {
             />
             <meta name="robots" content="noindex" />
             <title>{siteTitle}</title>
-            <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+            {/* {renderMeta.faviconsElements} */}
             {renderMeta.styleTags}
-            
+            <link rel="manifest" href="webpackicons/manifest.json"/>
+            <link rel="shortcut icon"  href="webpackicons/favicon.ico" />
           </Head>
           <Body>
          
           {children}
           <script type="text/javascript" dangerouslySetInnerHTML={{ __html: workboxScript }} />
-         
+
           </Body>
         </Html>
       )
@@ -183,25 +189,69 @@ export default {
         return {
           ...prev
         };
+    },
+    (prev, 
+      {
+      stage, defaultLoaders
+      }
+    ) => {
+      let favPath = path.join(__dirname, 'fav.png');
+        console.log("webpack mod called, favPath " + favPath)
+        //console.log(prev);
+        prev.plugins = [
+          ...prev.plugins,
+          new FaviconsWebpackPlugin({
+            logo: favPath,
+            inject: true,
+            title: 'my static pwa',
+            background: '#c3af33',
+            prefix: 'webpackicons/'
+          })
+        ]
+        return {
+          ...prev
+        };
+    },
+    (prev, 
+      {
+      stage, defaultLoaders
+      }
+    ) => {
+        console.log("webpack mod called")
+       // console.log(prev);
+        prev.plugins = [
+          ...prev.plugins,
+          new WorkboxPlugin.GenerateSW()
+        ]
+        return {
+          ...prev
+        };
     }
-    // (prev, 
-    //   {
-    //   stage, defaultLoaders
-    //   }
-    // ) => {
-    //     console.log("webpack mod called")
-    //     console.log(prev);
-    //     prev.plugins = [
-    //       ...prev.plugins,
-    //       new workbox.GenerateSW()
-    //     ]
-    //     return {
-    //       ...prev
-    //     };
-    // }
   ]
 }
 
+const reactStaticFavicons = new ReactStaticFavicons({
+  // string: directory where the image files are written
+  outputDir: path.join(__dirname, 'dist'),
+
+  // string: the source image
+  inputFile: path.join(__dirname, 'fav.png'),
+
+  // object: the configuration passed directory to favicons
+  configuration: {
+    appName: 'appName',
+    appShortName: 'myshortname',
+    shortName: 'another short name',
+    background: '#3367D6',
+    "theme_color": '#3367D6',
+    "start_url": "/posts",
+    display: "standalone",
+      icons: {
+          favicons: true
+          // other favicons configuration
+      }
+  },
+});
 
 const getTagPages = (items, key, tags) => {
   let pages = [];
@@ -295,6 +345,16 @@ const makePages = (items, pageSize, parentPath, parentComponent, childPath, chil
 
 
 /*
+
+      const workboxScript = `// Check that service workers are registered
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }`;
+
+
       // Make an index route for every 5 blog posts
       ...makePageRoutes({
         items: posts,
