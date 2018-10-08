@@ -876,7 +876,7 @@ exports.default = SlideDown;
 
 SlideDown.displayName = 'SlideDown';
 
-SlideDown.PropTypes = {
+SlideDown.propTypes = {
     offset: _propTypes2.default.number,
     duration: _propTypes2.default.number,
     childDelay: _propTypes2.default.number
@@ -4228,7 +4228,7 @@ exports.default = SlideDown;
 
 SlideDown.displayName = 'SlideDown';
 
-SlideDown.PropTypes = {
+SlideDown.propTypes = {
     offset: _propTypes2.default.number,
     duration: _propTypes2.default.number,
     childDelay: _propTypes2.default.number
@@ -11923,4 +11923,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.b8105c39.js.map
+//# sourceMappingURL=static.4e36523a.js.map
