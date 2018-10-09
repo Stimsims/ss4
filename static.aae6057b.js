@@ -2791,17 +2791,27 @@ var Post = function (_React$Component) {
             return {
                 "@context": "http://schema.org/",
                 "@type": "Recipe",
-                "url": '' + this.props.siteRoot,
                 "name": "Grandma's Holiday Apple Pie",
                 "author": "Elaine Smith",
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
                 "description": "A classic apple pie.",
-                "image": 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg',
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4",
+                    "reviewCount": "276",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "prepTime": "PT30M",
+                "totalTime": "PT1H",
+                "recipeYield": "8",
                 "nutrition": {
                     "@type": "NutritionInformation",
                     "servingSize": "1 medium slice",
                     "calories": "230 calories",
                     "fatContent": "1 g",
                     "carbohydrateContent": "43 g"
+
                 }
             };
         }
@@ -2818,68 +2828,85 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 93
+                            lineNumber: 103
                         }
                     },
                     _react2.default.createElement(
                         'span',
                         { itemprop: 'name', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 103
+                                lineNumber: 113
                             }
                         },
                         _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 104
+                                lineNumber: 114
                             }
                         })
                     ),
                     _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 107
+                            lineNumber: 117
                         }
                     }),
                     this.props.item.tags ? _react2.default.createElement(
                         Hidden,
                         { itemprop: 'keywords', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 108
+                                lineNumber: 118
                             }
                         },
                         this.props.item.tags.join()
                     ) : null,
                     _react2.default.createElement(
+                        'a',
+                        { href: 'https://twitter.com/intent/tweet?source=https://illulli-1e5a.com/posts/pjsmoothie/&text=my post title', target: '_blank', title: 'Tweet', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 119
+                            }
+                        },
+                        _react2.default.createElement(
+                            'i',
+                            { 'class': 'fi fi-social-twitter', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 119
+                                }
+                            },
+                            'twweett'
+                        )
+                    ),
+                    _react2.default.createElement(
                         VidBox,
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 110
+                                lineNumber: 120
                             }
                         },
                         _react2.default.createElement(
                             _TextBox2.default,
                             { style: { flex: '1' }, margin: '5px 0px', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 111
+                                    lineNumber: 121
                                 }
                             },
                             _react2.default.createElement(
                                 'span',
                                 { itemprop: 'description', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 112
+                                        lineNumber: 122
                                     }
                                 },
                                 _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 113
+                                        lineNumber: 123
                                     }
                                 })
                             )
                         ),
                         _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 116
+                                lineNumber: 126
                             }
                         }),
                         _react2.default.createElement(
@@ -2887,7 +2914,7 @@ var Post = function (_React$Component) {
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 117
+                                    lineNumber: 127
                                 }
                             },
                             this.renderVideo()
@@ -2897,7 +2924,7 @@ var Post = function (_React$Component) {
                         'span',
                         { itemprop: 'articleBody', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 124
+                                lineNumber: 134
                             }
                         },
                         this.renderText()
@@ -2906,27 +2933,27 @@ var Post = function (_React$Component) {
                         Shareable,
                         { id: 'shareable', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 129
+                                lineNumber: 139
                             }
                         },
                         _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                                 window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 130
+                                lineNumber: 140
                             }
                         }),
                         _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                                 window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 133
+                                lineNumber: 143
                             }
                         })
                     ),
                     _react2.default.createElement(_MetaComponent2.default, { data: this.renderJson(), __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 137
+                            lineNumber: 147
                         }
                     })
                 )
@@ -7464,7 +7491,7 @@ const Video = styled.div`
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 var _jsxFileName = "D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\MetaComponent.jsx";
 
@@ -7485,45 +7512,107 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var MetaComponent = function (_React$Component) {
-  _inherits(MetaComponent, _React$Component);
+    _inherits(MetaComponent, _React$Component);
 
-  function MetaComponent() {
-    _classCallCheck(this, MetaComponent);
+    function MetaComponent() {
+        _classCallCheck(this, MetaComponent);
 
-    return _possibleConstructorReturn(this, (MetaComponent.__proto__ || Object.getPrototypeOf(MetaComponent)).apply(this, arguments));
-  }
-
-  _createClass(MetaComponent, [{
-    key: "render",
-    value: function render() {
-      console.log("MetaComponent props", this.props);
-      return _react2.default.createElement(
-        "div",
-        { className: "wrapper", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        },
-        _react2.default.createElement(_reactHelmet.Helmet, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 9
-          }
-        }),
-        _react2.default.createElement("script", {
-          type: "application/ld+json",
-          dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20
-          }
-        })
-      );
+        return _possibleConstructorReturn(this, (MetaComponent.__proto__ || Object.getPrototypeOf(MetaComponent)).apply(this, arguments));
     }
-  }]);
 
-  return MetaComponent;
+    _createClass(MetaComponent, [{
+        key: "render",
+        value: function render() {
+            console.log("MetaComponent props", this.props);
+            return _react2.default.createElement(
+                "div",
+                { className: "wrapper", __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 8
+                    }
+                },
+                _react2.default.createElement(
+                    _reactHelmet.Helmet,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 9
+                        }
+                    },
+                    _react2.default.createElement("meta", { name: "twitter:card", content: "summary", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 18
+                        }
+                    }),
+                    _react2.default.createElement("meta", { name: "twitter:site", content: "@Paygevii1", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 19
+                        }
+                    }),
+                    _react2.default.createElement("meta", { name: "twitter:title", content: "Top 10 Things Ever", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 20
+                        }
+                    }),
+                    _react2.default.createElement("meta", { name: "twitter:description", content: "Up than 200 characters.", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 21
+                        }
+                    }),
+                    _react2.default.createElement("meta", { name: "twitter:image", content: "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 22
+                        }
+                    }),
+                    _react2.default.createElement("meta", { name: "twitter:image:alt", content: "apple pie", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 23
+                        }
+                    })
+                ),
+                _react2.default.createElement("script", {
+                    type: "application/ld+json",
+                    dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 25
+                    }
+                })
+            );
+        }
+    }]);
+
+    return MetaComponent;
 }(_react2.default.Component);
+
+/*
+{
+          "@context": "http://schema.org/",
+              "@type": "Recipe",
+              "name": "Grandma's Holiday Apple Pie",
+              "author": "Elaine Smith",
+              "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+              "description": "A classic apple pie.",
+              "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4",
+                  "reviewCount": "276",
+                  "bestRating": "5",
+                  "worstRating": "1"
+              },
+              "prepTime": "PT30M",
+              "totalTime": "PT1H",
+              "recipeYield": "8",
+              "nutrition": {
+                  "@type": "NutritionInformation",
+                  "servingSize": "1 medium slice",
+                  "calories": "230 calories",
+                  "fatContent": "1 g",
+                  "carbohydrateContent": "43 g",
+                }
+      }
+*/
+
 
 exports.default = MetaComponent;
 
@@ -11968,4 +12057,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.c7a2e7b1.js.map
+//# sourceMappingURL=static.aae6057b.js.map
