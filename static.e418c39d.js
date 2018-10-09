@@ -2804,14 +2804,15 @@ var Post = function (_React$Component) {
                     "educationalUse":"assignment",
                     "typicalAgeRange": "16-",
                     "keywords": "key, hello",
+                    "keywords": '"'+this.props.item.tags.join()+'"',
             */
             return {
                 "@context": "http://schema.org/",
                 "@type": "Article",
-                "name": '"' + this.props.item.title + '"',
+                "name": this.props.item.title,
                 "headline": "aricle headline",
                 "author": "Elaine Smith",
-                "keywords": '"' + this.props.item.tags.join() + '"',
+                "keywords": this.props.item.tags.join(),
                 "publisher": {
                     "@type": "Organization",
                     "email": "test@gmail.com",
@@ -2851,32 +2852,32 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 126
+                            lineNumber: 127
                         }
                     },
                     _react2.default.createElement(
                         'span',
                         { itemprop: 'name', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 136
+                                lineNumber: 137
                             }
                         },
                         _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 137
+                                lineNumber: 138
                             }
                         })
                     ),
                     _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 140
+                            lineNumber: 141
                         }
                     }),
                     this.props.item.tags ? _react2.default.createElement(
                         Hidden,
                         { itemprop: 'keywords', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 141
+                                lineNumber: 142
                             }
                         },
                         this.props.item.tags.join()
@@ -2885,14 +2886,14 @@ var Post = function (_React$Component) {
                         'a',
                         { href: 'https://twitter.com/intent/tweet?url=' + this.state.url + '&text=hello my text', target: '_blank', title: 'Tweet', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 142
+                                lineNumber: 143
                             }
                         },
                         _react2.default.createElement(
                             'i',
                             { 'class': 'fi fi-social-twitter', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 142
+                                    lineNumber: 143
                                 }
                             },
                             'twweett'
@@ -2903,33 +2904,33 @@ var Post = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 143
+                                lineNumber: 144
                             }
                         },
                         _react2.default.createElement(
                             _TextBox2.default,
                             { style: { flex: '1' }, margin: '5px 0px', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 144
+                                    lineNumber: 145
                                 }
                             },
                             _react2.default.createElement(
                                 'span',
                                 { itemprop: 'description', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 145
+                                        lineNumber: 146
                                     }
                                 },
                                 _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 146
+                                        lineNumber: 147
                                     }
                                 })
                             )
                         ),
                         _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 149
+                                lineNumber: 150
                             }
                         }),
                         _react2.default.createElement(
@@ -2937,7 +2938,7 @@ var Post = function (_React$Component) {
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 150
+                                    lineNumber: 151
                                 }
                             },
                             this.renderVideo()
@@ -2947,7 +2948,7 @@ var Post = function (_React$Component) {
                         'span',
                         { itemprop: 'articleBody', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 157
+                                lineNumber: 158
                             }
                         },
                         this.renderText()
@@ -2956,21 +2957,21 @@ var Post = function (_React$Component) {
                         Shareable,
                         { id: 'shareable', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 162
+                                lineNumber: 163
                             }
                         },
                         _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                                 window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 163
+                                lineNumber: 164
                             }
                         }),
                         _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                                 window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 166
+                                lineNumber: 167
                             }
                         })
                     ),
@@ -2979,7 +2980,7 @@ var Post = function (_React$Component) {
                         desc: this.props.item.desc, title: this.props.item.title,
                         image: 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg', imageAlt: 'my apple pie', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 170
+                            lineNumber: 171
                         }
                     })
                 )
@@ -7721,16 +7722,16 @@ var MetaComponent = function (_React$Component) {
                             fileName: _jsxFileName,
                             lineNumber: 67
                         }
-                    }),
-                    _react2.default.createElement('script', {
-                        type: 'application/ld+json',
-                        dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 68
-                        }
                     })
-                )
+                ),
+                _react2.default.createElement('script', {
+                    type: 'application/ld+json',
+                    dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 70
+                    }
+                })
             );
         }
     }]);
@@ -12214,4 +12215,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.ca58211d.js.map
+//# sourceMappingURL=static.e418c39d.js.map
