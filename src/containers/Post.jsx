@@ -68,32 +68,55 @@ class Post extends React.Component{
         }
         return null;
     }
-    renderJson(){
+    getStructuredData(){
+        //                    "video": `${'"'+this.props.item.youtube+'"'}`
+        /*
+                "creativeWork":{
+                    "@type": "CreativeWork",
+                    "about": "how players solve the resident evil armor key puzzle",
+                    "video": "https://youtu.be/VVQM-b9ovh4"
+                },
+                                "date":{
+                    "@type": "Date",
+                    "datePublished": "2018-10-09",
+                }
+                "logo": `${'"'+this.props.siteRoot+'/webpackicons/android-chrome-256x256.png'+'"'}`
+                                "accessMode": ["textual", "visual"],
+                "educationalUse":"assignment",
+                "typicalAgeRange": "16-",
+                "keywords": "key, hello",
+        */
         return {
             "@context": "http://schema.org/",
-                "@type": "Recipe",
-                "name": "Grandma's Holiday Apple Pie",
+                "@type": "Article",
+                "name": '"'+this.props.item.title+'"',
+                "headline": "aricle headline",
                 "author": "Elaine Smith",
-                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
-                "description": "A classic apple pie.",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4",
-                    "reviewCount": "276",
-                    "bestRating": "5",
-                    "worstRating": "1"
+                "keywords": '"'+this.props.item.tags.join()+'"',
+                "publisher": {
+                    "@type": "Organization",
+                    "email": "test@gmail.com",
+                    "name": "IoH",
+                    "url": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "thumbnail": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png",
+                        "url": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png"
+                    }
                 },
-                "prepTime": "PT30M",
-                "totalTime": "PT1H",
-                "recipeYield": "8",
-                "nutrition": {
-                    "@type": "NutritionInformation",
-                    "servingSize": "1 medium slice",
-                    "calories": "230 calories",
-                    "fatContent": "1 g",
-                    "carbohydrateContent": "43 g",
-
-                }
+                "mainEntityOfPage":{
+                    "@type": "CreativeWork",
+                    "name": "my creative vid",
+                    "about": "solving resident evil armor key puzzle"
+                },
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "thumbnailUrl": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "about": "How people solve problems",
+                "articleSection":"People are a mystery. We break mysteries down by analyzing their simpeles examples. So, we're analyzing video game puzzles",
+                "timeRequired": "P30M",
+                "dateModified": "20181009T050200Z",
+                "datePublished": "20181009T050200Z"
         }
     }
     render(){
@@ -116,7 +139,7 @@ class Post extends React.Component{
                 {/* <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/> */}
                 <Tags tags={this.props.item.tags} />
                 {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
-                <a href={`https://twitter.com/intent/tweet?source=https://illulli-1e5a.com/posts/pjsmoothie/&text=my post title`} target="_blank" title="Tweet"><i class="fi fi-social-twitter">twweett</i></a>
+                <a href={`https://twitter.com/intent/tweet?url=${this.state.url}&text=hello my text`} target="_blank" title="Tweet"><i class="fi fi-social-twitter">twweett</i></a>
                 <VidBox>
                     <TextBox style={{flex: '1'}} margin={'5px 0px'}>
                         <span itemprop="description" >
@@ -144,7 +167,10 @@ class Post extends React.Component{
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
                     }}/>
                 </Shareable>
-                <Meta data={this.renderJson()} />
+                <Meta data={this.getStructuredData()} 
+                type={{type:'article', "article:section":"game analysis","article:tag":this.props.item.tags.join()}} 
+                desc={this.props.item.desc} title={this.props.item.title} 
+                image={'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg'} imageAlt="my apple pie"/>
             </PostBox>
           )
     }
@@ -191,3 +217,32 @@ const Shareable = styled.div`
     width: 100%;
     text-align: center;
 `
+
+/*
+        return {
+            "@context": "http://schema.org/",
+                "@type": "Recipe",
+                "name": "Grandma's Holiday Apple Pie",
+                "author": "Elaine Smith",
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4",
+                    "reviewCount": "276",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "prepTime": "PT30M",
+                "totalTime": "PT1H",
+                "recipeYield": "8",
+                "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 medium slice",
+                    "calories": "230 calories",
+                    "fatContent": "1 g",
+                    "carbohydrateContent": "43 g",
+
+                }
+        }
+*/

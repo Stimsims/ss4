@@ -2786,33 +2786,56 @@ var Post = function (_React$Component) {
             return null;
         }
     }, {
-        key: 'renderJson',
-        value: function renderJson() {
+        key: 'getStructuredData',
+        value: function getStructuredData() {
+            //                    "video": `${'"'+this.props.item.youtube+'"'}`
+            /*
+                    "creativeWork":{
+                        "@type": "CreativeWork",
+                        "about": "how players solve the resident evil armor key puzzle",
+                        "video": "https://youtu.be/VVQM-b9ovh4"
+                    },
+                                    "date":{
+                        "@type": "Date",
+                        "datePublished": "2018-10-09",
+                    }
+                    "logo": `${'"'+this.props.siteRoot+'/webpackicons/android-chrome-256x256.png'+'"'}`
+                                    "accessMode": ["textual", "visual"],
+                    "educationalUse":"assignment",
+                    "typicalAgeRange": "16-",
+                    "keywords": "key, hello",
+            */
             return {
                 "@context": "http://schema.org/",
-                "@type": "Recipe",
-                "name": "Grandma's Holiday Apple Pie",
+                "@type": "Article",
+                "name": '"' + this.props.item.title + '"',
+                "headline": "aricle headline",
                 "author": "Elaine Smith",
-                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
-                "description": "A classic apple pie.",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4",
-                    "reviewCount": "276",
-                    "bestRating": "5",
-                    "worstRating": "1"
+                "keywords": '"' + this.props.item.tags.join() + '"',
+                "publisher": {
+                    "@type": "Organization",
+                    "email": "test@gmail.com",
+                    "name": "IoH",
+                    "url": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "thumbnail": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png",
+                        "url": "https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png"
+                    }
                 },
-                "prepTime": "PT30M",
-                "totalTime": "PT1H",
-                "recipeYield": "8",
-                "nutrition": {
-                    "@type": "NutritionInformation",
-                    "servingSize": "1 medium slice",
-                    "calories": "230 calories",
-                    "fatContent": "1 g",
-                    "carbohydrateContent": "43 g"
-
-                }
+                "mainEntityOfPage": {
+                    "@type": "CreativeWork",
+                    "name": "my creative vid",
+                    "about": "solving resident evil armor key puzzle"
+                },
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "thumbnailUrl": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "about": "How people solve problems",
+                "articleSection": "People are a mystery. We break mysteries down by analyzing their simpeles examples. So, we're analyzing video game puzzles",
+                "timeRequired": "P30M",
+                "dateModified": "20181009T050200Z",
+                "datePublished": "20181009T050200Z"
             };
         }
     }, {
@@ -2828,48 +2851,48 @@ var Post = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 103
+                            lineNumber: 126
                         }
                     },
                     _react2.default.createElement(
                         'span',
                         { itemprop: 'name', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 113
+                                lineNumber: 136
                             }
                         },
                         _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 114
+                                lineNumber: 137
                             }
                         })
                     ),
                     _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 117
+                            lineNumber: 140
                         }
                     }),
                     this.props.item.tags ? _react2.default.createElement(
                         Hidden,
                         { itemprop: 'keywords', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 118
+                                lineNumber: 141
                             }
                         },
                         this.props.item.tags.join()
                     ) : null,
                     _react2.default.createElement(
                         'a',
-                        { href: 'https://twitter.com/intent/tweet?source=https://illulli-1e5a.com/posts/pjsmoothie/&text=my post title', target: '_blank', title: 'Tweet', __source: {
+                        { href: 'https://twitter.com/intent/tweet?url=' + this.state.url + '&text=hello my text', target: '_blank', title: 'Tweet', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 119
+                                lineNumber: 142
                             }
                         },
                         _react2.default.createElement(
                             'i',
                             { 'class': 'fi fi-social-twitter', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 119
+                                    lineNumber: 142
                                 }
                             },
                             'twweett'
@@ -2880,33 +2903,33 @@ var Post = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 120
+                                lineNumber: 143
                             }
                         },
                         _react2.default.createElement(
                             _TextBox2.default,
                             { style: { flex: '1' }, margin: '5px 0px', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 121
+                                    lineNumber: 144
                                 }
                             },
                             _react2.default.createElement(
                                 'span',
                                 { itemprop: 'description', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 122
+                                        lineNumber: 145
                                     }
                                 },
                                 _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 123
+                                        lineNumber: 146
                                     }
                                 })
                             )
                         ),
                         _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 126
+                                lineNumber: 149
                             }
                         }),
                         _react2.default.createElement(
@@ -2914,7 +2937,7 @@ var Post = function (_React$Component) {
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 127
+                                    lineNumber: 150
                                 }
                             },
                             this.renderVideo()
@@ -2924,7 +2947,7 @@ var Post = function (_React$Component) {
                         'span',
                         { itemprop: 'articleBody', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 134
+                                lineNumber: 157
                             }
                         },
                         this.renderText()
@@ -2933,27 +2956,30 @@ var Post = function (_React$Component) {
                         Shareable,
                         { id: 'shareable', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 139
+                                lineNumber: 162
                             }
                         },
                         _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
                                 window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 140
+                                lineNumber: 163
                             }
                         }),
                         _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
                                 window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 143
+                                lineNumber: 166
                             }
                         })
                     ),
-                    _react2.default.createElement(_MetaComponent2.default, { data: this.renderJson(), __source: {
+                    _react2.default.createElement(_MetaComponent2.default, { data: this.getStructuredData(),
+                        type: { type: 'article', "article:section": "game analysis", "article:tag": this.props.item.tags.join() },
+                        desc: this.props.item.desc, title: this.props.item.title,
+                        image: 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg', imageAlt: 'my apple pie', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 147
+                            lineNumber: 170
                         }
                     })
                 )
@@ -2986,6 +3012,35 @@ var PostBox = _styledComponents2.default.div(_templateObject3, function (props) 
 });
 
 var Shareable = _styledComponents2.default.div(_templateObject4);
+
+/*
+        return {
+            "@context": "http://schema.org/",
+                "@type": "Recipe",
+                "name": "Grandma's Holiday Apple Pie",
+                "author": "Elaine Smith",
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4",
+                    "reviewCount": "276",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "prepTime": "PT30M",
+                "totalTime": "PT1H",
+                "recipeYield": "8",
+                "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 medium slice",
+                    "calories": "230 calories",
+                    "fatContent": "1 g",
+                    "carbohydrateContent": "43 g",
+
+                }
+        }
+*/
 
 /***/ }),
 /* 32 */
@@ -7493,7 +7548,7 @@ const Video = styled.div`
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = "D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\MetaComponent.jsx";
+var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\components\\UI\\elements\\MetaComponent.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -7502,6 +7557,10 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactHelmet = __webpack_require__(35);
+
+var _reactRedux = __webpack_require__(3);
+
+var _reactStatic = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7514,21 +7573,69 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var MetaComponent = function (_React$Component) {
     _inherits(MetaComponent, _React$Component);
 
-    function MetaComponent() {
+    function MetaComponent(props) {
         _classCallCheck(this, MetaComponent);
 
-        return _possibleConstructorReturn(this, (MetaComponent.__proto__ || Object.getPrototypeOf(MetaComponent)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (MetaComponent.__proto__ || Object.getPrototypeOf(MetaComponent)).call(this, props));
+
+        _this.state = {
+            data: {
+                "@context": "http://schema.org/",
+                "@type": "Recipe",
+                "name": "Grandma's Holiday Apple Pie",
+                "author": "Elaine Smith",
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4",
+                    "reviewCount": "276",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "prepTime": "PT30M",
+                "totalTime": "PT1H",
+                "recipeYield": "8",
+                "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 medium slice",
+                    "calories": "230 calories",
+                    "fatContent": "1 g",
+                    "carbohydrateContent": "43 g"
+
+                }
+            }
+        };
+        return _this;
     }
 
     _createClass(MetaComponent, [{
-        key: "render",
+        key: 'renderOgType',
+        value: function renderOgType() {
+            var _this2 = this;
+
+            if (this.props.type) {
+                var keys = Object.keys(this.props.type);
+                return keys.map(function (e) {
+                    return _react2.default.createElement('meta', { property: e, content: _this2.props.type[e], __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 42
+                        }
+                    });
+                });
+            }
+            return null;
+        }
+    }, {
+        key: 'render',
         value: function render() {
-            console.log("MetaComponent props", this.props);
+            //<meta property="og:type" content="article" />
+            console.log('MetaComponent props', this.props);
             return _react2.default.createElement(
-                "div",
-                { className: "wrapper", __source: {
+                'div',
+                { className: 'wrapper', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 8
+                        lineNumber: 51
                     }
                 },
                 _react2.default.createElement(
@@ -7536,48 +7643,94 @@ var MetaComponent = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 9
+                            lineNumber: 52
                         }
                     },
-                    _react2.default.createElement("meta", { name: "twitter:card", content: "summary", __source: {
+                    _react2.default.createElement(
+                        'title',
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 53
+                            }
+                        },
+                        this.props.title ? this.props.title : this.props.siteTitle
+                    ),
+                    this.renderOgType(),
+                    this.props.desc && _react2.default.createElement('meta', { name: 'description', content: this.props.desc, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 18
+                            lineNumber: 55
                         }
                     }),
-                    _react2.default.createElement("meta", { name: "twitter:site", content: "@Paygevii1", __source: {
+                    this.props.desc && _react2.default.createElement('meta', { name: 'og:description', content: this.props.desc, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 19
+                            lineNumber: 56
                         }
                     }),
-                    _react2.default.createElement("meta", { name: "twitter:title", content: "Top 10 Things Ever", __source: {
+                    _react2.default.createElement('meta', { property: 'og:title', content: this.props.title ? this.props.title : this.props.siteTitle, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 20
+                            lineNumber: 57
                         }
                     }),
-                    _react2.default.createElement("meta", { name: "twitter:description", content: "Up than 200 characters.", __source: {
+                    _react2.default.createElement('meta', { property: 'og:url', content: 'http://illulli-1e5a.com/posts/pjsmoothie/', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 21
+                            lineNumber: 58
                         }
                     }),
-                    _react2.default.createElement("meta", { name: "twitter:image", content: "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg", __source: {
+                    _react2.default.createElement('meta', { property: 'og:image', content: this.props.image ? this.props.image : 'https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 22
+                            lineNumber: 59
                         }
                     }),
-                    _react2.default.createElement("meta", { name: "twitter:image:alt", content: "apple pie", __source: {
+                    _react2.default.createElement('meta', { property: 'og:site_name', content: this.props.siteTitle, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 23
+                            lineNumber: 60
+                        }
+                    }),
+                    _react2.default.createElement('meta', { name: 'twitter:card', content: 'summary', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 61
+                        }
+                    }),
+                    _react2.default.createElement('meta', { name: 'twitter:site', content: '@Paygevii1', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 62
+                        }
+                    }),
+                    _react2.default.createElement('meta', { name: 'twitter:creator', content: '@Paygevii1', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 63
+                        }
+                    }),
+                    _react2.default.createElement('meta', { name: 'twitter:title', content: this.props.title ? this.props.title : this.props.siteTitle, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 64
+                        }
+                    }),
+                    this.props.desc && _react2.default.createElement('meta', { name: 'twitter:description', content: this.props.desc, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 65
+                        }
+                    }),
+                    _react2.default.createElement('meta', { name: 'twitter:image', content: this.props.image ? this.props.image : 'https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 66
+                        }
+                    }),
+                    this.props.image && _react2.default.createElement('meta', { name: 'twitter:image:alt', content: this.props.imageAlt ? this.props.imageAlt : 'website icon', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 67
+                        }
+                    }),
+                    _react2.default.createElement('script', {
+                        type: 'application/ld+json',
+                        dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 68
                         }
                     })
-                ),
-                _react2.default.createElement("script", {
-                    type: "application/ld+json",
-                    dangerouslySetInnerHTML: { __html: JSON.stringify(this.props.data) },
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 25
-                    }
-                })
+                )
             );
         }
     }]);
@@ -7585,6 +7738,13 @@ var MetaComponent = function (_React$Component) {
     return MetaComponent;
 }(_react2.default.Component);
 
+var mapStateToProps = function mapStateToProps(state) {
+    // console.log(`post mapStateToProps `, state);
+    return {
+        //gapiReady: state.gapi.gapiReady
+    };
+};
+exports.default = (0, _reactRedux.connect)(mapStateToProps)((0, _reactStatic.withSiteData)(MetaComponent));
 /*
 {
           "@context": "http://schema.org/",
@@ -7612,9 +7772,6 @@ var MetaComponent = function (_React$Component) {
                 }
       }
 */
-
-
-exports.default = MetaComponent;
 
 /***/ }),
 /* 89 */
@@ -12057,4 +12214,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.aae6057b.js.map
+//# sourceMappingURL=static.ca58211d.js.map

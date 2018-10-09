@@ -154,8 +154,8 @@ export default {
               content="width=device-width, initial-scale=1"
             />
             <meta name="robots" content="noindex" />
-            <title>{siteTitle}</title>
-            <meta property="og:image" content="/webpackicons/android-chrome-256x256.png" />
+            {/* <title>{siteTitle}</title>
+            <meta property="og:image" content="/webpackicons/android-chrome-256x256.png" /> */}
             {/* {renderMeta.faviconsElements} */}
             {renderMeta.styleTags}
             <link rel="manifest" href="/webpackicons/manifest.json"/>
