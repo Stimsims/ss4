@@ -71,19 +71,29 @@ class Post extends React.Component{
     renderJson(){
         return {
             "@context": "http://schema.org/",
-            "@type": "Recipe",
-            "url": `${this.props.siteRoot}`,
-            "name": "Grandma's Holiday Apple Pie",
-            "author": "Elaine Smith",
-            "description": "A classic apple pie.",
-            "image":`http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg`,
-            "nutrition": {
-                "@type": "NutritionInformation",
-                "servingSize": "1 medium slice",
-                "calories": "230 calories",
-                "fatContent": "1 g",
-                "carbohydrateContent": "43 g",
-              }
+                "@type": "Recipe",
+                "name": "Grandma's Holiday Apple Pie",
+                "author": "Elaine Smith",
+                "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+                "description": "A classic apple pie.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4",
+                    "reviewCount": "276",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "prepTime": "PT30M",
+                "totalTime": "PT1H",
+                "recipeYield": "8",
+                "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 medium slice",
+                    "calories": "230 calories",
+                    "fatContent": "1 g",
+                    "carbohydrateContent": "43 g",
+
+                }
         }
     }
     render(){
@@ -106,7 +116,7 @@ class Post extends React.Component{
                 {/* <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/> */}
                 <Tags tags={this.props.item.tags} />
                 {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
-
+                <a href={`https://twitter.com/intent/tweet?source=https://illulli-1e5a.com/posts/pjsmoothie/&text=my post title`} target="_blank" title="Tweet"><i class="fi fi-social-twitter">twweett</i></a>
                 <VidBox>
                     <TextBox style={{flex: '1'}} margin={'5px 0px'}>
                         <span itemprop="description" >
