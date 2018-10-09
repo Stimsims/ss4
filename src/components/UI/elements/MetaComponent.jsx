@@ -65,12 +65,12 @@ class MetaComponent extends React.Component {
             {this.props.desc && <meta name="twitter:description" content={this.props.desc} />}
             <meta name="twitter:image" content={this.props.image?this.props.image:'https://illulli-1e5a.com/webpackicons/android-chrome-256x256.png'}/>
             {this.props.image && <meta name="twitter:image:alt" content={this.props.imageAlt?this.props.imageAlt:'website icon'} />}
-            <script
+
+        </Helmet>
+        <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(this.props.data) }}
             />
-        </Helmet>
- 
       </div>
     )
    }

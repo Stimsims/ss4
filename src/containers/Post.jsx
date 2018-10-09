@@ -85,14 +85,15 @@ class Post extends React.Component{
                 "educationalUse":"assignment",
                 "typicalAgeRange": "16-",
                 "keywords": "key, hello",
+                "keywords": '"'+this.props.item.tags.join()+'"',
         */
         return {
             "@context": "http://schema.org/",
                 "@type": "Article",
-                "name": '"'+this.props.item.title+'"',
+                "name": this.props.item.title,
                 "headline": "aricle headline",
                 "author": "Elaine Smith",
-                "keywords": '"'+this.props.item.tags.join()+'"',
+                "keywords": this.props.item.tags.join(),
                 "publisher": {
                     "@type": "Organization",
                     "email": "test@gmail.com",
