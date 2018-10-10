@@ -5,12 +5,12 @@ import Bg from './../components/UI/elements/Background.jsx';
 import Text from './../components/UI/elements/Text.jsx';
 import Score from './../components/UI/elements/Score/index.jsx';
 import styled from 'styled-components';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 
 class Home extends React.Component{
     constructor(props){
         super(props);
-        MyLog('log', 'Home constructor');
+        MyLog.style('Home constructor', 'magenta');
     }
 
     render(){

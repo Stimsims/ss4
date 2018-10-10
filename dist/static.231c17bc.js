@@ -284,12 +284,6 @@ var Wrapper = _styledComponents2.default.span(_templateObject, function (props) 
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -298,6 +292,7 @@ module.exports = require("redux");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.trace = exports.table = exports.style = exports.log = undefined;
 
 var _validate = __webpack_require__(24);
 
@@ -306,16 +301,35 @@ var _validate2 = _interopRequireDefault(_validate);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var levels = ['log', 'warn', 'error'];
-var MyLog = function MyLog(level, log, obj) {
+
+var log = exports.log = function log(level, _log, obj) {
     if (_validate2.default.contains(levels, level)) {
         if (_validate2.default.isDefined(obj)) {
-            console[level](log, obj);
+            console[level](_log, obj);
         } else {
-            console[level](log);
+            console[level](_log);
         }
     }
 };
-exports.default = MyLog;
+
+var style = exports.style = function style(log, color) {
+    console.log('%c ' + log, 'color: ' + color + '; font-weight: bold');
+};
+
+var table = exports.table = function table(objs) {
+    console.table(objs);
+};
+
+var trace = exports.trace = function trace(log) {
+    console.trace(log);
+};
+//export default {log, style};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
 
 /***/ }),
 /* 8 */
@@ -334,10 +348,10 @@ var _jsxFileName = 'D:\\websites\\react-static\\static-site-2\\4\\src\\component
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    \n    text-align: center;\n    vertical-align: middle;\n    z-index: 999; \n    position: absolute;\n    top: 0; \n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: 100%; \n    height: 100%;\n    margin: auto;\n    transition: all 1s ease;\n    background-color: ', ';\n    opacity: 0;\n    &:hover{\n        opacity: 0.3;\n    }\n'], ['\n    \n    text-align: center;\n    vertical-align: middle;\n    z-index: 999; \n    position: absolute;\n    top: 0; \n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: 100%; \n    height: 100%;\n    margin: auto;\n    transition: all 1s ease;\n    background-color: ', ';\n    opacity: 0;\n    &:hover{\n        opacity: 0.3;\n    }\n']),
+var _templateObject = _taggedTemplateLiteral(['\n    \n    text-align: center;\n    vertical-align: middle;\n    z-index: 999; \n    position: absolute;\n    top: 0; \n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: 100%; \n    height: 100%;\n    margin: auto;\n\n'], ['\n    \n    text-align: center;\n    vertical-align: middle;\n    z-index: 999; \n    position: absolute;\n    top: 0; \n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: 100%; \n    height: 100%;\n    margin: auto;\n\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    display: block;\n    position: relative;\n    height: ', ';\n'], ['\n    display: block;\n    position: relative;\n    height: ', ';\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    height: 100%;\n    width: ', ';\n    display:table-cell;\n    position: relative;\n    border: none;\n    outline: 0;\n    padding: 0;\n    margin: 0;\n    background-color: transparent;\n    p{\n        padding: 0px 10px;\n        display: inline;\n    }\n'], ['\n    height: 100%;\n    width: ', ';\n    display:table-cell;\n    position: relative;\n    border: none;\n    outline: 0;\n    padding: 0;\n    margin: 0;\n    background-color: transparent;\n    p{\n        padding: 0px 10px;\n        display: inline;\n    }\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    height: 100%;\n    position: relative;\n    display:table-cell;\n    background-color:transparent;\n    border: none;\n    outline: 0;\n    padding: 0 5px;\n    margin: 0;\n'], ['\n    height: 100%;\n    position: relative;\n    display:table-cell;\n    background-color:transparent;\n    border: none;\n    outline: 0;\n    padding: 0 5px;\n    margin: 0;\n']);
+    _templateObject4 = _taggedTemplateLiteral(['\n    height: 100%;\n    position: relative;\n    display:table-cell;\n    \n    border: none;\n    outline: 0;\n    padding: 0 5px;\n    margin: 0;\n    transition: all 1s ease;\n    background-color: transparent;\n    &:hover{\n        background-color: ', ';\n    }\n'], ['\n    height: 100%;\n    position: relative;\n    display:table-cell;\n    \n    border: none;\n    outline: 0;\n    padding: 0 5px;\n    margin: 0;\n    transition: all 1s ease;\n    background-color: transparent;\n    &:hover{\n        background-color: ', ';\n    }\n']);
 
 var _react = __webpack_require__(0);
 
@@ -399,8 +413,7 @@ var IconBtn = function (_React$Component) {
                             lineNumber: 26
                         }
                     }),
-                    _react2.default.createElement(Overlay, {
-                        __source: {
+                    _react2.default.createElement(Overlay, { hover: this.props.hover, hoverKey: this.props.hoverKey, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 28
                         }
@@ -420,13 +433,13 @@ var IconBtn = function (_React$Component) {
             } else {
                 return _react2.default.createElement(
                     Btn,
-                    _extends({ round: this.props.round, hover: this.props.hover, className: this.props.classes }, disabled, {
+                    _extends({ round: this.props.round, bgColor: this.props.bgColor, className: this.props.classes }, disabled, {
                         onClick: this.props.onInput, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 35
                         }
                     }),
-                    _react2.default.createElement(Overlay, { width: WIDTH + 'px', round: '50%', __source: {
+                    _react2.default.createElement(Overlay, { width: WIDTH + 'px', round: '50%', hover: this.props.hover, hoverKey: this.props.hoverKey, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 37
                         }
@@ -453,13 +466,28 @@ var IconBtn = function (_React$Component) {
 
 exports.default = IconBtn;
 
-var Overlay = _styledComponents2.default.span(_templateObject, function (props) {
-    return props.hover;
-});
+var Overlay = _styledComponents2.default.span(_templateObject);
 var Label = _styledComponents2.default.p(_templateObject2, function (props) {
     return props.height ? props.height + 'px' : props.theme.menuHeight;
 });
 /*
+
+    transition: all 1s ease;
+    background-color: ${props=>{
+        if(props.colorKey){
+            return props.theme[props.hoverKey]
+        }else if(props.color){
+            return props.hover;
+        }else{
+            return props.theme.primary;
+        }
+    }};
+    opacity: 0;
+    &:hover{
+        opacity: 0.3;
+    }
+
+
 border-radius: ${props => props.round?props.round:'0'}
 
     transition:visibility 0.3s linear,opacity 0.3s linear;
@@ -477,7 +505,16 @@ var TextBtn = _styledComponents2.default.button(_templateObject3, function (prop
     return props.width ? props.width : 'auto';
 });
 //${props => props.primary ? 'blue' : props.theme.main}
-var Btn = _styledComponents2.default.button(_templateObject4);
+var Btn = _styledComponents2.default.button(_templateObject4, function (props) {
+    if (props.colorKey) {
+        return props.theme[props.hoverKey];
+    } else if (props.color) {
+        return props.hover;
+    } else {
+        return 'transparent';
+    }
+});
+//  background-color:${props => props.bgColor?props.bgColor:'transparent'};
 //background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}
 
 /***/ }),
@@ -786,13 +823,15 @@ var _reactAddonsCssTransitionGroup = __webpack_require__(18);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -989,6 +1028,10 @@ var _iconmonstrGooglePlus = __webpack_require__(86);
 
 var _iconmonstrGooglePlus2 = _interopRequireDefault(_iconmonstrGooglePlus);
 
+var _iconmonstrTwitter = __webpack_require__(87);
+
+var _iconmonstrTwitter2 = _interopRequireDefault(_iconmonstrTwitter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -1016,7 +1059,7 @@ var Icon = function (_React$Component) {
             return _react2.default.createElement(Container, { icon: this.props.icon, rotate: this.props.rotate, round: this.props.round,
                 colorKey: this.props.colorKey, color: this.props.color, hoverKey: this.props.hoverKey, hover: this.props.hover, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 26
+                    lineNumber: 27
                 }
             });
         }
@@ -1058,6 +1101,8 @@ var Container = _styledComponents2.default.div(_templateObject, function (props)
             return _iconmonstrFacebook2.default;
         case 'gp':
             return _iconmonstrGooglePlus2.default;
+        case 'twitter':
+            return _iconmonstrTwitter2.default;
         default:
             return _roundAutorenew24px2.default;
     }
@@ -1148,7 +1193,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _mygamelibs = __webpack_require__(98);
+var _mygamelibs = __webpack_require__(99);
 
 var _mygamelibs2 = _interopRequireDefault(_mygamelibs);
 
@@ -1158,13 +1203,13 @@ var _DriveInterface = __webpack_require__(21);
 
 var _ClassInterface = __webpack_require__(40);
 
-var _Sheets = __webpack_require__(99);
+var _Sheets = __webpack_require__(100);
 
-var _Toast = __webpack_require__(100);
+var _Toast = __webpack_require__(101);
 
 var _Toast2 = _interopRequireDefault(_Toast);
 
-var _Submit = __webpack_require__(101);
+var _Submit = __webpack_require__(102);
 
 var _Submit2 = _interopRequireDefault(_Submit);
 
@@ -1182,10 +1227,9 @@ var Game = function (_React$Component) {
     function Game(props) {
         _classCallCheck(this, Game);
 
+        //  this.createReport = this.createReport.bind(this);
         var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
 
-        console.log("game constructor props", props);
-        //  this.createReport = this.createReport.bind(this);
         _this.testReport = _this.testReport.bind(_this);
         _this.submitAssignment = _this.submitAssignment.bind(_this);
         _this.state = {
@@ -1217,7 +1261,6 @@ var Game = function (_React$Component) {
     _createClass(Game, [{
         key: 'submitAssignment',
         value: function submitAssignment(document) {
-            console.log('game submitAssignemnt called with document', document);
             this.setState({
                 document: document
             });
@@ -1227,24 +1270,21 @@ var Game = function (_React$Component) {
         value: function testReport() {
             var _this2 = this;
 
-            console.log('testReport starting');
             (0, _DriveInterface.createReport)('testgame', 'testname', []).then(function (r) {
-                console.log('testReport result', r);
                 _this2.setState({
                     toast: _react2.default.createElement(_Toast2.default, { message: 'report created', id: '' + Math.random(), __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 62
+                            lineNumber: 58
                         }
                     })
                 });
             }).catch(function (e) {
-                console.log('testReport error', e);
                 if (e && e.status === 401 && e.result.error) {
                     //login required
                     _this2.setState({
                         toast: _react2.default.createElement(_Toast2.default, { message: 'error: ' + e.result.error.message, id: '' + Math.random(), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 70
+                                lineNumber: 65
                             }
                         })
                     });
@@ -1296,7 +1336,6 @@ var Game = function (_React$Component) {
                     return 'MathLibs';
                 }
             }).then(function (res) {
-                console.log('imported MathLibs', res);
                 _this4.setState({
                     checkIn: _extends({}, _this4.state.checkIn, {
                         mathlibs: true
@@ -1307,6 +1346,7 @@ var Game = function (_React$Component) {
                 });
             }).catch(function (e) {
                 console.log('error importing MathLibs', e);
+                throw new Error('website game.jsx had error importing MathLibs.js');
             });
         }
     }, {
@@ -1334,7 +1374,6 @@ var Game = function (_React$Component) {
                     return 'recharts';
                 }
             }).then(function (r) {
-                console.log("game tools graph checking in, ", r);
                 var ResponsiveContainer = r.ResponsiveContainer,
                     LineChart = r.LineChart,
                     ScatterChart = r.ScatterChart,
@@ -1392,18 +1431,18 @@ var Game = function (_React$Component) {
                     'div',
                     { style: { width: '100%', height: '100%' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 156
+                            lineNumber: 150
                         }
                     },
                     _react2.default.createElement(this.props.game, { tools: this.state.tools, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 158
+                            lineNumber: 152
                         }
                     }),
                     this.state.toast,
                     _react2.default.createElement(_Submit2.default, { document: this.state.document, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 160
+                            lineNumber: 154
                         }
                     })
                 );
@@ -1413,7 +1452,7 @@ var Game = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 164
+                            lineNumber: 158
                         }
                     },
                     _react2.default.createElement(
@@ -1421,7 +1460,7 @@ var Game = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 165
+                                lineNumber: 159
                             }
                         },
                         'loading tools...'
@@ -1436,7 +1475,6 @@ var Game = function (_React$Component) {
 //export default Game;
 
 var mapStateToProps = function mapStateToProps(state, props) {
-    console.log('website game mapStateToProps state', state);
     return {
         //init: state.sim.initialized
     };
@@ -2642,11 +2680,11 @@ var _Tags = __webpack_require__(30);
 
 var _Tags2 = _interopRequireDefault(_Tags);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
 
-var _Video = __webpack_require__(87);
+var _Video = __webpack_require__(88);
 
 var _Video2 = _interopRequireDefault(_Video);
 
@@ -2664,9 +2702,11 @@ var _Text2 = _interopRequireDefault(_Text);
 
 var _reactHelmet = __webpack_require__(35);
 
-var _MetaComponent = __webpack_require__(88);
+var _MetaComponent = __webpack_require__(89);
 
 var _MetaComponent2 = _interopRequireDefault(_MetaComponent);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2844,146 +2884,109 @@ var Post = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            //return null; /webpackicons/android-chrome-256x256.png
-            return (
-                // <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
+            return _react2.default.createElement(
+                PostBox,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 125
+                    }
+                },
+                _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 126
+                    }
+                }),
+                _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 127
+                    }
+                }),
                 _react2.default.createElement(
-                    PostBox,
-                    {
-                        __source: {
+                    'a',
+                    { href: 'https://twitter.com/intent/tweet?url=' + this.state.url + '&text=hello my text', target: '_blank', title: 'Tweet', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 127
+                            lineNumber: 128
                         }
                     },
                     _react2.default.createElement(
-                        'span',
-                        { itemprop: 'name', __source: {
+                        'i',
+                        { 'class': 'fi fi-social-twitter', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 137
+                                lineNumber: 128
                             }
                         },
-                        _react2.default.createElement(_Text2.default, { tag: 'h1', itemprop: 'name', text: this.props.item.title, align: 'center', colorKey: 'accent', width: '100%', __source: {
+                        'twweett'
+                    )
+                ),
+                _react2.default.createElement(
+                    VidBox,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 129
+                        }
+                    },
+                    _react2.default.createElement(
+                        _TextBox2.default,
+                        { style: { flex: '1' }, margin: '5px 0px', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 138
+                                lineNumber: 130
+                            }
+                        },
+                        _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 131
                             }
                         })
                     ),
-                    _react2.default.createElement(_Tags2.default, { tags: this.props.item.tags, __source: {
+                    _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 141
+                            lineNumber: 133
                         }
                     }),
-                    this.props.item.tags ? _react2.default.createElement(
-                        Hidden,
-                        { itemprop: 'keywords', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 142
-                            }
-                        },
-                        this.props.item.tags.join()
-                    ) : null,
                     _react2.default.createElement(
-                        'a',
-                        { href: 'https://twitter.com/intent/tweet?url=' + this.state.url + '&text=hello my text', target: '_blank', title: 'Tweet', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 143
-                            }
-                        },
-                        _react2.default.createElement(
-                            'i',
-                            { 'class': 'fi fi-social-twitter', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 143
-                                }
-                            },
-                            'twweett'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        VidBox,
+                        'div',
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 144
+                                lineNumber: 134
                             }
                         },
-                        _react2.default.createElement(
-                            _TextBox2.default,
-                            { style: { flex: '1' }, margin: '5px 0px', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 145
-                                }
-                            },
-                            _react2.default.createElement(
-                                'span',
-                                { itemprop: 'description', __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 146
-                                    }
-                                },
-                                _react2.default.createElement(_Text2.default, { tag: 'p', text: this.props.item.description, align: 'center', width: '100%', __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 147
-                                    }
-                                })
-                            )
-                        ),
-                        _react2.default.createElement('div', { style: { width: '10px', height: '10px' }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 150
-                            }
-                        }),
-                        _react2.default.createElement(
-                            'div',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 151
-                                }
-                            },
-                            this.renderVideo()
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'span',
-                        { itemprop: 'articleBody', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 158
-                            }
-                        },
-                        this.renderText()
-                    ),
-                    _react2.default.createElement(
-                        Shareable,
-                        { id: 'shareable', __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 163
-                            }
-                        },
-                        _react2.default.createElement(_IconButton2.default, { icon: "gp", round: true, padding: '3px', color: 'red', onInput: function onInput() {
-                                window.open('https://plus.google.com/share?url=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 164
-                            }
-                        }),
-                        _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
-                                window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 167
-                            }
-                        })
-                    ),
-                    _react2.default.createElement(_MetaComponent2.default, { data: this.getStructuredData(),
-                        type: { type: 'article', "article:section": "game analysis", "article:tag": this.props.item.tags.join() },
-                        desc: this.props.item.desc, title: this.props.item.title,
-                        image: 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg', imageAlt: 'my apple pie', __source: {
+                        this.renderVideo()
+                    )
+                ),
+                this.renderText(),
+                _react2.default.createElement(
+                    Shareable,
+                    { id: 'shareable', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 171
+                            lineNumber: 139
+                        }
+                    },
+                    _react2.default.createElement(_IconButton2.default, { icon: "twitter", round: true, padding: '3px', color: 'cyan', onInput: function onInput() {
+                            window.open('https://twitter.com/intent/tweet?url=' + _this2.state.url + '&text=hello my text', "pop", "width=600, height=400, scrollbars=no");
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 140
+                        }
+                    }),
+                    _react2.default.createElement(_IconButton2.default, { icon: "fb", round: true, padding: '3px', color: 'blue', onInput: function onInput() {
+                            window.open('https://www.facebook.com/sharer/sharer.php?u=' + _this2.state.url, "pop", "width=600, height=400, scrollbars=no");
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 143
                         }
                     })
-                )
+                ),
+                _react2.default.createElement(_MetaComponent2.default, { data: this.getStructuredData(),
+                    type: { type: 'article', "article:section": "game analysis", "article:tag": this.props.item.tags.join() },
+                    desc: this.props.item.desc, title: this.props.item.title,
+                    image: 'http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg', imageAlt: 'my apple pie', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 147
+                    }
+                })
             );
         }
     }]);
@@ -3158,7 +3161,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Background = __webpack_require__(89);
+var _Background = __webpack_require__(90);
 
 var _Background2 = _interopRequireDefault(_Background);
 
@@ -3166,7 +3169,7 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _index = __webpack_require__(90);
+var _index = __webpack_require__(91);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -3174,9 +3177,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3196,7 +3201,7 @@ var Home = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
-        (0, _MyLog2.default)('log', 'Home constructor');
+        MyLog.style('Home constructor', 'magenta');
         return _this;
     }
 
@@ -3526,13 +3531,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(2);
 
-var _Index = __webpack_require__(91);
+var _Index = __webpack_require__(92);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3663,11 +3670,11 @@ var Games = function (_React$Component) {
             if (getImport) {
                 getImport.then(function (res) {
                     console.log("import of game files complete, promise:", res);
-                    (0, _MyLog2.default)('log', 'import of game files successful ' + res);
+                    MyLog.log('log', 'import of game files successful ' + res);
                     _this2.loadGame(res);
                 }).catch(function (e) {
                     console.log("error importing game " + getImport, e);
-                    (0, _MyLog2.default)('warn', 'error importing game ' + e);
+                    MyLog.log('warn', 'error importing game ' + e);
                 });
             }
         }
@@ -4096,7 +4103,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Wiggle = __webpack_require__(102);
+var _Wiggle = __webpack_require__(103);
 
 var _Wiggle2 = _interopRequireDefault(_Wiggle);
 
@@ -4201,13 +4208,15 @@ var _reactAddonsCssTransitionGroup = __webpack_require__(18);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4685,7 +4694,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(111);
+__webpack_require__(112);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -4989,7 +4998,7 @@ var _SettingsReducer = __webpack_require__(13);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _theme = __webpack_require__(27);
 
@@ -5671,7 +5680,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _reduxLogger = __webpack_require__(12);
 
@@ -5712,7 +5721,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _apiReducer = __webpack_require__(25);
 
@@ -5775,11 +5784,11 @@ var _reactStaticRoutes = __webpack_require__(67);
 
 var _reactStaticRoutes2 = _interopRequireDefault(_reactStaticRoutes);
 
-var _Analytics = __webpack_require__(116);
+var _Analytics = __webpack_require__(117);
 
 var _Analytics2 = _interopRequireDefault(_Analytics);
 
-var _Gapi = __webpack_require__(119);
+var _Gapi = __webpack_require__(120);
 
 var _Gapi2 = _interopRequireDefault(_Gapi);
 
@@ -5787,13 +5796,13 @@ var _reactStatic = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(3);
 
-var _recompose = __webpack_require__(120);
+var _recompose = __webpack_require__(121);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Menu = __webpack_require__(121);
+var _Menu = __webpack_require__(122);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -7126,9 +7135,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7150,7 +7161,7 @@ var Item = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
 
-    (0, _MyLog2.default)('log', 'PostItem constructor');
+    MyLog.log('log', 'PostItem constructor');
     return _this;
   }
 
@@ -7315,10 +7326,16 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5v
 /* 86 */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJ3aWR0aDogMzZweDsgaGVpZ2h0OiAzNnB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNkZDRlNDJmZiIgZD0iTTEyIDBjLTYuNjI3IDAtMTIgNS4zNzMtMTIgMTJzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTItNS4zNzMtMTItMTItMTJ6bS0yLjkxNyAxNi4wODNjLTIuMjU4IDAtNC4wODMtMS44MjUtNC4wODMtNC4wODNzMS44MjUtNC4wODMgNC4wODMtNC4wODNjMS4xMDMgMCAyLjAyNC40MDIgMi43MzUgMS4wNjdsLTEuMTA3IDEuMDY4Yy0uMzA0LS4yOTItLjgzNC0uNjMtMS42MjgtLjYzLTEuMzk0IDAtMi41MzEgMS4xNTUtMi41MzEgMi41NzkgMCAxLjQyNCAxLjEzOCAyLjU3OSAyLjUzMSAyLjU3OSAxLjYxNiAwIDIuMjI0LTEuMTYyIDIuMzE2LTEuNzYyaC0yLjMxNnYtMS40aDMuODU1Yy4wMzYuMjA0LjA2NC40MDguMDY0LjY3Ny4wMDEgMi4zMzItMS41NjMgMy45ODgtMy45MTkgMy45ODh6bTkuOTE3LTMuNWgtMS43NXYxLjc1aC0xLjE2N3YtMS43NWgtMS43NXYtMS4xNjZoMS43NXYtMS43NWgxLjE2N3YxLjc1aDEuNzV2MS4xNjZ6Ii8+PC9zdmc+"
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJ3aWR0aDogMzZweDsgaGVpZ2h0OiAzNnB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiM1ZGE5ZGRmZiIgZD0iTTEyIDBjLTYuNjI3IDAtMTIgNS4zNzMtMTIgMTJzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTItNS4zNzMtMTItMTItMTJ6bS0yLjkxNyAxNi4wODNjLTIuMjU4IDAtNC4wODMtMS44MjUtNC4wODMtNC4wODNzMS44MjUtNC4wODMgNC4wODMtNC4wODNjMS4xMDMgMCAyLjAyNC40MDIgMi43MzUgMS4wNjdsLTEuMTA3IDEuMDY4Yy0uMzA0LS4yOTItLjgzNC0uNjMtMS42MjgtLjYzLTEuMzk0IDAtMi41MzEgMS4xNTUtMi41MzEgMi41NzkgMCAxLjQyNCAxLjEzOCAyLjU3OSAyLjUzMSAyLjU3OSAxLjYxNiAwIDIuMjI0LTEuMTYyIDIuMzE2LTEuNzYyaC0yLjMxNnYtMS40aDMuODU1Yy4wMzYuMjA0LjA2NC40MDguMDY0LjY3Ny4wMDEgMi4zMzItMS41NjMgMy45ODgtMy45MTkgMy45ODh6bTkuOTE3LTMuNWgtMS43NXYxLjc1aC0xLjE2N3YtMS43NWgtMS43NXYtMS4xNjZoMS43NXYtMS43NWgxLjE2N3YxLjc1aDEuNzV2MS4xNjZ6Ii8+PC9zdmc+"
 
 /***/ }),
 /* 87 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJ3aWR0aDogMzZweDsgaGVpZ2h0OiAzNnB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiM1ZGE5ZGRmZiIgZD0iTTEyIDBjLTYuNjI3IDAtMTIgNS4zNzMtMTIgMTJzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTItNS4zNzMtMTItMTItMTJ6bTYuMDY2IDkuNjQ1Yy4xODMgNC4wNC0yLjgzIDguNTQ0LTguMTY0IDguNTQ0LTEuNjIyIDAtMy4xMzEtLjQ3Ni00LjQwMi0xLjI5MSAxLjUyNC4xOCAzLjA0NS0uMjQ0IDQuMjUyLTEuMTg5LTEuMjU2LS4wMjMtMi4zMTctLjg1NC0yLjY4NC0xLjk5NS40NTEuMDg2Ljg5NS4wNjEgMS4yOTgtLjA0OS0xLjM4MS0uMjc4LTIuMzM1LTEuNTIyLTIuMzA0LTIuODUzLjM4OC4yMTUuODMuMzQ0IDEuMzAxLjM1OS0xLjI3OS0uODU1LTEuNjQxLTIuNTQ0LS44ODktMy44MzUgMS40MTYgMS43MzggMy41MzMgMi44ODEgNS45MiAzLjAwMS0uNDE5LTEuNzk2Ljk0NC0zLjUyNyAyLjc5OS0zLjUyNy44MjUgMCAxLjU3Mi4zNDkgMi4wOTYuOTA3LjY1NC0uMTI4IDEuMjctLjM2OCAxLjgyNC0uNjk3LS4yMTUuNjcxLS42NyAxLjIzMy0xLjI2MyAxLjU4OS41ODEtLjA3IDEuMTM1LS4yMjQgMS42NDktLjQ1My0uMzg0LjU3OC0uODcgMS4wODQtMS40MzMgMS40ODl6Ii8+PC9zdmc+"
+
+/***/ }),
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7540,7 +7557,7 @@ const Video = styled.div`
 */
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7775,7 +7792,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)((0, _reactStatic.wit
 */
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7867,7 +7884,7 @@ var Bg = _styledComponents2.default.div(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8007,7 +8024,7 @@ var ScoreBar = _styledComponents2.default.div(_templateObject2, function (props)
 });
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8026,11 +8043,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Load = __webpack_require__(92);
+var _Load = __webpack_require__(93);
 
 var _Load2 = _interopRequireDefault(_Load);
 
-var _Store = __webpack_require__(106);
+var _Store = __webpack_require__(107);
 
 var _Store2 = _interopRequireDefault(_Store);
 
@@ -8038,7 +8055,7 @@ var _Game = __webpack_require__(20);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _GameMenu = __webpack_require__(107);
+var _GameMenu = __webpack_require__(108);
 
 var _GameMenu2 = _interopRequireDefault(_GameMenu);
 
@@ -8054,13 +8071,19 @@ var _Sizer = __webpack_require__(34);
 
 var _Sizer2 = _interopRequireDefault(_Sizer);
 
-var _Settings = __webpack_require__(110);
+var _Settings = __webpack_require__(111);
 
 var _Settings2 = _interopRequireDefault(_Settings);
 
 var _reactRedux = __webpack_require__(3);
 
 var _reactStatic = __webpack_require__(2);
+
+var _MyLog = __webpack_require__(6);
+
+var MyLog = _interopRequireWildcard(_MyLog);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8087,9 +8110,9 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    console.log("Index Game constructor, props:", props);
     _this.registerMenuItem = _this.registerMenuItem.bind(_this);
     _this.setSettings = _this.setSettings.bind(_this);
+    _this.getBtn = _this.getBtn.bind(_this);
     _this.menuItems = [];
     _this.menuKeys = new Map();
     _this.state = {
@@ -8107,32 +8130,26 @@ var Index = function (_React$Component) {
   _createClass(Index, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log("index mounted reducers: ", this.props.game);
+      MyLog.style('website game index component mounted, gapi? ' + this.props.gapi.gapiReady + ', rendered? ' + this.state.rendered + ', getBtn(): ', "brown");
       this.setState({
         //game: this.props.game.getComponent(),
         reducers: this.props.game.getReducers()
       });
-      this.getBtn();
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
+      MyLog.style('website game index component did update, gapi? ' + this.props.gapi.gapiReady + ', rendered? ' + this.state.rendered + ', getBtn():', "brown");
       this.getBtn();
     }
   }, {
     key: 'getBtn',
     value: function getBtn() {
-      console.log('game getBtn rendered? ' + this.state.rendered + ' gapi? ' + this.props.gapi.gapiReady, this.props);
       if (!this.state.rendered && this.props.gapi.gapiReady) {
         var url = this.props.siteRoot + this.props.history.location.pathname;
-        console.log('game index getShareToClassBtn url ' + url + ' title ' + this.props.title + ' assignment ' + this.props.assignment);
+        gapi.sharetoclassroom.render("g-sharetoclassroom", { size: "48", theme: "light", url: url, title: this.props.item.title, body: this.props.item.assignment });
         this.setState({
           rendered: true
-        });
-        //https://docs.google.com/document/d/1kTN7Xm7WU7Del-VDEa7KfT2_crWnKwcOd9zLzxnxjLk/edit?usp=drivesdk
-        //https://docs.google.com/document/d/1hUXdSyEBf9d6aDbQOHEnTsMYdDUXLsNROjcKu-kzxHY/edit?usp=sharing
-        gapi.sharetoclassroom.render("g-sharetoclassroom", {
-          size: "48", theme: "light", url: url, title: this.props.item.title, body: this.props.item.assignment
         });
       }
     }
@@ -8155,7 +8172,6 @@ var Index = function (_React$Component) {
         menuItems: this.menuItems,
         menuKeys: this.menuKeys
       });
-      // console.log("registerMenuItem count ", this.menuItems);
     }
   }, {
     key: 'buildMenuItems',
@@ -8181,19 +8197,19 @@ var Index = function (_React$Component) {
         'div',
         { style: { width: '100%', height: '100%' }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 97
+            lineNumber: 92
           }
         },
         _react2.default.createElement(_Settings2.default, { game: this.state.game, registerMenuItem: this.registerMenuItem, setSettings: this.setSettings, __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 93
           }
         }),
         _react2.default.createElement(
           _Table2.default,
           { heights: ['36px', null], __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 94
             }
           },
           _react2.default.createElement(
@@ -8201,18 +8217,18 @@ var Index = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 96
               }
             },
             _react2.default.createElement(_GameMenu2.default, { title: this.props.title, menuItems: this.buildMenuItems(), renderId: this.state.menuRenderId, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 102
+                lineNumber: 97
               }
             })
           ),
           _react2.default.createElement(_Load2.default, { settings: this.state.settings, game: this.state.game, id: this.props.id, reducers: this.state.reducers, registerMenuItem: this.registerMenuItem, __source: {
               fileName: _jsxFileName,
-              lineNumber: 104
+              lineNumber: 99
             }
           })
         )
@@ -8226,31 +8242,31 @@ var Index = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 110
           }
         },
         _react2.default.createElement(
           _Settings2.default,
           { game: this.state.game, __source: {
               fileName: _jsxFileName,
-              lineNumber: 116
+              lineNumber: 111
             }
           },
           _react2.default.createElement(_GameMenu2.default, { title: this.props.title, __source: {
               fileName: _jsxFileName,
-              lineNumber: 117
+              lineNumber: 112
             }
           }),
           _react2.default.createElement(
             _Store2.default,
             { reducers: this.state.reducers, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 119
+                lineNumber: 114
               }
             },
             _react2.default.createElement(_Game2.default, { game: this.state.game, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 120
+                lineNumber: 115
               }
             })
           )
@@ -8260,14 +8276,13 @@ var Index = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log('website game index rendering id ' + this.props.id, this.state);
       if (this.state.game) {
         return _react2.default.createElement(
           Container,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 129
+              lineNumber: 123
             }
           },
           this.renderPersistStore()
@@ -8278,7 +8293,7 @@ var Index = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 131
+              lineNumber: 125
             }
           },
           _react2.default.createElement(
@@ -8286,7 +8301,7 @@ var Index = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 131
+                lineNumber: 125
               }
             },
             'loading game...'
@@ -8300,7 +8315,6 @@ var Index = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state, props) {
-  console.log('website game mapStateToProps state', state);
   return {
     //init: state.sim.initialized
     gapi: state.gapi
@@ -8312,7 +8326,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)((0, _reactStatic.wit
 var Container = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8329,7 +8343,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PersistStore = __webpack_require__(93);
+var _PersistStore = __webpack_require__(94);
 
 var _PersistStore2 = _interopRequireDefault(_PersistStore);
 
@@ -8337,11 +8351,11 @@ var _Game = __webpack_require__(20);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _fileUtils = __webpack_require__(103);
+var _fileUtils = __webpack_require__(104);
 
 var _reactStatic = __webpack_require__(2);
 
-var _localStorageUtils = __webpack_require__(104);
+var _localStorageUtils = __webpack_require__(105);
 
 var _reactRedux = __webpack_require__(3);
 
@@ -8351,9 +8365,15 @@ var _IconButton = __webpack_require__(8);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _LoadGameView = __webpack_require__(105);
+var _LoadGameView = __webpack_require__(106);
 
 var _LoadGameView2 = _interopRequireDefault(_LoadGameView);
+
+var _MyLog = __webpack_require__(6);
+
+var MyLog = _interopRequireWildcard(_MyLog);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8370,11 +8390,12 @@ if (typeof window === 'undefined') {
 }
 
 function getStoreName(game, id) {
-    console.log('getStoreName id ' + id, game);
+    MyLog.style('website load.jsx getStoreName id ' + id + ' game ' + game + ' storeName => ' + game + '-' + id, 'green');
     return game + '-' + id;
 }
 
 function getMetaName(meta, game, id) {
+    MyLog.style('website load.jsx getMetaName id ' + id + ' game ' + game + ' MetaName => ' + meta + ':' + game + '-' + id, 'green');
     return meta + ':' + game + '-' + id;
 }
 var DATE = 'date',
@@ -8391,7 +8412,6 @@ var Load = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Load.__proto__ || Object.getPrototypeOf(Load)).call(this, props));
 
-        console.log("website game Load constructor props", props);
         _this.onNewGame = _this.onNewGame.bind(_this);
         _this.onLoadGame = _this.onLoadGame.bind(_this);
         _this.syncSaves = _this.syncSaves.bind(_this);
@@ -8420,12 +8440,10 @@ var Load = function (_React$Component) {
             var _this2 = this;
 
             var regexp = this.props.id + '-(' + SAVE_NAMES.join('|') + ')$';
-            console.log('getLocalSaves regex ' + regexp);
             var ids = (0, _localStorageUtils.getSavedGameIds)((0, _localStorageUtils.getLocalhostIterator)(), new RegExp(regexp), function (file) {
                 var parts = file.split("-");
                 return parts[1];
             });
-            console.log("Load getSavedGameIds ", ids);
             var files = (0, _localStorageUtils.buildFiles)(ids, [{
                 key: 'date',
                 getName: function getName(id) {
@@ -8437,7 +8455,6 @@ var Load = function (_React$Component) {
                     getMetaName(DESC, _this2.props.id, id);
                 }
             }], { hello: 'world' });
-            console.log("Load getLocalFiles ", files);
             return files;
         }
     }, {
@@ -8454,7 +8471,6 @@ var Load = function (_React$Component) {
             // console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
             if (this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing) {
                 //this.syncSaves();
-                console.log('listFilesByName calling');
                 //createAFile();
                 //    editFile('1860xM3H6oJa2juElgM2ccpdNKaG4812x',
                 //     `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type">
@@ -8486,11 +8502,8 @@ var Load = function (_React$Component) {
         value: function exportFile() {
             console.log('exporting charisma beginning');
             (0, _DriveInterface.listFilesByName)(['Charisma'], 'application/vnd.google-apps.document').then(function (r) {
-                console.log('exporting charisma result', r);
                 var id = r.result.files[0].id;
                 return (0, _DriveInterface.exportFile)(id, 'text/html');
-            }).then(function (f) {
-                console.log('exporting charisma export result', f);
             }).catch(function (e) {
                 console.log('exporting charisma error', e);
             });
@@ -8510,10 +8523,9 @@ var Load = function (_React$Component) {
                 this.uploadFile(driveId, fileId);
             } else {
                 var filename = getStoreName(this.props.id, fileId);
-                console.log("saving game to drive name " + filename);
+                console.log('saveGame listing file by filename ' + filename, r);
                 (0, _DriveInterface.listFilesByAppProp)(DRIVE_FILE_KEY, [filename]).then(function (response) {
                     var list = response.result.files;
-                    console.log("saving game, drive files found: " + list.length);
                     if (list) {
                         var id = list[0] ? list[0].id : null;
                         //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
@@ -8523,15 +8535,16 @@ var Load = function (_React$Component) {
                     }
                 }).catch(function (e) {
                     //make file if doesn't exist?
+
                     _this3.state.log.push('failed to upload to cloud, status ' + e.status);
-                    console.error('failed to upload save game', e);
                     if (e.status === 404) {
+                        console.log('saveGame failed with 404, creating file', r);
                         //make a new file, call this function again with its id
                         (0, _DriveInterface.createAFile)('application/vnd.google-apps.document', 'text/html', filename, 'body text').then(function (r) {
                             console.log('create file result', r);
                             var id = r.result.id;
                         }).catch(function (e) {
-                            console.log('create file error', e);
+                            console.log('saveGame create file error', e);
                         });
                     } else {
                         _this3.syncFinished();
@@ -8545,7 +8558,6 @@ var Load = function (_React$Component) {
             var localStorage = window.localStorage;
             var filename = getStoreName(this.props.id, fileId);
             var updatedfile = localStorage.getItem('persist:' + filename);
-            console.log("creating json uploadFile filename " + filename, updatedfile);
             //TODO break into json file maker, and http request builder
             this.state.log.push('building file request for cloud upload');
             try {
@@ -8554,10 +8566,6 @@ var Load = function (_React$Component) {
                 }).catch(function (e) {
                     console.log('upload file error ' + driveId, e);
                 });
-                // createFileWithJSONContent(driveId, filename, 
-                // [{key: DRIVE_FILE_KEY, value: filename}, {key: DRIVE_FILE_PROP_ID, value: fileId}],
-                // updatedfile);
-                //    console.log("uploadFile successfully");
             } catch (e) {
                 console.error("uploadFile failed", e);
             }
@@ -8569,7 +8577,6 @@ var Load = function (_React$Component) {
         value: function syncSaves(id, overwriteLocal /* optional */) {
             var _this4 = this;
 
-            console.log('syncSaves for id ' + id + " gapi " + this.props.gapi, this);
             if (this.props.gapi) {
                 if (id) {
                     this.state.log.push('beginning sync with google drive to fetch save files');
@@ -8580,7 +8587,6 @@ var Load = function (_React$Component) {
                     var names = Array.isArray(id) ? id.map(function (n) {
                         return getStoreName(_this4.props.id, n);
                     }) : [id];
-                    console.log('syncsaves names', names);
                     (0, _DriveInterface.listFilesByAppProp)(DRIVE_FILE_KEY, names).then(function (response) {
                         console.log("load syncSaves response", response);
                         var list = response.result.files;
@@ -8594,7 +8600,6 @@ var Load = function (_React$Component) {
                                 _this4.saveGame(_this4.state.fileId);
                             }
                             list.map(function (item) {
-                                console.log('syncSave: comparing file ', item);
                                 //extract driveId, and gameId
                                 var driveId = item.id;
                                 var gameId = item.appProperties[DRIVE_FILE_PROP_ID];
@@ -8648,14 +8653,9 @@ var Load = function (_React$Component) {
         key: 'isLocalLater',
         value: function isLocalLater(driveFile) {
             var localStorage = window.localStorage;
-            //console.log("isLocalLater? driveFile: ", driveFile);
-            //get value for property gamename on driveFile
             var id = driveFile.appProperties[DRIVE_FILE_PROP_ID];
-            // console.log("isLocalLater? driveFile id ", id);
             var driveDate = new Date(driveFile.modifiedTime);
             var localTime = localStorage.getItem(getMetaName(DATE, this.props.id, id));
-            // console.log(`isLocalLater driveTime ${this.displayDate(driveFile.modifiedTime)} localTime ${this.displayDate(localTime)}`)
-            console.log("is drive.getTime " + driveDate.getTime() + " less than local time? " + localTime + " -> " + (driveDate.getTime() < localTime));
             return driveDate.getTime() > localTime;
         }
     }, {
@@ -8670,7 +8670,6 @@ var Load = function (_React$Component) {
             var stringed = JSON.stringify(body);
             localStorage.setItem('persist:' + gameName, stringed);
             this.saveLocalMeta(id);
-            console.log('local save ' + gameName + ' successfully overwritten', stringed);
             this.setState({
                 syncing: false,
                 synced: true,
@@ -8681,30 +8680,19 @@ var Load = function (_React$Component) {
     }, {
         key: 'onNewGame',
         value: function onNewGame(id) {
-            //this.saveLocalMeta();
-            //game will be persisted to cloud on close
-            //new game and load game set the filename of the game to be played
             var filename = getStoreName(this.props.id, id);
-            console.log("load new game id: " + id + " name: " + filename);
             this.saveLocalMeta(id);
             this.setState({
-                //filename: getStoreName(this.props.gamename, SAVE_NAME)
                 filename: filename,
                 fileId: id,
                 local: this.getLocalSaves()
             });
             this.registerMenuButtons(id);
-            // this.props.registerMenuItem({
-            //     key: 'sync',
-            //     component: <IconButton icon={'sync'} round={true}  onInput={()=>{this.syncSaves(id)}}/>
-            // })
-            //this.saveGame(id);
         }
     }, {
         key: 'saveLocalMeta',
         value: function saveLocalMeta(id) {
             var date = new Date();
-            console.log("saveLocalMeta new game name: " + id + " date: " + date.getTime());
             var localStorage = window.localStorage;
             //save metadata locally
             localStorage.setItem(getMetaName(DATE, this.props.id, id), date.getTime());
@@ -8733,34 +8721,33 @@ var Load = function (_React$Component) {
                     id: 'none',
                     position: 'right',
                     text: 'sync',
-                    component: _react2.default.createElement(_IconButton2.default, { className: 'no-fileId', key: 'none', width: '100%', round: true, icon: 'sync', disabled: true, __source: {
+                    component: _react2.default.createElement(_IconButton2.default, { hoverKey: 'primary', className: 'no-fileId', key: 'none', width: '100%', round: true, icon: 'sync', disabled: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 353
+                            lineNumber: 319
                         }
                     })
                 }, {
                     key: 'cloud',
                     position: 'right',
                     text: 'upload',
-                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, width: '100%', bgColor: 'orange', icon: 'cloud', onInput: function onInput() {
+                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, width: '100%', bgColor: 'lightgrey', icon: 'cloud', onInput: function onInput() {
                             _this5.saveGame(_this5.state.fileId); //TODO decide whose responsibility it is to pick fileId
                             //this.syncSaves(fileId, false)
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 359
+                            lineNumber: 325
                         }
                     })
                 }, {
                     key: 'back',
                     position: 'left',
-                    component: _react2.default.createElement(_IconButton2.default, { key: 'back', round: true, icon: 'back', onInput: function onInput() {
-                            console.log('website game menu back button pressed');
+                    component: _react2.default.createElement(_IconButton2.default, { hoverKey: 'primary', key: 'back', round: true, icon: 'back', onInput: function onInput() {
                             _this5.setState({
                                 fileId: null, filename: null
                             });
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 367
+                            lineNumber: 333
                         }
                     })
                 }]);
@@ -8770,21 +8757,21 @@ var Load = function (_React$Component) {
                     id: fileId,
                     position: 'right',
                     text: 'sync',
-                    component: _react2.default.createElement(_IconButton2.default, { className: 'fileId', key: fileId, width: '100%', round: true, icon: 'sync', onInput: function onInput() {
+                    component: _react2.default.createElement(_IconButton2.default, { hoverKey: 'primary', className: 'fileId', key: fileId, width: '100%', round: true, icon: 'sync', onInput: function onInput() {
                             //console.log('load sync save button clicked! ' + fileId);
                             _this5.syncSaves(SAVE_NAMES, true);
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 382
+                            lineNumber: 347
                         }
                     })
                 }, {
                     key: 'cloud',
                     position: 'right',
                     text: 'upload',
-                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, width: '100%', bgColor: 'orange', icon: 'cloud', disabled: true, __source: {
+                    component: _react2.default.createElement(_IconButton2.default, { key: 'cloud', round: true, width: '100%', bgColor: 'lightgrey', icon: 'cloud', disabled: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 391
+                            lineNumber: 356
                         }
                     })
                 }, {
@@ -8794,12 +8781,12 @@ var Load = function (_React$Component) {
                         _reactStatic.Link,
                         { to: '/games', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 396
+                                lineNumber: 361
                             }
                         },
                         _react2.default.createElement(_IconButton2.default, { key: 'back', round: true, icon: 'back', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 396
+                                lineNumber: 361
                             }
                         })
                     )
@@ -8818,12 +8805,12 @@ var Load = function (_React$Component) {
                     _PersistStore2.default,
                     { savefile: this.state.filename, reducers: this.props.reducers, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 406
+                            lineNumber: 371
                         }
                     },
                     _react2.default.createElement(_Game2.default, { filename: this.state.filename, gamename: this.props.id, game: this.props.game, settings: this.props.settings, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 408
+                            lineNumber: 373
                         }
                     })
                 );
@@ -8833,7 +8820,7 @@ var Load = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 413
+                            lineNumber: 378
                         }
                     },
                     _react2.default.createElement(_LoadGameView2.default, { syncing: this.state.syncing, saves: this.state.local, log: this.state.log,
@@ -8843,7 +8830,7 @@ var Load = function (_React$Component) {
                             _this6.onLoadGame(id);
                         }, names: SAVE_NAMES, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 417
+                            lineNumber: 382
                         }
                     })
                 );
@@ -8865,7 +8852,7 @@ Load.displayName = 'Load';
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Load);
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8884,23 +8871,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _reduxLogger = __webpack_require__(12);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxPersist = __webpack_require__(94);
+var _reduxPersist = __webpack_require__(95);
 
-var _storage = __webpack_require__(95);
+var _storage = __webpack_require__(96);
 
 var _storage2 = _interopRequireDefault(_storage);
 
-var _autoMergeLevel = __webpack_require__(96);
+var _autoMergeLevel = __webpack_require__(97);
 
 var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
 
-var _react3 = __webpack_require__(97);
+var _react3 = __webpack_require__(98);
 
 var _Game = __webpack_require__(20);
 
@@ -9015,37 +9002,37 @@ Persist.displayName = 'PersistStore';
 exports.default = Persist;
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/stateReconciler/autoMergeLevel2");
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/integration/react");
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 module.exports = require("mygamelibs");
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9195,7 +9182,7 @@ export const writeToSheet = (id) => {
 */
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9333,7 +9320,7 @@ Toast.propTypes = {
 var Mod = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9602,7 +9589,7 @@ exports.default = Submit;
 var Mod = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9625,13 +9612,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _MyLog = __webpack_require__(7);
+var _MyLog = __webpack_require__(6);
 
-var _MyLog2 = _interopRequireDefault(_MyLog);
+var MyLog = _interopRequireWildcard(_MyLog);
 
 var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9677,7 +9666,7 @@ Wig.displayName = 'Wiggle';
 var Wiggle = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9855,7 +9844,7 @@ var createFileWithHTML = exports.createFileWithHTML = function createFileWithHTM
 //   }
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9981,7 +9970,7 @@ var buildFiles = exports.buildFiles = function buildFiles(ids, props, extra) {
 */
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10174,7 +10163,7 @@ var Slots = _styledComponents2.default.button(_templateObject4, function (props)
 var Lower = _styledComponents2.default.div(_templateObject5);
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10193,7 +10182,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _reduxLogger = __webpack_require__(12);
 
@@ -10247,7 +10236,7 @@ Store.displayName = "Store";
 exports.default = Store;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10277,11 +10266,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _SignInUi = __webpack_require__(108);
+var _SignInUi = __webpack_require__(109);
 
 var _SignInUi2 = _interopRequireDefault(_SignInUi);
 
-var _ClassShare = __webpack_require__(109);
+var _ClassShare = __webpack_require__(110);
 
 var _ClassShare2 = _interopRequireDefault(_ClassShare);
 
@@ -10313,7 +10302,6 @@ var Menu = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
-        console.log('GameMenu constructor props', props);
         _this.state = {
             open: false
         };
@@ -10330,18 +10318,15 @@ var Menu = function (_React$Component) {
     }, {
         key: 'renderAdditionalMenuItems',
         value: function renderAdditionalMenuItems(position, wrapper) {
-            console.log('rendering ' + this.props.menuItems.length + ' menu items', this.props.menuItems);
             return this.props.menuItems.filter(function (f) {
                 return position === f.position;
             }).map(function (m) {
-                console.log("rendering menu item", m);
                 return wrapper(m);
             });
         }
     }, {
         key: 'render',
         value: function render() {
-            console.log('gamemenu render ', this.props);
             //TODO game menu: make right div flexible width
             // return <p>menu</p> // && this.props.width < 500
             if (this.props.width < 500) {
@@ -10350,7 +10335,7 @@ var Menu = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 39
+                            lineNumber: 35
                         }
                     },
                     _react2.default.createElement(
@@ -10358,7 +10343,7 @@ var Menu = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 40
+                                lineNumber: 36
                             }
                         },
                         this.renderAdditionalMenuItems('left', function (item) {
@@ -10367,7 +10352,7 @@ var Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 41
+                                        lineNumber: 37
                                     }
                                 },
                                 item.component
@@ -10379,23 +10364,22 @@ var Menu = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 43
+                                lineNumber: 39
                             }
                         },
                         _react2.default.createElement(
                             _index2.default,
                             { alignRight: true, icon: 'more', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 44
+                                    lineNumber: 40
                                 }
                             },
                             this.renderAdditionalMenuItems('right', function (item) {
-                                console.log('rendering item in wrapper ', item);
                                 return _react2.default.createElement(
                                     'div',
                                     { style: { textAlign: 'center' }, __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 48
+                                            lineNumber: 43
                                         }
                                     },
                                     item.component,
@@ -10403,7 +10387,7 @@ var Menu = function (_React$Component) {
                                         'p',
                                         { style: { display: 'inline' }, __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 50
+                                                lineNumber: 45
                                             }
                                         },
                                         item.text
@@ -10414,13 +10398,13 @@ var Menu = function (_React$Component) {
                                 'div',
                                 { style: { textAlign: 'center' }, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 53
+                                        lineNumber: 48
                                     }
                                 },
                                 _react2.default.createElement(_ClassShare2.default, {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 54
+                                        lineNumber: 49
                                     }
                                 })
                             ),
@@ -10428,13 +10412,13 @@ var Menu = function (_React$Component) {
                                 'div',
                                 { style: { textAlign: 'center' }, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 56
+                                        lineNumber: 51
                                     }
                                 },
                                 _react2.default.createElement(_SignInUi2.default, {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 57
+                                        lineNumber: 52
                                     }
                                 })
                             )
@@ -10449,7 +10433,7 @@ var Menu = function (_React$Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 65
+                            lineNumber: 60
                         }
                     },
                     _react2.default.createElement(
@@ -10457,7 +10441,7 @@ var Menu = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 66
+                                lineNumber: 61
                             }
                         },
                         this.renderAdditionalMenuItems('left', function (item) {
@@ -10466,7 +10450,7 @@ var Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 67
+                                        lineNumber: 62
                                     }
                                 },
                                 item.component
@@ -10477,7 +10461,7 @@ var Menu = function (_React$Component) {
                         'span',
                         { style: { display: 'block', position: 'relative', height: '100%', float: 'right', right: '168px' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 69
+                                lineNumber: 64
                             }
                         },
                         this.renderAdditionalMenuItems('right', function (item) {
@@ -10486,7 +10470,7 @@ var Menu = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 70
+                                        lineNumber: 65
                                     }
                                 },
                                 item.component
@@ -10497,13 +10481,13 @@ var Menu = function (_React$Component) {
                         'span',
                         { style: (_ref = { display: 'block', width: '48px', height: '100%' }, _defineProperty(_ref, 'height', '48px'), _defineProperty(_ref, 'position', 'absolute'), _defineProperty(_ref, 'right', '120px'), _ref), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 72
+                                lineNumber: 67
                             }
                         },
                         _react2.default.createElement(_ClassShare2.default, {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 73
+                                lineNumber: 68
                             }
                         })
                     ),
@@ -10511,13 +10495,13 @@ var Menu = function (_React$Component) {
                         'span',
                         { style: { display: 'block', width: '120px', height: '100%', position: 'absolute', right: '0' }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 75
+                                lineNumber: 70
                             }
                         },
                         _react2.default.createElement(_SignInUi2.default, {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 76
+                                lineNumber: 71
                             }
                         })
                     )
@@ -10545,10 +10529,8 @@ var Options = _styledComponents2.default.span(_templateObject2, function (props)
     }};
 */
 var Bar = _styledComponents2.default.div(_templateObject3, function (props) {
-    console.log('gamemenu styled bar props', props);
     return props.theme.gameMenuHeight;
 }, function (props) {
-    console.log('gamemenu styled bar props', props);
     return props.theme.neutral;
 });
 // const Bar = styled.div`
@@ -10562,7 +10544,7 @@ var Mid = _styledComponents2.default.div(_templateObject6, function (props) {
 });
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10736,7 +10718,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignIn);
 var Btn = _styledComponents2.default.div(_templateObject);
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10778,39 +10760,46 @@ var SignIn = function (_React$Component) {
         };
         return _this;
     }
+    // componentDidMount(){
+    //     window.myFnWeb = (e) => {
+    //         console.log(`class share complete myFnWeb`, e)
+    //     }
+    // }
+
+    // getBtn(){
+    //     if(!this.state.rendered && this.props.gapi.gapiReady){
+    //         console.log(`classroom share rendering `)
+    //         this.setState({
+    //             rendered: true
+    //         })
+    //         gapi.sharetoclassroom.render(
+    //             "g-sharetoclassroom",
+    //             {
+    //                 size: "48", theme: "light",  url: "http://illulli-1e5a.com/games/labgame", 
+    //                 title: "the weird title", body: "the instructions"
+    //             }
+    //         )
+    //     }
+    // }
+
 
     _createClass(SignIn, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            window.myFnWeb = function (e) {
-                console.log('class share complete myFnWeb', e);
-            };
-        }
-
-        // getBtn(){
-        //     if(!this.state.rendered && this.props.gapi.gapiReady){
-        //         console.log(`classroom share rendering `)
-        //         this.setState({
-        //             rendered: true
-        //         })
-        //         gapi.sharetoclassroom.render(
-        //             "g-sharetoclassroom",
-        //             {
-        //                 size: "48", theme: "light",  url: "http://illulli-1e5a.com/games/labgame", 
-        //                 title: "the weird title", body: "the instructions"
-        //             }
-        //         )
-        //     }
-        // }
-
-    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { id: 'g-sharetoclassroom', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 36
-                }
-            });
+            return _react2.default.createElement(
+                'div',
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 36
+                    }
+                },
+                _react2.default.createElement('div', { id: 'g-sharetoclassroom', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 37
+                    }
+                })
+            );
         }
     }]);
 
@@ -10826,7 +10815,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignIn);
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10852,7 +10841,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(3);
 
@@ -10876,11 +10865,11 @@ var _index = __webpack_require__(49);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(112);
+var _index3 = __webpack_require__(113);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(113);
+var _index5 = __webpack_require__(114);
 
 var _index6 = _interopRequireDefault(_index5);
 
@@ -11180,7 +11169,7 @@ var Left = _styledComponents2.default.div(_templateObject5);
 // }
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(26)(false);
@@ -11194,7 +11183,7 @@ exports.push([module.i, ".switch-container{position:relative}input[type=checkbox
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11309,7 +11298,7 @@ exports.default = Checkbox;
 */
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11330,11 +11319,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _rcSlider = __webpack_require__(114);
+var _rcSlider = __webpack_require__(115);
 
 var _rcSlider2 = _interopRequireDefault(_rcSlider);
 
-__webpack_require__(115);
+__webpack_require__(116);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -11437,19 +11426,19 @@ var Left = _styledComponents2.default.div(_templateObject2);
 var Right = _styledComponents2.default.div(_templateObject3);
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports) {
 
 module.exports = require("rc-slider");
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports) {
 
 module.exports = require("rc-slider/assets/index.css");
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11470,7 +11459,7 @@ var _reactGa = __webpack_require__(23);
 
 var _reactGa2 = _interopRequireDefault(_reactGa);
 
-var _cookies = __webpack_require__(117);
+var _cookies = __webpack_require__(118);
 
 var _reactStatic = __webpack_require__(2);
 
@@ -11482,7 +11471,7 @@ var _Text = __webpack_require__(5);
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Button = __webpack_require__(118);
+var _Button = __webpack_require__(119);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -11629,7 +11618,7 @@ var Analytics = function (_React$Component) {
 exports.default = Analytics;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11674,7 +11663,7 @@ function getCookie(cname) {
 // }
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11759,7 +11748,7 @@ var Btn = _styledComponents2.default.button(_templateObject, function (props) {
 });
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11777,7 +11766,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(3);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
 var _apiReducer = __webpack_require__(25);
 
@@ -11908,13 +11897,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 //export default Gapi;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports) {
 
 module.exports = require("recompose");
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12215,4 +12204,4 @@ var Wrapper = _styledComponents2.default.span(_templateObject7, function (props)
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.e418c39d.js.map
+//# sourceMappingURL=static.231c17bc.js.map

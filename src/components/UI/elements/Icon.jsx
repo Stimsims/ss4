@@ -14,6 +14,7 @@ import iSync from './../../../assets/round-autorenew-24px.svg';
 import iCloud from './../../../assets/round-cloud_upload-24px.svg';
 import iFacebook from './../../../assets/iconmonstr-facebook-4.svg';
 import iGooglePlus from './../../../assets/iconmonstr-google-plus-4.svg';
+import iTwitter from './../../../assets/iconmonstr-twitter-4.svg';
 
 
 class Icon extends React.Component {
@@ -68,6 +69,8 @@ const Container = styled.div`
                     return iFacebook;
                 case 'gp':
                     return iGooglePlus;
+                case 'twitter':
+                    return iTwitter;
                 default:
                     return iSync;
             }

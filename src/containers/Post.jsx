@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import IconBtn from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Tags from './../components/layout/Tags.jsx';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 import Video from './../components/UI/elements/Video.jsx';
 import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';
@@ -121,48 +121,24 @@ class Post extends React.Component{
         }
     }
     render(){
-        //return null; /webpackicons/android-chrome-256x256.png
         return (
-            // <PostBox itemscope={true} itemtype={'https://schema.org/Article'}>
             <PostBox>
-                {/* <Helmet>
-                    <meta property="og:title" content={`${this.props.item.title}`} />
-                    <meta property="og:description" content={`${this.props.item.description}`} />
-                    <meta property="og:site_name" content={`${this.props.siteTitle}`} />
-                    <meta property="og:type" content={`http://ogp.me/ns/article#`} />
-                    <meta property="og:image" content={`${this.props.siteRoot}/webpackicons/android-chrome-256x256.png`} />
-                    {this.props.item.youtube? <meta property="og:video" content={`${this.props.item.youtube}`} />:null}
-                    {this.props.item.tags? <meta property="og:article:tag" content={`${this.props.item.tags.join()}`} />:null}
-                </Helmet> */}
-                <span itemprop="name">
-                    <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
-                </span>
-                {/* <img itemprop="image" src="/webpackicons/android-chrome-256x256.png"/> */}
+                <Text tag={'h1'} itemprop="name" text={this.props.item.title} align={'center'} colorKey={'accent'} width={'100%'}/>
                 <Tags tags={this.props.item.tags} />
-                {this.props.item.tags? <Hidden itemprop="keywords">{this.props.item.tags.join()}</Hidden>:null}
                 <a href={`https://twitter.com/intent/tweet?url=${this.state.url}&text=hello my text`} target="_blank" title="Tweet"><i class="fi fi-social-twitter">twweett</i></a>
                 <VidBox>
                     <TextBox style={{flex: '1'}} margin={'5px 0px'}>
-                        <span itemprop="description" >
-                            <Text tag={'p'} text={this.props.item.description} align={'center'} width={'100%'}/>
-                        </span>
+                        <Text tag={'p'} text={this.props.item.description} align={'center'} width={'100%'}/>
                     </TextBox>
                     <div style={{width: '10px', height: '10px'}}></div>
                     <div>
                         {this.renderVideo()}
                     </div>
                 </VidBox>
-                
-
-               
-                    <span itemprop="articleBody">
-                        {this.renderText()}
-                    </span>
-          
-                
+                {this.renderText()}
                 <Shareable id="shareable">
-                    <IconBtn icon={"gp"} round={true} padding={'3px'} color={'red'} onInput={()=>{
-                        window.open(`https://plus.google.com/share?url=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");
+                    <IconBtn icon={"twitter"} round={true} padding={'3px'} color={'cyan'} onInput={()=>{
+                        window.open(`https://twitter.com/intent/tweet?url=${this.state.url}&text=hello my text`, "pop", "width=600, height=400, scrollbars=no");
                     }}/>
                     <IconBtn icon={"fb"} round={true} padding={'3px'} color={'blue'} onInput={()=>{
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${this.state.url}`, "pop", "width=600, height=400, scrollbars=no");

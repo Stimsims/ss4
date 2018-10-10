@@ -25,16 +25,16 @@ class IconBtn extends React.Component {
             return (
                 <TextBtn round={this.props.round} bgColor={this.props.bgColor} 
                 className={this.props.classes} {...disabled} onClick={this.props.onInput}>
-                    <Overlay/>
+                        <Overlay hover={this.props.hover} hoverKey={this.props.hoverKey}/>
                         {icon}
                         <Label>{this.props.text}</Label>
                 </TextBtn>
             )
         }else{
             return (
-                <Btn round={this.props.round} hover={this.props.hover} className={this.props.classes} {...disabled} 
+                <Btn round={this.props.round} bgColor={this.props.bgColor} className={this.props.classes} {...disabled} 
                 onClick={this.props.onInput} >
-                        <Overlay width={`${WIDTH}px`} round={'50%'} />
+                        <Overlay width={`${WIDTH}px`} round={'50%'} hover={this.props.hover} hoverKey={this.props.hoverKey} />
                         {icon}
                 </Btn>
             )
@@ -64,12 +64,7 @@ const Overlay = styled.span`
     width: 100%; 
     height: 100%;
     margin: auto;
-    transition: all 1s ease;
-    background-color: ${props => props.hover};
-    opacity: 0;
-    &:hover{
-        opacity: 0.3;
-    }
+
 `
 const Label=styled.p`
     display: block;
@@ -77,6 +72,23 @@ const Label=styled.p`
     height: ${props => props.height?props.height+'px':props.theme.menuHeight};
 `
 /*
+
+    transition: all 1s ease;
+    background-color: ${props=>{
+        if(props.colorKey){
+            return props.theme[props.hoverKey]
+        }else if(props.color){
+            return props.hover;
+        }else{
+            return props.theme.primary;
+        }
+    }};
+    opacity: 0;
+    &:hover{
+        opacity: 0.3;
+    }
+
+
 border-radius: ${props => props.round?props.round:'0'}
 
     transition:visibility 0.3s linear,opacity 0.3s linear;
@@ -110,10 +122,24 @@ const Btn = styled.button`
     height: 100%;
     position: relative;
     display:table-cell;
-    background-color:transparent;
+    
     border: none;
     outline: 0;
     padding: 0 5px;
     margin: 0;
+    transition: all 1s ease;
+    background-color: transparent;
+    &:hover{
+        background-color: ${props=>{
+            if(props.colorKey){
+                return props.theme[props.hoverKey]
+            }else if(props.color){
+                return props.hover;
+            }else{
+                return 'transparent';
+            }
+        }};
+    }
 `
+//  background-color:${props => props.bgColor?props.bgColor:'transparent'};
 //background-color: ${props=>props.bgColor? props.bgColor:props.theme.neutral}

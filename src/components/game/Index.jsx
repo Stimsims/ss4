@@ -9,6 +9,7 @@ import Sizer from './../UI/elements/Sizer.jsx';
 import Settings from './Settings.jsx';
 import {connect} from 'react-redux';
 import { withRouteData, withSiteData} from 'react-static'
+import * as MyLog from 'MyLog';
 
 if (typeof window === 'undefined') {
     global.window = {}
@@ -17,9 +18,9 @@ if (typeof window === 'undefined') {
 class Index extends React.Component{
   constructor(props){
     super(props);
-    console.log("Index Game constructor, props:", props);
     this.registerMenuItem = this.registerMenuItem.bind(this);
     this.setSettings = this.setSettings.bind(this);
+    this.getBtn = this.getBtn.bind(this);
     this.menuItems = [];
     this.menuKeys = new Map();
     this.state = {
@@ -33,32 +34,27 @@ class Index extends React.Component{
     }
   }
   componentDidMount(){
-      console.log("index mounted reducers: ", this.props.game);
+        MyLog.style(`website game index component mounted, gapi? ${this.props.gapi.gapiReady}, rendered? ${this.state.rendered}, getBtn(): `, "brown");
         this.setState({
             //game: this.props.game.getComponent(),
             reducers: this.props.game.getReducers()
         })
+    }
+
+    componentDidUpdate(){
+        MyLog.style(`website game index component did update, gapi? ${this.props.gapi.gapiReady}, rendered? ${this.state.rendered}, getBtn():`, "brown");
         this.getBtn();
     }
-    componentDidUpdate(){
-      this.getBtn();
-  }
   getBtn(){
-      console.log(`game getBtn rendered? ${this.state.rendered} gapi? ${this.props.gapi.gapiReady}`, this.props);
       if(!this.state.rendered && this.props.gapi.gapiReady){
           let url = this.props.siteRoot + this.props.history.location.pathname;
-          console.log(`game index getShareToClassBtn url ${url} title ${this.props.title} assignment ${this.props.assignment}`);
-          this.setState({
-              rendered: true
-          })
-          //https://docs.google.com/document/d/1kTN7Xm7WU7Del-VDEa7KfT2_crWnKwcOd9zLzxnxjLk/edit?usp=drivesdk
-          //https://docs.google.com/document/d/1hUXdSyEBf9d6aDbQOHEnTsMYdDUXLsNROjcKu-kzxHY/edit?usp=sharing
           gapi.sharetoclassroom.render(
               "g-sharetoclassroom",
-              {
-                  size: "48", theme: "light",  url, title: this.props.item.title, body: this.props.item.assignment
-              }
+              {size: "48", theme: "light",  url, title: this.props.item.title, body: this.props.item.assignment}
           )
+          this.setState({
+            rendered: true
+        })
       }
   }
     registerMenuItem(items){
@@ -79,7 +75,6 @@ class Index extends React.Component{
         menuItems: this.menuItems,
         menuKeys: this.menuKeys
       })
-     // console.log("registerMenuItem count ", this.menuItems);
     }
     buildMenuItems(){
       return this.state.menuItems.map(m => {
@@ -124,7 +119,6 @@ class Index extends React.Component{
       )
     }
     render(){
-      console.log(`website game index rendering id ${this.props.id}`, this.state);
       if(this.state.game){
         return <Container>{this.renderPersistStore()}</Container>
       }else{
@@ -135,7 +129,6 @@ class Index extends React.Component{
 }
 
 const mapStateToProps = (state, props) => {
-  console.log(`website game mapStateToProps state`, state);
   return {
       //init: state.sim.initialized
       gapi: state.gapi

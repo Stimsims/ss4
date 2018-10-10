@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import IconBtn from './../components/UI/elements/IconButton.jsx';
 import styled from 'styled-components';
 import Tags from './../components/layout/Tags.jsx';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 import Video from './../components/UI/elements/Video.jsx';
 import TextBox from './../components/UI/elements/TextBox.jsx';
 import Sizer from './../components/UI/elements/Sizer.jsx';

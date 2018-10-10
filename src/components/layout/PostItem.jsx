@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-static';
 import styled from 'styled-components';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 
 const key = 'item'
 
 class Item extends React.Component{
   constructor(props){
     super(props);
-    MyLog('log', 'PostItem constructor');
+    MyLog.log('log', 'PostItem constructor');
   }
 
   render(){

@@ -10,11 +10,11 @@ class SignIn extends React.Component{
             height: 48
         }
     }
-    componentDidMount(){
-        window.myFnWeb = (e) => {
-            console.log(`class share complete myFnWeb`, e)
-        }
-    }
+    // componentDidMount(){
+    //     window.myFnWeb = (e) => {
+    //         console.log(`class share complete myFnWeb`, e)
+    //     }
+    // }
 
     // getBtn(){
     //     if(!this.state.rendered && this.props.gapi.gapiReady){
@@ -33,7 +33,9 @@ class SignIn extends React.Component{
     // }
     render(){
         return (
-            <div id="g-sharetoclassroom"></div>
+            <div>
+                <div id="g-sharetoclassroom"></div>
+            </div>
         )
     }
 }

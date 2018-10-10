@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 import PropTypes from 'prop-types';
 
 export default class Wig extends React.Component{

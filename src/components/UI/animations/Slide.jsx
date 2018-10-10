@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 import PropTypes from 'prop-types';
 
 const calcTime = (offset = 0, duration = 0, childDelay = 0, childLength = 0) => {

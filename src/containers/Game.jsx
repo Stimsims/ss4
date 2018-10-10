@@ -2,7 +2,7 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import Index from './../components/game/Index.jsx';
-import MyLog from 'MyLog';
+import * as MyLog from 'MyLog';
 
 class Games extends React.Component{
     constructor(props){
@@ -36,12 +36,12 @@ class Games extends React.Component{
         if(getImport){
             getImport.then(res => {
                 console.log("import of game files complete, promise:", res);
-                MyLog('log', `import of game files successful ${res}`);
+                MyLog.log('log', `import of game files successful ${res}`);
                  this.loadGame(res);
             })
             .catch(e => {
                 console.log("error importing game " + getImport, e);
-                MyLog('warn', `error importing game ${e}`);
+                MyLog.log('warn', `error importing game ${e}`);
             })
         }
     }

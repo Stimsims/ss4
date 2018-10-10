@@ -9,7 +9,6 @@ import Dropdown from './../UI/elements/Dropdown/index.jsx';
 class Menu extends React.Component{
     constructor(props){
         super(props);
-        console.log('GameMenu constructor props',props);
         this.state = {
             open: false
         }
@@ -20,18 +19,15 @@ class Menu extends React.Component{
         }
     }
     renderAdditionalMenuItems(position, wrapper){
-        console.log(`rendering ${this.props.menuItems.length} menu items`, this.props.menuItems);
         return this.props.menuItems
         .filter(f => {
             return position === f.position;
         })
         .map(m => {
-            console.log("rendering menu item", m);
             return wrapper(m);
         })
     }
     render(){
-        console.log(`gamemenu render `, this.props);
         //TODO game menu: make right div flexible width
        // return <p>menu</p> // && this.props.width < 500
         if(this.props.width < 500){
@@ -43,7 +39,6 @@ class Menu extends React.Component{
                     <Options>
                         <Dropdown alignRight icon="more">
                             {this.renderAdditionalMenuItems('right', (item) => {
-                                console.log(`rendering item in wrapper `, item)
                                 return (
                                 <div style={{textAlign: 'center'}}>
                                         {item.component}
@@ -106,13 +101,11 @@ const Options=styled.span`
 */
 const Bar = styled.div`
     height: ${props => {
-        console.log(`gamemenu styled bar props`, props);
         return props.theme.gameMenuHeight
     }};
     position: relative;
     border-bottom: 2px solid grey;
     background-color: ${props=>{
-        console.log(`gamemenu styled bar props`, props);
         return props.theme.neutral
     }};
 `

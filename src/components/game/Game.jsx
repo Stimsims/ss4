@@ -12,7 +12,6 @@ import Submit from './Submit.jsx';
 class Game extends React.Component{
     constructor(props){
         super(props);
-        console.log("game constructor props", props);
       //  this.createReport = this.createReport.bind(this);
         this.testReport = this.testReport.bind(this);
         this.submitAssignment = this.submitAssignment.bind(this);
@@ -48,22 +47,18 @@ class Game extends React.Component{
         }
     }
     submitAssignment(document){
-        console.log(`game submitAssignemnt called with document`, document);
         this.setState({
             document
         })
     }
     testReport(){
-        console.log(`testReport starting`);
         createReport('testgame', 'testname', [])
         .then(r => {
-            console.log(`testReport result`, r);
             this.setState({
                 toast: <Toast message={`report created`} id={`${Math.random()}`} />
             })
         })
         .catch(e => {
-            console.log(`testReport error`, e);
             if(e && e.status === 401 && e.result.error){
                 //login required
                 this.setState({
@@ -90,7 +85,6 @@ class Game extends React.Component{
     importMath(){
         import('MathLibs' /* webpackChunkName: 'MathLibs' */)
         .then(res => {
-            console.log('imported MathLibs', res);
             this.setState({
                     checkIn:{
                         ...this.state.checkIn,
@@ -104,13 +98,13 @@ class Game extends React.Component{
             })
         .catch(e => {
             console.log('error importing MathLibs', e);
+            throw new Error('website game.jsx had error importing MathLibs.js');
         })
     }
 
     importGraph(){
         import('recharts' /* webpackChunkName: "myRecharts" */ )
         .then(r=>{
-                console.log("game tools graph checking in, ", r);
                 let {ResponsiveContainer, LineChart, ScatterChart, Scatter, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} = r;
                 this.setState({
                     //katex: Katex,
@@ -171,7 +165,6 @@ class Game extends React.Component{
 //export default Game;
 
 const mapStateToProps = (state, props) => {
-    console.log(`website game mapStateToProps state`, state);
     return {
         //init: state.sim.initialized
     }

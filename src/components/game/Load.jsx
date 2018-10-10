@@ -8,17 +8,19 @@ import {connect} from 'react-redux';
 import {listFilesByAppProp, getFile, listFilesByName, exportFile, createAFile, editFile} from './../apis/DriveInterface.js';
 import IconButton from './../UI/elements/IconButton.jsx';
 import LoadGameView from './LoadGameView.jsx';
+import * as MyLog from 'MyLog';
 
 if (typeof window === 'undefined') {
     global.window = {}
 }
 
 function getStoreName(game, id){
-    console.log(`getStoreName id ${id}`, game);
+    MyLog.style(`website load.jsx getStoreName id ${id} game ${game} storeName => ${game}-${id}`, 'green');
     return `${game}-${id}`
 }
 
 function getMetaName(meta, game, id){
+    MyLog.style(`website load.jsx getMetaName id ${id} game ${game} MetaName => ${meta}:${game}-${id}`, 'green');
     return `${meta}:${game}-${id}`
 }
 const DATE = 'date',
@@ -29,7 +31,6 @@ const DATE = 'date',
 class Load extends React.Component{
     constructor(props){
         super(props);
-        console.log("website game Load constructor props", props);
         this.onNewGame = this.onNewGame.bind(this);
         this.onLoadGame = this.onLoadGame.bind(this);
         this.syncSaves = this.syncSaves.bind(this);
@@ -53,12 +54,10 @@ class Load extends React.Component{
     }
     getLocalSaves(){
         let regexp = `${this.props.id}-(${SAVE_NAMES.join('|')})$`;
-        console.log('getLocalSaves regex ' + regexp);
         let ids = getSavedGameIds(getLocalhostIterator(), new RegExp(regexp), (file)=>{
             let parts = file.split("-");
             return parts[1];
         })
-        console.log("Load getSavedGameIds ", ids);
         let files = buildFiles(ids, [
             {
                 key: 'date',
@@ -69,7 +68,6 @@ class Load extends React.Component{
                 getName: (id) => {getMetaName(DESC,this.props.id, id)}
             }
         ], {hello: 'world'});
-        console.log("Load getLocalFiles ", files);
         return files;
 
     }
@@ -83,7 +81,6 @@ class Load extends React.Component{
        // console.log("should sync saves? is gapi sighned in? " + this.props.gapi.isSignedIn + " is it syncing? " + this.state.syncing);
         if(this.props.gapi.isSignedIn && !this.state.synced && !this.state.syncing){
                //this.syncSaves();
-               console.log(`listFilesByName calling`);
                //createAFile();
             //    editFile('1860xM3H6oJa2juElgM2ccpdNKaG4812x',
             //     `<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type">
@@ -113,13 +110,8 @@ class Load extends React.Component{
         console.log(`exporting charisma beginning`);
         listFilesByName(['Charisma'], 'application/vnd.google-apps.document')
         .then(r => {
-            console.log(`exporting charisma result`, r);
             let id = r.result.files[0].id;
             return exportFile(id, 'text/html');
-        })
-        .then(f => {
-            console.log(`exporting charisma export result`, f);
-
         })
         .catch(e => {
             console.log('exporting charisma error',e);
@@ -134,12 +126,11 @@ class Load extends React.Component{
         if(driveId){
             this.uploadFile(driveId, fileId);
         }else{
-            let filename = getStoreName(this.props.id, fileId);
-            console.log("saving game to drive name " + filename);           
+            let filename = getStoreName(this.props.id, fileId);         
+            console.log(`saveGame listing file by filename ${filename}`, r);
             listFilesByAppProp(DRIVE_FILE_KEY, [filename])
             .then((response) => {
                     let list = response.result.files;
-                    console.log("saving game, drive files found: " + list.length);
                     if(list){
                         let id = list[0]?list[0].id:null;
                         //if file exists, patch it g4:35d7c7bc-8d4d-0686-55f7-29e91a41175e:date
@@ -151,9 +142,10 @@ class Load extends React.Component{
             )
             .catch(e => {
                 //make file if doesn't exist?
+                
                 this.state.log.push(`failed to upload to cloud, status ${e.status}`);
-                console.error('failed to upload save game', e);
                 if(e.status === 404){
+                    console.log(`saveGame failed with 404, creating file`, r);
                     //make a new file, call this function again with its id
                     createAFile('application/vnd.google-apps.document', 'text/html', filename, 'body text', )
                     .then(r => {
@@ -161,7 +153,7 @@ class Load extends React.Component{
                         let id = r.result.id;
                     })
                     .catch( e => {
-                        console.log(`create file error`, e);
+                        console.log(`saveGame create file error`, e);
                     })
                 }else{
                     this.syncFinished();
@@ -173,8 +165,7 @@ class Load extends React.Component{
     uploadFile(driveId, fileId){
         let localStorage = window.localStorage;
         let filename = getStoreName(this.props.id, fileId);
-        let updatedfile = localStorage.getItem('persist:' + filename)
-        console.log("creating json uploadFile filename " + filename, updatedfile);
+        let updatedfile = localStorage.getItem('persist:' + filename);
         //TODO break into json file maker, and http request builder
         this.state.log.push(`building file request for cloud upload`);
         try{
@@ -184,11 +175,7 @@ class Load extends React.Component{
             })
             .catch(e => {
                 console.log(`upload file error ${driveId}`, e);
-            })
-            // createFileWithJSONContent(driveId, filename, 
-            // [{key: DRIVE_FILE_KEY, value: filename}, {key: DRIVE_FILE_PROP_ID, value: fileId}],
-            // updatedfile);
-        //    console.log("uploadFile successfully");
+            });
         }catch(e){
             console.error("uploadFile failed",e);
         }
@@ -196,7 +183,6 @@ class Load extends React.Component{
     }
 //{"sim":"{\"view\":\"intro\",\"step\":0,\"measurement\":{},\"simulation\":{},\"flags\":{\"measureRadiation\":null},\"data\":{},\"log\":[],\"math\":{}}","ecs":"{\"named\":{},\"hasLocation\":{},\"hasPassagesTo\":{},\"math\":{}}","questions":"{}","_persist":"{\"version\":-1,\"rehydrated\":true}"}
     syncSaves(id, overwriteLocal /* optional */){
-        console.log('syncSaves for id ' + id + " gapi " + this.props.gapi, this);
         if(this.props.gapi){
             if(id){
                 this.state.log.push('beginning sync with google drive to fetch save files');
@@ -207,7 +193,6 @@ class Load extends React.Component{
                 let names = Array.isArray(id)? id.map(n => {
                     return getStoreName(this.props.id, n);
                 }): [id];
-                console.log('syncsaves names', names);
                 listFilesByAppProp(DRIVE_FILE_KEY, names)
                 .then((response) => {
                         console.log("load syncSaves response", response);
@@ -222,7 +207,6 @@ class Load extends React.Component{
                                 this.saveGame(this.state.fileId);
                             }
                             list.map(item =>{
-                                console.log('syncSave: comparing file ', item);
                                 //extract driveId, and gameId
                                 let driveId = item.id;
                                 let gameId = item.appProperties[DRIVE_FILE_PROP_ID];
@@ -275,15 +259,9 @@ class Load extends React.Component{
     }
     isLocalLater(driveFile){
         let localStorage = window.localStorage;
-        //console.log("isLocalLater? driveFile: ", driveFile);
-        //get value for property gamename on driveFile
         let id = driveFile.appProperties[DRIVE_FILE_PROP_ID];
-       // console.log("isLocalLater? driveFile id ", id);
         let driveDate = new Date(driveFile.modifiedTime);
         let localTime = localStorage.getItem(getMetaName(DATE, this.props.id, id));
-       // console.log(`isLocalLater driveTime ${this.displayDate(driveFile.modifiedTime)} localTime ${this.displayDate(localTime)}`)
-        console.log("is drive.getTime " + driveDate.getTime() +" less than local time? " + localTime 
-        + " -> " + (driveDate.getTime()<localTime))
         return driveDate.getTime()>localTime;
     }
     displayDate(time){
@@ -295,7 +273,6 @@ class Load extends React.Component{
         let stringed = JSON.stringify(body);
         localStorage.setItem('persist:' + gameName, stringed);
         this.saveLocalMeta(id);
-        console.log(`local save ${gameName} successfully overwritten`, stringed);
         this.setState({
             syncing:false,
             synced: true,
@@ -304,29 +281,18 @@ class Load extends React.Component{
         })
     }
     onNewGame(id){
-        //this.saveLocalMeta();
-        //game will be persisted to cloud on close
-        //new game and load game set the filename of the game to be played
         let filename = getStoreName(this.props.id, id);
-        console.log("load new game id: "+id+" name: " + filename);
         this.saveLocalMeta(id);
         this.setState({
-            //filename: getStoreName(this.props.gamename, SAVE_NAME)
             filename,
             fileId: id,
             local: this.getLocalSaves()
         })
         this.registerMenuButtons(id);
-        // this.props.registerMenuItem({
-        //     key: 'sync',
-        //     component: <IconButton icon={'sync'} round={true}  onInput={()=>{this.syncSaves(id)}}/>
-        // })
-        //this.saveGame(id);
     }
     
     saveLocalMeta(id){
         let date = new Date();
-        console.log("saveLocalMeta new game name: " + id + " date: " + date.getTime());
         let localStorage = window.localStorage;
         //save metadata locally
         localStorage.setItem(getMetaName(DATE, this.props.id, id), date.getTime());
@@ -350,13 +316,13 @@ class Load extends React.Component{
                     id: 'none',
                     position: 'right',
                     text: 'sync',
-                    component: <IconButton className={'no-fileId'} key={'none'} width={'100%'} round={true} icon="sync" disabled />
+                    component: <IconButton hoverKey={'primary'} className={'no-fileId'} key={'none'} width={'100%'} round={true} icon="sync" disabled />
                 },
                 {
                     key: 'cloud',
                     position: 'right',
                     text: 'upload',
-                    component: <IconButton key={'cloud'} round={true} width={'100%'} bgColor="orange" icon="cloud"  onInput={()=>{
+                    component: <IconButton  key={'cloud'} round={true} width={'100%'} bgColor="lightgrey" icon="cloud"  onInput={()=>{
                         this.saveGame(this.state.fileId); //TODO decide whose responsibility it is to pick fileId
                         //this.syncSaves(fileId, false)
                     }}/>
@@ -364,8 +330,7 @@ class Load extends React.Component{
                 {
                     key: 'back',
                     position: 'left',
-                    component: <IconButton key={'back'} round={true} icon="back" onInput={()=>{
-                        console.log(`website game menu back button pressed`);
+                    component: <IconButton hoverKey={'primary'} key={'back'} round={true} icon="back" onInput={()=>{
                         this.setState({
                             fileId: null, filename: null
                         })
@@ -379,7 +344,7 @@ class Load extends React.Component{
                     id: fileId,
                     position: 'right',
                     text: 'sync',
-                    component: <IconButton className={'fileId'} key={fileId} width={'100%'} round={true} icon="sync" onInput={()=>{
+                    component: <IconButton hoverKey={'primary'} className={'fileId'} key={fileId} width={'100%'} round={true} icon="sync" onInput={()=>{
                         //console.log('load sync save button clicked! ' + fileId);
                         this.syncSaves(SAVE_NAMES, true)
                     }}/>
@@ -388,7 +353,7 @@ class Load extends React.Component{
                     key: 'cloud',
                     position: 'right',
                     text: 'upload',
-                    component: <IconButton key={'cloud'} round={true} width={'100%'} bgColor="orange" icon="cloud" disabled/>
+                    component: <IconButton key={'cloud'} round={true} width={'100%'} bgColor="lightgrey" icon="cloud" disabled/>
                 },
                 {
                     key: 'back',
